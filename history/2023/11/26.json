@@ -1,0 +1,1013 @@
+[
+  {
+    "client_msg_id": "d0e43b43-9bb8-437b-aa84-102b69e7093e",
+    "type": "message",
+    "text": "Julia's behaviour around closures is among the nicest I've seen:\n\n```julia&gt; foo(x, y) = x + y\nfoo (generic function with 1 method)\n\njulia&gt; bar = x -&gt; foo(x, 1)\n#3 (generic function with 1 method)\n\njulia&gt; bar(1)\n2\n\njulia&gt; @code_llvm bar(1)\n;  @ REPL[1]:1 within `#3`\ndefine i64 @\"julia_#3_122\"(i64 signext %0) #0 {\ntop:\n; ┌ @ REPL[7]:1 within `foo`\n; │┌ @ int.jl:87 within `+`\n    %1 = add i64 %0, 1\n; └└\n  ret i64 %1\n}\n\njulia&gt; Base.delete_method(@which foo(1,1))\n\njulia&gt; bar(1)\nERROR: MethodError: no method matching foo(::Int64, ::Int64)\nStacktrace:\n [1] (::var\"#3#4\")(x::Int64)\n   @ Main ./REPL[1]:1\n [2] top-level scope\n   @ REPL[6]:1\n\njulia&gt; @code_llvm bar(1)\n;  @ REPL[1]:1 within `#3`\n; Function Attrs: noreturn\ndefine void @\"julia_#3_133\"(i64 signext %0) #0 {\ntop:\n  %1 = alloca [2 x {}*], align 8\n  %gcframe2 = alloca [3 x {}*], align 16\n  %gcframe2.sub = getelementptr inbounds [3 x {}*], [3 x {}*]* %gcframe2, i64 0, i64 0\n  %.sub = getelementptr inbounds [2 x {}*], [2 x {}*]* %1, i64 0, i64 0\n  %2 = bitcast [3 x {}*]* %gcframe2 to i8*\n  call void @llvm.memset.p0i8.i32(i8* noundef nonnull align 16 dereferenceable(24) %2, i8 0, i32 24, i1 false)\n  %thread_ptr = call i8* asm \"movq %fs:0, $0\", \"=r\"() #6\n  %ppgcstack_i8 = getelementptr i8, i8* %thread_ptr, i64 -8\n  %ppgcstack = bitcast i8* %ppgcstack_i8 to {}****\n  %pgcstack = load {}***, {}**** %ppgcstack, align 8\n  %3 = bitcast [3 x {}*]* %gcframe2 to i64*\n  store i64 4, i64* %3, align 16\n  %4 = getelementptr inbounds [3 x {}*], [3 x {}*]* %gcframe2, i64 0, i64 1\n  %5 = bitcast {}** %4 to {}***\n  %6 = load {}**, {}*** %pgcstack, align 8\n  store {}** %6, {}*** %5, align 8\n  %7 = bitcast {}*** %pgcstack to {}***\n  store {}** %gcframe2.sub, {}*** %7, align 8\n  %8 = call nonnull {}* @ijl_box_int64(i64 signext %0)\n  %9 = getelementptr inbounds [3 x {}*], [3 x {}*]* %gcframe2, i64 0, i64 2\n  store {}* %8, {}** %9, align 16\n  store {}* %8, {}** %.sub, align 8\n  %10 = getelementptr inbounds [2 x {}*], [2 x {}*]* %1, i64 0, i64 1\n  store {}* inttoptr (i64 140053833609312 to {}*), {}** %10, align 8\n  %11 = call nonnull {}* @ijl_apply_generic({}* inttoptr (i64 140053835183152 to {}*), {}** nonnull %.sub, i32 2)\n  call void @llvm.trap()\n  unreachable\n}```",
+    "user": "U71PMQ1V0",
+    "ts": "1700958691.028079",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LEG9E",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Julia's behaviour around closures is among the nicest I've seen:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "julia> foo(x, y) = x + y\nfoo (generic function with 1 method)\n\njulia> bar = x -> foo(x, 1)\n#3 (generic function with 1 method)\n\njulia> bar(1)\n2\n\njulia> @code_llvm bar(1)\n;  @ REPL[1]:1 within `#3`\ndefine i64 @\"julia_#3_122\"(i64 signext %0) #0 {\ntop:\n; ┌ @ REPL[7]:1 within `foo`\n; │┌ @ int.jl:87 within `+`\n    %1 = add i64 %0, 1\n; └└\n  ret i64 %1\n}\n\njulia> Base.delete_method(@which foo(1,1))\n\njulia> bar(1)\nERROR: MethodError: no method matching foo(::Int64, ::Int64)\nStacktrace:\n [1] (::var\"#3#4\")(x::Int64)\n   @ Main ./REPL[1]:1\n [2] top-level scope\n   @ REPL[6]:1\n\njulia> @code_llvm bar(1)\n;  @ REPL[1]:1 within `#3`\n; Function Attrs: noreturn\ndefine void @\"julia_#3_133\"(i64 signext %0) #0 {\ntop:\n  %1 = alloca [2 x {}*], align 8\n  %gcframe2 = alloca [3 x {}*], align 16\n  %gcframe2.sub = getelementptr inbounds [3 x {}*], [3 x {}*]* %gcframe2, i64 0, i64 0\n  %.sub = getelementptr inbounds [2 x {}*], [2 x {}*]* %1, i64 0, i64 0\n  %2 = bitcast [3 x {}*]* %gcframe2 to i8*\n  call void @llvm.memset.p0i8.i32(i8* noundef nonnull align 16 dereferenceable(24) %2, i8 0, i32 24, i1 false)\n  %thread_ptr = call i8* asm \"movq %fs:0, $0\", \"=r\"() #6\n  %ppgcstack_i8 = getelementptr i8, i8* %thread_ptr, i64 -8\n  %ppgcstack = bitcast i8* %ppgcstack_i8 to {}****\n  %pgcstack = load {}***, {}**** %ppgcstack, align 8\n  %3 = bitcast [3 x {}*]* %gcframe2 to i64*\n  store i64 4, i64* %3, align 16\n  %4 = getelementptr inbounds [3 x {}*], [3 x {}*]* %gcframe2, i64 0, i64 1\n  %5 = bitcast {}** %4 to {}***\n  %6 = load {}**, {}*** %pgcstack, align 8\n  store {}** %6, {}*** %5, align 8\n  %7 = bitcast {}*** %pgcstack to {}***\n  store {}** %gcframe2.sub, {}*** %7, align 8\n  %8 = call nonnull {}* @ijl_box_int64(i64 signext %0)\n  %9 = getelementptr inbounds [3 x {}*], [3 x {}*]* %gcframe2, i64 0, i64 2\n  store {}* %8, {}** %9, align 16\n  store {}* %8, {}** %.sub, align 8\n  %10 = getelementptr inbounds [2 x {}*], [2 x {}*]* %1, i64 0, i64 1\n  store {}* inttoptr (i64 140053833609312 to {}*), {}** %10, align 8\n  %11 = call nonnull {}* @ijl_apply_generic({}* inttoptr (i64 140053835183152 to {}*), {}** nonnull %.sub, i32 2)\n  call void @llvm.trap()\n  unreachable\n}"
+              }
+            ],
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700747986.966939",
+    "parent_user_id": "UKJGU23KP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1b7c8874-d219-4ced-a34f-fb138ce714fc",
+    "type": "message",
+    "text": "But it doesn't allow redefining types - you have to delete and recreate a module, which means that functions in the old module don't get redefined. And then you're back to having old closures hanging around.",
+    "user": "U71PMQ1V0",
+    "ts": "1700958904.417009",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZHxAK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But it doesn't allow redefining types - you have to delete and recreate a module, which means that functions in the old module don't get redefined. And then you're back to having old closures hanging around."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700747986.966939",
+    "parent_user_id": "UKJGU23KP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "342acb8a-31cc-4876-8ed0-860c05f8ca52",
+    "type": "message",
+    "text": "Among other concerns with machine debugging: humans are the arbiters of what constitutes buggy behavior. So at minimum you need a human providing a more detailed bug description than \"it's not working. you know, the thingy\" (dramatized version of real bug reports). I suspect that problem will propagate to deeper stages of the debugging process as well, where it can't be trivially eliminated with boring language safety/formal methods.",
+    "user": "U016VUZGUUQ",
+    "ts": "1700963832.047319",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TI5i0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Among other concerns with machine debugging: humans are the arbiters of what constitutes buggy behavior. So at minimum you need a human providing a more detailed bug description than \"it's not working. you know, the thingy\" (dramatized version of real bug reports). I suspect that problem will propagate to deeper stages of the debugging process as well, where it can't be trivially eliminated with boring language safety/formal methods."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700837030.649029",
+    "parent_user_id": "UEQ7QL15F",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8167C7A6-83FF-48A9-A317-1FB7CE54C8A6",
+    "type": "message",
+    "text": "<@UE6EFEPTQ> I can understand how the claim is bold. Perhaps a bolder claim is that the act of building custom tools for “reading” systems compresses communication and by this it changes the nature of programming.\n\nBeside the links provided by others above, please take a look at Glamorous Toolkit. We built it to show how Moldable Development works in practice, and to offer an elaborate case study people can learn from, too:\n<https://gtoolkit.com|https://gtoolkit.com> ",
+    "user": "UE1JQM9HQ",
+    "ts": "1700967803.133219",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tgVDW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UE6EFEPTQ"
+              },
+              {
+                "type": "text",
+                "text": " I can understand how the claim is bold. Perhaps a bolder claim is that the act of building custom tools for “reading” systems compresses communication and by this it changes the nature of programming.\n\nBeside the links provided by others above, please take a look at Glamorous Toolkit. We built it to show how Moldable Development works in practice, and to offer an elaborate case study people can learn from, too:\n"
+              },
+              {
+                "type": "link",
+                "url": "https://gtoolkit.com",
+                "text": "https://gtoolkit.com"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://gtoolkit.com/",
+        "service_icon": "https://gtoolkit.com/favicon.ico",
+        "thumb_url": "https://gtoolkit.com//assets/pictures/glamoroustoolkit-icon.png",
+        "thumb_width": 1496,
+        "thumb_height": 272,
+        "id": 1,
+        "original_url": "https://gtoolkit.com",
+        "fallback": "Glamorous Toolkit: Home",
+        "text": "Glamorous Toolkit is the Moldable Development environment.",
+        "title": "Home",
+        "title_link": "https://gtoolkit.com/",
+        "service_name": "Glamorous Toolkit"
+      }
+    ],
+    "thread_ts": "1700837030.649029",
+    "parent_user_id": "UEQ7QL15F",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "08a3c6cf-d5d8-42cd-a81a-be6fce8045b6",
+    "type": "message",
+    "text": "You only have a limited number of distinguishable colors. If you use them all for types, you don't have any left for anything else. Such as: Error (red), Info (yellow?), Ok (green?), Link (blue?) etc. Maybe you even want to do some syntax highlight later on.",
+    "user": "U03U0SCU5LH",
+    "ts": "1700976991.853569",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mL7bD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You only have a limited number of distinguishable colors. If you use them all for types, you don't have any left for anything else. Such as: Error (red), Info (yellow?), Ok (green?), Link (blue?) etc. Maybe you even want to do some syntax highlight later on."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700856197.537999",
+    "parent_user_id": "U85HCL7JP",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "subtype": "tombstone",
+    "text": "This message was deleted.",
+    "user": "USLACKBOT",
+    "hidden": true,
+    "ts": "1700983351.706029",
+    "thread_ts": "1700983351.706029",
+    "parent_user_id": "USLACKBOT",
+    "reply_count": 3,
+    "reply_users_count": 3,
+    "latest_reply": "1700998282.163969",
+    "reply_users": [
+      "U8A5MS6R1",
+      "U03CEGR3HSL",
+      "UE6EFEPTQ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "f9ee97f8-917a-481b-acbf-ada8d7f6c04d",
+    "type": "message",
+    "text": "there’s a thread here <https://futureofcoding.slack.com/archives/CCL5VVBAN/p1700373745504449>",
+    "user": "U8A5MS6R1",
+    "ts": "1700986029.266029",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uTrrd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "there’s a thread here "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1700373745504449"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1700373745504449",
+        "ts": "1700373745.504449",
+        "author_id": "UC2A2ARPT",
+        "channel_id": "CCL5VVBAN",
+        "channel_team": "T5TCAFTA9",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "message_blocks": [
+          {
+            "team": "T5TCAFTA9",
+            "channel": "CCL5VVBAN",
+            "ts": "1700373745.504449",
+            "message": {
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "aQwvH",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Future of Coding • Episode 68\nPhilip Wadler • Propositions as Types\n𒂶 "
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://futureofcoding.org/episodes/068"
+                        },
+                        {
+                          "type": "text",
+                          "text": "\n\nThe subject of this episode’s paper — "
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf",
+                          "text": "Propositions as Types"
+                        },
+                        {
+                          "type": "text",
+                          "text": " by "
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://en.wikipedia.org/wiki/Philip_Wadler",
+                          "text": "Philip Wadler"
+                        },
+                        {
+                          "type": "text",
+                          "text": " — is one of those grand ideas that makes you want to go stargazing. To stare out into space and just disassociate from your body and become one with the heavens. "
+                        },
+                        {
+                          "type": "text",
+                          "text": "Everything — life, space, time, existence — all of it is a joke!",
+                          "style": {
+                            "italic": true
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": " A cosmic ribbing delivered by the laws of the universe or some higher power or, perhaps, higher order. Humanity waited two thousand years, from the time of the ancient Greeks through until the 1930s, for a means to answer questions of calculability, when three suddenly arrived all at once:\n"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rich_text_list",
+                      "elements": [
+                        {
+                          "type": "rich_text_section",
+                          "elements": [
+                            {
+                              "type": "text",
+                              "text": "General recursive functions by Gödel in 1934, with functions of sets of natural numbers."
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rich_text_section",
+                          "elements": [
+                            {
+                              "type": "text",
+                              "text": "Lambda calculus by Alonzo Church in 1936, with anonymous single-variable functions."
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rich_text_section",
+                          "elements": [
+                            {
+                              "type": "text",
+                              "text": "Turing machines by Alan Turing in 1937, with a process for evaluating symbols on a tape."
+                            }
+                          ]
+                        }
+                      ],
+                      "style": "bullet",
+                      "indent": 0,
+                      "border": 0
+                    },
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Then it was discovered that these three models of computation were, in fact, perfectly equivalent. That any statement made in one could be made in the others. A striking coincidence, sure, but not "
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://en.wikipedia.org/wiki/Multiple_discovery",
+                          "text": "without precedent"
+                        },
+                        {
+                          "type": "text",
+                          "text": ". But "
+                        },
+                        {
+                          "type": "text",
+                          "text": "then",
+                          "style": {
+                            "italic": true
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": " it was quietly determined (in 1934, again in 1969, and finally published in 1980) that computation itself is in a direct correspondence with logic. That every proposition in a given logic corresponds with a type in a given programming language, every proof corresponds with a program, and the simplification of the proof corresponds with the evaluation of the program.\nThe implications boggle the mind. "
+                        },
+                        {
+                          "type": "text",
+                          "text": "How could this be so?",
+                          "style": {
+                            "italic": true
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": " Well, how could it be any other way? Why did it take so long to discover? What other discoveries like this are perched on the precipice of revelation?\nPhilip Wadler is here to walk us through this bit of history, suggest answers to some of these questions, and point us in a direction to search for more.\nAnd "
+                        },
+                        {
+                          "type": "text",
+                          "text": "we",
+                          "style": {
+                            "italic": true
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": " are here, dear listener, to level with you that a lot of this stuff is miserably hard to approach, presented with the symbols and language of formal logic that is so often inscrutable to outsiders. By walking you through Wadler’s paper (and the much more approachable "
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://www.youtube.com/watch?v=IOiZatlZtGU",
+                          "text": "Strange Loop talk"
+                        },
+                        {
+                          "type": "text",
+                          "text": "), and tying it in with the cultural context of modern functional programming, we hope you’ll gain an appreciation for this remarkable, divine "
+                        },
+                        {
+                          "type": "text",
+                          "text": "pun",
+                          "style": {
+                            "italic": true
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "text": " that sits beneath all of computation."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1700373745504449",
+        "fallback": "[November 18th, 2023 10:02 PM] ivanreese: Future of Coding • Episode 68\nPhilip Wadler • Propositions as Types\n𒂶 <https://futureofcoding.org/episodes/068>\n\nThe subject of this episode’s paper — <https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf|Propositions as Types> by <https://en.wikipedia.org/wiki/Philip_Wadler|Philip Wadler> — is one of those grand ideas that makes you want to go stargazing. To stare out into space and just disassociate from your body and become one with the heavens. _Everything — life, space, time, existence — all of it is a joke!_ A cosmic ribbing delivered by the laws of the universe or some higher power or, perhaps, higher order. Humanity waited two thousand years, from the time of the ancient Greeks through until the 1930s, for a means to answer questions of calculability, when three suddenly arrived all at once:\n• General recursive functions by Gödel in 1934, with functions of sets of natural numbers.\n• Lambda calculus by Alonzo Church in 1936, with anonymous single-variable functions.\n• Turing machines by Alan Turing in 1937, with a process for evaluating symbols on a tape.\nThen it was discovered that these three models of computation were, in fact, perfectly equivalent. That any statement made in one could be made in the others. A striking coincidence, sure, but not <https://en.wikipedia.org/wiki/Multiple_discovery|without precedent>. But _then_ it was quietly determined (in 1934, again in 1969, and finally published in 1980) that computation itself is in a direct correspondence with logic. That every proposition in a given logic corresponds with a type in a given programming language, every proof corresponds with a program, and the simplification of the proof corresponds with the evaluation of the program.\nThe implications boggle the mind. _How could this be so?_ Well, how could it be any other way? Why did it take so long to discover? What other discoveries like this are perched on the precipice of revelation?\nPhilip Wadler is here to walk us through this bit of history, suggest answers to some of these questions, and point us in a direction to search for more.\nAnd _we_ are here, dear listener, to level with you that a lot of this stuff is miserably hard to approach, presented with the symbols and language of formal logic that is so often inscrutable to outsiders. By walking you through Wadler’s paper (and the much more approachable <https://www.youtube.com/watch?v=IOiZatlZtGU|Strange Loop talk>), and tying it in with the cultural context of modern functional programming, we hope you’ll gain an appreciation for this remarkable, divine _pun_ that sits beneath all of computation.",
+        "text": "Future of Coding • Episode 68\nPhilip Wadler • Propositions as Types\n𒂶 <https://futureofcoding.org/episodes/068>\n\nThe subject of this episode’s paper — <https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf|Propositions as Types> by <https://en.wikipedia.org/wiki/Philip_Wadler|Philip Wadler> — is one of those grand ideas that makes you want to go stargazing. To stare out into space and just disassociate from your body and become one with the heavens. _Everything — life, space, time, existence — all of it is a joke!_ A cosmic ribbing delivered by the laws of the universe or some higher power or, perhaps, higher order. Humanity waited two thousand years, from the time of the ancient Greeks through until the 1930s, for a means to answer questions of calculability, when three suddenly arrived all at once:\n• General recursive functions by Gödel in 1934, with functions of sets of natural numbers.\n• Lambda calculus by Alonzo Church in 1936, with anonymous single-variable functions.\n• Turing machines by Alan Turing in 1937, with a process for evaluating symbols on a tape.\nThen it was discovered that these three models of computation were, in fact, perfectly equivalent. That any statement made in one could be made in the others. A striking coincidence, sure, but not <https://en.wikipedia.org/wiki/Multiple_discovery|without precedent>. But _then_ it was quietly determined (in 1934, again in 1969, and finally published in 1980) that computation itself is in a direct correspondence with logic. That every proposition in a given logic corresponds with a type in a given programming language, every proof corresponds with a program, and the simplification of the proof corresponds with the evaluation of the program.\nThe implications boggle the mind. _How could this be so?_ Well, how could it be any other way? Why did it take so long to discover? What other discoveries like this are perched on the precipice of revelation?\nPhilip Wadler is here to walk us through this bit of history, suggest answers to some of these questions, and point us in a direction to search for more.\nAnd _we_ are here, dear listener, to level with you that a lot of this stuff is miserably hard to approach, presented with the symbols and language of formal logic that is so often inscrutable to outsiders. By walking you through Wadler’s paper (and the much more approachable <https://www.youtube.com/watch?v=IOiZatlZtGU|Strange Loop talk>), and tying it in with the cultural context of modern functional programming, we hope you’ll gain an appreciation for this remarkable, divine _pun_ that sits beneath all of computation.",
+        "author_name": "Ivan Reese",
+        "author_link": "https://futureofcoding.slack.com/team/UC2A2ARPT",
+        "author_icon": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-48.png",
+        "author_subname": "Ivan Reese",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "footer": "Thread in Slack Conversation"
+      }
+    ],
+    "thread_ts": "1700983351.706029",
+    "parent_user_id": "USLACKBOT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e69de612-6fe4-4636-8095-29298dff8e56",
+    "type": "message",
+    "text": "All I said was, quoting:\n\n> Solo independent researchers we know often discuss the *challenge of working alone*. Being part of a research group can *create community, social accountability, provide feedback, and just give you someone to talk to when you’re feeling stuck or bored*. This is why we started our Researchers-in-Residence program.\nAnd:\n\n> We could set up a *#researchers-in-residence channel* and drop by to chat, but primarily we'd need a *regular video thing either all of us or 121*. \nSo I'm a bit confused about your very long comment - I was just asking if you thought my idea was a runner! I'm picking up that it wouldn't be all that welcome overall.",
+    "user": "UE6EFEPTQ",
+    "ts": "1700986395.649839",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "c0aJs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "All I said was, quoting:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Solo independent researchers we know often discuss the "
+              },
+              {
+                "type": "text",
+                "text": "challenge of working alone",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Being part of a research group can "
+              },
+              {
+                "type": "text",
+                "text": "create community, social accountability, provide feedback, and just give you someone to talk to when you’re feeling stuck or bored",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". This is why we started our Researchers-in-Residence program."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAnd:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "We could set up a "
+              },
+              {
+                "type": "text",
+                "text": "#researchers-in-residence channel",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and drop by to chat, but primarily we'd need a "
+              },
+              {
+                "type": "text",
+                "text": "regular video thing either all of us or 121",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". "
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nSo I'm a bit confused about your very long comment - I was just asking if you thought my idea was a runner! I'm picking up that it wouldn't be all that welcome overall."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UE6EFEPTQ",
+      "ts": "1700986769.000000"
+    },
+    "thread_ts": "1700738314.108349",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "e50e47d4-fe1c-467e-a787-d673213923d4",
+    "type": "message",
+    "text": "There is already overlap in <#C03RR0W5DGC|devlog-together>, <#C0120A3L30R|two-minute-week>, and <#CCL5VVBAN|share-your-work> as you say, so adding a fourth does seem a bit silly in retrospect. Having said that, I'm now wondering why not combine our current three into one - #work-and-show or something! I couldn't tell you on the spot all the differences between these three and I suspect I wouldn't be alone in that.",
+    "user": "UE6EFEPTQ",
+    "ts": "1700986602.540309",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cSLSd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There is already overlap in "
+              },
+              {
+                "type": "channel",
+                "channel_id": "C03RR0W5DGC"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "channel",
+                "channel_id": "C0120A3L30R"
+              },
+              {
+                "type": "text",
+                "text": ", and "
+              },
+              {
+                "type": "channel",
+                "channel_id": "CCL5VVBAN"
+              },
+              {
+                "type": "text",
+                "text": " as you say, so adding a fourth does seem a bit silly in retrospect. Having said that, I'm now wondering why not combine our current three into one - #work-and-show or something! I couldn't tell you on the spot all the differences between these three and I suspect I wouldn't be alone in that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UE6EFEPTQ",
+      "ts": "1700986725.000000"
+    },
+    "thread_ts": "1700738314.108349",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "2c7d5e5d-c606-4cf9-8819-f9338fe46995",
+    "type": "message",
+    "text": "Anyway, there wasn't that much interest here, not enough for a new channel that's for sure, and the video thing wasn't a big hit either",
+    "user": "UE6EFEPTQ",
+    "ts": "1700986642.866549",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "L4Sqo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Anyway, there wasn't that much interest here, not enough for a new channel that's for sure, and the video thing wasn't a big hit either"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UE6EFEPTQ",
+      "ts": "1700986853.000000"
+    },
+    "thread_ts": "1700738314.108349",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "9e8e3050-29da-4048-8ebf-3a41ed0d7102",
+    "type": "message",
+    "text": "Thanks, I'm not sure how I missed it",
+    "user": "U03CEGR3HSL",
+    "ts": "1700992086.119269",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "v1OFj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks, I'm not sure how I missed it"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700983351.706029",
+    "parent_user_id": "USLACKBOT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "104a3d80-f160-4992-a65d-69560c91b4be",
+    "type": "message",
+    "text": "I believe that <@UE1JQM9HQ>'s bold claim is justified, but I do so after a few years of exposure to and then active use of moldable development as supported by Glamorous Toolkit. I am not sure there is a way to judge the claim without actually investing some serious efforts to gain personal experience. But it's one of those ideas that, in the end, you wonder how you ever did without. I have had only a few similar experiences in 40 years of using computers: live development, Lisp macros, immutability, version control, and most recently functional package managers. All of these have changed the way I apply computing technology to solve real-world problems (meaning problems that do not come from the computing technology itself).",
+    "user": "UJBAJNFLK",
+    "ts": "1700992684.232459",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "074+a",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I believe that "
+              },
+              {
+                "type": "user",
+                "user_id": "UE1JQM9HQ"
+              },
+              {
+                "type": "text",
+                "text": "'s bold claim is justified, but I do so after a few years of exposure to and then active use of moldable development as supported by Glamorous Toolkit. I am not sure there is a way to judge the claim without actually investing some serious efforts to gain personal experience. But it's one of those ideas that, in the end, you wonder how you ever did without. I have had only a few similar experiences in 40 years of using computers: live development, Lisp macros, immutability, version control, and most recently functional package managers. All of these have changed the way I apply computing technology to solve real-world problems (meaning problems that do not come from the computing technology itself)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700837030.649029",
+    "parent_user_id": "UEQ7QL15F",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UE1JQM9HQ",
+          "UCUSW7WVD"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0fa053fa-3bf9-492c-a914-5041e1401852",
+    "type": "message",
+    "text": "Yes, types are the hard part. They are not part of data and code, but live in the control layer that structures data and code. I doubt there can be a generic technique to update types in a live system in all circumstances. But perhaps there are ways to handle specific practically important cases.",
+    "user": "UJBAJNFLK",
+    "ts": "1700995927.204469",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Rj9nL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, types are the hard part. They are not part of data and code, but live in the control layer that structures data and code. I doubt there can be a generic technique to update types in a live system in all circumstances. But perhaps there are ways to handle specific practically important cases."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700747986.966939",
+    "parent_user_id": "UKJGU23KP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "3e99ece6-5f3b-4232-9ecc-567a27a1436e",
+    "type": "message",
+    "text": "Oh - I was coming back to have a think about all those excellent questions, <@U03CEGR3HSL>!!",
+    "user": "UE6EFEPTQ",
+    "ts": "1700998282.163969",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2uMpG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh - I was coming back to have a think about all those excellent questions, "
+              },
+              {
+                "type": "user",
+                "user_id": "U03CEGR3HSL"
+              },
+              {
+                "type": "text",
+                "text": "!!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700983351.706029",
+    "parent_user_id": "USLACKBOT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "91064c7c-1741-4b97-99d7-03c3cec8a725",
+    "type": "message",
+    "text": "<@UCUSW7WVD> not specifically. Forth is impressively minimal. Personally I did a little Postscript programming and didn’t like it at all.",
+    "user": "U6KQ2S410",
+    "ts": "1701025160.165269",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mlTLp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " not specifically. Forth is impressively minimal. Personally I did a little Postscript programming and didn’t like it at all."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700885029.454229",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "type": "message",
+    "text": "Achievement unlocked: I've built an app large enough[1] that it crashes my programming environment that puts all the code on a spatial surface.\n\nThe problem: I do this snazzy initial animation (see video) that takes in the whole thing before zooming back in somewhere. That animation works by drawing the whole surface to an in-memory canvas before transforming it. Turns out drawing to a canvas still uses the video card, and I don't have enough video RAM for a virtual \"monitor\" of this resolution.\n\n[1] Or spread out enough. It's not really about lines of code, just how much area the code occupies.",
+    "files": [
+      {
+        "id": "F067B7LT50S",
+        "created": 1701026171,
+        "timestamp": 1701026171,
+        "name": "bf-codemap.webm",
+        "title": "bf-codemap.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 752559,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F067B7LT50S/bf-codemap.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F067B7LT50S/download/bf-codemap.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F067B7LT50S-73db8d4c85/file.m3u8?_xcb=27f59",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9OTMwMjgxLEFWRVJBR0UtQkFORFdJRFRIPTkzMDI4MSxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMjgweDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qVXVOVE01TEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05qZENOMHhVTlRCVExUY3paR0k0WkRSak9EVXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TVM1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F067B7LT50S-73db8d4c85/file_trans.mp4",
+        "duration_ms": 5538,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F067B7LT50S-73db8d4c85/bf-codemap_thumb_video.jpeg",
+        "thumb_video_w": 1280,
+        "thumb_video_h": 720,
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F067B7LT50S/bf-codemap.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F067B7LT50S-cc9983e039",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "ts": "1701026400.817679",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UhI9y",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Achievement unlocked: I've built an app large enough[1] that it crashes my programming environment that puts all the code on a spatial surface.\n\nThe problem: I do this snazzy initial animation (see video) that takes in the whole thing before zooming back in somewhere. That animation works by drawing the whole surface to an in-memory canvas before transforming it. Turns out drawing to a canvas still uses the video card, and I don't have enough video RAM for a virtual \"monitor\" of this resolution.\n\n[1] Or spread out enough. It's not really about lines of code, just how much area the code occupies."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "7fbb6b7a-8d65-462f-9025-eabac75e4306",
+    "reactions": [
+      {
+        "name": "muscle",
+        "users": [
+          "UMQ6LR9NZ",
+          "U0123H7JRDM"
+        ],
+        "count": 2
+      },
+      {
+        "name": "raised_hands",
+        "users": [
+          "UMQ6LR9NZ"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U02B6FQKZK8"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "c6054039-0c41-4349-8828-f4537ece0488",
+    "type": "message",
+    "text": "I agree with a lot of what <@U71PMQ1V0> says. I’d also amplify some of the above comments: versioning is the key unsolved problem of image-based/live programming",
+    "user": "U6KQ2S410",
+    "ts": "1701030842.751999",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Wum6J",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I agree with a lot of what "
+              },
+              {
+                "type": "user",
+                "user_id": "U71PMQ1V0"
+              },
+              {
+                "type": "text",
+                "text": " says. I’d also amplify some of the above comments: versioning is the key unsolved problem of image-based/live programming"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700747986.966939",
+    "parent_user_id": "UKJGU23KP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6BB3B375-3F6C-4805-BFF2-ECFD555334E7",
+    "type": "message",
+    "text": "You can find a description of all the channels in our handbook: <https://futureofcoding.org/member-handbook#channels|https://futureofcoding.org/member-handbook#channels>",
+    "user": "UC2A2ARPT",
+    "ts": "1701034302.947179",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2OQ5L",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You can find a description of all the channels in our handbook: "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.org/member-handbook#channels",
+                "text": "https://futureofcoding.org/member-handbook#channels"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700738314.108349",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "146f229b-412d-4bf1-8925-f5b49d00da7f",
+    "type": "message",
+    "text": "Though, it seems devlog-together isn't documented there. Let me rectify that.",
+    "user": "UC2A2ARPT",
+    "ts": "1701034404.997529",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iz/DK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Though, it seems devlog-together isn't documented there. Let me rectify that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1700738314.108349",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]
