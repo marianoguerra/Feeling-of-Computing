@@ -1,0 +1,833 @@
+[
+  {
+    "user": "U04FWD3SA90",
+    "type": "message",
+    "ts": "1714095248.363789",
+    "client_msg_id": "fb312045-1e2c-42ec-8af4-e6da448cd7f8",
+    "text": "<@UC2A2ARPT> Boris and co helped set up a regional/local CI in LA and some others are brewing in the vein. I think future ones will be more informal than what we did w/ the first one (which I led curation on).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714079894.809979",
+    "parent_user_id": "UE6EFEPTQ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fB4ko",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " Boris and co helped set up a regional/local CI in LA and some others are brewing in the vein. I think future ones will be more informal than what we did w/ the first one (which I led curation on)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U04FWD3SA90",
+    "type": "message",
+    "ts": "1714095289.352049",
+    "client_msg_id": "1e65c924-3ee0-47ed-a761-0c61990921a7",
+    "text": "But, possible they’ll try another bigger one (and combine that with smaller, community-led ones)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714079894.809979",
+    "parent_user_id": "UE6EFEPTQ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yZODy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But, possible they’ll try another bigger one (and combine that with smaller, community-led ones)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U0378MDUG1Y",
+    "type": "message",
+    "ts": "1714097000.571509",
+    "edited": {
+      "user": "U0378MDUG1Y",
+      "ts": "1714097056.000000"
+    },
+    "client_msg_id": "81EB7608-7354-4BB6-BE7B-A9CB9F1907B5",
+    "text": "Ya I was able to attend and present at the LA event, super cool group! \n\nAlso check out the discord for more! <https://discord.gg/Ak7KNuD5|https://discord.gg/Ak7KNuD5>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714079894.809979",
+    "parent_user_id": "UE6EFEPTQ",
+    "attachments": [
+      {
+        "from_url": "https://discord.gg/Ak7KNuD5",
+        "id": 1,
+        "original_url": "https://discord.gg/Ak7KNuD5",
+        "fallback": "Discord: Join the Causal Islands Discord Server!",
+        "text": "Check out the Causal Islands community on Discord - hang out with 239 other members and enjoy free voice and text chat.",
+        "title": "Join the Causal Islands Discord Server!",
+        "title_link": "https://discord.gg/Ak7KNuD5",
+        "service_name": "Discord"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sYw9+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ya I was able to attend and present at the LA event, super cool group! \n\nAlso check out the discord for more! "
+              },
+              {
+                "type": "link",
+                "url": "https://discord.gg/Ak7KNuD5",
+                "text": "https://discord.gg/Ak7KNuD5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U04FWD3SA90"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U03U0SCU5LH",
+    "type": "message",
+    "ts": "1714110480.830759",
+    "edited": {
+      "user": "U03U0SCU5LH",
+      "ts": "1714110503.000000"
+    },
+    "client_msg_id": "4337a891-95c6-4cf5-a58b-d8c2179bba83",
+    "text": "Miqula also has value graphs. When I started coding it, I didn't even know blueprints had \"execution\" wires, how could one do such a hideous thing! To split the execution, I use subnets, for example in a condition, one for true and one that is executed for false. That doesn't solve all problems though, if one would do for example\n\n```foo != nullptr ->\nfoo->IsValid() ->\n-> both connected to an && node```\nyou don't need to do subnets, it just does the most sensible thing.\n\nAs for side effects, a \"regular graph\" has none, except assertions (exceptions). To do effects on the world, I use a behavior tree (which is nicely composable). The leaf nodes have regular graphs, which then  may contain nodes with side effects (for example to send messages / spawn objects).\n\nBe aware that dataflow programming (with pure functions) is a different model. Most people are used to do the \"little robot in your head\" that does stuff, one after the other (which is procedural programming). In dataflow, you are wiring dependencies / data together to create new data. You look at the data instead of the instruction.\nI'm curious as how you want to design around these problems and how it fit's into an ECS.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713941430.437429",
+    "parent_user_id": "UFS53UWE5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kJgtL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Miqula also has value graphs. When I started coding it, I didn't even know blueprints had \"execution\" wires, how could one do such a hideous thing! To split the execution, I use subnets, for example in a condition, one for true and one that is executed for false. That doesn't solve all problems though, if one would do for example\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "foo != nullptr ->\nfoo->IsValid() ->\n-> both connected to an && node"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nyou don't need to do subnets, it just does the most sensible thing.\n\nAs for side effects, a \"regular graph\" has none, except assertions (exceptions). To do effects on the world, I use a behavior tree (which is nicely composable). The leaf nodes have regular graphs, which then  may contain nodes with side effects (for example to send messages / spawn objects).\n\nBe aware that dataflow programming (with pure functions) is a different model. Most people are used to do the \"little robot in your head\" that does stuff, one after the other (which is procedural programming). In dataflow, you are wiring dependencies / data together to create new data. You look at the data instead of the instruction.\nI'm curious as how you want to design around these problems and how it fit's into an ECS."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U03U0SCU5LH",
+    "type": "message",
+    "ts": "1714112592.470409",
+    "client_msg_id": "2a2b6de8-6069-4d96-af41-625298be096d",
+    "text": "I see it the same way as <@U5STGTB3J>. The configuration is declarative programming that defines constant values (like HTML / CSS..). I think a PL should be able to do both (and distinguish between the two). You can have branching in a declarative PL, but it will be resolved at compile time.\nOne could argue that an executable is also a \"constant\", so all programming is configuration, but I think the difference is that the interactions are defined in the executable, if you have a constant, they are defined in the player.\nMy last blog post touches on this.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714062480.601149",
+    "parent_user_id": "U04JY2BF24E",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JHQZC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I see it the same way as "
+              },
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": ". The configuration is declarative programming that defines constant values (like HTML / CSS..). I think a PL should be able to do both (and distinguish between the two). You can have branching in a declarative PL, but it will be resolved at compile time.\nOne could argue that an executable is also a \"constant\", so all programming is configuration, but I think the difference is that the interactions are defined in the executable, if you have a constant, they are defined in the player.\nMy last blog post touches on this."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UP00ZLX6G",
+    "type": "message",
+    "ts": "1714116893.449839",
+    "client_msg_id": "fdd951c5-ee50-412f-904e-238b9412193f",
+    "text": "I agree with <@UK3LH8CF5> in that it’s all about the interface. Configuration done badly, feels like bureaucracy eg, filling in a tax form - you don’t know what to put in a lot of the times and it’s very tedious. Yaml/Json interfaces encourage this type of interface. When designed well, it’s part of the system eg, games that make you “configure” the game by playing the game",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714062480.601149",
+    "parent_user_id": "U04JY2BF24E",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "k4RTk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I agree with "
+              },
+              {
+                "type": "user",
+                "user_id": "UK3LH8CF5"
+              },
+              {
+                "type": "text",
+                "text": " in that it’s all about the interface. Configuration done badly, feels like bureaucracy eg, filling in a tax form - you don’t know what to put in a lot of the times and it’s very tedious. Yaml/Json interfaces encourage this type of interface. When designed well, it’s part of the system eg, games that make you “configure” the game by playing the game"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UE1JQM9HQ",
+    "type": "message",
+    "ts": "1714121333.090159",
+    "client_msg_id": "9f89120d-301b-48cd-bbf5-11fd9fb38544",
+    "text": "Very nice!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714068374.831879",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4Cxoo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Very nice!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U0296ACR13M",
+    "type": "message",
+    "ts": "1714128345.638599",
+    "client_msg_id": "25e47ee4-4a47-45f0-be4b-00b235819145",
+    "text": "Been playing around with LLM code generation for Levlo: <https://www.linkedin.com/posts/jarnomontonen_natural-language-programming-opens-up-significant-activity-7189573670875385857-B0K3?utm_source=share&amp;utm_medium=member_desktop|https://www.linkedin.com/posts/jarnomontonen_natural-language-programming-opens-up-si[…]670875385857-B0K3>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.linkedin.com/posts/jarnomontonen_natural-language-programming-opens-up-significant-activity-7189573670875385857-B0K3?utm_source=share&utm_medium=member_desktop",
+        "thumb_url": "https://media.licdn.com/dms/image/D4D05AQF6Cf95jrLLXQ/feedshare-thumbnail_720_1280/0/1714127919693?e=2147483647&v=beta&t=KzPmL2l9TgXuQHiMqS_XeeQ9UQ5FcF3taKKkNoCYw9k",
+        "thumb_width": 1280,
+        "thumb_height": 719,
+        "image_url": "https://media.licdn.com/dms/image/D4D05AQF6Cf95jrLLXQ/feedshare-thumbnail_720_1280/0/1714127919693?e=2147483647&v=beta&t=KzPmL2l9TgXuQHiMqS_XeeQ9UQ5FcF3taKKkNoCYw9k",
+        "image_width": 1280,
+        "image_height": 719,
+        "image_bytes": 51877,
+        "service_icon": "https://static.licdn.com/aero-v1/sc/h/al2o9zrvru7aqj8e1x2rzsrca",
+        "id": 1,
+        "original_url": "https://www.linkedin.com/posts/jarnomontonen_natural-language-programming-opens-up-significant-activity-7189573670875385857-B0K3?utm_source=share&amp;utm_medium=member_desktop",
+        "fallback": "[Video] Jarno Montonen on LinkedIn: Natural language programming opens up significant synergies with LLMs…",
+        "text": "Natural language programming opens up significant synergies with LLMs. Rather than having an LLM generate gibberish (traditional code), which you as a…",
+        "title": "[Video] Jarno Montonen on LinkedIn: Natural language programming opens up significant synergies with LLMs…",
+        "title_link": "https://www.linkedin.com/posts/jarnomontonen_natural-language-programming-opens-up-significant-activity-7189573670875385857-B0K3?utm_source=share&utm_medium=member_desktop",
+        "service_name": "linkedin.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bPiMt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Been playing around with LLM code generation for Levlo: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.linkedin.com/posts/jarnomontonen_natural-language-programming-opens-up-significant-activity-7189573670875385857-B0K3?utm_source=share&utm_medium=member_desktop",
+                "text": "https://www.linkedin.com/posts/jarnomontonen_natural-language-programming-opens-up-si[…]670875385857-B0K3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "text": "The future of code involves waiting for Copilots (Even though they get faster all the time, we'll just ask more and more of them).\n\nWe took a stab at visualizing the design decisions that our Copilot makes while it's coding the design you've prompted it for.\n\nInstead of just spinners or the raw stream of text like chat UIs, we overlay this visualization where the design will appear on the canvas. Each visualization reflects a design variant that Copilot works on, and is computed in real-time based on the token streams from the LLM.",
+    "files": [
+      {
+        "id": "F070RU602R3",
+        "created": 1714138364,
+        "timestamp": 1714138364,
+        "name": "copilot streaming - music player.mp4",
+        "title": "copilot streaming - music player.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U03GBV8B58V",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 3417414,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F070RU602R3-406001fbe1/copilot_streaming_-_music_player.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F070RU602R3-406001fbe1/copilot_streaming_-_music_player.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F070RU602R3/download/copilot_streaming_-_music_player.mp4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F070RU602R3-406001fbe1/file.m3u8?_xcb=b7944",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MzYzMTAzLEFWRVJBR0UtQkFORFdJRFRIPTM0MjY5NCxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xOTIweDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOekJTVlRZd01sSXpMVFF3TmpBd01XWmlaVEV2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGN3VWxVMk1ESlNNeTAwTURZd01ERm1ZbVV4TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakEzTUZKVk5qQXlVak10TkRBMk1EQXhabUpsTVM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TnpCU1ZUWXdNbEl6TFRRd05qQXdNV1ppWlRFdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURjd1VsVTJNREpTTXkwME1EWXdNREZtWW1VeEwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREExTG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBM01GSlZOakF5VWpNdE5EQTJNREF4Wm1KbE1TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tmk1MGN3b2pSVmhVU1U1R09qSXVOak0yTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd056QlNWVFl3TWxJekxUUXdOakF3TVdaaVpURXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURjdWRITUtJMFZZVkMxWUxVVk9SRXhKVTFRSwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MjcxNzAxLEFWRVJBR0UtQkFORFdJRFRIPTI2MTQ3NixDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMjgweDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApodHRwczovL2ZpbGVzLnNsYWNrLmNvbS9maWxlcy10bWIvVDVUQ0FGVEE5LUYwNzBSVTYwMlIzLTQwNjAwMWZiZTEvZmlsZV9IXzI2NF8xMjgweDcyMF8zNTAwS0JQU183UVZCUi5tM3U4Cg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F070RU602R3-406001fbe1/copilot_streaming_-_music_player_trans.mp4",
+        "duration_ms": 38671,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F070RU602R3-406001fbe1/copilot_streaming_-_music_player_thumb_video.jpeg",
+        "thumb_video_w": 1920,
+        "thumb_video_h": 1080,
+        "permalink": "https://futureofcoding.slack.com/files/U03GBV8B58V/F070RU602R3/copilot_streaming_-_music_player.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F070RU602R3-3b29a1530a",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      },
+      {
+        "id": "F070URPQSTC",
+        "created": 1714138367,
+        "timestamp": 1714138367,
+        "name": "copilot streaming - vacation.mp4",
+        "title": "copilot streaming - vacation.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U03GBV8B58V",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 3120748,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F070URPQSTC-6d1eff724e/copilot_streaming_-_vacation.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F070URPQSTC-6d1eff724e/copilot_streaming_-_vacation.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F070URPQSTC/download/copilot_streaming_-_vacation.mp4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F070URPQSTC-6d1eff724e/file.m3u8?_xcb=c18d6",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MzgwMTMxLEFWRVJBR0UtQkFORFdJRFRIPTM1NTQ0MCxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xOTIweDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOekJWVWxCUlUxUkRMVFprTVdWbVpqY3lOR1V2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGN3VlZKUVVWTlVReTAyWkRGbFptWTNNalJsTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakEzTUZWU1VGRlRWRU10Tm1ReFpXWm1OekkwWlM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TnpCVlVsQlJVMVJETFRaa01XVm1aamN5TkdVdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURjd1ZWSlFVVk5VUXkwMlpERmxabVkzTWpSbEwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREExTG5SekNpTkZXRlJKVGtZNk5DNDBNemdzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBM01GVlNVRkZUVkVNdE5tUXhaV1ptTnpJMFpTOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tmk1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9Mjc3NDYxLEFWRVJBR0UtQkFORFdJRFRIPTI1OTIzMCxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMjgweDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApodHRwczovL2ZpbGVzLnNsYWNrLmNvbS9maWxlcy10bWIvVDVUQ0FGVEE5LUYwNzBVUlBRU1RDLTZkMWVmZjcyNGUvZmlsZV9IXzI2NF8xMjgweDcyMF8zNTAwS0JQU183UVZCUi5tM3U4Cg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F070URPQSTC-6d1eff724e/copilot_streaming_-_vacation_trans.mp4",
+        "duration_ms": 34467,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F070URPQSTC-6d1eff724e/copilot_streaming_-_vacation_thumb_video.jpeg",
+        "thumb_video_w": 1920,
+        "thumb_video_h": 1080,
+        "permalink": "https://futureofcoding.slack.com/files/U03GBV8B58V/F070URPQSTC/copilot_streaming_-_vacation.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F070URPQSTC-2e5c538c95",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U03GBV8B58V",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TgycM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The future of code involves waiting for Copilots (Even though they get faster all the time, we'll just ask more and more of them).\n\nWe took a stab at visualizing the design decisions that our Copilot makes while it's coding the design you've prompted it for.\n\nInstead of just spinners or the raw stream of text like chat UIs, we overlay this visualization where the design will appear on the canvas. Each visualization reflects a design variant that Copilot works on, and is computed in real-time based on the token streams from the LLM."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1714138539.873969",
+    "client_msg_id": "02b0c3cc-40cf-4e56-90cb-63f63f6be5dc",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCS1K3QTH",
+    "type": "message",
+    "ts": "1714139131.472379",
+    "client_msg_id": "19076412-2927-40a8-8f52-ebc4c0d9ee77",
+    "text": "&gt; Ivan imagines a world where general purpose programming languages are replaced (or supplanted) by domain-specific tooling.\n\nIn some ways I think we are already there: javascript on the client, backend in C/C++/java/Python/C# etc. Shell scripting for OS, YML for build pipelines.\n\nIn other ways, we are a long way off. An example:\n• say you are a nurse manager running a new service you have staff you know the laws relating to healthcare provision, safety, there are agree services, metrics and tariffs. How do you do this?  what you do is run it on a bunch of spreadsheets.  Why - even low code tools require you to bring in a consultant to get it working acceptably - if you are running a large service that is widespread you may eventually put together a business case to procure a system. (assuming there is a vendor for what your need). When the service winds down that patient information is lost.\n",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714062480.601149",
+    "parent_user_id": "U04JY2BF24E",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VX9BI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "> Ivan imagines a world where general purpose programming languages are replaced (or supplanted) by domain-specific tooling.\n\nIn some ways I think we are already there: javascript on the client, backend in C/C++/java/Python/C# etc. Shell scripting for OS, YML for build pipelines.\n\nIn other ways, we are a long way off. An example:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "say you are a nurse manager running a new service you have staff you know the laws relating to healthcare provision, safety, there are agree services, metrics and tariffs. How do you do this?  what you do is run it on a bunch of spreadsheets.  Why - even low code tools require you to bring in a consultant to get it working acceptably - if you are running a large service that is widespread you may eventually put together a business case to procure a system. (assuming there is a vendor for what your need). When the service winds down that patient information is lost."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UCS1K3QTH",
+    "type": "message",
+    "ts": "1714139216.639929",
+    "client_msg_id": "2201ffb7-102d-4ce5-9dc9-9c390da761ab",
+    "text": "there are limited options for professionals who are not programmers to get systems that do what they need.  Current low code systems come with a bunch of compromises and assumptions they may cost more than they are worth.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714062480.601149",
+    "parent_user_id": "U04JY2BF24E",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yk3MW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "there are limited options for professionals who are not programmers to get systems that do what they need.  Current low code systems come with a bunch of compromises and assumptions they may cost more than they are worth."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U04JY2BF24E",
+    "type": "message",
+    "ts": "1714139773.335279",
+    "edited": {
+      "user": "U04JY2BF24E",
+      "ts": "1714139806.000000"
+    },
+    "client_msg_id": "5044f84c-bfaa-4c94-b046-e220ece906a4",
+    "text": "Another potential distinction here, from the discussion above: some freedom to define relationships between different parts of the program. If we lock the user into a pre-defined schema with pre-defined relationships, then we fall squarely on the side of \"configuration\".",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714062480.601149",
+    "parent_user_id": "U04JY2BF24E",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0KkxU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Another potential distinction here, from the discussion above: some freedom to define relationships between different parts of the program. If we lock the user into a pre-defined schema with pre-defined relationships, then we fall squarely on the side of \"configuration\"."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UCS1K3QTH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UCS1K3QTH",
+    "type": "message",
+    "ts": "1714139808.780739",
+    "client_msg_id": "80660dc7-bc49-46d4-a7d6-51055d6f934e",
+    "text": "&gt;  Sounds like Racket Lang could be a solid bet if they can withstand the elites knocking performance and distribution issues out.\nRacket is interesting because the metaprogramming facilities open the doors to building a wider variety of programming languages.\n\nThe performance question is interesting, because Racket has excellent performance, but it isn't a system programming language like Rust or C++ - and doesn't pretend to be.\n\nSo you wouldn't run Racket on a large scale - but DSL's for professionals - the machines they use are mostly idle - the size and speed of the Racket is just not noticeable.\n\nWhat is missing is DSL's(future of coding!) that support the needs of the users.\n\nRacket has tools to help make those DSL's (as do many other languages) - but the DSL's for non-programmers don't exist yet.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714062480.601149",
+    "parent_user_id": "U04JY2BF24E",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qIPOR",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " Sounds like Racket Lang could be a solid bet if they can withstand the elites knocking performance and distribution issues out."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Racket is interesting because the metaprogramming facilities open the doors to building a wider variety of programming languages.\n\nThe performance question is interesting, because Racket has excellent performance, but it isn't a system programming language like Rust or C++ - and doesn't pretend to be.\n\nSo you wouldn't run Racket on a large scale - but DSL's for professionals - the machines they use are mostly idle - the size and speed of the Racket is just not noticeable.\n\nWhat is missing is DSL's(future of coding!) that support the needs of the users.\n\nRacket has tools to help make those DSL's (as do many other languages) - but the DSL's for non-programmers don't exist yet."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UCS1K3QTH",
+    "type": "message",
+    "ts": "1714142207.870779",
+    "client_msg_id": "b6278ece-0742-4deb-ade8-1961e7fd4ca8",
+    "text": "Some of the most interesting programmers I can think of are from other professions. I know a number of doctors who were licensed professionals with years of experience who taught themselves to program to solve problems that mattered to them. (I'll acknowledge survivor bias because I only know ones who succeeded.)\n\nAs programmers they are quite varied, but unlike a professional programmer, designing DSL's to suit their professional needs never occurred to them.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714062480.601149",
+    "parent_user_id": "U04JY2BF24E",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/u8bi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some of the most interesting programmers I can think of are from other professions. I know a number of doctors who were licensed professionals with years of experience who taught themselves to program to solve problems that mattered to them. (I'll acknowledge survivor bias because I only know ones who succeeded.)\n\nAs programmers they are quite varied, but unlike a professional programmer, designing DSL's to suit their professional needs never occurred to them."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U06BUK2M2RH",
+    "type": "message",
+    "ts": "1714155848.258749",
+    "client_msg_id": "0f233da3-05ad-4e4f-b5d5-0cb6a104aea2",
+    "text": "Glad you enjoyed it! seeing the details of dynamicland was new for me too. Really awesome stuff and can't wait to see where it goes.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714010254.618739",
+    "parent_user_id": "U06BUK2M2RH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ONSu6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Glad you enjoyed it! seeing the details of dynamicland was new for me too. Really awesome stuff and can't wait to see where it goes."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U06MCTWJKSR",
+    "type": "message",
+    "ts": "1714163235.699659",
+    "client_msg_id": "e7d7b115-b1da-481d-9a3d-e3ed18ed53cc",
+    "text": "Cool! Looked up miller columns, neat usecase here!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714068374.831879",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9lIc/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Cool! Looked up miller columns, neat usecase here!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06EN0BPK0W",
+    "type": "message",
+    "ts": "1714164222.337339",
+    "client_msg_id": "d620313f-305f-442d-8394-bb2a55734365",
+    "text": "Hi everyone, I'm currently trying to think of ways to improve OpenAPI developer experience, can someone check out the design doc for a simplified OpenAPI generator:  <https://chebykin.org/posts/openapic>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://chebykin.org/posts/openapic",
+        "id": 1,
+        "original_url": "https://chebykin.org/posts/openapic",
+        "fallback": "openapic: openapi compiler like protoc | Ivan Chebykin",
+        "text": "Ivan Chebykin",
+        "title": "openapic: openapi compiler like protoc | Ivan Chebykin",
+        "title_link": "https://chebykin.org/posts/openapic",
+        "service_name": "chebykin.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YP95R",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi everyone, I'm currently trying to think of ways to improve OpenAPI developer experience, can someone check out the design doc for a simplified OpenAPI generator:  "
+              },
+              {
+                "type": "link",
+                "url": "https://chebykin.org/posts/openapic"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U05M5A8E0NT",
+    "type": "message",
+    "ts": "1714167883.661729",
+    "edited": {
+      "user": "U05M5A8E0NT",
+      "ts": "1714167948.000000"
+    },
+    "client_msg_id": "a6755ed3-691a-4164-bb39-72179bbe70c0",
+    "text": "Here is my 3rd exploring spaces post about taping -∞ and +∞ together :slightly_smiling_face::infinity:<https://vezwork.github.io/polylab/dist/demo/articles/exploring_spaces_3/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714167883.661729",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1714239364.349209",
+    "reply_users": [
+      "UBKNXPBAB",
+      "U06BUK2M2RH"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QZLrk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here is my 3rd exploring spaces post about taping -∞ and +∞ together "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "emoji",
+                "name": "infinity",
+                "unicode": "267e-fe0f"
+              },
+              {
+                "type": "link",
+                "url": "https://vezwork.github.io/polylab/dist/demo/articles/exploring_spaces_3/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U85HCL7JP",
+          "UJBAJNFLK",
+          "U013ZLJARC7",
+          "U06BUK2M2RH",
+          "U06LQ54LB1R",
+          "UMV4B97GT"
+        ],
+        "count": 6
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U06BUK2M2RH",
+          "U06LQ54LB1R"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

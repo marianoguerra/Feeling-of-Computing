@@ -1,0 +1,799 @@
+[
+  {
+    "user": "U03U0SCU5LH",
+    "type": "message",
+    "ts": "1713161057.982209",
+    "client_msg_id": "153a2958-6fa3-4f15-bc83-5939577fa6d1",
+    "text": "<@U04SAJZ155H> Thanks for bringing up zig, it has indeed nice comptime features. Looking into it now, it seems to allow allocation into the data segment and even reading a file. This is a good general solution. (I will add this to the blog post). Data structures like a graph that contains pointers to itself will need some extra work though.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KzujY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U04SAJZ155H"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for bringing up zig, it has indeed nice comptime features. Looking into it now, it seems to allow allocation into the data segment and even reading a file. This is a good general solution. (I will add this to the blog post). Data structures like a graph that contains pointers to itself will need some extra work though."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U03U0SCU5LH",
+    "type": "message",
+    "ts": "1713161151.655639",
+    "client_msg_id": "fa95f041-2e95-411d-8641-76ff143b8481",
+    "text": "<@U04SAJZ155H> You kind of proof my point. Why is it so simple to define a constant integer, yet if I want for example a constant list of integers I have to go through all those extra steps you outlined.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "k21f2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U04SAJZ155H"
+              },
+              {
+                "type": "text",
+                "text": " You kind of proof my point. Why is it so simple to define a constant integer, yet if I want for example a constant list of integers I have to go through all those extra steps you outlined."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U04SAJZ155H",
+    "type": "message",
+    "ts": "1713161617.532779",
+    "client_msg_id": "9b6936b1-13c6-49f3-b5ba-ce9809870226",
+    "text": "That's a good point. It personally bothers me a lot that Rust has five different features that do the same thing, with five different limitations. (*1.* generics, *2.* const evaluation, *3.* declarative macros, *4.* procedural macros, *5.* build scripts) I prefer to have one good way to do it, like in Zig.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xivK4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That's a good point. It personally bothers me a lot that Rust has five different features that do the same thing, with five different limitations. ("
+              },
+              {
+                "type": "text",
+                "text": "1.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " generics, "
+              },
+              {
+                "type": "text",
+                "text": "2.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " const evaluation, "
+              },
+              {
+                "type": "text",
+                "text": "3.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " declarative macros, "
+              },
+              {
+                "type": "text",
+                "text": "4.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " procedural macros, "
+              },
+              {
+                "type": "text",
+                "text": "5.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " build scripts) I prefer to have one good way to do it, like in Zig."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U04SAJZ155H",
+    "type": "message",
+    "ts": "1713162134.408879",
+    "client_msg_id": "46c5ac50-effb-4298-88e9-ece76a90b637",
+    "text": "&gt; Data structures like a graph that contains pointers to itself will need some extra work though.\nLooking at Rust, const data can contain references to const data as long as they are not circular. I don't really care though. I never put references in my const data, but instead put indexes that are relative to the base pointer of the const data. A reference is 8 bytes, so I don't want to have that in const data. An index is 1, 2 or 4 bytes depending on the size of the data. Sometimes I've even packed a 12-bit index and a 4-bit length in two bytes.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zQtyH",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Data structures like a graph that contains pointers to itself will need some extra work though."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Looking at Rust, const data can contain references to const data as long as they are not circular. I don't really care though. I never put references in my const data, but instead put indexes that are relative to the base pointer of the const data. A reference is 8 bytes, so I don't want to have that in const data. An index is 1, 2 or 4 bytes depending on the size of the data. Sometimes I've even packed a 12-bit index and a 4-bit length in two bytes."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U03U0SCU5LH",
+    "type": "message",
+    "ts": "1713162710.011709",
+    "client_msg_id": "6a09353e-35f2-4dc2-bffb-6c02640d5ddb",
+    "text": "<@U04SAJZ155H> Oh really? So (in rust) the pointers inside the data segment get relocated when the executable is loaded? How does the loader know whats data and whats pointers? The linker would need to add that to the relocation data?\nI agree data structures with indices are the way to go. It is also easier to serialize, clone and you can (ideally) allocate everything in single block. You cannot however easily extend, join, reuse part of it.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "67j0w",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U04SAJZ155H"
+              },
+              {
+                "type": "text",
+                "text": " Oh really? So (in rust) the pointers inside the data segment get relocated when the executable is loaded? How does the loader know whats data and whats pointers? The linker would need to add that to the relocation data?\nI agree data structures with indices are the way to go. It is also easier to serialize, clone and you can (ideally) allocate everything in single block. You cannot however easily extend, join, reuse part of it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U04SAJZ155H",
+    "type": "message",
+    "ts": "1713163556.337849",
+    "client_msg_id": "04d64e36-33ec-47c6-9ae0-31f854914c46",
+    "text": "I suppose they get relocated. I made an example, but don't know how to make Compiler Explorer show the relocation table. Relocations would be another reason to prefer indexes, as the relocation table adds a number of extra bytes for each pointer, and also slows down loading of the executable, and also takes up memory for the relocated copy of the const data, as opposed mapping the memory directly to the executable file.\n<https://rust.godbolt.org/z/8YvfPr5G9>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "attachments": [
+      {
+        "from_url": "https://rust.godbolt.org/z/8YvfPr5G9",
+        "service_icon": "https://rust.godbolt.org/favicon.ico?v=1",
+        "thumb_url": "https://github.com/compiler-explorer/infra/blob/main/logo/favicon.png?raw=true",
+        "thumb_width": 125,
+        "thumb_height": 128,
+        "id": 1,
+        "original_url": "https://rust.godbolt.org/z/8YvfPr5G9",
+        "fallback": "Compiler Explorer - Rust (rustc 1.76.0)",
+        "text": "#[derive(Clone, Copy)]\npub struct LinkedList&lt;'a, T&gt; {\n next: Option&lt;&amp;'a Self&gt;,\n value: T,\n}\n\nconst A: LinkedList&lt;u32&gt; = LinkedList {\n next: None,\n value: 42,\n};\n\nconst B1: LinkedList&lt;u32&gt; = LinkedList {\n next: Some(&amp;A),\n value: 13,\n};\n\nconst B2: LinkedList&lt;u32&gt; = LinkedList {\n next: Some(&amp;A),\n value: 0,\n};\n\n#[no_mangle]\nfn peek() -&gt; LinkedList&lt;'static, u32&gt; {\n B2\n}",
+        "title": "Compiler Explorer - Rust (rustc 1.76.0)",
+        "title_link": "https://rust.godbolt.org/z/8YvfPr5G9",
+        "service_name": "rust.godbolt.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aeN9u",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I suppose they get relocated. I made an example, but don't know how to make Compiler Explorer show the relocation table. Relocations would be another reason to prefer indexes, as the relocation table adds a number of extra bytes for each pointer, and also slows down loading of the executable, and also takes up memory for the relocated copy of the const data, as opposed mapping the memory directly to the executable file.\n"
+              },
+              {
+                "type": "link",
+                "url": "https://rust.godbolt.org/z/8YvfPr5G9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U03U0SCU5LH",
+    "type": "message",
+    "ts": "1713165817.436579",
+    "client_msg_id": "62159804-12ee-4bb1-b807-45408da191bb",
+    "text": "Ok I'm confused. Does this create a linked list inside the data segment or.. 3 list segments and links them on startup. The assembly would suggest the first, but could also be the latter, sadly it doesn't show what's actually in the data.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RBEMQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ok I'm confused. Does this create a linked list inside the data segment or.. 3 list segments and links them on startup. The assembly would suggest the first, but could also be the latter, sadly it doesn't show what's actually in the data."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U04SAJZ155H",
+    "type": "message",
+    "ts": "1713165943.313859",
+    "client_msg_id": "8de19f6b-53d0-4011-a61d-a11b454f1b32",
+    "text": "The three nodes are in the data segment. The disassembly shows that the function copies a node right out of the data segment without any further processing, showing that the pointer is already correct.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+1Y5a",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The three nodes are in the data segment. The disassembly shows that the function copies a node right out of the data segment without any further processing, showing that the pointer is already correct."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U04SAJZ155H",
+    "type": "message",
+    "ts": "1713166556.415569",
+    "client_msg_id": "9c3ad201-98b6-4723-85a4-b568785646af",
+    "text": "On second thought, the disassembly of the function doesn't show that clearly enough, due to optimization. Let's instead return a reference to the node, so the constant data cannot be inlined. Now you can also see the relocation being there in the form of a label in the data in the assembly.\n<https://rust.godbolt.org/z/nYxh47def>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "attachments": [
+      {
+        "from_url": "https://rust.godbolt.org/z/nYxh47def",
+        "thumb_url": "https://github.com/compiler-explorer/infra/blob/main/logo/favicon.png?raw=true",
+        "thumb_width": 125,
+        "thumb_height": 128,
+        "service_icon": "https://rust.godbolt.org/favicon.ico?v=1",
+        "id": 1,
+        "original_url": "https://rust.godbolt.org/z/nYxh47def",
+        "fallback": "Compiler Explorer - Rust (rustc 1.76.0)",
+        "text": "#[derive(Clone, Copy)]\npub struct LinkedList&lt;'a, T&gt; {\n next: Option&lt;&amp;'a Self&gt;,\n value: T,\n}\n\nconst A: LinkedList&lt;u32&gt; = LinkedList {\n next: None,\n value: 42,\n};\n\nconst B1: LinkedList&lt;u32&gt; = LinkedList {\n next: Some(&amp;A),\n value: 13,\n};\n\nconst B2: LinkedList&lt;u32&gt; = LinkedList {\n next: Some(&amp;A),\n value: 0,\n};\n\n#[no_mangle]\nfn peek() -&gt; &amp;'static LinkedList&lt;'static, u32&gt; {\n &amp;B1\n}",
+        "title": "Compiler Explorer - Rust (rustc 1.76.0)",
+        "title_link": "https://rust.godbolt.org/z/nYxh47def",
+        "service_name": "rust.godbolt.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QUdAS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On second thought, the disassembly of the function doesn't show that clearly enough, due to optimization. Let's instead return a reference to the node, so the constant data cannot be inlined. Now you can also see the relocation being there in the form of a label in the data in the assembly.\n"
+              },
+              {
+                "type": "link",
+                "url": "https://rust.godbolt.org/z/nYxh47def"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U03U0SCU5LH",
+    "type": "message",
+    "ts": "1713166840.605729",
+    "client_msg_id": "9ba21db9-4527-4d3b-b53a-67c9977dbc3a",
+    "text": "I see it know, even better if you return B2 and link to B1 inside B2.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eJX8c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I see it know, even better if you return B2 and link to B1 inside B2."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U04SAJZ155H",
+    "type": "message",
+    "ts": "1713166941.321659",
+    "client_msg_id": "780bfaf6-b6b0-4b29-841d-6ba1a609a85d",
+    "text": "You can also do away with the function entirely and make the data show up in Compiler Explorer by declaring any entry points as `pub static` instead of `const`.\n<https://rust.godbolt.org/z/o9qc8d5Y4>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713098099.807429",
+    "parent_user_id": "U03U0SCU5LH",
+    "attachments": [
+      {
+        "from_url": "https://rust.godbolt.org/z/o9qc8d5Y4",
+        "thumb_url": "https://github.com/compiler-explorer/infra/blob/main/logo/favicon.png?raw=true",
+        "thumb_width": 125,
+        "thumb_height": 128,
+        "service_icon": "https://rust.godbolt.org/favicon.ico?v=1",
+        "id": 1,
+        "original_url": "https://rust.godbolt.org/z/o9qc8d5Y4",
+        "fallback": "Compiler Explorer - Rust (rustc 1.76.0)",
+        "text": "#[derive(Clone, Copy)]\npub struct LinkedList&lt;'a, T&gt; {\n next: Option&lt;&amp;'a Self&gt;,\n value: T,\n}\n\npub static A: LinkedList&lt;u32&gt; = LinkedList {\n next: None,\n value: 42,\n};\n\npub static B1: LinkedList&lt;u32&gt; = LinkedList {\n next: Some(&amp;A),\n value: 13,\n};\n\npub static B2: LinkedList&lt;u32&gt; = LinkedList {\n next: Some(&amp;A),\n value: 0,\n};\n\npub static C: &amp;LinkedList&lt;u32&gt; = &amp;B2;",
+        "title": "Compiler Explorer - Rust (rustc 1.76.0)",
+        "title_link": "https://rust.godbolt.org/z/o9qc8d5Y4",
+        "service_name": "rust.godbolt.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bfIxW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You can also do away with the function entirely and make the data show up in Compiler Explorer by declaring any entry points as "
+              },
+              {
+                "type": "text",
+                "text": "pub static",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " instead of "
+              },
+              {
+                "type": "text",
+                "text": "const",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n"
+              },
+              {
+                "type": "link",
+                "url": "https://rust.godbolt.org/z/o9qc8d5Y4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UFEQUBNNT",
+    "type": "message",
+    "ts": "1713195656.707399",
+    "client_msg_id": "76c18e26-99cd-4341-aedc-69fff4312ffb",
+    "text": "You must submit something to Torn Leaf.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713100647.302269",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qoM0F",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You must submit something to Torn Leaf."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart_on_fire",
+        "users": [
+          "U03R0B9U1GD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UP00ZLX6G",
+    "type": "message",
+    "ts": "1713220131.596279",
+    "client_msg_id": "511fb725-bcc8-45c3-8753-dd5076547a21",
+    "text": "Stitching worlds - a magazine imagining “What if electronics emerged from textile techniques such as knitting, weaving, crochet, and embroidery?” - <https://fedora.phaidra.bibliothek.uni-ak.ac.at/fedora/get/o:34528/bdef:Content/get> (<https://www.stitchingworlds.net/>)\n\nAn embroidered computer using gold embroidery and magnetic beads (in the magazine): <http://ireneposch.net/the-embroidered-computer/>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.stitchingworlds.net/",
+        "service_icon": "https://www.stitchingworlds.net/favicon.ico",
+        "id": 1,
+        "original_url": "https://www.stitchingworlds.net/",
+        "fallback": "stitching worlds |: stitchingworlds",
+        "text": "Stitching Worlds is an artistic research project funded by the Program for Arts-Based Research (PEEK) of the Austrian Science Fund (FWF). The project is hosted by the University of Applied Arts Vienna, Institute of Design, Department of Industrial Design 2.",
+        "title": "stitchingworlds",
+        "title_link": "https://www.stitchingworlds.net/",
+        "service_name": "stitching worlds |"
+      },
+      {
+        "image_url": "http://ireneposch.net/wp-content/uploads/2018/05/DSC_4931_grayer_w-1024x684.jpg",
+        "image_width": 1024,
+        "image_height": 684,
+        "image_bytes": 159335,
+        "from_url": "http://ireneposch.net/the-embroidered-computer/",
+        "id": 2,
+        "original_url": "http://ireneposch.net/the-embroidered-computer/",
+        "fallback": "Irene Posch: The Embroidered Computer | Irene Posch",
+        "text": "The Embroidered Computer uses historic gold embroidery materials to craft a programmable 8 bit computer.",
+        "title": "The Embroidered Computer | Irene Posch",
+        "title_link": "http://ireneposch.net/the-embroidered-computer/",
+        "service_name": "Irene Posch"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "okfji",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Stitching worlds - a magazine imagining “What if electronics emerged from textile techniques such as knitting, weaving, crochet, and embroidery?” - "
+              },
+              {
+                "type": "link",
+                "url": "https://fedora.phaidra.bibliothek.uni-ak.ac.at/fedora/get/o:34528/bdef:Content/get"
+              },
+              {
+                "type": "text",
+                "text": " ("
+              },
+              {
+                "type": "link",
+                "url": "https://www.stitchingworlds.net/"
+              },
+              {
+                "type": "text",
+                "text": ")\n\nAn embroidered computer using gold embroidery and magnetic beads (in the magazine): "
+              },
+              {
+                "type": "link",
+                "url": "http://ireneposch.net/the-embroidered-computer/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7",
+          "U04SAJZ155H",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      },
+      {
+        "name": "tulip",
+        "users": [
+          "U05TJD2V4P2",
+          "U06H4766K42"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "text": "I’m playing with electronics and crocheting atm. Imagining what other ways there are to interact with a computer, other than keyboard and mouse. This is a custom made bend/pressure sensor using copper sheets, velostat as a semi-conductive layer in between, with a crochet leaf on top and felt on the bottom, for a soft, non metallic feel :sheep:",
+    "files": [
+      {
+        "id": "F06UH8UNSA0",
+        "created": 1713220207,
+        "timestamp": 1713220207,
+        "name": "PXL_20240415_221258260.mp4",
+        "title": "PXL_20240415_221258260.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "UP00ZLX6G",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 5762391,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "complete",
+          "locale": "zh-CN",
+          "preview": {
+            "content": "嗯",
+            "has_more": false
+          }
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F06UH8UNSA0-aaafe2def2/pxl_20240415_221258260.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F06UH8UNSA0-aaafe2def2/pxl_20240415_221258260.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F06UH8UNSA0/download/pxl_20240415_221258260.mp4",
+        "vtt": "https://files.slack.com/files-tmb/T5TCAFTA9-F06UH8UNSA0-aaafe2def2/file.vtt?_xcb=b18f5",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F06UH8UNSA0-aaafe2def2/file.m3u8?_xcb=b18f5",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9Nzk4MzI3LEFWRVJBR0UtQkFORFdJRFRIPTc4NDA1MyxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj02MDh4MTA4MCxGUkFNRS1SQVRFPTI5Ljk3MCxTVUJUSVRMRVM9InN1YnMiCmRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzNDaU5GV0ZRdFdDMU5SVVJKUVMxVFJWRlZSVTVEUlRveENpTkZXRlF0V0MxUVRFRlpURWxUVkMxVVdWQkZPbFpQUkFvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TmxWSU9GVk9VMEV3TFdGaFlXWmxNbVJsWmpJdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNREV1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURaVlNEaFZUbE5CTUMxaFlXRm1aVEprWldZeUwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREF5TG5SekNpTkZXRlJKVGtZNk1DNDBOamNzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBMlZVZzRWVTVUUVRBdFlXRmhabVV5WkdWbU1pOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TXk1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NDYxNzY3LEFWRVJBR0UtQkFORFdJRFRIPTQ1Njg4NCxDT0RFQ1M9ImF2YzEuNjQwMDFlLG1wNGEuNDAuNSIsUkVTT0xVVElPTj00MDZ4NzIwLEZSQU1FLVJBVEU9MjkuOTcwLFNVQlRJVExFUz0ic3VicyIKaHR0cHM6Ly9maWxlcy5zbGFjay5jb20vZmlsZXMtdG1iL1Q1VENBRlRBOS1GMDZVSDhVTlNBMC1hYWFmZTJkZWYyL2ZpbGVfSF8yNjRfMTI4MHg3MjBfMzUwMEtCUFNfN1FWQlIubTN1OAojRVhULVgtTUVESUE6VFlQRT1TVUJUSVRMRVMsR1JPVVAtSUQ9InN1YnMiLE5BTUU9IkVuZ2xpc2giLERFRkFVTFQ9WUVTLEFVVE9TRUxFQ1Q9WUVTLEZPUkNFRD1OTyxMQU5HVUFHRT0iZW5nIixVUkk9ImRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzJNREFLSTBWWVZDMVlMVTFGUkVsQkxWTkZVVlZGVGtORk9qRUtJMFZZVkMxWUxWQk1RVmxNU1ZOVUxWUlpVRVU2Vms5RUNpTkZXRlJKVGtZNk1USXVORGM1TEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05sVklPRlZPVTBFd0xXRmhZV1psTW1SbFpqSXZabWxzWlM1MmRIUUtJMFZZVkMxWUxVVk9SRXhKVTFRPSIK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F06UH8UNSA0-aaafe2def2/pxl_20240415_221258260_trans.mp4",
+        "duration_ms": 12479,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F06UH8UNSA0-aaafe2def2/pxl_20240415_221258260_thumb_video.jpeg",
+        "thumb_video_w": 720,
+        "thumb_video_h": 1280,
+        "permalink": "https://futureofcoding.slack.com/files/UP00ZLX6G/F06UH8UNSA0/pxl_20240415_221258260.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F06UH8UNSA0-f173b2b20f",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UP00ZLX6G",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9GlBB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’m playing with electronics and crocheting atm. Imagining what other ways there are to interact with a computer, other than keyboard and mouse. This is a custom made bend/pressure sensor using copper sheets, velostat as a semi-conductive layer in between, with a crochet leaf on top and felt on the bottom, for a soft, non metallic feel "
+              },
+              {
+                "type": "emoji",
+                "name": "sheep",
+                "unicode": "1f411"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1713220604.752629",
+    "edited": {
+      "user": "UP00ZLX6G",
+      "ts": "1713250658.000000"
+    },
+    "client_msg_id": "a3e892e2-e392-4d25-befc-95ba95bc6945",
+    "thread_ts": "1713220604.752629",
+    "reply_count": 6,
+    "reply_users_count": 3,
+    "latest_reply": "1713442795.831929",
+    "reply_users": [
+      "UP00ZLX6G",
+      "U03R0B9U1GD",
+      "U03U0SCU5LH"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U03R0B9U1GD",
+          "UFEQUBNNT",
+          "UMV4B97GT",
+          "U0123H7JRDM",
+          "U06JCQL6ERJ",
+          "U013ZLJARC7",
+          "UJBAJNFLK",
+          "U06H4766K42"
+        ],
+        "count": 9
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UP00ZLX6G",
+    "type": "message",
+    "ts": "1713220660.840749",
+    "client_msg_id": "0bcec9fc-0cfb-4c88-b51a-e94e87020902",
+    "text": "<@U03R0B9U1GD> - funny that you have a leaf thing going on too :joy:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713220604.752629",
+    "parent_user_id": "UP00ZLX6G",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zdWLA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U03R0B9U1GD"
+              },
+              {
+                "type": "text",
+                "text": " - funny that you have a leaf thing going on too "
+              },
+              {
+                "type": "emoji",
+                "name": "joy",
+                "unicode": "1f602"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "exploding_head",
+        "users": [
+          "U03R0B9U1GD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1713223003.349929",
+    "client_msg_id": "10069007-1f31-483b-adc5-bea0d520b541",
+    "text": "oh my god this is amazing",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1713220604.752629",
+    "parent_user_id": "UP00ZLX6G",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iTv2I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "oh my god this is amazing"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]
