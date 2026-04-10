@@ -1,0 +1,286 @@
+[
+  {
+    "user": "UN57U8V53",
+    "type": "message",
+    "ts": "1755423961.425499",
+    "client_msg_id": "de7e1aad-4153-4e3f-ae9a-59bb72e458c8",
+    "text": "I think the hard parts here are UX related:\n• more (quality) labels are better for search, but more labels mean a) harder to maintain, b) more time to add (even if you make forking / templates a thing) c) managing labels becomes it's own problem\n• labels themselves have privacy/security issues. Who is allowed to search for what and on what basis? \"all documents Jaime sent to their lawyer in the past week\". This in itself has huge perf implications.\n• Who is allowed to add labels? Are events like file open/save labels? Do we scan files to auto-add labels (the attack vectors here are amazing)?\n• Do we embed dependency (ex: all files needed to run a game, all the photos/videos/music in some album or doc)? Is changing a dependency auto-COW, ignored (broken?), or put choice onto the changer (who may be ignorant to the impact)\nThis is a lot for end users, on top of assuming SQL/Venn like searches are actually wanted by users (A and B but not C). Also unlike web search, the feedback size is small, so harder/impossible to train a model on. The best you could hope for is to tweak some parameters/weights between pre-trained models.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1755066890.259109",
+    "parent_user_id": "UDQBTJ211",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rCo5U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think the hard parts here are UX related:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "more (quality) labels are better for search, but more labels mean a) harder to maintain, b) more time to add (even if you make forking / templates a thing) c) managing labels becomes it's own problem"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "labels themselves have privacy/security issues. Who is allowed to search for what and on what basis? \"all documents Jaime sent to their lawyer in the past week\". This in itself has huge perf implications."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Who is allowed to add labels? Are events like file open/save labels? Do we scan files to auto-add labels (the attack vectors here are amazing)?"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Do we embed dependency (ex: all files needed to run a game, all the photos/videos/music in some album or doc)? Is changing a dependency auto-COW, ignored (broken?), or put choice onto the changer (who may be ignorant to the impact)"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "offset": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThis is a lot for end users, on top of assuming SQL/Venn like searches are actually wanted by users (A and B but not C). Also unlike web search, the feedback size is small, so harder/impossible to train a model on. The best you could hope for is to tweak some parameters/weights between pre-trained models."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U05GSC0B4A0",
+    "type": "message",
+    "ts": "1755436500.789159",
+    "client_msg_id": "e1d5c774-5694-45d2-90db-b8566659be43",
+    "text": "I've been thinking about the Viable System Model as a framework for AI agents since I came across it, mentioned it here actually: <https://futureofcoding.slack.com/archives/C5T9GPWFL/p1748381760844169>\n\nFinally put together some rubygems to explore it - `vsm` the framework and `airb` a CLI-based agent built with it and wrote up some more detailed thoughts about them on my newsletter:\n<https://worksonmymachine.substack.com/p/the-system-inside-the-system>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://substackcdn.com/image/fetch/$s_!n_Ud!,w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4195532e-f78f-48fe-90de-48e7994c8f7f_1536x1024.webp",
+        "image_width": 1200,
+        "image_height": 600,
+        "image_bytes": 127217,
+        "from_url": "https://worksonmymachine.substack.com/p/the-system-inside-the-system",
+        "service_icon": "https://substackcdn.com/image/fetch/%24s_!uPbA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F51c8777b-4177-4195-8a0c-63a06dd9dd8a%2Fapple-touch-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://worksonmymachine.substack.com/p/the-system-inside-the-system",
+        "fallback": "The System Inside the System",
+        "text": "Announcing two new Ruby gems: vsm and airb",
+        "title": "The System Inside the System",
+        "title_link": "https://worksonmymachine.substack.com/p/the-system-inside-the-system",
+        "service_name": "worksonmymachine.ai"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Fru7D",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been thinking about the Viable System Model as a framework for AI agents since I came across it, mentioned it here actually: "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1748381760844169"
+              },
+              {
+                "type": "text",
+                "text": "\n\nFinally put together some rubygems to explore it - "
+              },
+              {
+                "type": "text",
+                "text": "vsm",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the framework and "
+              },
+              {
+                "type": "text",
+                "text": "airb",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " a CLI-based agent built with it and wrote up some more detailed thoughts about them on my newsletter:\n"
+              },
+              {
+                "type": "link",
+                "url": "https://worksonmymachine.substack.com/p/the-system-inside-the-system"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "subtype": "thread_broadcast",
+    "user": "U098P4V8Y6R",
+    "thread_ts": "1754118705.092259",
+    "root": {
+      "user": "UCUSW7WVD",
+      "type": "message",
+      "ts": "1754118705.092259",
+      "client_msg_id": "671ccd73-2157-4ed2-a8e1-8df9f5503a7f",
+      "text": "This might be premature, but I think I _finally_ understand Dijkstra's approach to deriving programs from post-conditions in \"A Discipline of Programming\". I've had this book on my bookshelf for almost 20 years, never understood it but also never quite worked up the will to toss it out. (For context, I only own like a dozen books over the long term.)\n\nConcretely, I've made it to the end of Chapter 7. I feel like I understand every bit up until this point.\n\nParts of Chapter 6 and 7 feel very sloppily written! And this is Dijkstra! So either my leaps of interpretation are only leaps because I'm missing something, or my sense of understanding is an illusion :sweat_smile:\n\nHas anyone here made it this far and feel like they understood it? I'd love to talk to you.\n\nIncidentally: I wouldn't have made it in even this my probably 4th attempt, if it wasn't for LLMs. They're better than a rubber duck for talking things over with! It's amazing that they can all converse intelligently about the Dijkstra method, and all I need to do is mention `wp` or `wdec`. Or I know nothing and am incapable of judging anything about this book.",
+      "team": "T5TCAFTA9",
+      "thread_ts": "1754118705.092259",
+      "reply_count": 13,
+      "reply_users_count": 3,
+      "latest_reply": "1755443502.811449",
+      "reply_users": [
+        "U098P4V8Y6R",
+        "UCUSW7WVD",
+        "U05UK5T7LPP"
+      ],
+      "is_locked": false,
+      "subscribed": false,
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "vX/r1",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "This might be premature, but I think I "
+                },
+                {
+                  "type": "text",
+                  "text": "finally",
+                  "style": {
+                    "italic": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " understand Dijkstra's approach to deriving programs from post-conditions in \"A Discipline of Programming\". I've had this book on my bookshelf for almost 20 years, never understood it but also never quite worked up the will to toss it out. (For context, I only own like a dozen books over the long term.)\n\nConcretely, I've made it to the end of Chapter 7. I feel like I understand every bit up until this point.\n\nParts of Chapter 6 and 7 feel very sloppily written! And this is Dijkstra! So either my leaps of interpretation are only leaps because I'm missing something, or my sense of understanding is an illusion "
+                },
+                {
+                  "type": "emoji",
+                  "name": "sweat_smile",
+                  "unicode": "1f605"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\nHas anyone here made it this far and feel like they understood it? I'd love to talk to you.\n\nIncidentally: I wouldn't have made it in even this my probably 4th attempt, if it wasn't for LLMs. They're better than a rubber duck for talking things over with! It's amazing that they can all converse intelligently about the Dijkstra method, and all I need to do is mention "
+                },
+                {
+                  "type": "text",
+                  "text": "wp",
+                  "style": {
+                    "code": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "text",
+                  "text": "wdec",
+                  "style": {
+                    "code": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": ". Or I know nothing and am incapable of judging anything about this book."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "type": "message",
+    "ts": "1755436888.504089",
+    "client_msg_id": "d3279545-870d-4090-95db-4f5d166a2d91",
+    "text": "• The clean way that the if/fi and do/od constructs embraced non-determinism still looks cleaner to me than the contemporary toolkits of various mainstream languages and frameworks.",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OGkGg",
+        "elements": [
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The clean way that the if/fi and do/od constructs embraced non-determinism still looks cleaner to me than the contemporary toolkits of various mainstream languages and frameworks."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
