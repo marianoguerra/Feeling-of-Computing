@@ -5,6 +5,7 @@ import {
   Channel,
   Message,
   Messages,
+  ConversationsViewer,
 } from "./components.js";
 import { SlackDB } from "./slack.js";
 import {
@@ -71,16 +72,27 @@ async function main() {
     const message = Message.Class.fromData(msg, ctx);
     r.push(message);
   }
-  const msgs = Messages.make({ items: r });
-  console.log(db, msgs);
+  let rootState = ConversationsViewer.make({
+    messages: Messages.make({ items: r }),
+  });
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("show-replies") === "false") {
+    rootState = rootState.setShowReplies(false);
+  }
+  if (params.get("show-reactions") === "false") {
+    rootState = rootState.setShowReactions(false);
+  }
+  if (params.get("show-attachments") === "false") {
+    rootState = rootState.setShowAttachments(false);
+  }
+  console.log(db, rootState);
 
   const app = tutuca("#app");
-  app.state.set(msgs);
+  app.state.set(rootState);
   app.registerComponents(getComponents());
   app.start();
   setTimeout(() => {
     const node = document.querySelector(`[href='${window.location.hash}']`);
-    console.log(node);
     if (node) {
       node.scrollIntoView();
     }

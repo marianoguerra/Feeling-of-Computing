@@ -5,7 +5,9 @@
   "scripts": {
     "dev:setup": "npm install --save-dev tailwindcss@latest @tailwindcss/cli@latest daisyui@latest",
     "build:css": "npx @tailwindcss/cli -i style/input.css -o style/style.css",
-    "watch:css": "npx @tailwindcss/cli -i style/input.css -o style/style.css --watch"
+    "watch:css": "npx @tailwindcss/cli -i style/input.css -o style/style.css --watch",
+    "build:emoji": "node scripts/build-emoji.js",
+    "build:slack-emoji": "node scripts/build-slack-emoji.js"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",

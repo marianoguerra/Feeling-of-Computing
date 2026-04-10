@@ -3,12 +3,95 @@ import { textFromCode, getNameToCode } from "./emoji.js";
 
 const NAME_TO_CODE = getNameToCode();
 
+function formatFileUrl(id, filetype) {
+  return `https://history.futureofcoding.org/history/msg_files/${id.slice(0, 3)}/${id}.${filetype}`;
+}
+
 export const Messages = component({
   name: "Messages",
   fields: { items: [] },
+  methods: {
+    mapItems(fn) {
+      return this.updateItems((v) => v.map(fn));
+    },
+    setShowReplies(v) {
+      return this.mapItems((m) => m.setShowReplies(v));
+    },
+    setShowReactions(v) {
+      return this.mapItems((m) => m.setShowReactions(v));
+    },
+    setShowAttachments(v) {
+      return this.mapItems((m) => m.setShowAttachments(v));
+    },
+  },
   view: html`<div class="flex flex-col gap-3">
-    <x render-each=".items"></x>
+    <div @each=".items" class="card card-border bg-base-200 shadow-sm">
+      <div
+        class="card-body p-0 outline-0 outline-solid outline-base-400 hover:outline-1"
+      >
+        <x render-it></x>
+      </div>
+    </div>
   </div>`,
+});
+
+export const ConversationsViewer = component({
+  name: "ConversationsViewer",
+  fields: {
+    showReplies: true,
+    showReactions: true,
+    showAttachments: true,
+    messages: Messages.make(),
+  },
+  methods: {
+    setShowReplies(v) {
+      return this.set("showReplies", v).updateMessages((m) =>
+        m.setShowReplies(v),
+      );
+    },
+    setShowReactions(v) {
+      return this.set("showReactions", v).updateMessages((m) =>
+        m.setShowReactions(v),
+      );
+    },
+    setShowAttachments(v) {
+      return this.set("showAttachments", v).updateMessages((m) =>
+        m.setShowAttachments(v),
+      );
+    },
+  },
+  view: html`<section class="flex flex-col gap-3">
+    <div class="flex p-3 gap-3 justify-center bg-base-300 sticky top-0 z-2">
+      <label class="label text-xs">
+        <input
+          type="checkbox"
+          :checked=".showReplies"
+          @on.input=".setShowReplies value"
+          class="toggle toggle-xs"
+        />
+        Show Replies
+      </label>
+      <label class="label text-xs">
+        <input
+          type="checkbox"
+          :checked=".showReactions"
+          @on.input=".setShowReactions value"
+          class="toggle toggle-xs"
+        />
+        Show Reactions
+      </label>
+      <label class="label text-xs">
+        <input
+          type="checkbox"
+          :checked=".showAttachments"
+          @on.input=".setShowAttachments value"
+          class="toggle toggle-xs"
+        />
+        Show Attachments
+      </label>
+    </div>
+    <x render=".messages"></x>
+  </section>`,
 });
 
 export const Message = component({
@@ -21,6 +104,9 @@ export const Message = component({
     replies: [],
     attachments: [],
     files: [],
+    showReplies: true,
+    showReactions: true,
+    showAttachments: true,
   },
   statics: {
     fromData(d, ctx) {
@@ -82,6 +168,34 @@ export const Message = component({
     formatMessageAnchor() {
       return `#${this.date.toISOString()}`;
     },
+    areAttachmentsVisible() {
+      return this.showAttachments && !this.attachmentsIsEmpty();
+    },
+    areFilesVisible() {
+      return this.showAttachments && !this.filesIsEmpty();
+    },
+    areReactionsVisible() {
+      return this.showReactions && !this.reactionsIsEmpty();
+    },
+    areRepliesVisible() {
+      return this.showReplies && !this.repliesIsEmpty();
+    },
+    mapReplies(fn) {
+      return this.updateReplies((v) => v.map(fn));
+    },
+    setShowReplies(v) {
+      return this.set("showReplies", v).mapReplies((m) => m.setShowReplies(v));
+    },
+    setShowReactions(v) {
+      return this.set("showReactions", v).mapReplies((m) =>
+        m.setShowReactions(v),
+      );
+    },
+    setShowAttachments(v) {
+      return this.set("showAttachments", v).mapReplies((m) =>
+        m.setShowAttachments(v),
+      );
+    },
   },
   view: html`<section class="flex flex-col gap-3">
     <div class="hover:bg-base-300 p-3 flex flex-col gap-3">
@@ -94,19 +208,19 @@ export const Message = component({
         ></a>
       </div>
       <x render=".body"></x>
-      <div class="flex flex-col gap-3" @hide=".attachmentsIsEmpty">
+      <div class="flex flex-col gap-3" @show=".areAttachmentsVisible">
         <x render-each=".attachments"></x>
       </div>
-      <div class="flex flex-col gap-3" @hide=".filesIsEmpty">
+      <div class="flex flex-col gap-3" @show=".areFilesVisible">
         <x render-each=".files"></x>
       </div>
-      <div class="flex gap-3" @hide=".reactionsIsEmpty">
+      <div class="flex gap-3" @show=".areReactionsVisible">
         <x render-each=".reactions"></x>
       </div>
     </div>
     <div
-      class="flex flex-col ml-3 pl-3 border-l border-l-gray-500"
-      @hide=".repliesIsEmpty"
+      class="flex flex-col m-3 pl-3 border-l border-l-gray-500"
+      @show=".areRepliesVisible"
     >
       <x render-each=".replies"></x>
     </div>
@@ -279,7 +393,7 @@ export const Image = component({
   methods: {
     formatUrl() {
       const { id, filetype } = this;
-      return `https://history.futureofcoding.org/history/msg_files/${id.slice(0, 3)}/${id}.${filetype}`;
+      return formatFileUrl(id, filetype);
     },
   },
   view: html`<a :href=".formatUrl" target="_blank"
@@ -296,7 +410,7 @@ export const Video = component({
   methods: {
     formatUrl() {
       const { id, filetype } = this;
-      return `https://history.futureofcoding.org/history/msg_files/${id.slice(0, 3)}/${id}.${filetype}`;
+      return formatFileUrl(id, filetype);
     },
   },
   view: html`<video
@@ -334,7 +448,7 @@ export const File = component({
         return Video.make({ id, filetype, text });
       }
       //const url = permalink_public ?? permalink;
-      const url = `https://history.futureofcoding.org/history/msg_files/${id.slice(0, 3)}/${id}.${filetype}`;
+      const url = formatFileUrl(id, filetype);
       const icon = this.mimetypeToIcon(mimetype);
       return this.make({ text, url, icon });
     },
@@ -551,6 +665,7 @@ export const Text = component({
 
 export function getComponents() {
   return [
+    ConversationsViewer,
     Message,
     Messages,
     User,
