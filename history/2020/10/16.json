@@ -1,0 +1,1207 @@
+[
+  {
+    "client_msg_id": "4F6C7E37-78A3-466C-A733-91D9AF19A1E7",
+    "type": "message",
+    "text": "Totally agree with the above point about difficulty navigating layout you don’t control with the keyboard. In general navigation seems to be the trickiest bit of making an application keyboard centric. On the keyboard the basic movement is really only (up, down, left, right) and if the layout makes it unclear where those directions will take you it’s hard to make it feel really good/be usable. Fixed layout ui’s can get away with some navigation that doesn’t make as much sense since the user can gain familiarity.\n\nFluid layouts like a flowchart editor inherently dont have natural up/down/left/right navigation that will be quick and intuitive. I think the interaction model of jumping around to the nodes and edges of the flowchart is just not well suited to the keyboard as an input device. \n\nFor flowcharts + keyboard maybe the right approach is going with the ‘grain’ of the keyboard and build a really good graphviz (or graphviz like language) editor with augmented text as the primary interaction mode. And then have mouse manipulation as a secondary interaction for smaller layout tweaks. That way you could assemble graphs as fast as you can type. Another route would be to build on a different input device better suited to the task of flowchart construction like ipad",
+    "user": "UBM0S2AN4",
+    "ts": "1602826560.240200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "51fa9d9a15c7",
+      "image_72": "https://avatars.slack-edge.com/2019-10-04/783621221861_51fa9d9a15c7c36a4a28_72.png",
+      "first_name": "",
+      "real_name": "Brian Zindler",
+      "display_name": "zindlurb",
+      "team": "T5TCAFTA9",
+      "name": "zindlerb",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UBM0S2AN4",
+      "ts": "1602826694.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lizg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Totally agree with the above point about difficulty navigating layout you don’t control with the keyboard. In general navigation seems to be the trickiest bit of making an application keyboard centric. On the keyboard the basic movement is really only (up, down, left, right) and if the layout makes it unclear where those directions will take you it’s hard to make it feel really good/be usable. Fixed layout ui’s can get away with some navigation that doesn’t make as much sense since the user can gain familiarity.\n\nFluid layouts like a flowchart editor inherently dont have natural up/down/left/right navigation that will be quick and intuitive. I think the interaction model of jumping around to the nodes and edges of the flowchart is just not well suited to the keyboard as an input device. \n\nFor flowcharts + keyboard maybe the right approach is going with the ‘grain’ of the keyboard and build a really good graphviz (or graphviz like language) editor with augmented text as the primary interaction mode. And then have mouse manipulation as a secondary interaction for smaller layout tweaks. That way you could assemble graphs as fast as you can type. Another route would be to build on a different input device better suited to the task of flowchart construction like ipad"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602079126.163600",
+    "parent_user_id": "U016LEA3J1H",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "701BDDE8-299C-4EDB-9C71-017AF0BBAE78",
+    "type": "message",
+    "text": "Also when speaking about it, often we do use intervals, not absolute names.\n\n“e.g. this chord has a root, fifth, flat 7th, and a ninth”",
+    "user": "UBRS4E6B1",
+    "ts": "1602828338.018900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g724bfb1976e",
+      "image_72": "https://secure.gravatar.com/avatar/1724bfb1976eda9d2b402502b0ae4c2d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "Arthur Carabott",
+      "display_name": "Arthur",
+      "team": "T5TCAFTA9",
+      "name": "arthur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6AgDU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also when speaking about it, often we do use intervals, not absolute names.\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "“e.g. this chord has a root, fifth, flat 7th, and a ninth”"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601575428.012600",
+    "parent_user_id": "UN9SCH5RD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UE0H4170F"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-music",
+    "channel_id": "CEZ6QTHL1"
+  },
+  {
+    "client_msg_id": "a4a921ee-41c8-4fb3-8c2a-7cf7657bda36",
+    "type": "message",
+    "text": "I'm in the middle of writing an assembler for uCISC in uCISC assembly (bootstrapping a language is fun). I'm happy with the progress I'm making, but a few things are standing out. 1) structuring the code is challenging since I don't yet have the higher level language paradigms (don't even have function syntax sugar at the level I'm at right now). 2) stack counting is tedious and I constantly get it wrong. I'm wondering if there are any resources, techniques or ideas on how to structure assembly code effectively. I feel like this may be a bit of a lost art.",
+    "user": "U015902ESJC",
+    "ts": "1602828387.247700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5446491963e3",
+      "image_72": "https://avatars.slack-edge.com/2020-05-30/1167794177073_5446491963e3446625b7_72.png",
+      "first_name": "Robert",
+      "real_name": "Robert Butler",
+      "display_name": "Robert Butler",
+      "team": "T5TCAFTA9",
+      "name": "robert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "o6aJp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm in the middle of writing an assembler for uCISC in uCISC assembly (bootstrapping a language is fun). I'm happy with the progress I'm making, but a few things are standing out. 1) structuring the code is challenging since I don't yet have the higher level language paradigms (don't even have function syntax sugar at the level I'm at right now). 2) stack counting is tedious and I constantly get it wrong. I'm wondering if there are any resources, techniques or ideas on how to structure assembly code effectively. I feel like this may be a bit of a lost art."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602828387.247700",
+    "reply_count": 7,
+    "reply_users_count": 4,
+    "latest_reply": "1602873028.260400",
+    "reply_users": [
+      "U015902ESJC",
+      "UCUSW7WVD",
+      "UUQ2EQW21",
+      "UJN1TAYEQ"
+    ],
+    "replies": [
+      {
+        "user": "U015902ESJC",
+        "ts": "1602828417.247800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1602832945.248100"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1602833461.248300"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1602866455.249200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1602867094.249400"
+      },
+      {
+        "user": "U015902ESJC",
+        "ts": "1602872638.256900"
+      },
+      {
+        "user": "U015902ESJC",
+        "ts": "1602873028.260400"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "533c0f6c-9d23-41d5-b5b5-70e2f5e78074",
+    "type": "message",
+    "text": "Taking it a step further, I also realize that large computer systems need large complex structures to manage them. I'm wondering if, at some level, the complex structures in our higher level languages are only needed because of the large systems they were designed to enable.",
+    "user": "U015902ESJC",
+    "ts": "1602828417.247800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5446491963e3",
+      "image_72": "https://avatars.slack-edge.com/2020-05-30/1167794177073_5446491963e3446625b7_72.png",
+      "first_name": "Robert",
+      "real_name": "Robert Butler",
+      "display_name": "Robert Butler",
+      "team": "T5TCAFTA9",
+      "name": "robert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U015902ESJC",
+      "ts": "1602828488.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=Dea",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Taking it a step further, I also realize that large computer systems need large complex structures to manage them. I'm wondering if, at some level, the complex structures in our higher level languages are only needed because of the large systems they were designed to enable."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602828387.247700",
+    "parent_user_id": "U015902ESJC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e888419a-2f72-4311-9ad5-6d4839cad972",
+    "type": "message",
+    "text": "I will present my work on Digital Scientific Notations tomorrow at <https://con.racket-lang.org/|RacketCon. >My 15-minute presentation is scheduled for 5pm UTC, with discussion following. No registration needed, just drop in! And check out the program for all the other interesting presentations.",
+    "user": "UJBAJNFLK",
+    "ts": "1602831828.091800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "o2L=U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I will present my work on Digital Scientific Notations tomorrow at "
+              },
+              {
+                "type": "link",
+                "url": "https://con.racket-lang.org/",
+                "text": "RacketCon. "
+              },
+              {
+                "type": "text",
+                "text": "My 15-minute presentation is scheduled for 5pm UTC, with discussion following. No registration needed, just drop in! And check out the program for all the other interesting presentations."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602831828.091800",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1603045783.093600",
+    "reply_users": [
+      "UJBAJNFLK",
+      "U013ZLJARC7"
+    ],
+    "replies": [
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1602832216.092000"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1602863642.092900"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1603045783.093600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UDKTZSD6H",
+          "UCUSW7WVD",
+          "UE1JQM9HQ",
+          "U019CPED6T1",
+          "U013ZLJARC7",
+          "U8A5MS6R1",
+          "UHWC9PXBL",
+          "UPX3PH28N",
+          "UMWF81HTP",
+          "UA14TGLTC"
+        ],
+        "count": 10
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "6b520021-417f-40bf-b88c-c21aa8187b15",
+    "type": "message",
+    "text": "My personal highlights (though I am not sure to be able attend all of them from my time zone at the Eastern extreme of Racket space):\n• Kathi Fisler on Data-Centric Computing\n• Sage Gerard on functional package management\n• Panicz Godek on non-textual representations of programs\n• Ben Greenman on shallow types\n",
+    "user": "UJBAJNFLK",
+    "ts": "1602832216.092000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "66=3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My personal highlights (though I am not sure to be able attend all of them from my time zone at the Eastern extreme of Racket space):\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Kathi Fisler on Data-Centric Computing"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Sage Gerard on functional package management"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Panicz Godek on non-textual representations of programs"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Ben Greenman on shallow types"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602831828.091800",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2ddbb268-39c5-4a77-b995-4bfdcfeef0e9",
+    "type": "message",
+    "text": "How many registers do you have at this point?\n\nWith 6 general-purpose registers (excluding stack management), I almost never had to use variables directly from the stack.",
+    "user": "UCUSW7WVD",
+    "ts": "1602832945.248100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8ChNN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How many registers do you have at this point?\n\nWith 6 general-purpose registers (excluding stack management), I almost never had to use variables directly from the stack."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602828387.247700",
+    "parent_user_id": "U015902ESJC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f23d1203-e872-4389-af5d-32a9a3e42520",
+    "type": "message",
+    "text": "A left-field suggestion: Human Resource Machine winds up broadening your Assembly language skills.  I found I learned a lot of things I'd forgotten; and it's fun to play :wink: <https://tomorrowcorporation.com/humanresourcemachine>\nRegarding your stack problem, I'm wondering if you could write some helper subroutines to manage the stack?  A call to store the contents of the A register on the stack, for example, and one to retrieve it.  You could store a stack count and inc/dec it.  At the least you could error when you pop too far off the stack, etc.",
+    "user": "UUQ2EQW21",
+    "ts": "1602833461.248300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2266cacc8f3",
+      "image_72": "https://secure.gravatar.com/avatar/2266cacc8f3c9964e7bfb1c357bf6873.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Chris",
+      "real_name": "Chris Maughan",
+      "display_name": "Chris Maughan",
+      "team": "T5TCAFTA9",
+      "name": "mornymorny",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UUQ2EQW21",
+      "ts": "1602833468.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Xn5h",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A left-field suggestion: Human Resource Machine winds up broadening your Assembly language skills.  I found I learned a lot of things I'd forgotten; and it's fun to play "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://tomorrowcorporation.com/humanresourcemachine"
+              },
+              {
+                "type": "text",
+                "text": "\nRegarding your stack problem, I'm wondering if you could write some helper subroutines to manage the stack?  A call to store the contents of the A register on the stack, for example, and one to retrieve it.  You could store a stack count and inc/dec it.  At the least you could error when you pop too far off the stack, etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602828387.247700",
+    "parent_user_id": "U015902ESJC",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UBSMEUXAA"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a06a81df-0ea2-48f1-a75f-0e6a37a828b8",
+    "type": "message",
+    "text": "strategy: be hated :smile:\n\n<https://twitter.com/amasad/status/1316786972833112064>",
+    "user": "UBN9AFS0N",
+    "ts": "1602845084.103900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/amasad|@amasad>: I've been involved in devtools focused on making software easier to build for more than a decade now, and the best early predictor of success is the emergence of a professional hater class. It threatens their position as experts in arcane complexities, so they fear and loathe it.",
+        "ts": 1602781453,
+        "author_name": "Amjad Masad",
+        "author_link": "https://twitter.com/amasad/status/1316786972833112064",
+        "author_icon": "https://pbs.twimg.com/profile_images/1292621994534477825/QAhPUcZb_normal.jpg",
+        "author_subname": "@amasad",
+        "text": "I've been involved in devtools focused on making software easier to build for more than a decade now, and the best early predictor of success is the emergence of a professional hater class. It threatens their position as experts in arcane complexities, so they fear and loathe it.",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/amasad/status/1316786972833112064",
+        "id": 1,
+        "original_url": "https://twitter.com/amasad/status/1316786972833112064",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7irY3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "strategy: be hated "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/amasad/status/1316786972833112064"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602845084.103900",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1602866272.105900",
+    "reply_users": [
+      "U01AD80KMLK",
+      "U016VUZGUUQ"
+    ],
+    "replies": [
+      {
+        "user": "U01AD80KMLK",
+        "ts": "1602865973.105700"
+      },
+      {
+        "user": "U016VUZGUUQ",
+        "ts": "1602866272.105900"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UKP3B2J5D",
+          "UAJKEBGP8",
+          "U019CPED6T1",
+          "U013ZLJARC7",
+          "U8A5MS6R1",
+          "U016VUZGUUQ",
+          "UML4ZEKDK"
+        ],
+        "count": 7
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "type": "message",
+    "text": "Not sure if I (or some else has shared this before \n\n<https://hardwarelottery.github.io/?utm_medium=email&utm_source=topic+optin&utm_campaign=awareness&utm_content=20201012+data+ai+nl&mkt_tok=eyJpIjoiTlRJNVpESTJPVFZtTm1NeSIsInQiOiJBaFVYU3Q5cE1lbkt5WjRSbXJKTXRmYmdPUFFISXZBSzl4ZXlBQlFuUXBveUpsbEZVaFR6QmpFSkN2V1RxTG5lZTFtTHZkTytHRHRUdXVGMXBDc2p3ekg1aDZETEtyWEx4dTRRQ1hRa0NoNTdLSEp5aXN5S0JKSkVZcDFFOHZLWSJ9|https://hardwarelottery.github.io/?utm_medium=email&utm_source=topic+optin&utm_campaign=awareness&utm_content=20201012+data+ai+nl&mkt_tok=eyJpIjoiTlRJNVpESTJPVFZtTm1NeSIsInQiOiJBaFVYU3Q5cE1lbkt5WjRSbXJKTXRmYmdPUFFISXZBSzl4ZXlBQlFuUXBveUpsbEZVaFR6QmpFSkN2V1RxTG5lZTFtTHZkTytHRHRUdXVGMXBDc2p3ekg1aDZETEtyWEx4dTRRQ1hRa0NoNTdLSEp5aXN5S0JKSkVZcDFFOHZLWSJ9>\n",
+    "files": [
+      {
+        "id": "F01CAQKDJBH",
+        "created": 1602854924,
+        "timestamp": 1602854924,
+        "name": "Image from iOS.png",
+        "title": "Image from iOS",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UKP3B2J5D",
+        "editable": false,
+        "size": 424243,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01CAQKDJBH/image_from_ios.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01CAQKDJBH/download/image_from_ios.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 166,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 222,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 333,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 1731,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 444,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F01CAQKDJBH-5d76f08766/image_from_ios_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 473,
+        "thumb_1024_h": 1024,
+        "image_exif_rotation": 1,
+        "original_w": 828,
+        "original_h": 1792,
+        "thumb_tiny": "AwAwABbQ+bPAFL8/oKhop2ETAHOeKXn2psf3afSGV6KKM/SqESx/dp9Mi+7T6kZXwfSl2N6GpcY703I7MPzp3EOjGF5p1IOKXNIZ/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UKP3B2J5D/F01CAQKDJBH/image_from_ios.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01CAQKDJBH-4687e7e527",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": true,
+    "user": "UKP3B2J5D",
+    "display_as_bot": false,
+    "ts": "1602854927.104900",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "crf5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Not sure if I (or some else has shared this before \n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "link",
+                "url": "https://hardwarelottery.github.io/?utm_medium=email&utm_source=topic+optin&utm_campaign=awareness&utm_content=20201012+data+ai+nl&mkt_tok=eyJpIjoiTlRJNVpESTJPVFZtTm1NeSIsInQiOiJBaFVYU3Q5cE1lbkt5WjRSbXJKTXRmYmdPUFFISXZBSzl4ZXlBQlFuUXBveUpsbEZVaFR6QmpFSkN2V1RxTG5lZTFtTHZkTytHRHRUdXVGMXBDc2p3ekg1aDZETEtyWEx4dTRRQ1hRa0NoNTdLSEp5aXN5S0JKSkVZcDFFOHZLWSJ9",
+                "text": "https://hardwarelottery.github.io/?utm_medium=email&utm_source=topic+optin&utm_campaign=awareness&utm_content=20201012+data+ai+nl&mkt_tok=eyJpIjoiTlRJNVpESTJPVFZtTm1NeSIsInQiOiJBaFVYU3Q5cE1lbkt5WjRSbXJKTXRmYmdPUFFISXZBSzl4ZXlBQlFuUXBveUpsbEZVaFR6QmpFSkN2V1RxTG5lZTFtTHZkTytHRHRUdXVGMXBDc2p3ekg1aDZETEtyWEx4dTRRQ1hRa0NoNTdLSEp5aXN5S0JKSkVZcDFFOHZLWSJ9"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "63C2EA4C-BFA3-45B5-91E2-E29460B41395",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "eae8f952-fead-4ffc-8a92-50b83cfbcb06",
+    "type": "message",
+    "text": "I look forward to watching the videos asynchronously :slightly_smiling_face:",
+    "user": "U013ZLJARC7",
+    "ts": "1602863642.092900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3+LFt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I look forward to watching the videos asynchronously "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602831828.091800",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "072b5b14-80be-4e5d-8944-0a1cb7450065",
+    "type": "message",
+    "text": "dangerous strategy",
+    "user": "U01AD80KMLK",
+    "ts": "1602865973.105700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a07cdcb6d037",
+      "image_72": "https://avatars.slack-edge.com/2020-09-09/1376906509376_a07cdcb6d037bf7b6a5e_72.jpg",
+      "first_name": "",
+      "real_name": "Denny Vrandečić",
+      "display_name": "Denny Vrandečić",
+      "team": "T5TCAFTA9",
+      "name": "dvrandecic",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Nrrvb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "dangerous strategy"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602845084.103900",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "627b4a59-a222-471b-bfe6-7d2eaa87dd61",
+    "type": "message",
+    "text": "Yeah, it seems like the kind of measure you really don't want to make into a target. :)",
+    "user": "U016VUZGUUQ",
+    "ts": "1602866272.105900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yXwT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, it seems like the kind of measure you really don't want to make into a target. :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602845084.103900",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "48a4ac2e-f4f3-4793-80a8-1fc1bbf00545",
+    "type": "message",
+    "text": "Back in the old days, assembly languages were intended for use by human programmers, and they were more sophisticated than those of today, which are really only intended for compiler code generation. Macro assemblers allowed you to write and use macros such as IF, SWITCH, FOR, WHILE, PROC, CALL. Expression-oriented assemblers allowed you to write more than one arithmetic opcode on the same line, using a syntax similar to arithmetic expressions. Try googling \"macro assembler\" or \"high level assembler\". Consider adding macros or high level features to the uCISC assembler.",
+    "user": "UJN1TAYEQ",
+    "ts": "1602866455.249200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4frf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Back in the old days, assembly languages were intended for use by human programmers, and they were more sophisticated than those of today, which are really only intended for compiler code generation. Macro assemblers allowed you to write and use macros such as IF, SWITCH, FOR, WHILE, PROC, CALL. Expression-oriented assemblers allowed you to write more than one arithmetic opcode on the same line, using a syntax similar to arithmetic expressions. Try googling \"macro assembler\" or \"high level assembler\". Consider adding macros or high level features to the uCISC assembler."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602828387.247700",
+    "parent_user_id": "U015902ESJC",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ab565ad5-d363-4c61-9c3e-bc4ac1c98d3f",
+    "type": "message",
+    "text": "I've been starting to feel the need for macros in Mu, just because of the constraint that addresses can't escape functions.",
+    "user": "UCUSW7WVD",
+    "ts": "1602867094.249400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DL8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been starting to feel the need for macros in Mu, just because of the constraint that addresses can't escape functions."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602828387.247700",
+    "parent_user_id": "U015902ESJC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4213f46b-eaee-4f66-ac63-4a74181689b9",
+    "type": "message",
+    "text": "Hello! My name is James and I'm excited to be joining this community. I first got interested in these topics after seeing some talks by folks like Andy Matuschak and Bret Victor. Those inspired lots of reading and learning and I'm looking forward to continuing that learning. I currently work on cloud infrastructure at Stripe in San Francisco.\n\nYou can find me<https://twitter.com/jamesontheline| here on Twitter>, and <https://jamesbvaughan.com/|a bunch more places linked from my website>.",
+    "user": "U01CS7JM7K4",
+    "ts": "1602869679.084800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5a756c630a89",
+      "image_72": "https://avatars.slack-edge.com/2020-10-16/1446902733089_5a756c630a8973a0de67_72.jpg",
+      "first_name": "James",
+      "real_name": "James Vaughan",
+      "display_name": "James Vaughan",
+      "team": "T5TCAFTA9",
+      "name": "james",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01CS7JM7K4",
+      "ts": "1602869765.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fk+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello! My name is James and I'm excited to be joining this community. I first got interested in these topics after seeing some talks by folks like Andy Matuschak and Bret Victor. Those inspired lots of reading and learning and I'm looking forward to continuing that learning. I currently work on cloud infrastructure at Stripe in San Francisco.\n\nYou can find me"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/jamesontheline",
+                "text": " here on Twitter"
+              },
+              {
+                "type": "text",
+                "text": ", and "
+              },
+              {
+                "type": "link",
+                "url": "https://jamesbvaughan.com/",
+                "text": "a bunch more places linked from my website"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "wave",
+        "users": [
+          "UKP3B2J5D",
+          "UDQBTJ211",
+          "U0123H7JRDM",
+          "UG0EL18H3",
+          "UHWC9PXBL",
+          "UC2A2ARPT",
+          "U015902ESJC",
+          "U019CPED6T1",
+          "U013ZLJARC7",
+          "UJ6LDMMN0",
+          "U01CQ2GHHJM",
+          "UA14TGLTC",
+          "UC21F8Q48",
+          "USH01JEDQ",
+          "UFPRPSA4S",
+          "UUQ2EQW21"
+        ],
+        "count": 16
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "0A710165-9E99-4E7E-A58C-BE2E82CB76C6",
+    "type": "message",
+    "text": "<@UCUSW7WVD> I technically have 6 general purpose registers, but 3 are used for device access by convention. My guess is that I will end up being able to use 4 GP registers, one of which is the SP so an effective 3. One of the places I’m finding challenging is the function call boundaries. I recently ended up with a method that eats 1 position off the stack somewhere, but the function works perfectly if you don’t count the side effects. Then again, maybe I’m just doing it wrong :thinking_face:.",
+    "user": "U015902ESJC",
+    "ts": "1602872638.256900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5446491963e3",
+      "image_72": "https://avatars.slack-edge.com/2020-05-30/1167794177073_5446491963e3446625b7_72.png",
+      "first_name": "Robert",
+      "real_name": "Robert Butler",
+      "display_name": "Robert Butler",
+      "team": "T5TCAFTA9",
+      "name": "robert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yOFg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " I technically have 6 general purpose registers, but 3 are used for device access by convention. My guess is that I will end up being able to use 4 GP registers, one of which is the SP so an effective 3. One of the places I’m finding challenging is the function call boundaries. I recently ended up with a method that eats 1 position off the stack somewhere, but the function works perfectly if you don’t count the side effects. Then again, maybe I’m just doing it wrong "
+              },
+              {
+                "type": "emoji",
+                "name": "thinking_face"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602828387.247700",
+    "parent_user_id": "U015902ESJC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "A3861AD3-946D-44D0-A096-D271FE12F31F",
+    "type": "message",
+    "text": "<@UUQ2EQW21> <@UJN1TAYEQ> sounds like I just need to do the work for some macro basics. The lack of CALL macros in particular is tedious because there are a couple of boiler plate instructions needed to call a function and if I forget one, I just messed up my stack. Thanks for the tips. I’ll check out the game for fun and profit and google macro assembler.",
+    "user": "U015902ESJC",
+    "ts": "1602873028.260400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5446491963e3",
+      "image_72": "https://avatars.slack-edge.com/2020-05-30/1167794177073_5446491963e3446625b7_72.png",
+      "first_name": "Robert",
+      "real_name": "Robert Butler",
+      "display_name": "Robert Butler",
+      "team": "T5TCAFTA9",
+      "name": "robert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "U0sxe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UUQ2EQW21"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " sounds like I just need to do the work for some macro basics. The lack of CALL macros in particular is tedious because there are a couple of boiler plate instructions needed to call a function and if I forget one, I just messed up my stack. Thanks for the tips. I’ll check out the game for fun and profit and google macro assembler."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602828387.247700",
+    "parent_user_id": "U015902ESJC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5dd40bdf-228b-48cb-92a6-dca90afbae32",
+    "type": "message",
+    "text": "Java. But don't judge me. i'm trying to wean myself off. :slightly_smiling_face:",
+    "user": "U01A1C2K8MP",
+    "ts": "1602883060.106300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd4b24603815",
+      "image_72": "https://secure.gravatar.com/avatar/d4b246038154d7cc2363256bd25a4fe0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "",
+      "real_name": "larry",
+      "display_name": "larry",
+      "team": "T5TCAFTA9",
+      "name": "ljw1001",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0b6HY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Java. But don't judge me. i'm trying to wean myself off. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1602563761.094900",
+    "parent_user_id": "UHWC9PXBL",
+    "reactions": [
+      {
+        "name": "muscle",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

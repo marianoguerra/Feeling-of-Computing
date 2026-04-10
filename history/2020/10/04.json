@@ -1,0 +1,1880 @@
+[
+  {
+    "client_msg_id": "73064b24-ab4f-4f82-955f-b67790c8b815",
+    "type": "message",
+    "text": "As someone who is indeed interested, and who doesn't visit Slack very much, the tagging is totally appreciated!\n\nLooking forward to watching.",
+    "user": "UBKNXPBAB",
+    "ts": "1601781318.048600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48812709bdc",
+      "image_72": "https://secure.gravatar.com/avatar/d48812709bdc0ff86746b7fbe56b0f13.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Joshua Horowitz",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "joshuah",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UBKNXPBAB",
+      "ts": "1601781445.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Yla",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As someone who is indeed interested, and who doesn't visit Slack very much, the tagging is totally appreciated!\n\nLooking forward to watching."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "reactions": [
+      {
+        "name": "grin",
+        "users": [
+          "U017GNJM021",
+          "U014WA16VNJ"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "519cca4c-240f-4864-863f-177122edfa63",
+    "type": "message",
+    "text": "The way I understand it, in order to represent an NxM matrix (of numbers) in a relational language, I would need to create NxM 4-tuples. Each 4-tuple would contain a globally unique ID representing that particular matrix, a row coordinate, a column coordinate, and a number. That's 4x the memory requirement of the usual matrix representation (where the numbers would be stored in contiguous memory). Matrix multiplication would be very slow. With a normal matrix data structure, you can retrieve a row from a 4x4 matrix by loading a single cache line, but to retrieve the 4 numbers in a row from the tuple store would require significant computation and memory bandwidth. This problem becomes much worse for image manipulation, where each pixel in a photograph is represented by a 6-tuple {guid, x, y, r, g, b}. The naive representation that I'm describing would be too slow and memory inefficient to be practical. So my impression has been that pure relational languages must be a lot less general purpose than conventional languages, which can support efficient multi-dimensional arrays quite easily. To fix the problem, it appears that you would need to extend a relational language with support for data structures.",
+    "user": "UJN1TAYEQ",
+    "ts": "1601789433.031100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NfxXu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The way I understand it, in order to represent an NxM matrix (of numbers) in a relational language, I would need to create NxM 4-tuples. Each 4-tuple would contain a globally unique ID representing that particular matrix, a row coordinate, a column coordinate, and a number. That's 4x the memory requirement of the usual matrix representation (where the numbers would be stored in contiguous memory). Matrix multiplication would be very slow. With a normal matrix data structure, you can retrieve a row from a 4x4 matrix by loading a single cache line, but to retrieve the 4 numbers in a row from the tuple store would require significant computation and memory bandwidth. This problem becomes much worse for image manipulation, where each pixel in a photograph is represented by a 6-tuple {guid, x, y, r, g, b}. The naive representation that I'm describing would be too slow and memory inefficient to be practical. So my impression has been that pure relational languages must be a lot less general purpose than conventional languages, which can support efficient multi-dimensional arrays quite easily. To fix the problem, it appears that you would need to extend a relational language with support for data structures."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600422302.011400",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "700bf3f7-80b4-4c9b-a5d7-646a28f6fecc",
+    "type": "message",
+    "text": "There's nothing about relational programming that demands a particular machine representation of information. In my explorations, I find it helpful to completely separate language features from possible machine representations.\n\nSo there are two questions here:\n1. What could the programming interface for matrices look like in my language? What language constructs could be used to define them?\n2. How are these particular language constructs compiled to machine code?\nI'm actually still working out the semantics of sequential and grid-like data, so I don't have a good answer yet. However, I aim for the language constructs to ultimately compile to the same machine code that conventional languages compile to.",
+    "user": "UCGAK10LS",
+    "ts": "1601790079.031300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1601790106.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uHlMN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's nothing about relational programming that demands a particular machine representation of information. In my explorations, I find it helpful to completely separate language features from possible machine representations.\n\nSo there are two questions here:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "What could the programming interface for matrices look like in my language? What language constructs could be used to define them?"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "How are these particular language constructs compiled to machine code?"
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI'm actually still working out the semantics of sequential and grid-like data, so I don't have a good answer yet. However, I aim for the language constructs to ultimately compile to the same machine code that conventional languages compile to."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600422302.011400",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UJN1TAYEQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "c1baaa3b-4d50-4dec-977e-708ef32db034",
+    "type": "message",
+    "text": "*Detective story of the day*\n\nI implemented support for floating-point in Mu last week. Since then, I've been stress-testing it using this ray-tracing tutorial (hat tip <@UUQ2EQW21>): <https://raytracing.github.io/books/RayTracingInOneWeekend.html>. It's been great; I've found 2 bugs so far.\n\nToday I thought I'd found a third, in the floating-point reciprocal instruction. Except it wasn't really. Here's the story: <https://github.com/akkartik/mu/blob/main/x86_approx.md>\n\nComments most appreciated. I'm particularly interested to hear if any points in the story seemed to skip a few steps.",
+    "user": "UCUSW7WVD",
+    "ts": "1601792960.051400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "akkartik/mu",
+        "title_link": "https://github.com/akkartik/mu/blob/main/x86_approx.md",
+        "text": "Soul of a tiny new machine. More thorough tests → More comprehensible and rewrite-friendly software → More resilient society. - akkartik/mu",
+        "fallback": "GitHub: akkartik/mu",
+        "thumb_url": "https://avatars3.githubusercontent.com/u/3161?s=400&v=4",
+        "from_url": "https://github.com/akkartik/mu/blob/main/x86_approx.md",
+        "thumb_width": 400,
+        "thumb_height": 400,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/akkartik/mu/blob/main/x86_approx.md"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FUMdi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Detective story of the day",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\nI implemented support for floating-point in Mu last week. Since then, I've been stress-testing it using this ray-tracing tutorial (hat tip "
+              },
+              {
+                "type": "user",
+                "user_id": "UUQ2EQW21"
+              },
+              {
+                "type": "text",
+                "text": "): "
+              },
+              {
+                "type": "link",
+                "url": "https://raytracing.github.io/books/RayTracingInOneWeekend.html"
+              },
+              {
+                "type": "text",
+                "text": ". It's been great; I've found 2 bugs so far.\n\nToday I thought I'd found a third, in the floating-point reciprocal instruction. Except it wasn't really. Here's the story: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/akkartik/mu/blob/main/x86_approx.md"
+              },
+              {
+                "type": "text",
+                "text": "\n\nComments most appreciated. I'm particularly interested to hear if any points in the story seemed to skip a few steps."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601792960.051400",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1601795100.051600",
+    "reply_users": [
+      "U016VUZGUUQ"
+    ],
+    "replies": [
+      {
+        "user": "U016VUZGUUQ",
+        "ts": "1601795100.051600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U016VUZGUUQ",
+          "UUQ2EQW21",
+          "UDQBTJ211",
+          "U01661S9F34"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "c3d79771-e7ba-4e9a-8f61-b64e39582f92",
+    "type": "message",
+    "text": "I think it would help if you said which of the two bit patterns you expected, and made explicit which one was emulated (I'm assuming the `bootstrap run` one?). Fun story for sure.",
+    "user": "U016VUZGUUQ",
+    "ts": "1601795100.051600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LcrFV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think it would help if you said which of the two bit patterns you expected, and made explicit which one was emulated (I'm assuming the `bootstrap run` one?). Fun story for sure."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601792960.051400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "7e2f9b4b-357f-48c3-978f-001b03e5ecd3",
+    "type": "message",
+    "text": "Hi Hamish, just FYI, I often upload my videos as unlisted to YouTube, and they are 4K.  There are only 2 issues I've seen; firstly that it takes a lot longer for them to 'prepare' the HD version, and you get low res until it is processed.  Secondly, the first few seconds of viewing are blurred.  As far as I can tell this is just normal behavior.  Thinking about it, I wonder if this is due to me being a premium subscriber (I haven't looked back since turning that on and turning adverts off :wink:",
+    "user": "UUQ2EQW21",
+    "ts": "1601796474.051900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2266cacc8f3",
+      "image_72": "https://secure.gravatar.com/avatar/2266cacc8f3c9964e7bfb1c357bf6873.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Chris",
+      "real_name": "Chris Maughan",
+      "display_name": "Chris Maughan",
+      "team": "T5TCAFTA9",
+      "name": "mornymorny",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UUQ2EQW21",
+      "ts": "1601796528.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kssb=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi Hamish, just FYI, I often upload my videos as unlisted to YouTube, and they are 4K.  There are only 2 issues I've seen; firstly that it takes a lot longer for them to 'prepare' the HD version, and you get low res until it is processed.  Secondly, the first few seconds of viewing are blurred.  As far as I can tell this is just normal behavior.  Thinking about it, I wonder if this is due to me being a premium subscriber (I haven't looked back since turning that on and turning adverts off "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "285739b4-7b66-4da9-bcae-c1503ab42c4b",
+    "type": "message",
+    "text": "<https://tunepad.live/app/dropbook/46|This thing> looks really polished and somewhat opposite of what most projects in FOC are trying to accomplish, I think. It looks like a fancy \"printf\" for debugging music scripts... :slightly_smiling_face:",
+    "user": "UN9SCH5RD",
+    "ts": "1601797155.015300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UN9SCH5RD",
+      "ts": "1601984224.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ITQ1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://tunepad.live/app/dropbook/46",
+                "text": "This thing"
+              },
+              {
+                "type": "text",
+                "text": " looks really polished and somewhat opposite of what most projects in FOC are trying to accomplish, I think. It looks like a fancy \"printf\" for debugging music scripts... "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-music",
+    "channel_id": "CEZ6QTHL1"
+  },
+  {
+    "client_msg_id": "9ac5d7ca-24b2-4934-98ed-641fac87f311",
+    "type": "message",
+    "text": "direct opposite: no direct manipulation (ex: is not possible to edit a sequencer pattern directly, only through code)",
+    "user": "UN9SCH5RD",
+    "ts": "1601797200.016100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LKV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "direct opposite: no direct manipulation (ex: is not possible to edit a sequencer pattern directly, only through code)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-music",
+    "channel_id": "CEZ6QTHL1"
+  },
+  {
+    "client_msg_id": "b6ef676a-d280-405b-9ea4-a0a942e652b5",
+    "type": "message",
+    "text": "<@UN9SCH5RD> While I agree with you about the stickiness of the status quo in pretty much anything, what I was getting at is that you can just use relative pitch and then map it onto a base in most of these systems :slightly_smiling_face:",
+    "user": "U013ZLJARC7",
+    "ts": "1601799636.016200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "z6Zx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UN9SCH5RD"
+              },
+              {
+                "type": "text",
+                "text": " While I agree with you about the stickiness of the status quo in pretty much anything, what I was getting at is that you can just use relative pitch and then map it onto a base in most of these systems "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601575428.012600",
+    "parent_user_id": "UN9SCH5RD",
+    "channel_name": "of-music",
+    "channel_id": "CEZ6QTHL1"
+  },
+  {
+    "client_msg_id": "f012b982-45d9-4f1e-9f1c-641f8d27c2c7",
+    "type": "message",
+    "text": "Great! I like the way you have and use the UI elements in the \"flow\" editor and can manipulate them on the view. It reminds me PureData and Max/MSP where you also have a flow editor and a view.",
+    "user": "UJ6LDMMN0",
+    "ts": "1601804443.023700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+aWZg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Great! I like the way you have and use the UI elements in the \"flow\" editor and can manipulate them on the view. It reminds me PureData and Max/MSP where you also have a flow editor and a view."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601734883.023300",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "3F2B681A-0A4E-42A9-827D-F50859592FF3",
+    "type": "message",
+    "text": "i’m gathering printer paper for the thesis. will definitely share",
+    "user": "UHWC9PXBL",
+    "ts": "1601812125.062000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Rx90",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i’m gathering printer paper for the thesis. will definitely share"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601552769.047700",
+    "parent_user_id": "UHWC9PXBL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "A8C4D00C-6289-4A06-93E7-66267D8C7B37",
+    "type": "message",
+    "text": "i really like how you’re treating interaction and feedback in this prototype! here’s a link on colorblind palettes: <https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40|https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40>",
+    "user": "UHWC9PXBL",
+    "ts": "1601812824.053600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Coloring for Colorblindness",
+        "title_link": "https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40",
+        "text": "This interactive visual tool lets you see how accessible your color palettes are to viewers who are colorblind.",
+        "fallback": "Coloring for Colorblindness",
+        "image_url": "http://www.davidmathlogic.com/static/og.png",
+        "from_url": "https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40",
+        "image_width": 252,
+        "image_height": 250,
+        "image_bytes": 33745,
+        "service_name": "davidmathlogic.com",
+        "id": 1,
+        "original_url": "https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=KUDI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i really like how you’re treating interaction and feedback in this prototype! here’s a link on colorblind palettes: "
+              },
+              {
+                "type": "link",
+                "url": "https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40",
+                "text": "https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U017GNJM021",
+          "UDKTZSD6H"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "798df9df-5d71-40bc-ab9a-566a0f79c41c",
+    "type": "message",
+    "text": "The blurry image at the start could be because you've set it to auto on the resolution, so it's optimising for the discovered connection speed. Could try setting to the top resolution before playing?",
+    "user": "UE6EFEPTQ",
+    "ts": "1601818793.053900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ho9Ec",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The blurry image at the start could be because you've set it to auto on the resolution, so it's optimising for the discovered connection speed. Could try setting to the top resolution before playing?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2b16f436-b22b-4253-b437-6008cd7a0fd6",
+    "type": "message",
+    "text": "Hi Duncan, yes, i think that works, but it puts the onus on the viewer.  I can't find a setting to select the default playback res.",
+    "user": "UUQ2EQW21",
+    "ts": "1601824116.059700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2266cacc8f3",
+      "image_72": "https://secure.gravatar.com/avatar/2266cacc8f3c9964e7bfb1c357bf6873.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Chris",
+      "real_name": "Chris Maughan",
+      "display_name": "Chris Maughan",
+      "team": "T5TCAFTA9",
+      "name": "mornymorny",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "w85",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi Duncan, yes, i think that works, but it puts the onus on the viewer.  I can't find a setting to select the default playback res."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "16190A23-F040-4897-B933-F5A8207260C1",
+    "type": "message",
+    "text": "There isn't one.",
+    "user": "UC2A2ARPT",
+    "ts": "1601828278.060200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TjNFt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There isn't one."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "88f9030f-b87d-4778-8fae-3dd6233d9553",
+    "type": "message",
+    "text": "Well the \"default\" is to try and get the resolution you uploaded I presume",
+    "user": "UE6EFEPTQ",
+    "ts": "1601831216.060400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9P3PQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Well the \"default\" is to try and get the resolution you uploaded I presume"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "972CE46E-0587-4596-849F-65DA589529CA",
+    "type": "message",
+    "text": "Hmm, I’m not sure I totally understand your crisis of faith, but I have thoughts. Making a visual system as powerful as possible is a hard problem. To me is sounds like you are trying to make this an entirely visual interface without any symbolic formalism behind it? That would be crazy to pull off! I think it’s possible to include symbols, but to minimize their use as much as possible and get something both visual and powerful from it. \n",
+    "user": "UFPRPSA4S",
+    "ts": "1601834411.073700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5f4ac5375e5",
+      "image_72": "https://secure.gravatar.com/avatar/f5f4ac5375e539e50ceedb08f65e9dd3.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "Robin Allison",
+      "display_name": "Robin",
+      "team": "T5TCAFTA9",
+      "name": "robinps2",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/HUD3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hmm, I’m not sure I totally understand your crisis of faith, but I have thoughts. Making a visual system as powerful as possible is a hard problem. To me is sounds like you are trying to make this an entirely visual interface without any symbolic formalism behind it? That would be crazy to pull off! I think it’s possible to include symbols, but to minimize their use as much as possible and get something both visual and powerful from it. \n"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "66bf3188-b9aa-42aa-9150-392f93c744ba",
+    "type": "message",
+    "text": "I'm experiencing a minor burnout at work, so I've decided to work less and spend more time on my side projects, hang out with people, and do more fun in general.\n\nMy question: what motivates, excites, and inspires you? (thoughts, personal stories, or specific links are much appreciated)",
+    "user": "UPX3PH28N",
+    "ts": "1601838627.149500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g58ad4af42f7",
+      "image_72": "https://secure.gravatar.com/avatar/58ad4af42f7cff8698951a7befb26f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Alexey Shmalko",
+      "display_name": "Alexey Shmalko",
+      "team": "T5TCAFTA9",
+      "name": "rasen.dubi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qaF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm experiencing a minor burnout at work, so I've decided to work less and spend more time on my side projects, hang out with people, and do more fun in general.\n\nMy question: what motivates, excites, and inspires you? (thoughts, personal stories, or specific links are much appreciated)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601838627.149500",
+    "reply_count": 8,
+    "reply_users_count": 5,
+    "latest_reply": "1601926994.157400",
+    "reply_users": [
+      "UCGAK10LS",
+      "UG0EL18H3",
+      "UJ6LDMMN0",
+      "UDQBTJ211",
+      "UPZLYD3GB"
+    ],
+    "replies": [
+      {
+        "user": "UCGAK10LS",
+        "ts": "1601849800.152800"
+      },
+      {
+        "user": "UG0EL18H3",
+        "ts": "1601853067.153100"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1601882123.154300"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1601882676.154600"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1601882930.154800"
+      },
+      {
+        "user": "UDQBTJ211",
+        "ts": "1601884252.155200"
+      },
+      {
+        "user": "UDQBTJ211",
+        "ts": "1601884382.155600"
+      },
+      {
+        "user": "UPZLYD3GB",
+        "ts": "1601926994.157400"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "tada",
+        "users": [
+          "UUB7RA7PF",
+          "UHWC9PXBL",
+          "U013ZLJARC7",
+          "U015V233CFL",
+          "UA14TGLTC",
+          "UKP3B2J5D"
+        ],
+        "count": 6
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UC2A2ARPT",
+          "UDQKHNP51",
+          "UPZLYD3GB",
+          "UML4ZEKDK",
+          "U019PRL1BNU"
+        ],
+        "count": 5
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "U01CZLMNENL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "de8ce5d5-b504-499d-9335-8f9072c9b3af",
+    "type": "message",
+    "text": "This is amazing stuff! I love the way in which the changes are propagated throughout the system and there are snapshots of each result on the border. One thing I wanted to ask was whether you have considered making the operations as a first class item in the language, that is, sometime when you are in a remix mode, you might want to move/swap around the operators themselves between the operands of another combination that will yield an unforeseen happenstance combination. I think such a structuring of the system could potentially lead to opening up the space for more creative operations.\n\nI really love the direction and would love to see how this evolves. Great job!",
+    "user": "UDKTZSD6H",
+    "ts": "1601842615.074200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1601843237.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fZ66m",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is amazing stuff! I love the way in which the changes are propagated throughout the system and there are snapshots of each result on the border. One thing I wanted to ask was whether you have considered making the operations as a first class item in the language, that is, sometime when you are in a remix mode, you might want to move/swap around the operators themselves between the operands of another combination that will yield an unforeseen happenstance combination. I think such a structuring of the system could potentially lead to opening up the space for more creative operations.\n\nI really love the direction and would love to see how this evolves. Great job!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U017GNJM021"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "999aa41b-7fc7-4368-863e-16a2437ec8f7",
+    "type": "message",
+    "text": "Another idea is to have operations to swap around the operands themselves, so like in the cases where commutativity doesn’t hold, you can swap a • b to b • a.\n\nAlso, how about decomposition a la projection, that is, you can decompose a bivector into two vectors? (I guess some of these operations would be surjective and you might need to present the user with an option panel on how to decompose).\n\nI think there are so many possibilities in here to experiment and I’m sure you might have thought about the possibilities through in here better than me. So I think it might also hepl having a focus on a core subset that fulfills the need of content creators who want to build pretty 3D visualization would be a great niche to try this out with. Have you started looking for such an audience for this yet?",
+    "user": "UDKTZSD6H",
+    "ts": "1601843119.074600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1601843287.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "adr1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Another idea is to have operations to swap around the operands themselves, so like in the cases where commutativity doesn’t hold, you can swap a • b to b • a.\n\nAlso, how about decomposition a la projection, that is, you can decompose a bivector into two vectors? (I guess some of these operations would be surjective and you might need to present the user with an option panel on how to decompose).\n\nI think there are so many possibilities in here to experiment and I’m sure you might have thought about the possibilities through in here better than me. So I think it might also hepl having a focus on a core subset that fulfills the need of content creators who want to build pretty 3D visualization would be a great niche to try this out with. Have you started looking for such an audience for this yet?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "825600ab-2e00-4ad7-9ef7-3783a01282ad",
+    "type": "message",
+    "text": "<@UFPRPSA4S> I'm quite \"immoderate\", certainly for now :smile: symbolism is a \"last resort\". Algebra had its \"never use visualization\" zealots: Bourbaki, Djikstra, Legrange, it seems only fair to have a \"never use visualization\" zealot.\nYou can hear more about my (possibly dumb) reasons for this here <https://www.youtube.com/watch?v=xrDZ--AuiL8> and, in case you've not seen it, in the <https://www.youtube.com/watch?v=hR-MQm3c13Q|presentation on this project>, especially the parts about live coding and programming by diagram.\nIn the back of my mind, I have a simulation of all of the many smart people who have, over the years, told me \"visualization is good but it has limits\". I've already made what feel like concessions :sweat_smile: and my simulation (and the real people...) will say \"I told you so\" at some point.\nI should stop now but I've got some notes on this for a talk at some point.",
+    "user": "U017GNJM021",
+    "ts": "1601844360.075200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gada15ee32be",
+      "image_72": "https://secure.gravatar.com/avatar/ada15ee32bea73f6cfe00c7e36819a68.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png",
+      "first_name": "",
+      "real_name": "hamish todd",
+      "display_name": "hamish todd",
+      "team": "T5TCAFTA9",
+      "name": "hamish.todd1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U017GNJM021",
+      "ts": "1601844370.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KKUBV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UFPRPSA4S"
+              },
+              {
+                "type": "text",
+                "text": " I'm quite \"immoderate\", certainly for now "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": " symbolism is a \"last resort\". Algebra had its \"never use visualization\" zealots: Bourbaki, Djikstra, Legrange, it seems only fair to have a \"never use visualization\" zealot.\nYou can hear more about my (possibly dumb) reasons for this here "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=xrDZ--AuiL8"
+              },
+              {
+                "type": "text",
+                "text": " and, in case you've not seen it, in the "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=hR-MQm3c13Q",
+                "text": "presentation on this project"
+              },
+              {
+                "type": "text",
+                "text": ", especially the parts about live coding and programming by diagram.\nIn the back of my mind, I have a simulation of all of the many smart people who have, over the years, told me \"visualization is good but it has limits\". I've already made what feel like concessions "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              },
+              {
+                "type": "text",
+                "text": " and my simulation (and the real people...) will say \"I told you so\" at some point.\nI should stop now but I've got some notes on this for a talk at some point."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "079d7ffc-7be5-446a-aaa1-7cd95a35cb56",
+    "type": "message",
+    "text": "<@UDKTZSD6H> I'm not sure I understand what you mean by \"remix mode\" or first class operations? I've been wanting to make something where you make your own functions of course :sweat_smile: it is a bit of an embarrassment I didn't have that. I've also been wanting to implement a \"simplify this algebra\" system (partly because... previously... it's been about learning GA...), but the idea of that is to turn your code into something that produces the same output, not a different one!",
+    "user": "U017GNJM021",
+    "ts": "1601844918.075700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gada15ee32be",
+      "image_72": "https://secure.gravatar.com/avatar/ada15ee32bea73f6cfe00c7e36819a68.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png",
+      "first_name": "",
+      "real_name": "hamish todd",
+      "display_name": "hamish todd",
+      "team": "T5TCAFTA9",
+      "name": "hamish.todd1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DAIN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UDKTZSD6H"
+              },
+              {
+                "type": "text",
+                "text": " I'm not sure I understand what you mean by \"remix mode\" or first class operations? I've been wanting to make something where you make your own functions of course "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              },
+              {
+                "type": "text",
+                "text": " it is a bit of an embarrassment I didn't have that. I've also been wanting to implement a \"simplify this algebra\" system (partly because... previously... it's been about learning GA...), but the idea of that is to turn your code into something that produces the same output, not a different one!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "ebf4887e-a79c-419a-bbbb-ec823aa34d1e",
+    "type": "message",
+    "text": "With a * b -&gt; b * a, you can just do that the normal text editing way and I am fine keeping it like that ;D",
+    "user": "U017GNJM021",
+    "ts": "1601844970.075900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gada15ee32be",
+      "image_72": "https://secure.gravatar.com/avatar/ada15ee32bea73f6cfe00c7e36819a68.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png",
+      "first_name": "",
+      "real_name": "hamish todd",
+      "display_name": "hamish todd",
+      "team": "T5TCAFTA9",
+      "name": "hamish.todd1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LVaYP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "With a * b -> b * a, you can just do that the normal text editing way and I am fine keeping it like that ;D"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "77ec5cb9-f25c-4bae-a27e-577984012edf",
+    "type": "message",
+    "text": "In terms of audience I've been thinking primarily two things: people with no technical background (either teenagers or maybe 3D artists at game companies) and people wanting to learn 3D math for engineering/physics on youtube.",
+    "user": "U017GNJM021",
+    "ts": "1601845126.076100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gada15ee32be",
+      "image_72": "https://secure.gravatar.com/avatar/ada15ee32bea73f6cfe00c7e36819a68.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png",
+      "first_name": "",
+      "real_name": "hamish todd",
+      "display_name": "hamish todd",
+      "team": "T5TCAFTA9",
+      "name": "hamish.todd1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Q2Q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In terms of audience I've been thinking primarily two things: people with no technical background (either teenagers or maybe 3D artists at game companies) and people wanting to learn 3D math for engineering/physics on youtube."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "47babe29-8731-425a-a1bd-87f0e571f247",
+    "type": "message",
+    "text": "<@U017GNJM021> Think drag and drop on operators, operands, and values. Just like how you can select some text and then drag and drop it to rearrange the text, if you make + and * a block like the operands, they would be amenable for drag and drop too. Say you drag a + from a certain operation and then drop it to an operation where there is a division and you will get to interactively explore what such things result in.\n\nI recommend such an interaction under the notion that to pan around on the canvas, users might already reach out for their mouse. So letting some tinkering with the mouse available might also be helpful.",
+    "user": "UDKTZSD6H",
+    "ts": "1601845246.076300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1601845488.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nMpK1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U017GNJM021"
+              },
+              {
+                "type": "text",
+                "text": " Think drag and drop on operators, operands, and values. Just like how you can select some text and then drag and drop it to rearrange the text, if you make + and * a block like the operands, they would be amenable for drag and drop too. Say you drag a + from a certain operation and then drop it to an operation where there is a division and you will get to interactively explore what such things result in.\n\nI recommend such an interaction under the notion that to pan around on the canvas, users might already reach out for their mouse. So letting some tinkering with the mouse available might also be helpful."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "7cc83ac8-596a-4797-adaa-832731eb202e",
+    "type": "message",
+    "text": "<@U017GNJM021> That looks like a neat target market. I think kids would love this and also if you somehow map back or inline the equations (as a toggle-able mode), it would make it a great educational value to people who want to explore and learn GA (something like say: <http://immersivemath.com|immersivemath.com>). They will get a chance to see what the interactions of these elements are like and map that back to the symbol runes they see in their texts.",
+    "user": "UDKTZSD6H",
+    "ts": "1601845368.076500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1601845409.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Zs5a3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U017GNJM021"
+              },
+              {
+                "type": "text",
+                "text": " That looks like a neat target market. I think kids would love this and also if you somehow map back or inline the equations (as a toggle-able mode), it would make it a great educational value to people who want to explore and learn GA (something like say: "
+              },
+              {
+                "type": "link",
+                "url": "http://immersivemath.com",
+                "text": "immersivemath.com"
+              },
+              {
+                "type": "text",
+                "text": "). They will get a chance to see what the interactions of these elements are like and map that back to the symbol runes they see in their texts."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9d7b7ceb-b876-4a72-86ac-da0bbe6331e0",
+    "type": "message",
+    "text": "Gotcha. First I'll say that I do like Bret Victor, and a lot of this is inspired by his work. It's clearly an embarrassment that, for a programmer to specify a vector, often all they can do is write eg vec2(2.9,4.4), when clearly that should be specified with the mouse (and a transform/dual quaternion should be specified with a VR controller!). The same is true of a function curve.\n\nHowever, I agree with the criticism many have of Bret Victor/GRAIL/MaxMSP-style visual programming that they use mouse/drag-and-drop too much. The problem of \"choose what the program does\" almost always means \"scroll to this point in execution, choose a function and some variables, and apply that\". That is best done with a keyboard that impacts a carat. The number of variables and functions available to you is large enough that if you try to pick them from a menu, it'll take much longer than typing the name, and you'll be more likely to click the wrong thing.\n\nI've considered having \"click on this variable in the display window and its name is pasted at your carat\", which is partway towards drag and drop. But I've never felt the need for that while using the system, so I might never implement that!\n\nIndeed for the purpose you describe I was thinking about a toggle-able \"just show me the names\" mode. It might turn out to be unnecessary though!",
+    "user": "U017GNJM021",
+    "ts": "1601849227.076900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gada15ee32be",
+      "image_72": "https://secure.gravatar.com/avatar/ada15ee32bea73f6cfe00c7e36819a68.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png",
+      "first_name": "",
+      "real_name": "hamish todd",
+      "display_name": "hamish todd",
+      "team": "T5TCAFTA9",
+      "name": "hamish.todd1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "usL4K",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Gotcha. First I'll say that I do like Bret Victor, and a lot of this is inspired by his work. It's clearly an embarrassment that, for a programmer to specify a vector, often all they can do is write eg vec2(2.9,4.4), when clearly that should be specified with the mouse (and a transform/dual quaternion should be specified with a VR controller!). The same is true of a function curve.\n\nHowever, I agree with the criticism many have of Bret Victor/GRAIL/MaxMSP-style visual programming that they use mouse/drag-and-drop too much. The problem of \"choose what the program does\" almost always means \"scroll to this point in execution, choose a function and some variables, and apply that\". That is best done with a keyboard that impacts a carat. The number of variables and functions available to you is large enough that if you try to pick them from a menu, it'll take much longer than typing the name, and you'll be more likely to click the wrong thing.\n\nI've considered having \"click on this variable in the display window and its name is pasted at your carat\", which is partway towards drag and drop. But I've never felt the need for that while using the system, so I might never implement that!\n\nIndeed for the purpose you describe I was thinking about a toggle-able \"just show me the names\" mode. It might turn out to be unnecessary though!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601764803.048100",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e9ce1c45-08ab-4c62-b5dc-55b26d963ba3",
+    "type": "message",
+    "text": "This update shows:\n• Multiple font sizing in the editor\n• The beginnings of markdown support (As I describe in the video, I'm trying to do a preview/edit hybrid where the cursor line determines of Markdown or the final result is shown.  This isn't a new idea, but I always wonder why so few editors do it this way.\n• More work on highlighting information in Ixi lang; just infrastructure to better manage the location of editor adornments.  It is not there yet, but getting closer.  The main issue is the internal complexity.\nThe audio isn't loud enough to hear the music this time, but it isn't essential to the demo - you can always checkout my previous video to hear it :)\n<https://youtu.be/d_5ryUeXMQk>",
+    "user": "UUQ2EQW21",
+    "ts": "1601849545.028400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2266cacc8f3",
+      "image_72": "https://secure.gravatar.com/avatar/2266cacc8f3c9964e7bfb1c357bf6873.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Chris",
+      "real_name": "Chris Maughan",
+      "display_name": "Chris Maughan",
+      "team": "T5TCAFTA9",
+      "name": "mornymorny",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Markdown  and Ixi Highlighting",
+        "title_link": "https://youtu.be/d_5ryUeXMQk",
+        "author_name": "Christopher Maughan",
+        "author_link": "https://www.youtube.com/user/mornycmorny",
+        "thumb_url": "https://i.ytimg.com/vi/d_5ryUeXMQk/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Markdown  and Ixi Highlighting",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/d_5ryUeXMQk?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/d_5ryUeXMQk",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/d_5ryUeXMQk"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CsYrZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This update shows:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Multiple font sizing in the editor"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The beginnings of markdown support (As I describe in the video, I'm trying to do a preview/edit hybrid where the cursor line determines of Markdown or the final result is shown.  This isn't a new idea, but I always wonder why so few editors do it this way."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "More work on highlighting information in Ixi lang; just infrastructure to better manage the location of editor adornments.  It is not there yet, but getting closer.  The main issue is the internal complexity."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The audio isn't loud enough to hear the music this time, but it isn't essential to the demo - you can always checkout my previous video to hear it :)\n"
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/d_5ryUeXMQk"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601849545.028400",
+    "reply_count": 7,
+    "reply_users_count": 4,
+    "latest_reply": "1601892668.042100",
+    "reply_users": [
+      "UN9SCH5RD",
+      "U0123H7JRDM",
+      "UJ6LDMMN0",
+      "UUQ2EQW21"
+    ],
+    "replies": [
+      {
+        "user": "UN9SCH5RD",
+        "ts": "1601853449.028600"
+      },
+      {
+        "user": "U0123H7JRDM",
+        "ts": "1601881113.039800"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1601883332.040400"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1601892485.040800"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1601892511.041300"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1601892549.041700"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1601892668.042100"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U0123H7JRDM",
+          "U013ZLJARC7",
+          "UE0ETTCG7"
+        ],
+        "count": 3
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "U019CPED6T1"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "97D8CB97-0EB3-4165-A550-D32F102B5FB5",
+    "type": "message",
+    "text": "Increasing the range of things that the human mind can build and accomplish! That’s why I’m spending my time in PL research. I’ve come to realise that there are *huge* strides that can be made; we just need more people working on the problem, and more variance in approach!",
+    "user": "UCGAK10LS",
+    "ts": "1601849800.152800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FbN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Increasing the range of things that the human mind can build and accomplish! That’s why I’m spending my time in PL research. I’ve come to realise that there are "
+              },
+              {
+                "type": "text",
+                "text": "huge",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " strides that can be made; we just need more people working on the problem, and more variance in approach!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601838627.149500",
+    "parent_user_id": "UPX3PH28N",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UPX3PH28N",
+          "UKP3B2J5D"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "907e8f80-c2d7-4d55-8f78-ba2611c0afc6",
+    "type": "message",
+    "text": "Nearly every day I take a three to five mile walk outdoors (alone, which really helps me clear my mind and forces me to focus on myself and what I feel: thankfully my wife accommodates me in this regard!). I find that it helps me center myself in the world and forces me to walk away from any issues I happen to be experiencing in that moment (work-related or otherwise). Music and podcasts also help me get away from my own thoughts, as do books and side-projects (although I tend to avoid immersing myself too far in the latter because it can lead me to obsess over them). Doing a variety of activities and tasks that challenge me in different ways is my key to feeling energized and motivated, but it all starts with my walks :)",
+    "user": "UG0EL18H3",
+    "ts": "1601853067.153100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "25cc47143833",
+      "image_72": "https://avatars.slack-edge.com/2019-08-01/702360681283_25cc471438337c72e600_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Rabl",
+      "display_name": "crabl",
+      "team": "T5TCAFTA9",
+      "name": "chris.rabl",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UG0EL18H3",
+      "ts": "1601853207.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "guNh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Nearly every day I take a three to five mile walk outdoors (alone, which really helps me clear my mind and forces me to focus on myself and what I feel: thankfully my wife accommodates me in this regard!). I find that it helps me center myself in the world and forces me to walk away from any issues I happen to be experiencing in that moment (work-related or otherwise). Music and podcasts also help me get away from my own thoughts, as do books and side-projects (although I tend to avoid immersing myself too far in the latter because it can lead me to obsess over them). Doing a variety of activities and tasks that challenge me in different ways is my key to feeling energized and motivated, but it all starts with my walks :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601838627.149500",
+    "parent_user_id": "UPX3PH28N",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UC2A2ARPT",
+          "UPX3PH28N",
+          "U5STGTB3J",
+          "UJ6LDMMN0",
+          "UDQKHNP51",
+          "U019CPED6T1",
+          "UKP3B2J5D",
+          "U01CZLMNENL",
+          "U019PRL1BNU"
+        ],
+        "count": 9
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b9b21b86-bc7a-4d8d-bd88-f6bea5bc4f7c",
+    "type": "message",
+    "text": "I'm curious is there some explanation of how ixi works? a grammar? docs? I found this repo but it is a bit obscure <https://github.com/thormagnusson/ixilang>",
+    "user": "UN9SCH5RD",
+    "ts": "1601853449.028600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "thormagnusson/ixilang",
+        "title_link": "https://github.com/thormagnusson/ixilang",
+        "text": "A live coding language. An extension to SuperCollider, currently Cocoa only. - thormagnusson/ixilang",
+        "fallback": "GitHub: thormagnusson/ixilang",
+        "thumb_url": "https://avatars1.githubusercontent.com/u/720548?s=400&v=4",
+        "from_url": "https://github.com/thormagnusson/ixilang",
+        "thumb_width": 400,
+        "thumb_height": 400,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/thormagnusson/ixilang"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ni9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm curious is there some explanation of how ixi works? a grammar? docs? I found this repo but it is a bit obscure "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/thormagnusson/ixilang"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1601849545.028400",
+    "parent_user_id": "UUQ2EQW21",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  }
+]
