@@ -1,14 +1,22 @@
-# Tutuca Base Project
+# Conversations
 
 Once:
 
 ```sh
-npm run dev:setup
+npm install
 ```
 
 When developing:
 
 ```sh
 npm run watch:css
+```
+
+Serve the root of the repo:
+
+```sh
+cd ..
 npx serve
 ```
+
+Open http://localhost:3000/conversations/
