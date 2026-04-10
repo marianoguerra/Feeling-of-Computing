@@ -131,12 +131,6 @@ async function main() {
   app.state.set(rootState);
   app.registerComponents(getComponents());
   app.start();
-  setTimeout(() => {
-    const node = document.querySelector(`[href='${window.location.hash}']`);
-    if (node) {
-      node.scrollIntoView();
-    }
-  }, 500);
 }
 
 main();
