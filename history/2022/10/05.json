@@ -1,0 +1,576 @@
+[
+  {
+    "client_msg_id": "ad3665b3-af54-4250-912d-c5a5fa50c97a",
+    "type": "message",
+    "text": "I really appreciated the <https://futureofcoding.org/episodes/058|latest FoC ep> about \"The Structure of a Programming Language Revolution\". I'm in The Academy, and I'm perpetually fascinated by what's happened to academic PL. This essay provided some missing links. Thanks <@UC2A2ARPT> &amp; <@UK3LH8CF5>!\n\nOne fun aha I had afterwards: The systems vs. languages distinction helps clear up something I've always wondered about prototypal object-oriented programming. Namely, why use prototypes at all? Rather than writing:\n```// Version A\n\nfunction Dog () { }\n\nDog.prototype = {\n  bark: function () { ... },\n  fetch: function () { ... },\n}```\nyou could just write:\n```// Version B\n\nfunction bark () { ... }\nfunction fetch () { ... }\n\nfunction Dog () {\n  this.bark = bark;\n  this.fetch = fetch;\n}```\nSure, maybe that's a hair less ergonomic. There's a (extremely tiny bit) more memory used to store the slots. But that hardly seems worth inventing a whole new language feature and making such a big deal about it.\n\nI think part of the answer is that prototypal inheritance was born in Self, a programming _system_. If you want to modify a \"prototype\" in a programming _language_, the two approaches above are equivalent. You modify the (literal) prototype in version A, or you modify the constructor in version B, and then you re-run your code. But if you want to modify a \"prototype\" in a programming _system_, you'll discover you already have a bunch of instances of the class running around. Version B doesn't work, because it only changes how new instances are constructed, not how existing instances behave. A live connection between the instance and its prototype is required to enable live development in a living system.\n\nI feel like Dan Brown over here, finding secret traces of the past in the present.\n\n(Ominous hole in my theory: This doesn't explain why prototypes were brought into Javascript, where they ostensibly no longer had much use.)",
+    "user": "UBKNXPBAB",
+    "ts": "1664945940.180779",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "If2X",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I really appreciated the "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.org/episodes/058",
+                "text": "latest FoC ep"
+              },
+              {
+                "type": "text",
+                "text": " about \"The Structure of a Programming Language Revolution\". I'm in The Academy, and I'm perpetually fascinated by what's happened to academic PL. This essay provided some missing links. Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " & "
+              },
+              {
+                "type": "user",
+                "user_id": "UK3LH8CF5"
+              },
+              {
+                "type": "text",
+                "text": "!\n\nOne fun aha I had afterwards: The systems vs. languages distinction helps clear up something I've always wondered about prototypal object-oriented programming. Namely, why use prototypes at all? Rather than writing:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "// Version A\n\nfunction Dog () { }\n\nDog.prototype = {\n  bark: function () { ... },\n  fetch: function () { ... },\n}"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "you could just write:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "// Version B\n\nfunction bark () { ... }\nfunction fetch () { ... }\n\nfunction Dog () {\n  this.bark = bark;\n  this.fetch = fetch;\n}"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sure, maybe that's a hair less ergonomic. There's a (extremely tiny bit) more memory used to store the slots. But that hardly seems worth inventing a whole new language feature and making such a big deal about it.\n\nI think part of the answer is that prototypal inheritance was born in Self, a programming "
+              },
+              {
+                "type": "text",
+                "text": "system",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". If you want to modify a \"prototype\" in a programming "
+              },
+              {
+                "type": "text",
+                "text": "language",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", the two approaches above are equivalent. You modify the (literal) prototype in version A, or you modify the constructor in version B, and then you re-run your code. But if you want to modify a \"prototype\" in a programming "
+              },
+              {
+                "type": "text",
+                "text": "system",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", you'll discover you already have a bunch of instances of the class running around. Version B doesn't work, because it only changes how new instances are constructed, not how existing instances behave. A live connection between the instance and its prototype is required to enable live development in a living system.\n\nI feel like Dan Brown over here, finding secret traces of the past in the present.\n\n(Ominous hole in my theory: This doesn't explain why prototypes were brought into Javascript, where they ostensibly no longer had much use.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1664945940.180779",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1665274641.131949",
+    "reply_users": [
+      "UGWUJUZHT"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD",
+          "U02U0AS3J49",
+          "UFPRPSA4S"
+        ],
+        "count": 3
+      },
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "33458ec0-dde9-4c96-b1a6-c2a1f4f12b5b",
+    "type": "message",
+    "text": "Latest version of our Scroll language came out today. To see it in action click view source on a post such as this one: <https://breckyunits.com/cancer-and-copyright.html>",
+    "user": "UMVFWPZ36",
+    "ts": "1664951278.737649",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BE2/u",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Latest version of our Scroll language came out today. To see it in action click view source on a post such as this one: "
+              },
+              {
+                "type": "link",
+                "url": "https://breckyunits.com/cancer-and-copyright.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9bfc0009-c8f3-401b-8d34-690953f1c035",
+    "type": "message",
+    "text": "An Incremental Approach to Compiler Construction by Abdulaziz Ghuloum - <http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf>",
+    "user": "UPVBV34EL",
+    "ts": "1664973127.253869",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7xJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "An Incremental Approach to Compiler Construction by Abdulaziz Ghuloum - "
+              },
+              {
+                "type": "link",
+                "url": "http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "56ed433c-9fa1-4738-9505-564cec457fb9",
+    "type": "message",
+    "text": "\"Programmable Ink\" by Szymon Kaliski (Strange Loop 2022)\n\nSketching with pen &amp; paper is a powerful way to think through ideas, but ink on paper is static. Dynamic behavior, on the other hand, requires programming -- which lacks the immediacy of the canvas: it's indirect, abstract, symbolic, and full of bureaucracy. What if we could harness the power of modern tablet computers to combine the intimacy of ink with the power of computation?\n\nNote: <@UC2A2ARPT> <@UF6RLAL7J> and <@UAJ9DV971> were involved in this project and a new iteration has started with <@U01DWJSAF2B>\n\n<https://www.youtube.com/watch?v=ifYuvgXZ108>",
+    "user": "UBN9AFS0N",
+    "ts": "1664978203.366459",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UBN9AFS0N",
+      "ts": "1664978291.000000"
+    },
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=ifYuvgXZ108",
+        "thumb_url": "https://i.ytimg.com/vi/ifYuvgXZ108/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/ifYuvgXZ108?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen title=\"&quot;Programmable Ink&quot; by Szymon Kaliski (Strange Loop 2022)\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=ifYuvgXZ108",
+        "fallback": "YouTube Video: \"Programmable Ink\" by Szymon Kaliski (Strange Loop 2022)",
+        "title": "\"Programmable Ink\" by Szymon Kaliski (Strange Loop 2022)",
+        "title_link": "https://www.youtube.com/watch?v=ifYuvgXZ108",
+        "author_name": "Strange Loop Conference",
+        "author_link": "https://www.youtube.com/c/StrangeLoopConf",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hXMz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"Programmable Ink\" by Szymon Kaliski (Strange Loop 2022)\n\nSketching with pen & paper is a powerful way to think through ideas, but ink on paper is static. Dynamic behavior, on the other hand, requires programming -- which lacks the immediacy of the canvas: it's indirect, abstract, symbolic, and full of bureaucracy. What if we could harness the power of modern tablet computers to combine the intimacy of ink with the power of computation?\n\nNote: "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UF6RLAL7J"
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "user",
+                "user_id": "UAJ9DV971"
+              },
+              {
+                "type": "text",
+                "text": " were involved in this project and a new iteration has started with "
+              },
+              {
+                "type": "user",
+                "user_id": "U01DWJSAF2B"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=ifYuvgXZ108"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1664978203.366459",
+    "reply_count": 14,
+    "reply_users_count": 5,
+    "latest_reply": "1665072079.775719",
+    "reply_users": [
+      "UF6RLAL7J",
+      "UC2A2ARPT",
+      "U02U0AS3J49",
+      "UJBAJNFLK",
+      "U02LHNW0VLP"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1665072079.775719",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEQ7QL15F",
+          "U03GBV8B58V",
+          "UML4ZEKDK",
+          "U040R67M66L",
+          "U02E4DAQGSZ",
+          "U0123H7JRDM",
+          "U013ZLJARC7",
+          "UMV4B97GT",
+          "UP00ZLX6G",
+          "UAJ9DV971"
+        ],
+        "count": 10
+      },
+      {
+        "name": "wave",
+        "users": [
+          "UF6RLAL7J"
+        ],
+        "count": 1
+      },
+      {
+        "name": "clap",
+        "users": [
+          "U040R67M66L"
+        ],
+        "count": 1
+      },
+      {
+        "name": "exploding_head",
+        "users": [
+          "U02U0AS3J49",
+          "U013HU44GLS"
+        ],
+        "count": 2
+      },
+      {
+        "name": "star-struck",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1::skin-tone-5",
+        "users": [
+          "UBSMEUXAA"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "7974d4a2-ca81-4686-906f-56775e42818f",
+    "type": "message",
+    "text": "<@UBKNXPBAB> was also involved, and a ton of other people who are not (afaik) in this Slack; thanks everyone! :slightly_smiling_face:",
+    "user": "UF6RLAL7J",
+    "ts": "1664981193.830839",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WfmQc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UBKNXPBAB"
+              },
+              {
+                "type": "text",
+                "text": " was also involved, and a ton of other people who are not (afaik) in this Slack; thanks everyone! "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1664978203.366459",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "2dd3bfc5-9b89-491b-bc8b-803ce9b778c6",
+    "type": "message",
+    "text": "Congrats <@UF6RLAL7J>! I'm excited to watch this when I get home.",
+    "user": "UC2A2ARPT",
+    "ts": "1664983003.623679",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RFcMi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Congrats "
+              },
+              {
+                "type": "user",
+                "user_id": "UF6RLAL7J"
+              },
+              {
+                "type": "text",
+                "text": "! I'm excited to watch this when I get home."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1664978203.366459",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "the_horns",
+        "users": [
+          "UF6RLAL7J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "4d429bf4-85af-4ce2-9e16-8a21adaf0cc0",
+    "type": "message",
+    "text": "Holy shit that is cool, and I'm only at the InkBase part. :slightly_smiling_face:",
+    "user": "U02U0AS3J49",
+    "ts": "1664993889.799749",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JzgS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Holy shit that is cool, and I'm only at the InkBase part. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1664978203.366459",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "67fcca74-a460-42ea-9ef8-5d1df61c9722",
+    "type": "message",
+    "text": "Yeah, untangle overlaps considerably with the constrained, multiple-world tools I'm using, but with a much more human visual interface. What tool are you using under the hood to do the model finding and indicate if the constraints hold?",
+    "user": "U02U0AS3J49",
+    "ts": "1664995850.184189",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qKPNT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, untangle overlaps considerably with the constrained, multiple-world tools I'm using, but with a much more human visual interface. What tool are you using under the hood to do the model finding and indicate if the constraints hold?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1664978203.366459",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "68455e6e-6639-4284-8539-971342ed7052",
+    "type": "message",
+    "text": "I *love* that if they don't hold, it tells you which don't, instead of telling you nothing.",
+    "user": "U02U0AS3J49",
+    "ts": "1664996241.547839",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VxIpB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I "
+              },
+              {
+                "type": "text",
+                "text": "love ",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "that if they don't hold, it tells you which don't, instead of telling you nothing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1664978203.366459",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U040R67M66L"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

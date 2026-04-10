@@ -1,0 +1,858 @@
+[
+  {
+    "client_msg_id": "b7e698eb-37a2-442a-a8e0-b3d9e54b48ae",
+    "type": "message",
+    "text": "<@UKJGU23KP> Yes, exactly. But technology follows incentives. If someone (person or institution) profits (making money, not being sued) from a software assembly working fine for end users, then that someone will create the tools to deal with potential runtime warnings at build time.",
+    "user": "UJBAJNFLK",
+    "ts": "1665905777.436949",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0h5b",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UKJGU23KP"
+              },
+              {
+                "type": "text",
+                "text": " Yes, exactly. But technology follows incentives. If someone (person or institution) profits (making money, not being sued) from a software assembly working fine for end users, then that someone will create the tools to deal with potential runtime warnings at build time."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665807995.450199",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f46d7d2d-e655-4a14-9367-1f7f0bada283",
+    "type": "message",
+    "text": "<@UCUSW7WVD> The live programming environments from the 1970s and 1980s were indeed designed in a context where the person using the system was both the end user and a competent developer. So it's the user who is the manager of the top-level software assembly. BTW, the idea of free software (Stallman's famount printer driver story) goes back to the same context. Neither free software nor live environments have been adapted to today's context of software as an industrial product for non-expert users.",
+    "user": "UJBAJNFLK",
+    "ts": "1665905946.390279",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1665905970.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2JL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " The live programming environments from the 1970s and 1980s were indeed designed in a context where the person using the system was both the end user and a competent developer. So it's the user who is the manager of the top-level software assembly. BTW, the idea of free software (Stallman's famount printer driver story) goes back to the same context. Neither free software nor live environments have been adapted to today's context of software as an industrial product for non-expert users."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665807995.450199",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "Beginnings of an environment for building programs live. Includes some discussion of how the program is represented, including version history.\n\nThis is all nothing new compared to Emacs, Lisp, Smalltalk, etc. What draws me to this project is trying to implement these features on a much simpler and so hopefully easier to learn and more self-sufficient stack.\n\nThis project has been fermenting in a couple of past threads:\n• <https://futureofcoding.slack.com/archives/CCL5VVBAN/p1665503282267399>\n• <https://futureofcoding.slack.com/archives/C03RR0W5DGC/p1665594315849469>\nNext step: use the version history to recover from errors. The big epiphany for me has been that I can recover from errors without restarting the entire program -- as long as programs submit to LÖVE's constraints: purely synchronous programming with an event loop, so that no single function can be long-lived. You can write any programs you like as long as they aren't batch programs.",
+    "files": [
+      {
+        "id": "F0469JCTZDM",
+        "created": 1665906999,
+        "timestamp": 1665906999,
+        "name": "single-definition-version-control.webm",
+        "title": "single-definition-version-control.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 3372554,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "complete",
+          "locale": "en-US"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0469JCTZDM/single-definition-version-control.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0469JCTZDM/download/single-definition-version-control.webm",
+        "vtt": "https://files.slack.com/files-tmb/T5TCAFTA9-F0469JCTZDM-3cb365e5f3/file.vtt?_xcb=33cbe",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0469JCTZDM-3cb365e5f3/file.m3u8?_xcb=33cbe",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9Mjc3OTYyLEFWRVJBR0UtQkFORFdJRFRIPTIzNjQzNCxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMjgweDcyMCxGUkFNRS1SQVRFPTI5Ljk3MCxTVUJUSVRMRVM9InN1YnMiCmRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzNDaU5GV0ZRdFdDMU5SVVJKUVMxVFJWRlZSVTVEUlRveENpTkZXRlF0V0MxUVRFRlpURWxUVkMxVVdWQkZPbFpQUkFvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOQzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdPQzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdPUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhNQzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhNUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhNaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhOQzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhOUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhOaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhOeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhPQzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhPUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXlNQzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXlNUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXlNaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXlNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXlOQzUwY3dvalJWaFVTVTVHT2pVdU9EY3pMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TkRZNVNrTlVXa1JOTFROallqTTJOV1UxWmpNdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXlOUzUwY3dvalJWaFVMVmd0UlU1RVRFbFRWQW89CiNFWFQtWC1NRURJQTpUWVBFPVNVQlRJVExFUyxHUk9VUC1JRD0ic3VicyIsTkFNRT0iRW5nbGlzaCIsREVGQVVMVD1ZRVMsQVVUT1NFTEVDVD1ZRVMsRk9SQ0VEPU5PLExBTkdVQUdFPSJlbmciLFVSST0iZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvMk1EQUtJMFZZVkMxWUxVMUZSRWxCTFZORlVWVkZUa05GT2pFS0kwVllWQzFZTFZCTVFWbE1TVk5VTFZSWlVFVTZWazlFQ2lORldGUkpUa1k2TVRVd0xqQXhOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURRMk9VcERWRnBFVFMwelkySXpOalZsTldZekwyWnBiR1V1ZG5SMENpTkZXRlF0V0MxRlRrUk1TVk5VIgo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0469JCTZDM-3cb365e5f3/file_trans.mp4",
+        "duration_ms": 150016,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0469JCTZDM-3cb365e5f3/single-definition-version-control_thumb_video.jpeg",
+        "thumb_video_w": 1280,
+        "thumb_video_h": 720,
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F0469JCTZDM/single-definition-version-control.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0469JCTZDM-dd7d9c4656",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "ts": "1665907141.427019",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fABsU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Beginnings of an environment for building programs live. Includes some discussion of how the program is represented, including version history.\n\nThis is all nothing new compared to Emacs, Lisp, Smalltalk, etc. What draws me to this project is trying to implement these features on a much simpler and so hopefully easier to learn and more self-sufficient stack.\n\nThis project has been fermenting in a couple of past threads:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1665503282267399"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://futureofcoding.slack.com/archives/C03RR0W5DGC/p1665594315849469"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nNext step: use the version history to recover from errors. The big epiphany for me has been that I can recover from errors without restarting the entire program -- as long as programs submit to LÖVE's constraints: purely synchronous programming with an event loop, so that no single function can be long-lived. You can write any programs you like as long as they aren't batch programs."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "56c12672-aabc-4a06-93c5-4fcfb908d769",
+    "thread_ts": "1665907141.427019",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1665935936.016519",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UCUSW7WVD"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "7ffb3950-cfc4-45d9-81c1-61676da1985a",
+    "type": "message",
+    "text": "<@UJBAJNFLK> I don’t agree that OSS developers aren’t responsible for their programs’ dependencies. They may not care about such responsibility, but then they’re irresponsible (and are making low-quality software). What is a true end-user’s problem is assembling *independent* programs into one they need, and that’s where the real hard-to-resolve impedances kick in (the OSS developers don’t have much incentive to cooperate, unless their userbases overlap totally; end-users usually don’t have the specialty to harmonize the programs). Note that these aren’t problems with dependencies, as the constituent programs can (and are meant to) function independently.",
+    "user": "U02028JHX37",
+    "ts": "1665917280.259979",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vXB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " I don’t agree that OSS developers aren’t responsible for their programs’ dependencies. They may not care about such responsibility, but then they’re irresponsible (and are making low-quality software). What is a true end-user’s problem is assembling "
+              },
+              {
+                "type": "text",
+                "text": "independent",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " programs into one they need, and that’s where the real hard-to-resolve impedances kick in (the OSS developers don’t have much incentive to cooperate, unless their userbases overlap totally; end-users usually don’t have the specialty to harmonize the programs). Note that these aren’t problems with dependencies, as the constituent programs can (and are meant to) function independently."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665807995.450199",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "30f58625-7928-4f21-a6bd-35de77fc6c40",
+    "type": "message",
+    "text": "Coding tools treat code as static structured text.\n\nUX design tools treat design as static vector-graphics with \"noodles for swapping a 1000 static states\" on top.\n\nCode is data that needs direct manipulation with instant feedback. That's what creative tools need to achieve.",
+    "user": "U03GBV8B58V",
+    "ts": "1665920379.333909",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IJWIA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Coding tools treat code as static structured text.\n\nUX design tools treat design as static vector-graphics with \"noodles for swapping a 1000 static states\" on top.\n\nCode is data that needs direct manipulation with instant feedback. That's what creative tools need to achieve."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665920379.333909",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1665921091.079309",
+    "reply_users": [
+      "U03GBV8B58V"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9589ebaa-5f7b-4c19-8dd2-62a65d51ef14",
+    "type": "message",
+    "text": "To clarify, the \"direct manipulation of code\" needs to be supported as a visual canvas that shows the running product you're working on. The design tool needs to work back from there to materialize any direct manipulations you've made as corresponding code changes in real time.",
+    "user": "U03GBV8B58V",
+    "ts": "1665921091.079309",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7x8V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "To clarify, the \"direct manipulation of code\" needs to be supported as a visual canvas that shows the running product you're working on. The design tool needs to work back from there to materialize any direct manipulations you've made as corresponding code changes in real time."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665920379.333909",
+    "parent_user_id": "U03GBV8B58V",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9e35b127-cdb3-430b-b21d-09a3154e7c42",
+    "type": "message",
+    "text": "<@U02028JHX37> Assembling software is an issue both for library dependencies and for \"independent program\" dependencies. In fact, there is little difference between the two other than the interface technology (linking vs. process calls). In both cases, the issue is not bad will nor incompetence, but insufficiencies in both the social structures and the technical infrastructure for software development. The only way an OSS developer can take full responsibility for dependencies is by maintaining forks of everything, and that's beyond most developers' means (but I suspect that this is what Microsoft etc. do).",
+    "user": "UJBAJNFLK",
+    "ts": "1665926984.928439",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ttw7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U02028JHX37"
+              },
+              {
+                "type": "text",
+                "text": " Assembling software is an issue both for library dependencies and for \"independent program\" dependencies. In fact, there is little difference between the two other than the interface technology (linking vs. process calls). In both cases, the issue is not bad will nor incompetence, but insufficiencies in both the social structures and the technical infrastructure for software development. The only way an OSS developer can take full responsibility for dependencies is by maintaining forks of everything, and that's beyond most developers' means (but I suspect that this is what Microsoft etc. do)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665807995.450199",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "25f76a84-0b4b-4f4f-a274-b9d89ee5a1ee",
+    "type": "message",
+    "text": "What you can do depends on if the range is known, and what precision you want:\n• Less/More: for steppers with &lt; ~15ish value\n• Min/max: for defined ranges where the user wants short bursts\n• Accelerating hold: when the user wants precision in the beginning but the range is wide so holding is a good indicator they wanna go farther raster.\n• Copy from or value suggestion: when the user wants this value to match another (maybe something recent)\n• Speedometer/pie: when the range is well known and there's some tradeoff to another value (ex: two values are constrained to equal 1). Often mixed with locking if &gt; 2 values are part of the constraint.\nSo lots of ways, have fun!",
+    "user": "UN57U8V53",
+    "ts": "1665927131.059919",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NmX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What you can do depends on if the range is known, and what precision you want:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Less/More: for steppers with < ~15ish value"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Min/max: for defined ranges where the user wants short bursts"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Accelerating hold: when the user wants precision in the beginning but the range is wide so holding is a good indicator they wanna go farther raster."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Copy from or value suggestion: when the user wants this value to match another (maybe something recent)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Speedometer/pie: when the range is well known and there's some tradeoff to another value (ex: two values are constrained to equal 1). Often mixed with locking if > 2 values are part of the constraint."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "offset": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nSo lots of ways, have fun!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665483717.350009",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1fb580e6-a72a-4bca-9e78-964da284c778",
+    "type": "message",
+    "text": "Wow, great list <@UN57U8V53>!",
+    "user": "UMVFWPZ36",
+    "ts": "1665928637.256419",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "h=FCX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Wow, great list "
+              },
+              {
+                "type": "user",
+                "user_id": "UN57U8V53"
+              },
+              {
+                "type": "text",
+                "text": "!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665483717.350009",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9EE43B46-2948-4174-89F7-B220218E3C5C",
+    "type": "message",
+    "text": "&gt; You can write any programs you like as long as they aren't batch programs.\nAll my favourite programs aren't batch programs! :)",
+    "user": "UC2A2ARPT",
+    "ts": "1665930878.798569",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QT=K",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You can write any programs you like as long as they aren't batch programs."
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAll my favourite programs aren't batch programs! :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665907141.427019",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "acad6135-a63a-4299-9936-7ecfb998dc77",
+    "type": "message",
+    "text": "<@UJBAJNFLK> When some software has an explicit dependency, then surely the developer uses it consciously (of course, it often gets impractical for some transitive dependencies burrowed under many others). Now, assuming that such a dependency is used only by that one program (it's properly isolated, not being a shared library), then any defect should only come from the dependency itself or from the interaction between the dependency and the program. In the former case, the programmer should have chosen something that works; in the latter, it's probably his fault it doesn't work (unless it's a bug, in which case he unfortunately has to work around it). Yes, I know that in some environments, even isolated dependencies might clash (I've seen this happen with npm packages), but then, why bother using such environments?",
+    "user": "U02028JHX37",
+    "ts": "1665933150.897019",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HrKIX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " When some software has an explicit dependency, then surely the developer uses it consciously (of course, it often gets impractical for some transitive dependencies burrowed under many others). Now, assuming that such a dependency is used only by that one program (it's properly isolated, not being a shared library), then any defect should only come from the dependency itself or from the interaction between the dependency and the program. In the former case, the programmer should have chosen something that works; in the latter, it's probably his fault it doesn't work (unless it's a bug, in which case he unfortunately has to work around it). Yes, I know that in some environments, even isolated dependencies might clash (I've seen this happen with npm packages), but then, why bother using such environments?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665807995.450199",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "098bfed5-4bb2-4f58-bffc-d4bed5659660",
+    "type": "message",
+    "text": "I hope you appreciate the depth of what this community has done to me over the past 4 years!",
+    "user": "UCUSW7WVD",
+    "ts": "1665934740.482529",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "T9lf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I hope you appreciate the depth of what this community has done to me over the past 4 years!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665907141.427019",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "black_heart",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "ba98b299-da6b-43d4-b08f-784c17dffa5c",
+    "type": "message",
+    "text": "It's a shared madness, really :)",
+    "user": "UC2A2ARPT",
+    "ts": "1665935936.016519",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "E+W",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's a shared madness, really :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665907141.427019",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "75b928ae-e41a-47c8-a06c-1783decbcc4a",
+    "type": "message",
+    "text": "<@U02028JHX37> The main issue in practice is dependencies evolving, breaking compatibility intentionally or through bugs creeping in.\nAn example from my own past: in the 1990s, I was part of the team that launched the Scientific Python ecosystem. Our main sustainability worry was \"what if Guido is hit by a bus?\" We had doubts about Python's survival chance for lack of community support. That turned out to be no issue: Python became immensely popular in the 2000s and developed a large developer community.\nBut then... Python 3 came along, and the Python developer community ended up actively killing Python 2. Lots of domain-specific scientific libraries (including one of my own: <https://github.com/khinsen/MMTK/>) have become very hard to use because of everyone dropping support for Python 2. And we typically don't have the means for a porting effort to Python 3. So were we negligent in the 1990s for adopting Python 2 as a dependency?",
+    "user": "UJBAJNFLK",
+    "ts": "1665937182.454149",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+GvFk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U02028JHX37"
+              },
+              {
+                "type": "text",
+                "text": " The main issue in practice is dependencies evolving, breaking compatibility intentionally or through bugs creeping in.\nAn example from my own past: in the 1990s, I was part of the team that launched the Scientific Python ecosystem. Our main sustainability worry was \"what if Guido is hit by a bus?\" We had doubts about Python's survival chance for lack of community support. That turned out to be no issue: Python became immensely popular in the 2000s and developed a large developer community.\nBut then... Python 3 came along, and the Python developer community ended up actively killing Python 2. Lots of domain-specific scientific libraries (including one of my own: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/khinsen/MMTK/"
+              },
+              {
+                "type": "text",
+                "text": ") have become very hard to use because of everyone dropping support for Python 2. And we typically don't have the means for a porting effort to Python 3. So were we negligent in the 1990s for adopting Python 2 as a dependency?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665807995.450199",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U02028JHX37"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e4dda1e2-c519-498d-979c-6c8dc64f5f82",
+    "type": "message",
+    "text": "I see. Developing libraries is a risk in this regard (your userbase isn't really \"your\"). I had standalone \"binaries\" in mind (usually some pipeline utilities, but also more robust programs). These then depend only on the OS (or the shell).",
+    "user": "U02028JHX37",
+    "ts": "1665937954.923249",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VJe7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I see. Developing libraries is a risk in this regard (your userbase isn't really \"your\"). I had standalone \"binaries\" in mind (usually some pipeline utilities, but also more robust programs). These then depend only on the OS (or the shell)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665807995.450199",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "95095ab0-9e90-45e5-beaa-2a81f4de49f8",
+    "type": "message",
+    "text": "Been on a Vagus nerve binge and someone recommended this great TED talk <https://www.ted.com/talks/heribert_watzke_the_brain_in_your_gut>\n\nIf the CNS is a collection of agents, might there be some 10x-100x-Nx agents, and would the \"gut\" be one?",
+    "user": "UMVFWPZ36",
+    "ts": "1665939678.857509",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UMVFWPZ36",
+      "ts": "1665939720.000000"
+    },
+    "attachments": [
+      {
+        "from_url": "https://www.ted.com/talks/heribert_watzke_the_brain_in_your_gut",
+        "thumb_url": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/208187_800x600.jpg?h=150&w=267",
+        "thumb_width": 200,
+        "thumb_height": 150,
+        "service_icon": "https://pa.tedcdn.com/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://www.ted.com/talks/heribert_watzke_the_brain_in_your_gut",
+        "fallback": "TED Video: Heribert Watzke: The brain in your gut",
+        "text": "Did you know you have functioning neurons in your intestines -- about a hundred million of them? Food scientist Heribert Watzke tells us about the \"hidden brain\" in our gut and the surprising things it makes us feel.",
+        "title": "Heribert Watzke: The brain in your gut",
+        "title_link": "https://www.ted.com/talks/heribert_watzke_the_brain_in_your_gut",
+        "author_name": "Heribert Watzke",
+        "author_link": "https://www.ted.com/speakers/heribert_watzke",
+        "service_name": "TED",
+        "service_url": "https://www.ted.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "X0n",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Been on a Vagus nerve binge and someone recommended this great TED talk "
+              },
+              {
+                "type": "link",
+                "url": "https://www.ted.com/talks/heribert_watzke_the_brain_in_your_gut"
+              },
+              {
+                "type": "text",
+                "text": "\n\nIf the CNS is a collection of agents, might there be some 10x-100x-Nx agents, and would the \"gut\" be one?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "998b1386-b676-4b07-8f95-347e82848fc9",
+    "type": "message",
+    "text": "Super interesting <@U02JQA5FY5C>! So how many branches do you make",
+    "user": "UMVFWPZ36",
+    "ts": "1665940550.752189",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+aGpk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Super interesting "
+              },
+              {
+                "type": "user",
+                "user_id": "U02JQA5FY5C"
+              },
+              {
+                "type": "text",
+                "text": "! So how many branches do you make"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665518601.902859",
+    "parent_user_id": "U02JQA5FY5C",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "8d163d45-5d0a-4dc8-a808-cd772eb05ccd",
+    "type": "message",
+    "text": "You got me thinking, what's the basic back of the envelope math for recording all actions/commands as version control, and is it silly that we dont do this already, given that we have like 10GB movies download in seconds",
+    "user": "UMVFWPZ36",
+    "ts": "1665940603.183859",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LbE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You got me thinking, what's the basic back of the envelope math for recording all actions/commands as version control, and is it silly that we dont do this already, given that we have like 10GB movies download in seconds"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665518601.902859",
+    "parent_user_id": "U02JQA5FY5C",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "00b44648-b66f-4ddf-9d98-6c5cd5ab729d",
+    "type": "message",
+    "text": "thanks currently there are not so many branches, like only one, I just testing out the idea will see what works and what is not",
+    "user": "U02JQA5FY5C",
+    "ts": "1665943488.778929",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Bzer",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "thanks currently there are not so many branches, like only one, I just testing out the idea will see what works and what is not"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665518601.902859",
+    "parent_user_id": "U02JQA5FY5C",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  }
+]

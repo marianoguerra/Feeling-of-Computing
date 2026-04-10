@@ -1,0 +1,705 @@
+[
+  {
+    "client_msg_id": "df92e840-9e1d-4bf5-a018-709b1bb84dec",
+    "type": "message",
+    "text": "Allow me to try to add some more context...\n\n\n[tl;dr]\n• Inheritance is about data structuring.  The only difference between Prototype-based Inheritance and Class-based Inheritance consists of RULES about WHEN it is legal to structure and re-structure data.\n• ‘Self’ corralled prototypal inheritance.  ‘Smalltalk’ corralled class-based inheritance.  Both, borrowed from previous ideas.\n• All big inventions in programming stem from the use of dynamic languages.\n• Class-based inheritance is Waterfall Design. Protoype-based inheritance allows iterative design.\n• JavaScript was based on Lisp.  JavaScript designs-in prototype-based inheritance better than Common Lisp, Scheme, Clojure, Racket, etc., etc.\n[background]\n\nIn the beginning there was assembler.\n\nThere are 2 types of assembler\n1. line-oriented\n2. tree-oriented\nAssembler is characterized by\n• ultra-simple syntax (usually prefix notation)\n• commands with operands.\nLine-oriented assembler is what we call “assembler”.\n\nTree-oriented assembler is what we call “lisp”.\n\nAssembler gives you a toolbox of functionality, but, if you want to structure your data you have to do it manually.\n\nIn assembler, nothing stops you from re-structuring your data on the fly.\n\nThe result, though, can be hard to understand.  This is part of what we call “readability”.  The term “readability” is usually used to mean human readability (aside: but, there’s also machine readability ; note that textual “readability” does not mean the use of general English prose, but, only a well-defined, restricted subset of English)\n\nOne of the tennets of Computer Science is Don’t Repeat Yourself (DRY).\n\nInheritance is simply a way of structuring data in a DRY way.  If you’ve structured your data, don’t do it again, copy the template.\n\nSo-called “prototypal inheritance” is a way of structuring data that can allow changes to the structure at runtime.\n\n“Class-based inheritance” is an optimization of prototypal inheritance.  In class-based inheritance, you separate your Red Smarties from the rest (a Smartie is an M&amp;M, a “red Smartie” tastes “better”).  If you apply the class-based optimization, then, you can compile-out data structuring.  The compiler can help make your resulting code tighter and more check-able, but, you are allowed to structure your data ONLY at compile-time.  And, the result is less-confusing.  Nothing should change at runtime.  Dynamic-anything is “bad” (aside: this is a fundamental problem with pub/sub).\n\nOptimization culls creativity, but, results in a notation that has certain “human readability” properties.  Optimization is “bad” during Design (“premature optimization”), but Optimization is “good” during Production Engineering (what we mistakenly call “programming”).\n\nSelf and Smalltalk are syntaxes draped over assembler.  Self does not insist that you pre-define all data structures, Smalltalk does insist on pre-definition.  The tools for inheritance always existed, but Self coined the phrase “prototype” and Smalltalk coined the phrase “class” (actually, Smalltalk borrowed the concept from a previous language, but we won’t go there now).\n\nJavaScript was originally based on Lisp.  In trying to keep the flavour of a “dynamic language”, JS does not insist on pre-defining all data structures before runtime.  IMO, JS does this better than the Common Lisp, the Scheme, the Racket, the Clojure variants of Lisp.  In Common Lisp, the designers chose to jump directly to premature-optimization using classes and built that concept in as syntactic baubles (“defclass”), that cause programmers to think in a Certain Way, even though the tools for less-calcified data structuring are still present (but, generally ignored by class-indoctrinated programmers).\n\nIdeas calcified by compile-time optimizations cause programmers to think in Certain Ways and disallow other interesting forms of Creativity.\n\nThere IS another way to optimize - as seen in JIT and 1970's compiler technologies (e.g. gcc, OCG) and linking loaders.  Optimize at runtime.  Treat optimizers as barnacles attacking only already-working programs.  Premature optimization has led us to building and using compiler-appeasement languages and has snipped off other creative avenues of thought.\n\nOr, we could more simply divide programming into 2 camps (aka “divide and conquer”): (1) Design (2) Optimize.  This division happens all of the time in more mature industries - products are released, and, only later, the products are cost-optimized.  In fact, this division is so severe that it is given the name “Production Engineering”.  In contrast, Software uses the single term “Engineering” to mean “Architecture” and “Engineering” and “Production Engineering” and “Test Engineering” and “Deployment Engineering”, and ...)\n\nIf you Design and Optimize all in one go, you are involved in a Cottage Industry. In a Cottage Industry, the same person, or a group, wears all of the hats.\n\nClass-based inheritance is Waterfall Design.  You must know everything about the data before you can write correct classes.  Prototype inheritance can be iterative, you can change your mind later, you can incrementally alter the templates as you learn more about the problem space.\n\nCompilers can be built to compile programs if the programs obey the rules of class-based inheritance.  Compilers cannot, in general, compile programs that do not follow the rules of class-based inheritance, e.g. compilers cannot compile prototype-based inheritance, but, can compile class-based inheritance.\n\n\n[conclusions]\n\nI would argue that Self did not invent prototypal inheritance, but corralled the ideas and created the name.  Self’s contribution is the exploration of the space of data structuring and of making optimization be a continuum that can be applied at different times - not just at compile-time.  This exploration ultimately led to the concept of JIT.\n\nJavaScript was designed to allow “dynamic” programming (whether it succeeded, can be argued) and was originally based on Lisp.  Prototypal inheritance is less constraining than class-based inheritance, therefore, was made a part of the design of JavaScript.\n\nTo me “system” means “dynamic language”.  And “general purpose programming language” means “static language”.  Each kind is “good” and each kind is “bad”.\n\nIMO, all big inventions in programming stem from the use of dynamic languages, and, ultimately from the use of assembler. GC, first-class-functions, Haskell, REPLs, etc., etc.\n\nThe only difference between class-based inheritance and prototype-based inheritance is *when* it happens.  Both, class-based and prototype-based inheritance can structure data at compile time.  In prototype inheritance, though, data can, also, be structured and re-structured at runtime.  Runtime restructuring is not allowed in class-based inheritance.\n\nClass-based inheritance is Waterfall Design.   Protoype inheritance allows iterative design.\n\n\nmiscellaneous:\n\n3 OO-ish data structuring techniques\n1. classes\n2. prototypes\n3. mixins\n2 is like 1, with some of the compile-time-only restrictions removed. The mixin idea, 3, looks like OOP, but is very different.  In class-oriented OOP, you have a vector of operations associated with each class.  In mixins, the reverse is true - you have a class without operations.  Operations “decide” on-the-fly if they can be applied to a cross-product of parameters.  All three methods get rid of explicit “if-then-else” based on type (which is the really big win - “if-then-else” is just bad).  Mixins go beyond simple class-based inheritance - you can specialize operations on /value/ instead of type, you can create :before and :after methods. Capability depends on the method (“operation”) and not on the class. For a simple, nonsensical example, you can write a “plus” method that works on {int x int} and another “plus” method that works on {int x string} and another “plus” method that works only on {nil x int}\n\n• question to self: can you remove defclass from Lisp and leave only mixins?  lisp already has deftype, why do you need defclass?\n• lisp isn’t a programming language, it’s a soup\n• mixins ≣ assembler for constructing various kinds of class / prototype / whatever-based languages.  I like to use the term “atoms” when discussing fundamental building blocks.  In my view, “mixins” are “atoms” whereas classes and prototypes are “molecules” constructed out of “atoms”. \n",
+    "user": "UGWUJUZHT",
+    "ts": "1665274641.131949",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "v+Ds",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Allow me to try to add some more context...\n\n\n[tl;dr]\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Inheritance is about data structuring.  The only difference between Prototype-based Inheritance and Class-based Inheritance consists of RULES about WHEN it is legal to structure and re-structure data."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "‘Self’ corralled prototypal inheritance.  ‘Smalltalk’ corralled class-based inheritance.  Both, borrowed from previous ideas."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "All big inventions in programming stem from the use of dynamic languages."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Class-based inheritance is Waterfall Design. Protoype-based inheritance allows iterative design."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "JavaScript was based on Lisp.  JavaScript designs-in prototype-based inheritance better than Common Lisp, Scheme, Clojure, Racket, etc., etc."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n[background]\n\nIn the beginning there was assembler.\n\nThere are 2 types of assembler\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "line-oriented"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "tree-oriented"
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAssembler is characterized by\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "ultra-simple syntax (usually prefix notation)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "commands with operands."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nLine-oriented assembler is what we call “assembler”.\n\nTree-oriented assembler is what we call “lisp”.\n\nAssembler gives you a toolbox of functionality, but, if you want to structure your data you have to do it manually.\n\nIn assembler, nothing stops you from re-structuring your data on the fly.\n\nThe result, though, can be hard to understand.  This is part of what we call “readability”.  The term “readability” is usually used to mean human readability (aside: but, there’s also machine readability ; note that textual “readability” does not mean the use of general English prose, but, only a well-defined, restricted subset of English)\n\nOne of the tennets of Computer Science is Don’t Repeat Yourself (DRY).\n\nInheritance is simply a way of structuring data in a DRY way.  If you’ve structured your data, don’t do it again, copy the template.\n\nSo-called “prototypal inheritance” is a way of structuring data that can allow changes to the structure at runtime.\n\n“Class-based inheritance” is an optimization of prototypal inheritance.  In class-based inheritance, you separate your Red Smarties from the rest (a Smartie is an M&M, a “red Smartie” tastes “better”).  If you apply the class-based optimization, then, you can compile-out data structuring.  The compiler can help make your resulting code tighter and more check-able, but, you are allowed to structure your data ONLY at compile-time.  And, the result is less-confusing.  Nothing should change at runtime.  Dynamic-anything is “bad” (aside: this is a fundamental problem with pub/sub).\n\nOptimization culls creativity, but, results in a notation that has certain “human readability” properties.  Optimization is “bad” during Design (“premature optimization”), but Optimization is “good” during Production Engineering (what we mistakenly call “programming”).\n\nSelf and Smalltalk are syntaxes draped over assembler.  Self does not insist that you pre-define all data structures, Smalltalk does insist on pre-definition.  The tools for inheritance always existed, but Self coined the phrase “prototype” and Smalltalk coined the phrase “class” (actually, Smalltalk borrowed the concept from a previous language, but we won’t go there now).\n\nJavaScript was originally based on Lisp.  In trying to keep the flavour of a “dynamic language”, JS does not insist on pre-defining all data structures before runtime.  IMO, JS does this better than the Common Lisp, the Scheme, the Racket, the Clojure variants of Lisp.  In Common Lisp, the designers chose to jump directly to premature-optimization using classes and built that concept in as syntactic baubles (“defclass”), that cause programmers to think in a Certain Way, even though the tools for less-calcified data structuring are still present (but, generally ignored by class-indoctrinated programmers).\n\nIdeas calcified by compile-time optimizations cause programmers to think in Certain Ways and disallow other interesting forms of Creativity.\n\nThere IS another way to optimize - as seen in JIT and 1970's compiler technologies (e.g. gcc, OCG) and linking loaders.  Optimize at runtime.  Treat optimizers as barnacles attacking only already-working programs.  Premature optimization has led us to building and using compiler-appeasement languages and has snipped off other creative avenues of thought.\n\nOr, we could more simply divide programming into 2 camps (aka “divide and conquer”): (1) Design (2) Optimize.  This division happens all of the time in more mature industries - products are released, and, only later, the products are cost-optimized.  In fact, this division is so severe that it is given the name “Production Engineering”.  In contrast, Software uses the single term “Engineering” to mean “Architecture” and “Engineering” and “Production Engineering” and “Test Engineering” and “Deployment Engineering”, and ...)\n\nIf you Design and Optimize all in one go, you are involved in a Cottage Industry. In a Cottage Industry, the same person, or a group, wears all of the hats.\n\nClass-based inheritance is Waterfall Design.  You must know everything about the data before you can write correct classes.  Prototype inheritance can be iterative, you can change your mind later, you can incrementally alter the templates as you learn more about the problem space.\n\nCompilers can be built to compile programs if the programs obey the rules of class-based inheritance.  Compilers cannot, in general, compile programs that do not follow the rules of class-based inheritance, e.g. compilers cannot compile prototype-based inheritance, but, can compile class-based inheritance.\n\n\n[conclusions]\n\nI would argue that Self did not invent prototypal inheritance, but corralled the ideas and created the name.  Self’s contribution is the exploration of the space of data structuring and of making optimization be a continuum that can be applied at different times - not just at compile-time.  This exploration ultimately led to the concept of JIT.\n\nJavaScript was designed to allow “dynamic” programming (whether it succeeded, can be argued) and was originally based on Lisp.  Prototypal inheritance is less constraining than class-based inheritance, therefore, was made a part of the design of JavaScript.\n\nTo me “system” means “dynamic language”.  And “general purpose programming language” means “static language”.  Each kind is “good” and each kind is “bad”.\n\nIMO, all big inventions in programming stem from the use of dynamic languages, and, ultimately from the use of assembler. GC, first-class-functions, Haskell, REPLs, etc., etc.\n\nThe only difference between class-based inheritance and prototype-based inheritance is "
+              },
+              {
+                "type": "text",
+                "text": "when",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " it happens.  Both, class-based and prototype-based inheritance can structure data at compile time.  In prototype inheritance, though, data can, also, be structured and re-structured at runtime.  Runtime restructuring is not allowed in class-based inheritance.\n\nClass-based inheritance is Waterfall Design.   Protoype inheritance allows iterative design.\n\n\nmiscellaneous:\n\n3 OO-ish data structuring techniques\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "classes"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "prototypes"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "mixins"
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n2 is like 1, with some of the compile-time-only restrictions removed. The mixin idea, 3, looks like OOP, but is very different.  In class-oriented OOP, you have a vector of operations associated with each class.  In mixins, the reverse is true - you have a class without operations.  Operations “decide” on-the-fly if they can be applied to a cross-product of parameters.  All three methods get rid of explicit “if-then-else” based on type (which is the really big win - “if-then-else” is just bad).  Mixins go beyond simple class-based inheritance - you can specialize operations on /value/ instead of type, you can create :before and :after methods. Capability depends on the method (“operation”) and not on the class. For a simple, nonsensical example, you can write a “plus” method that works on {int x int} and another “plus” method that works on {int x string} and another “plus” method that works only on {nil x int}\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "question to self: can you remove defclass from Lisp and leave only mixins?  lisp already has deftype, why do you need defclass?"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "lisp isn’t a programming language, it’s a soup"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "mixins ≣ assembler for constructing various kinds of class / prototype / whatever-based languages.  I like to use the term “atoms” when discussing fundamental building blocks.  In my view, “mixins” are “atoms” whereas classes and prototypes are “molecules” constructed out of “atoms”. "
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1664945940.180779",
+    "parent_user_id": "UBKNXPBAB",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b0e26b62-a65a-4674-804d-ae6eb614b884",
+    "type": "message",
+    "text": "One of my long-time favorites!",
+    "user": "UJBAJNFLK",
+    "ts": "1665295371.599959",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "p7oi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One of my long-time favorites!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665216779.308789",
+    "parent_user_id": "U0378MDUG1Y",
+    "channel_name": "reading-together",
+    "channel_id": "C037X8XMFB3"
+  },
+  {
+    "client_msg_id": "ee92d819-a37e-4861-b9df-77fb21766b5e",
+    "type": "message",
+    "text": "&gt; In the early to mid-1990’s, I was composing a document and needed to find and insert some information from another program. To do this, I had to leave my text editor, search for and launch another application, browse for the information I was looking for, format it appropriately for my source needs, and then switch back to where I was in my original text editor. All of this took minutes, and more importantly, took me out of the flow of what I was writing. There had to be a better way, I thought.\n&gt; \n&gt; As a result, I devised what I called “The Invisible Interface”. The idea was to use the computer’s clipboard as an interpretable information bus for retrieving information I wanted without ever having to leave the application, or even the very text line, I was working on. As an example, I would type something like, “Please send the package to my sister’s address”. I would then select and copy to the clipboard the phrase “my sister’s address”, hit a function key to request processing, and I would instantly hear an audio cue: “bing” if successful, “bong” if the system was not able to resolve the phrase to more specific information. If I heard a “bing”, I would hit the paste command in my editor, and it would replace the selected text “my sister’s address” with “Sara Cheyer, 123 Main St. Town, State, 91101”. I connected a myriad of databases and information sources, and could instantly and painlessly retrieve all sorts of information by a concise, direct phrase inserted in-line in the context of what I was doing: “population of South America’s largest country”, “email for my boss”, “free time on Thursday”, “flower in French”, etc.\n&gt; \n-- Adam Cheyer, \"Interpretable and Executable text\", in The Future of Text (<https://futuretextpublishing.com/future-of-text-2020-download|https://futuretextpublishing.com/future-of-text-2020-download>)",
+    "user": "UCUSW7WVD",
+    "ts": "1665329842.045579",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1665329876.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pGIuF",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In the early to mid-1990’s, I was composing a document and needed to find and insert some information from another program. To do this, I had to leave my text editor, search for and launch another application, browse for the information I was looking for, format it appropriately for my source needs, and then switch back to where I was in my original text editor. All of this took minutes, and more importantly, took me out of the flow of what I was writing. There had to be a better way, I thought.\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "As a result, I devised what I called “The Invisible Interface”. The idea was to use the computer’s clipboard as an interpretable information bus for retrieving information I wanted without ever having to leave the application, or even the very text line, I was working on. As an example, I would type something like, “Please send the package to my sister’s address”. I would then select and copy to the clipboard the phrase “my sister’s address”, hit a function key to request processing, and I would instantly hear an audio cue: “bing” if successful, “bong” if the system was not able to resolve the phrase to more specific information. If I heard a “bing”, I would hit the paste command in my editor, and it would replace the selected text “my sister’s address” with “Sara Cheyer, 123 Main St. Town, State, 91101”. I connected a myriad of databases and information sources, and could instantly and painlessly retrieve all sorts of information by a concise, direct phrase inserted in-line in the context of what I was doing: “population of South America’s largest country”, “email for my boss”, “free time on Thursday”, “flower in French”, etc.\n"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n-- Adam Cheyer, \"Interpretable and Executable text\", in The Future of Text ("
+              },
+              {
+                "type": "link",
+                "url": "https://futuretextpublishing.com/future-of-text-2020-download",
+                "text": "https://futuretextpublishing.com/future-of-text-2020-download"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "reply_count": 8,
+    "reply_users_count": 5,
+    "latest_reply": "1665350107.681689",
+    "reply_users": [
+      "U03LTF5NFPC",
+      "U71PMQ1V0",
+      "UDQBTJ211",
+      "UCUSW7WVD",
+      "U016VUZGUUQ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "06A838DA-7B9B-4958-BA6C-8447D06C1FEE",
+    "type": "message",
+    "text": "sounds kind of like what google/amazon/apple/everybody is trying to do with an “assistant”, but they have pretty bad incentives compared to what they were trying to build in this snippet",
+    "user": "U03LTF5NFPC",
+    "ts": "1665331488.056759",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U03LTF5NFPC",
+      "ts": "1665331499.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dIt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "sounds kind of like what google/amazon/apple/everybody is trying to do with an “assistant”, but they have pretty bad incentives compared to what they were trying to build in this snippet"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "13c0d42a-19e6-42e3-b7bc-887c7b8e4dcb",
+    "type": "message",
+    "text": "Maybe closer to the way that andoid/ios parse text messages to look for address, phone numbers etc and attach actions to them.",
+    "user": "U71PMQ1V0",
+    "ts": "1665337310.465509",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PQ8Sl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Maybe closer to the way that andoid/ios parse text messages to look for address, phone numbers etc and attach actions to them."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "026fdcd5-8119-47d6-9f3e-3a037c7eeb90",
+    "type": "message",
+    "text": "I made a program in my tree language Ohayo that let's you visualize the scores of your recent HackerNews posts: <https://v20.ohayo.computer/?filename=ohayo.ohayo&amp;nodeBreakSymbol=%7E&amp;edgeSymbol=_&amp;data=hackernews.submissions_100_breck%7E_hidden%7E_rows.sortByReverse_score%7E__hidden%7E__vega.scatter_breck%27s_most_recent_100_submissions_to_news.ycombinator.com%7E___yColumn_score%7E___xColumn_time%7E__columns.keep_score_title_url%7E___hidden%7E___tables.basic>",
+    "user": "UMVFWPZ36",
+    "ts": "1665338665.057629",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pUBPW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I made a program in my tree language Ohayo that let's you visualize the scores of your recent HackerNews posts: "
+              },
+              {
+                "type": "link",
+                "url": "https://v20.ohayo.computer/?filename=ohayo.ohayo&nodeBreakSymbol=%7E&edgeSymbol=_&data=hackernews.submissions_100_breck%7E_hidden%7E_rows.sortByReverse_score%7E__hidden%7E__vega.scatter_breck%27s_most_recent_100_submissions_to_news.ycombinator.com%7E___yColumn_score%7E___xColumn_time%7E__columns.keep_score_title_url%7E___hidden%7E___tables.basic"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "ca00a9fd-24de-4353-b8b2-7eb57c5e68bb",
+    "type": "message",
+    "text": "This sparked a loosely related idea. The clipboard could have worked the other way around - you \"paste\" into the location, then go and look for the thing to \"copy\" there. This would allow the computer to know the destination context during the search, which might be helpful.",
+    "user": "UDQBTJ211",
+    "ts": "1665341184.903469",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Y=s7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This sparked a loosely related idea. The clipboard could have worked the other way around - you \"paste\" into the location, then go and look for the thing to \"copy\" there. This would allow the computer to know the destination context during the search, which might be helpful."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U016VUZGUUQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "d82d994e-dc05-418a-8fb6-f0bd47d602b4",
+    "type": "message",
+    "text": "That sounds vaguely like how Plan 9 UIs work.\n\nThis approach has been speaking more to me since I declared bankruptcy on the Unix terminal and wrote off all my accumulated expertise there as a sunk cost. When I switch to a canvas of pixels as a more timeless foundation I find myself building little keyboard shortcuts into the desktop environment that put things on the clipboard that I can paste into my canvas. For example I have a shortcut that copies the current timestamp into the clipboard, and another shortcut that _prepends_ the current timestamp to clipboard contents.",
+    "user": "UCUSW7WVD",
+    "ts": "1665343672.088709",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1665343780.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "R+Pxx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That sounds vaguely like how Plan 9 UIs work.\n\nThis approach has been speaking more to me since I declared bankruptcy on the Unix terminal and wrote off all my accumulated expertise there as a sunk cost. When I switch to a canvas of pixels as a more timeless foundation I find myself building little keyboard shortcuts into the desktop environment that put things on the clipboard that I can paste into my canvas. For example I have a shortcut that copies the current timestamp into the clipboard, and another shortcut that "
+              },
+              {
+                "type": "text",
+                "text": "prepends",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the current timestamp to clipboard contents."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "614C00A5-8650-46F4-9B5D-35F1BC8EE884",
+    "type": "message",
+    "text": "&gt; This approach has been speaking more to me since I declared bankruptcy on the Unix terminal and wrote off all my accumulated expertise there as a sunk cost.\nDo tell",
+    "user": "U03LTF5NFPC",
+    "ts": "1665343904.440959",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Q11",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This approach has been speaking more to me since I declared bankruptcy on the Unix terminal and wrote off all my accumulated expertise there as a sunk cost"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Do tell"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "85027879-5e0b-42e6-a149-312aa875b86b",
+    "type": "message",
+    "text": "It'll take a while, but basically there's an emergent story arc in the updates I have not been shy about sharing here over the last 4 years.",
+    "user": "UCUSW7WVD",
+    "ts": "1665345479.553099",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XLL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It'll take a while, but basically there's an emergent story arc in the updates I have not been shy about sharing here over the last 4 years."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6f7da982-a61e-4834-b02f-22c1c66d8166",
+    "type": "message",
+    "text": "Reminds me of the idea in The Humane Interface to use selections as arguments to programs. I like that approach better. I definitely don't love the idea of combining \"copying\" something we're never going to paste with a subsequent operation explicitly designed to work on invisible arguments with maybe-invisible results (please never make anything dependent on audio cues, btw, personally I want my computers to be absolutely silent unless I'm specifically listening to media).\n\nIncreased visibility and selections are honking great ideas, let's do more of those.",
+    "user": "U016VUZGUUQ",
+    "ts": "1665349688.780489",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U016VUZGUUQ",
+      "ts": "1665349903.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qD3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Reminds me of the idea in The Humane Interface to use selections as arguments to programs. I like that approach better. I definitely don't love the idea of combining \"copying\" something we're never going to paste with a subsequent operation explicitly designed to work on invisible arguments with maybe-invisible results (please never make anything dependent on audio cues, btw, personally I want my computers to be absolutely silent unless I'm specifically listening to media).\n\nIncreased visibility and selections are honking great ideas, let's do more of those."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ace5e939-ca71-4841-9dbf-4a790e19801c",
+    "type": "message",
+    "text": "<@UDQBTJ211> I like this idea a lot, but not the \"copy-paste\" terminology attached to it :D. I might like it even better than the Raskin/Humane Interface idea of polluting your content with command arguments (I guess that made more sense when we didn't expect version history everywhere?).",
+    "user": "U016VUZGUUQ",
+    "ts": "1665350107.681689",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U016VUZGUUQ",
+      "ts": "1665350122.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UtJHV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UDQBTJ211"
+              },
+              {
+                "type": "text",
+                "text": " I like this idea a lot, but not the \"copy-paste\" terminology attached to it :D. I might like it even better than the Raskin/Humane Interface idea of polluting your content with command arguments (I guess that made more sense when we didn't expect version history everywhere?)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1665329842.045579",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

@@ -1,0 +1,1417 @@
+[
+  {
+    "client_msg_id": "1517dfba-7ae9-47d8-bd4d-d5daf7d60c10",
+    "type": "message",
+    "text": "Interesting episode, once more! I had read these papers many years ago, with mixed feelings about the relevance of the \"worse is better\" idea. Your discussion framing it as \"where does the complexity go\" is illuminating here. But I agree with <@U03CEGR3HSL> that it's not so much \"developer vs. user\" but \"where on the many layers of a real-life software system does the complexity go?\" Unix at the shell programming level is indeed free from the low-level considerations that PG mentions. Which explains why I found the topic only moderately relevant since my own focus as a power user (rather than software developer) is on levels clearly above the Linux kernel APIs. For me,  Lisp machine vs. Unix is about Lisp vs. shell as the layer that defines the coherence and accessability of system features. With Lisp clearly \"winning\" here, but at the cost of much higher resource usage.",
+    "user": "UJBAJNFLK",
+    "ts": "1667197326.494819",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5D1Vg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting episode, once more! I had read these papers many years ago, with mixed feelings about the relevance of the \"worse is better\" idea. Your discussion framing it as \"where does the complexity go\" is illuminating here. But I agree with "
+              },
+              {
+                "type": "user",
+                "user_id": "U03CEGR3HSL"
+              },
+              {
+                "type": "text",
+                "text": " that it's not so much \"developer vs. user\" but \"where on the many layers of a real-life software system does the complexity go?\" Unix at the shell programming level is indeed free from the low-level considerations that PG mentions. Which explains why I found the topic only moderately relevant since my own focus as a power user (rather than software developer) is on levels clearly above the Linux kernel APIs. For me,  Lisp machine vs. Unix is about Lisp vs. shell as the layer that defines the coherence and accessability of system features. With Lisp clearly \"winning\" here, but at the cost of much higher resource usage."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667095355.922339",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "4a66bd33-07af-4a81-99e0-bbd9b1a164dd",
+    "type": "message",
+    "text": "I'd claim that Smalltalk is mostly code-as-data and code-as-executable. Only methods (the leaves of the code tree) are manipulated as text in a typical Smalltalk system. And even those leaves are also accessible to code-as-data tools in modern Smalltalks (e.g. Squeak and Pharo). For example, I can rename slots (instance variables) across all methods of a class as a single operation. I can also search for all methods in the system that contain a specific literal, or send a specific message. Recent versions of Glamorous Toolkit (a layer on top of Pharo that completely replaces the UI) add refactoring tools that let me do system-wide find-and-replace using patterns in the AST.\nI find code-as-data-with-text-at-the-leaves a very nice mix of code representations. Text is great at fine granularity levels. It sucks for the big picture.",
+    "user": "UJBAJNFLK",
+    "ts": "1667197987.071029",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YX=WD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'd claim that Smalltalk is mostly code-as-data and code-as-executable. Only methods (the leaves of the code tree) are manipulated as text in a typical Smalltalk system. And even those leaves are also accessible to code-as-data tools in modern Smalltalks (e.g. Squeak and Pharo). For example, I can rename slots (instance variables) across all methods of a class as a single operation. I can also search for all methods in the system that contain a specific literal, or send a specific message. Recent versions of Glamorous Toolkit (a layer on top of Pharo that completely replaces the UI) add refactoring tools that let me do system-wide find-and-replace using patterns in the AST.\nI find code-as-data-with-text-at-the-leaves a very nice mix of code representations. Text is great at fine granularity levels. It sucks for the big picture."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667197987.071029",
+    "reply_count": 9,
+    "reply_users_count": 5,
+    "latest_reply": "1667458580.997139",
+    "reply_users": [
+      "U03GBV8B58V",
+      "U013ZLJARC7",
+      "UA14TGLTC",
+      "UJBAJNFLK",
+      "U03B14DUZSA"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UA14TGLTC",
+          "U013HU44GLS"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ad7d39fa-e450-4285-8f98-e54c046d3a28",
+    "type": "message",
+    "text": "Good point. I really should dig into Smalltalk. Why hasn't it taken the programming world by storm compared to popular languages with compilers and devtools that have all the the \"code as static text in 80 char wide terminals\" problems that <@U013ZLJARC7> called out recently at StrangeLoop?",
+    "user": "U03GBV8B58V",
+    "ts": "1667198389.567849",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DXbj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Good point. I really should dig into Smalltalk. Why hasn't it taken the programming world by storm compared to popular languages with compilers and devtools that have all the the \"code as static text in 80 char wide terminals\" problems that "
+              },
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": " called out recently at StrangeLoop?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667197987.071029",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d3df0444-59b3-4b94-b791-96ab574bf041",
+    "type": "message",
+    "text": "On Ruby, Matz put it this way, \"Actually, I'm trying to make Ruby natural, not simple.\"\n\nConcrete example.  The keyword `alias` is a for giving multiple names to the same method so that you can call the synonym that feels the most natural.  Examples from the often used `Enumerable` module:\n• `include?` and `member?`\n• `to_a` and `entries`\n• `detect` and `find`\n• `select` and `filter` and `find_all` \n• `map` and `collect`\n• `flat_map` and `collect_concat`\n• `reduce` and `inject`\nThe -ect names (`select`, `reject`, `detect`, `inject`) come from Smalltalk.",
+    "user": "UA14TGLTC",
+    "ts": "1667199657.995029",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3K66A",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On Ruby, Matz put it this way, \"Actually, I'm trying to make Ruby natural, not simple.\"\n\nConcrete example.  The keyword "
+              },
+              {
+                "type": "text",
+                "text": "alias",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is a for giving multiple names to the same method so that you can call the synonym that feels the most natural.  Examples from the often used "
+              },
+              {
+                "type": "text",
+                "text": "Enumerable",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " module:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "include?",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "text",
+                    "text": "member?",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "to_a",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "text",
+                    "text": "entries",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "detect",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "text",
+                    "text": "find",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "select",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "text",
+                    "text": "filter",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "text",
+                    "text": "find_all",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "map",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "text",
+                    "text": "collect",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "flat_map",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "text",
+                    "text": "collect_concat",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "reduce",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "text",
+                    "text": "inject",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The -ect names ("
+              },
+              {
+                "type": "text",
+                "text": "select",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "reject",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "detect",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "inject",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ") come from Smalltalk."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667095355.922339",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "533fdec2-c4dd-460e-806c-9add6d59d47c",
+    "type": "message",
+    "text": "Under this framework, I guess I'm interested in code-as-executable.  You do a thing, then you step back from the action, observing it, abstracting so as to apply in a new situation.  Not exactly programming by example.",
+    "user": "UA14TGLTC",
+    "ts": "1667199819.109829",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "whj11",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Under this framework, I guess I'm interested in code-as-executable.  You do a thing, then you step back from the action, observing it, abstracting so as to apply in a new situation.  Not exactly programming by example."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UA14TGLTC",
+      "ts": "1667200244.000000"
+    },
+    "thread_ts": "1667113662.924319",
+    "parent_user_id": "U03GBV8B58V",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U03GBV8B58V"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "Hi, small update on my infinite-canvas visual programming tool. Improved the handling of excel-like datagrids.. you can now sum or avg a column and/or use it in a (pie) chart.. offcourse cell ranges are also possible. I wanted to prepare a video this week, have been doing some test runs again with obs, but I am not happy yet with the results so a little bit of patient still needed :-)\n\nIn the meantime, hopefully the screenshots show some of the progress and working of the system.. you can also see the changing of the state of the condition node depending on the input.. although this is better shown in a video offcourse.. (see the comment section of this post for the \"error-state\")",
+    "files": [
+      {
+        "id": "F049FVB2HQQ",
+        "created": 1667208228,
+        "timestamp": 1667208228,
+        "name": "Image from iOS.jpg",
+        "title": "Image from iOS",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "U0123H7JRDM",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 50281,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "subtype": "slack_image",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F049FVB2HQQ/image_from_ios.jpg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F049FVB2HQQ/download/image_from_ios.jpg",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_64.jpg",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_80.jpg",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_360.jpg",
+        "thumb_360_w": 360,
+        "thumb_360_h": 167,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_480.jpg",
+        "thumb_480_w": 480,
+        "thumb_480_h": 222,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_160.jpg",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_720.jpg",
+        "thumb_720_w": 720,
+        "thumb_720_h": 333,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_800.jpg",
+        "thumb_800_w": 800,
+        "thumb_800_h": 370,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_960.jpg",
+        "thumb_960_w": 960,
+        "thumb_960_h": 444,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F049FVB2HQQ-09a80c4df8/image_from_ios_1024.jpg",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 474,
+        "original_w": 1600,
+        "original_h": 740,
+        "thumb_tiny": "AwAWADC/9KDR6UdTzQAgz3paOM+1GOOvNABRQDjrzSEAnNAC0UGigAooooAAcUUUUAf/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U0123H7JRDM/F049FVB2HQQ/image_from_ios.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F049FVB2HQQ-ce280fe6a7",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U0123H7JRDM",
+    "display_as_bot": false,
+    "ts": "1667208276.541849",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qgyZD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi, small update on my infinite-canvas visual programming tool. Improved the handling of excel-like datagrids.. you can now sum or avg a column and/or use it in a (pie) chart.. offcourse cell ranges are also possible. I wanted to prepare a video this week, have been doing some test runs again with obs, but I am not happy yet with the results so a little bit of patient still needed :-)"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\nIn the meantime, hopefully the screenshots show some of the progress and working of the system.. you can also see the changing of the state of the condition node depending on the input.. although this is better shown in a video offcourse.. (see the comment section of this post for the \"error-state\")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "633645BC-C07C-467E-96BC-20DAA96D66B3",
+    "thread_ts": "1667208276.541849",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1667208321.036109",
+    "reply_users": [
+      "U0123H7JRDM"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "fire",
+        "users": [
+          "UNCP67JSK",
+          "U03R0B9U1GD",
+          "U023V63MF6V",
+          "UML4ZEKDK"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "type": "message",
+    "text": "This is the error-state when no input was provided: ",
+    "files": [
+      {
+        "id": "F049G03G3CG",
+        "created": 1667208317,
+        "timestamp": 1667208317,
+        "name": "Image from iOS.jpg",
+        "title": "Image from iOS",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "U0123H7JRDM",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 50482,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "subtype": "slack_image",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F049G03G3CG/image_from_ios.jpg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F049G03G3CG/download/image_from_ios.jpg",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_64.jpg",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_80.jpg",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_360.jpg",
+        "thumb_360_w": 360,
+        "thumb_360_h": 166,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_480.jpg",
+        "thumb_480_w": 480,
+        "thumb_480_h": 222,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_160.jpg",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_720.jpg",
+        "thumb_720_w": 720,
+        "thumb_720_h": 333,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_800.jpg",
+        "thumb_800_w": 800,
+        "thumb_800_h": 370,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_960.jpg",
+        "thumb_960_w": 960,
+        "thumb_960_h": 443,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F049G03G3CG-e1bbc422e6/image_from_ios_1024.jpg",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 473,
+        "original_w": 1600,
+        "original_h": 739,
+        "thumb_tiny": "AwAWADC/9KDR6UdTzQAgz3paDjPtRjjrQAUUKcE5waO9ABRRRQAUUUUAAOKKKKAP/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/U0123H7JRDM/F049G03G3CG/image_from_ios.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F049G03G3CG-40dca652c3",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U0123H7JRDM",
+    "display_as_bot": false,
+    "ts": "1667208321.036109",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uBh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is the error-state when no input was provided: "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "8AD25C89-FAC7-449C-89DB-BDDF3475D64C",
+    "thread_ts": "1667208276.541849",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "e22b6089-501f-4d93-8192-83a8bc5c8c53",
+    "type": "message",
+    "text": "Hello everyone, I've made a little video demonstrating my visual/spatial programming tool!\nIt's called :zap: <https://youtu.be/xvlsJ3FqNYU|Spellular Automata>",
+    "user": "U03R0B9U1GD",
+    "ts": "1667209386.248649",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "H0R0/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello everyone, I've made a little video demonstrating my visual/spatial programming tool!\nIt's called "
+              },
+              {
+                "type": "emoji",
+                "name": "zap",
+                "unicode": "26a1"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/xvlsJ3FqNYU",
+                "text": "Spellular Automata"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://youtu.be/xvlsJ3FqNYU",
+        "thumb_url": "https://i.ytimg.com/vi/xvlsJ3FqNYU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/xvlsJ3FqNYU?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen title=\"⚡ Spellular Automata\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/xvlsJ3FqNYU",
+        "fallback": "YouTube Video: ⚡ Spellular Automata",
+        "title": "⚡ Spellular Automata",
+        "title_link": "https://youtu.be/xvlsJ3FqNYU",
+        "author_name": "TodePond",
+        "author_link": "https://www.youtube.com/c/TodePond",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "thread_ts": "1667209386.248649",
+    "reply_count": 7,
+    "reply_users_count": 3,
+    "latest_reply": "1667240731.475639",
+    "reply_users": [
+      "UNCP67JSK",
+      "U03R0B9U1GD",
+      "U02U0AS3J49"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "magic_wand",
+        "users": [
+          "U03GBV8B58V",
+          "U01HKV85Y1J",
+          "U02LHNW0VLP"
+        ],
+        "count": 3
+      },
+      {
+        "name": "frog",
+        "users": [
+          "U03GBV8B58V",
+          "UNCP67JSK",
+          "U013ZLJARC7",
+          "U01HKV85Y1J",
+          "U0296ACR13M",
+          "U02MXPT5UDC"
+        ],
+        "count": 6
+      },
+      {
+        "name": "bird",
+        "users": [
+          "UC2A2ARPT",
+          "U01HKV85Y1J"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heart",
+        "users": [
+          "U01HKV85Y1J",
+          "U02MXPT5UDC",
+          "UCUSW7WVD",
+          "UAZT04VT4"
+        ],
+        "count": 4
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "11D9D6AF-715A-459F-98A5-51A8CB06ED09",
+    "type": "message",
+    "text": "Was a bit skeptical seeing the frog at first, but it was lit! Too fun! Thx :)",
+    "user": "UNCP67JSK",
+    "ts": "1667215618.863999",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jDG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Was a bit skeptical "
+              },
+              {
+                "type": "text",
+                "text": "s"
+              },
+              {
+                "type": "text",
+                "text": "eeing the frog at first, but it was lit! Too fun! Thx :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UNCP67JSK",
+      "ts": "1667215657.000000"
+    },
+    "thread_ts": "1667209386.248649",
+    "parent_user_id": "U03R0B9U1GD",
+    "reactions": [
+      {
+        "name": "laughing",
+        "users": [
+          "U03R0B9U1GD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "309da651-72bb-4134-aaca-16c59c64dee3",
+    "type": "message",
+    "text": "thank you!! :smile: :frog:",
+    "user": "U03R0B9U1GD",
+    "ts": "1667215683.702779",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qns",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "thank you!! "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "emoji",
+                "name": "frog",
+                "unicode": "1f438"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667209386.248649",
+    "parent_user_id": "U03R0B9U1GD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "07518b5c-9b84-4075-a445-caab57b2f4ee",
+    "type": "message",
+    "text": "Smalltalk, during the period in which it was popular, had serious drawbacks around modularity, security, and compatibility with existing systems.",
+    "user": "U013ZLJARC7",
+    "ts": "1667219357.697759",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eSzv7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Smalltalk, during the period in which it was popular, had serious drawbacks around modularity, security, and compatibility with existing systems."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667197987.071029",
+    "parent_user_id": "UJBAJNFLK",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U03GBV8B58V",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "DBBCBBA4-1926-4ACE-B2D0-598C42102683",
+    "type": "message",
+    "text": "<@UA14TGLTC> I'm not sure what you're responding to. Something from a previous comment? Something from the episode? (Perhaps Jimmy's mention that Ruby is difficult to parse?)",
+    "user": "UC2A2ARPT",
+    "ts": "1667225181.392229",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NlYsp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " I'm not sure what you're responding to"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Something from a previous comment? Something from the episode? (Perhaps Jimmy's mention that Ruby is difficult to parse?)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667095355.922339",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "subtype": "thread_broadcast",
+    "text": "i’ve found it insanely powerful as a creative-experimentation tool - it really allows for a sketching/experimenting workflow that is an order of magnitude faster than anything i’ve experienced, which i attribute to a few main things\n\n• the data-flow paradigm forces me to to think in terms of inputs/outputs/interfaces up front (but lots of little UI quality of life things make doing this VERY fast)\n• the visual-scripting, 2D paradigm makes it easy to have a “continuum” of modularization - i can stick a bunch of nodes in their own region as a “section”, and treat them loosely as a module, but still leave them open for fast hacking. This, combined with the first point, still leaves things pretty organized and makes “on the fly” component creation very organic",
+    "user": "U047BL7EJDA",
+    "ts": "1667235072.622709",
+    "thread_ts": "1666627197.087499",
+    "root": {
+      "client_msg_id": "7649e0c6-7af3-4365-a380-083c75ce1add",
+      "type": "message",
+      "text": "any folks here use touchdesigner? i’ve been incredibly impressed by it’s notebook-like functionality embedded in a visual-programming paradigm. Of all of the node-based tools i’ve seen, imo it has done the best job at bridging the gap between text based and node based programming, while also (most impressively) embedding a fairly rigorous notion of time into the whole environment",
+      "user": "U047BL7EJDA",
+      "ts": "1666627197.087499",
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "Wcz",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "any folks here use touchdesigner? i’ve been incredibly impressed by it’s notebook-like functionality embedded in a visual-programming paradigm. Of all of the node-based tools i’ve seen, imo it has done the best job at bridging the gap between text based and node based programming, while also (most impressively) embedding a fairly rigorous notion of time into the whole environment"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "team": "T5TCAFTA9",
+      "thread_ts": "1666627197.087499",
+      "reply_count": 3,
+      "reply_users_count": 2,
+      "latest_reply": "1667235072.622709",
+      "reply_users": [
+        "UDLGND5GA",
+        "U047BL7EJDA"
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Wp3v",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i’ve found it insanely powerful as a creative-experimentation tool - it really allows for a sketching/experimenting workflow that is an order of magnitude faster than anything i’ve experienced, which i attribute to a few main things\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "the data-flow paradigm forces me to to think in terms of inputs/outputs/interfaces up front (but lots of little UI quality of life things make doing this VERY fast)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "the visual-scripting, 2D paradigm makes it easy to have a “continuum” of modularization - i can stick a bunch of nodes in their own region as a “section”, and treat them loosely as a module, but still leave them open for fast hacking. This, combined with the first point, still leaves things pretty organized and makes “on the fly” component creation very organic"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "af2cd793-4df7-4956-99b1-62042cbb1a1e",
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "type": "message",
+    "subtype": "thread_broadcast",
+    "text": "i’ve found it insanely powerful as a creative-experimentation tool - it really allows for a sketching/experimenting workflow that is an order of magnitude faster than anything i’ve experienced, which i attribute to a few main things\n\n• the data-flow paradigm forces me to to think in terms of inputs/outputs/interfaces up front (but lots of little UI quality of life things make doing this VERY fast)\n• the visual-scripting, 2D paradigm makes it easy to have a “continuum” of modularization - i can stick a bunch of nodes in their own region as a “section”, and treat them loosely as a module, but still leave them open for fast hacking. This, combined with the first point, still leaves things pretty organized and makes “on the fly” component creation very organic",
+    "user": "U047BL7EJDA",
+    "ts": "1667235072.622709",
+    "thread_ts": "1666627197.087499",
+    "root": {
+      "client_msg_id": "7649e0c6-7af3-4365-a380-083c75ce1add",
+      "type": "message",
+      "text": "any folks here use touchdesigner? i’ve been incredibly impressed by it’s notebook-like functionality embedded in a visual-programming paradigm. Of all of the node-based tools i’ve seen, imo it has done the best job at bridging the gap between text based and node based programming, while also (most impressively) embedding a fairly rigorous notion of time into the whole environment",
+      "user": "U047BL7EJDA",
+      "ts": "1666627197.087499",
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "Wcz",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "any folks here use touchdesigner? i’ve been incredibly impressed by it’s notebook-like functionality embedded in a visual-programming paradigm. Of all of the node-based tools i’ve seen, imo it has done the best job at bridging the gap between text based and node based programming, while also (most impressively) embedding a fairly rigorous notion of time into the whole environment"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "team": "T5TCAFTA9",
+      "thread_ts": "1666627197.087499",
+      "reply_count": 3,
+      "reply_users_count": 2,
+      "latest_reply": "1667235072.622709",
+      "reply_users": [
+        "UDLGND5GA",
+        "U047BL7EJDA"
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Wp3v",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i’ve found it insanely powerful as a creative-experimentation tool - it really allows for a sketching/experimenting workflow that is an order of magnitude faster than anything i’ve experienced, which i attribute to a few main things\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "the data-flow paradigm forces me to to think in terms of inputs/outputs/interfaces up front (but lots of little UI quality of life things make doing this VERY fast)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "the visual-scripting, 2D paradigm makes it easy to have a “continuum” of modularization - i can stick a bunch of nodes in their own region as a “section”, and treat them loosely as a module, but still leave them open for fast hacking. This, combined with the first point, still leaves things pretty organized and makes “on the fly” component creation very organic"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "af2cd793-4df7-4956-99b1-62042cbb1a1e",
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "d2c5f549-8fa6-4bee-b957-ab99ca7279b6",
+    "type": "message",
+    "text": "The artistry here is amazing, <@U03R0B9U1GD>. The rhythm, in both the audio and the video, is very compelling. How did you fall onto this idea of making the demonstrations valuable art, in their own right? Do you have advice for people who aspire to be this compelling in how they demonstrate their experiments?",
+    "user": "U02U0AS3J49",
+    "ts": "1667237037.737889",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+pGQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The artistry here is amazing, "
+              },
+              {
+                "type": "user",
+                "user_id": "U03R0B9U1GD"
+              },
+              {
+                "type": "text",
+                "text": ". The rhythm, in both the audio and the video, is very compelling. How did you fall onto this idea of making the demonstrations valuable art, in their own right? Do you have advice for people who aspire to be this compelling in how they demonstrate their experiments?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667209386.248649",
+    "parent_user_id": "U03R0B9U1GD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "cf2f6cd0-d0fe-4a06-8b73-b481e13d9b4f",
+    "type": "message",
+    "text": "Thanks <@U02U0AS3J49>! It's really been an iterative thing - my <https://youtu.be/zLP4ZwudAKs|first video> was quite different+basic :slightly_smiling_face:\nand with each video, I've experimented a bit more!\nI covered the journey a little bit in <https://youtu.be/nER7-DVLEjA|this video>!\nI guess my backgrounds in performing+teaching influence my videos a little bit, among <https://github.com/TodePond/KnowPond/blob/main/influences.md|a lot of other influences>! I go to quite a few trance gigs, and the v<https://youtu.be/oUq9Io3hXKc|isuals they use alongside the music> is a big influence too! (as well as the common combination of <https://youtu.be/IrzO9GqS8BY|nature+electronic music>)\n\nMy advice would be: Make a lot of stuff for fun, and try one new thing each time (no more, no less)!",
+    "user": "U03R0B9U1GD",
+    "ts": "1667238084.991009",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "R=o",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "U02U0AS3J49"
+              },
+              {
+                "type": "text",
+                "text": "! It's really been an iterative thing - my "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/zLP4ZwudAKs",
+                "text": "first video"
+              },
+              {
+                "type": "text",
+                "text": " was quite different+basic "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": "\nand with each video, I've experimented a bit more!\nI covered the journey a little bit in "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/nER7-DVLEjA",
+                "text": "this video"
+              },
+              {
+                "type": "text",
+                "text": "!\nI guess my backgrounds in performing+teaching influence my videos a little bit, among "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/TodePond/KnowPond/blob/main/influences.md",
+                "text": "a lot of other influences"
+              },
+              {
+                "type": "text",
+                "text": "! I go to quite a few trance gigs, and the v"
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/oUq9Io3hXKc",
+                "text": "isuals they use alongside the music"
+              },
+              {
+                "type": "text",
+                "text": " is a big influence too! (as well as the common combination of "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/IrzO9GqS8BY",
+                "text": "nature+electronic music"
+              },
+              {
+                "type": "text",
+                "text": ")\n\nMy advice would be: Make a lot of stuff for fun, and try one new thing each time (no more, no less)!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U03R0B9U1GD",
+      "ts": "1667238357.000000"
+    },
+    "thread_ts": "1667209386.248649",
+    "parent_user_id": "U03R0B9U1GD",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U02U0AS3J49"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "45f3ee74-89eb-47e1-b1aa-8e6ce6e770a1",
+    "type": "message",
+    "text": "I sent the message too soon but I've edited it with some more things now :smile:",
+    "user": "U03R0B9U1GD",
+    "ts": "1667238381.883119",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6NJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I sent the message too soon but I've edited it with some more things now "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667209386.248649",
+    "parent_user_id": "U03R0B9U1GD",
+    "reactions": [
+      {
+        "name": "+1::skin-tone-2",
+        "users": [
+          "U02U0AS3J49"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "d794d501-6e5d-46bf-a6e9-183a780360f1",
+    "type": "message",
+    "text": "I made a 10 minute demo video a few weeks ago, and it nearly drove me nuts. Between storyboarding, scripting, producing, editing, it took the better part of a week, and it just felt so inefficient. I think I might need a different medium, or a more compelling target. Or maybe just more practice. But I will try new things, and try to incorporate other esthetics that I value.",
+    "user": "U02U0AS3J49",
+    "ts": "1667239912.856669",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JIK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I made a 10 minute demo video a few weeks ago, and it nearly drove me nuts. Between storyboarding, scripting, producing, editing, it took the better part of a week, and it just felt so inefficient. I think I might need a different medium, or a more compelling target. Or maybe just more practice. But I will try new things, and try to incorporate other esthetics that I value."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667209386.248649",
+    "parent_user_id": "U03R0B9U1GD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "85ae9935-7f40-4a57-9e2d-094561b1a32a",
+    "type": "message",
+    "text": "Yes it does tend to take a longgggg time. I feel like I go in cycles - sometimes I'm trying to be more ambitious, and sometimes I'm just trying to make the video more quickly! :dash:\n\nThe only other thing I would add is that: The main thing I aim for with the demos/videos is to give the user a certain feeling, rather than give them some knowledge/information. I'm not sure if this is a good idea or not, but it's what I always focus on as goal number 1!",
+    "user": "U03R0B9U1GD",
+    "ts": "1667240731.475639",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RpQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes it does tend to take a longgggg time. I feel like I go in cycles - sometimes I'm trying to be more ambitious, and sometimes I'm just trying to make the video more quickly! "
+              },
+              {
+                "type": "emoji",
+                "name": "dash",
+                "unicode": "1f4a8"
+              },
+              {
+                "type": "text",
+                "text": "\n\nThe only other thing I would add is that: The main thing I aim for with the demos/videos is to give the user a certain feeling, rather than give them some knowledge/information. I'm not sure if this is a good idea or not, but it's what I always focus on as goal number 1!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1667209386.248649",
+    "parent_user_id": "U03R0B9U1GD",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "open_mouth",
+        "users": [
+          "UNCP67JSK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]
