@@ -1,0 +1,922 @@
+[
+  {
+    "user": "U06131CATV3",
+    "type": "message",
+    "ts": "1711082273.878299",
+    "client_msg_id": "13d6812c-ab17-422b-b32d-a5e6547cfc69",
+    "text": "<@U06BUK2M2RH> if you're into scheme and p2p networking at all there's this interesting experimental propagator implementation built using Spritely Goblins: <https://gitlab.com/spritely/brainy>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1710955571.143429",
+    "parent_user_id": "U05TJD2V4P2",
+    "attachments": [
+      {
+        "from_url": "https://gitlab.com/spritely/brainy",
+        "service_icon": "https://gitlab.com/assets/apple-touch-icon-b049d4bc0dd9626f31db825d61880737befc7835982586d015bded10b4435460.png",
+        "thumb_url": "https://gitlab.com/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg",
+        "thumb_width": 1024,
+        "thumb_height": 1024,
+        "id": 1,
+        "original_url": "https://gitlab.com/spritely/brainy",
+        "fallback": "GitLab: spritely / Brainy · GitLab",
+        "text": "A super research'y back-burner implementation of the propagator model. Ultra-pre-alpha! Still in the highly experimental stage! Not part of Spritely's...",
+        "title": "spritely / Brainy · GitLab",
+        "title_link": "https://gitlab.com/spritely/brainy",
+        "service_name": "GitLab"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "r/MV7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U06BUK2M2RH"
+              },
+              {
+                "type": "text",
+                "text": " if you're into scheme and p2p networking at all there's this interesting experimental propagator implementation built using Spritely Goblins: "
+              },
+              {
+                "type": "link",
+                "url": "https://gitlab.com/spritely/brainy"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "exploding_head",
+        "users": [
+          "U06BUK2M2RH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UA14TGLTC",
+    "type": "message",
+    "ts": "1711082598.888909",
+    "client_msg_id": "3a1c0664-8c32-42af-b6b9-634cb5cd1674",
+    "text": "Hello, and welcome to one of my favorite topics.  I'm so glad to hear the Propagator Model mentioned.  One thing I've learned in spending... oh my... a decade plus on the topic is that you must integrate invalid states and a view model from the start.  Then soon enough, you'll really want versioning.\n\nConsider the simplest thing in a spreadsheet:\n• Set `A1 = 24.0`.\n• Set `A2 = A1 * 9 / 5 + 32`.\n• Come back to edit A1.  Type \"x\".  What should happen to A2?  For a usual spreadsheet, the answer is nothing.  When active, a cell's state shouldn't propagate, so make that part of the model in the first place.\n• Hit enter.  We expect A2 to go funny in some way, ideally a way that points back to A1 as the source of the type error.  An advantage of something like the propagator model is that you can wire your network as the basic level and then independently experiment with the semantics of error propagation.\nWhat about versioning?  Versioning is useful for collaboration, yes.  And undo is essential for any non-trivial model that you can mess up.  But a real potential is realized in having the system make a bunch of version of things and then combine them.  For instance, make a bunch of copies of A1 and A2.  Vary A1 and chart how it affects A2.  So instead of having separate looping constructs, just allow for clones/copies of the parts of the model.\n\nAnd if you make time first-class, instead of distinguishing between a clone and a copy, you can choose to either modify the original before or after copies were made to get a similar effect.  An advantage is that you now have a well-defined semantics for conflicts when an embellishment of a clone is incompatible with a change to the original.  You can pinpoint: this operation no longer works.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1710955571.143429",
+    "parent_user_id": "U05TJD2V4P2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fC+T7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello, and welcome to one of my favorite topics.  I'm so glad to hear the Propagator Model mentioned.  One thing I've learned in spending... oh my... a decade plus on the topic is that you must integrate invalid states and a view model from the start.  Then soon enough, you'll really want versioning.\n\nConsider the simplest thing in a spreadsheet:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Set "
+                  },
+                  {
+                    "type": "text",
+                    "text": "A1 = 24.0",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Set "
+                  },
+                  {
+                    "type": "text",
+                    "text": "A2 = A1 * 9 / 5 + 32",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Come back to edit A1.  Type \"x\".  What should happen to A2?  For a usual spreadsheet, the answer is nothing.  When active, a cell's state shouldn't propagate, so make that part of the model in the first place."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Hit enter.  We expect A2 to go funny in some way, ideally a way that points back to A1 as the source of the type error.  An advantage of something like the propagator model is that you can wire your network as the basic level and then independently experiment with the semantics of error propagation."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWhat about versioning?  Versioning is useful for collaboration, yes.  And undo is essential for any non-trivial model that you can mess up.  But a real potential is realized in having the system make a bunch of version of things and then combine them.  For instance, make a bunch of copies of A1 and A2.  Vary A1 and chart how it affects A2.  So instead of having separate looping constructs, just allow for clones/copies of the parts of the model.\n\nAnd if you make time first-class, instead of distinguishing between a clone and a copy, you can choose to either modify the original before or after copies were made to get a similar effect.  An advantage is that you now have a well-defined semantics for conflicts when an embellishment of a clone is incompatible with a change to the original.  You can pinpoint: this operation no longer works."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U06131CATV3",
+          "U06BUK2M2RH"
+        ],
+        "count": 2
+      },
+      {
+        "name": "100",
+        "users": [
+          "UC2A2ARPT",
+          "U06BUK2M2RH"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heart",
+        "users": [
+          "U06BUK2M2RH",
+          "UFPRPSA4S"
+        ],
+        "count": 2
+      },
+      {
+        "name": "exploding_head",
+        "users": [
+          "U06BUK2M2RH",
+          "U05TJD2V4P2"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "subtype": "thread_broadcast",
+    "user": "UJBAJNFLK",
+    "thread_ts": "1708955618.202579",
+    "root": {
+      "user": "UJBAJNFLK",
+      "type": "message",
+      "ts": "1708955618.202579",
+      "client_msg_id": "09435a51-cfea-499e-a53f-b4aa0a589c0a",
+      "text": "Moldable development is coming to Common Lisp: <https://codeberg.org/khinsen/clog-inspector>",
+      "team": "T5TCAFTA9",
+      "thread_ts": "1708955618.202579",
+      "reply_count": 1,
+      "reply_users_count": 1,
+      "latest_reply": "1711100979.557299",
+      "reply_users": [
+        "UJBAJNFLK"
+      ],
+      "is_locked": false,
+      "subscribed": false,
+      "attachments": [
+        {
+          "image_url": "https://codeberg.org/avatars/81e0f0f0f0b27d785c72d168dcbf6f17",
+          "image_width": 290,
+          "image_height": 290,
+          "image_bytes": 1329,
+          "from_url": "https://codeberg.org/khinsen/clog-inspector",
+          "service_icon": "https://codeberg.org/favicon.ico",
+          "id": 1,
+          "original_url": "https://codeberg.org/khinsen/clog-inspector",
+          "fallback": "Codeberg.org: clog-inspector",
+          "text": "A moldable Common Lisp object inspector based on CLOG",
+          "title": "clog-inspector",
+          "title_link": "https://codeberg.org/khinsen/clog-inspector",
+          "service_name": "Codeberg.org"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "c4Sbj",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "Moldable development is coming to Common Lisp: "
+                },
+                {
+                  "type": "link",
+                  "url": "https://codeberg.org/khinsen/clog-inspector"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "type": "message",
+    "ts": "1711100979.557299",
+    "client_msg_id": "9c012125-cab0-41fe-8bdd-928f3df4fed1",
+    "text": "I have been making slow but steady progress on my moldable inspector. Views are now generated lazily (on demand), and many display details have been improved.\n\nLessons learned:\n• CSS is a big mess.\n• Common Lisp is a bit less of a mess, but still more than I'd like.\nThe second comment applies mostly to corners of Common Lisp that I had never looked into before because I was writing application rather than systems code. Writing inspector views for the built-in classes made me look into the details such as the inner working of packages and classes. Why do you get the slots of a class via a specific API (the MetaObject Protocol, aka MOP) but the symbols of a package via a special clause of the LOOP macro? Historical accidents of course.",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ywVmO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I have been making slow but steady progress on my moldable inspector. Views are now generated lazily (on demand), and many display details have been improved.\n\nLessons learned:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "CSS is a big mess."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Common Lisp is a bit less of a mess, but still more than I'd like."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThe second comment applies mostly to corners of Common Lisp that I had never looked into before because I was writing application rather than systems code. Writing inspector views for the built-in classes made me look into the details such as the inner working of packages and classes. Why do you get the slots of a class via a specific API (the MetaObject Protocol, aka MOP) but the symbols of a package via a special clause of the LOOP macro? Historical accidents of course."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U013ZLJARC7",
+          "UA14TGLTC"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1711108783.712759",
+    "client_msg_id": "55514581-9CE1-4AA4-8FB8-5C9392F8013D",
+    "text": "Some speculation by <@U04BPBG8VN0> about <https://interconnected.org/home/2024/03/20/agents|the not so far out future of AI agents> and how we can/need to prepare for it. \nIn the other corner, some judgy comments about <https://www.garbageday.email/p/clout-world|AI’s Looming Reputation Crisis> (scroll down to the middle to find that bit).\n\nI read both this morning and I know these are different use cases, however they beautifully cover the whole optimism/pessimism spectrum on AI.\n\nWhere do people here fall on that spectrum? Are there use cases that are obviously good/bad, or does that depend on… well… what? And are we going to outsource most of our lives soon to AI assistants while simultaneously drowning in mediocre generated bullsh*t trying to scam us?\n\nGosh, I miss the time of the early internet when I was excited about everything tech. Somehow I can’t find back into that mindset these days. Can someone convince me that the future is going to be universally great, like it used to be 20 years ago?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711108783.712759",
+    "reply_count": 5,
+    "reply_users_count": 2,
+    "latest_reply": "1711150928.222419",
+    "reply_users": [
+      "UE6EFEPTQ",
+      "U8A5MS6R1"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "from_url": "https://interconnected.org/home/2024/03/20/agents",
+        "thumb_url": "https://interconnected.org/home/2024/03/20/agents.png?v=1",
+        "thumb_width": 400,
+        "thumb_height": 400,
+        "id": 1,
+        "original_url": "https://interconnected.org/home/2024/03/20/agents",
+        "fallback": "Interconnected, a blog by Matt Webb: Who will build new search engines for new personal AI agents?",
+        "text": "Posted on Wednesday 20 Mar 2024. 2,867 words, 12 links. By Matt Webb.",
+        "title": "Who will build new search engines for new personal AI agents?",
+        "title_link": "https://interconnected.org/home/2024/03/20/agents",
+        "service_name": "Interconnected, a blog by Matt Webb"
+      },
+      {
+        "image_url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/2836b5d2-79a1-4950-b37d-8dda0505e8f1/Screenshot_2024-03-20_at_1.29.52_PM.png?t=1710955810",
+        "image_width": 1050,
+        "image_height": 694,
+        "image_bytes": 680512,
+        "from_url": "https://www.garbageday.email/p/clout-world",
+        "service_icon": "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/publication/logo/cc1a45b3-0b3e-458a-b560-de940fc053f2/thumb_GD-ServerIcon.png",
+        "id": 2,
+        "original_url": "https://www.garbageday.email/p/clout-world",
+        "fallback": "Garbage Day: Clout world",
+        "text": "Read to the end for a good TikTok",
+        "title": "Clout world",
+        "title_link": "https://www.garbageday.email/p/clout-world",
+        "service_name": "Garbage Day"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XGmu1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some speculation by "
+              },
+              {
+                "type": "user",
+                "user_id": "U04BPBG8VN0"
+              },
+              {
+                "type": "text",
+                "text": " about "
+              },
+              {
+                "type": "link",
+                "url": "https://interconnected.org/home/2024/03/20/agents",
+                "text": "the not so far out future of AI agents"
+              },
+              {
+                "type": "text",
+                "text": " and how we can/need to prepare for it. \nIn the other corner, some judgy comments about "
+              },
+              {
+                "type": "link",
+                "url": "https://www.garbageday.email/p/clout-world",
+                "text": "AI’s Looming Reputation Crisis"
+              },
+              {
+                "type": "text",
+                "text": " (scroll down to the middle to find that bit).\n\nI read both this morning and I know these are different use cases, however they beautifully cover the whole optimism/pessimism spectrum on AI.\n\nWhere do people here fall on that spectrum? Are there use cases that are obviously good/bad, or does that depend on… well… what? And are we going to outsource most of our lives soon to AI assistants while simultaneously drowning in mediocre generated bullsh*t trying to scam us?\n\nGosh, I miss the time of the early internet when I was excited about everything tech"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Somehow I "
+              },
+              {
+                "type": "text",
+                "text": "can’t"
+              },
+              {
+                "type": "text",
+                "text": " find back into that mindset these days"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Can someone convince me that the future is going to be universally great, like it used to be 20 years ago?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1711114305.996379",
+    "client_msg_id": "89a40753-6582-4d93-bc73-6b7a8277746d",
+    "text": "I was blown away by the sudden appearance and then rapid development of AI, having followed the field at a medium distance all my life. But, like cryptocurrencies, I quickly filed it into \"interesting, follow quite closely, not my core thing\"",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711108783.712759",
+    "parent_user_id": "U5STGTB3J",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eLcb7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I was blown away by the sudden appearance and then rapid development of AI, having followed the field at a medium distance all my life. But, like cryptocurrencies, I quickly filed it into \"interesting, follow quite closely, not my core thing\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1711114335.348539",
+    "client_msg_id": "07fafb0f-b209-4a2a-b726-0c8c4f3f9d6e",
+    "text": "I do get that excitement with \"my core thing\", though!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711108783.712759",
+    "parent_user_id": "U5STGTB3J",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/UNT5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I do get that excitement with \"my core thing\", though!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "text": "A tangible programming interface inspired by Andean khipu that we've been working on..",
+    "files": [
+      {
+        "id": "F06QQA6NB2A",
+        "created": 1711120926,
+        "timestamp": 1711120926,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U05SU27S1M2",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 969128,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F06QQA6NB2A/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F06QQA6NB2A/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F06QQA6NB2A-5ca8438f19/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F06QQA6NB2A-5ca8438f19/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F06QQA6NB2A-5ca8438f19/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 348,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F06QQA6NB2A-5ca8438f19/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 464,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F06QQA6NB2A-5ca8438f19/image_160.png",
+        "original_w": 677,
+        "original_h": 655,
+        "thumb_tiny": "AwAuADBwTpzx6UbW5AOMe3Wn0EgdTiouVYjEWwFsnNSCMdyTSSEMhUdT68YpyNuQEd6YhoRVJwOppccYHUU6m454oGB6Z6U0yBVz1PYmkYFvl6USrmI4zkcjFIBxAWL1Y9/eliI2BehXjFNY7jGwGV9aST5mPp7dTTAlGec+vFFMVRtHlkjHUE0FyDgrgHvmgBM0E5U9+KZmjNIBwwU56AcBabD83zDgZ6GkcEphTj15p0fCjgA0xDioDhlHPemn5nOei0uabj5ic9R0pAf/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U05SU27S1M2/F06QQA6NB2A/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F06QQA6NB2A-8d993c8126",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U05SU27S1M2",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1K0v5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A tangible programming interface inspired by Andean khipu that we've been working on.."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1711120929.764279",
+    "client_msg_id": "5e862f89-f308-4f10-88d0-0ff3267b30d9",
+    "thread_ts": "1711120929.764279",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1711137833.478049",
+    "reply_users": [
+      "U05SU27S1M2",
+      "UC2A2ARPT"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U06H4BGRBM2",
+          "UPVBV34EL",
+          "UCUSW7WVD",
+          "U06131CATV3",
+          "U023V63MF6V",
+          "UC2A2ARPT",
+          "UFEQUBNNT",
+          "U013ZLJARC7",
+          "UP28ETUSE",
+          "U04BZ21V2NQ"
+        ],
+        "count": 10
+      },
+      {
+        "name": "eyes",
+        "users": [
+          "U04717WKH5K",
+          "U01AD80KMLK",
+          "UJBAJNFLK",
+          "UC2A2ARPT"
+        ],
+        "count": 4
+      },
+      {
+        "name": "exploding_head",
+        "users": [
+          "U03R0B9U1GD",
+          "U0123H7JRDM"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05SU27S1M2",
+    "type": "message",
+    "ts": "1711120951.986549",
+    "client_msg_id": "8c517e14-9238-4fb2-8b81-9f038ee0e751",
+    "text": "Some info here: <https://gitlab.com/then-try-this/khipu/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711120929.764279",
+    "parent_user_id": "U05SU27S1M2",
+    "attachments": [
+      {
+        "from_url": "https://gitlab.com/then-try-this/khipu/",
+        "thumb_url": "https://gitlab.com/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg",
+        "thumb_width": 1024,
+        "thumb_height": 1024,
+        "service_icon": "https://gitlab.com/assets/apple-touch-icon-b049d4bc0dd9626f31db825d61880737befc7835982586d015bded10b4435460.png",
+        "id": 1,
+        "original_url": "https://gitlab.com/then-try-this/khipu/",
+        "fallback": "GitLab: Then Try This / khipu · GitLab",
+        "text": "<http://GitLab.com|GitLab.com>",
+        "title": "Then Try This / khipu · GitLab",
+        "title_link": "https://gitlab.com/then-try-this/khipu/",
+        "service_name": "GitLab"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "z1NBK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some info here: "
+              },
+              {
+                "type": "link",
+                "url": "https://gitlab.com/then-try-this/khipu/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05SU27S1M2",
+    "type": "message",
+    "ts": "1711121088.431229",
+    "client_msg_id": "b6795eaa-56a7-42e7-bb24-18c4520e049b",
+    "text": "with work from last week here <https://gitlab.com/then-try-this/khipu/-/blob/alpaca/docs/research.md>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711120929.764279",
+    "parent_user_id": "U05SU27S1M2",
+    "attachments": [
+      {
+        "from_url": "https://gitlab.com/then-try-this/khipu/-/blob/alpaca/docs/research.md",
+        "thumb_url": "https://gitlab.com/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg",
+        "thumb_width": 1024,
+        "thumb_height": 1024,
+        "service_icon": "https://gitlab.com/assets/apple-touch-icon-b049d4bc0dd9626f31db825d61880737befc7835982586d015bded10b4435460.png",
+        "id": 1,
+        "original_url": "https://gitlab.com/then-try-this/khipu/-/blob/alpaca/docs/research.md",
+        "fallback": "GitLab: docs/research.md · alpaca · Then Try This / khipu · GitLab",
+        "text": "<http://GitLab.com|GitLab.com>",
+        "title": "docs/research.md · alpaca · Then Try This / khipu · GitLab",
+        "title_link": "https://gitlab.com/then-try-this/khipu/-/blob/alpaca/docs/research.md",
+        "service_name": "GitLab"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Rc2/l",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "with work from last week here "
+              },
+              {
+                "type": "link",
+                "url": "https://gitlab.com/then-try-this/khipu/-/blob/alpaca/docs/research.md"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U8A5MS6R1",
+    "type": "message",
+    "ts": "1711130279.535749",
+    "client_msg_id": "c6168cbf-7054-4489-85f8-c4437eb8ed75",
+    "text": "I've generally been skeptical of AI/ML but have come around a little bit. I've been very impressed with some specific applications, eg image and text generation, pattern recognition, etc.\n\nIn applications that need rigor, I'm very skeptical and actually think an ML based approach is completely backwards. Specifically for things like coding, engineering, maths and so on, a foundation of statistical correlation based on pre-existing text is... completely wrong (and why this is not blindingly obvious to everyone remains a mystery to me). You want to start with a semantic (not statistical) model. In any case I do find it easier to ask chatgpt about how to use an api for a specific purpose, and then validate that it actually works. People say LLMs sometimes hallucinate but in reality they _only_ hallucinate: is just so happens the hallucination sometimes matches reality.\n\nSide notes:\nI really don't like that the model makers dont reveal their training data. _Release your training data you cowards!_ \n\nAI/ML in decision making may help humans shrug away responsibility, which is also a major concern and I think we should stop talking about it as a magical entity that's different from a typical program. I think 'automation' is a great word, suggested by Emily Bender in this video: <https://www.youtube.com/watch?v=eK0md9tQ1KY>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711108783.712759",
+    "parent_user_id": "U5STGTB3J",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=eK0md9tQ1KY",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/eK0md9tQ1KY/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/eK0md9tQ1KY?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"How should regulators think about &quot;AI&quot;?\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=eK0md9tQ1KY",
+        "fallback": "YouTube Video: How should regulators think about \"AI\"?",
+        "title": "How should regulators think about \"AI\"?",
+        "title_link": "https://www.youtube.com/watch?v=eK0md9tQ1KY",
+        "author_name": "Emily M. Bender",
+        "author_link": "https://www.youtube.com/@emilym.bender9805",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pyL8v",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've generally been skeptical of AI/ML but have come around a little bit. I've been very impressed with some specific applications, eg image and text generation, pattern recognition, etc.\n\nIn applications that need rigor, I'm very skeptical and actually think an ML based approach is completely backwards. Specifically for things like coding, engineering, maths and so on, a foundation of statistical correlation based on pre-existing text is... completely wrong (and why this is not blindingly obvious to everyone remains a mystery to me). You want to start with a semantic (not statistical) model. In any case I do find it easier to ask chatgpt about how to use an api for a specific purpose, and then validate that it actually works. People say LLMs sometimes hallucinate but in reality they "
+              },
+              {
+                "type": "text",
+                "text": "only",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " hallucinate: is just so happens the hallucination sometimes matches reality.\n\nSide notes:\nI really don't like that the model makers dont reveal their training data. "
+              },
+              {
+                "type": "text",
+                "text": "Release your training data you cowards! ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\nAI/ML in decision making may help humans shrug away responsibility, which is also a major concern and I think we should stop talking about it as a magical entity that's different from a typical program. I think 'automation' is a great word, suggested by Emily Bender in this video: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=eK0md9tQ1KY"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U0296ACR13M"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1711137833.478049",
+    "client_msg_id": "BE4E0E9B-FB65-4C4C-8A37-DD84A0E88DC3",
+    "text": "This is fantastic and 100% FoC aligned!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711120929.764279",
+    "parent_user_id": "U05SU27S1M2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Wb6rF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is fantastic and 100% FoC aligned!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U05SU27S1M2"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1711147147.783859",
+    "client_msg_id": "4b298e50-59de-4209-8bfc-3814f61659ac",
+    "text": "&gt; People say LLMs sometimes hallucinate but in reality they _only_ hallucinate: is just so happens the hallucination sometimes matches reality.\nWell the same can be said of the human mind: the abstraction of our senses to our conscious experience is a hallucination that is tightly constrained by incoming sense input. When we dream (or, well, when we hallucinate), those constraints are absent.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711108783.712759",
+    "parent_user_id": "U5STGTB3J",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YWJYI",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "People say LLMs sometimes hallucinate but in reality they "
+              },
+              {
+                "type": "text",
+                "text": "only",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " hallucinate: is just so happens the hallucination sometimes matches reality."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Well the same can be said of the human mind: the abstraction of our senses to our conscious experience is a hallucination that is tightly constrained by incoming sense input. When we dream (or, well, when we hallucinate), those constraints are absent."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U8A5MS6R1",
+    "type": "message",
+    "ts": "1711150928.222419",
+    "client_msg_id": "2f949f72-0d63-438c-9676-f38637d663ea",
+    "text": "fair point. I guess hallucination is the wrong word to use here because it implies a kind of perception.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1711108783.712759",
+    "parent_user_id": "U5STGTB3J",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A7fII",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "fair point. I guess hallucination is the wrong word to use here because it implies a kind of perception."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
