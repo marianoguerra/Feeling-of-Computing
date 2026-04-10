@@ -1,0 +1,618 @@
+[
+  {
+    "client_msg_id": "c4116a70-a5ba-4dc8-8215-96d7876d30ec",
+    "type": "message",
+    "text": "Traditional models of communication between devices, processes, and threads include message-passing, remote procedure calls, and shared memory. Here's a model I haven't seen before: _shared game-playing_.\n\nHow it would work:\n• The rules for a \"game\" of some kind are expressed as a code library... or whatever representation works best.\n• A set of \"players\" (processes or threads) express interest in playing the game with each other. (somehow...)\n• The players communicate with each other by interacting with the game (in accordance with its rules), and receive information about each other's actions by observing how the game state has changed.\nThe \"game\" could be an _actual_ game like chess or Factorio (implemented via peer-to-peer communication), or it could be a standardized protocol like HTTP, FTP, or (most commonly) it could be an application-specific protocol that would normally be implemented via message-passing or RPC.\n\nImagine if this were the only model of communication that a programming language exposes. What if it were the \"building block\" of communication — the only way to build concurrent systems? I think it's an intriguing thought :thinking_face:. I'm surprised I haven't heard this model proposed before.\n\n(This post was inspired by <https://syndicate-lang.org/|Syndicate>, which is an actor-based PL that eschews message-passing and RPC for the idea of a \"data-space\" that actors use to exchange information. But unlike my proposal above, Syndicate's data-spaces don't contain _rules_, and thus cannot be used to model video games or communication protocols.)",
+    "user": "UCGAK10LS",
+    "ts": "1672471217.151219",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4WKX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Traditional models of communication between devices, processes, and threads include message-passing, remote procedure calls, and shared memory. Here's a model I haven't seen before: "
+              },
+              {
+                "type": "text",
+                "text": "shared game-playing",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n\nHow it would work:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The rules for a \"game\" of some kind are expressed as a code library... or whatever representation works best."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A set of \"players\" (processes or threads) express interest in playing the game with each other. (somehow...)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The players communicate with each other by interacting with the game (in accordance with its rules), and receive information about each other's actions by observing how the game state has changed."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThe \"game\" could be an "
+              },
+              {
+                "type": "text",
+                "text": "actual",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " game like chess or Factorio (implemented via peer-to-peer communication), or it could be a standardized protocol like HTTP, FTP, or (most commonly) it could be an application-specific protocol that would normally be implemented via message-passing or RPC.\n\nImagine if this were the only model of communication that a programming language exposes. What if it were the \"building block\" of communication — the only way to build concurrent systems? I think it's an intriguing thought "
+              },
+              {
+                "type": "emoji",
+                "name": "thinking_face",
+                "unicode": "1f914"
+              },
+              {
+                "type": "text",
+                "text": ". I'm surprised I haven't heard this model proposed before.\n\n(This post was inspired by "
+              },
+              {
+                "type": "link",
+                "url": "https://syndicate-lang.org/",
+                "text": "Syndicate"
+              },
+              {
+                "type": "text",
+                "text": ", which is an actor-based PL that eschews message-passing and RPC for the idea of a \"data-space\" that actors use to exchange information. But unlike my proposal above, Syndicate's data-spaces don't contain "
+              },
+              {
+                "type": "text",
+                "text": "rules",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", and thus cannot be used to model video games or communication protocols.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1672471565.000000"
+    },
+    "thread_ts": "1672471217.151219",
+    "reply_count": 36,
+    "reply_users_count": 6,
+    "latest_reply": "1672612206.844169",
+    "reply_users": [
+      "UBN9AFS0N",
+      "UCGAK10LS",
+      "UEBG0NPDK",
+      "UE1JQM9HQ",
+      "U016VUZGUUQ",
+      "UE6EFEPTQ"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1672492198.593029",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "dd9475ca-cdf0-45b5-a50f-53ee6ffcc480",
+    "type": "message",
+    "text": "if you replace game for server, players for client and game rules for protocol or API, how is it different to client/server?",
+    "user": "UBN9AFS0N",
+    "ts": "1672482469.842989",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BfNV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "if you replace game for server, players for client and game rules for protocol or API, how is it different to client/server?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1672471217.151219",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "68187315-8A97-4ECE-8234-DF4CBF73A6C5",
+    "type": "message",
+    "text": "The difference is that the “game” isn’t a device. It’s just code that runs on each of the players’ machines such that each player can keep track of what has happened and what can be done next. It’s <https://en.m.wikipedia.org/wiki/Peer-to-peer|peer-to-peer communication>.",
+    "user": "UCGAK10LS",
+    "ts": "1672482638.391559",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uJJ5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The difference is that the “game” isn’t a device. It’s just code that runs on each of the players’ machines such that each player can keep track of what has happened and what can be done next. It’s "
+              },
+              {
+                "type": "link",
+                "url": "https://en.m.wikipedia.org/wiki/Peer-to-peer",
+                "text": "peer-to-peer communication"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1672483168.000000"
+    },
+    "thread_ts": "1672471217.151219",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "AE292D1E-DE9E-4459-9677-09C023906A13",
+    "type": "message",
+    "text": "(Peer-to-peer communication is more general than client-server. The former can be used to model the latter, but the converse isn’t true. Or put another way: a “peer” can act as a server if it wants/needs to, but it’s entirely optional.)",
+    "user": "UCGAK10LS",
+    "ts": "1672482730.031719",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OPpu+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Peer-to-peer communication is more general than client-server. The former can be used to model the latter, but the converse isn’t true. Or put another way: a “peer” can act as a server if it wants/needs to, but it’s entirely optional.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1672482930.000000"
+    },
+    "thread_ts": "1672471217.151219",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "27714083-5554-45cc-b714-81dcb467d119",
+    "type": "message",
+    "text": "The network topology isn't the interesting thing here though. The interesting thing is the proposal that in order to engage in communication with someone, you have to specify a \"game\" that you are going to play with them.\n• Nobody can communicate without first specifying the rules of the game.\n• There is no ability to send unstructured \"messages\". There is only the ability to make \"game moves\". :hushed:\nAnd ideally, your programming language has a type system capable of verifying that your program only makes _valid_ game moves. But that's a whole different discussion.",
+    "user": "UCGAK10LS",
+    "ts": "1672483492.291539",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8k+HW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The network topology isn't the interesting thing here though. The interesting thing is the proposal that in order to engage in communication with someone, you have to specify a \"game\" that you are going to play with them.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Nobody can communicate without first specifying the rules of the game."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "There is no ability to send unstructured \"messages\". There is only the ability to make \"game moves\". "
+                  },
+                  {
+                    "type": "emoji",
+                    "name": "hushed",
+                    "unicode": "1f62f"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And ideally, your programming language has a type system capable of verifying that your program only makes "
+              },
+              {
+                "type": "text",
+                "text": "valid",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " game moves. But that's a whole different discussion."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1672484018.000000"
+    },
+    "thread_ts": "1672471217.151219",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8358487F-CCED-415E-9E2B-16BCE00DD343",
+    "type": "message",
+    "text": "Sounds like statemachine replication. ",
+    "user": "UEBG0NPDK",
+    "ts": "1672492198.593029",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cdy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sounds like statemachine replication"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1672471217.151219",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "D52D090D-4030-4308-9955-1D1477B68855",
+    "type": "message",
+    "text": "I think you might want to take a look at <http://croquet.io|croquet.io> . <@UMWF81HTP> is a core developer and is sometimes active here.",
+    "user": "UE1JQM9HQ",
+    "ts": "1672496658.754979",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "i/2FB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think you might want to take a look at "
+              },
+              {
+                "type": "link",
+                "url": "http://croquet.io",
+                "text": "croquet.io"
+              },
+              {
+                "type": "text",
+                "text": " . "
+              },
+              {
+                "type": "user",
+                "user_id": "UMWF81HTP"
+              },
+              {
+                "type": "text",
+                "text": " is a core developer and is sometimes active here."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1672471217.151219",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "90809c11-910a-4f56-bd67-eca246f56836",
+    "type": "message",
+    "text": "*Rain World*\nInteresting addition to our occasional conversation about animation techniques: <https://www.youtube.com/watch?v=GMx8OsTDHfM> cc <@UC2A2ARPT>",
+    "user": "UCUSW7WVD",
+    "ts": "1672503659.237409",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6aM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Rain World",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\nInteresting addition to our occasional conversation about animation techniques: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=GMx8OsTDHfM"
+              },
+              {
+                "type": "text",
+                "text": " cc "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=GMx8OsTDHfM",
+        "thumb_url": "https://i.ytimg.com/vi/GMx8OsTDHfM/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/GMx8OsTDHfM?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen title=\"The Most Complex Ecosystem in any Game\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=GMx8OsTDHfM",
+        "fallback": "YouTube Video: The Most Complex Ecosystem in any Game",
+        "title": "The Most Complex Ecosystem in any Game",
+        "title_link": "https://www.youtube.com/watch?v=GMx8OsTDHfM",
+        "author_name": "Curious Archive",
+        "author_link": "https://www.youtube.com/@CuriousArchive",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "thread_ts": "1672503659.237409",
+    "reply_count": 4,
+    "reply_users_count": 4,
+    "latest_reply": "1672603154.966199",
+    "reply_users": [
+      "UA14TGLTC",
+      "UC2A2ARPT",
+      "UGWUJUZHT",
+      "UDQBTJ211"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heavy_check_mark",
+        "users": [
+          "UGWUJUZHT",
+          "UA14TGLTC",
+          "U0112C10V4Y",
+          "U03R0B9U1GD"
+        ],
+        "count": 4
+      },
+      {
+        "name": "100",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "62CB2DBC-8C09-4345-8D0A-460781772A75",
+    "type": "message",
+    "text": "<https://mastodon.social/@zep/109609087259389863|https://mastodon.social/@zep/109609087259389863>\n\nInteresting, there’s a new machine in the PICO „ecosystem“!\n\nThe FAQ sounds like Picotron is intended to be less of a toy, more of a tool: <https://www.lexaloffle.com/picotron.php?page=faq|https://www.lexaloffle.com/picotron.php?page=faq>",
+    "user": "U0242H3GHHT",
+    "ts": "1672519989.029109",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HSA=X",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://mastodon.social/@zep/109609087259389863",
+                "text": "https://mastodon.social/@zep/109609087259389863"
+              },
+              {
+                "type": "text",
+                "text": "\n\nInteresting, there’s a new machine in the PICO „ecosystem“!\n\nThe FAQ sounds like Picotron is intended to be less of a toy, more of a tool: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.lexaloffle.com/picotron.php?page=faq",
+                "text": "https://www.lexaloffle.com/picotron.php?page=faq"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://mastodon.social/@zep/109609087259389863",
+        "ts": 1672501941,
+        "thumb_url": "https://files.mastodon.social/media_attachments/files/109/609/084/612/536/660/small/2f4bf07ba945c386.png",
+        "thumb_width": 400,
+        "thumb_height": 298,
+        "service_icon": "https://mastodon.social/favicon.ico",
+        "id": 1,
+        "original_url": "https://mastodon.social/@zep/109609087259389863",
+        "fallback": "Mastodon: zep.p8 (@zep@mastodon.social)",
+        "text": "Attached: 1 image\n\nPicotron Playground -- an experimental web-based edition of my WIP Fantasy Workstation -- is OUT NOW! It includes a code editor and terminal program for poking around some demos of the #picotron API and runtime.\n\n<https://lexaloffle.com/bbs/?tid=50923>",
+        "title": "zep.p8 (@zep@mastodon.social)",
+        "title_link": "https://mastodon.social/@zep/109609087259389863",
+        "service_name": "Mastodon"
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "cfebe82d-7f6b-4f46-be07-c701972b0773",
+    "type": "message",
+    "text": "Kind of sounds like a mix of session typing and tuple spaces. I like the idea, and I think it would be fun as an available option, but I'm not sure I'd try to make it a primitive. <https://en.wikipedia.org/wiki/Session_type|https://en.wikipedia.org/wiki/Session_type> I guess Syndicate already references tuple spaces, but I'll toss that link here for completeness. <https://en.wikipedia.org/wiki/Tuple_space|https://en.wikipedia.org/wiki/Tuple_space>",
+    "user": "U016VUZGUUQ",
+    "ts": "1672524583.949789",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Idl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Kind of sounds like a mix of session typing and tuple spaces. I like the idea, and I think it would be fun as an available option, but I'm not sure I'd try to make it a primitive. "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Session_type",
+                "text": "https://en.wikipedia.org/wiki/Session_type"
+              },
+              {
+                "type": "text",
+                "text": " I guess Syndicate already references tuple spaces, but I'll toss that link here for completeness. "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Tuple_space",
+                "text": "https://en.wikipedia.org/wiki/Tuple_space"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1672471217.151219",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
