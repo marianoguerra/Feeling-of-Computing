@@ -1,0 +1,452 @@
+[
+  {
+    "text": "Quick and dirty prototype of the above algo/shape/code using Vim syntax highlighting.\n\nThe code in the screenshot is a function to convert a mouse click (mx, my) into the location (line_index, pos) of the character at that point on the screen.\n\nThe problem is much of this function is boilerplate shared with several other places, such as the code to draw text on screen, compute the height of a wrapped line, etc. The boilerplate makes it difficult to see the business logic unique to this particular function, and so creates pressure to prematurely create an abstraction to \"DRY things out\". Highlighting the shape of the boilerplate in pink helps the eye to focus to the unique business logic in the protrusions, and so counters the pressure to hide the boilerplate before I've figured out the best way to do so.",
+    "files": [
+      {
+        "id": "F07C1D0TQGM",
+        "created": 1720750624,
+        "timestamp": 1720750624,
+        "name": "linewrap-vim.png",
+        "title": "linewrap-vim.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 114037,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07C1D0TQGM/linewrap-vim.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07C1D0TQGM/download/linewrap-vim.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07C1D0TQGM-28d6b2590e/linewrap-vim_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07C1D0TQGM-28d6b2590e/linewrap-vim_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07C1D0TQGM-28d6b2590e/linewrap-vim_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 284,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07C1D0TQGM-28d6b2590e/linewrap-vim_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 378,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07C1D0TQGM-28d6b2590e/linewrap-vim_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F07C1D0TQGM-28d6b2590e/linewrap-vim_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 567,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F07C1D0TQGM-28d6b2590e/linewrap-vim_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 630,
+        "original_w": 896,
+        "original_h": 706,
+        "thumb_tiny": "AwAlADC62R3NAJ9SKU+ucUnPqaRQ8HPc/lS49zTAD9fxpdp7fzoEOx7mlpBu9KWgCM0oYeh/OkPXFO3LjrQNgCD/APrpeKBg96MUCDAoxRiigBAvJzS4HpQKWgBMD0owPSlooAKKKKQH/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F07C1D0TQGM/linewrap-vim.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07C1D0TQGM-51cfc7ce3d",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "e5+em",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Quick and dirty prototype of the above algo/shape/code using Vim syntax highlighting.\n\nThe code in the screenshot is a function to convert a mouse click (mx, my) into the location (line_index, pos) of the character at that point on the screen.\n\nThe problem is much of this function is boilerplate shared with several other places, such as the code to draw text on screen, compute the height of a wrapped line, etc. The boilerplate makes it difficult to see the business logic unique to this particular function, and so creates pressure to prematurely create an abstraction to \"DRY things out\". Highlighting the shape of the boilerplate in pink helps the eye to focus to the unique business logic in the protrusions, and so counters the pressure to hide the boilerplate before I've figured out the best way to do so."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1720750642.619629",
+    "client_msg_id": "9649a69a-de26-4860-8c12-db361f5c9e3b",
+    "thread_ts": "1720750642.619629",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1720754128.978009",
+    "reply_users": [
+      "UCUSW7WVD",
+      "UMQ6LR9NZ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UFEQUBNNT",
+          "U0123H7JRDM"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1720750848.698319",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1720750887.000000"
+    },
+    "client_msg_id": "34f3cf69-6ecd-4740-bdf8-4195b9217d28",
+    "text": "As an aside, this is an example of what I think of as \"programmer-configured highlighting\". We've gotten used to our editors deciding what to highlight for us, and we just pick the colors. <https://gist.github.com/akkartik/8642131|One little tool> I use everyday is the ability to highlight specific identifiers which flips this around: I pick a word, and the editor picks a color at random to highlight it with. And the highlight persists across sessions. The color of the `State` variable in the screenshot was selected in this manner.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720750642.619629",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2l9r3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As an aside, this is an example of what I think of as \"programmer-configured highlighting\". We've gotten used to our editors deciding what to highlight for us, and we just pick the colors. "
+              },
+              {
+                "type": "link",
+                "url": "https://gist.github.com/akkartik/8642131",
+                "text": "One little tool"
+              },
+              {
+                "type": "text",
+                "text": " I use everyday is the ability to highlight specific identifiers which flips this around: I pick a word, and the editor picks a color at random to highlight it with. And the highlight persists across sessions. The color of the "
+              },
+              {
+                "type": "text",
+                "text": "State",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " variable in the screenshot was selected in this manner."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UFEQUBNNT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1720754128.978009",
+    "client_msg_id": "ABAE4AE3-7D57-40D4-B8DD-069EB52A69C4",
+    "text": "I love this! ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720750642.619629",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3+UfY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I love this! "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1720754733.868239",
+    "client_msg_id": "4b7696a9-aa21-4ef7-8444-ac5703fad8b5",
+    "text": "[moved from top level, original message by <@U06G61YMZ4G>]\n\nhere’s the canvas I made in the video, feel free to check it out: <https://spectral-cloud.vercel.app/canvas/7a4c9ee1-2d84-4b98-90f4-7720265f2e53>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720727079.821539",
+    "parent_user_id": "U06G61YMZ4G",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "u2/gp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "[moved from top level, original message by "
+              },
+              {
+                "type": "user",
+                "user_id": "U06G61YMZ4G"
+              },
+              {
+                "type": "text",
+                "text": "]\n\nhere’s the canvas I made in the video, feel free to check it out: "
+              },
+              {
+                "type": "link",
+                "url": "https://spectral-cloud.vercel.app/canvas/7a4c9ee1-2d84-4b98-90f4-7720265f2e53"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1720797115.177039",
+    "client_msg_id": "8644f6af-4278-463a-9b17-81ebff93af13",
+    "text": "Just bought book you've cited from! the system thinking. looks interesting",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720711810.201969",
+    "parent_user_id": "U067RCH8NB0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wYf0N",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just bought book you've cited from! the system thinking. looks interesting"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "text": "I've implemented the flip-flop object which concludes the \"object library\" that is necessary for basic macro playback. Automat can now play Super Mario Bros with only occasional desync issues :slightly_smiling_face:",
+    "files": [
+      {
+        "id": "F07CWQK7M88",
+        "created": 1720801970,
+        "timestamp": 1720801970,
+        "name": "2024-07-12 18-29-10.mkv",
+        "title": "2024-07-12 18-29-10.mkv",
+        "mimetype": "video/x-matroska",
+        "filetype": "mkv",
+        "pretty_type": "Matroska Video",
+        "user": "U06SS0DHZD1",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 79725926,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "complete",
+          "locale": "en-US",
+          "preview": {
+            "content": "So this is the end of week update for Automat. And, , not much has happened. I'm updating everything. Nice thing that I've added today was a better",
+            "has_more": true
+          }
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F07CWQK7M88-be47760161/2024-07-12_18-29-10.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F07CWQK7M88-be47760161/2024-07-12_18-29-10.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07CWQK7M88/download/2024-07-12_18-29-10.mkv",
+        "vtt": "https://files.slack.com/files-tmb/T5TCAFTA9-F07CWQK7M88-be47760161/file.vtt?_xcb=1ede4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F07CWQK7M88-be47760161/file.m3u8?_xcb=1ede4",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9Mjc2NDg0NSxBVkVSQUdFLUJBTkRXSURUSD0xNjI2ODU0LENPREVDUz0iYXZjMS42NDAwMjgsbXA0YS40MC41IixSRVNPTFVUSU9OPTE5MjB4MTA4MCxGUkFNRS1SQVRFPTI5Ljk3MCxTVUJUSVRMRVM9InN1YnMiCmRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzNDaU5GV0ZRdFdDMU5SVVJKUVMxVFJWRlZSVTVEUlRveENpTkZXRlF0V0MxUVRFRlpURWxUVkMxVVdWQkZPbFpQUkFvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjBOWFVVczNUVGc0TFdKbE5EYzNOakF4TmpFdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNREV1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURkRFYxRkxOMDA0T0MxaVpUUTNOell3TVRZeEwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREF5TG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBM1ExZFJTemROT0RndFltVTBOemMyTURFMk1TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04wTlhVVXMzVFRnNExXSmxORGMzTmpBeE5qRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURRdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EZERWMUZMTjAwNE9DMWlaVFEzTnpZd01UWXhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBMUxuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTNRMWRSU3pkTk9EZ3RZbVUwTnpjMk1ERTJNUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd05pNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOME5YVVVzM1RUZzRMV0psTkRjM05qQXhOakV2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01EY3VkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGREVjFGTE4wMDRPQzFpWlRRM056WXdNVFl4TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQTRMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakEzUTFkUlN6ZE5PRGd0WW1VME56YzJNREUyTVM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdPUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjBOWFVVczNUVGc0TFdKbE5EYzNOakF4TmpFdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNVEF1ZEhNS0kwVllWRWxPUmpvMUxqTTNNaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURkRFYxRkxOMDA0T0MxaVpUUTNOell3TVRZeEwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREV4TG5SekNpTkZXRlF0V0MxRlRrUk1TVk5VQ2c9PQojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MTU1OTA5MSxBVkVSQUdFLUJBTkRXSURUSD05MjI3NTgsQ09ERUNTPSJhdmMxLjY0MDAxZixtcDRhLjQwLjUiLFJFU09MVVRJT049MTI4MHg3MjAsRlJBTUUtUkFURT0yOS45NzAsU1VCVElUTEVTPSJzdWJzIgpodHRwczovL2ZpbGVzLnNsYWNrLmNvbS9maWxlcy10bWIvVDVUQ0FGVEE5LUYwN0NXUUs3TTg4LWJlNDc3NjAxNjEvZmlsZV9IXzI2NF8xMjgweDcyMF8zNTAwS0JQU183UVZCUi5tM3U4CiNFWFQtWC1NRURJQTpUWVBFPVNVQlRJVExFUyxHUk9VUC1JRD0ic3VicyIsTkFNRT0iRW5nbGlzaCIsREVGQVVMVD1ZRVMsQVVUT1NFTEVDVD1ZRVMsRk9SQ0VEPU5PLExBTkdVQUdFPSJlbmciLFVSST0iZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvMk1EQUtJMFZZVkMxWUxVMUZSRWxCTFZORlVWVkZUa05GT2pFS0kwVllWQzFZTFZCTVFWbE1TVk5VTFZSWlVFVTZWazlFQ2lORldGUkpUa1k2TmpVdU5ETXlMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjBOWFVVczNUVGc0TFdKbE5EYzNOakF4TmpFdlptbHNaUzUyZEhRS0kwVllWQzFZTFVWT1JFeEpVMVE9Igo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F07CWQK7M88-be47760161/2024-07-12_18-29-10_trans.mp4",
+        "duration_ms": 65432,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F07CWQK7M88-be47760161/2024-07-12_18-29-10_thumb_video.jpeg",
+        "thumb_video_w": 2560,
+        "thumb_video_h": 1440,
+        "permalink": "https://futureofcoding.slack.com/files/U06SS0DHZD1/F07CWQK7M88/2024-07-12_18-29-10.mkv",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07CWQK7M88-6ba682fefe",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U06SS0DHZD1",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hxwue",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've implemented the flip-flop object which concludes the \"object library\" that is necessary for basic macro playback. Automat can now play Super Mario Bros with only occasional desync issues "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1720802215.391749",
+    "client_msg_id": "b1dbce4f-7ec2-44f3-8229-837d4a6aac0b",
+    "thread_ts": "1720802215.391749",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1720941069.888429",
+    "reply_users": [
+      "UC2A2ARPT",
+      "U06SS0DHZD1"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U0123H7JRDM"
+        ],
+        "count": 1
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U85HCL7JP"
+        ],
+        "count": 1
+      },
+      {
+        "name": "exploding_head",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U067RCH8NB0",
+    "type": "message",
+    "ts": "1720804564.500909",
+    "client_msg_id": "5cfd580e-36ea-4f33-b2f0-54c0d803d0f5",
+    "text": "Ah, it’s very good!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720711810.201969",
+    "parent_user_id": "U067RCH8NB0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8lGtS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, it’s very good!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U0791273STB",
+    "type": "message",
+    "ts": "1720804863.056949",
+    "edited": {
+      "user": "U0791273STB",
+      "ts": "1720804965.000000"
+    },
+    "client_msg_id": "979a873d-6e93-400c-a116-67f0aa89b4da",
+    "text": "There's a lot of factors that could be at play here: browser, device, device settings/context, HTTP caching/state, client side code, is a service worker involved etc.\n\nThis behavior could be just one of those things e.g. bad client side code. Or a combination e.g. a device with \"data saver\" settings working with the browser to aggressively background inactive tabs not playing nicely with a service worker.\n\nAs a data point I'm using Slack in the browser on MacOS and haven't seen this.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720651769.002229",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LuTsv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's a lot of factors that could be at play here: browser, device, device settings/context, HTTP caching/state, client side code, is a service worker involved etc.\n\nThis behavior could be just one of those things e.g. bad client side code. Or a combination e.g. a device with \"data saver\" settings working with the browser to aggressively background inactive tabs not playing nicely with a service worker.\n\nAs a data point I'm using Slack in the browser on MacOS and haven't seen this."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  }
+]
