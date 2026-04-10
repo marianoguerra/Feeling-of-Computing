@@ -1,0 +1,162 @@
+[
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1758854176.731819",
+    "edited": {
+      "user": "UGWUJUZHT",
+      "ts": "1758891676.000000"
+    },
+    "client_msg_id": "af894b6a-ff3c-4092-bfa4-aca1b097631e",
+    "text": "I learned to write compilers without building ASTs.\n\nThat means using “staged computation” (scan, parse, semantic analysis, allocation, code emission). Each stage gets its own little parser front end to direct its actions (today, this appears to be called “pattern matching”).\n\nFrom that perspective it becomes straight-forward to build DSLs by mapping, in stages, input syntax to some existing programming language, i.e. using existing languages as “assemblers”.\n\nCFG-based tools like YACC, make this kind of thinking difficult. Recursive descent code and tools, like S/SL (Syntax / Semantic Language) make this imaginable. New-fangled tools based on PEG - <http://ohmjs.org|ohmjs.org> - make this kind of thinking much, much easier.\n\nI think of a stage in two parts - 1. parse, 2. rewrite. To this end, I use OhmJS for (1) and a little DSL for (2). I call the little DSL: RWR. I’ve combined these two parts into a tool I call T2T (text-to-text).\n\nSuper-simple examples can be seen in <https://github.com/guitarvydas/abc|abc> and <https://github.com/guitarvydas/abc2py|abc to python> and <https://github.com/guitarvydas/arith|arith - stock arithmetic grammar emitting JS, Py, CL, WASM>.\n\nBig examples of creating a DSL can be seen in the <https://github.com/guitarvydas/pbp-dev/tree/main/kernel|PBP kernel> project. This project uses PBP with some T2T components to create a new  DSL called ‘rt’ and compiles the DSL code to Python and Javascript and Common Lisp.\n\n<https://github.com/guitarvydas/pbp-dev/blob/main/t2t/doc/rwr/RWR%20Spec.pdf|RWR spec>\n\n<https://github.com/guitarvydas/pbp-dev/tree/main/t2t|T2T dev repo>\n\n<https://research.cs.queensu.ca/home/cordy/pub/downloads/ssl/|ancient manifestation of a compiler built in a staged computation manner (PT Pascal built using S/SL)>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1758605575.031369",
+    "parent_user_id": "U07BD7U4S4R",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CoSzI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I learned to write compilers without building ASTs.\n\nThat means using “staged computation” (scan, parse, semantic analysis, allocation, code emission). Each stage gets its own little parser front end to direct its actions (today, this appears to be called “pattern matching”).\n\nFrom that perspective it becomes straight-forward to build DSLs by mapping, in stages, input syntax to some existing programming language, i.e. using existing languages as “assemblers”.\n\nCFG-based tools like YACC, make this kind of thinking difficult. Recursive descent code and tools, like S/SL (Syntax / Semantic Language) make this imaginable. New-fangled tools based on PEG - "
+              },
+              {
+                "type": "link",
+                "url": "http://ohmjs.org",
+                "text": "ohmjs.org"
+              },
+              {
+                "type": "text",
+                "text": " - make this kind of thinking much, much easier.\n\nI think of a stage in two parts - 1. parse, 2. rewrite. To this end, I use OhmJS for (1) and a little DSL for (2). I call the little DSL: RWR. I’ve combined these two parts into a tool I call T2T (text-to-text).\n\nSuper-simple examples can be seen in "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/guitarvydas/abc",
+                "text": "abc"
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/guitarvydas/abc2py",
+                "text": "abc to python"
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/guitarvydas/arith",
+                "text": "arith - stock arithmetic grammar emitting JS, Py, CL, WASM"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nBig examples of creating a DSL can be seen in the "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/guitarvydas/pbp-dev/tree/main/kernel",
+                "text": "PBP kernel"
+              },
+              {
+                "type": "text",
+                "text": " project. This project uses PBP with some T2T components to create a new  DSL called ‘rt’ and compiles the DSL code to Python and Javascript and Common Lisp.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/guitarvydas/pbp-dev/blob/main/t2t/doc/rwr/RWR%20Spec.pdf",
+                "text": "RWR spec"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/guitarvydas/pbp-dev/tree/main/t2t",
+                "text": "T2T dev repo"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://research.cs.queensu.ca/home/cordy/pub/downloads/ssl/",
+                "text": "ancient manifestation of a compiler built in a staged computation manner (PT Pascal built using S/SL)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1758874174.779809",
+    "client_msg_id": "f79f73ea-4ff4-4eb4-afb0-5f2692fd47ce",
+    "text": "at least it wasn't \"which one of you did a DoS to our backend?\"\n\n<https://www.theregister.com/2025/09/18/cloudflare_ddosed_itself/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1758839711.715079",
+    "parent_user_id": "U05UK5T7LPP",
+    "attachments": [
+      {
+        "image_url": "https://regmedia.co.uk/2021/06/29/shutterstock_foot_gun.jpg",
+        "image_width": 1300,
+        "image_height": 650,
+        "image_bytes": 35343,
+        "from_url": "https://www.theregister.com/2025/09/18/cloudflare_ddosed_itself/",
+        "service_icon": "https://www.theregister.com/design_picker/13249a2e80709c7ff2e57dd3d49801cd534f2094/graphics/favicons/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://www.theregister.com/2025/09/18/cloudflare_ddosed_itself/",
+        "fallback": "Cloudflare DDoSed itself with React useEffect hook blunder",
+        "text": ": Dashboard loop caused API outage that was hard to troubleshoot",
+        "title": "Cloudflare DDoSed itself with React useEffect hook blunder",
+        "title_link": "https://www.theregister.com/2025/09/18/cloudflare_ddosed_itself/",
+        "service_name": "theregister.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SSmAZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "at least it wasn't \"which one of you did a DoS to our backend?\"\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.theregister.com/2025/09/18/cloudflare_ddosed_itself/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "U05UK5T7LPP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]
