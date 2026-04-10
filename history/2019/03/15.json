@@ -1,0 +1,1477 @@
+[
+  {
+    "client_msg_id": "aff9107c-caf2-464f-8235-63a85af21d30",
+    "type": "message",
+    "text": "When I first started, I worried about these design details quite a bit, now I don't so much.  Just so used to flipping.  Sometimes explicit gets tedious.  Sometimes implicit gets ambiguous.",
+    "user": "UA14TGLTC",
+    "ts": "1552608175.336000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aff9107c-caf2-464f-8235-63a85af21d30",
+    "type": "message",
+    "text": "When I first started, I worried about these design details quite a bit, now I don't so much.  Just so used to flipping.  Sometimes explicit gets tedious.  Sometimes implicit gets ambiguous.",
+    "user": "UA14TGLTC",
+    "ts": "1552608175.336000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3d3f4f3e-c5f4-41c6-9c50-ef0d5de0e3d5",
+    "type": "message",
+    "text": "Dan Cook, I was actually just thinking about how exactly closures are an argument in favor of explicit member access (in the cases where one actually does choose to use 'this' and related OO patterns, that is).\n\nClosures make the, uhh.. 'identity' of identifiers even more pronounced: they are no longer just handy convenience aliases or transient temporary variables, but a central building block of the closure semantics, if you will.\n\nThis in turn means that it's even more important that the semantics of the identifiers themselves be both as simple and as explicit as possible.\n\nAnd I feel like the implicit 'this' actually adds complexity here instead of reducing it. It extends the two categories of unqualified identifiers (the lexical local/param and ideally-lexical global scopes) with a third one: member access (which might not even be lexical if the language has dynamic typing).\n\nIn order to reduce the complexity back to two categories in ones mind one has to both 1. imagine the implicit lexical 'this.' there and 2. be convinced that the implicit lexical this in the language is actually semantically identical to the other lexical constructs, which it might not be.\n\nHaving the 'this.' be explicit in the first place removes both of these extra burdens: \"'this' is just a function parameter of the surrounding 'method' and gets captured the exact same way as other parameters\"",
+    "user": "UGJ9KAZM3",
+    "ts": "1552611724.336900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UGJ9KAZM3",
+      "ts": "1552611853.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3d3f4f3e-c5f4-41c6-9c50-ef0d5de0e3d5",
+    "type": "message",
+    "text": "Dan Cook, I was actually just thinking about how exactly closures are an argument in favor of explicit member access (in the cases where one actually does choose to use 'this' and related OO patterns, that is).\n\nClosures make the, uhh.. 'identity' of identifiers even more pronounced: they are no longer just handy convenience aliases or transient temporary variables, but a central building block of the closure semantics, if you will.\n\nThis in turn means that it's even more important that the semantics of the identifiers themselves be both as simple and as explicit as possible.\n\nAnd I feel like the implicit 'this' actually adds complexity here instead of reducing it. It extends the two categories of unqualified identifiers (the lexical local/param and ideally-lexical global scopes) with a third one: member access (which might not even be lexical if the language has dynamic typing).\n\nIn order to reduce the complexity back to two categories in ones mind one has to both 1. imagine the implicit lexical 'this.' there and 2. be convinced that the implicit lexical this in the language is actually semantically identical to the other lexical constructs, which it might not be.\n\nHaving the 'this.' be explicit in the first place removes both of these extra burdens: \"'this' is just a function parameter of the surrounding 'method' and gets captured the exact same way as other parameters\"",
+    "user": "UGJ9KAZM3",
+    "ts": "1552611724.336900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UGJ9KAZM3",
+      "ts": "1552611853.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "22b89717-70dd-42f7-b012-cf95a38057e1",
+    "type": "message",
+    "text": "My conception of this structure editor plugin goes beyond the editing mechanics. I guess I’m really imagining a full IDE-like GUI overlay with editor services acting on the syntax tree getting structure-edited. As <@UC21F8Q48> was describing, this could be a richer medium in which the results of editor services interspersed with the code being written. Maybe this isn’t quite possible with today’s plugin architectures (could you do this in Glamorous Toolkit? haven’t looked into it much). But if you could (which sounds feasible both technically and culturally given editor trends over the past ten years), then you could have a rich medium of interaction but still rely on existing text-based tooling for persistence and version control. <@U8A5MS6R1> I agree that you’re fundamentally limited by the underlying language and that there would be benefit in designing languages from the ground up with the UI in mind, but I don’t see why those richer interaction mediums have to be at odds with current VC tooling. Maybe I’m missing a point/example here.",
+    "user": "UD512T5AT",
+    "ts": "1552614248.337800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3f471057576c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-02/652395123492_3f471057576c27bcd486_72.jpg",
+      "first_name": "David",
+      "real_name": "David Moon",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dmoon1221",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552233851.253900",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "22b89717-70dd-42f7-b012-cf95a38057e1",
+    "type": "message",
+    "text": "My conception of this structure editor plugin goes beyond the editing mechanics. I guess I’m really imagining a full IDE-like GUI overlay with editor services acting on the syntax tree getting structure-edited. As <@UC21F8Q48> was describing, this could be a richer medium in which the results of editor services interspersed with the code being written. Maybe this isn’t quite possible with today’s plugin architectures (could you do this in Glamorous Toolkit? haven’t looked into it much). But if you could (which sounds feasible both technically and culturally given editor trends over the past ten years), then you could have a rich medium of interaction but still rely on existing text-based tooling for persistence and version control. <@U8A5MS6R1> I agree that you’re fundamentally limited by the underlying language and that there would be benefit in designing languages from the ground up with the UI in mind, but I don’t see why those richer interaction mediums have to be at odds with current VC tooling. Maybe I’m missing a point/example here.",
+    "user": "UD512T5AT",
+    "ts": "1552614248.337800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3f471057576c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-02/652395123492_3f471057576c27bcd486_72.jpg",
+      "first_name": "David",
+      "real_name": "David Moon",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dmoon1221",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552233851.253900",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8215f183-9402-480d-8e89-d7ec733e21c3",
+    "type": "message",
+    "text": "<@UD512T5AT> - you can decompose the idea of a program into 'language + UI views'. But this presumes you have an underlying language. Instead, a deeper redesign would be 'model + UI views'. Here text could be used as a serialization format for the model, but being a serialization format it may not be readable. Instead you'd always want to look at the model through the UI views. As an example consider if we had to fit spreadsheets into git (with fine grained versioning of cells). You'd want to preserve identity of elements across versions in any decent structural editor.\n\nSo it's not at odds, and can be made to work but there's an impedance mismatch. You can still use git, by reducing to a versioned key value store. So 'git log' may be useful but 'git diff' or browsing the repo in github would be meaningless since you are looking at some serialization of a model where the optimum view isn't text lines.",
+    "user": "U8A5MS6R1",
+    "ts": "1552622557.338000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552233851.253900",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8215f183-9402-480d-8e89-d7ec733e21c3",
+    "type": "message",
+    "text": "<@UD512T5AT> - you can decompose the idea of a program into 'language + UI views'. But this presumes you have an underlying language. Instead, a deeper redesign would be 'model + UI views'. Here text could be used as a serialization format for the model, but being a serialization format it may not be readable. Instead you'd always want to look at the model through the UI views. As an example consider if we had to fit spreadsheets into git (with fine grained versioning of cells). You'd want to preserve identity of elements across versions in any decent structural editor.\n\nSo it's not at odds, and can be made to work but there's an impedance mismatch. You can still use git, by reducing to a versioned key value store. So 'git log' may be useful but 'git diff' or browsing the repo in github would be meaningless since you are looking at some serialization of a model where the optimum view isn't text lines.",
+    "user": "U8A5MS6R1",
+    "ts": "1552622557.338000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552233851.253900",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0dececac-e32f-46fe-ad2b-4469e1efa48a",
+    "type": "message",
+    "text": "Related thread: <https://futureofcoding.slack.com/archives/C5T9GPWFL/p1548964100778700?thread_ts=1548823279.730200&amp;cid=C5T9GPWFL>",
+    "user": "U8A5MS6R1",
+    "ts": "1552622769.338200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1548964100778700?thread_ts=1548823279.730200&amp;cid=C5T9GPWFL",
+        "fallback": "[January 31st, 2019 11:48 AM] ivanreese: If you want git, and you want diff, all you need is a way to save your VPL program as a text file. Existing visual languages already do this — most of them use JSON.\n\nNothing new needs to be invented to solve this problem. (Go ahead and invent new stuff to make this better — just don't let this \"VPLs don't work with text tools like git/diff\" argument stand unopposed.)",
+        "ts": "1548964100.778700",
+        "author_id": "UC2A2ARPT",
+        "author_subname": "Ivan Reese",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_reply_unfurl": true,
+        "text": "If you want git, and you want diff, all you need is a way to save your VPL program as a text file. Existing visual languages already do this — most of them use JSON.\n\nNothing new needs to be invented to solve this problem. (Go ahead and invent new stuff to make this better — just don't let this \"VPLs don't work with text tools like git/diff\" argument stand unopposed.)",
+        "author_name": "Ivan Reese",
+        "author_link": "https://futureofcoding.slack.com/team/UC2A2ARPT",
+        "author_icon": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F00b63%2Fimg%2Favatars%2Fava_0013-48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1548964100778700?thread_ts=1548823279.730200&amp;cid=C5T9GPWFL",
+        "footer": "From a thread in #general"
+      }
+    ],
+    "thread_ts": "1552233851.253900",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0dececac-e32f-46fe-ad2b-4469e1efa48a",
+    "type": "message",
+    "text": "Related thread: <https://futureofcoding.slack.com/archives/C5T9GPWFL/p1548964100778700?thread_ts=1548823279.730200&amp;cid=C5T9GPWFL>",
+    "user": "U8A5MS6R1",
+    "ts": "1552622769.338200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1548964100778700?thread_ts=1548823279.730200&amp;cid=C5T9GPWFL",
+        "fallback": "[January 31st, 2019 11:48 AM] ivanreese: If you want git, and you want diff, all you need is a way to save your VPL program as a text file. Existing visual languages already do this — most of them use JSON.\n\nNothing new needs to be invented to solve this problem. (Go ahead and invent new stuff to make this better — just don't let this \"VPLs don't work with text tools like git/diff\" argument stand unopposed.)",
+        "ts": "1548964100.778700",
+        "author_id": "UC2A2ARPT",
+        "author_subname": "Ivan Reese",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_reply_unfurl": true,
+        "text": "If you want git, and you want diff, all you need is a way to save your VPL program as a text file. Existing visual languages already do this — most of them use JSON.\n\nNothing new needs to be invented to solve this problem. (Go ahead and invent new stuff to make this better — just don't let this \"VPLs don't work with text tools like git/diff\" argument stand unopposed.)",
+        "author_name": "Ivan Reese",
+        "author_link": "https://futureofcoding.slack.com/team/UC2A2ARPT",
+        "author_icon": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F00b63%2Fimg%2Favatars%2Fava_0013-48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1548964100778700?thread_ts=1548823279.730200&amp;cid=C5T9GPWFL",
+        "footer": "From a thread in #general"
+      }
+    ],
+    "thread_ts": "1552233851.253900",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a063c22f-980d-4bbb-86c4-e1da9b47d07f",
+    "type": "message",
+    "text": "<@UGJ9KAZM3> - That makes perfect sense in a class-based language, i.e. where \"x\" is really just a shorthand for \"this.x\".\n\nHowever, JavaScript does not have *actual* classes, and \"x\" and \"this.x\" always mean different things. So when you choose to use \"this\", then you must *always* say \"this.x\".\n\nThe usage of closures I described does not have any \"this\" at all, not even an implicit one. And it doesn't extend the categories, it reduces them: it's essentially throwing out member access altogether, and instead accessing everything directly through lexical scope -- not something else that can be *confused with* lexical scope, but actual lexical scope to begin with.\n\nIt's no different than referring to \"x\" in:\n```function foo(x) {\n   ...\n   return x;\n}```\nThat \"x\" is not short for \"foo.x\". There isn't a \"this\" that holds x, it's just the x in the current lexical scope. And you're not going to confuse the x in foo(123) with the x in foo(456), because both calls create a different \"instance\" of that scope.\n\nClosures are about holding onto values in that scope, rather than attaching them to some \"this\" object. For example:\n```function plus(x) {\n   return function(y) {\n      return x + y;\n   }\n}\n\nvar plus2 = plus(2);\nvar plus4 = plus(4);\n\nplus2(5); // result is 7\nplus4(5); // result is 9```\nPlus takes some x, and returns a function that adds that x to some y. Each call to plus activates a new \"instance\" of that scope, with its own value for x, and returns a *new* function that uses *that* x.\n\nWhen you want to create multiple functions for one set values, you can return an object that has them as properties. This might be where it gets confusing, because it *looks* like member access:\n```function foo(x, y) {\n   function sum() { return x + y; }\n   function diff() { return x - y; }\n   function inc() { x = x + 1; }\n   return { sum, diff, inc };\n}\n\nvar a = foo(1,2);\nvar b = foo(3,4);\na.sum(); a.diff(); // 3, -1\nb.sum(); b.diff(); // 7, -1\na.inc();\na.sum(); a.diff(); // 4, 0\nb.sum(); b.diff(); // 7, -1```",
+    "user": "UAVCC2X70",
+    "ts": "1552625015.338500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1552626926.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a063c22f-980d-4bbb-86c4-e1da9b47d07f",
+    "type": "message",
+    "text": "<@UGJ9KAZM3> - That makes perfect sense in a class-based language, i.e. where \"x\" is really just a shorthand for \"this.x\".\n\nHowever, JavaScript does not have *actual* classes, and \"x\" and \"this.x\" always mean different things. So when you choose to use \"this\", then you must *always* say \"this.x\".\n\nThe usage of closures I described does not have any \"this\" at all, not even an implicit one. And it doesn't extend the categories, it reduces them: it's essentially throwing out member access altogether, and instead accessing everything directly through lexical scope -- not something else that can be *confused with* lexical scope, but actual lexical scope to begin with.\n\nIt's no different than referring to \"x\" in:\n```function foo(x) {\n   ...\n   return x;\n}```\nThat \"x\" is not short for \"foo.x\". There isn't a \"this\" that holds x, it's just the x in the current lexical scope. And you're not going to confuse the x in foo(123) with the x in foo(456), because both calls create a different \"instance\" of that scope.\n\nClosures are about holding onto values in that scope, rather than attaching them to some \"this\" object. For example:\n```function plus(x) {\n   return function(y) {\n      return x + y;\n   }\n}\n\nvar plus2 = plus(2);\nvar plus4 = plus(4);\n\nplus2(5); // result is 7\nplus4(5); // result is 9```\nPlus takes some x, and returns a function that adds that x to some y. Each call to plus activates a new \"instance\" of that scope, with its own value for x, and returns a *new* function that uses *that* x.\n\nWhen you want to create multiple functions for one set values, you can return an object that has them as properties. This might be where it gets confusing, because it *looks* like member access:\n```function foo(x, y) {\n   function sum() { return x + y; }\n   function diff() { return x - y; }\n   function inc() { x = x + 1; }\n   return { sum, diff, inc };\n}\n\nvar a = foo(1,2);\nvar b = foo(3,4);\na.sum(); a.diff(); // 3, -1\nb.sum(); b.diff(); // 7, -1\na.inc();\na.sum(); a.diff(); // 4, 0\nb.sum(); b.diff(); // 7, -1```",
+    "user": "UAVCC2X70",
+    "ts": "1552625015.338500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1552626926.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "08d80d05-8f72-46c7-948a-4b9e9a5d6137",
+    "type": "message",
+    "text": "<@UAVCC2X70> just to avoid confusion, I wasn't extending or responding to your thought per se (the same way you weren't responding to the original, which had the premise \"this exists, implicit or explicit?\", which you subverted \"I don't use this, so neither\").\nI was just noticing the funny coincidence about us both thinking about closures from different angles. So there's a high chance we're talking across each other.\n\nMy point was this and only this: if one uses closures in conjunction with a class system, then explicit \"this.\" avoids madness, while implicit \"this.\" would invite madness.\n\nI was explicitly not commenting whether class system should be avoided, it's a bit orthogonal to the original question.\n\nOn that topic, about JavaScript and classes, while you're naturally correct in that javascript doesn't have native classes but only runtime prototyping, I genuinely don't think that the difference to languages with native class semantics is that big.\n\nThis is especially true now with ES6 which offers a default easy-mode boilerplate solution for classes, but I think this was true even on earlier iterations given the assumption that the boilerplating was done consistently.\n\nI mean, even in C++ the runtime semantics of classes are really not much more than dynamic dispatch plus a hidden zeroth 'this' argument. And javascript as natively dynamically typed language naturally has dynamic dispatch natively. So runtime behaviour is the same...\n\nAnd what comes to static typing etc., on whether dynamic typed language constructs compare to statically typed language constructs, well, that's a completely different discussion and outside the scope of this thread, I feel. :wink:",
+    "user": "UGJ9KAZM3",
+    "ts": "1552626723.340000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UGJ9KAZM3",
+      "ts": "1552626804.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "08d80d05-8f72-46c7-948a-4b9e9a5d6137",
+    "type": "message",
+    "text": "<@UAVCC2X70> just to avoid confusion, I wasn't extending or responding to your thought per se (the same way you weren't responding to the original, which had the premise \"this exists, implicit or explicit?\", which you subverted \"I don't use this, so neither\").\nI was just noticing the funny coincidence about us both thinking about closures from different angles. So there's a high chance we're talking across each other.\n\nMy point was this and only this: if one uses closures in conjunction with a class system, then explicit \"this.\" avoids madness, while implicit \"this.\" would invite madness.\n\nI was explicitly not commenting whether class system should be avoided, it's a bit orthogonal to the original question.\n\nOn that topic, about JavaScript and classes, while you're naturally correct in that javascript doesn't have native classes but only runtime prototyping, I genuinely don't think that the difference to languages with native class semantics is that big.\n\nThis is especially true now with ES6 which offers a default easy-mode boilerplate solution for classes, but I think this was true even on earlier iterations given the assumption that the boilerplating was done consistently.\n\nI mean, even in C++ the runtime semantics of classes are really not much more than dynamic dispatch plus a hidden zeroth 'this' argument. And javascript as natively dynamically typed language naturally has dynamic dispatch natively. So runtime behaviour is the same...\n\nAnd what comes to static typing etc., on whether dynamic typed language constructs compare to statically typed language constructs, well, that's a completely different discussion and outside the scope of this thread, I feel. :wink:",
+    "user": "UGJ9KAZM3",
+    "ts": "1552626723.340000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UGJ9KAZM3",
+      "ts": "1552626804.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a26aa628-c051-46d4-b6e6-f1e3350f80c2",
+    "type": "message",
+    "text": "Ah, you are correct! I indeed thought you *were* commenting about my reply, which made me think you didn't understand what I meant about closures in JavaScript.\n\nYeah, maybe this has gotten a bit scattered for that reason :P ... But hey, now we have disambiguated between the different \"scopes\" we were speaking within.\n\nMaybe if we had only just put \"this.\" before our separate comments, it would have been clear which contexts our comments were referring to :wink:",
+    "user": "UAVCC2X70",
+    "ts": "1552627042.340500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1552627391.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGJ9KAZM3"
+        ],
+        "count": 1
+      },
+      {
+        "name": "smile",
+        "users": [
+          "UGJ9KAZM3"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a26aa628-c051-46d4-b6e6-f1e3350f80c2",
+    "type": "message",
+    "text": "Ah, you are correct! I indeed thought you *were* commenting about my reply, which made me think you didn't understand what I meant about closures in JavaScript.\n\nYeah, maybe this has gotten a bit scattered for that reason :P ... But hey, now we have disambiguated between the different \"scopes\" we were speaking within.\n\nMaybe if we had only just put \"this.\" before our separate comments, it would have been clear which contexts our comments were referring to :wink:",
+    "user": "UAVCC2X70",
+    "ts": "1552627042.340500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1552627391.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGJ9KAZM3"
+        ],
+        "count": 1
+      },
+      {
+        "name": "smile",
+        "users": [
+          "UGJ9KAZM3"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "457fe92f-b2f9-4e59-83ba-ca9964189d07",
+    "type": "message",
+    "text": "But actually on that note: do you know if there are languages which actually have implicit \"this\" _and_ fully-developed closures? My experience is mostly limited to C++ and JS, and C++ only has the rather constrainted and clunky lambdas. So neither counts.",
+    "user": "UGJ9KAZM3",
+    "ts": "1552627334.340700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UGJ9KAZM3",
+      "ts": "1552627349.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "457fe92f-b2f9-4e59-83ba-ca9964189d07",
+    "type": "message",
+    "text": "But actually on that note: do you know if there are languages which actually have implicit \"this\" _and_ fully-developed closures? My experience is mostly limited to C++ and JS, and C++ only has the rather constrainted and clunky lambdas. So neither counts.",
+    "user": "UGJ9KAZM3",
+    "ts": "1552627334.340700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UGJ9KAZM3",
+      "ts": "1552627349.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5dfd0adf-0393-4400-976c-55e4266a9c99",
+    "type": "message",
+    "text": "Heh. Seems like Swift has both closures and implicit 'self'... except when used together: inside closures you need to use 'self' explicitly all the time.",
+    "user": "UGJ9KAZM3",
+    "ts": "1552627600.341400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5dfd0adf-0393-4400-976c-55e4266a9c99",
+    "type": "message",
+    "text": "Heh. Seems like Swift has both closures and implicit 'self'... except when used together: inside closures you need to use 'self' explicitly all the time.",
+    "user": "UGJ9KAZM3",
+    "ts": "1552627600.341400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f62f7326-65a5-4591-a5c7-e5e3d0820eae",
+    "type": "message",
+    "text": "What if the IDE/editor could label the variables: local/method parameter/class/global and keep them with the same syntax. I think is a win in case you want to change the code, having to rewrite less. And delegating it to a process made automatically by the computer and not by a human.",
+    "user": "U85HCL7JP",
+    "ts": "1552628140.341600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e6db0e9dd5fe",
+      "image_72": "https://avatars.slack-edge.com/2020-02-15/956131187863_e6db0e9dd5fe2e3b9df2_72.jpg",
+      "first_name": "",
+      "real_name": "Daniel Garcia",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "daniel.garcia.carmona",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f62f7326-65a5-4591-a5c7-e5e3d0820eae",
+    "type": "message",
+    "text": "What if the IDE/editor could label the variables: local/method parameter/class/global and keep them with the same syntax. I think is a win in case you want to change the code, having to rewrite less. And delegating it to a process made automatically by the computer and not by a human.",
+    "user": "U85HCL7JP",
+    "ts": "1552628140.341600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c5d8f6a2266",
+      "image_72": "https://avatars.slack-edge.com/2020-07-25/1286770110448_0c5d8f6a2266551a36f2_72.jpg",
+      "first_name": "",
+      "real_name": "Daniel Garcia",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "daniel.garcia.carmona",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2d8416b7-4ca8-40b7-892b-931e4d4f5aba",
+    "type": "message",
+    "text": "Thanks, <@UE1JQM9HQ>, for a great demo of GT! We just had a ~90 min Zoom call where he took me through the basic ideas of GT. I can highly recommend checking it out. The way GT blends programming and debugging and visualization and documentation together into a unified whole is certainly a great perspective to have when thinking about the future of coding/programming.",
+    "user": "U5STGTB3J",
+    "ts": "1552646218.097400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1551808612.031300",
+    "parent_user_id": "UE1JQM9HQ",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2d8416b7-4ca8-40b7-892b-931e4d4f5aba",
+    "type": "message",
+    "text": "Thanks, <@UE1JQM9HQ>, for a great demo of GT! We just had a ~90 min Zoom call where he took me through the basic ideas of GT. I can highly recommend checking it out. The way GT blends programming and debugging and visualization and documentation together into a unified whole is certainly a great perspective to have when thinking about the future of coding/programming.",
+    "user": "U5STGTB3J",
+    "ts": "1552646218.097400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1551808612.031300",
+    "parent_user_id": "UE1JQM9HQ",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "a604b4aa-7250-4066-8024-5282b6dc4940",
+    "type": "message",
+    "text": "Thank you for your time :slightly_smiling_face:",
+    "user": "UE1JQM9HQ",
+    "ts": "1552646242.097600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1551808612.031300",
+    "parent_user_id": "UE1JQM9HQ",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "a604b4aa-7250-4066-8024-5282b6dc4940",
+    "type": "message",
+    "text": "Thank you for your time :slightly_smiling_face:",
+    "user": "UE1JQM9HQ",
+    "ts": "1552646242.097600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1551808612.031300",
+    "parent_user_id": "UE1JQM9HQ",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "3e612d61-a621-4711-b760-04b501769096",
+    "type": "message",
+    "text": "I am against the expression of code bound to \"special\" scopes such as member variables and closures in general, so this discussion to me is \"settling the point of precedency between a louse and a flea\"",
+    "user": "UEH6T3RJB",
+    "ts": "1552652196.342000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5184556fcf3",
+      "image_72": "https://secure.gravatar.com/avatar/75184556fcf3aa660f5e56b8e5bdd46d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Antranig Basman",
+      "display_name": "Bosmon",
+      "team": "T5TCAFTA9",
+      "name": "amb26slack",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3e612d61-a621-4711-b760-04b501769096",
+    "type": "message",
+    "text": "I am against the expression of code bound to \"special\" scopes such as member variables and closures in general, so this discussion to me is \"settling the point of precedency between a louse and a flea\"",
+    "user": "UEH6T3RJB",
+    "ts": "1552652196.342000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5184556fcf3",
+      "image_72": "https://secure.gravatar.com/avatar/75184556fcf3aa660f5e56b8e5bdd46d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Antranig Basman",
+      "display_name": "Bosmon",
+      "team": "T5TCAFTA9",
+      "name": "amb26slack",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "60e72db0-1670-427b-9e80-4f12a800fcfe",
+    "type": "message",
+    "text": "Unfortunately, it appears that the Slack Android app does not present an option to create threads (\"reply to\"). I can add to threads that are already present, though",
+    "user": "UAVCC2X70",
+    "ts": "1552678759.074400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552556590.069100",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c04eb467-b0b5-4ee5-b810-f4a7ef95e79b",
+    "type": "message",
+    "text": "That's why interfaces are often a better option than subclassing. ... Same with mixins or traits",
+    "user": "UAVCC2X70",
+    "ts": "1552678970.074700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552556725.071200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "34ffcc00-faa6-4766-bfb6-428b90512b75",
+    "type": "message",
+    "text": "Intriguing take, <@UEH6T3RJB>. I do feel that the typical scopes end up with the problem of copying the same information around without adding any meaning. Could you elaborate on your thoughts and alternative models?",
+    "user": "U8A5MS6R1",
+    "ts": "1552681509.342300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "34ffcc00-faa6-4766-bfb6-428b90512b75",
+    "type": "message",
+    "text": "Intriguing take, <@UEH6T3RJB>. I do feel that the typical scopes end up with the problem of copying the same information around without adding any meaning. Could you elaborate on your thoughts and alternative models?",
+    "user": "U8A5MS6R1",
+    "ts": "1552681509.342300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "841ec8eb-2584-4dd8-8184-87af69af8b90",
+    "type": "message",
+    "text": "Java (kinda) and C# have implicit this and also lambdas/closures. C++ lambdas are clunky but I'm not sure how they aren't \"fully developed\".",
+    "user": "UD6EXQVM0",
+    "ts": "1552682967.342500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1552683066.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "841ec8eb-2584-4dd8-8184-87af69af8b90",
+    "type": "message",
+    "text": "Java (kinda) and C# have implicit this and also lambdas/closures. C++ lambdas are clunky but I'm not sure how they aren't \"fully developed\".",
+    "user": "UD6EXQVM0",
+    "ts": "1552682967.342500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1552683066.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "91A314CA-54D7-452F-9E28-E4AC54588076",
+    "type": "message",
+    "text": "<@UAVCC2X70> Can you tap a message (without a thread) and that brings you to a view where you can start a thread? That's how it works on iOS and it's not really intuitive either.",
+    "user": "U5STGTB3J",
+    "ts": "1552683977.076700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552556590.069100",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e946026b-afe9-4146-b2d5-5268c5b1a9e0",
+    "type": "message",
+    "text": "<@U5STGTB3J> A menu comes up if I long-press a message, but it has no option to reply or start a thread",
+    "user": "UAVCC2X70",
+    "ts": "1552690349.076900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552556590.069100",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ed527eed-5a79-4290-a477-94ddf41f53db",
+    "type": "message",
+    "text": "Hi there <@U8A5MS6R1> - the basic strategy is in the OAP paper that <@UCUSW7WVD> and I were talking over in the <#C5T9GPWFL|general> thread - lets see if this link works - <https://futureofcoding.slack.com/archives/C5T9GPWFL/p1544229974163900> . Instead of special scopes (objects/closures) designed to eliminate power of reference (and hence, preventing global oversight of the contents of memory), we code against a single, global, structural scope, but reserve all power of reference to the integration domain. Wherever we write anything resembling traditional code it is expressed as pure functions of its immediate arguments.",
+    "user": "UEH6T3RJB",
+    "ts": "1552691114.343000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5184556fcf3",
+      "image_72": "https://secure.gravatar.com/avatar/75184556fcf3aa660f5e56b8e5bdd46d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Antranig Basman",
+      "display_name": "Bosmon",
+      "team": "T5TCAFTA9",
+      "name": "amb26slack",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1544229974163900",
+        "fallback": "[December 7th, 2018 4:46 PM] ak: <@UEH6T3RJB>'s <https://github.com/amb26/papers/raw/master/onward-2016/onward-2016.pdf> [1] really buries the lede. Here's what I think the primary proposal is, from deep inside section 6, 80% of the way down.\n\nThe basic recommendation:\n\n&gt; ...all design elements be exposed in a structured space of publicly addressible names...\n\nIn more detail:\n\n&gt;  We propose an aggressive program to assimilate the functions of traditional programming languages and their component systems, by stratifying them vertically into two parts:\n&gt;\n&gt;  * On top, an integration domain which encodes not only relations between runtime values, but also the structure of any adaptations expressed in the “virtual class” idiom seen in section 4.3, using the selector structure described in section 6.1.1 to predicate the addresses of these relations and the targets of these adaptations. In order to retain the symmetry implied by our “algebra of differences”, all component structure is expressed within the integration domain, that is, it encodes all classes as well as virtual classes.\n&gt;\n&gt;  * Below the integration domain, then, remains a highly impoverished language dialect that just consists of free functions which express any remnant computation that could not be effectively expressed in the integration domain. The free functions in the impoverished language are addressible through stable names in their own global namespace, and each of them obeys the Law of Demeter strongly, in that they are pure functions of their immediate arguments.\n&gt;\n&gt; ...assimilating the power of reference to the addresses of state into an integration domain which is incapable of computation...\n\n[1] Promoted from <https://futureprogramming.slack.com/archives/C5T9GPWFL/p1543845454059000?thread_ts=1543729043.042700&amp;cid=C5T9GPWFL>",
+        "ts": "1544229974.163900",
+        "author_id": "UCUSW7WVD",
+        "author_subname": "Kartik Agaram",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "text": "<@UEH6T3RJB>'s <https://github.com/amb26/papers/raw/master/onward-2016/onward-2016.pdf> [1] really buries the lede. Here's what I think the primary proposal is, from deep inside section 6, 80% of the way down.\n\nThe basic recommendation:\n\n&gt; ...all design elements be exposed in a structured space of publicly addressible names...\n\nIn more detail:\n\n&gt;  We propose an aggressive program to assimilate the functions of traditional programming languages and their component systems, by stratifying them vertically into two parts:\n&gt;\n&gt;  * On top, an integration domain which encodes not only relations between runtime values, but also the structure of any adaptations expressed in the “virtual class” idiom seen in section 4.3, using the selector structure described in section 6.1.1 to predicate the addresses of these relations and the targets of these adaptations. In order to retain the symmetry implied by our “algebra of differences”, all component structure is expressed within the integration domain, that is, it encodes all classes as well as virtual classes.\n&gt;\n&gt;  * Below the integration domain, then, remains a highly impoverished language dialect that just consists of free functions which express any remnant computation that could not be effectively expressed in the integration domain. The free functions in the impoverished language are addressible through stable names in their own global namespace, and each of them obeys the Law of Demeter strongly, in that they are pure functions of their immediate arguments.\n&gt;\n&gt; ...assimilating the power of reference to the addresses of state into an integration domain which is incapable of computation...\n\n[1] Promoted from <https://futureprogramming.slack.com/archives/C5T9GPWFL/p1543845454059000?thread_ts=1543729043.042700&amp;cid=C5T9GPWFL>",
+        "author_name": "Kartik Agaram",
+        "author_link": "https://futureofcoding.slack.com/team/UCUSW7WVD",
+        "author_icon": "https://avatars.slack-edge.com/2018-09-14/435669206004_3ed0e6ac6eafe8bcf338_48.jpg",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1544229974163900",
+        "footer": "Thread in #general"
+      }
+    ],
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ed527eed-5a79-4290-a477-94ddf41f53db",
+    "type": "message",
+    "text": "Hi there <@U8A5MS6R1> - the basic strategy is in the OAP paper that <@UCUSW7WVD> and I were talking over in the <#C5T9GPWFL|general> thread - lets see if this link works - <https://futureofcoding.slack.com/archives/C5T9GPWFL/p1544229974163900> . Instead of special scopes (objects/closures) designed to eliminate power of reference (and hence, preventing global oversight of the contents of memory), we code against a single, global, structural scope, but reserve all power of reference to the integration domain. Wherever we write anything resembling traditional code it is expressed as pure functions of its immediate arguments.",
+    "user": "UEH6T3RJB",
+    "ts": "1552691114.343000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5184556fcf3",
+      "image_72": "https://secure.gravatar.com/avatar/75184556fcf3aa660f5e56b8e5bdd46d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Antranig Basman",
+      "display_name": "Bosmon",
+      "team": "T5TCAFTA9",
+      "name": "amb26slack",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1544229974163900",
+        "fallback": "[December 7th, 2018 4:46 PM] ak: <@UEH6T3RJB>'s <https://github.com/amb26/papers/raw/master/onward-2016/onward-2016.pdf> [1] really buries the lede. Here's what I think the primary proposal is, from deep inside section 6, 80% of the way down.\n\nThe basic recommendation:\n\n&gt; ...all design elements be exposed in a structured space of publicly addressible names...\n\nIn more detail:\n\n&gt;  We propose an aggressive program to assimilate the functions of traditional programming languages and their component systems, by stratifying them vertically into two parts:\n&gt;\n&gt;  * On top, an integration domain which encodes not only relations between runtime values, but also the structure of any adaptations expressed in the “virtual class” idiom seen in section 4.3, using the selector structure described in section 6.1.1 to predicate the addresses of these relations and the targets of these adaptations. In order to retain the symmetry implied by our “algebra of differences”, all component structure is expressed within the integration domain, that is, it encodes all classes as well as virtual classes.\n&gt;\n&gt;  * Below the integration domain, then, remains a highly impoverished language dialect that just consists of free functions which express any remnant computation that could not be effectively expressed in the integration domain. The free functions in the impoverished language are addressible through stable names in their own global namespace, and each of them obeys the Law of Demeter strongly, in that they are pure functions of their immediate arguments.\n&gt;\n&gt; ...assimilating the power of reference to the addresses of state into an integration domain which is incapable of computation...\n\n[1] Promoted from <https://futureprogramming.slack.com/archives/C5T9GPWFL/p1543845454059000?thread_ts=1543729043.042700&amp;cid=C5T9GPWFL>",
+        "ts": "1544229974.163900",
+        "author_id": "UCUSW7WVD",
+        "author_subname": "Kartik Agaram",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "text": "<@UEH6T3RJB>'s <https://github.com/amb26/papers/raw/master/onward-2016/onward-2016.pdf> [1] really buries the lede. Here's what I think the primary proposal is, from deep inside section 6, 80% of the way down.\n\nThe basic recommendation:\n\n&gt; ...all design elements be exposed in a structured space of publicly addressible names...\n\nIn more detail:\n\n&gt;  We propose an aggressive program to assimilate the functions of traditional programming languages and their component systems, by stratifying them vertically into two parts:\n&gt;\n&gt;  * On top, an integration domain which encodes not only relations between runtime values, but also the structure of any adaptations expressed in the “virtual class” idiom seen in section 4.3, using the selector structure described in section 6.1.1 to predicate the addresses of these relations and the targets of these adaptations. In order to retain the symmetry implied by our “algebra of differences”, all component structure is expressed within the integration domain, that is, it encodes all classes as well as virtual classes.\n&gt;\n&gt;  * Below the integration domain, then, remains a highly impoverished language dialect that just consists of free functions which express any remnant computation that could not be effectively expressed in the integration domain. The free functions in the impoverished language are addressible through stable names in their own global namespace, and each of them obeys the Law of Demeter strongly, in that they are pure functions of their immediate arguments.\n&gt;\n&gt; ...assimilating the power of reference to the addresses of state into an integration domain which is incapable of computation...\n\n[1] Promoted from <https://futureprogramming.slack.com/archives/C5T9GPWFL/p1543845454059000?thread_ts=1543729043.042700&amp;cid=C5T9GPWFL>",
+        "author_name": "Kartik Agaram",
+        "author_link": "https://futureofcoding.slack.com/team/UCUSW7WVD",
+        "author_icon": "https://avatars.slack-edge.com/2018-09-14/435669206004_3ed0e6ac6eafe8bcf338_48.jpg",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1544229974163900",
+        "footer": "Thread in #general"
+      }
+    ],
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "03A72176-B20A-4048-AA15-32E5F3FA373C",
+    "type": "message",
+    "text": "Hi Niluka. I'm a volunteer at Dynamicland, maybe I can answer. Josh may know more about the vision for it, but at the moment RealTalk doesn't have any explicit accessibility features that I've seen. Given that it is a tangible environment, and given what a huge area accessibility covers, I think there's a lot of possibilities to explore there.",
+    "user": "UGXH0HCSF",
+    "ts": "1552692386.350300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3cf031cf9b0e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-13/575581797875_3cf031cf9b0ec26554a6_72.jpg",
+      "first_name": "Carl",
+      "real_name": "Carl Tashian",
+      "display_name": "carl",
+      "team": "T5TCAFTA9",
+      "name": "carl",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552519997.313200",
+    "parent_user_id": "UDPV407CZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "03A72176-B20A-4048-AA15-32E5F3FA373C",
+    "type": "message",
+    "text": "Hi Niluka. I'm a volunteer at Dynamicland, maybe I can answer. Josh may know more about the vision for it, but at the moment RealTalk doesn't have any explicit accessibility features that I've seen. Given that it is a tangible environment, and given what a huge area accessibility covers, I think there's a lot of possibilities to explore there.",
+    "user": "UGXH0HCSF",
+    "ts": "1552692386.350300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3cf031cf9b0e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-13/575581797875_3cf031cf9b0ec26554a6_72.jpg",
+      "first_name": "Carl",
+      "real_name": "Carl Tashian",
+      "display_name": "carl",
+      "team": "T5TCAFTA9",
+      "name": "carl",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552519997.313200",
+    "parent_user_id": "UDPV407CZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0261cbdb-94d2-484c-8d9a-a95973ce4bd6",
+    "type": "message",
+    "text": "<@UD6EXQVM0> re C++: lack of full closures means workarounds are needed. If you leave the scope you need to capture the identifiers by value (preventing sharing mutable values across several lambdas), or if you do capture local scope identifiers by reference you obviously can't use the lambda outside it. They do cover majority of the useful use cases, but I wouldn't call them fully developed because of this.",
+    "user": "UGJ9KAZM3",
+    "ts": "1552693718.350600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0261cbdb-94d2-484c-8d9a-a95973ce4bd6",
+    "type": "message",
+    "text": "<@UD6EXQVM0> re C++: lack of full closures means workarounds are needed. If you leave the scope you need to capture the identifiers by value (preventing sharing mutable values across several lambdas), or if you do capture local scope identifiers by reference you obviously can't use the lambda outside it. They do cover majority of the useful use cases, but I wouldn't call them fully developed because of this.",
+    "user": "UGJ9KAZM3",
+    "ts": "1552693718.350600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a9ca5b79893e",
+      "image_72": "https://avatars.slack-edge.com/2019-03-05/567982344725_a9ca5b79893ede5381e5_72.jpg",
+      "first_name": "Iridian",
+      "real_name": "Iridian Kiiskinen",
+      "display_name": "Iridian",
+      "team": "T5TCAFTA9",
+      "name": "iridian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b3362f91-7208-43bf-9df7-ce10e0e96ee2",
+    "type": "message",
+    "text": "Testing new thread from Android",
+    "user": "UE6EFEPTQ",
+    "ts": "1552693789.077100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552556614.069500",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8c498b61-1c6e-4388-8865-0637fa94a919",
+    "type": "message",
+    "text": "select the message, hit \"Start a thread\" at the bottom",
+    "user": "UE6EFEPTQ",
+    "ts": "1552693797.077300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552556590.069100",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "99b52c22-fb60-4c4f-ac7c-709b68ba3551",
+    "type": "message",
+    "text": "<https://futureofcoding.slack.com/archives/C5U3SEW6A/p1552678759074400?thread_ts=1552556590.069100&amp;cid=C5U3SEW6A>",
+    "user": "UE6EFEPTQ",
+    "ts": "1552693862.077500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1552678759074400?thread_ts=1552556590.069100&amp;cid=C5U3SEW6A",
+        "fallback": "[March 15th, 2019 12:39 PM] dcook0819: Unfortunately, it appears that the Slack Android app does not present an option to create threads (\"reply to\"). I can add to threads that are already present, though",
+        "ts": "1552678759.074400",
+        "author_id": "UAVCC2X70",
+        "author_subname": "Dan Cook",
+        "channel_id": "C5U3SEW6A",
+        "channel_name": "random",
+        "is_msg_unfurl": true,
+        "is_reply_unfurl": true,
+        "text": "Unfortunately, it appears that the Slack Android app does not present an option to create threads (\"reply to\"). I can add to threads that are already present, though",
+        "author_name": "Dan Cook",
+        "author_link": "https://futureofcoding.slack.com/team/UAVCC2X70",
+        "author_icon": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_48.jpg",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1552678759074400?thread_ts=1552556590.069100&amp;cid=C5U3SEW6A",
+        "footer": "From a thread in #random"
+      }
+    ],
+    "thread_ts": "1552556614.069500",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "5e02f151-feff-4f44-9d96-697a734ed210",
+    "type": "message",
+    "text": "Okay, that's due to C++'s lack of GC so Java/C# don't have that issue. Note that Java can only capture read-only variables (i.e. it captures by value) while C# has no such limitation (but since captured variables end up on the heap, there must be limitations, as certain data types can't be stored on the heap in C#.)",
+    "user": "UD6EXQVM0",
+    "ts": "1552694080.350800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1552751824.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGJ9KAZM3"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5e02f151-feff-4f44-9d96-697a734ed210",
+    "type": "message",
+    "text": "Okay, that's due to C++'s lack of GC so Java/C# don't have that issue. Note that Java can only capture read-only variables (i.e. it captures by value) while C# has no such limitation (but since captured variables end up on the heap, there must be limitations, as certain data types can't be stored on the heap in C#.)",
+    "user": "UD6EXQVM0",
+    "ts": "1552694080.350800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1552751824.000000"
+    },
+    "thread_ts": "1552584175.332300",
+    "parent_user_id": "UC6997THT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGJ9KAZM3"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e57bd313-ea61-480c-909a-d500a89d2f58",
+    "type": "message",
+    "text": "I see no such option. Can you give me a screenshot?",
+    "user": "UAVCC2X70",
+    "ts": "1552694197.077800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1552556590.069100",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
