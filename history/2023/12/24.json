@@ -1,0 +1,570 @@
+[
+  {
+    "client_msg_id": "7a281042-ed6a-493a-97bc-90476bcbde43",
+    "type": "message",
+    "text": "zoom is currently changing the perceived origin! (everybody does this the first time they implement this, but it’s not the nicest user experience)",
+    "user": "U013ZLJARC7",
+    "ts": "1703414039.001979",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "08One",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "zoom is currently changing the perceived origin! (everybody does this the first time they implement this, but it’s not the nicest user experience)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1703357866.309279",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "cb3500bd-0cf5-4bae-a46e-d59589850881",
+    "type": "message",
+    "text": "re namespacing in documents:\n• Boxer had a very inspiring take on this, distilling wide range of functionality to single structure — nesting (spatial ⇔ functional) of boxes.  With lookup working inside-&gt;out, again ranging from variables and kinda-closures to \"apps\" by way of localized UI customizations, e.g. what do `mouse-click` or `key-F1` do is scoped to nearest box defining those names.  I'd say their <https://boxer-project.github.io/boxer-literature/papers/A%20Principled%20Design%20for%20an%20Integrated%20Computational%20Environment%20-%20ACM%20HCI%20(diSessa,%201985).pdf|Principled Design> paper remains the best entry point.\n&gt;  Use of the spatial metaphor is dependent on the fact that spatial structure\n&gt; can be extremely compatible with essential computational structures. In par-\n&gt; ticular, it will become apparent how two-dimensional configurations with\n&gt; containment representing hierarchy can subsume an important core structure\n&gt; to things like program and calling structure, hierarchical data, and file\n&gt; systems.\n• I found it interesting that Embark picked similar scoping model, only instead of nested boxes they present a more traditional outline.  (Specifically in their demo, icons were assigned to particular waypoints, but colors were only assigned at higher level of the outline, to days.  The map view looked for icons &amp; colors starting from each waypoint/route and going up the outline, thus adding a \"color: ...\" child to a day affected all points &amp; routes nested under it.)",
+    "user": "U02QC0PPER3",
+    "ts": "1703415117.474439",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Iy69q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "re namespacing in documents:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Boxer had a very inspiring take on this, distilling wide range of functionality to single structure — nesting (spatial ⇔ functional) of boxes.  With lookup working inside->out, again ranging from variables and kinda-closures to \"apps\" by way of localized UI customizations, e.g. what do "
+                  },
+                  {
+                    "type": "text",
+                    "text": "mouse-click",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " or "
+                  },
+                  {
+                    "type": "text",
+                    "text": "key-F1",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " do is scoped to nearest box defining those names.  I'd say their "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://boxer-project.github.io/boxer-literature/papers/A%20Principled%20Design%20for%20an%20Integrated%20Computational%20Environment%20-%20ACM%20HCI%20(diSessa,%201985).pdf",
+                    "text": "Principled Design"
+                  },
+                  {
+                    "type": "text",
+                    "text": " paper remains the best entry point."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " Use of the spatial metaphor is dependent on the fact that spatial structure\ncan be extremely compatible with essential computational structures. In par-\nticular, it will become apparent how two-dimensional configurations with\ncontainment representing hierarchy can subsume an important core structure\nto things like program and calling structure, hierarchical data, and file\nsystems."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "I found it interesting that Embark picked similar scoping model, only instead of nested boxes they present a more traditional outline.  (Specifically in their demo, icons were assigned to particular waypoints, but colors were only assigned at higher level of the outline, to days.  The map view looked for icons & colors starting from each waypoint/route and going up the outline, thus adding a \"color: ...\" child to a day affected all points & routes nested under it.)"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1702896140.206779",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "3ffd67f0-5461-42c8-9d95-479d60ac9c7f",
+    "type": "message",
+    "text": "To a programmer, sure, a small intimately familiar codebase offers much escape from legalism, by making it realistically achievable to change the rules.\n\nBut it's also an interesting question what can we do for \"end users\", or even other programmers who are reluctant to invest in learning our piece of the terrain.\nDo you think for a _given user task,_ building it with less legalism for users correlates with smaller codebases? :thinking_face:\n\n[The question is unfair, because achieving same \"functionality\" with less legalism is actually very valuable and should count as \"more functionality\"...  Very hard to quantify.]",
+    "user": "U02QC0PPER3",
+    "ts": "1703416084.404329",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yMh98",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "To a programmer, sure, a small intimately familiar codebase offers much escape from legalism, by making it realistically achievable to change the rules.\n\nBut it's also an interesting question what can we do for \"end users\", or even other programmers who are reluctant to invest in learning our piece of the terrain.\nDo you think for a "
+              },
+              {
+                "type": "text",
+                "text": "given user task,",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " building it with less legalism for users correlates with smaller codebases? "
+              },
+              {
+                "type": "emoji",
+                "name": "thinking_face",
+                "unicode": "1f914"
+              },
+              {
+                "type": "text",
+                "text": "\n\n[The question is unfair, because achieving same \"functionality\" with less legalism is actually very valuable and should count as \"more functionality\"...  Very hard to quantify.]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1703016259.139779",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d21c7eb9-6284-4dbb-be80-7b07c549390e",
+    "type": "message",
+    "text": "The \"conquer new terrain\" metaphor is apt.  People don't go off merely because we're too selfish to \"tend to existing areas\"; to some degree we enjoy it _because_ it lets us make our own jurisdiction!  Whereas putting up with other people's rules (and being careful not to break their use cases) is genuinely hard.\n\n=> Conjecture: any techniques for building less legalistic software might benefit programming itself by reducing NIH tendencies and encouraging positive-sum code reuse??",
+    "user": "U02QC0PPER3",
+    "ts": "1703416464.236579",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BX8Y6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The \"conquer new terrain\" metaphor is apt.  People don't go off merely because we're too selfish to \"tend to existing areas\"; to some degree we enjoy it "
+              },
+              {
+                "type": "text",
+                "text": "because ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "it lets us make our own jurisdiction!  Whereas putting up with other people's rules (and being careful not to break their use cases) is genuinely hard.\n\n=> Conjecture: any techniques for building less legalistic software might benefit programming itself by reducing NIH tendencies and encouraging positive-sum code reuse??"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U02QC0PPER3",
+      "ts": "1703416501.000000"
+    },
+    "thread_ts": "1703016259.139779",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "52a82cc9-5d33-48d7-badf-190750635ca6",
+    "type": "message",
+    "text": "Apparently Alexander Obenauer was involved and seemed happy to try a less structured approach to data than his \"items\". I don't know what AO has to say about namespacing or structure. Perhaps others do? It seems transclusion of item inside item would be a key aspect in the UI anyway. CSS is an interesting model to plumb for this as well.",
+    "user": "UE6EFEPTQ",
+    "ts": "1703426022.465939",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0DTl5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Apparently Alexander Obenauer was involved and seemed happy to try a less structured approach to data than his \"items\". I don't know what AO has to say about namespacing or structure. Perhaps others do? It seems transclusion of item inside item would be a key aspect in the UI anyway. CSS is an interesting model to plumb for this as well."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1702896140.206779",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "19E2AA66-71F5-4EC9-BE8C-86E6EBE3CBB2",
+    "type": "message",
+    "text": "Today I learned about <https://derivative.ca|TouchDesigner> ",
+    "user": "UMQ6LR9NZ",
+    "ts": "1703440702.323769",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dq/BF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Today I learned about "
+              },
+              {
+                "type": "link",
+                "url": "https://derivative.ca",
+                "text": "TouchDesigner"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://derivative-devforum-backups.s3.us-east-2.amazonaws.com/static/manifest512.png",
+        "image_width": 512,
+        "image_height": 512,
+        "image_bytes": 13085,
+        "from_url": "https://derivative.ca/",
+        "service_icon": "https://derivative.ca/sites/all/themes/derivative2017/favicon.ico",
+        "id": 1,
+        "original_url": "https://derivative.ca",
+        "fallback": "Derivative",
+        "text": "Derivative is a software company that offers TouchDesigner, a visual development platform.",
+        "title": "Derivative",
+        "title_link": "https://derivative.ca/",
+        "service_name": "derivative.ca"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "amiga-tick",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "6f93498d-3b4c-4a26-9689-b7ba165ac3f0",
+    "type": "message",
+    "text": "> Do you think for a given user task, building it with less legalism for users correlates with smaller codebases? :thinking_face:\n> \nProprietary programs and websites tend towards power for the authors, laws for users. Open source programs tend towards power for insiders (who can modify them), laws for outsiders. I want my small, open source Freewheeling programs to provide power for people, laws for the computer.",
+    "user": "UCUSW7WVD",
+    "ts": "1703441961.690709",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rsYip",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Do you think for a given user task, building it with less legalism for users correlates with smaller codebases? "
+              },
+              {
+                "type": "emoji",
+                "name": "thinking_face",
+                "unicode": "1f914"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nProprietary programs and websites tend towards power for the authors, laws for users. Open source programs tend towards power for insiders (who can modify them), laws for outsiders. I want my small, open source Freewheeling programs to provide power for people, laws for the computer."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1703442189.000000"
+    },
+    "thread_ts": "1703016259.139779",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "73360a30-37f9-4bcf-98ad-ac4684a05c09",
+    "type": "message",
+    "text": "Yes! I fixed this later. Will share in a bit.",
+    "user": "UCUSW7WVD",
+    "ts": "1703442067.479389",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lzuZH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes! I fixed this later. Will share in a bit."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1703357866.309279",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "type": "message",
+    "text": "How does this look? I'm basically holding the centroid of the fingers immobile as I zoom. So the top-left of the viewport is constantly adjusted by centroid/oldzoom - centroid/newzoom. Does this seem like the best approach?\n\n(I considered weighting by the finger that is moving more, but convinced myself I get that effect for free since the above adjustment is constantly happening as the fingers move.  But perhaps I'm rationalizing.)",
+    "files": [
+      {
+        "id": "F06C5K5S196",
+        "created": 1703443501,
+        "timestamp": 1703443501,
+        "name": "carousel-surface.webm",
+        "title": "carousel-surface.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 129985,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F06C5K5S196/carousel-surface.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F06C5K5S196/download/carousel-surface.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F06C5K5S196-b37e67b9b1/file.m3u8?_xcb=58b33",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MjE1ODU4LEFWRVJBR0UtQkFORFdJRFRIPTIxNTg1OCxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj02OTJ4MTA4MCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05rTTFTelZUTVRrMkxXSXpOMlUyTjJJNVlqRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURFdWRITUtJMFZZVkVsT1Jqb3lMakF3TWl3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EWkROVXMxVXpFNU5pMWlNemRsTmpkaU9XSXhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBeUxuUnpDaU5GV0ZRdFdDMUZUa1JNU1ZOVUNnPT0KI0VYVC1YLVNUUkVBTS1JTkY6QkFORFdJRFRIPTE5NDA3MixBVkVSQUdFLUJBTkRXSURUSD0xOTQwNzIsQ09ERUNTPSJhdmMxLjY0MDAxZSxtcDRhLjQwLjUiLFJFU09MVVRJT049NDYweDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApodHRwczovL2ZpbGVzLnNsYWNrLmNvbS9maWxlcy10bWIvVDVUQ0FGVEE5LUYwNkM1SzVTMTk2LWIzN2U2N2I5YjEvZmlsZV9IXzI2NF8xMjgweDcyMF8zNTAwS0JQU183UVZCUi5tM3U4Cg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F06C5K5S196-b37e67b9b1/file_trans.mp4",
+        "duration_ms": 8008,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F06C5K5S196-b37e67b9b1/carousel-surface_thumb_video.jpeg",
+        "thumb_video_w": 720,
+        "thumb_video_h": 1126,
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F06C5K5S196/carousel-surface.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F06C5K5S196-173eb22986",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "ts": "1703443517.183309",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YsnE1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How does this look? I'm basically holding the centroid of the fingers immobile as I zoom. So the top-left of the viewport is constantly adjusted by centroid/oldzoom - centroid/newzoom. Does this seem like the best approach?\n\n(I considered weighting by the finger that is moving more, but convinced myself I get that effect for free since the above adjustment is constantly happening as the fingers move.  But perhaps I'm rationalizing.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "1f0e8e89-86d0-464f-b59e-216f3af7e255",
+    "thread_ts": "1703357866.309279",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "4862D348-B6AF-4225-B016-2BEE4BD36E32",
+    "type": "message",
+    "text": "What writing sections do you have in mind when  think of an ideal case study paper? I think software dev projects leave many artifacts in the process of building them (eg RFCs, ADRs, pull requests), but it’s rarer (at least after the fact) to get the time to compile those into a retrospective narrative, especially in a commercial setting. \n",
+    "user": "US370TRJA",
+    "ts": "1703444178.302009",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lAfO5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What writing sections do you have in mind when  think of an ideal case study paper? I think software dev projects leave many artifacts in the process of building them (eg RFCs, ADRs, pull requests), but it’s rarer (at least after the fact) to get the time to compile those into a retrospective narrative, especially in a commercial setting. \n"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1703329896.105629",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "ec5a30a5-1f13-4fc7-9880-43fab2fecbe7",
+    "type": "message",
+    "text": "... (yet again, sorry) my deep belief is: insiders and authors (and researchers and assembler programmers) think that \"programming\" MUST consist of step-wise sequencing of electronic machines, whereas people don't want to know about programming and think in terms of free will (aka true asynchronousity, not step-wise simultaneity) .  Any UX that presents tools that need to be sequenced in a step-wise (synchronous) manner will not be understood by people, and will remain in the domain of the ivory towerists. The trains will run on time, but, the tools will not be appreciated by the majority ...",
+    "user": "UGWUJUZHT",
+    "ts": "1703449853.202439",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/L175",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "... (yet again, sorry) my deep belief is: insiders and authors (and researchers and assembler programmers) think that \"programming\" MUST consist of step-wise sequencing of electronic machines, whereas people don't want to know about programming and think in terms of free will (aka true asynchronousity, not step-wise simultaneity) .  Any UX that presents tools that need to be sequenced in a step-wise (synchronous) manner will not be understood by people, and will remain in the domain of the ivory towerists. The trains will run on time, but, the tools will not be appreciated by the majority ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1703016259.139779",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9fddc670-2308-4692-a557-ef9862a8255d",
+    "type": "message",
+    "text": "Isn't lots of asynchronous orchestration also too complex for people? Orchestration is just inherently difficult to model in one's head.\n\nConversely, it's the most natural thing in the world for my kids to say first do this, then do that. Lots of people imagine moments in time advancing synchronously everywhere at once.\n\nSo there's a kernel of something here, but I don't think it's quite fully baked yet. Sync vs async is too blunt to be all of the answer.",
+    "user": "UCUSW7WVD",
+    "ts": "1703452575.783849",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fag2Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Isn't lots of asynchronous orchestration also too complex for people? Orchestration is just inherently difficult to model in one's head.\n\nConversely, it's the most natural thing in the world for my kids to say first do this, then do that. Lots of people imagine moments in time advancing synchronously everywhere at once.\n\nSo there's a kernel of something here, but I don't think it's quite fully baked yet. Sync vs async is too blunt to be all of the answer."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1703452629.000000"
+    },
+    "thread_ts": "1703016259.139779",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

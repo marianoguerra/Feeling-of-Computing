@@ -1,0 +1,354 @@
+[
+  {
+    "client_msg_id": "1e94a9d8-39c5-49ea-b051-51f5a573f7c3",
+    "type": "message",
+    "text": "Thanks Stew, that's about it. Note that one subgraph produces 42 the integer and the other \"Alice\" the string, the result is then of type &lt;int | string&gt;, a variant type of either type. One could also write this as an expression: `global-&gt;frame = 15 ? \"Alice\" : 42` and wrap/unwrap from one to the other.",
+    "user": "U03U0SCU5LH",
+    "ts": "1701408049.788389",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+z9/7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks Stew, that's about it. Note that one subgraph produces 42 the integer and the other \"Alice\" the string, the result is then of type <int | string>, a variant type of either type. One could also write this as an expression: "
+              },
+              {
+                "type": "text",
+                "text": "global->frame = 15 ? \"Alice\" : 42",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and wrap/unwrap from one to the other."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1701346694.830159",
+    "parent_user_id": "U03U0SCU5LH",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "fefca721-c201-41bb-819f-8b9b300fb74c",
+    "type": "message",
+    "text": "\"do\" is a bit awkward, because it's not imperative code. It's declarative, describing a process that may never be initiated. When $start also feels like it should be implicit for anything that doesn't have a different trigger. The names could be more descriptive than lowercase letters. I might be inclined to use \"when {name} happens\" , and \"step: {name} is\" to make it clearer, too. But all that should be taken with a grain of salt, because I have never been able to understand why I would want to use BPMN. All my use cases seem deeply ill-suited to it.",
+    "user": "U02U0AS3J49",
+    "ts": "1701410325.428109",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zrxlt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"do\" is a bit awkward, because it's not imperative code. It's declarative, describing a process that may never be initiated. When $start also feels like it should be implicit for anything that doesn't have a different trigger. The names could be more descriptive than lowercase letters. I might be inclined to use \"when {name} happens\" , and \"step: {name} is\" to make it clearer, too. But all that should be taken with a grain of salt, because I have never been able to understand why I would want to use BPMN. All my use cases seem deeply ill-suited to it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1701260604.791659",
+    "parent_user_id": "U018S42NMMM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "61cc2bc9-33b9-4261-bad6-a6ad99938d1f",
+    "type": "message",
+    "text": "<@U02U0AS3J49> All good points. `do ... end` is just a construct I copied from Ruby's block syntax.\nBPMN has around 120 types of elements including exclusive gateways, parallel gateways which seems highly unnecessary. I'm trying to avoid all those elements with some kind of composable event algebra. I think workflow engines (where some tasks could be done by humans) have been underutilized by developers precisely because of BPMN's complexity.",
+    "user": "U018S42NMMM",
+    "ts": "1701410578.705949",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "B5+kX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U02U0AS3J49"
+              },
+              {
+                "type": "text",
+                "text": " All good points. "
+              },
+              {
+                "type": "text",
+                "text": "do ... end",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is just a construct I copied from Ruby's block syntax.\nBPMN has around 120 types of elements including exclusive gateways, parallel gateways which seems highly unnecessary. I'm trying to avoid all those elements with some kind of composable event algebra. I think workflow engines (where some tasks could be done by humans) have been underutilized by developers precisely because of BPMN's complexity."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U018S42NMMM",
+      "ts": "1701410953.000000"
+    },
+    "thread_ts": "1701260604.791659",
+    "parent_user_id": "U018S42NMMM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ee6c2fd2-71ad-4165-b4d7-3d0719513fcf",
+    "type": "message",
+    "text": "I think BPMN not having a semantics has been the biggest issue in people not using BPMN for workflow. But there are other ways to do workflow, and the ones that get used the most don't require BPMN.",
+    "user": "U02U0AS3J49",
+    "ts": "1701411305.633929",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lR3Pr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think BPMN not having a semantics has been the biggest issue in people not using BPMN for workflow. But there are other ways to do workflow, and the ones that get used the most don't require BPMN."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1701260604.791659",
+    "parent_user_id": "U018S42NMMM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7c66038e-fe5f-45d7-8fc7-48c3e341495e",
+    "type": "message",
+    "text": "I'm curious about the Gemini project, and I like the comparison to Gopher. I wonder if browsers \"Reader mode\" helps people (less distraction, no ads), but could be rendered wildly different per site.",
+    "user": "U05PESXCC2E",
+    "ts": "1701452626.872709",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qiBTU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm curious about the Gemini project, and I like the comparison to Gopher. I wonder if browsers \"Reader mode\" helps people (less distraction, no ads), but could be rendered wildly different per site."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1701265879.364089",
+    "parent_user_id": "U0584S0ULF8",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U0584S0ULF8"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "We just published a new demo of Plato's PBD subsystem. Much more powerful than our previous implementation.\n\nPBD is historically difficult to generalize and make practical, but it seems that once you take it out of the desktop metaphor and apply it to relational data where queries are more explicit, it does quite well.\n\nI suspect this could become the most prevalent way of automating app logic without coding.",
+    "files": [
+      {
+        "id": "F067UQAP6P9",
+        "created": 1701452978,
+        "timestamp": 1701452978,
+        "name": "Plato Demo Video Comp 2.mp4",
+        "title": "Plato Demo Video Comp 2.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U018FSM8G3Z",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 23802950,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "complete",
+          "locale": "en-US"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F067UQAP6P9-5aea85df9a/plato_demo_video_comp_2.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F067UQAP6P9-5aea85df9a/plato_demo_video_comp_2.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F067UQAP6P9/download/plato_demo_video_comp_2.mp4",
+        "vtt": "https://files.slack.com/files-tmb/T5TCAFTA9-F067UQAP6P9-5aea85df9a/file.vtt?_xcb=c6aac",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F067UQAP6P9-5aea85df9a/file.m3u8?_xcb=c6aac",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NDgyMDUxLEFWRVJBR0UtQkFORFdJRFRIPTQwNDYzOCxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xNjY0eDEwODAsRlJBTUUtUkFURT0yOS45NzAsU1VCVElUTEVTPSJzdWJzIgpkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05qZFZVVUZRTmxBNUxUVmhaV0U0TldSbU9XRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURFdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EWTNWVkZCVURaUU9TMDFZV1ZoT0RWa1pqbGhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBeUxuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTJOMVZSUVZBMlVEa3ROV0ZsWVRnMVpHWTVZUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd015NTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOamRWVVVGUU5sQTVMVFZoWldFNE5XUm1PV0V2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01EUXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFkzVlZGQlVEWlFPUzAxWVdWaE9EVmtaamxoTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQTFMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakEyTjFWUlFWQTJVRGt0TldGbFlUZzFaR1k1WVM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TmpkVlVVRlFObEE1TFRWaFpXRTROV1JtT1dFdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRGN1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURZM1ZWRkJVRFpRT1MwMVlXVmhPRFZrWmpsaEwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREE0TG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBMk4xVlJRVkEyVURrdE5XRmxZVGcxWkdZNVlTOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3T1M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05qZFZVVUZRTmxBNUxUVmhaV0U0TldSbU9XRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TVRBdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EWTNWVkZCVURaUU9TMDFZV1ZoT0RWa1pqbGhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURFeExuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTJOMVZSUVZBMlVEa3ROV0ZsWVRnMVpHWTVZUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBeE1pNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOamRWVVVGUU5sQTVMVFZoWldFNE5XUm1PV0V2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01UTXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFkzVlZGQlVEWlFPUzAxWVdWaE9EVmtaamxoTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01ERTBMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakEyTjFWUlFWQTJVRGt0TldGbFlUZzFaR1k1WVM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhOUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TmpkVlVVRlFObEE1TFRWaFpXRTROV1JtT1dFdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNVFl1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURZM1ZWRkJVRFpRT1MwMVlXVmhPRFZrWmpsaEwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREUzTG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBMk4xVlJRVkEyVURrdE5XRmxZVGcxWkdZNVlTOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4T0M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05qZFZVVUZRTmxBNUxUVmhaV0U0TldSbU9XRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TVRrdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EWTNWVkZCVURaUU9TMDFZV1ZoT0RWa1pqbGhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURJd0xuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTJOMVZSUVZBMlVEa3ROV0ZsWVRnMVpHWTVZUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBeU1TNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOamRWVVVGUU5sQTVMVFZoWldFNE5XUm1PV0V2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01qSXVkSE1LSTBWWVZFbE9Sam8xTGpnM015d0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFkzVlZGQlVEWlFPUzAxWVdWaE9EVmtaamxoTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01ESXpMblJ6Q2lORldGUXRXQzFGVGtSTVNWTlVDZz09CiNFWFQtWC1TVFJFQU0tSU5GOkJBTkRXSURUSD0zMzQwNTUsQVZFUkFHRS1CQU5EV0lEVEg9MjkwNDgyLENPREVDUz0iYXZjMS42NDAwMWYsbXA0YS40MC41IixSRVNPTFVUSU9OPTExMTB4NzIwLEZSQU1FLVJBVEU9MjkuOTcwLFNVQlRJVExFUz0ic3VicyIKaHR0cHM6Ly9maWxlcy5zbGFjay5jb20vZmlsZXMtdG1iL1Q1VENBRlRBOS1GMDY3VVFBUDZQOS01YWVhODVkZjlhL2ZpbGVfSF8yNjRfMTI4MHg3MjBfMzUwMEtCUFNfN1FWQlIubTN1OAojRVhULVgtTUVESUE6VFlQRT1TVUJUSVRMRVMsR1JPVVAtSUQ9InN1YnMiLE5BTUU9IkVuZ2xpc2giLERFRkFVTFQ9WUVTLEFVVE9TRUxFQ1Q9WUVTLEZPUkNFRD1OTyxMQU5HVUFHRT0iZW5nIixVUkk9ImRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzJNREFLSTBWWVZDMVlMVTFGUkVsQkxWTkZVVlZGVGtORk9qRUtJMFZZVkMxWUxWQk1RVmxNU1ZOVUxWUlpVRVU2Vms5RUNpTkZXRlJKVGtZNk1UTTRMakF3TkN3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EWTNWVkZCVURaUU9TMDFZV1ZoT0RWa1pqbGhMMlpwYkdVdWRuUjBDaU5GV0ZRdFdDMUZUa1JNU1ZOVSIK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F067UQAP6P9-5aea85df9a/plato_demo_video_comp_2_trans.mp4",
+        "duration_ms": 138004,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F067UQAP6P9-5aea85df9a/plato_demo_video_comp_2_thumb_video.jpeg",
+        "thumb_video_w": 1512,
+        "thumb_video_h": 982,
+        "permalink": "https://futureofcoding.slack.com/files/U018FSM8G3Z/F067UQAP6P9/plato_demo_video_comp_2.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F067UQAP6P9-dab610bfc0",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U018FSM8G3Z",
+    "display_as_bot": false,
+    "ts": "1701453034.659699",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "17OZG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "We just published a new demo of Plato's PBD subsystem. Much more powerful than our previous implementation.\n\nPBD is historically difficult to generalize and make practical, but it seems that once you take it out of the desktop metaphor and apply it to relational data where queries are more explicit, it does quite well.\n\nI suspect this could become the most prevalent way of automating app logic without coding."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "edited": {
+      "user": "U018FSM8G3Z",
+      "ts": "1701456941.000000"
+    },
+    "client_msg_id": "20b9a46e-59d4-4c9f-be09-572a42ed317d",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U04E5QAD6DD",
+          "U05PESXCC2E"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "8ba9c4e5-3e9c-4017-b52c-20e2f4c9aaf2",
+    "type": "message",
+    "text": "Hi FoC, just posting here some of my latest work in Unit: <https://twitter.com/io_sammt/status/1730679917354897760>. <https://unit.tools> is my current take on how to search for units (live programs) online and collect your own. It is still a prototype, bear with me. <https://unit.tools>",
+    "user": "U02B6FQKZK8",
+    "ts": "1701468241.428639",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7F0wd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi FoC, just posting here some of my latest work in Unit: "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/io_sammt/status/1730679917354897760"
+              },
+              {
+                "type": "text",
+                "text": ". "
+              },
+              {
+                "type": "link",
+                "url": "https://unit.tools"
+              },
+              {
+                "type": "text",
+                "text": " is my current take on how to search for units (live programs) online and collect your own. It is still a prototype, bear with me. "
+              },
+              {
+                "type": "link",
+                "url": "https://unit.tools"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1730679828989284352/pu/img/nH1shP8AwiTjEY4O.jpg:large",
+        "image_width": 770,
+        "image_height": 704,
+        "image_bytes": 44024,
+        "from_url": "https://twitter.com/io_sammt/status/1730679917354897760",
+        "service_icon": "http://abs.twimg.com/favicons/twitter.3.ico",
+        "id": 1,
+        "original_url": "https://twitter.com/io_sammt/status/1730679917354897760",
+        "fallback": "X (formerly Twitter): Samuel Timbó (@io_sammt) on X",
+        "text": "Officially announcing the second project I am building in public: <https://t.co/BsxYrY7UiX>\n\nIt is a marketplace to explore, collect and play with live visual programs built in Unit.",
+        "title": "Samuel Timbó (@io_sammt) on X",
+        "title_link": "https://twitter.com/io_sammt/status/1730679917354897760",
+        "service_name": "X (formerly Twitter)"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U05UBCXHWM6",
+          "UCUSW7WVD",
+          "U0123H7JRDM"
+        ],
+        "count": 3
+      },
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]

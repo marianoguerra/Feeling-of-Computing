@@ -1,0 +1,257 @@
+[
+  {
+    "client_msg_id": "e1d516bd-0f03-41ca-a257-f3e8bfdc3e47",
+    "type": "message",
+    "text": "> Isn't lots of asynchronous orchestration also too complex for people? \nLots yes.  Some no.\n\nLet's take away the big words and observe what remains.\n\nPeople - Western, English speaking people - draw diagrams on whiteboards and flip charts.  The diagrams read from left to right, top to bottom.  Usually the diagrams consist of boxes with some words on them, and arrows with some words on them.\n\n> Orchestration is just inherently difficult to model in one's head.\nFor programmers, yes, for people, not so much.  As long as the result is not \"too busy\".  I.E. diagrams cannot contain too much detail. If they want to express more detail, they flip to the next blank page and draw another not-so-busy diagram. And so on.  Drawing *everything* on a single diagram is anathema.  Good powerpoint slide decks are like that.  One point per slide, advance to next slide if more detail is required.\n\n> \n> Conversely, it's the most natural thing in the world for my kids to say first do this, then do that. Lots of people imagine moments in time advancing synchronously everywhere at once.\nYes.  And your kids have no problem saying \"while the potatoes cook, cut up the carrots\". They don't invoke monads or futures or awaits to say this, they just say it.  When they draw it on a whiteboard, it's pretty clear - one box branches out to two boxes.  Left to right.  Then, the two branches join back together into a single box.  No rules. The person drawing the branches gets to say when the branches join. The toolmaker doesn't get to dictate. The toolmaker provides a recursive canvas (a flip-chart, or an erasable whiteboard) and provides the dry-erase markers. The person doing the drawing uses the tools to say what they mean.\n\nNot everyone expresses what they mean in a good way. The people who do this well are promoted to \"Architect\" status, the rest don't get promoted.\n\n> So there's a kernel of something here, but I don't think it's quite fully baked yet. Sync vs async is too blunt to be all of the answer.\nIn a way, yes, in a way, no. My feeling is that this is quite simple and doesn't need to be complicated further.  Encapsulate units, make the units be totally independent. Function-based programming  languages do only half of the job.  It is trivial to do the rest of the job.  Preserve time-ordering and left-to-rightness and top-to-downness. Allow composition of such units (aka LEGO-ification).  Current programming languages lean solely on the LIFO meme (stack).  Simply adding a LIFO meme (queue) can break out of the step-wise (synchronous) paradigm. This is nothing new - networking protocols already do this kind of thing.  I think that we can push network protocol-ization down to the programming level.  Easily.\n\nDon't use one at the exclusion of the other. Use both. LIFO and FIFO. CALL/RETURN and SEND.\n\nLIFO is good for expressing the innards of components, FIFO is good for expressing inter-component communication.\n\nInput and output queues are good for preserving time-ordering of data arrival and data generation.\n\n\"Programming\" is the whole enchilada. Innards and inter-component communication.",
+    "user": "UGWUJUZHT",
+    "ts": "1703477203.470019",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Qtobn",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Isn't lots of asynchronous orchestration also too complex for people? "
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nLots yes.  Some no.\n\nLet's take away the big words and observe what remains.\n\nPeople - Western, English speaking people - draw diagrams on whiteboards and flip charts.  The diagrams read from left to right, top to bottom.  Usually the diagrams consist of boxes with some words on them, and arrows with some words on them.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Orchestration is just inherently difficult to model in one's head."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nFor programmers, yes, for people, not so much.  As long as the result is not \"too busy\".  I.E. diagrams cannot contain too much detail. If they want to express more detail, they flip to the next blank page and draw another not-so-busy diagram. And so on.  Drawing "
+              },
+              {
+                "type": "text",
+                "text": "everything",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " on a single diagram is anathema.  Good powerpoint slide decks are like that.  One point per slide, advance to next slide if more detail is required.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nConversely, it's the most natural thing in the world for my kids to say first do this, then do that. Lots of people imagine moments in time advancing synchronously everywhere at once."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nYes.  And your kids have no problem saying \"while the potatoes cook, cut up the carrots\". They don't invoke monads or futures or awaits to say this, they just say it.  When they draw it on a whiteboard, it's pretty clear - one box branches out to two boxes.  Left to right.  Then, the two branches join back together into a single box.  No rules. The person drawing the branches gets to say when the branches join. The toolmaker doesn't get to dictate. The toolmaker provides a recursive canvas (a flip-chart, or an erasable whiteboard) and provides the dry-erase markers. The person doing the drawing uses the tools to say what they mean.\n\nNot everyone expresses what they mean in a good way. The people who do this well are promoted to \"Architect\" status, the rest don't get promoted.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So there's a kernel of something here, but I don't think it's quite fully baked yet. Sync vs async is too blunt to be all of the answer."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nIn a way, yes, in a way, no. My feeling is that this is quite simple and doesn't need to be complicated further.  Encapsulate units, make the units be totally independent. Function-based programming  languages do only half of the job.  It is trivial to do the rest of the job.  Preserve time-ordering and left-to-rightness and top-to-downness. Allow composition of such units (aka LEGO-ification).  Current programming languages lean solely on the LIFO meme (stack).  Simply adding a LIFO meme (queue) can break out of the step-wise (synchronous) paradigm. This is nothing new - networking protocols already do this kind of thing.  I think that we can push network protocol-ization down to the programming level.  Easily.\n\nDon't use one at the exclusion of the other. Use both. LIFO and FIFO. CALL/RETURN and SEND.\n\nLIFO is good for expressing the innards of components, FIFO is good for expressing inter-component communication.\n\nInput and output queues are good for preserving time-ordering of data arrival and data generation.\n\n\"Programming\" is the whole enchilada. Innards and inter-component communication."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UGWUJUZHT",
+      "ts": "1703478512.000000"
+    },
+    "thread_ts": "1703016259.139779",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "29576c62-afe1-4523-a6a0-6d5d740368ea",
+    "type": "message",
+    "text": "The question of \"why not use both?\" makes sense to me. But I don't think things will be any better if we start using both. I think architects will still continue to make the same sorts of messes they do today. I think you're comparing apples and oranges, the current messy state of the status quo vs the idealized pristine state of your idea. But people will start making a mess with it one microsecond after they adopt it.",
+    "user": "UCUSW7WVD",
+    "ts": "1703488872.508029",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zfMct",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The question of \"why not use both?\" makes sense to me. But I don't think things will be any better if we start using both. I think architects will still continue to make the same sorts of messes they do today. I think you're comparing apples and oranges, the current messy state of the status quo vs the idealized pristine state of your idea. But people will start making a mess with it one microsecond after they adopt it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1703016259.139779",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "39d8b143-a402-4723-8308-548a21edd170",
+    "type": "message",
+    "text": "_Beautiful Code_ is slightly less formal than _AOSA_: people (sometimes authors sometimes not) praising some aspect/piece of a project (IIRC all open source?) that they subjectively feel worth praising.\n• E.g. one chapter about encrypted messaging memorably said what's beautiful to him is the safety it offered to people at risk.\nI enjoyed it.\n\n_Making Software: What Really Works, and Why We Believe It_ is more formal than AOSA, full of attempts to do empirical studies of software engineering.  (some open some industrial)\nSome chapters doing case studies of whole projects, some focusing on particular aspects e.g. how people comuunicated on the job, or analyzing bug tracker data...\nI feel its a good intro into approaching SE  empirically, but in many places the data is just too weak to learn much from.  (Which is a valuable meta thing to learn, i suppose)\nI bought it following Greg Wilson talking convincingly on a podcast; but felt too dry for me, perhaps more for managers then devs, I read than half.\n\nPerformance of Open Source Applications is on my to-read list.\n\nAll are anthologies - each chapter by other authors and easy to read at any order.",
+    "user": "U02QC0PPER3",
+    "ts": "1703493876.323549",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "P+xz1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Beautiful Code ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "is slightly less formal than "
+              },
+              {
+                "type": "text",
+                "text": "AOSA",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ": people (sometimes authors sometimes not) praising some aspect/piece of a project (IIRC all open source?) that they subjectively feel worth praising.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "E.g. one chapter about encrypted messaging memorably said what's beautiful to him is the safety it offered to people at risk."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "offset": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I enjoyed it.\n\n"
+              },
+              {
+                "type": "text",
+                "text": "Making Software: What Really Works, and Why We Believe It",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is more formal than AOSA, full of attempts to do empirical studies of software engineering.  (some open some industrial)\nSome chapters doing case studies of whole projects, some focusing on particular aspects e.g. how people comuunicated on the job, or analyzing bug tracker data...\nI feel its a good intro into approaching SE  empirically, but in many places the data is just too weak to learn much from.  (Which is a valuable meta thing to learn, i suppose)\nI bought it following Greg Wilson talking convincingly on a podcast; but felt too dry for me, perhaps more for managers then devs, I read than half.\n\nPerformance of Open Source Applications is on my to-read list.\n\nAll are anthologies - each chapter by other authors and easy to read at any order."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1703329896.105629",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "dd3fb0bd-b5f7-4027-a5b8-885d0462d0bb",
+    "type": "message",
+    "text": "looks way better! :slightly_smiling_face:",
+    "user": "U013ZLJARC7",
+    "ts": "1703503048.149649",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7h8oW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "looks way better! "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1703357866.309279",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]
