@@ -1,0 +1,323 @@
+[
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1742171131.999159",
+    "client_msg_id": "7d749559-e464-41be-a03c-71c8c36ff491",
+    "text": "That would be nice, Federico! My goal was only to get a conversation going, not to get all divided!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741867333.751819",
+    "parent_user_id": "UE6EFEPTQ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SX9R4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That would be nice, Federico! My goal was only to get a conversation going, not to get all divided!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1742172200.308249",
+    "client_msg_id": "8DA9539C-EFDC-4905-9C03-1E657BB82501",
+    "text": "I also like this, except I do care about the language, in that I don’t want to write words at all.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742073993.982859",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TCpDw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I also like this, except I do care about the language, in that "
+              },
+              {
+                "type": "text",
+                "text": "I don’t"
+              },
+              {
+                "type": "text",
+                "text": " want to write words at all."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742174396.096849",
+    "client_msg_id": "e9cc2350-5dcd-4a5c-b393-ac7c5880e67b",
+    "text": "<https://docs.racket-lang.org/reference/eval-model.html#(part._separate-compilation)> in particular is very unsatisfying. It means you can't give describe the meaning of a racket program without resorting to talking about a *lot* of compiler machinery.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "y3ErU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://docs.racket-lang.org/reference/eval-model.html#(part._separate-compilation)"
+              },
+              {
+                "type": "text",
+                "text": " in particular is very unsatisfying. It means you can't give describe the meaning of a racket program without resorting to talking about a "
+              },
+              {
+                "type": "text",
+                "text": "lot",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of compiler machinery."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742174954.842829",
+    "client_msg_id": "a44c4236-a8b2-46f7-929b-494a6aedbcc2",
+    "text": "I'm less familiar with common lisp, but searching for \"common lisp load order\" lead to <https://www.reddit.com/r/Common_Lisp/comments/xt7jn4/how_to_build_a_proper_loading_order_from_asdf/>, which is about the experience I expected.\n\n&gt; you wouldn't be able to reproduce that way; file compilation has different semantics than repl interaction (the latter happens strictly at \"load\" or \"execute\" time, while the former happens partially at \"compile\" time)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pYtVB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm less familiar with common lisp, but searching for \"common lisp load order\" lead to "
+              },
+              {
+                "type": "link",
+                "url": "https://www.reddit.com/r/Common_Lisp/comments/xt7jn4/how_to_build_a_proper_loading_order_from_asdf/"
+              },
+              {
+                "type": "text",
+                "text": ", which is about the experience I expected.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "you wouldn't be able to reproduce that way; file compilation has different semantics than repl interaction (the latter happens strictly at \"load\" or \"execute\" time, while the former happens partially at \"compile\" time)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742177794.374729",
+    "client_msg_id": "a4985399-1d44-4629-81ad-bf11fedeb7e9",
+    "text": "FWIW: ASDF is not part of CL. It is a program written in CL that defines a \"declarative\" DSL with lots of hoary edge cases for determining dependences and loading the minimum number of files. It was invented back when machines ran slowly enough that Makefile seemed like a good idea for minimizing CPU cycles. The basic load function defined by the CL language is (LOAD ...) which you can run from the REPL. One can forego the use of ASDF and simply write a .lisp file with a bunch of (LOAD ...)s in it. It is my understanding that modern CL REPLs actually compile every command, then run the compiled command. In essence, if you type (LOAD \"filename\") at the REPL, the REPL compiles the command into a small binary program, then runs it, actually running the LOAD command built into the Lisp language. ASDF just generates a bunch of (LOAD ...) commands. The definitive reference for CL is <https://www.lispworks.com/documentation/HyperSpec/Front/Contents.htm|CLHS>, but it reads like a ton of bricks (it helps to have a degree in Law). If I had to re-learn Lisp, I would probably start with <https://gigamonkeys.com/book/|Practical Common Lisp>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EHiW+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "FWIW: ASDF is not part of CL. It is a program written in CL that defines a \"declarative\" DSL with lots of hoary edge cases for determining dependences and loading the minimum number of files. It was invented back when machines ran slowly enough that Makefile seemed like a good idea for minimizing CPU cycles. The basic load function defined by the CL language is (LOAD ...) which you can run from the REPL. One can forego the use of ASDF and simply write a .lisp file with a bunch of (LOAD ...)s in it. It is my understanding that modern CL REPLs actually compile every command, then run the compiled command. In essence, if you type (LOAD \"filename\") at the REPL, the REPL compiles the command into a small binary program, then runs it, actually running the LOAD command built into the Lisp language. ASDF just generates a bunch of (LOAD ...) commands. The definitive reference for CL is "
+              },
+              {
+                "type": "link",
+                "url": "https://www.lispworks.com/documentation/HyperSpec/Front/Contents.htm",
+                "text": "CLHS"
+              },
+              {
+                "type": "text",
+                "text": ", but it reads like a ton of bricks (it helps to have a degree in Law). If I had to re-learn Lisp, I would probably start with "
+              },
+              {
+                "type": "link",
+                "url": "https://gigamonkeys.com/book/",
+                "text": "Practical Common Lisp"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U71PMQ1V0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742181508.489939",
+    "client_msg_id": "a1414d8e-3410-4bba-a1d0-ba3f2e46cfce",
+    "text": "So still the same model I was complaining about in <https://www.scattered-thoughts.net/writing/there-are-no-strings-on-me/>.\n\n&gt; Most live systems gain their interactivity from mutable environments and late binding. Code loading is an imperative process that can cause arbitrary side effects. The behaviour of the system can depend on what order code was loaded in, and when. There isn't even any guarantee that loading the same code in the same order will reproduce the same system.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "j9dAt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So still the same model I was complaining about in "
+              },
+              {
+                "type": "link",
+                "url": "https://www.scattered-thoughts.net/writing/there-are-no-strings-on-me/"
+              },
+              {
+                "type": "text",
+                "text": ".\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Most live systems gain their interactivity from mutable environments and late binding. Code loading is an imperative process that can cause arbitrary side effects. The behaviour of the system can depend on what order code was loaded in, and when. There isn't even any guarantee that loading the same code in the same order will reproduce the same system."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742184067.661759",
+    "client_msg_id": "eddc0363-3c12-4464-9352-4b5af87cef8d",
+    "text": "<@UJBAJNFLK> <https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky|example, finally> (Note that I shamelessly stole your phrase \"Data Model\" :slightly_smiling_face:) [I seem to be batting 0.000 for explaining clearly what I mean, but, I would be glad to entertain further questions and requests for clarification]",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "from_url": "https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky",
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "thumb_url": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9d69eba9-d5d3-4387-a046-9b881b00bd45_131x131.png",
+        "thumb_width": 131,
+        "thumb_height": 131,
+        "id": 1,
+        "original_url": "https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky",
+        "fallback": "Data Model nano-DSL (“SCN”)",
+        "text": "2025-03-16",
+        "title": "Data Model nano-DSL (“SCN”)",
+        "title_link": "https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4/vNF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky",
+                "text": "example, finally"
+              },
+              {
+                "type": "text",
+                "text": " (Note that I shamelessly stole your phrase \"Data Model\" "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": ") [I seem to be batting 0.000 for explaining clearly what I mean, but, I would be glad to entertain further questions and requests for clarification]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

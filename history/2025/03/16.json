@@ -1,0 +1,808 @@
+[
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742095730.055319",
+    "client_msg_id": "1efd1d64-1a89-4366-9d8a-d2172e497862",
+    "text": "I wrote up some overall design direction for zest - <https://github.com/jamii/zest/blob/main/docs/rationale.md>.\n\nCurrently bogged down in figuring out how to combine staged compilation and modules (<https://github.com/jamii/zest/issues/1>), but once I figure that out I can finally start fleshing out the <https://github.com/jamii/zest/blob/main/lib/runtime.zest|runtime>.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "reply_count": 11,
+    "reply_users_count": 3,
+    "latest_reply": "1742181508.489939",
+    "reply_users": [
+      "UJBAJNFLK",
+      "U71PMQ1V0",
+      "UGWUJUZHT"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t3OnI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I wrote up some overall design direction for zest - "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/jamii/zest/blob/main/docs/rationale.md"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nCurrently bogged down in figuring out how to combine staged compilation and modules ("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/jamii/zest/issues/1"
+              },
+              {
+                "type": "text",
+                "text": "), but once I figure that out I can finally start fleshing out the "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/jamii/zest/blob/main/lib/runtime.zest",
+                "text": "runtime"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heartbeat",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742096636.964039",
+    "client_msg_id": "95230559-7fa5-474a-8f8f-30a73feabba6",
+    "text": "Rhetorical question?: how would your programming workflow change if you deeply believed that creating SCNs was cheap and easy? Perl leaned heavily on REGEX. REGEX was once thought to be hoary and problematic. Perl made it accessible. New kinds of things were invented when Perl started being widely used. T2t is “better” than REGEX, because t2t makes it easy to deal with patterns containing recursive nesting. CFGs, like YACC, make it possible to parse recursively nested text, but, CFGs need painful, full specification of too much detail. If you had a way to specify pattern-matching using tiny DSLs that didn’t cost a lot of time to build, how would your workflow change? ['t2t' leans heavily on PEG and esp. OhmJS] [SCN === Solution Centric Notation, essentially a nano-DSL, I think of Richard Feynman breaking away from mathematical/Gutenberg notation and inventing and using Feynman diagrams. Language affects thought, notation affects thought].",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742096636.964039",
+    "reply_count": 5,
+    "reply_users_count": 4,
+    "latest_reply": "1742162362.400849",
+    "reply_users": [
+      "UJBAJNFLK",
+      "UGWUJUZHT",
+      "U013ZLJARC7",
+      "U05PY5AQCA2"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MGeO0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Rhetorical question?: how would your programming workflow change if you deeply believed that creating SCNs was cheap and easy? Perl leaned heavily on REGEX. REGEX was once thought to be hoary and problematic. Perl made it accessible. New kinds of things were invented when Perl started being widely used. T2t is “better” than REGEX, because t2t makes it easy to deal with patterns containing recursive nesting. CFGs, like YACC, make it possible to parse recursively nested text, but, CFGs need painful, full specification of too much detail. If you had a way to specify pattern-matching using tiny DSLs that didn’t cost a lot of time to build, how would your workflow change? ['t2t' leans heavily on PEG and esp. OhmJS] [SCN === Solution Centric Notation, essentially a nano-DSL, I think of Richard Feynman breaking away from mathematical/Gutenberg notation and inventing and using Feynman diagrams. Language affects thought, notation affects thought]."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1742113397.187839",
+    "client_msg_id": "b559ac0d-4ab8-4653-adbb-f69bfdb201ec",
+    "text": "I do actually believe that creating SCNs is cheap and easy, but so far I express this belief mostly by creating s-expression-based SCNs in Lisp. I am aware of the limitations of that technique, but so far it has been a good compromise for me. The step to PEG gives more power but also comes with a higher cost, in particular if you consider editor support for your DSL, which with s-expressions basically comes for free.\n\nWhat I'd love to see explored is other wide-spectrum syntax frameworks than s-expressions. See <https://parentheticallyspeaking.org/articles/bicameral-not-homoiconic/|this blog post by Shriram Krishnamurthi> for a detailed discussion of s-expression as a framework for building DSLs (the label \"framework\" is mine though). In particular for non-textual syntax, which remains largely unchartered territory.\n\nAssuming we get to the point of people widely believing in SCNs being possible and desirable, the next interesting question is software system architecture design with SCN, i.e. putting them to good use with minimal undesirable side effects.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742096636.964039",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "from_url": "https://parentheticallyspeaking.org/articles/bicameral-not-homoiconic/",
+        "service_icon": "https://parentheticallyspeaking.org/favicon.png",
+        "thumb_url": "https://parentheticallyspeaking.org/favicon.png",
+        "thumb_width": 48,
+        "thumb_height": 48,
+        "id": 1,
+        "original_url": "https://parentheticallyspeaking.org/articles/bicameral-not-homoiconic/",
+        "fallback": "Bicameral, Not Homoiconic",
+        "text": "Parenthetically Speaking: Articles by Shriram Krishnamurthi",
+        "title": "Bicameral, Not Homoiconic",
+        "title_link": "https://parentheticallyspeaking.org/articles/bicameral-not-homoiconic/",
+        "service_name": "parentheticallyspeaking.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wVXSs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I do actually believe that creating SCNs is cheap and easy, but so far I express this belief mostly by creating s-expression-based SCNs in Lisp. I am aware of the limitations of that technique, but so far it has been a good compromise for me. The step to PEG gives more power but also comes with a higher cost, in particular if you consider editor support for your DSL, which with s-expressions basically comes for free.\n\nWhat I'd love to see explored is other wide-spectrum syntax frameworks than s-expressions. See "
+              },
+              {
+                "type": "link",
+                "url": "https://parentheticallyspeaking.org/articles/bicameral-not-homoiconic/",
+                "text": "this blog post by Shriram Krishnamurthi"
+              },
+              {
+                "type": "text",
+                "text": " for a detailed discussion of s-expression as a framework for building DSLs (the label \"framework\" is mine though). In particular for non-textual syntax, which remains largely unchartered territory.\n\nAssuming we get to the point of people widely believing in SCNs being possible and desirable, the next interesting question is software system architecture design with SCN, i.e. putting them to good use with minimal undesirable side effects."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1742114140.712269",
+    "client_msg_id": "7f3f63fc-2c9a-4a06-ba68-47561ccc8dde",
+    "text": "I like your wish list! And your so-far-documented design decisions look reasonable. At least in theory, it takes an implementation to find out how they work in practice.\n\nWondering: have you compared your design in detail with existing systems? I think that would help in understanding what exactly you are missing, and to what degree such features can be added without creating problems elsewhere.\n\nFor example, at first sight your with list and design decisions has a huge overlap with Common Lisp. What I cannot judge easily is how difficult it would be to morph Common Lisp towards full alignment with your goals. Given how well understood Common Lisp is (both good and bad aspects), a detailed comparison should be helpful.\n\nFor for staged compilation and modules, Racket has probably the most sophisticated approach today, but it may well be more sophisticated that you would like for your system, given that Racket allows each module to be written in a different language.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Rd1Gg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I like your wish list! And your so-far-documented design decisions look reasonable. At least in theory, it takes an implementation to find out how they work in practice.\n\nWondering: have you compared your design in detail with existing systems? I think that would help in understanding what exactly you are missing, and to what degree such features can be added without creating problems elsewhere.\n\nFor example, at first sight your with list and design decisions has a huge overlap with Common Lisp. What I cannot judge easily is how difficult it would be to morph Common Lisp towards full alignment with your goals. Given how well understood Common Lisp is (both good and bad aspects), a detailed comparison should be helpful.\n\nFor for staged compilation and modules, Racket has probably the most sophisticated approach today, but it may well be more sophisticated that you would like for your system, given that Racket allows each module to be written in a different language."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742116641.157319",
+    "client_msg_id": "de0e76dd-5ddd-48e1-8223-dc660411fc83",
+    "text": "The goal should be to produce notations so concise that whole programs fit in one eye-full, so that traditional concerns, like editor support, don't apply any more. Writing \"bigger\" programs should mean writing less code in islands and layers. I first wrote t2t using diagrams (using the non-programming editor <http://draw.io|draw.io>) based on the idea of pipelines and circuits that used OhmJS multiple times. I've since reduced it to a single js program to ease carrying it around. In my mind, the technique is powerful enough to build compilers with and to do non-traditional things like parsing diagrams and building notations that fit in less space on the screen. I've written a lot of Lisp macros, now PEG/OhmJS/t2t give me the power to do this with non-lispy languages. I was taught to build compilers as pipelines connected by little, custom SCNs for each pass - I found this to be mentally liberating allowing me to concentrate deeply on one task at a time. Parsing is easy, the other stuff is hard, I toss custom parsers around liberally.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742096636.964039",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OKkn4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The goal should be to produce notations so concise that whole programs fit in one eye-full, so that traditional concerns, like editor support, don't apply any more. Writing \"bigger\" programs should mean writing less code in islands and layers. I first wrote t2t using diagrams (using the non-programming editor "
+              },
+              {
+                "type": "link",
+                "url": "http://draw.io",
+                "text": "draw.io"
+              },
+              {
+                "type": "text",
+                "text": ") based on the idea of pipelines and circuits that used OhmJS multiple times. I've since reduced it to a single js program to ease carrying it around. In my mind, the technique is powerful enough to build compilers with and to do non-traditional things like parsing diagrams and building notations that fit in less space on the screen. I've written a lot of Lisp macros, now PEG/OhmJS/t2t give me the power to do this with non-lispy languages. I was taught to build compilers as pipelines connected by little, custom SCNs for each pass - I found this to be mentally liberating allowing me to concentrate deeply on one task at a time. Parsing is easy, the other stuff is hard, I toss custom parsers around liberally."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742116891.591469",
+    "client_msg_id": "95640851-41d0-49bb-a34f-cf59ccc3be15",
+    "text": "<@UJBAJNFLK> No, I haven't found any languages that satisfactorily split type-checking from implementation. I have seen many hints that it is a reasonable goal, e.g. lint, Ohm (not types, but locality-of-reference), Statecharts (not types, but locality-of-reference), Agda (which looks to me like it contains 2 syntaxes, types and implementation), having played with Prolog for inferencing semantics from diagrams, having worked on Y2K stuff which involved weekend-long inferencing runs to dig out semantic information beyond what is commonly referred to as \"types\", ML, etc.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9J+Cd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " No, I haven't found any languages that satisfactorily split type-checking from implementation. I have seen many hints that it is a reasonable goal, e.g. lint, Ohm (not types, but locality-of-reference), Statecharts (not types, but locality-of-reference), Agda (which looks to me like it contains 2 syntaxes, types and implementation), having played with Prolog for inferencing semantics from diagrams, having worked on Y2K stuff which involved weekend-long inferencing runs to dig out semantic information beyond what is commonly referred to as \"types\", ML, etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1742128580.346509",
+    "client_msg_id": "e13c1af7-570a-49f2-bb72-48fbb4fcc5ae",
+    "text": "<@UGWUJUZHT> There indeed many verification and validation systems that are similar to static type checkers. But there is also one important difference: static type checking relies on syntactic features of the underlying language, so it requires some co-design of language and type checker even if the implementations are separate.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Y4Eyi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " There indeed many verification and validation systems that are similar to static type checkers. But there is also one important difference: static type checking relies on syntactic features of the underlying language, so it requires some co-design of language and type checker even if the implementations are separate."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742130226.992809",
+    "edited": {
+      "user": "UGWUJUZHT",
+      "ts": "1742134331.000000"
+    },
+    "client_msg_id": "f0441efe-a801-4bea-b0d6-ed493c2e99ac",
+    "text": "<@UJBAJNFLK> Yes, but that is not a good reason to sully the readability of code by conflating it with type annotations and v.v.. IMO implementation and typing are orthogonal concerns, hence, should be written in separate places.\n\nDenotational Semantics hangs actions off of syntax. There is no reason to force humans to DRY syntax patterns. Syntax is cheap, push this concept further and let the machine figure out how to join things. ... [example to follow] ...",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "q1Jni",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " Yes, but that is not a good reason to sully the readability of code by conflating it with type annotations and v.v.. IMO implementation and typing are orthogonal concerns, hence, should be written in separate places.\n\nDenotational Semantics hangs actions off of syntax. There is no reason to force humans to DRY syntax patterns. Syntax is cheap, push this concept further and let the machine figure out how to join things. ... [example to follow] ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U013ZLJARC7",
+    "type": "message",
+    "ts": "1742135996.165019",
+    "client_msg_id": "5B9F170B-3BDD-4873-A138-594C149D9935",
+    "text": "See: Racket’s “Language Oriented Programming” ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742096636.964039",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lwIvh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "See: "
+              },
+              {
+                "type": "text",
+                "text": "Racket’s"
+              },
+              {
+                "type": "text",
+                "text": " “Language Oriented Programming” "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1742139442.732509",
+    "client_msg_id": "89d982c5-9315-45ea-8579-3a3f3ca1d000",
+    "text": "<@UGWUJUZHT> For the use cases I have in mind, there will always be incompressible long code because of the amount of embedded data. That's why I want editor support.\n\n<@U013ZLJARC7> That's very nice indeed, as long as you stay inside the Racket ecosystem. What I like about <@UGWUJUZHT> t2t approach is that it can target many compilers and runtimes, so you can use what you know and/or fits your needs. Plus you can easily inspect the t2t output, whereas inspecting fully macro-expanded Racket can be quite challenging (trying to put it nicely).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742096636.964039",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tLOfE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " For the use cases I have in mind, there will always be incompressible long code because of the amount of embedded data. That's why I want editor support.\n\n"
+              },
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": " That's very nice indeed, as long as you stay inside the Racket ecosystem. What I like about "
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " t2t approach is that it can target many compilers and runtimes, so you can use what you know and/or fits your needs. Plus you can easily inspect the t2t output, whereas inspecting fully macro-expanded Racket can be quite challenging (trying to put it nicely)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1742139477.193009",
+    "client_msg_id": "02a02423-a26e-4718-aca0-3354e01a9c42",
+    "text": "<@UGWUJUZHT> OK, we agree. Now let's convince language designers and implementers!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "N8jjU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " OK, we agree. Now let's convince language designers and implementers!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0887QU9G2V",
+    "type": "message",
+    "ts": "1742153489.448409",
+    "client_msg_id": "91f0c3e0-54f3-41a8-affc-07061aa83f03",
+    "text": "Coming super late to the party, but I'm very excited by what's being spoken about on this thread. Although we're coming at it from different angles, it feels like we want to converge onto the same thing.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741867333.751819",
+    "parent_user_id": "UE6EFEPTQ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6FEQf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Coming super late to the party, but I'm very excited by what's being spoken about on this thread. Although we're coming at it from different angles, it feels like we want to converge onto the same thing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1742162362.400849",
+    "client_msg_id": "DBAC4992-D4EF-49A0-9BF2-4032501B793E",
+    "text": "Ruby lends itself to DSLs and this pardigm is widely used in Ruby code.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742096636.964039",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8TNR+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ruby lends itself to DSLs and this pardigm is widely used in Ruby code."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742163784.873589",
+    "client_msg_id": "d197a73a-43d8-4b80-a7c5-8e42daba77e1",
+    "text": "Ah, I forgot to add the problems from <https://www.scattered-thoughts.net/writing/there-are-no-strings-on-me/> to the 'legible' side of the wishlist. I'm explicitly trying to avoid the lisp/smalltalk model where loading code means executing a series of side-effects against a mutable environment.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YRady",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, I forgot to add the problems from "
+              },
+              {
+                "type": "link",
+                "url": "https://www.scattered-thoughts.net/writing/there-are-no-strings-on-me/"
+              },
+              {
+                "type": "text",
+                "text": " to the 'legible' side of the wishlist. I'm explicitly trying to avoid the lisp/smalltalk model where loading code means executing a series of side-effects against a mutable environment."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742163812.664039",
+    "client_msg_id": "962b293a-2163-4eaf-8367-fa32e7b696dd",
+    "text": "In particular I don't want to allow things like:\n\n```if ((new Date()).getDay() == 1) { \n    Date.prototype.getDay = function() { return \"funday\" } \n}```",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7cs2D",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In particular I don't want to allow things like:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "if ((new Date()).getDay() == 1) { \n    Date.prototype.getDay = function() { return \"funday\" } \n}"
+              }
+            ],
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742163937.535709",
+    "edited": {
+      "user": "U71PMQ1V0",
+      "ts": "1742164015.000000"
+    },
+    "client_msg_id": "552f222e-9849-4edb-b887-30b6fa655ba1",
+    "text": "I added:\n• code-based rather than image-based - the code running now is the code that you loaded, nobody can sneak in and change it at runtime, you can understand the system by reading the code\n• no mutable environments\n• file/module/expr load order is not observable\n• no side-effects at load-time, <https://doc.rust-lang.org/1.4.0/complement-design-faq.html#there-is-no-life-before-or-after-main-(no-static-ctors/dtors)|no life before main>\n• no non-determism at load-time - loading the same code always produces the same program\n• cf <https://www.scattered-thoughts.net/writing/there-are-no-strings-on-me/|there are no strings on me>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8uO/r",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I added:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "code-based rather than image-based - the code running now is the code that you loaded, nobody can sneak in and change it at runtime, you can understand the system by reading the code"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "no mutable environments"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "file/module/expr load order is not observable"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "no side-effects at load-time, "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://doc.rust-lang.org/1.4.0/complement-design-faq.html#there-is-no-life-before-or-after-main-(no-static-ctors/dtors)",
+                    "text": "no life before main"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "no non-determism at load-time - loading the same code always produces the same program"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "cf "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.scattered-thoughts.net/writing/there-are-no-strings-on-me/",
+                    "text": "there are no strings on me"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742167744.787589",
+    "client_msg_id": "2461200f-d902-4ab6-bcac-93ab9d78ab14",
+    "text": "Also under performance:\n• reflection and meta-programming are predictably staged away",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gTfHk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also under performance:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "reflection and meta-programming are predictably staged away"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742167901.091149",
+    "client_msg_id": "942217b9-841b-4a3d-8d84-023c811693e3",
+    "text": "The closest existing languages are zig and julia, which both feature type-checking after specialization and staging via specialization (values lifted to types) rather than quoting.\n\nThe latter means you can understand the program via its dynamic semantics. Type-checking and staging only affect performance - they can't change the result of the program.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/h1VP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The closest existing languages are zig and julia, which both feature type-checking after specialization and staging via specialization (values lifted to types) rather than quoting.\n\nThe latter means you can understand the program via its dynamic semantics. Type-checking and staging only affect performance - they can't change the result of the program."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1742167939.197649",
+    "client_msg_id": "10ec26d5-5552-432d-a39b-54fc802e8f38",
+    "text": "But neither of those languages have the restriction to value semantics, which complicates the module system.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1742095730.055319",
+    "parent_user_id": "U71PMQ1V0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "N6YgE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But neither of those languages have the restriction to value semantics, which complicates the module system."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]
