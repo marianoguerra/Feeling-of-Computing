@@ -26,6 +26,9 @@ export const Messages = component({
     setShowAttachments(v) {
       return this.mapItems((m) => m.setShowAttachments(v));
     },
+    setShowChannel(v) {
+      return this.mapItems((m) => m.setShowChannel(v));
+    },
   },
   view: html`<div class="flex flex-col gap-3">
     <div @each=".items" class="card card-border bg-base-200 shadow-sm">
@@ -58,6 +61,9 @@ export const PlainViewer = component({
     setShowAttachments(v) {
       return this.updateMessages((m) => m.setShowAttachments(v));
     },
+    setShowChannel(v) {
+      return this.updateMessages((m) => m.setShowChannel(v));
+    },
   },
   view: html`<section @push-view="'plain'">
     <x render=".messages"></x>
@@ -70,6 +76,7 @@ export const ConversationsViewer = component({
     showReplies: true,
     showReactions: true,
     showAttachments: true,
+    showChannel: true,
     messages: Messages.make(),
   },
   methods: {
@@ -81,6 +88,9 @@ export const ConversationsViewer = component({
     },
     setShowAttachments(v) {
       return this.set("showAttachments", v).updateMessages((m) => m.setShowAttachments(v));
+    },
+    setShowChannel(v) {
+      return this.set("showChannel", v).updateMessages((m) => m.setShowChannel(v));
     },
   },
   view: html`<section class="flex flex-col gap-3">
@@ -112,6 +122,15 @@ export const ConversationsViewer = component({
         />
         Show Attachments
       </label>
+      <label class="label text-xs">
+        <input
+          type="checkbox"
+          :checked=".showChannel"
+          @on.input=".setShowChannel value"
+          class="toggle toggle-xs"
+        />
+        Show Message's Channel
+      </label>
     </div>
     <x render=".messages"></x>
   </section>`,
@@ -127,6 +146,7 @@ export const Message = component({
   name: "Message",
   fields: {
     author: null,
+    channel: null,
     date: new Date(),
     body: null,
     reactions: [],
@@ -136,10 +156,11 @@ export const Message = component({
     showReplies: true,
     showReactions: true,
     showAttachments: true,
+    showChannel: true,
   },
   statics: {
     fromData(d, ctx) {
-      const { usersById } = ctx;
+      const { usersById, channelsById } = ctx;
       const {
         ts,
         user: userId,
@@ -152,6 +173,7 @@ export const Message = component({
       const date = new Date(+ts * 1000);
       const author =
         usersById[userId] ?? User.make({ id: userId, name: userId, realName: `@${userId}` });
+      const channel = channelsById[d.channel_id] ?? null;
       const body = Blocks.Class.fromData(blocks, ctx);
       const replies = new Array(Math.max(0, rawReplies.length - 1));
       if (rawReplies.length > 0) {
@@ -177,6 +199,7 @@ export const Message = component({
       }
       return this.make({
         author,
+        channel,
         date,
         body,
         reactions,
@@ -228,6 +251,9 @@ export const Message = component({
     setShowAttachments(v) {
       return this.set("showAttachments", v).mapReplies((m) => m.setShowAttachments(v));
     },
+    isChannelVisible() {
+      return this.showChannel && this.channel !== null;
+    },
     repliesCountLabel() {
       return pluralize(this.replies.size, "Reply", "Replies");
     },
@@ -240,8 +266,11 @@ export const Message = component({
   },
   view: html`<section class="flex flex-col gap-3">
     <div class="hover:bg-base-300 p-3 flex flex-col gap-3">
-      <div class="flex gap-5 items-baseline">
+      <div class="flex gap-5 items-center">
         <x render=".author" as="handle"></x>
+        <div @show=".isChannelVisible">
+          <x render=".channel" as="handle"></x>
+        </div>
         <a
           class="text-content-200 text-xs"
           :href=".formatMessageAnchor"
@@ -295,6 +324,10 @@ export const User = component({
   view: html`<span class="font-bold" :title=".name" @text=".realName"></span>`,
   views: {
     plain: html`<strong @text=".realName"></strong>`,
+    handle: html`<span
+      class="badge badge-primary before:content-['@']"
+      @text=".realName"
+    ></span>`,
   },
 });
 
@@ -310,6 +343,10 @@ export const Channel = component({
   view: html`<span class="font-bold" @text=".name"></span>`,
   views: {
     plain: html`<strong @text=".name"></strong>`,
+    handle: html`<span
+      class="badge badge-outline badge-primary before:content-['#']"
+      @text=".name"
+    ></span>`,
   },
 });
 

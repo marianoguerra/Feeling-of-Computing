@@ -18,6 +18,7 @@ function parseParams() {
   const showReplies = params.get("show-replies") !== "false";
   const showReactions = params.get("show-reactions") !== "false";
   const showAttachments = params.get("show-attachments") !== "false";
+  const showChannel = params.get("show-channel") !== "false";
   const isPlainMode = params.get("plain-mode") === "true";
   return {
     fromDate,
@@ -25,12 +26,13 @@ function parseParams() {
     showReplies,
     showReactions,
     showAttachments,
+    showChannel,
     isPlainMode,
   };
 }
 
 async function main() {
-  const { fromDate, toDate, showReplies, showReactions, showAttachments, isPlainMode } =
+  const { fromDate, toDate, showReplies, showReactions, showAttachments, showChannel, isPlainMode } =
     parseParams();
 
   const fetcher = httpFetcher("../history");
@@ -68,6 +70,9 @@ async function main() {
   }
   if (!showAttachments) {
     rootState = rootState.setShowAttachments(false);
+  }
+  if (!showChannel) {
+    rootState = rootState.setShowChannel(false);
   }
 
   const app = tutuca("#app");
