@@ -1,0 +1,385 @@
+[
+  {
+    "user": "UNS7QDKFV",
+    "type": "message",
+    "ts": "1723048651.713249",
+    "client_msg_id": "7d2e4e6f-8efe-4461-bad6-ad0eb2ac8273",
+    "text": "We now have two examples of systems that can turn text descriptions into code - humans and LLMs.  And we don't understand how either of them works.",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RpbA0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "We now have two examples of systems that can turn text descriptions into code - humans and LLMs.  And we don't understand how either of them works."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "laughing",
+        "users": [
+          "U023V63MF6V",
+          "UCUSW7WVD",
+          "UJBAJNFLK",
+          "UA14TGLTC",
+          "UMV4B97GT",
+          "UP28ETUSE"
+        ],
+        "count": 6
+      },
+      {
+        "name": "joy",
+        "users": [
+          "U06JCQL6ERJ"
+        ],
+        "count": 1
+      },
+      {
+        "name": "fire",
+        "users": [
+          "U02U0AS3J49"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1723065586.163539",
+    "client_msg_id": "bf744cae-a28a-49e7-983c-236c99c6032b",
+    "text": "Gemtext is definitely easier to parse. That was the whole design goal. Evidence: count the number of Gemini clients out there written in less than 200 lines of code.\n\nThe drawback of Gemtext: no inline formatting, no inline links. You can only format at line granularity.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1722836207.656899",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qDF4q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Gemtext is definitely easier to parse. That was the whole design goal. Evidence: count the number of Gemini clients out there written in less than 200 lines of code.\n\nThe drawback of Gemtext: no inline formatting, no inline links. You can only format at line granularity."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1723066184.066909",
+    "client_msg_id": "60ae5fcb-cc66-41c3-9a7a-bd159de1d453",
+    "text": "<@UE6EFEPTQ> — Yes. A classic.\n<@UCUSW7WVD> (cc <@UJBAJNFLK>) — Had a look at Gemtext. I really like it! I think it would be trivial (and sensible) to extend this syntax to support inline links and formatting (including code, using a modal processor just like you do for lines). I'm going to give it a shot and see how it goes.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1722836207.656899",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Pg3b2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UE6EFEPTQ"
+              },
+              {
+                "type": "text",
+                "text": " — Yes. A classic.\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " (cc "
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": ") — Had a look at Gemtext. I really like it! I think it would be trivial (and sensible) to extend this syntax to support inline links and formatting (including code, using a modal processor just like you do for lines). I'm going to give it a shot and see how it goes."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "astonished",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1723066468.541039",
+    "client_msg_id": "48de9d31-1510-4bf5-b436-733048c85263",
+    "text": "Astonished?\n\nIt's simple, you just implement an FSM, and split the incoming character stream on any syntactically-relevant character, then backtrack if you hit a node in the FSM with no outbound edges.\n\n<https://www.urbandictionary.com/define.php?term=%2FS|/s>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1722836207.656899",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "46srZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Astonished?\n\nIt's simple, you just implement an FSM, and split the incoming character stream on any syntactically-relevant character, then backtrack if you hit a node in the FSM with no outbound edges.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.urbandictionary.com/define.php?term=%2FS",
+                "text": "/s"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1723068340.322439",
+    "client_msg_id": "614fc32f-a12a-42e1-b5dd-cae9ee26ddd5",
+    "text": "I suspect markdown would also be really easy to parse if you refuse to implement all the stupid edge cases eg if someone writes `am _I bold* or_ italic*` just replace it with an error message.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1722836207.656899",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6VuUi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I suspect markdown would also be really easy to parse if you refuse to implement all the stupid edge cases eg if someone writes "
+              },
+              {
+                "type": "text",
+                "text": "am _I bold* or_ italic*",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " just replace it with an error message."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1723068402.282409",
+    "client_msg_id": "AE78719C-232A-4D90-AC25-FC402CCDFA2C",
+    "text": "Shhhh you're spoiling my \"actually I will implement a superset of gemtext\" gambit to ship decent md ;)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1722836207.656899",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "N6z4t",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Shhhh you're spoiling my \"actually I will implement a superset of gemtext\" gambit to ship decent md ;)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "saluting_face",
+        "users": [
+          "U71PMQ1V0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U71PMQ1V0",
+    "type": "message",
+    "ts": "1723068761.184629",
+    "client_msg_id": "34b1297d-5f56-411b-8f3e-343d7bc70436",
+    "text": "&gt; Astonished?\nParsing is one of those funny things where the existence of lots of interesting theory and papers creates the impression that you need complicated tools, whereas in practice almost every industrial parser I've ever seen is just hand-written recursive descent because that is by far the easiest option.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1722836207.656899",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QUmTM",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Astonished?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nParsing is one of those funny things where the existence of lots of interesting theory and papers creates the impression that you need complicated tools, whereas in practice almost every industrial parser I've ever seen is just hand-written recursive descent because that is by far the easiest option."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1723069148.595929",
+    "client_msg_id": "48bd569d-4899-4559-b0b2-3fab5eae3f92",
+    "text": "Yeah. Alex Warth (known for OhmJS among other things) has been teaching a little \"prototyping programming languages\" course internally at I&amp;S. One of the major themes is just that — unless you're actually building an industrial-scale compiler, most of the standard advice given about writing compilers is bunk. Just do something quick and dirty and direct and manual. It's fine. It's _plenty_ fast, and robust.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1722836207.656899",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oNUe9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah. Alex Warth (known for OhmJS among other things) has been teaching a little \"prototyping programming languages\" course internally at I&S. One of the major themes is just that — unless you're actually building an industrial-scale compiler, most of the standard advice given about writing compilers is bunk. Just do something quick and dirty and direct and manual. It's fine. It's "
+              },
+              {
+                "type": "text",
+                "text": "plenty",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " fast, and robust."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1723069260.843259",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1723069323.000000"
+    },
+    "client_msg_id": "7e4cd883-8700-4825-810b-69fe74274b22",
+    "text": "So it's funny to hear that even for the industrial stuff, most of the sophisticated theory doesn't apply.\n\nI guess the one place that stuff is actually useful is when writing… textbooks about compilers.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1722836207.656899",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7y4Lv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So it's funny to hear that even for the industrial stuff, most of the sophisticated theory doesn't apply.\n\nI guess the one place that stuff is actually useful is when writing… textbooks about compilers."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]
