@@ -1,0 +1,1794 @@
+[
+  {
+    "client_msg_id": "4ad479cc-d289-471e-8211-26fad26fb247",
+    "type": "message",
+    "text": "What issues do you mean? What boilerplate and ceremony? I don't think LeMP is similar to C++, as it solves problems that C++ never tried to solve (whereas most problems solved by C++98 were solved by C# 2.0... and those problems solved by C++ but not C# are largely not solved by LeMP either. Even C++'s new support for compile-time code execution has little resemblance to what LeMP does, as LeMP simply has a macro to invoke the C# interactive engine at compile-time.)",
+    "user": "UD6EXQVM0",
+    "ts": "1610686189.001700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610687506.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "I=PS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What issues do you mean? What boilerplate and ceremony? I don't think LeMP is similar to C++, as it solves problems that C++ never tried to solve (whereas most problems solved by C++98 were solved by C# 2.0... and those problems solved by C++ but not C# are largely not solved by LeMP either. Even C++'s new support for compile-time code execution has little resemblance to what LeMP does, as LeMP simply has a macro to invoke the C# interactive engine at compile-time.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610142886.167600",
+    "parent_user_id": "UD6EXQVM0",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "46655d02-5623-415f-8d58-17910b0ee7e7",
+    "type": "message",
+    "text": "I ended up using something called ffmpeg-normalize with a command line of\nffmpeg-normalize --sample-rate 44100 -t -14 [filename] -o [out_filename]\nSee <https://superuser.com/a/323127/91637>",
+    "user": "UD6EXQVM0",
+    "ts": "1610686900.002100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Super User",
+        "title": "How can I normalize audio using ffmpeg?",
+        "title_link": "https://superuser.com/a/323127/91637",
+        "text": "I want the loudest peak sound in a movie clip to be as loud as the codec allows, then have every other sound amplified accordingly. What's a practical example in order to accomplish this using ffm...",
+        "fallback": "Super User: How can I normalize audio using ffmpeg?",
+        "thumb_url": "https://cdn.sstatic.net/Sites/superuser/Img/apple-touch-icon@2.png?v=e869e4459439",
+        "from_url": "https://superuser.com/a/323127/91637",
+        "thumb_width": 316,
+        "thumb_height": 316,
+        "service_icon": "https://cdn.sstatic.net/Sites/superuser/Img/apple-touch-icon.png?v=0ad5b7a83e49",
+        "id": 1,
+        "original_url": "https://superuser.com/a/323127/91637"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "akT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I ended up using something called ffmpeg-normalize with a command line of\nffmpeg-normalize --sample-rate 44100 -t -14 [filename] -o [out_filename]\nSee "
+              },
+              {
+                "type": "link",
+                "url": "https://superuser.com/a/323127/91637"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1593666684.026200",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "3a51759c-e3a0-4641-96dc-b701fa8a632a",
+    "type": "message",
+    "text": "Let me clarify. I am speaking from a historical perspective. I don't mean that it solves similar problems, I mean that it is similar to the original implementation of C++. In 1979 Bjarne Stroustrup created C++ as a preprocessor on top of C. It didn't start out as a separate language from whole cloth. LeMP seems similar in that regards.\n\nIn regards to boilerplate, your first example: `change_temporarily` is in fact built up of several lower level macros is it not? And this required you to implement several other fairly complicated bits of infrastructure, including `collection_with_change_events` (if that's not boilerplate / ceremony code, idk what is) and your `macro macro` to interface with the C# interactive engine. You don't deal with the C# interactive engine directly in your `change_temporarily` macro (though you could in theory), instead you have built up to it using a series of lower level macros that you progressively develop.\n\nI don't mean to imply this is a bad thing! I believe what you are doing is *fundamental* to the nature of macro systems. You inevitably build up infrastructure organically on top of itself like this. What is interesting to me is the shape macros take in an imperative <http://wiki.c2.com/?AlgolFamily|Algol descendent language> compared to a lisp ends up being very different (more verbose).\nAs the resident shill for the fringe language <https://nim-lang.org|Nim> in this community, which has a very similar macro system (at least on the surface), I can tell you that Nim has run into many of the same issues you are running into. This appears to be an interesting case of <https://en.wikipedia.org/wiki/Convergent_evolution|convergent evolution>.",
+    "user": "U01661S9F34",
+    "ts": "1610688122.002900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "19925410efa8",
+      "image_72": "https://avatars.slack-edge.com/2020-06-28/1196019819111_19925410efa8da86ae13_72.jpg",
+      "first_name": "",
+      "real_name": "Ray Imber",
+      "display_name": "Ray Imber",
+      "team": "T5TCAFTA9",
+      "name": "rayimber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01661S9F34",
+      "ts": "1610688357.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KA3qp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Let me clarify. I am speaking from a historical perspective. I don't mean that it solves similar problems, I mean that it is similar to the original implementation of C++. In 1979 "
+              },
+              {
+                "type": "text",
+                "text": "Bjarne Stroustrup created C++ as a preprocessor on top of C. It didn't start out as a separate language from whole cloth. LeMP seems similar in that regards.",
+                "style": {
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\nIn regards to boilerplate, your first example: "
+              },
+              {
+                "type": "text",
+                "text": "change_temporarily",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is in fact built up of several lower level macros is it not? And this required you to implement several other fairly complicated bits of infrastructure, including "
+              },
+              {
+                "type": "text",
+                "text": "collection_with_change_events",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (if that's not boilerplate / ceremony code, idk what is) and your "
+              },
+              {
+                "type": "text",
+                "text": "macro macro",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " to interface with the C# interactive engine. You don't deal with the C# interactive engine directly in your "
+              },
+              {
+                "type": "text",
+                "text": "change_temporarily",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " macro (though you could in theory), instead you have built up to it using a series of lower level macros that you progressively develop.\n\nI don't mean to imply this is a bad thing! I believe what you are doing is "
+              },
+              {
+                "type": "text",
+                "text": "fundamental",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " to the nature of macro systems. You inevitably build up infrastructure organically on top of itself like this. What is interesting to me is the shape macros take in an imperative "
+              },
+              {
+                "type": "link",
+                "url": "http://wiki.c2.com/?AlgolFamily",
+                "text": "Algol descendent language"
+              },
+              {
+                "type": "text",
+                "text": " compared to a lisp ends up being very different (more verbose).\nAs the resident shill for the fringe language "
+              },
+              {
+                "type": "link",
+                "url": "https://nim-lang.org",
+                "text": "Nim"
+              },
+              {
+                "type": "text",
+                "text": " in this community, which has a very similar macro system (at least on the surface), I can tell you that Nim has run into many of the same issues you are running into. This appears to be an interesting case of "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Convergent_evolution",
+                "text": "convergent evolution"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610142886.167600",
+    "parent_user_id": "UD6EXQVM0",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "aa89fe0e-5991-4c26-ba99-2a6093730619",
+    "type": "message",
+    "text": "`change_temporarily` is built on the `on_finally` macro, that's true, but I don't see how this is any different from Lisp where macros are even more ubiquitous. Can you give an example of something that would end up more verbose in LeMP (or Nim, though I haven't used Nim nor Lisp) than in Lisp?\n\n`CollectionWithChangeEvents` isn't used by anything at all (I wrote it and then decided I didn't need it after all). `macro` is, of course, a macro, but in a Lisp I understand that one typically also uses a macro to define other macros.\n\nI don't think this is fundamentally a matter of Algol (conventional) languages vs Lisps. The \"Loyc tree\" way of seeing things is intended to abolish most of the differences between \"Lisps\" and \"Algols\", so that the only differences left are the parser, printer and some historical baggage that neither type of language is able to shed.\n\nAnd by the way, something that might not be obvious is that I'm trying to shift C# from being a \"statement-based\" language to a \"expression-based\" language like Lisp is. So Enhanced C# is fundamentally expression-based, e.g. the statement `if (c) Foo();` is perfectly equivalent to the expression `#if(c, Foo())`.\n\nAdmittedly there can be some \"ceremony\" necessary to bridge this gap, e.g. the `case` statement expects an expression argument, so if the user wants to write a statement in its natural form `if (c) Foo();`, the user must enclose the statement in braces, and the `case` statement must in turn remove the braces before processing the syntax tree. I would say this falls into the category of historical baggage - there is no reason an Algol-style language can't embrace an expression-based nature from the start, like <http://loyc.net/les/|LES> does. In addition, since LeMP is a preprocessor it does face substantial difficulties as a result of the fact that it can't add features to C# itself.",
+    "user": "UD6EXQVM0",
+    "ts": "1610689533.003500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610693426.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KpZ0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "`change_temporarily` is built on the `on_finally` macro, that's true, but I don't see how this is any different from Lisp where macros are even more ubiquitous. Can you give an example of something that would end up more verbose in LeMP (or Nim, though I haven't used Nim nor Lisp) than in Lisp?\n\n`CollectionWithChangeEvents` isn't used by anything at all (I wrote it and then decided I didn't need it after all). `macro` is, of course, a macro, but in a Lisp I understand that one typically also uses a macro to define other macros.\n\nI don't think this is fundamentally a matter of Algol (conventional) languages vs Lisps. The \"Loyc tree\" way of seeing things is intended to abolish most of the differences between \"Lisps\" and \"Algols\", so that the only differences left are the parser, printer and some historical baggage that neither type of language is able to shed.\n\nAnd by the way, something that might not be obvious is that I'm trying to shift C# from being a \"statement-based\" language to a \"expression-based\" language like Lisp is. So Enhanced C# is fundamentally expression-based, e.g. the statement `if (c) Foo();` is perfectly equivalent to the expression `#if(c, Foo())`.\n\nAdmittedly there can be some \"ceremony\" necessary to bridge this gap, e.g. the `case` statement expects an expression argument, so if the user wants to write a statement in its natural form `if (c) Foo();`, the user must enclose the statement in braces, and the `case` statement must in turn remove the braces before processing the syntax tree. I would say this falls into the category of historical baggage - there is no reason an Algol-style language can't embrace an expression-based nature from the start, like "
+              },
+              {
+                "type": "link",
+                "url": "http://loyc.net/les/",
+                "text": "LES"
+              },
+              {
+                "type": "text",
+                "text": " does. In addition, since LeMP is a preprocessor it does face substantial difficulties as a result of the fact that it can't add features to C# itself."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610142886.167600",
+    "parent_user_id": "UD6EXQVM0",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "f268b965-0794-47d7-9342-a97e5bb57529",
+    "type": "message",
+    "text": "So, yeah, I have to write quite a bit of infrastructure to get macros to work well on an uncooperative language like C#, but I don't consider this to be a result of C# being in the Algol family _per se_, rather it is the result of various decisions they made, such as having a bright red line between expressions, statements, and declarations (a decision which they doubled down on when they introduced the new pattern syntax, creating another category of syntax that is distinct from, and highly ambiguous with, the others... sigh)",
+    "user": "UD6EXQVM0",
+    "ts": "1610690424.003800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610691922.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YJFH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So, yeah, I have to write quite a bit of infrastructure to get macros to work well on an uncooperative language like C#, but I don't consider this to be a result of C# being in the Algol family "
+              },
+              {
+                "type": "text",
+                "text": "per se",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", rather it is the result of various decisions they made, such as having a bright red line between expressions, statements, and declarations (a decision which they doubled down on when they introduced the new pattern syntax, creating another category of syntax that is distinct from, and highly ambiguous with, the others... sigh)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610142886.167600",
+    "parent_user_id": "UD6EXQVM0",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "ae4b014d-e943-42d4-a8e4-56760e63b5f4",
+    "type": "message",
+    "text": "If you want to do it programmatically this might be a good option <https://github.com/rienafairefr/python-ldraw#id6|https://github.com/rienafairefr/python-ldraw#id6>",
+    "user": "UBSMEUXAA",
+    "ts": "1610691510.000700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "rienafairefr/python-ldraw",
+        "title_link": "https://github.com/rienafairefr/python-ldraw#id6",
+        "text": "Contribute to rienafairefr/python-ldraw development by creating an account on GitHub.",
+        "fallback": "GitHub: rienafairefr/python-ldraw",
+        "thumb_url": "https://avatars3.githubusercontent.com/u/758517?s=400&v=4",
+        "from_url": "https://github.com/rienafairefr/python-ldraw#id6",
+        "thumb_width": 420,
+        "thumb_height": 420,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/rienafairefr/python-ldraw#id6"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4SN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you want to do it programmatically this might be a good option "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/rienafairefr/python-ldraw#id6",
+                "text": "https://github.com/rienafairefr/python-ldraw#id6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610556674.499100",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "56a741ea-e34d-42c3-9089-04c8a717e691",
+    "type": "message",
+    "text": "Unity has a lego micro-game but it only really implements a subset of lego <https://learn.unity.com/project/lego-template|https://learn.unity.com/project/lego-template>",
+    "user": "UBSMEUXAA",
+    "ts": "1610691573.001000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Unity Learn",
+        "title": "LEGO® Microgame - Unity Learn",
+        "title_link": "https://learn.unity.com/project/lego-template",
+        "text": "For anyone who’s ever loved building with LEGO® bricks, the LEGO® Microgame is the perfect place to start your Unity journey. Use these Creative Mods to build on the project and create your own custom experience, while learning the basics of Unity. Viewing from the Learn tab in the Unity Hub? Select Download Project &gt; Open Project to automatically open it in Unity. Viewing from the Unity Learn website? Simply go to the Learn tab in the Unity Hub and search for this Microgame.",
+        "fallback": "Unity Learn: LEGO® Microgame - Unity Learn",
+        "image_url": "https://connect-prd-cdn.unity.com/20201014/learn/images/a4726d1c-37f2-4f58-8f18-ae3605552493_Hub_image_1800x1000.png",
+        "from_url": "https://learn.unity.com/project/lego-template",
+        "image_width": 450,
+        "image_height": 250,
+        "image_bytes": 874548,
+        "service_icon": "https://connect-prd-cdn.unity.com/cdn-origin/images/favicons/apple-touch-icon.png?v=1",
+        "id": 1,
+        "original_url": "https://learn.unity.com/project/lego-template"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ve2ns",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Unity has a lego micro-game but it only really implements a subset of lego "
+              },
+              {
+                "type": "link",
+                "url": "https://learn.unity.com/project/lego-template",
+                "text": "https://learn.unity.com/project/lego-template"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610556674.499100",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ba076285-d8ac-44a6-96aa-3fd1d414e5fa",
+    "type": "message",
+    "text": "One of my dream projects is to make a high quality physical feeling VR lego builders/CAD",
+    "user": "UBSMEUXAA",
+    "ts": "1610691640.001300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MO3T",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One of my dream projects is to make a high quality physical feeling VR lego builders/CAD"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610556674.499100",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e223694d-a052-46eb-b4c6-8d5f6bee7ca0",
+    "type": "message",
+    "text": "Hmm, but now that I think about it, I can't name a single Algol-style language, other than my own LES, that rejected the statement/expression dichotomy. LES is also meant to provide homoiconicity. I'd be kind of shocked if it turned out that I was the first one to do this stuff in an Algol style language... but I'm inclined to apologize, because from your perspective you're probably seeing Algol languages as they are (or tend to be), which is perfectly reasonable, and I'm seeing them in an unconventional way, and so the onus is on me to explain that....",
+    "user": "UD6EXQVM0",
+    "ts": "1610691792.004200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610693327.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=Ia",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hmm, but now that I think about it, I can't name a single Algol-style language, other than my own LES, that rejected the statement/expression dichotomy. LES is also meant to provide homoiconicity. I'd be kind of shocked if it turned out that I was the first one to do this stuff in an Algol style language... but I'm inclined to apologize, because from your perspective you're probably seeing Algol languages as they are (or tend to be), which is perfectly reasonable, and I'm seeing them in an unconventional way, and so the onus is on me to explain that...."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610142886.167600",
+    "parent_user_id": "UD6EXQVM0",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "688382b0-802b-4c86-9d35-07cfb3f1455c",
+    "type": "message",
+    "text": "Where can I learn more about your project?",
+    "user": "UD6EXQVM0",
+    "ts": "1610693989.005300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MMjrN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Where can I learn more about your project?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600002072.034000",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "de68aa8f-75da-4d8d-a9e6-578d5e330424",
+    "type": "message",
+    "text": "I think you hit the nail on the head: Algol languages have pretty much all kept the statement/expression dichotomy. Adding macros to an Algol language seems to drive the language to push more things into expressions.\n\nNim is interesting because it cares less about homoiconicity as a principle. It's a practical language first and foremost. But it's interesting to see certain homoiconic properties emerge (and also where they fail)\n\nNim trying to get more \"expression-ey\" and failing\n<https://github.com/nim-lang/Nim/pull/11992>\n\nNim having similar issues with `case` :stuck_out_tongue:\n<https://github.com/nim-lang/Nim/issues/12874>",
+    "user": "U01661S9F34",
+    "ts": "1610696797.005500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "19925410efa8",
+      "image_72": "https://avatars.slack-edge.com/2020-06-28/1196019819111_19925410efa8da86ae13_72.jpg",
+      "first_name": "",
+      "real_name": "Ray Imber",
+      "display_name": "Ray Imber",
+      "team": "T5TCAFTA9",
+      "name": "rayimber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01661S9F34",
+      "ts": "1610696807.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/Gi4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think you hit the nail on the head: Algol languages have pretty much all kept the statement/expression dichotomy. Adding macros to an Algol language seems to drive the language to push more things into expressions.\n\nNim is interesting because it cares less about homoiconicity as a principle. It's a practical language first and foremost. But it's interesting to see certain homoiconic properties emerge (and also where they fail)\n\nNim trying to get more \"expression-ey\" and failing\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/nim-lang/Nim/pull/11992"
+              },
+              {
+                "type": "text",
+                "text": "\n\nNim having similar issues with "
+              },
+              {
+                "type": "text",
+                "text": "case",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/nim-lang/Nim/issues/12874"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610142886.167600",
+    "parent_user_id": "UD6EXQVM0",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UD6EXQVM0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "44d454d0-75ec-4911-b402-e344a1c2e0c9",
+    "type": "message",
+    "text": "Which language syntax is that, and how does your \"intellisense\" system work?",
+    "user": "UD6EXQVM0",
+    "ts": "1610697260.006000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610697271.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VDW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Which language syntax is that, and how does your \"intellisense\" system work?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606934381.142700",
+    "parent_user_id": "UE0H4170F",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "5e2e423a-5c4f-4899-9a36-657733b71121",
+    "type": "message",
+    "text": "Err... re-reading this thread, I think I should make it clear that I was NOT suggesting a spreadsheet-like editor as a way of building concepts. I was saying that the editor presented in the video is confusing, and that a separate, predictable way of visualizing the data store wold help ameliorate that problem. For example, any time the user sees data that looks somehow \"wrong\", the user needs to be able to figure out whether it is wrong because (A) the data is actually wrong in the database or (B) a concept is misconfigured or something else, like, they're looking at a different record than they thought they were. If the database is invisible, the user will have a harder time understanding what's going on.",
+    "user": "UD6EXQVM0",
+    "ts": "1610698252.000300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610698635.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mOGH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Err... re-reading this thread, I think I should make it clear that I was NOT suggesting a spreadsheet-like editor as a way of building concepts. I was saying that the editor presented in the video is confusing, and that a separate, predictable way of visualizing the data store wold help ameliorate that problem. For example, any time the user sees data that looks somehow \"wrong\", the user needs to be able to figure out whether it is wrong because (A) the data is actually wrong in the database or (B) a concept is misconfigured or something else, like, they're looking at a different record than they thought they were. If the database is invisible, the user will have a harder time understanding what's going on."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591918996.315500",
+    "parent_user_id": "UP7N4QVK2",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "5e6e2a64-d6a6-45ce-b499-d83f071347ea",
+    "type": "message",
+    "text": "Great read. Motivating. I plan to try myself :slightly_smiling_face: Thanks",
+    "user": "UPVBV34EL",
+    "ts": "1610713022.008200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "259a1e56ad2e",
+      "image_72": "https://avatars.slack-edge.com/2019-10-28/811814014976_259a1e56ad2e11fe3d56_72.jpg",
+      "first_name": "",
+      "real_name": "Shubhadeep Roychowdhury",
+      "display_name": "Shubhadeep Roychowdhury",
+      "team": "T5TCAFTA9",
+      "name": "shubhadeeproychowdhur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Khp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Great read. Motivating. I plan to try myself "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " Thanks"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610661562.007000",
+    "parent_user_id": "U01661S9F34",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "3023da71-d418-425a-8f0b-fa04f3f393f2",
+    "type": "message",
+    "text": "This is one of the many things text editors don't do that seem obvious to me. Others include:\n• Elastic tabstops (makes proportional fonts more usable in code)\n• respecting the local whitespace style when inserting newlines (i.e. if I press enter and the previous line starts with 2 tabs followed by 8 spaces, the new line should start with 2 tabs followed by 8 spaces)\n• highlighting definitions differently than usages, e.g. the \"x\" in \"int x\" might have an outline around it while the \"x\" in \"x++\" would not. As another example, there should be a horizontal line across the editor above every top-level function and class, so that it is easier to see where each new function/class begins. Also, when scrolling down into a large class/function, keep the class/function header visible on the top line of the editor so I can always see at a glance what context I am in\n• using colors primarily to categorize instead of just representing syntax - e.g. different colors for standard library functions, functions in our Backend API, and functions in the Frontend API. Scratch figured this one out. Multiple categorizations I can switch between with hotkeys might be useful.\n• Allowing emojis/symbols to be attached to specific entities of interest so it is easier to see at a glance when one of those entities is being used, e.g. attach ❦ to Console.WriteLine so it \"jumps out\" at me more. Alternately, could use symbols to abbreviate long-winded code, e.g. hiding Console.WriteLine and showing ❦ in its place.\n• Defining language keywords that attach to statements and cause them to be highlighted/enlarged or dimmed/shrunk in the editor. Often certain \"key\" parts of a function or class are worth highlighting, and other parts that are pure incidental complexity (e.g. writing a log message or verifying a security flag) and there should be a way to emphasize one and de-emphasize the other.",
+    "user": "UD6EXQVM0",
+    "ts": "1610719440.000700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610720582.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Dg/J",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is one of the many things text editors don't do that seem obvious to me. Others include:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Elastic tabstops (makes proportional fonts more usable in code)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "respecting the local whitespace style when inserting newlines (i.e. if I press enter and the previous line starts with 2 tabs followed by 8 spaces, the new line should start with 2 tabs followed by 8 spaces)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "highlighting definitions differently than usages, e.g. the \"x\" in \"int x\" might have an outline around it while the \"x\" in \"x++\" would not. As another example, there should be a horizontal line across the editor above every top-level function and class, so that it is easier to see where each new function/class begins. Also, when scrolling down into a large class/function, keep the class/function header visible on the top line of the editor so I can always see at a glance what context I am in"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "using colors primarily to categorize instead of just representing syntax - e.g. different colors for standard library functions, functions in our Backend API, and functions in the Frontend API. Scratch figured this one out. Multiple categorizations I can switch between with hotkeys might be useful."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Allowing emojis/symbols to be attached to specific entities of interest so it is easier to see at a glance when one of those entities is being used, e.g. attach ❦ to Console.WriteLine so it \"jumps out\" at me more. Alternately, could use symbols to abbreviate long-winded code, e.g. hiding Console.WriteLine and showing ❦ in its place."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Defining language keywords that attach to statements and cause them to be highlighted/enlarged or dimmed/shrunk in the editor. Often certain \"key\" parts of a function or class are worth highlighting, and other parts that are pure incidental complexity (e.g. writing a log message or verifying a security flag) and there should be a way to emphasize one and de-emphasize the other."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1594221387.371800",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "81143898-7e6d-41bf-a04b-25d30bf45869",
+    "type": "message",
+    "text": "This week I've improved the Notes card to allow for better interactive guides built exporting decks with notes set to read only between the steps: <https://youtu.be/PNe8NPsufJI>",
+    "user": "UBN9AFS0N",
+    "ts": "1610722663.007600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Instadeq Two Minute Week: 2021-01-15",
+        "title_link": "https://youtu.be/PNe8NPsufJI",
+        "author_name": "Instadeq",
+        "author_link": "https://www.youtube.com/channel/UCz4zYu_PV7OjCNrNZyYiXzg",
+        "thumb_url": "https://i.ytimg.com/vi/PNe8NPsufJI/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Instadeq Two Minute Week: 2021-01-15",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/PNe8NPsufJI?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/PNe8NPsufJI",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/PNe8NPsufJI"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4DP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This week I've improved the Notes card to allow for better interactive guides built exporting decks with notes set to read only between the steps: "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/PNe8NPsufJI"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "U01H6UFHAE9",
+          "U0123H7JRDM"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "1CD38ECA-2A46-41D9-BDB4-A172A73F50E9",
+    "type": "message",
+    "text": "The feature clause feels reminiscent of Darklangs feature flags as a live coding update. This is very interesting so far, nice work",
+    "user": "U019CPED6T1",
+    "ts": "1610727120.002800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa03454e2d2",
+      "image_72": "https://secure.gravatar.com/avatar/aa03454e2d26593c48c2f67c9fc90534.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Andrew",
+      "real_name": "Andrew Carr",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewcarr06",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MSjM/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The feature clause feels reminiscent of Darklangs feature flags as a live coding update. This is very interesting so far, nice work"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "CDB6EB07-C1FF-44D0-B682-D10FF5038206",
+    "type": "message",
+    "text": "After more reading, I believe I fall in the target audience for this language and am growing more excited with each line",
+    "user": "U019CPED6T1",
+    "ts": "1610727372.003900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa03454e2d2",
+      "image_72": "https://secure.gravatar.com/avatar/aa03454e2d26593c48c2f67c9fc90534.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Andrew",
+      "real_name": "Andrew Carr",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewcarr06",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TWO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "After more reading, I believe I fall in the target audience for this language and am growing more excited with each line"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "4bcdd093-c04b-4c2d-a7f6-44e8eded32d8",
+    "type": "message",
+    "text": "One final comment. The free functional syntax reminds me a LOT of Pure's main selling point of term rewriting. It feels like an underrated aspect of programming that allows for a really concise representation",
+    "user": "U019CPED6T1",
+    "ts": "1610727527.004100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa03454e2d2",
+      "image_72": "https://secure.gravatar.com/avatar/aa03454e2d26593c48c2f67c9fc90534.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Andrew",
+      "real_name": "Andrew Carr",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewcarr06",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SOa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One final comment. The free functional syntax reminds me a LOT of Pure's main selling point of term rewriting. It feels like an underrated aspect of programming that allows for a really concise representation"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "subtype": "bot_message",
+    "text": "I was listening to some of the old episodes of the podcast and have been thinking about projectional editing in general. I'm not sure if this is a novel insight or not, but there seems to be some form of equivalence between reading/writing code textually vs with blocks/shapes and the equivalence of algebra/geometry.\nThere are many proofs and problems that seem to lend themselves to geometry over algebra but there are also situations that being able to reason about something algebraically makes it substantially simpler. I think this is the situation where you need both and it's possible at certain levels of abstraction you would want to be able to easily shift back and forth. For example I could imagine a system that had components built in a textual representation but then the component linking all done utilizing shapes.",
+    "ts": "1610742663.002400",
+    "username": "Alex",
+    "icons": {
+      "image_48": "https://s3-us-west-2.amazonaws.com/slack-files2/bot_icons/2021-01-05/1614325536835_48.png"
+    },
+    "bot_id": "BEYLABLRH",
+    "thread_ts": "1610742663.002400",
+    "reply_count": 5,
+    "reply_users_count": 4,
+    "latest_reply": "1610978272.029600",
+    "reply_users": [
+      "USH01JEDQ",
+      "BEYLABLRH",
+      "UHWC9PXBL",
+      "U013ZLJARC7"
+    ],
+    "replies": [
+      {
+        "user": "USH01JEDQ",
+        "ts": "1610743611.002500"
+      },
+      {
+        "user": "BEYLABLRH",
+        "ts": "1610744061.002900"
+      },
+      {
+        "user": "USH01JEDQ",
+        "ts": "1610750677.003100"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1610854140.022000"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1610978272.029600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "72d2a5e7-b951-49c2-8f76-94d4ce6086e9",
+    "type": "message",
+    "text": "Makes me think of this scene <https://www.youtube.com/watch?v=7xRLU0wgwuQ>\n\nThen Will says \"Here, for you code block / linear proof people, I wrote it down\"",
+    "user": "USH01JEDQ",
+    "ts": "1610743611.002500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0c975eeefb0",
+      "image_72": "https://secure.gravatar.com/avatar/0c975eeefb0d9484d0ccce64bbd16e85.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "Christopher",
+      "real_name": "Christopher Galtenberg",
+      "display_name": "Chris G",
+      "team": "T5TCAFTA9",
+      "name": "galtenberg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Will Finds a Simple Geometrical Structure - a Tree - Good Will Hunting (1997) - Movie Clip HD Scene",
+        "title_link": "https://www.youtube.com/watch?v=7xRLU0wgwuQ",
+        "author_name": "Legendary Movie Scenes",
+        "author_link": "https://www.youtube.com/channel/UCXLCtqOKDHDwQtin_TuCwiw",
+        "thumb_url": "https://i.ytimg.com/vi/7xRLU0wgwuQ/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Will Finds a Simple Geometrical Structure - a Tree - Good Will Hunting (1997) - Movie Clip HD Scene",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/7xRLU0wgwuQ?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=7xRLU0wgwuQ",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=7xRLU0wgwuQ"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7ol6G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Makes me think of this scene "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=7xRLU0wgwuQ"
+              },
+              {
+                "type": "text",
+                "text": "\n\nThen Will says \"Here, for you code block / linear proof people, I wrote it down\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610742663.002400",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UEZQXJK9V"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "subtype": "bot_message",
+    "text": "I completely forgot about that scene but that's exactly what I'm thinking about.",
+    "ts": "1610744061.002900",
+    "username": "Alex",
+    "icons": {
+      "image_48": "https://s3-us-west-2.amazonaws.com/slack-files2/bot_icons/2021-01-05/1614325536835_48.png"
+    },
+    "bot_id": "BEYLABLRH",
+    "thread_ts": "1610742663.002400",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "92581d48-0cf0-480f-936f-1bf7238cb1cc",
+    "type": "message",
+    "text": "Our new code base isn't yet our main branch, but we are getting close and wanted to share something early I call \"If Spreadsheets and Programming Languages had a baby\" <https://www.youtube.com/watch?v=vn2aJA5ANUc>",
+    "user": "UMVFWPZ36",
+    "ts": "1610747848.005700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "If Spreadsheets and Programming Languages had a baby",
+        "title_link": "https://www.youtube.com/watch?v=vn2aJA5ANUc",
+        "author_name": "Breck Yunits",
+        "author_link": "https://www.youtube.com/user/kcerb7",
+        "thumb_url": "https://i.ytimg.com/vi/vn2aJA5ANUc/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: If Spreadsheets and Programming Languages had a baby",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/vn2aJA5ANUc?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=vn2aJA5ANUc",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=vn2aJA5ANUc"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nf/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Our new code base isn't yet our main branch, but we are getting close and wanted to share something early I call \"If Spreadsheets and Programming Languages had a baby\" "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=vn2aJA5ANUc"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610747848.005700",
+    "reply_count": 53,
+    "reply_users_count": 7,
+    "latest_reply": "1611190562.044700",
+    "reply_users": [
+      "U01H6UFHAE9",
+      "BEYLABLRH",
+      "UCUSW7WVD",
+      "UMVFWPZ36",
+      "UJBAJNFLK",
+      "U01JV14SCDU",
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "U01H6UFHAE9",
+        "ts": "1610753099.006300"
+      },
+      {
+        "user": "BEYLABLRH",
+        "ts": "1610755764.006600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1610757504.006900"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1610759003.007300"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1610759086.007700"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1610759224.008100"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1610796699.008500"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1610819125.009500"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1610844283.011100"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1610844426.011400"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1610846686.012100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1610846733.012400"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1610866242.012900"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1610866285.013100"
+      },
+      {
+        "user": "U01JV14SCDU",
+        "ts": "1610999347.022100"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1611049782.022800"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098226.024200"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098234.024500"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098263.024800"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098273.025100"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098309.025300"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098368.025500"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098381.025700"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098435.025900"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098460.026100"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098478.026300"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098487.026500"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098503.026700"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098524.026900"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098569.027100"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611098588.027300"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1611131721.027700"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611154223.030300"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611154385.030600"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1611175743.039200"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611179796.040100"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611179833.040400"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611179856.040600"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611179893.040800"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611179964.041000"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611180016.041200"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611180051.041400"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611180101.041600"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611180136.041800"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611180154.042000"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1611180196.042200"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611190354.043200"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611190370.043400"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611190435.043600"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611190531.044100"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611190543.044300"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611190555.044500"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1611190562.044700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "USH01JEDQ",
+          "UEZQXJK9V",
+          "UJBAJNFLK",
+          "U01H6M7BVGD",
+          "UHS9K1N6A"
+        ],
+        "count": 5
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U01H6UFHAE9"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "3bfaf585-2179-41ef-854f-d9be1d683a73",
+    "type": "message",
+    "text": "Really it's what MVC was originally meant for (one of Trygve's intentions) of having multiple possible views for a model, letting the user select the view that most directly mapped to how they think and work - <https://folk.universitetetioslo.no/trygver/themes/mvc/mvc-index.html>\n\nI love how tools like ZenKit allow the same data table to be represented as a list, a table, a kanban board, even a mindmap and calendar",
+    "user": "USH01JEDQ",
+    "ts": "1610750677.003100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0c975eeefb0",
+      "image_72": "https://secure.gravatar.com/avatar/0c975eeefb0d9484d0ccce64bbd16e85.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "Christopher",
+      "real_name": "Christopher Galtenberg",
+      "display_name": "Chris G",
+      "team": "T5TCAFTA9",
+      "name": "galtenberg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "88NIa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Really it's what MVC was originally meant for (one of Trygve's intentions) of having multiple possible views for a model, letting the user select the view that most directly mapped to how they think and work - "
+              },
+              {
+                "type": "link",
+                "url": "https://folk.universitetetioslo.no/trygver/themes/mvc/mvc-index.html"
+              },
+              {
+                "type": "text",
+                "text": "\n\nI love how tools like ZenKit allow the same data table to be represented as a list, a table, a kanban board, even a mindmap and calendar"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610742663.002400",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEZQXJK9V"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f7506797-c095-47c8-af74-8d5d7e207e00",
+    "type": "message",
+    "text": "Terrific title. :smile: I'm a big believer in Spreadsheets + *some* Code. We've been developing a similar interface, specific to transforming streaming event data. Inspiring work!",
+    "user": "U01H6UFHAE9",
+    "ts": "1610753099.006300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "403f11c88db0",
+      "image_72": "https://avatars.slack-edge.com/2020-12-19/1581834263926_403f11c88db0e7818e82_72.png",
+      "first_name": "",
+      "real_name": "Greg Kuhlmann",
+      "display_name": "Greg Kuhlmann",
+      "team": "T5TCAFTA9",
+      "name": "greg238",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A/d3c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Terrific title. "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": " I'm a big believer in Spreadsheets + "
+              },
+              {
+                "type": "text",
+                "text": "some",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " Code. We've been developing a similar interface, specific to transforming streaming event data. Inspiring work!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610747848.005700",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

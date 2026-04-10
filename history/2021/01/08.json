@@ -1,0 +1,2621 @@
+[
+  {
+    "client_msg_id": "cc8b2baf-eb16-455b-94d8-dd0345584bb3",
+    "type": "message",
+    "text": "It's not the same as AOP, but \"Data-Oriented\" programming with Entity-Component-Systems is something that feels adjacent to these ideas.\n\nAt my co, we've leveraged the \"data\" focused part of an ECS to make it trivial to cut through \"call-graphs\" and instead just look at the underlying shared state of our application.\n\nSee the following demo I've just recorded:\n<https://www.loom.com/share/b4997d40f9814144940008c51584b926>\n\ncc <@UHWC9PXBL>",
+    "user": "UFPPABQ7P",
+    "ts": "1610065610.448100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1610065693.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "Loom",
+        "service_url": "https://www.loom.com",
+        "title": "ECS / Data-oriented programming in response to AOP",
+        "title_link": "https://www.loom.com/share/b4997d40f9814144940008c51584b926",
+        "thumb_url": "https://cdn.loom.com/sessions/thumbnails/b4997d40f9814144940008c51584b926-00001.gif",
+        "thumb_width": 1024,
+        "thumb_height": 885,
+        "fallback": "Loom Video: ECS / Data-oriented programming in response to AOP",
+        "video_html": "<iframe src=\"https://www.loom.com/embed/b4997d40f9814144940008c51584b926?autoplay=1\" frameborder=\"0\" width=\"1248\" height=\"936\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+        "video_html_width": 1248,
+        "video_html_height": 936,
+        "from_url": "https://www.loom.com/share/b4997d40f9814144940008c51584b926",
+        "id": 1,
+        "original_url": "https://www.loom.com/share/b4997d40f9814144940008c51584b926"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/+AIM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's not the same as AOP, but \"Data-Oriented\" programming with Entity-Component-Systems is something that feels adjacent to these ideas.\n\nAt my co, we've leveraged the \"data\" focused part of an ECS to make it trivial to cut through \"call-graphs\" and instead just look at the underlying shared state of our application.\n\nSee the following demo I've just recorded:\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.loom.com/share/b4997d40f9814144940008c51584b926"
+              },
+              {
+                "type": "text",
+                "text": "\n\ncc "
+              },
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1608395248.354400",
+    "parent_user_id": "UHWC9PXBL",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6eb90d45-ef86-4b77-9ccb-723f5373e4bc",
+    "type": "message",
+    "text": "Hello, I'm trying to wrap my head around the implementation for a platform for developing self describing \"services\" or as we might call them \"drivers\".\n\nThe basic lifecycle of a \"driver\" is essentially:\n1. *Driver describes Service registration requirements*: Announce what registration info (keys, permissions, web-hook URLs, etc) it needs to register\n2. *User adds Service*: Register an instance of Service X by providing \"registration info\" that were asked for by the driver\n3. *Driver describes Service interfaces*: Use \"registration info\" to imperatively declare its interfaces (I have these functions, that take these types, that provide these representations, etc)\n4. *User* can begin using this *Service* from their own code.\nThis cycle exists to enable something like registering an Airtable database through a driver. We aim to allow for generative interface based on the Airtable's columns. You could just as easily replace \"Airtable\" as an example with an \"SQL DB driver\" even.\n\nThe main problem I'm wrestling with is mostly in how I would design the Driver SDK for step \"3. *Driver describes Service interfaces*\". In some respects, I want to allow the SDK developer (myself and my team members for now) to have a lot of flexibility with how they end up describing the Service interfaces &amp; provide that service interface's implementation. But, when it comes to considering how deployment, versioning, and development and debugging for SDK dev I feel quite naive.\n\nDoes anyone have reference material or admirable examples of this kind of problem? Even things adjacent could be very inspiring.\ncc <@UHWC9PXBL> <@UG0EL18H3> <@UKFNXF0F9>\n\nP.S. This seems tangential to: reflective type systems / declarative type providers (like building <https://docs.microsoft.com/en-us/dotnet/fsharp/tutorials/type-providers/|FSharp Type providers>); VS Code Language Server protocol; game dev modding; and maybe <#C01CD90V1NF|of-glam-school>.",
+    "user": "UFPPABQ7P",
+    "ts": "1610067746.465300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1610068088.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lR9DV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello, I'm trying to wrap my head around the implementation for a platform for developing self describing \"services\" or as we might call them \"drivers\".\n\nThe basic lifecycle of a \"driver\" is essentially:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Driver describes Service registration requirements",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Announce what registration info (keys, permissions, web-hook URLs, etc) it needs to register"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "User adds Service",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Register an instance of Service X by providing \"registration info\" that were asked for by the driver"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Driver describes Service interfaces",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Use \"registration info\" to imperatively declare its interfaces (I have these functions, that take these types, that provide these representations, etc)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "User",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " can begin using this "
+                  },
+                  {
+                    "type": "text",
+                    "text": "Service",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " from their own code."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThis cycle exists to enable something like registering an Airtable database through a driver. We aim to allow for generative interface based on the Airtable's columns. You could just as easily replace \"Airtable\" as an example with an \"SQL DB driver\" even.\n\nThe main problem I'm wrestling with is mostly in how I would design the Driver SDK for step \"3. "
+              },
+              {
+                "type": "text",
+                "text": "Driver describes Service interfaces",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\". In some respects, I want to allow the SDK developer (myself and my team members for now) to have a lot of flexibility with how they end up describing the Service interfaces & provide that service interface's implementation. But, when it comes to considering how deployment, versioning, and development and debugging for SDK dev I feel quite naive.\n\nDoes anyone have reference material or admirable examples of this kind of problem? Even things adjacent could be very inspiring.\ncc "
+              },
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UG0EL18H3"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UKFNXF0F9"
+              },
+              {
+                "type": "text",
+                "text": "\n\nP.S. This seems tangential to: reflective type systems / declarative type providers (like building "
+              },
+              {
+                "type": "link",
+                "url": "https://docs.microsoft.com/en-us/dotnet/fsharp/tutorials/type-providers/",
+                "text": "FSharp Type providers"
+              },
+              {
+                "type": "text",
+                "text": "); VS Code Language Server protocol; game dev modding; and maybe "
+              },
+              {
+                "type": "channel",
+                "channel_id": "C01CD90V1NF"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "reply_count": 9,
+    "reply_users_count": 6,
+    "latest_reply": "1610199993.482700",
+    "reply_users": [
+      "UKFNXF0F9",
+      "UG0EL18H3",
+      "UN9SCH5RD",
+      "UHWC9PXBL",
+      "UCGAK10LS",
+      "UFPPABQ7P"
+    ],
+    "replies": [
+      {
+        "user": "UKFNXF0F9",
+        "ts": "1610076524.466100"
+      },
+      {
+        "user": "UKFNXF0F9",
+        "ts": "1610076620.466300"
+      },
+      {
+        "user": "UKFNXF0F9",
+        "ts": "1610076666.466500"
+      },
+      {
+        "user": "UKFNXF0F9",
+        "ts": "1610076774.466700"
+      },
+      {
+        "user": "UG0EL18H3",
+        "ts": "1610084994.472000"
+      },
+      {
+        "user": "UN9SCH5RD",
+        "ts": "1610099905.472600"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1610122434.475900"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1610150064.482300"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1610199993.482700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3cad400f-6d15-4dc0-a9b0-df69ece94084",
+    "type": "message",
+    "text": "\"zero does not need traditional version control systems, as every program contains its own history\" it sounds like the language somehow requires people to keep historical baggage around, including bugs?",
+    "user": "UD6EXQVM0",
+    "ts": "1610073148.432200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9PA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"zero does not need traditional version control systems, as every program contains its own history\" it sounds like the language somehow requires people to keep historical baggage around, including bugs?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0e537b25-dc15-4958-9a4f-b329aa29accf",
+    "type": "message",
+    "text": "I've had this idea that modules (not mere types) should be optionally parameterized, like, you could say \"this module uses 'strings' and two kinds of 'number' which by default are UTF-8 strings, 32-bit fixed-point and 64-bit float, but the user of this module can override the default with their own choices\". I wonder if Abstract Types are like that.",
+    "user": "UD6EXQVM0",
+    "ts": "1610074221.432500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JBqA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've had this idea that modules (not mere types) should be optionally parameterized, like, you could say \"this module uses 'strings' and two kinds of 'number' which by default are UTF-8 strings, 32-bit fixed-point and 64-bit float, but the user of this module can override the default with their own choices\". I wonder if Abstract Types are like that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "410bb959-3bfe-4b65-9453-f4f4458e7d95",
+    "type": "message",
+    "text": "When you say \"when we run main(), we get a friendly little beep at the same time\" do you literally mean that `out$ &lt;&lt; \"hello world !\"` and `audio$ &lt;&lt; sample(\"beep.wav\")` run concurrently?",
+    "user": "UD6EXQVM0",
+    "ts": "1610074600.432700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9LOPX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "When you say \"when we run main(), we get a friendly little beep at the same time\" do you literally mean that "
+              },
+              {
+                "type": "text",
+                "text": "out$ << \"hello world !\"",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "audio$ << sample(\"beep.wav\")",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " run concurrently?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "fbbad711-42a6-4fdb-96ad-6eba5d2cf3e0",
+    "type": "message",
+    "text": "What is the meaning of all those dollar signs?\n\n\"results are named, and assignment of the result terminates the function\" it sounds like you're breaking tradition in a confusing unhelpful way. There is an established tradition called `return` for terminating a function, whereas assigning to named results (a la Visual Basic) should not terminate the function. Personally I would like both mechanisms to be available.\n\nThat one can define an \"inner\" function that isn't inner (is directly accessible outside the outer function - are you saying that it is accessible _unqualified_?) - this doesn't seem like a bad feature to me per se, but this behavior should be something the programmer asks for, not implicit.\n\nOrdinary functions cannot accept arrays? How is this not a crippling restriction? Is this a limitation of GPUs (I haven't programmed any before)? If so how do GPU programmers work around it? I can't imagine how to write a compiler that processes arbitrary syntax/semantic trees on a GPU. Do you know how to write the zero language in itself?\n\n\"a task is a pair of values; one is being read from (the 'current' value) and the other is being written to\" Why isn't it a queue, or an LMAX disruptor or something?\n\nHave you studied Halide for inspiration?",
+    "user": "UD6EXQVM0",
+    "ts": "1610076015.432900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Z=K",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What is the meaning of all those dollar signs?\n\n\"results are named, and assignment of the result terminates the function\" it sounds like you're breaking tradition in a confusing unhelpful way. There is an established tradition called "
+              },
+              {
+                "type": "text",
+                "text": "return",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " for terminating a function, whereas assigning to named results (a la Visual Basic) should not terminate the function. Personally I would like both mechanisms to be available.\n\nThat one can define an \"inner\" function that isn't inner (is directly accessible outside the outer function - are you saying that it is accessible "
+              },
+              {
+                "type": "text",
+                "text": "unqualified",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "?) - this doesn't seem like a bad feature to me per se, but this behavior should be something the programmer asks for, not implicit.\n\nOrdinary functions cannot accept arrays? How is this not a crippling restriction? Is this a limitation of GPUs (I haven't programmed any before)? If so how do GPU programmers work around it? I can't imagine how to write a compiler that processes arbitrary syntax/semantic trees on a GPU. Do you know how to write the zero language in itself?\n\n\"a task is a pair of values; one is being read from (the 'current' value) and the other is being written to\" Why isn't it a queue, or an LMAX disruptor or something?\n\nHave you studied Halide for inspiration?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2d15a24c-f561-4d78-8901-8c75ed48a4e8",
+    "type": "message",
+    "text": "There are two kind of services, service for read, service for write. There is no standard way to write, writing into a external service need various properties according to the need. Expose the write interface as a generic interface such as SQL INSERT is a mistake, it will not work in cross domain setting. To protect the data integrity, some kind of stored procedure is always needed to validate business constraint.",
+    "user": "UKFNXF0F9",
+    "ts": "1610076524.466100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5651704a60f",
+      "image_72": "https://secure.gravatar.com/avatar/15651704a60f7ef1539f9b1fa2506188.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "taowen",
+      "display_name": "taowen",
+      "team": "T5TCAFTA9",
+      "name": "taowen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AZXG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There are two kind of services, service for read, service for write. There is no standard way to write, writing into a external service need various properties according to the need. Expose the write interface as a generic interface such as SQL INSERT is a mistake, it will not work in cross domain setting. To protect the data integrity, some kind of stored procedure is always needed to validate business constraint."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f255c873-d02b-43af-afc6-9af12ec7a437",
+    "type": "message",
+    "text": "Service for read can be standard, expose query by example, query by filter or query by sql. The schema of information returned can also be defined in protobuf or json schema.",
+    "user": "UKFNXF0F9",
+    "ts": "1610076620.466300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5651704a60f",
+      "image_72": "https://secure.gravatar.com/avatar/15651704a60f7ef1539f9b1fa2506188.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "taowen",
+      "display_name": "taowen",
+      "team": "T5TCAFTA9",
+      "name": "taowen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sV1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Service for read can be standard, expose query by example, query by filter or query by sql. The schema of information returned can also be defined in protobuf or json schema."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "229ceead-d828-4e93-9107-59ee41f7c2bd",
+    "type": "message",
+    "text": "In terms of generating UI automatically, you can generate the UI of form submission, which will call the write service after submit button clicked. You can also generate the UI of the read side, list/detail/...",
+    "user": "UKFNXF0F9",
+    "ts": "1610076666.466500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5651704a60f",
+      "image_72": "https://secure.gravatar.com/avatar/15651704a60f7ef1539f9b1fa2506188.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "taowen",
+      "display_name": "taowen",
+      "team": "T5TCAFTA9",
+      "name": "taowen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cNm6l",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In terms of generating UI automatically, you can generate the UI of form submission, which will call the write service after submit button clicked. You can also generate the UI of the read side, list/detail/..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ecdab9a1-3c1c-4123-b840-3fd82b6a8751",
+    "type": "message",
+    "text": "The data schema could be encoded as static file, such as protobuf, json schema, typescript .d.ts / .ts class. It could also be encoded as data to allow dynamic reflection. Generate can happen statically, or dynamically.",
+    "user": "UKFNXF0F9",
+    "ts": "1610076774.466700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5651704a60f",
+      "image_72": "https://secure.gravatar.com/avatar/15651704a60f7ef1539f9b1fa2506188.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "taowen",
+      "display_name": "taowen",
+      "team": "T5TCAFTA9",
+      "name": "taowen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "F0BN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The data schema could be encoded as static file, such as protobuf, json schema, typescript .d.ts / .ts class. It could also be encoded as data to allow dynamic reflection. Generate can happen statically, or dynamically."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "01cddb81-2a38-4308-a4e4-e8aa8d28b0c3",
+    "type": "message",
+    "text": "<@UJBAJNFLK> Um, I'm not sure how your comments relate to mine or to the question of \"is open source stifling progress?\" If we restrict our discussion to geniuses, the question of how they should earn a living and whether their work should be free to use remains open.",
+    "user": "UD6EXQVM0",
+    "ts": "1610077157.460300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610077506.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vSV4q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " Um, I'm not sure how your comments relate to mine or to the question of \"is open source stifling progress?\" If we restrict our discussion to geniuses, the question of how they should earn a living and whether their work should be free to use remains open."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609787901.435600",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "eb452528-7089-4d1a-8205-673d8ced7aad",
+    "type": "message",
+    "text": "Wow, if this was a GUI instead of a game of \"let's memorize which keystrokes do what\", I would download it right this instant.",
+    "user": "UD6EXQVM0",
+    "ts": "1610077896.460600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cdP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Wow, if this was a GUI instead of a game of \"let's memorize which keystrokes do what\", I would download it right this instant."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1608056064.380200",
+    "parent_user_id": "U85HCL7JP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "7ff9aecf-b569-4b38-910e-11a07c509369",
+    "type": "message",
+    "text": "I was curious to see if I could make a data structure using nothing but lambdas, and I came up with these JavaScript snippets:\n\n(H)=&gt;((F)=&gt;F(F)())((S,V,P)=&gt;(X)=&gt;X?S(S,X,S(S,V,P)):(H(V),P||S(S)))\n\n(H)=&gt;((F)=&gt;F(F)())((Q,V,N)=&gt;(X)=&gt;X?Q(Q,V,Q(Q,X,N)):(H(V),N||Q(Q)))\n\nTry this in your browser debugger:\n\n(...either snippet here...)(console.log)(1)(2)(3)()(4)()()(5)()()()()()()(8)()()",
+    "user": "UAVCC2X70",
+    "ts": "1610081485.013300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1610084461.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xoeT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I was curious to see if I could make a data structure using nothing but lambdas, and I came up with these JavaScript snippets:\n\n(H)=>((F)=>F(F)())((S,V,P)=>(X)=>X?S(S,X,S(S,V,P)):(H(V),P||S(S)))\n\n(H)=>((F)=>F(F)())((Q,V,N)=>(X)=>X?Q(Q,V,Q(Q,X,N)):(H(V),N||Q(Q)))\n\nTry this in your browser debugger:\n\n(...either snippet here...)(console.log)(1)(2)(3)()(4)()()(5)()()()()()()(8)()()"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610081485.013300",
+    "reply_count": 6,
+    "reply_users_count": 2,
+    "latest_reply": "1610399706.030700",
+    "reply_users": [
+      "UAVCC2X70",
+      "UDQKHNP51"
+    ],
+    "replies": [
+      {
+        "user": "UAVCC2X70",
+        "ts": "1610084371.028300"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1610104495.029200"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1610125553.029400"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1610352456.030100"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1610399524.030300"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1610399706.030700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "scream",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-functional-programming",
+    "channel_id": "C0133ED5811"
+  },
+  {
+    "type": "message",
+    "text": "And here's my attempt at a Turing machine",
+    "files": [
+      {
+        "id": "F01J8TL9S3U",
+        "created": 1610084369,
+        "timestamp": 1610084369,
+        "name": "20210107_213358.jpg",
+        "title": "20210107_213358.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UAVCC2X70",
+        "editable": false,
+        "size": 117455,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01J8TL9S3U/20210107_213358.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01J8TL9S3U/download/20210107_213358.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_64.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_80.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_360.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 143,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_480.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 191,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_160.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_720.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 286,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_800.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 318,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_960.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 381,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F01J8TL9S3U-9f250c092c/20210107_213358_1024.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 407,
+        "original_w": 2674,
+        "original_h": 1062,
+        "thumb_tiny": "AwATADCyQKaeO5pS2BTCxPtUFC59/wBaTOO/60DmjigQm7/OaaSPWlNNNAyWg0UGgBMAnOKTA9KWg0AMPB4pppx6000Af//Z",
+        "permalink": "https://futureofcoding.slack.com/files/UAVCC2X70/F01J8TL9S3U/20210107_213358.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01J8TL9S3U-bb53c94e7f",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UAVCC2X70",
+    "display_as_bot": false,
+    "ts": "1610084371.028300",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qh8xk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And here's my attempt at a Turing machine"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "a224c6ff-729f-4fc5-af84-d8adeb76c46c",
+    "thread_ts": "1610081485.013300",
+    "parent_user_id": "UAVCC2X70",
+    "reactions": [
+      {
+        "name": "sob",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-functional-programming",
+    "channel_id": "C0133ED5811"
+  },
+  {
+    "client_msg_id": "FD67B8B4-184C-47C9-99F1-5F607F3C1DCE",
+    "type": "message",
+    "text": "First thing that comes to mind whenever people talk about the future of versioning, SDKs and a malleable public API ecosystem is the Unison project: I believe <@U01F5UR4R1C> would be the guy to ask about that. Seems like a particularly good model for your app domain as you will be the ones controlling the entire stack for the development of these drivers (correct me if I'm wrong). On the topic of service announcement and registration, unfortunately only WSDL comes to mind (sadly). ",
+    "user": "UG0EL18H3",
+    "ts": "1610084994.472000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "25cc47143833",
+      "image_72": "https://avatars.slack-edge.com/2019-08-01/702360681283_25cc471438337c72e600_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Rabl",
+      "display_name": "crabl",
+      "team": "T5TCAFTA9",
+      "name": "chris.rabl",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Mr+V3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "First thing that comes to mind whenever people talk about the future of versioning, SDKs and a malleable public API ecosystem is the Unison project: I believe "
+              },
+              {
+                "type": "user",
+                "user_id": "U01F5UR4R1C"
+              },
+              {
+                "type": "text",
+                "text": " would be the guy to ask about that. Seems like a particularly good model for your app domain as you will be the ones controlling the entire stack for the development of these drivers (correct me if I'm wrong). On the topic of service announcement and registration, unfortunately only WSDL comes to mind (sadly). "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "726842d1-aa93-4b4a-b66c-3860ebcf5727",
+    "type": "message",
+    "text": "<@UD6EXQVM0> There is the eternal issue with the \"Open Source\" label that it is used for two different things: the legal status of source code, and the social structures of its development (the famous \"bazaar\"). My example was meant to illustrate why the bazaar model doesn't encourage technical innovation.\n\nThe legal and social perspectives of Open Source are orthgonal issues at first sight, but in practice, most Open Source projects rely on both the legal and the social part. One way to frame recent criticisms of Open Source, including <@U6KQ2S410>'s as I understand it, is the lack (so far) of other social structures that can predictably and reliably produce software that is legally Open Source. In particular structures that are more compatible with innovation.",
+    "user": "UJBAJNFLK",
+    "ts": "1610093128.460900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6Pi8Y",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UD6EXQVM0"
+              },
+              {
+                "type": "text",
+                "text": " There is the eternal issue with the \"Open Source\" label that it is used for two different things: the legal status of source code, and the social structures of its development (the famous \"bazaar\"). My example was meant to illustrate why the bazaar model doesn't encourage technical innovation.\n\nThe legal and social perspectives of Open Source are orthgonal issues at first sight, but in practice, most Open Source projects rely on both the legal and the social part. One way to frame recent criticisms of Open Source, including "
+              },
+              {
+                "type": "user",
+                "user_id": "U6KQ2S410"
+              },
+              {
+                "type": "text",
+                "text": "'s as I understand it, is the lack (so far) of other social structures that can predictably and reliably produce software that is legally Open Source. In particular structures that are more compatible with innovation."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609787901.435600",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1cbe4205-e5d7-4825-97c5-57b0fddd1936",
+    "type": "message",
+    "text": "<@UD6EXQVM0> thanks for reading ! I'll take them from the top ...",
+    "user": "U01JTCA3KS4",
+    "ts": "1610097292.433200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qR7Si",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UD6EXQVM0"
+              },
+              {
+                "type": "text",
+                "text": " thanks for reading ! I'll take them from the top ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "55151bba-9094-48a0-afed-8c891ecfeed0",
+    "type": "message",
+    "text": "\"baggage\" : yes, the idea is that effectively the version control history of the software and the software are one and the same, i.e. a program is a gigantic sphere composed entirely of sticky plasters. I honestly don't know if this scheme is workable at all for real projects - that's kind of why I'm building it, to find out. My thoughts are that it can be made to work, because : 1) usually when I want to modify a program, I'll be able to narrow my focus down to the feature that causes the behaviour I want to change, and its ancestors/descendants, leaving all other code out of consideration; in my metaphor above, that means zeroing in on the one sticky plaster that matters, understanding how it works, and adding another sticky plaster 2) I can imagine optimisations where we detect 'dead code' (that can no longer run) and get rid of it / archive it / something like that; 3) something clever that we'll invent when we run into the need for it ?",
+    "user": "U01JTCA3KS4",
+    "ts": "1610097867.433400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4xJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"baggage\" : yes, the idea is that effectively the version control history of the software and the software are one and the same, i.e. a program is a gigantic sphere composed entirely of sticky plasters. I honestly don't know if this scheme is workable at all for real projects - that's kind of why I'm building it, to find out. My thoughts are that it can be made to work, because : 1) usually when I want to modify a program, I'll be able to narrow my focus down to the feature that causes the behaviour I want to change, and its ancestors/descendants, leaving all other code out of consideration; in my metaphor above, that means zeroing in on the one sticky plaster that matters, understanding how it works, and adding another sticky plaster 2) I can imagine optimisations where we detect 'dead code' (that can no longer run) and get rid of it / archive it / something like that; 3) something clever that we'll invent when we run into the need for it ?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0b0511fd-011d-4ec1-8255-be7f36a4394d",
+    "type": "message",
+    "text": "Abstract types are my response to a historical event in our own code base, when we moved from 32-bit to 64-bit. I realised there were lots of uses of \"int\" where the author genuinely did not care how many bits were used (\"just use enough bits !\"), but lots of other cases where they did genuinely care, because reasons. So I wanted to be able to distinguish between these - therefore in zero when I say \"i32\" I mean \"signed integer with 32 bits\" but when I say \"int\" I mean \"integer\" which means \"signed or unsigned, and I don't care how many bits you use, *figure it out*\"",
+    "user": "U01JTCA3KS4",
+    "ts": "1610098098.433600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MoeW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Abstract types are my response to a historical event in our own code base, when we moved from 32-bit to 64-bit. I realised there were lots of uses of \"int\" where the author genuinely did not care how many bits were used (\"just use enough bits !\"), but lots of other cases where they did genuinely care, because reasons. So I wanted to be able to distinguish between these - therefore in zero when I say \"i32\" I mean \"signed integer with 32 bits\" but when I say \"int\" I mean \"integer\" which means \"signed or unsigned, and I don't care how many bits you use, *figure it out*\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "bbc2cb2d-4fe2-4c5c-ae03-74faea71c72a",
+    "type": "message",
+    "text": "They're also a throwback to my compsci dissertation which was on something called Order Sorted Algebras, which proposed a different meaning for \"subtyping\"; saying \"A is a subtype of B\" means \"every A is a B, but not every B is an A\", i.e. \"Square is a subtype of Rect\", even though Square has one property and Rect has two.",
+    "user": "U01JTCA3KS4",
+    "ts": "1610098167.433800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ydr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "They're also a throwback to my compsci dissertation which was on something called Order Sorted Algebras, which proposed a different meaning for \"subtyping\"; saying \"A is a subtype of B\" means \"every A is a B, but not every B is an A\", i.e. \"Square is a subtype of Rect\", even though Square has one property and Rect has two."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2eca67c4-b08f-47d4-a7b4-b356f24be46b",
+    "type": "message",
+    "text": "So I can write a bunch of code using the 'number' abstract type, and if it gets compiled for a TPU that's great at 16-bit floats, it will use those, but if it gets compiled for an FPGA that can only do 8-bit integers, it will use those instead. That's the general idea.",
+    "user": "U01JTCA3KS4",
+    "ts": "1610098257.434000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01JTCA3KS4",
+      "ts": "1610100786.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4ji",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So I can write a bunch of code using the 'number' abstract type, and if it gets compiled for a TPU that's great at 16-bit floats, it will use those, but if it gets compiled for an FPGA that can only do 8-bit integers, it will use those instead. That's the general idea."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "47272232-9471-4e14-8ac2-1542bbeb17f7",
+    "type": "message",
+    "text": "\"when we run main(), we get a friendly little beep at the same time\" : yes, the two tasks run concurrently. There's a bunch of work to do on how to manage conflicts between features that don't know about each other (eg. what if two separate tasks both play audio or write text at the same time - how do we resolve that ?) but I'm assuming they can be resolved",
+    "user": "U01JTCA3KS4",
+    "ts": "1610098554.434200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pZp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"when we run main(), we get a friendly little beep at the same time\" : yes, the two tasks run concurrently. There's a bunch of work to do on how to manage conflicts between features that don't know about each other (eg. what if two separate tasks both play audio or write text at the same time - how do we resolve that ?) but I'm assuming they can be resolved"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "3c0a35ce-30fc-46ef-844a-89443bc6315b",
+    "type": "message",
+    "text": "\"What is the meaning of all those dollar signs?\" Actually those are borrowed from the first language I ever programmed in, BBC BASIC - they're pronounced \"string\", so i$ would be \"i-string\". I hit on that as the character to use because it felt like the right thing, but I'm not especially wedded to that specific character. \"int i$\" means \"a task that generates a stream of int over multiple frames\" ('frames' =&gt; clock ticks or whatever - that's not fully elucidated in the document yet). For the moment you can think of them as generators. I'm also not crazy about the \"&lt;&lt;\" but I've yet to think of something better. Open to suggestions.",
+    "user": "U01JTCA3KS4",
+    "ts": "1610098683.434400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01JTCA3KS4",
+      "ts": "1610098729.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OfGT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"What is the meaning of all those dollar signs?\" Actually those are borrowed from the first language I ever programmed in, BBC BASIC - they're pronounced \"string\", so i$ would be \"i-string\". I hit on that as the character to use because it felt like the right thing, but I'm not especially wedded to that specific character. \"int i$\" means \"a task that generates a stream of int over multiple frames\" ('frames' => clock ticks or whatever - that's not fully elucidated in the document yet). For the moment you can think of them as generators. I'm also not crazy about the \"<<\" but I've yet to think of something better. Open to suggestions."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "5cd577d6-ff93-45bf-a814-c215c987902a",
+    "type": "message",
+    "text": "\"\"results are named, and assignment of the result terminates the function\" it sounds like you're breaking tradition in a confusing unhelpful way\" - I did agonise over this for a while. It's actually a response to the huge mess in C++ over their recent move semantics - I wanted to break from the idea that there is an implicit stack and we're copying things around, and make it feel more like \"writing results to a variable that already exists\", the way we do in assembly language, or \"term rewriting\", where the intent is more like \"when you see this pattern, replace it with this pattern\". Also, in most C++ code I write, I invariably end up declaring a named variable eg \"result\" and then going \"return result\" at the end. So this just makes that cleaner. I also like that it lets me use very similar notation for functions and tasks, with just the operator (= or &lt;&lt;) changing.  I definitely take your point that it is different, but for the moment I'm giving myself permission to break tradition wherever it feels right !",
+    "user": "U01JTCA3KS4",
+    "ts": "1610099279.434700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "S2hz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"\"results are named, and assignment of the result terminates the function\" it sounds like you're breaking tradition in a confusing unhelpful way\" - I did agonise over this for a while. It's actually a response to the huge mess in C++ over their recent move semantics - I wanted to break from the idea that there is an implicit stack and we're copying things around, and make it feel more like \"writing results to a variable that already exists\", the way we do in assembly language, or \"term rewriting\", where the intent is more like \"when you see this pattern, replace it with this pattern\". Also, in most C++ code I write, I invariably end up declaring a named variable eg \"result\" and then going \"return result\" at the end. So this just makes that cleaner. I also like that it lets me use very similar notation for functions and tasks, with just the operator (= or <<) changing.  I definitely take your point that it is different, but for the moment I'm giving myself permission to break tradition wherever it feels right !"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "16db9631-c071-48e4-a82d-eaf131b0d743",
+    "type": "message",
+    "text": "\"inner\" function that isn't inner - yeah, I think you're right there; or maybe the other way round, that they're outer by default, but you can make them inner somehow. Where this comes from is that I noticed that when I'm writing C++ code in a straight line, I invariably end up with blocks of code that look like\n```// now I'm going to do something with (x)\nstatement1(x);\nstatement2(x);\nstatement3(x);```\nand then later on I think \"wow, I should really make that into a function\", but I'm too busy and lazy and whatever, and it's a pain in the arse, so I don't do it. Or, worse, I do it, and now the code (statement1-3) is somewhere else, and to understand what's happening I have to jump to another bit of code, and it's just ... klunky. Hence the idea of combined call-and-define; instead of the above, I just do\n```doSomething(x)\n    statement1(x)\n    statement2(x)\n    statement3(x)```\nIt's *definitely* a weird / quirky / controversial thing to do, but actually once you start writing code like that, it feels natural - you're not breaking flow all the time to create functions, you just create them and use them in the same breath.",
+    "user": "U01JTCA3KS4",
+    "ts": "1610099666.434900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01JTCA3KS4",
+      "ts": "1610101389.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cDi5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"inner\" function that isn't inner - yeah, I think you're right there; or maybe the other way round, that they're outer by default, but you can make them inner somehow. Where this comes from is that I noticed that when I'm writing C++ code in a straight line, I invariably end up with blocks of code that look like\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "// now I'm going to do something with (x)\nstatement1(x);\nstatement2(x);\nstatement3(x);"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "and then later on I think \"wow, I should really make that into a function\", but I'm too busy and lazy and whatever, and it's a pain in the arse, so I don't do it. Or, worse, I do it, and now the code (statement1-3) is somewhere else, and to understand what's happening I have to jump to another bit of code, and it's just ... klunky. Hence the idea of combined call-and-define; instead of the above, I just do\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "doSomething(x)\n    statement1(x)\n    statement2(x)\n    statement3(x)"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's "
+              },
+              {
+                "type": "text",
+                "text": "definitely",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " a weird / quirky / controversial thing to do, but actually once you start writing code like that, it feels natural - you're not breaking flow all the time to create functions, you just create them and use them in the same breath."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "1c2c07fc-8d96-45c6-b3cd-df35adcb9776",
+    "type": "message",
+    "text": "Not sure I understand what you are trying to build.\nDo you intend to proxy the calls through the \"platform\"? Something like an <https://microservices.io/patterns/apigateway.html|API Gateway>?\nFor service specification I imagine you would have to use some form of IDL.",
+    "user": "UN9SCH5RD",
+    "ts": "1610099905.472600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "microservices.io",
+        "title": "Microservices Pattern: API gateway pattern",
+        "title_link": "https://microservices.io/patterns/apigateway.html",
+        "text": "An API gateway acts a single entry point into the application, routing and composing requests to services",
+        "fallback": "microservices.io: Microservices Pattern: API gateway pattern",
+        "image_url": "http://microservices.io/i/apigateway.jpg",
+        "from_url": "https://microservices.io/patterns/apigateway.html",
+        "image_width": 339,
+        "image_height": 250,
+        "image_bytes": 119785,
+        "id": 1,
+        "original_url": "https://microservices.io/patterns/apigateway.html"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EzNWH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Not sure I understand what you are trying to build.\nDo you intend to proxy the calls through the \"platform\"? Something like an "
+              },
+              {
+                "type": "link",
+                "url": "https://microservices.io/patterns/apigateway.html",
+                "text": "API Gateway"
+              },
+              {
+                "type": "text",
+                "text": "?\nFor service specification I imagine you would have to use some form of IDL."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a29814de-f8fa-4f02-8a9a-c550187f41c2",
+    "type": "message",
+    "text": "\"Ordinary functions cannot accept arrays? How is this not a crippling restriction?\" - yes, definitely, this one is an eyebrow-raiser. Functions are defined as \"operations on values of rank 0 only\".\nThe motivation is that (combined with array variable names having to end with square brackets) it gives us a very clean syntax for map and reduce operations; so I can look at\n```c = a + b```\nand know immediately that this is a singular operation, because c, a and b are singular values; I don't have to go back and see where they were declared to figure out what their array-rank is (which is a constant source of confusion for me in numpy, C++, etc). Conversely, when I see\n```c[] = a[] + b[]```\nI know immediately that it's a mapping operation, because I know \"+\" only takes singular values.\nThe reason this isn't crippling is that structure properties can be arrays, so I can \"smuggle\" an array into a function by wrapping it in a structure; but crucially, this manoeuvre forces me to specify semantics. So, for instance, if I have an array of vertices and I want to perform some operation on them, I have to wrap them into another structure (eg. Mesh) and now they are properly typed, so I know what's going on.\nWhat's not good about this (apart from it being super weird compared to all existing languages, which as you may have guessed by now isn't my major concern :wink:) is that I'm still unsure how to specify actual array-modifying operations like concatenation, slicing, and so on. I've got a few ideas, of course.",
+    "user": "U01JTCA3KS4",
+    "ts": "1610100102.435100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01JTCA3KS4",
+      "ts": "1610101462.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2pvm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"Ordinary functions cannot accept arrays? How is this not a crippling restriction?\" - yes, definitely, this one is an eyebrow-raiser. Functions are defined as \"operations on values of rank 0 only\".\nThe motivation is that (combined with array variable names having to end with square brackets) it gives us a very clean syntax for map and reduce operations; so I can look at\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "c = a + b"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "and know immediately that this is a singular operation, because c, a and b are singular values; I don't have to go back and see where they were declared to figure out what their array-rank is (which is a constant source of confusion for me in numpy, C++, etc). Conversely, when I see\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "c[] = a[] + b[]"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I know immediately that it's a mapping operation, because I know \"+\" only takes singular values.\nThe reason this isn't crippling is that structure properties can be arrays, so I can \"smuggle\" an array into a function by wrapping it in a structure; but crucially, this manoeuvre forces me to specify semantics. So, for instance, if I have an array of vertices and I want to perform some operation on them, I have to wrap them into another structure (eg. Mesh) and now they are properly typed, so I know what's going on.\nWhat's not good about this (apart from it being super weird compared to all existing languages, which as you may have guessed by now isn't my major concern "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              },
+              {
+                "type": "text",
+                "text": ") is that I'm still unsure how to specify actual array-modifying operations like concatenation, slicing, and so on. I've got a few ideas, of course."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UD6EXQVM0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "6a7d213b-2427-49f1-a6c9-2a1735cdd83b",
+    "type": "message",
+    "text": "<@UD6EXQVM0> \"I would further argue that people like me shouldn't have to be businessmen and shouldn't have to found \"startups\" and spend our time fundraising from VCs and wealthy \"angels\". My passion is software, not business\" while I can sympathise with this idea, I really do think its quite a selfish statement. Niklas Luhman has this idea of System Theory and Sociology , in which he says the following about structures and functions within societies: a function is needed in a society so a structure will emerge to support that function. So you always have to ask yourself, what can be a good balance between your needs and the needs of society. I do thikn the idea of a universal basic income could be a major driver for positive change in society. But there are many people in most societies who do not think this way.",
+    "user": "UJFN50C00",
+    "ts": "1610100440.461100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cMFb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UD6EXQVM0"
+              },
+              {
+                "type": "text",
+                "text": " \"I would further argue that people like me shouldn't have to be businessmen and shouldn't have to found \"startups\" and spend our time fundraising from VCs and wealthy \"angels\". My passion is software, not business\" while I can sympathise with this idea, I really do think its quite a selfish statement. Niklas Luhman has this idea of System Theory and Sociology , in which he says the following about structures and functions within societies: a function is needed in a society so a structure will emerge to support that function. So you always have to ask yourself, what can be a good balance between your needs and the needs of society. I do thikn the idea of a universal basic income could be a major driver for positive change in society. But there are many people in most societies who do not think this way."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609787901.435600",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "74ce0b8e-8a73-4496-a7f2-141fa5d3a34a",
+    "type": "message",
+    "text": "\"a task is a pair of values; one is being read from (the 'current' value) and the other is being written to\" - sure, it could be a queue, and probably will end up going that way. This came from the graphics thing of \"front buffer and back buffer\", the idea that one value is being read while the other is being written, and they swap over at a specific and precise time, even if the computation of the new value is slow, or happens earlier, or both. In fact, under the hood, most of the time we can optimise that away, if there are no concurrent reads happening; and then for things like lexers we can imagine wanting to look forward or backwards in time, so yeah, a queue or another structure under the hood is a great idea. I just haven't got to that part yet !",
+    "user": "U01JTCA3KS4",
+    "ts": "1610100470.435400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01JTCA3KS4",
+      "ts": "1610101002.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "G1J",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"a task is a pair of values; one is being read from (the 'current' value) and the other is being written to\" - sure, it could be a queue, and probably will end up going that way. This came from the graphics thing of \"front buffer and back buffer\", the idea that one value is being read while the other is being written, and they swap over at a specific and precise time, even if the computation of the new value is slow, or happens earlier, or both. In fact, under the hood, most of the time we can optimise that away, if there are no concurrent reads happening; and then for things like lexers we can imagine wanting to look forward or backwards in time, so yeah, a queue or another structure under the hood is a great idea. I just haven't got to that part yet !"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "089f9d5d-54dd-46b9-9acb-f957e7419760",
+    "type": "message",
+    "text": "re. Halide, I haven't looked at it in depth, but it's awesome. Thanks for the tip, will study that a bit more.",
+    "user": "U01JTCA3KS4",
+    "ts": "1610100556.435600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "babdabd7b38c",
+      "image_72": "https://avatars.slack-edge.com/2021-01-06/1621863966308_babdabd7b38cb4a684ae_72.jpg",
+      "first_name": "",
+      "real_name": "Ash Nehru",
+      "display_name": "Ash Nehru",
+      "team": "T5TCAFTA9",
+      "name": "ash.nehru",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9O7id",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "re. Halide, I haven't looked at it in depth, but it's awesome. Thanks for the tip, will study that a bit more."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609998978.426800",
+    "parent_user_id": "U01JTCA3KS4",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "864c6fcf-9fe8-4939-961a-b8b7da55c5e9",
+    "type": "message",
+    "text": "Also very good to see that <@UJBAJNFLK> observes that we need to really clarify about what we are talking when talking about\"open source\".",
+    "user": "UJFN50C00",
+    "ts": "1610100912.461300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "y73Vf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also very good to see that "
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " observes that we need to really clarify about what we are talking when talking about\"open source\"."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609787901.435600",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "0d2c3ee7-cfb5-4694-9d97-26d52193ecae",
+    "type": "message",
+    "text": "<@UT60XSVCN> whats your thoughts on it?",
+    "user": "UJFN50C00",
+    "ts": "1610101000.472900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jnKI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UT60XSVCN"
+              },
+              {
+                "type": "text",
+                "text": " whats your thoughts on it?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609933496.428100",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "340e381c-e3cf-4d7a-8232-6e4423bf74b6",
+    "type": "message",
+    "text": "is this Church encoding?",
+    "user": "UDQKHNP51",
+    "ts": "1610104495.029200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g3074e1515db",
+      "image_72": "https://secure.gravatar.com/avatar/b3074e1515db1a3d79acf5d954eac0d1.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Lucian Ursu",
+      "display_name": "elbear",
+      "team": "T5TCAFTA9",
+      "name": "lucian.ursu",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bUJw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "is this Church encoding?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610081485.013300",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "of-functional-programming",
+    "channel_id": "C0133ED5811"
+  },
+  {
+    "client_msg_id": "D6B82F90-853B-401C-90E5-52F39980CBE9",
+    "type": "message",
+    "text": "yeah! i’m talking about exactly the part where you’re working out whether tree indexing or scope determination comes first—that’s the part i was curious about whether there were any examples of languages with those tools built in",
+    "user": "UHWC9PXBL",
+    "ts": "1610121870.474900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0UeGT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yeah! i’m talking about exactly the part where you’re working out whether tree indexing or scope determination comes first—that’s the part i was curious about whether there were any examples of languages with those tools built in"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1608395248.354400",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "83C0CD31-E745-4DC9-B7F5-73B1625AFB9D",
+    "type": "message",
+    "text": "hm. this smells like cambria to me: <https://www.inkandswitch.com/cambria.html|https://www.inkandswitch.com/cambria.html> (at least as far as versioning goes)",
+    "user": "UHWC9PXBL",
+    "ts": "1610122434.475900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Project Cambria: Translate your data with lenses",
+        "title_link": "https://www.inkandswitch.com/cambria.html",
+        "text": "Changing schemas in distributed software is hard. Could adopting bidirectional lenses help?",
+        "fallback": "Project Cambria: Translate your data with lenses",
+        "image_url": "https://inkandswitch.com/media/cambria/unfurl.jpg",
+        "from_url": "https://www.inkandswitch.com/cambria.html",
+        "image_width": 419,
+        "image_height": 250,
+        "image_bytes": 88127,
+        "service_name": "inkandswitch.com",
+        "id": 1,
+        "original_url": "https://www.inkandswitch.com/cambria.html"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t=x5F",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "hm. this smells like cambria to me: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.inkandswitch.com/cambria.html",
+                "text": "https://www.inkandswitch.com/cambria.html"
+              },
+              {
+                "type": "text",
+                "text": " (at least as far as versioning goes)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fcf91124-80fc-405e-ac51-b46757365146",
+    "type": "message",
+    "text": "It's JavaScript syntax. Which might happen to be close? The c?t:f is the ternary conditional operator, which in a LISP is more like: (IF, c, (t), (f))",
+    "user": "UAVCC2X70",
+    "ts": "1610125553.029400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8fQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's JavaScript syntax. Which might happen to be close? The c?t:f is the ternary conditional operator, which in a LISP is more like: (IF, c, (t), (f))"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610081485.013300",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "of-functional-programming",
+    "channel_id": "C0133ED5811"
+  },
+  {
+    "client_msg_id": "3437bd81-9487-44e6-851f-359d0d8b9715",
+    "type": "message",
+    "text": "Ooh I'll have to check this out soon! <@U01GPM3BY4R> do you think something like this would translate well to a VR environment? I've been exploring some VR apps, but haven't found many that use mechanical metaphors for programming",
+    "user": "U013866H7LY",
+    "ts": "1610134960.436500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d1dd97f527ea",
+      "image_72": "https://avatars.slack-edge.com/2020-07-16/1246051744354_d1dd97f527eae7f5a753_72.jpg",
+      "first_name": "Zach",
+      "real_name": "Zach Potter",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "zspotting",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pkiI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ooh I'll have to check this out soon! "
+              },
+              {
+                "type": "user",
+                "user_id": "U01GPM3BY4R"
+              },
+              {
+                "type": "text",
+                "text": " do you think something like this would translate well to a VR environment? I've been exploring some VR apps, but haven't found many that use mechanical metaphors for programming"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609951702.421800",
+    "parent_user_id": "U01GPM3BY4R",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "d020b209-0f3b-4fe0-9115-b619676ddc93",
+    "type": "message",
+    "text": "<@U013866H7LY> I think VR could be really cool, to create the (in progress) printer in the video I didn't have to enter a single line of code, all the design, the motion and logic are entirely visual so it's quite a good fit for VR I think. There are a few things that I want to implement first, because I promised people (like avatar mode from my first video on youtube) but I'll definitely give VR a shot at some point.",
+    "user": "U01GPM3BY4R",
+    "ts": "1610135960.436700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "37dd3248d4e1",
+      "image_72": "https://avatars.slack-edge.com/2021-10-22/2659944513472_37dd3248d4e11b1be060_72.jpg",
+      "first_name": "",
+      "real_name": "Felipe Reigosa",
+      "display_name": "Felipe Reigosa",
+      "team": "T5TCAFTA9",
+      "name": "felipereigosa",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01GPM3BY4R",
+      "ts": "1610136285.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WqE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U013866H7LY"
+              },
+              {
+                "type": "text",
+                "text": " I think VR could be really cool, to create the (in progress) printer in the video I didn't have to enter a single line of code, all the design, the motion and logic are entirely visual so it's quite a good fit for VR I think. There are a few things that I want to implement first, because I promised people (like avatar mode from my first video on youtube) but I'll definitely give VR a shot at some point."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609951702.421800",
+    "parent_user_id": "U01GPM3BY4R",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013866H7LY",
+          "UA14TGLTC",
+          "UBSMEUXAA"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "a40743ea-567a-4e40-8c93-581126fcc1c0",
+    "type": "message",
+    "text": ":smile: will keep an eye on things either way",
+    "user": "U013866H7LY",
+    "ts": "1610138774.437100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d1dd97f527ea",
+      "image_72": "https://avatars.slack-edge.com/2020-07-16/1246051744354_d1dd97f527eae7f5a753_72.jpg",
+      "first_name": "Zach",
+      "real_name": "Zach Potter",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "zspotting",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zkCm2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": " will keep an eye on things either way"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609951702.421800",
+    "parent_user_id": "U01GPM3BY4R",
+    "reactions": [
+      {
+        "name": "grin",
+        "users": [
+          "U01GPM3BY4R"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U01GPM3BY4R"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "27c73477-e245-47cb-910c-31e7897a2626",
+    "type": "message",
+    "text": "Yeah, stay tuned, the second part of the printer, reading cartridges to print different things that you can swap out will look cool I think, I'll make a full build video once it's done, including how I built the 7 segment displays from scratch. And thanks for bringing up the VR stuff, people keep mentioning it so just now I sent an email to my university's VR lab, maybe they want to collaborate or something.",
+    "user": "U01GPM3BY4R",
+    "ts": "1610139292.437500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "37dd3248d4e1",
+      "image_72": "https://avatars.slack-edge.com/2021-10-22/2659944513472_37dd3248d4e11b1be060_72.jpg",
+      "first_name": "",
+      "real_name": "Felipe Reigosa",
+      "display_name": "Felipe Reigosa",
+      "team": "T5TCAFTA9",
+      "name": "felipereigosa",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01GPM3BY4R",
+      "ts": "1610139341.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "D+ee",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, stay tuned, the second part of the printer, reading cartridges to print different things that you can swap out will look cool I think, I'll make a full build video once it's done, including how I built the 7 segment displays from scratch. And thanks for bringing up the VR stuff, people keep mentioning it so just now I sent an email to my university's VR lab, maybe they want to collaborate or something."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609951702.421800",
+    "parent_user_id": "U01GPM3BY4R",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "28d863ed-f215-44f0-9efd-15bd735735ae",
+    "type": "message",
+    "text": "Macro macro macro! :grinning: <https://youtu.be/2JM7RAj8Nc4>\n(Please do pause the video as necessary to figure out what is happening in that first demo.)",
+    "user": "UD6EXQVM0",
+    "ts": "1610142886.167600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1610146354.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "The Macro Macro! (December 2020 Week 1)",
+        "title_link": "https://youtu.be/2JM7RAj8Nc4",
+        "author_name": "David Piepgrass",
+        "author_link": "https://www.youtube.com/channel/UCE11bX-pdzvpNtYjgkBclcQ",
+        "thumb_url": "https://i.ytimg.com/vi/2JM7RAj8Nc4/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: The Macro Macro! (December 2020 Week 1)",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/2JM7RAj8Nc4?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/2JM7RAj8Nc4",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/2JM7RAj8Nc4"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RMi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Macro macro macro! "
+              },
+              {
+                "type": "emoji",
+                "name": "grinning"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/2JM7RAj8Nc4"
+              },
+              {
+                "type": "text",
+                "text": "\n(Please do pause the video as necessary to figure out what is happening in that first demo.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610142886.167600",
+    "reply_count": 14,
+    "reply_users_count": 4,
+    "latest_reply": "1619584621.053000",
+    "reply_users": [
+      "UD6EXQVM0",
+      "UDQBTJ211",
+      "U01661S9F34",
+      "UJN1TAYEQ"
+    ],
+    "replies": [
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610171076.168000"
+      },
+      {
+        "user": "UDQBTJ211",
+        "ts": "1610305720.169900"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610315969.170100"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610391125.171400"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610591910.000100"
+      },
+      {
+        "user": "U01661S9F34",
+        "ts": "1610662040.001200"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610686189.001700"
+      },
+      {
+        "user": "U01661S9F34",
+        "ts": "1610688122.002900"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610689533.003500"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610690424.003800"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610691792.004200"
+      },
+      {
+        "user": "U01661S9F34",
+        "ts": "1610696797.005500"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1618838765.012900"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1619584621.053000"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "b746f701-368d-4410-b39c-8f766a8ebea1",
+    "type": "message",
+    "text": "I don't remember if I played with this before, but wow it is amazing! Great stuff.",
+    "user": "UMVFWPZ36",
+    "ts": "1610147826.185700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ckyH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I don't remember if I played with this before, but wow it is amazing! Great stuff."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1609519757.183300",
+    "parent_user_id": "USH01JEDQ",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "E3BFF80D-71CE-4DAB-8668-45CD33D51606",
+    "type": "message",
+    "text": "I don’t really understand what you’re trying to build. The API is going to be different depending on the registration info provided? The registration info is provided programmatically (by client software) and you want the client to be able to compute the resultant API’s type/interface so static checking can be performed? If so, it sounds like your language needs a specially-crafted type system. The next step would be to show some examples of the types you want to be computed for specific registration info (inputs).",
+    "user": "UCGAK10LS",
+    "ts": "1610150064.482300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1610150095.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LnXY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I don’t really understand what you’re trying to build. The API is going to be different depending on the registration info provided? The registration info is provided programmatically (by client software) and you want the client to be able to compute the resultant API’s type/interface so static checking can be performed? If so, it sounds like your language needs a specially-crafted type system. The next step would be to show some examples of the types you want to be computed for specific registration info (inputs)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1610067746.465300",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
