@@ -1,0 +1,695 @@
+[
+  {
+    "client_msg_id": "3c32434d-2468-4f40-9673-680f53f12f06",
+    "type": "message",
+    "text": "My parser failed on your original question and on the rephrasing, but there's probably something interesting here.  So on the rephrasing, it's the second half.  How can there be \"other inputs\" not included in the list of \"all inputs\"?  (I mean there is more than one way to try to interpret \"other\" here.)  What follows doesn't \"the same result as if you had asked the original program whether the inputs were valid\" help.  Here \"the\" is ambiguous since we're talking about all the ones that led to a given output *and* other inputs too.",
+    "user": "UA14TGLTC",
+    "ts": "1654831932.698139",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BcCn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My parser failed on your original question and on the rephrasing, but there's probably something interesting here.  So on the rephrasing, it's the second half.  How can there be \"other inputs\" not included in the list of \"all inputs\"?  (I mean there is more than one way to try to interpret \"other\" here.)  What follows doesn't \"the same result as if you had asked the original program whether the inputs were valid\" help.  Here \"the\" is ambiguous since we're talking about all the ones that led to a given output "
+              },
+              {
+                "type": "text",
+                "text": "and",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " other inputs too."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1654711669.779349",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aee04b90-1572-41ef-947b-51cb39df7a8b",
+    "type": "message",
+    "text": "Fair. I neglected to mention that the answers from the first question are abstract, expressed as constraints. For example, if your code is the rules of Rock Paper Scissors, your first abstract query might be \"how can someone win a two player game\", and the abstract answers are in the form \" the first player throws rock, and the second player throws scissors, and the first player wins\". That would be one of the three possible abstract models that answer the hypothetical query. Now I know William and Jason played a game, and I know William threw rock. If what I want to know is who won a game, I have two options. I can run the same query again against the rules, with the concrete facts I have, and ask it to presume only that Jason threw something. Or, I can attempt to unify against the abstract models returned by the first query. Either way, the same two results will be returned. The one where Jason threw scissors, and the one where Jason threw paper. The complexity of the first query is exponential with regard to the complexity of the rules and the number of hypothetical inputs. The complexity of the second query is linear with the number of models I got from the first one, and exponential with the number of hypothesized inputs only. All the complexity that comes from the rules is avoided. I think. Maybe. :joy:",
+    "user": "U02U0AS3J49",
+    "ts": "1654833095.129749",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LEi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Fair. I neglected to mention that the answers from the first question are abstract, expressed as constraints. For example, if your code is the rules of Rock Paper Scissors, your first abstract query might be \"how can someone win a two player game\", and the abstract answers are in the form \" the first player throws rock, and the second player throws scissors, and the first player wins\". That would be one of the three possible abstract models that answer the hypothetical query. Now I know William and Jason played a game, and I know William threw rock. If what I want to know is who won a game, I have two options. I can run the same query again against the rules, with the concrete facts I have, and ask it to presume only that Jason threw something. Or, I can attempt to unify against the abstract models returned by the first query. Either way, the same two results will be returned. The one where Jason threw scissors, and the one where Jason threw paper. The complexity of the first query is exponential with regard to the complexity of the rules and the number of hypothetical inputs. The complexity of the second query is linear with the number of models I got from the first one, and exponential with the number of hypothesized inputs only. All the complexity that comes from the rules is avoided. I think. Maybe. "
+              },
+              {
+                "type": "emoji",
+                "name": "joy"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1654711669.779349",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2fa2ba03-a8f1-49cc-8500-f051d402e036",
+    "type": "message",
+    "text": "I think the complexity is just pushed into the number of models, so while the second query is linear in respect of this, I think this is still exponential with regards to the original parameters (number of unknown inputs).",
+    "user": "UDQBTJ211",
+    "ts": "1654850145.675449",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "o4v",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think the complexity is just pushed into the number of models, so while the second query is linear in respect of this, I think this is still exponential with regards to the original parameters (number of unknown inputs)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1654711669.779349",
+    "parent_user_id": "U02U0AS3J49",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "D86B8ECD-8959-4FF6-9C44-82A432195770",
+    "type": "message",
+    "text": "In general there’s no free lunch, but in general you aren’t in the general case.\n\nThe advantage of talking about the “models” like you have here is that matching against a given one is easy.  The disadvantage is that most programs, even not very interesting programs, are associated with a large number.  So you’re better off using a more compact formalism.  Probabilistic graphical models come to mind.\n\nOften there’s a sweet spot where rules in the code are relatively simple and the data structures encode irregularity without being too big.  I shared a good example the other day.\n\nSuppose you have a grid of squares and each square can be part of a path.  So seven labels: ┗,  ━, ┓, ┛, ┃, ┏, and blank.  You want to enumerate all closed loops.  You can simplify the problem by increasing the grid size to just represent horizontal edges, vertical edges, and intersections.\n\nLastly, the Yoneda Lemma formalizes the idea that you can characterize a thing by its relationships to similar things.  In practice you can use it to help figure out the right category of similar things or the right features to characterize or both simultaneously.",
+    "user": "UA14TGLTC",
+    "ts": "1654854872.646929",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UA14TGLTC",
+      "ts": "1654854897.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wjhE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In general there’s no free lunch, but in general you aren’t in the general case.\n\nThe advantage of talking about the “models” like you have here is that matching against a given one is easy.  The disadvantage is that most programs, even not very interesting programs, are associated with a large number.  So you’re better off using a more compact formalism.  Probabilistic graphical models come to mind.\n\nOften there’s a sweet spot where rules in the code are relatively simple and the data structures encode irregularity without being too big.  I shared a good example the other day.\n\nSuppose you have a grid of squares and each square can be part of a path.  So seven labels: ┗,  ━, ┓, ┛, ┃, ┏, and blank.  You want to enumerate all closed loops.  You can simplify the problem by increasing the grid size to just represent horizontal edges, vertical edges, and intersections.\n\nLastly, the Yoneda Lemma formalizes the idea that you can characterize a thing by its relationships to similar things.  In practice you can use it to help figure out the right category of similar things or the right features to characterize or both simultaneously."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1654711669.779349",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c55a3cae-16a6-4160-999f-93c4461361d3",
+    "type": "message",
+    "text": "I guess the article hints at and (for me at least) suggest that we start asking the question:\n*What do we want web3 to be?*\n Of course we could simply put it off and say its blockchain salad and instead simply push \"local-first\". I do think however that it is important to reflect on : where does a general negative feeling\" come from?\nHow did it get there? How do we create cultural narratives in a meaningful way.",
+    "user": "UJFN50C00",
+    "ts": "1654869700.239279",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UJFN50C00",
+      "ts": "1654869968.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YKAyp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I guess the article hints at and (for me at least) suggest that we start asking the question:\n"
+              },
+              {
+                "type": "text",
+                "text": "What do we want web3 to be?",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n Of course we could simply put it off and say its blockchain salad and instead simply push \"local-first\". I do think however that it is important to reflect on : where does a general negative feeling\" come from?\nHow did it get there? How do we create cultural narratives in a meaningful way."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1654787503.220689",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "dc884848-ffa9-4127-b66f-9169ad3e0c8e",
+    "type": "message",
+    "text": "The examples of \"networks of networks\" are a good start IMO:\n1. The <https://www.w3.org/TR/activitypub/|ActivityPub standard> for social networks and associated applications such as <https://mastodon.social/about|Mastodon>.\n2. A range of research projects from <https://www.inkandswitch.com/|Ink and Switch>, including an architecture for “<https://www.inkandswitch.com/pushpin/|local-first>” computing and <https://www.inkandswitch.com/cambria/|designs for interoperability across diverse programs>.\n3. A range of socially local identity systems, such as <https://spritelyproject.org/|Spritely>, <https://www.brightid.org/|BrightID>, and <https://www.inkandswitch.com/backchannel/|BackChannel>.\n4. <https://www.openmined.org/|Federated learning> and broader privacy-preserving machine learning.\n5. <https://en.wikipedia.org/wiki/Mesh_networking|Mesh networks>.\n6. <https://datacollaboratives.org/|Data collaboratives>, <https://hai.stanford.edu/news/radical-proposal-data-cooperatives-could-give-us-more-power-over-our-data|cooperatives>, and <https://www.bennettinstitute.cam.ac.uk/blog/data-trusts1/#:~:text=What%20is%20a%20data%20trust,of%20access%20to%20the%20data.|trusts>.\n7. <https://www.wikipedia.org/|Wikipedia> and wiki-based content structure more generally.\n8. Community content moderation systems, such as <https://www.reddit.com/|Reddit>.\n9. <https://link.springer.com/chapter/10.1007/978-3-642-10665-1_43|Community-first cloud computing>, file storage, and time-sharing.\n",
+    "user": "UJFN50C00",
+    "ts": "1654869761.531939",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.w3.org/TR/activitypub/",
+        "service_icon": "https://www.w3.org/favicon.ico",
+        "id": 1,
+        "original_url": "https://www.w3.org/TR/activitypub/",
+        "fallback": "ActivityPub",
+        "text": "The ActivityPub protocol is a decentralized social networking protocol based upon the [ActivityStreams] 2.0 data format. It provides a client to server API for creating, updating and deleting content, as well as a federated server to server API for delivering notifications and content.",
+        "title": "ActivityPub",
+        "title_link": "https://www.w3.org/TR/activitypub/",
+        "service_name": "w3.org"
+      },
+      {
+        "from_url": "https://www.inkandswitch.com/",
+        "thumb_url": "https://www.inkandswitch.com/assets/logo-favicon-196x196.png",
+        "thumb_width": 196,
+        "thumb_height": 196,
+        "service_icon": "https://www.inkandswitch.com/apple-touch-icon.png",
+        "id": 2,
+        "original_url": "https://www.inkandswitch.com/",
+        "fallback": "Ink &amp; Switch",
+        "text": "Industrial research lab working on digital tools for creativity and productivity",
+        "title": "Ink &amp; Switch",
+        "title_link": "https://www.inkandswitch.com/",
+        "service_name": "inkandswitch.com"
+      },
+      {
+        "from_url": "https://www.inkandswitch.com/pushpin/",
+        "ts": 1586822400,
+        "image_url": "https://www.inkandswitch.com/pushpin/static/pushpin.jpg",
+        "image_width": 382,
+        "image_height": 250,
+        "image_bytes": 503449,
+        "service_icon": "https://www.inkandswitch.com/apple-touch-icon.png",
+        "id": 3,
+        "original_url": "https://www.inkandswitch.com/pushpin/",
+        "fallback": "Pushpin: Towards Production-Quality Peer-to-Peer Collaboration",
+        "text": "Taking peer-to-peer beyond research prototypes, and working towards commercial-grade P2P collaboration software.",
+        "title": "Pushpin: Towards Production-Quality Peer-to-Peer Collaboration",
+        "title_link": "https://www.inkandswitch.com/pushpin/",
+        "service_name": "inkandswitch.com"
+      },
+      {
+        "from_url": "https://www.inkandswitch.com/cambria/",
+        "ts": 1601942400,
+        "image_url": "https://www.inkandswitch.com/cambria/static/phacopida.jpg",
+        "image_width": 419,
+        "image_height": 250,
+        "image_bytes": 88570,
+        "service_icon": "https://www.inkandswitch.com/apple-touch-icon.png",
+        "id": 4,
+        "original_url": "https://www.inkandswitch.com/cambria/",
+        "fallback": "Project Cambria: Translate your data with lenses",
+        "text": "Changing schemas in distributed software is hard. Could adopting bidirectional lenses help?",
+        "title": "Project Cambria: Translate your data with lenses",
+        "title_link": "https://www.inkandswitch.com/cambria/",
+        "service_name": "inkandswitch.com"
+      },
+      {
+        "from_url": "https://www.openmined.org/",
+        "image_url": "https://www.openmined.org/images/logo-twitter.png",
+        "image_width": 500,
+        "image_height": 250,
+        "image_bytes": 14819,
+        "service_icon": "https://www.openmined.org/apple-touch-icon.png",
+        "id": 5,
+        "original_url": "https://www.openmined.org/",
+        "fallback": "OpenMined",
+        "text": "OpenMined is an open-source community focused on researching, developing, and elevating tools for secure, privacy-preserving, value-aligned artificial intelligence.",
+        "title": "OpenMined",
+        "title_link": "https://www.openmined.org/",
+        "service_name": "OpenMined"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "y7Ia6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The examples of \"networks of networks\" are a good start IMO:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.w3.org/TR/activitypub/",
+                    "text": "ActivityPub standard"
+                  },
+                  {
+                    "type": "text",
+                    "text": " for social networks and associated applications such as "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://mastodon.social/about",
+                    "text": "Mastodon"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A range of research projects from "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.inkandswitch.com/",
+                    "text": "Ink and Switch"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", including an architecture for “"
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.inkandswitch.com/pushpin/",
+                    "text": "local-first"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” computing and "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.inkandswitch.com/cambria/",
+                    "text": "designs for interoperability across diverse programs"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A range of socially local identity systems, such as "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://spritelyproject.org/",
+                    "text": "Spritely"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.brightid.org/",
+                    "text": "BrightID"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", and "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.inkandswitch.com/backchannel/",
+                    "text": "BackChannel"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://www.openmined.org/",
+                    "text": "Federated learning"
+                  },
+                  {
+                    "type": "text",
+                    "text": " and broader privacy-preserving machine learning."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://en.wikipedia.org/wiki/Mesh_networking",
+                    "text": "Mesh networks"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://datacollaboratives.org/",
+                    "text": "Data collaboratives"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://hai.stanford.edu/news/radical-proposal-data-cooperatives-could-give-us-more-power-over-our-data",
+                    "text": "cooperatives"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", and "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.bennettinstitute.cam.ac.uk/blog/data-trusts1/#:~:text=What%20is%20a%20data%20trust,of%20access%20to%20the%20data.",
+                    "text": "trusts"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://www.wikipedia.org/",
+                    "text": "Wikipedia"
+                  },
+                  {
+                    "type": "text",
+                    "text": " and wiki-based content structure more generally."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Community content moderation systems, such as "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.reddit.com/",
+                    "text": "Reddit"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://link.springer.com/chapter/10.1007/978-3-642-10665-1_43",
+                    "text": "Community-first cloud computing"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", file storage, and time-sharing."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1654787503.220689",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "848E5482-2CDC-48B5-97BA-E5ABDCCE35A3",
+    "type": "message",
+    "text": "Could also consider broader risk category for user-empowered-tools <http://www.eusprig.org/horror-stories.htm|http://www.eusprig.org/horror-stories.htm>",
+    "user": "USH01JEDQ",
+    "ts": "1654880909.658459",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "http://www.eusprig.org/horror-stories.htm",
+        "service_icon": "http://www.eusprig.org/favicon.ico",
+        "id": 1,
+        "original_url": "http://www.eusprig.org/horror-stories.htm",
+        "fallback": "European Spreadsheet Risks Interest Group - spreadsheet risk management and solutions conference",
+        "text": "EuSpRIG offers Risk Managers the world's only independent, authoritative &amp; comprehensive web based information describing the current state of the art in Spreadsheet Risk Management.",
+        "title": "European Spreadsheet Risks Interest Group - spreadsheet risk management and solutions conference",
+        "title_link": "http://www.eusprig.org/horror-stories.htm",
+        "service_name": "eusprig.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VzFW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "C"
+              },
+              {
+                "type": "text",
+                "text": "ould"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "also"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "consider"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "broader"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "risk"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "category"
+              },
+              {
+                "type": "text",
+                "text": " f"
+              },
+              {
+                "type": "text",
+                "text": "or"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "user-empowered-tools "
+              },
+              {
+                "type": "link",
+                "url": "http://www.eusprig.org/horror-stories.htm",
+                "text": "http://www.eusprig.org/horror-stories.htm"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1654880909.658459",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1654880941.976139",
+    "reply_users": [
+      "USH01JEDQ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "64A1BAE0-E4CB-49C0-90AF-3AD6DB80E79C",
+    "type": "message",
+    "text": "Via <https://twitter.com/vgr/status/1535278099805396992|https://twitter.com/vgr/status/1535278099805396992>",
+    "user": "USH01JEDQ",
+    "ts": "1654880941.976139",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://twitter.com/vgr/status/1535278099805396992",
+        "ts": 1654873797,
+        "id": 1,
+        "original_url": "https://twitter.com/vgr/status/1535278099805396992",
+        "fallback": "<https://twitter.com/vgr|@vgr>: TIL spreadsheet risk is a whole subfield of what probably should be called bitrot studies ht <https://twitter.com/tubelite|@tubelite> <http://www.eusprig.org/horror-stories.htm>",
+        "text": "TIL spreadsheet risk is a whole subfield of what probably should be called bitrot studies ht <https://twitter.com/tubelite|@tubelite> <http://www.eusprig.org/horror-stories.htm>",
+        "author_name": "Venkatesh Rao",
+        "author_link": "https://twitter.com/vgr/status/1535278099805396992",
+        "author_icon": "https://pbs.twimg.com/profile_images/1370911119213162497/6L-PJwti_normal.jpg",
+        "author_subname": "@vgr",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aDeR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Via "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/vgr/status/1535278099805396992",
+                "text": "https://twitter.com/vgr/status/1535278099805396992"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1654880909.658459",
+    "parent_user_id": "USH01JEDQ",
+    "reactions": [
+      {
+        "name": "nauseated_face",
+        "users": [
+          "UA14TGLTC",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
