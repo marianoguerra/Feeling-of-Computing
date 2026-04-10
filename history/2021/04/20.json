@@ -1,0 +1,2015 @@
+[
+  {
+    "client_msg_id": "7712bab1-d9a5-4883-812c-1fb858dcce56",
+    "type": "message",
+    "text": "Been a while.  It's not so complicated — until it is.\n\nTo a first approximation, you clone whatever object looks most like what you want.\n\nEventually, you'll find that what you meant was that you wanted a copy (independent slots) rather than a clone (inherited slots) at which point, you'll tend to keep a bunch of prototype objects around which have the defaults for everything.\n\nLater, as you start to have complex structures of objects, you'll learn that the right clone/copy semantics interacts with how shallow/deep you want things to be.  It gets messy, and the next thing you know, you're writing factory methods.  :scream:",
+    "user": "UA14TGLTC",
+    "ts": "1618885635.112900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QAH=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Been a while.  It's not so complicated — until it is.\n\nTo a first approximation, you clone whatever object looks most like what you want.\n\nEventually, you'll find that what you meant was that you wanted a copy (independent slots) rather than a clone (inherited slots) at which point, you'll tend to keep a bunch of prototype objects around which have the defaults for everything.\n\nLater, as you start to have complex structures of objects, you'll learn that the right clone/copy semantics interacts with how shallow/deep you want things to be.  It gets messy, and the next thing you know, you're writing factory methods.  "
+              },
+              {
+                "type": "emoji",
+                "name": "scream"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618851365.112700",
+    "parent_user_id": "UAHHWT22U",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      },
+      {
+        "name": "yin_yang",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2063991e-1f9d-4fd2-ace0-50ccd5b398c1",
+    "type": "message",
+    "text": "Interesting! The syntax reminds me of the way components for Vue.js can be defined as Objects (name, data, props, methods, …). I’ve watched the first video. What I don’t quite understand is how code from methods/actions are compiled to Java/Swift/etc. — like one example used a DOM API. My impression was that FOAM might be used for cross-platform code generation but I might be wrong. I see the benefit of defining “implementation-independent” models like that. But I still wonder what FOAM actually does with code.",
+    "user": "U01ULEWACPP",
+    "ts": "1618917253.129300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4d4f0ee36615",
+      "image_72": "https://avatars.slack-edge.com/2021-05-26/2104531310403_4d4f0ee36615313d19e3_72.jpg",
+      "first_name": "Florian",
+      "real_name": "Florian Schulz",
+      "display_name": "Florian Schulz",
+      "team": "T5TCAFTA9",
+      "name": "mail213",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01ULEWACPP",
+      "ts": "1618947057.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rzP/6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting! The syntax reminds me of the way components for Vue.js can be defined as Objects (name, data, props, methods, …). I’ve watched the first video. What I don’t quite understand is how code from methods/actions are compiled to Java/Swift/etc. — like one example used a DOM API. My impression was that FOAM might be used for cross-platform code generation but I might be wrong. I see the benefit of defining “implementation-independent” models like that. But I still wonder what FOAM actually does with code."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1617659213.068200",
+    "parent_user_id": "U01U19ECZTJ",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "580cbc8e-832b-4f61-b21c-a22f13d5f02c",
+    "type": "message",
+    "text": "The syntax is just JSON + functions (although, you can also use XML syntax or GUI syntax, since models are modelled and you can use MVC to decouple their view from their representation). Yes, FOAM is used for cross-platform code generation. This short video shows more of that: <https://www.youtube.com/watch?v=S4LbUv5FsGQ> For Javascript, since it is a very dynamic language, the class and prototype implementations are created from object and function composition at runtime. No code is ever actually generated. This is what keeps the download size small. For Java and Swift we statically generate code as part of the build process.  One of the things' that's unusual about FOAM is that it isn't entirely \"implementation-independent\". It doesn't mind being merely a 95-98% solution and then leave you to write the last little bit potentially in multiple languages. By not trying to be a 100% solution, it can be much smaller, and the result seems more natural on each target platform. See: <https://github.com/foam-framework/foam/wiki/How-FOAM-is-Different>",
+    "user": "U01U19ECZTJ",
+    "ts": "1618923533.129700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d80d37c53cd4",
+      "image_72": "https://avatars.slack-edge.com/2021-04-05/1929520000754_d80d37c53cd4ee3c8f5f_72.png",
+      "first_name": "",
+      "real_name": "Kevin Greer",
+      "display_name": "Kevin Greer",
+      "team": "T5TCAFTA9",
+      "name": "kgrgreer",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "D6X",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The syntax is just JSON + functions (although, you can also use XML syntax or GUI syntax, since models are modelled and you can use MVC to decouple their view from their representation). Yes, FOAM is used for cross-platform code generation. This short video shows more of that: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=S4LbUv5FsGQ"
+              },
+              {
+                "type": "text",
+                "text": " For Javascript, since it is a very dynamic language, the class and prototype implementations are created from object and function composition at runtime. No code is ever actually generated. This is what keeps the download size small. For Java and Swift we statically generate code as part of the build process.  One of the things' that's unusual about FOAM is that it isn't entirely \"implementation-independent\". It doesn't mind being merely a 95-98% solution and then leave you to write the last little bit potentially in multiple languages. By not trying to be a 100% solution, it can be much smaller, and the result seems more natural on each target platform. See: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/foam-framework/foam/wiki/How-FOAM-is-Different"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1617659213.068200",
+    "parent_user_id": "U01U19ECZTJ",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "type": "message",
+    "text": "A few weeks ago someone convinced me to give the Remarkable 2 a shot. It's an eInk screen with a stylus (in the same way the iPhone is a phone with a touch screen). I absolutely love this thing. My new favorite \"Tool for Thought\". Highly recommend!",
+    "files": [
+      {
+        "id": "F0205KQ3VAL",
+        "created": 1618929174,
+        "timestamp": 1618929174,
+        "name": "Screen Shot 2021-04-20 at 4.32.13 AM.png",
+        "title": "Screen Shot 2021-04-20 at 4.32.13 AM.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UMVFWPZ36",
+        "editable": false,
+        "size": 310895,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0205KQ3VAL/screen_shot_2021-04-20_at_4.32.13_am.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0205KQ3VAL/download/screen_shot_2021-04-20_at_4.32.13_am.png",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0205KQ3VAL-cb802077ee/screen_shot_2021-04-20_at_4.32.13_am_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0205KQ3VAL-cb802077ee/screen_shot_2021-04-20_at_4.32.13_am_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0205KQ3VAL-cb802077ee/screen_shot_2021-04-20_at_4.32.13_am_360.png",
+        "thumb_360_w": 299,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0205KQ3VAL-cb802077ee/screen_shot_2021-04-20_at_4.32.13_am_480.png",
+        "thumb_480_w": 399,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0205KQ3VAL-cb802077ee/screen_shot_2021-04-20_at_4.32.13_am_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0205KQ3VAL-cb802077ee/screen_shot_2021-04-20_at_4.32.13_am_720.png",
+        "thumb_720_w": 599,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0205KQ3VAL-cb802077ee/screen_shot_2021-04-20_at_4.32.13_am_800.png",
+        "thumb_800_w": 665,
+        "thumb_800_h": 800,
+        "original_w": 760,
+        "original_h": 914,
+        "thumb_tiny": "AwAwACfSoxQSByelJvX196AFz9aXFMVxzuIH+FP6jigBKKD1ooARvummccZORjB4605/u1GeDnNABwMZJPY8VJGcDbkn3NRDGev51InOehFADz1oo70UANfO3iozkL0NTUHnqKAIQCV4FSRpgEnqacOOgFBJA6ZoAKKQEnqMUtAH/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UMVFWPZ36/F0205KQ3VAL/screen_shot_2021-04-20_at_4.32.13_am.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0205KQ3VAL-10a721ece2",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gMc=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A few weeks ago someone convinced me to give the Remarkable 2 a shot. It's an eInk screen with a stylus (in the same way the iPhone is a phone with a touch screen). I absolutely love this thing. My new favorite \"Tool for Thought\". Highly recommend!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "user": "UMVFWPZ36",
+    "display_as_bot": false,
+    "ts": "1618929252.091400",
+    "thread_ts": "1618929252.091400",
+    "reply_count": 15,
+    "reply_users_count": 6,
+    "latest_reply": "1618986217.102300",
+    "reply_users": [
+      "UMVFWPZ36",
+      "UBN9AFS0N",
+      "UDQBTJ211",
+      "URZ8WQUHL",
+      "UJBAJNFLK",
+      "UCGAK10LS"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1618986217.102300",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U013ZLJARC7",
+          "U013HU44GLS",
+          "URZ8WQUHL",
+          "UA14TGLTC",
+          "U019PRL1BNU"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "0b891fb9-e07f-465a-85e8-f07000895de5",
+    "type": "message",
+    "text": "Previously I had dozens of paper notebooks. I just did a 7 day trip with just the Remarkable and probably won't look back. All my chicken scratch drawings sync seamlessly to my devices. It's great for note taking, experiments, modeling, or just thinking!",
+    "user": "UMVFWPZ36",
+    "ts": "1618929335.091500",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HSq3A",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Previously I had dozens of paper notebooks. I just did a 7 day trip with just the Remarkable and probably won't look back. All my chicken scratch drawings sync seamlessly to my devices. It's great for note taking, experiments, modeling, or just thinking!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "23f61f7c-c295-4471-a3dd-645a0780f67a",
+    "type": "message",
+    "text": "This looks amazing! Love the site. Added to my todo list to explore",
+    "user": "UMVFWPZ36",
+    "ts": "1618929520.020800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "m8otv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This looks amazing! Love the site. Added to my todo list to explore"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618397532.010700",
+    "parent_user_id": "U01U3M3ENA1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "5e1f9904-6009-4808-b850-09514a627430",
+    "type": "message",
+    "text": "Just to clarify, no relation to <http://enso-lang.org/> right?",
+    "user": "UMVFWPZ36",
+    "ts": "1618929527.021000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Enso",
+        "title_link": "http://enso-lang.org/",
+        "text": "Your description goes here",
+        "fallback": "Enso",
+        "from_url": "http://enso-lang.org/",
+        "service_name": "enso-lang.org",
+        "id": 1,
+        "original_url": "http://enso-lang.org/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZwFia",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just to clarify, no relation to "
+              },
+              {
+                "type": "link",
+                "url": "http://enso-lang.org/"
+              },
+              {
+                "type": "text",
+                "text": " right?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618397532.010700",
+    "parent_user_id": "U01U3M3ENA1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "bc9d8bc1-274e-447f-92a7-c27ae918c05a",
+    "type": "message",
+    "text": "Is there a way to just play with it without downloading anything?",
+    "user": "UMVFWPZ36",
+    "ts": "1618929846.021500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2wS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Is there a way to just play with it without downloading anything?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618397532.010700",
+    "parent_user_id": "U01U3M3ENA1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9264ae7e-70e7-4967-8380-38100955bdb9",
+    "type": "message",
+    "text": "A one click \"try now\" would be great",
+    "user": "UMVFWPZ36",
+    "ts": "1618929858.021700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JqX=5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A one click \"try now\" would be great"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618397532.010700",
+    "parent_user_id": "U01U3M3ENA1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "d856abd2-d9c4-4fed-b03f-9f5681b0f591",
+    "type": "message",
+    "text": "Perhaps you could have ephemeral vms",
+    "user": "UMVFWPZ36",
+    "ts": "1618929872.021900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "c6S4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Perhaps you could have ephemeral vms"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618397532.010700",
+    "parent_user_id": "U01U3M3ENA1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "d5234b4f-fce3-42cf-a952-1fb0c50d3593",
+    "type": "message",
+    "text": "Or make it run persistently on something like mighty (<https://mightyapp.com/>)",
+    "user": "UMVFWPZ36",
+    "ts": "1618929910.022100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Mighty",
+        "title": "Mighty makes Google Chrome faster",
+        "title_link": "https://mightyapp.com/",
+        "text": "Unlike Chrome, Mighty doesn't slowdown if you have too many tabs open. Web pages load half a second faster.",
+        "fallback": "Mighty: Mighty makes Google Chrome faster",
+        "thumb_url": "https://mightyapp.com/img/social.png",
+        "from_url": "https://mightyapp.com/",
+        "thumb_width": 593,
+        "thumb_height": 437,
+        "service_icon": "https://mightyapp.com/icon.png",
+        "id": 1,
+        "original_url": "https://mightyapp.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fd0Yq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Or make it run persistently on something like mighty ("
+              },
+              {
+                "type": "link",
+                "url": "https://mightyapp.com/"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618397532.010700",
+    "parent_user_id": "U01U3M3ENA1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "beff338c-73c4-470d-8cf0-e34b7c76aebb",
+    "type": "message",
+    "text": "Just a thought. (Not currently on a machine I install software on",
+    "user": "UMVFWPZ36",
+    "ts": "1618929923.022400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6Yd/E",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just a thought. (Not currently on a machine I install software on"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618397532.010700",
+    "parent_user_id": "U01U3M3ENA1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "f2bfb01a-b8ec-4f41-9e9a-4b57c5ffd5fa",
+    "type": "message",
+    "text": "will try it later",
+    "user": "UMVFWPZ36",
+    "ts": "1618929929.022600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RfVN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "will try it later"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618397532.010700",
+    "parent_user_id": "U01U3M3ENA1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "a8a62223-0dee-4aad-8c5f-2a6d504b4d1f",
+    "type": "message",
+    "text": "I got one a couple of weeks ago, I use a CLI tool to upload pdfs that are \"printed\" versions of web articles, most times using the readability view on firefox before printing.\n\nThen I can go read, highlight and add notes on the margins without distraction.\n\nThe tool is this one: <https://gitlab.com/wrobell/remt/>",
+    "user": "UBN9AFS0N",
+    "ts": "1618930133.091700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "k9NI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I got one a couple of weeks ago, I use a CLI tool to upload pdfs that are \"printed\" versions of web articles, most times using the readability view on firefox before printing.\n\nThen I can go read, highlight and add notes on the margins without distraction.\n\nThe tool is this one: "
+              },
+              {
+                "type": "link",
+                "url": "https://gitlab.com/wrobell/remt/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      },
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "913dfb6c-24a1-414a-b6a3-984ed0707842",
+    "type": "message",
+    "text": "also for papers and ebooks, but the experience of reading the web as a book is a new one :slightly_smiling_face:",
+    "user": "UBN9AFS0N",
+    "ts": "1618930169.092000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "M6qx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "also for papers and ebooks, but the experience of reading the web as a book is a new one "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "479bd644-ca9c-484c-9d3e-d3c477710f4a",
+    "type": "message",
+    "text": "If I wanted to build a slack bot with a future of coding technology, what alternatives do I have?\n\nI want to build a bot that when someone posts in this slack in some channels the bot will be notified, will check if it has details about that user (mostly a link to some place on the web where people can find out more about them), if it has details or already contacted that user then it does nothing\n\nif the user is new  and wasn't contacted then it sends a DM to the user asking to provide a public url to use to link to on the newsletter or just ignore the message.\n\nWhat's your FoC stack? :slightly_smiling_face:",
+    "user": "UBN9AFS0N",
+    "ts": "1618931217.095300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AZ/tw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If I wanted to build a slack bot with a future of coding technology, what alternatives do I have?\n\nI want to build a bot that when someone posts in this slack in some channels the bot will be notified, will check if it has details about that user (mostly a link to some place on the web where people can find out more about them), if it has details or already contacted that user then it does nothing\n\nif the user is new  and wasn't contacted then it sends a DM to the user asking to provide a public url to use to link to on the newsletter or just ignore the message.\n\nWhat's your FoC stack? "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618931217.095300",
+    "reply_count": 8,
+    "reply_users_count": 5,
+    "latest_reply": "1619065345.103500",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UBN9AFS0N",
+      "UCUSW7WVD",
+      "U01T2PC8LBA",
+      "U019PRL1BNU"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1619065345.103500",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "b7054d5a-dbeb-4291-bb36-dc2664fe791f",
+    "type": "message",
+    "text": "hey <@U01TEJCSQ3Y>, good to see you here :smile:",
+    "user": "UEDDR6L5Q",
+    "ts": "1618931340.130300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "adf09dea9be2",
+      "image_72": "https://avatars.slack-edge.com/2021-04-20/1975289475446_adf09dea9be29fa422a0_72.png",
+      "first_name": "",
+      "real_name": "Andrew Reece",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "azmreece",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "D7efE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "hey "
+              },
+              {
+                "type": "user",
+                "user_id": "U01TEJCSQ3Y"
+              },
+              {
+                "type": "text",
+                "text": ", good to see you here "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1617854715.088500",
+    "parent_user_id": "U01TEJCSQ3Y",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "33b3012c-09f3-45c6-96e3-f9bd8ed6d34f",
+    "type": "message",
+    "text": "Thanks <@UBN9AFS0N>! That also led me to <https://github.com/reHackable/awesome-reMarkable> . Lots to explore!",
+    "user": "UMVFWPZ36",
+    "ts": "1618932209.095600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "q1V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "UBN9AFS0N"
+              },
+              {
+                "type": "text",
+                "text": "! That also led me to "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/reHackable/awesome-reMarkable"
+              },
+              {
+                "type": "text",
+                "text": " . Lots to explore!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "835ca0e0-950e-4f49-b45e-7934c6c18aaf",
+    "type": "message",
+    "text": "How do slack bots work? Are they just a server you run that receives webhook calls from Slack?",
+    "user": "UC2A2ARPT",
+    "ts": "1618933758.096400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ddF/+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How do slack bots work? Are they just a server you run that receives webhook calls from Slack?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618931217.095300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "4ead3ed6-ca37-4590-a870-763915c17551",
+    "type": "message",
+    "text": "Yes I have one too it's great. I've had it since launch actually but I haven't got round to hacking on it yet. I have a script that saves the Guardian's Quiptic crossword as PDF.",
+    "user": "UDQBTJ211",
+    "ts": "1618933897.096600",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDQBTJ211",
+      "ts": "1618933924.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VIeM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes I have one too it's great. I've had it since launch actually but I haven't got round to hacking on it yet. I have a script that saves the Guardian's Quiptic crossword as PDF."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "14fbfb25-4ebb-45b5-9028-2e01921dfc35",
+    "type": "message",
+    "text": "from what I've seen yes, they are webhook handlers and make http requests to do things back to slack",
+    "user": "UBN9AFS0N",
+    "ts": "1618935982.097100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "P5Es",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "from what I've seen yes, they are webhook handlers and make http requests to do things back to slack"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618931217.095300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "795e8690-4a98-4212-b905-7dae6dc76300",
+    "type": "message",
+    "text": "A short video showing how I now use <https://www.nushell.sh/|nushell> and <https://instadeq.com/|instadeq> to do one-off data manipulation tasks instead of a python script\n\n<https://www.youtube.com/watch?v=D435NgDRKK0>",
+    "user": "UBN9AFS0N",
+    "ts": "1618936038.023300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Using Nushell and Instadeq instead of a Python Script",
+        "title_link": "https://www.youtube.com/watch?v=D435NgDRKK0",
+        "author_name": "Instadeq",
+        "author_link": "https://www.youtube.com/channel/UCz4zYu_PV7OjCNrNZyYiXzg",
+        "thumb_url": "https://i.ytimg.com/vi/D435NgDRKK0/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Using Nushell and Instadeq instead of a Python Script",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/D435NgDRKK0?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=D435NgDRKK0",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 3,
+        "original_url": "https://www.youtube.com/watch?v=D435NgDRKK0"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WoN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A short video showing how I now use "
+              },
+              {
+                "type": "link",
+                "url": "https://www.nushell.sh/",
+                "text": "nushell"
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "link",
+                "url": "https://instadeq.com/",
+                "text": "instadeq"
+              },
+              {
+                "type": "text",
+                "text": " to do one-off data manipulation tasks instead of a python script\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=D435NgDRKK0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618936038.023300",
+    "reply_count": 4,
+    "reply_users_count": 2,
+    "latest_reply": "1619077803.031300",
+    "reply_users": [
+      "US370TRJA",
+      "UBN9AFS0N"
+    ],
+    "replies": [
+      {
+        "user": "US370TRJA",
+        "ts": "1619067079.030400"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1619077736.030900"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1619077753.031100"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1619077803.031300"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e3635208-6cfb-4126-bec9-4699a0074dcb",
+    "type": "message",
+    "text": "Is Erlang the ideal stack for servers?",
+    "user": "UCUSW7WVD",
+    "ts": "1618936756.097300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yeaXk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Is Erlang the ideal stack for servers?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618931217.095300",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "fire",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "c5bdd176-d6fb-45a4-92ca-d7d239a37861",
+    "type": "message",
+    "text": "the ideal stack is a one block \"stack\" running in the ether (and I don't have to manage the ether)",
+    "user": "UBN9AFS0N",
+    "ts": "1618939414.098200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "z=bE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the ideal stack is a one block \"stack\" running in the ether (and I don't have to manage the ether)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618931217.095300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "2c8b757c-7836-46d6-8dc4-1aed8855ed1b",
+    "type": "message",
+    "text": "I love it, I've been hacking together a static site generator for it:\n<https://davidrusu.github.io/>",
+    "user": "URZ8WQUHL",
+    "ts": "1618939456.098400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gxM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I love it, I've been hacking together a static site generator for it:\n"
+              },
+              {
+                "type": "link",
+                "url": "https://davidrusu.github.io/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMVFWPZ36",
+          "UDQBTJ211"
+        ],
+        "count": 2
+      },
+      {
+        "name": "100",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      },
+      {
+        "name": "tada",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "371932c2-b30e-4691-8d92-a6dc66ee481e",
+    "type": "message",
+    "text": "a nomad script that only comes back to ask me for money to pay for CPU/RAM somewhere I don't care",
+    "user": "UBN9AFS0N",
+    "ts": "1618939493.098600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AjN5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "a nomad script that only comes back to ask me for money to pay for CPU/RAM somewhere I don't care"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618931217.095300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "bee461c5-a0aa-4124-8a81-362de2c0e278",
+    "type": "message",
+    "text": "Hello Everyone! My name is Keith and I'm a computer scientist and member of the <https://www.wolframphysics.org/|Wolfram Physics Project>! I'm currently researching in creating science for the \"Game of Life\" !!! I'm quite excited to talk with some of you guys, heterodox programmers !!! I found the podcast Future of programming because I listened to Devine Lu Linvega at a conference at MILA(Montreal Institute of Learning Algorithms) Montréal. I'm quite interested in researching the creativity of computer programmers and I'm currently doing it with the 50 years of Game of Life development  !!",
+    "user": "U01UTKX2N6R",
+    "ts": "1618939871.130900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3c50434f1d7a",
+      "image_72": "https://avatars.slack-edge.com/2021-04-20/1995368815185_3c50434f1d7a3a60e71a_72.jpg",
+      "first_name": "",
+      "real_name": "Keith Patarroyo",
+      "display_name": "Keith Patarroyo",
+      "team": "T5TCAFTA9",
+      "name": "keithypts",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01UTKX2N6R",
+      "ts": "1618940365.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ovrc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello Everyone! My name is Keith and I'm a computer scientist and member of the "
+              },
+              {
+                "type": "link",
+                "url": "https://www.wolframphysics.org/",
+                "text": "Wolfram Physics Project"
+              },
+              {
+                "type": "text",
+                "text": "! I'm currently researching in creating science for the \"Game of Life\" !!! I'm quite excited to talk with some of you guys, heterodox programmers !!! I found the podcast Future of programming because I listened to Devine Lu Linvega at a conference at MILA(Montreal Institute of Learning Algorithms) Montréal. I'm quite interested in researching the creativity of computer programmers and I'm currently doing it with the 50 years of Game of Life development  !!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618939871.130900",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1618970220.141000",
+    "reply_users": [
+      "UKDM3GLAJ",
+      "UA14TGLTC"
+    ],
+    "replies": [
+      {
+        "user": "UKDM3GLAJ",
+        "ts": "1618945514.131800"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1618970220.141000"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "wave::skin-tone-4",
+        "users": [
+          "UBN9AFS0N"
+        ],
+        "count": 1
+      },
+      {
+        "name": "wave",
+        "users": [
+          "U013HU44GLS",
+          "U01U19ECZTJ",
+          "UJBAJNFLK",
+          "UC2A2ARPT",
+          "UCGAK10LS",
+          "UA14TGLTC",
+          "U01TEJCSQ3Y",
+          "U013ZLJARC7",
+          "U0123H7JRDM",
+          "UMVFWPZ36",
+          "UN9SCH5RD",
+          "U019CPED6T1",
+          "UJ6LDMMN0"
+        ],
+        "count": 13
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "7312ab82-f171-4f6a-a209-29b1c959fded",
+    "type": "message",
+    "text": "the current contenders are <https://darklang.com/|darklang>, <https://glitch.com|glitch> and <http://repl.it|repl.it>",
+    "user": "UBN9AFS0N",
+    "ts": "1618939883.098900",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UBN9AFS0N",
+      "ts": "1618940083.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FtoR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the current contenders are "
+              },
+              {
+                "type": "link",
+                "url": "https://darklang.com/",
+                "text": "darklang"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "link",
+                "url": "https://glitch.com",
+                "text": "glitch"
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "link",
+                "url": "http://repl.it",
+                "text": "repl.it"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618931217.095300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "5f954d07-fae1-4f8a-ac36-c9bdadf64d1b",
+    "type": "message",
+    "text": "Dark was by far the easiest experience for me in building Slack Bots, the instant feedback, instant deploy, and good-enough storage/JSON manipulation facilities made it the fastest dev loop for things like slack bots",
+    "user": "U01T2PC8LBA",
+    "ts": "1618941133.099400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "spUw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Dark was by far the easiest experience for me in building Slack Bots, the instant feedback, instant deploy, and good-enough storage/JSON manipulation facilities made it the fastest dev loop for things like slack bots"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618931217.095300",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "U019PRL1BNU"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "7fc275cd-26b4-48f2-a131-f2178d4d2fb2",
+    "type": "message",
+    "text": "I think I might start calling myself a \"Software designer\" :sunglasses: <http://tomasp.net/blog/2021/software-designers/|http://tomasp.net/blog/2021/software-designers/>",
+    "user": "UBSMEUXAA",
+    "ts": "1618941539.106500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Software designers, not engineers: An interview from alternative universe",
+        "title_link": "http://tomasp.net/blog/2021/software-designers/",
+        "text": "How very different the world of software is in an alternative universe which has software designers rather than software engineers? In this interview, we look at a range of topics from software design sketching to software designer education, as well as the way in which software designers reshape any problem they are asked to solve.",
+        "fallback": "Software designers, not engineers: An interview from alternative universe",
+        "thumb_url": "http://tomasp.net/blog/2021/software-designers/ways-sq.png",
+        "from_url": "http://tomasp.net/blog/2021/software-designers/",
+        "thumb_width": 340,
+        "thumb_height": 340,
+        "service_icon": "http://tomasp.net/img/favicon-big.png",
+        "service_name": "tomasp.net",
+        "id": 1,
+        "original_url": "http://tomasp.net/blog/2021/software-designers/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0GbCq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think I might start calling myself a \"Software designer\" "
+              },
+              {
+                "type": "emoji",
+                "name": "sunglasses"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "http://tomasp.net/blog/2021/software-designers/",
+                "text": "http://tomasp.net/blog/2021/software-designers/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618941539.106500",
+    "reply_count": 3,
+    "reply_users_count": 3,
+    "latest_reply": "1619002595.110900",
+    "reply_users": [
+      "UBSMEUXAA",
+      "UK3LH8CF5",
+      "UMHG81CBH"
+    ],
+    "replies": [
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1618942635.106800"
+      },
+      {
+        "user": "UK3LH8CF5",
+        "ts": "1618953236.110000"
+      },
+      {
+        "user": "UMHG81CBH",
+        "ts": "1619002595.110900"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U01LAJFKC2K",
+          "UBKNXPBAB",
+          "U01KZQEQVUP"
+        ],
+        "count": 3
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U8A5MS6R1",
+          "UMHG81CBH",
+          "UHWC9PXBL"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "fd83ccb9-46e3-43ef-b4fd-fce71e0eb17b",
+    "type": "message",
+    "text": "HN discussion <https://news.ycombinator.com/item?id=26873304|https://news.ycombinator.com/item?id=26873304>",
+    "user": "UBSMEUXAA",
+    "ts": "1618942635.106800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "O3E4m",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "HN discussion "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=26873304",
+                "text": "https://news.ycombinator.com/item?id=26873304"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618941539.106500",
+    "parent_user_id": "UBSMEUXAA",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b26cd09b-0d19-468a-86bd-79f2e831ed4b",
+    "type": "message",
+    "text": "I have been using an Onyx Boox (<https://shop.boox.com/>) e-ink tablet in much the same way for a bit more than a year now. It runs Android, so there's plenty of software and I can even nerd out with Termux (basically a Linux shell with a large set of packaged software).",
+    "user": "UJBAJNFLK",
+    "ts": "1618944988.099600",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "service_name": "BOOX SHOP",
+        "title": "Official BOOX Shop",
+        "title_link": "https://shop.boox.com/",
+        "text": "Boox Shop is the official online store of Boox, which is a leading consumer electronics brand specializes in design, development, manufacturing, sales and marketing of E Ink (ePaper) devices that provide end users paper-like reading and writing experience. Shop here for exclusive Boox eReaders and accessories.",
+        "fallback": "BOOX SHOP: Official BOOX Shop",
+        "from_url": "https://shop.boox.com/",
+        "thumb_url": "http://cdn.shopify.com/s/files/1/0161/0848/6756/files/logo_74_1200x1200.jpg?v=1591784074",
+        "thumb_width": 74,
+        "thumb_height": 74,
+        "service_icon": "http://cdn.shopify.com/s/files/1/0161/0848/6756/files/logo_74_32x32.jpg?v=1591784074",
+        "id": 1,
+        "original_url": "https://shop.boox.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pUusE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I have been using an Onyx Boox ("
+              },
+              {
+                "type": "link",
+                "url": "https://shop.boox.com/"
+              },
+              {
+                "type": "text",
+                "text": ") e-ink tablet in much the same way for a bit more than a year now. It runs Android, so there's plenty of software and I can even nerd out with Termux (basically a Linux shell with a large set of packaged software)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "183ae02c-5d0b-4509-9220-4180b623b557",
+    "type": "message",
+    "text": "Are you implementing the game of life using a graph rewrite rule?",
+    "user": "UKDM3GLAJ",
+    "ts": "1618945514.131800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "34e7a55348e8",
+      "image_72": "https://avatars.slack-edge.com/2020-01-04/893378739792_34e7a55348e8c86c1901_72.jpg",
+      "first_name": "",
+      "real_name": "Jared Windover",
+      "display_name": "Jared Windover",
+      "team": "T5TCAFTA9",
+      "name": "jaredwindover",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Tr9Iy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Are you implementing the game of life using a graph rewrite rule?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618939871.130900",
+    "parent_user_id": "U01UTKX2N6R",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "0E103386-7800-472E-B009-35E23F8CAF22",
+    "type": "message",
+    "text": "I see! Makes a lot of sense to generate code and allow for extension rather than modification. Modeling is indeed super useful and one way to code less.",
+    "user": "U01ULEWACPP",
+    "ts": "1618948352.140400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4d4f0ee36615",
+      "image_72": "https://avatars.slack-edge.com/2021-05-26/2104531310403_4d4f0ee36615313d19e3_72.jpg",
+      "first_name": "Florian",
+      "real_name": "Florian Schulz",
+      "display_name": "Florian Schulz",
+      "team": "T5TCAFTA9",
+      "name": "mail213",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "i+DM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I see! Makes a lot of sense to generate code and allow for extension rather than modification. Modeling is indeed super useful and one way to code less."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1617659213.068200",
+    "parent_user_id": "U01U19ECZTJ",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "type": "message",
+    "text": "Love it <@URZ8WQUHL>! I'm trying to signup but getting red",
+    "files": [
+      {
+        "id": "F01V3NNLMCL",
+        "created": 1618951976,
+        "timestamp": 1618951976,
+        "name": "Screen Shot 2021-04-20 at 10.52.40 AM.png",
+        "title": "Screen Shot 2021-04-20 at 10.52.40 AM.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UMVFWPZ36",
+        "editable": false,
+        "size": 1170597,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01V3NNLMCL/screen_shot_2021-04-20_at_10.52.40_am.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01V3NNLMCL/download/screen_shot_2021-04-20_at_10.52.40_am.png",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 212,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 283,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 425,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 472,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 566,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F01V3NNLMCL-ed92caa52c/screen_shot_2021-04-20_at_10.52.40_am_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 604,
+        "original_w": 2112,
+        "original_h": 1246,
+        "thumb_tiny": "AwAcADC35MAAyqA4zzQscJbASMn6CpMEquAOnehCd3IGPUUAYsoxK4HZjTD0p83+uf8A3j/OmHpQAdOKQ/WlpKRZ0C52Ae1L3piMSAPangUyDCm/1z/7x/nTD0p83+uf/eP86ZQAdqSlpMUirn//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UMVFWPZ36/F01V3NNLMCL/screen_shot_2021-04-20_at_10.52.40_am.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01V3NNLMCL-75e0ebd81c",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TUm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Love it "
+              },
+              {
+                "type": "user",
+                "user_id": "URZ8WQUHL"
+              },
+              {
+                "type": "text",
+                "text": "! I'm trying to signup but getting red"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "user": "UMVFWPZ36",
+    "display_as_bot": false,
+    "ts": "1618951992.100500",
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "d43ac77c-a879-409f-acbc-eef70911c6fe",
+    "type": "message",
+    "text": "<@UMVFWPZ36> It's not ready quite yet!\nI'll ping you once it's operational",
+    "user": "URZ8WQUHL",
+    "ts": "1618952447.100700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1MV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UMVFWPZ36"
+              },
+              {
+                "type": "text",
+                "text": " It's not ready quite yet!\nI'll ping you once it's operational"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1618929252.091400",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "type": "message",
+    "text": "Yeah, I just started reading the book mentioned there, really enjoying it. You have to reinterpret words for it to be about software, but I think it fits quite well. \n\nWhile the division of three ways of knowing is of course a bit reductionist (and the authors admit so), these lists seems very right to me. ",
+    "files": [
+      {
+        "id": "F01UXSEHKNF",
+        "created": 1618953232,
+        "timestamp": 1618953232,
+        "name": "Image 2021-04-19 11.14.56.png",
+        "title": "Image 2021-04-19 11.14.56",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UK3LH8CF5",
+        "editable": false,
+        "size": 363643,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01UXSEHKNF/image_2021-04-19_11.14.56.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01UXSEHKNF/download/image_2021-04-19_11.14.56.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 219,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 292,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 438,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 487,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 584,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F01UXSEHKNF-5c6b8040cc/image_2021-04-19_11.14.56_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 623,
+        "original_w": 2370,
+        "original_h": 1442,
+        "thumb_tiny": "AwAdADDSIzTCCDxmnkZ9aYc5wM/rQAfN705Qe/8AOm/N7/rQCwPegCSimqWJ54/CnDPc5oAQj60w5B6mpKaVyc5/SgBAfRj+Rpcn1/SgLjvS7fc/nQAmT6/pRk+v6UuPc/nRj3P50Af/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UK3LH8CF5/F01UXSEHKNF/image_2021-04-19_11.14.56.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01UXSEHKNF-7d5bc47393",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UK3LH8CF5",
+    "display_as_bot": false,
+    "ts": "1618953236.110000",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7Pgy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, I just started reading the book mentioned there, really enjoying it. You have to reinterpret words for it to be about software, but I think it fits quite well. \n"
+              },
+              {
+                "type": "text",
+                "text": "\nWhile the division of three ways of knowing is of course a bit reductionist (and the authors admit so), these lists seems very right to me. "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "B619470B-46EE-42A6-98FB-65A08892A860",
+    "thread_ts": "1618941539.106500",
+    "parent_user_id": "UBSMEUXAA",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UBSMEUXAA"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
