@@ -1,0 +1,1134 @@
+[
+  {
+    "client_msg_id": "56728bd1-58c5-475f-a8fd-396443b5d735",
+    "type": "message",
+    "text": "I've gotten as far as concluding that each projection, text or VPL or whatever, needs to have format-specific metadata associated with each abstract AST (that is, each individual document). eg the text projection will remember whitespace, the VPL projection might remember position constraints, color, etc. You need to handle defaults for the first time you project into a particular format, e.g. initial whitespacing. Probably there are also other hideous edge cases, the absolute worst intersection of naming things and cache invalidation; I'm sure the off-by-one errors are just waiting for their chance too. (I'm also thinking of this in the context of, say, bidirectional sync of documents in different formats).",
+    "user": "U016VUZGUUQ",
+    "ts": "1686282325.403339",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jvQF3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've gotten as far as concluding that each projection, text or VPL or whatever, needs to have format-specific metadata associated with each abstract AST (that is, each individual document). eg the text projection will remember whitespace, the VPL projection might remember position constraints, color, etc. You need to handle defaults for the first time you project into a particular format, e.g. initial whitespacing. Probably there are also other hideous edge cases, the absolute worst intersection of naming things and cache invalidation; I'm sure the off-by-one errors are just waiting for their chance too. (I'm also thinking of this in the context of, say, bidirectional sync of documents in different formats)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686169579.523179",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a1f5b0b4-6c7c-40ec-a584-875ca2a4340d",
+    "type": "message",
+    "text": "I haven't tried this, but maybe writing to postgrest wrapping a postgres db, with Grafana providing the graphs? Postgrest is a smidge intimidating, especially the auth situation, but maybe still easier than handrolling something. Otoh, a very small single-endpoint web server that writes to postgres, which is read from grafana, might be a good compromise... (Thinking out loud at this point)",
+    "user": "U016VUZGUUQ",
+    "ts": "1686282568.830969",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dPa8g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I haven't tried this, but maybe writing to postgrest wrapping a postgres db, with Grafana providing the graphs? Postgrest is a smidge intimidating, especially the auth situation, but maybe still easier than handrolling something. Otoh, a very small single-endpoint web server that writes to postgres, which is read from grafana, might be a good compromise... (Thinking out loud at this point)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686164858.059869",
+    "parent_user_id": "UFS53UWE5",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "29aef815-85ef-4bef-989f-855c7d3570b1",
+    "type": "message",
+    "text": "I ended up trying a *lot* of stuff. But ended with hosted InfluxDB + Grafana. Works well enough. Influx has a POST Rest API, and it's all pretty easy to query in Grafana.",
+    "user": "UFS53UWE5",
+    "ts": "1686282635.285699",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "etuPz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I ended up trying a "
+              },
+              {
+                "type": "text",
+                "text": "lot",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of stuff. But ended with hosted InfluxDB + Grafana. Works well enough. Influx has a POST Rest API, and it's all pretty easy to query in Grafana."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686164858.059869",
+    "parent_user_id": "UFS53UWE5",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U016VUZGUUQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "96630d5f-230c-4715-b474-e602f8b06ca6",
+    "type": "message",
+    "text": "Luckily Influx has a pay-as-you-go permanent storage option, too.",
+    "user": "UFS53UWE5",
+    "ts": "1686282649.287129",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+rg7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Luckily Influx has a pay-as-you-go permanent storage option, too."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686164858.059869",
+    "parent_user_id": "UFS53UWE5",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ce1d361b-c87d-4df1-bdcd-995ad0c77ec4",
+    "type": "message",
+    "text": "Hadn't tried postgrest, though! I considered TimescaleDB which is on Postgres, but it requires you to map out the schemas in advance.",
+    "user": "UFS53UWE5",
+    "ts": "1686282674.169299",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LhkA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hadn't tried postgrest, though! I considered TimescaleDB which is on Postgres, but it requires you to map out the schemas in advance."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686164858.059869",
+    "parent_user_id": "UFS53UWE5",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fb7bde8a-3333-410f-b0b9-71c0c1f988b1",
+    "type": "message",
+    "text": "The other contender was Graphite, which is essentially built just for this purpose, but it's pretty old and kludgy.",
+    "user": "UFS53UWE5",
+    "ts": "1686282694.153149",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OWdKx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The other contender was Graphite, which is essentially built just for this purpose, but it's pretty old and kludgy."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686164858.059869",
+    "parent_user_id": "UFS53UWE5",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1af07c20-5fc7-483a-b52e-524e76e1a7d3",
+    "type": "message",
+    "text": "I see. I think the viability of using XML editor for CNL depends on the details of the language and how structure aware the editor is. Some XML schema definition might be enough for simple language, but more complex languages are likely to require context sensitive syntax rules and even semantic understanding from the editor. I feel like you'll run into a hard ceiling at some point trying to define and enforce the structure with a schema. A language workbench able to produce textual projectional editor would probably be a safer bet.",
+    "user": "U0296ACR13M",
+    "ts": "1686290811.448749",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f0Ehq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I see. I think the viability of using XML editor for CNL depends on the details of the language and how structure aware the editor is. Some XML schema definition might be enough for simple language, but more complex languages are likely to require context sensitive syntax rules and even semantic understanding from the editor. I feel like you'll run into a hard ceiling at some point trying to define and enforce the structure with a schema. A language workbench able to produce textual projectional editor would probably be a safer bet."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686205425.866679",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5a496f37-2ad7-46b2-bc0f-1c4c13617b01",
+    "type": "message",
+    "text": "“There are reasons to develop visually that don’t have to do with adding semantic information.”\nI would be grateful to learn more about this.",
+    "user": "UGWUJUZHT",
+    "ts": "1686303457.179749",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3VjgC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "“There are reasons to develop visually that don’t have to do with adding semantic information.”\nI would be grateful to learn more about this."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686169579.523179",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0f5c6c6c-8c7f-4da2-b6cd-0d4ed8b193a8",
+    "type": "message",
+    "text": "This is a relatively simple concept but I think it’s quite powerful.\n\nIn Nette *we try to allow users to grab anything that looks like interesting information* and then drop it on canvas (we will turn it into the right type of blocks).\n\nHere we have “X-Ray” :sunglasses:\nEssentially Named Entity Recognition, which *adds affordances to recognised phrases*—you can then drop any of them onto the canvas and we’ll try to make a _Definition_ block out of it.\n\nThis is what it looks like :slightly_smiling_face:\n<https://youtu.be/PVGqkN7n7wQ>",
+    "user": "UQ2P2BYJU",
+    "ts": "1686309242.872929",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6+7r",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is a relatively simple concept but I think it’s quite powerful.\n\nIn Nette "
+              },
+              {
+                "type": "text",
+                "text": "we try to allow users to grab anything that looks like interesting information",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and then drop it on canvas (we will turn it into the right type of blocks).\n\nHere we have “X-Ray” "
+              },
+              {
+                "type": "emoji",
+                "name": "sunglasses",
+                "unicode": "1f60e"
+              },
+              {
+                "type": "text",
+                "text": "\nEssentially Named Entity Recognition, which "
+              },
+              {
+                "type": "text",
+                "text": "adds affordances to recognised phrases",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "—you can then drop any of them onto the canvas and we’ll try to make a "
+              },
+              {
+                "type": "text",
+                "text": "Definition",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " block out of it.\n\nThis is what it looks like "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/PVGqkN7n7wQ"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://youtu.be/PVGqkN7n7wQ",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/PVGqkN7n7wQ/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/PVGqkN7n7wQ?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Nette X-Ray: Auto-Highlight Key People, Places &amp; Phrases\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://youtu.be/PVGqkN7n7wQ",
+        "fallback": "YouTube Video: Nette X-Ray: Auto-Highlight Key People, Places & Phrases",
+        "title": "Nette X-Ray: Auto-Highlight Key People, Places &amp; Phrases",
+        "title_link": "https://youtu.be/PVGqkN7n7wQ",
+        "author_name": "Pawel Ceranka",
+        "author_link": "https://www.youtube.com/@pawelceranka",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "thread_ts": "1686309242.872929",
+    "reply_count": 3,
+    "reply_users_count": 3,
+    "latest_reply": "1686506036.467609",
+    "reply_users": [
+      "UC2A2ARPT",
+      "U013ZLJARC7",
+      "UQ2P2BYJU"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "type": "message",
+    "text": "Added initial support for user defined functions to my computational notebook",
+    "files": [
+      {
+        "id": "F05BQ2V397F",
+        "created": 1686311884,
+        "timestamp": 1686311884,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U0296ACR13M",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 73339,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F05BQ2V397F/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F05BQ2V397F/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 217,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 289,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 434,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 482,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 578,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F05BQ2V397F-1ec55cca91/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 617,
+        "original_w": 1499,
+        "original_h": 903,
+        "thumb_tiny": "AwAcADDQckH738qcW4pCTn7mfxpVyeq4oAN3+c0bh/k0uBRgUAIDkZFAJz0IpaKAGNkfxH9KA2Byc/Uin0UAN3emPzpQc9v1paKAD8KKKKAP/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/U0296ACR13M/F05BQ2V397F/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F05BQ2V397F-411c06c0fe",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U0296ACR13M",
+    "display_as_bot": false,
+    "ts": "1686312952.010099",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4QGgk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Added initial support for user defined functions to my computational notebook"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "e5396ead-6a06-4d47-91ee-af9c7bf377a6",
+    "thread_ts": "1682426173.149839",
+    "parent_user_id": "U0296ACR13M",
+    "subtype": "thread_broadcast",
+    "root": {
+      "type": "message",
+      "text": "Beginnings of a computational notebook built with my _natural language structure editor workbench_ :tm:",
+      "files": [
+        {
+          "id": "F0556H0BBQR",
+          "created": 1682426097,
+          "timestamp": 1682426097,
+          "name": "computation notebook 2023-04-25.mp4",
+          "title": "computation notebook 2023-04-25.mp4",
+          "mimetype": "video/mp4",
+          "filetype": "mp4",
+          "pretty_type": "MPEG 4 Video",
+          "user": "U0296ACR13M",
+          "user_team": "T5TCAFTA9",
+          "editable": false,
+          "size": 9657980,
+          "mode": "hosted",
+          "is_external": false,
+          "external_type": "",
+          "is_public": true,
+          "public_url_shared": false,
+          "display_as_bot": false,
+          "username": "",
+          "transcription": {
+            "status": "none"
+          },
+          "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F0556H0BBQR-1f4a12447d/computation_notebook_2023-04-25.mp4",
+          "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F0556H0BBQR-1f4a12447d/computation_notebook_2023-04-25.mp4",
+          "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0556H0BBQR/download/computation_notebook_2023-04-25.mp4",
+          "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0556H0BBQR-1f4a12447d/file.m3u8?_xcb=52949",
+          "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9Mzk5MTYzLEFWRVJBR0UtQkFORFdJRFRIPTI4MzIzMixDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xODg0eDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOVFUyU0RCQ1FsRlNMVEZtTkdFeE1qUTBOMlF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFUxTmtnd1FrSlJVaTB4WmpSaE1USTBORGRrTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakExTlRaSU1FSkNVVkl0TVdZMFlURXlORFEzWkM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TlRVMlNEQkNRbEZTTFRGbU5HRXhNalEwTjJRdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURVMU5rZ3dRa0pSVWkweFpqUmhNVEkwTkRka0wyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREExTG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBMU5UWklNRUpDVVZJdE1XWTBZVEV5TkRRM1pDOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tmk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05UVTJTREJDUWxGU0xURm1OR0V4TWpRME4yUXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURjdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EVTFOa2d3UWtKUlVpMHhaalJoTVRJME5EZGtMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBNExuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTFOVFpJTUVKQ1VWSXRNV1kwWVRFeU5EUTNaQzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd09TNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOVFUyU0RCQ1FsRlNMVEZtTkdFeE1qUTBOMlF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01UQXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFUxTmtnd1FrSlJVaTB4WmpSaE1USTBORGRrTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01ERXhMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakExTlRaSU1FSkNVVkl0TVdZMFlURXlORFEzWkM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhNaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TlRVMlNEQkNRbEZTTFRGbU5HRXhNalEwTjJRdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNVE11ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURVMU5rZ3dRa0pSVWkweFpqUmhNVEkwTkRka0wyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREUwTG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBMU5UWklNRUpDVVZJdE1XWTBZVEV5TkRRM1pDOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TlM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05UVTJTREJDUWxGU0xURm1OR0V4TWpRME4yUXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TVRZdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EVTFOa2d3UWtKUlVpMHhaalJoTVRJME5EZGtMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURFM0xuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTFOVFpJTUVKQ1VWSXRNV1kwWVRFeU5EUTNaQzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBeE9DNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOVFUyU0RCQ1FsRlNMVEZtTkdFeE1qUTBOMlF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01Ua3VkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFUxTmtnd1FrSlJVaTB4WmpSaE1USTBORGRrTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01ESXdMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakExTlRaSU1FSkNVVkl0TVdZMFlURXlORFEzWkM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXlNUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TlRVMlNEQkNRbEZTTFRGbU5HRXhNalEwTjJRdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNakl1ZEhNS0kwVllWRWxPUmpveExqQXpOQ3dLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURVMU5rZ3dRa0pSVWkweFpqUmhNVEkwTkRka0wyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREl6TG5SekNpTkZXRlF0V0MxRlRrUk1TVk5VQ2c9PQojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MjgxOTY4LEFWRVJBR0UtQkFORFdJRFRIPTIxOTIzOSxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMjU2eDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApodHRwczovL2ZpbGVzLnNsYWNrLmNvbS9maWxlcy10bWIvVDVUQ0FGVEE5LUYwNTU2SDBCQlFSLTFmNGExMjQ0N2QvZmlsZV9IXzI2NF8xMjgweDcyMF8zNTAwS0JQU183UVZCUi5tM3U4Cg==",
+          "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0556H0BBQR-1f4a12447d/computation_notebook_2023-04-25_trans.mp4",
+          "duration_ms": 133166,
+          "media_display_type": "video",
+          "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0556H0BBQR-1f4a12447d/computation_notebook_2023-04-25_thumb_video.jpeg",
+          "thumb_video_w": 1888,
+          "thumb_video_h": 1080,
+          "permalink": "https://futureofcoding.slack.com/files/U0296ACR13M/F0556H0BBQR/computation_notebook_2023-04-25.mp4",
+          "permalink_public": "https://slack-files.com/T5TCAFTA9-F0556H0BBQR-42e562c640",
+          "is_starred": false,
+          "has_rich_preview": false,
+          "file_access": "visible"
+        }
+      ],
+      "upload": false,
+      "user": "U0296ACR13M",
+      "display_as_bot": false,
+      "ts": "1682426173.149839",
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "9xLN",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "Beginnings of a computational notebook built with my "
+                },
+                {
+                  "type": "text",
+                  "text": "natural language structure editor workbench ",
+                  "style": {
+                    "italic": true
+                  }
+                },
+                {
+                  "type": "emoji",
+                  "name": "tm",
+                  "unicode": "2122-fe0f",
+                  "style": {
+                    "italic": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "edited": {
+        "user": "U0296ACR13M",
+        "ts": "1682426558.000000"
+      },
+      "client_msg_id": "2c5a0c99-153f-4d59-9bd6-0b49187be960",
+      "thread_ts": "1682426173.149839",
+      "reply_count": 3,
+      "reply_users_count": 1,
+      "latest_reply": "1686313729.483429",
+      "reply_users": [
+        "U0296ACR13M"
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "88b89642-7859-4105-903f-b878534b4c5d",
+    "type": "message",
+    "text": "If your visual language is a one-for-one recreation of the text semantics, it may still, by virtue of being visual, allow you to use full words instead of symbols, illustrate the syntax structures, and make various kinds of syntactical errors impossible.",
+    "user": "U02U0AS3J49",
+    "ts": "1686316135.553889",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ul0z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If your visual language is a one-for-one recreation of the text semantics, it may still, by virtue of being visual, allow you to use full words instead of symbols, illustrate the syntax structures, and make various kinds of syntactical errors impossible."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686169579.523179",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "66437382-bb8a-45cd-b652-939eeb04ca7c",
+    "type": "message",
+    "text": "<@U016VUZGUUQ> that's more or less where I have landed, too. But it feels easier to just say all that data is liable to be forgotten when you save and reload, because you aren't editing the interface, you are editing the AST, and those details have no meaning inside the AST, so just deal. But maybe that's too unfriendly.",
+    "user": "U02U0AS3J49",
+    "ts": "1686316350.117069",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KKx6P",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U016VUZGUUQ"
+              },
+              {
+                "type": "text",
+                "text": " that's more or less where I have landed, too. But it feels easier to just say all that data is liable to be forgotten when you save and reload, because you aren't editing the interface, you are editing the AST, and those details have no meaning inside the AST, so just deal. But maybe that's too unfriendly."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686169579.523179",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3553A1E3-E101-4C6E-8D7F-2D597C028FBF",
+    "type": "message",
+    "text": "Meta feedback — the main activity in this video (turning on x-ray, looking at paragraphs, dragging them over to make blocks) happens so fast I can't see what's even happening.\n\nThat aside, this sound like a neat feature!",
+    "user": "UC2A2ARPT",
+    "ts": "1686317300.091319",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QYciY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Meta feedback — the main activity in this video (turning on x-ray, looking at paragraphs, dragging them over to make blocks) happens so fast I can't see what's even happening"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\nThat aside, this sound like a neat feature!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686309242.872929",
+    "parent_user_id": "UQ2P2BYJU",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UQ2P2BYJU"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "89115673-fafe-4bed-993d-c937ce23698c",
+    "type": "message",
+    "text": "+1 on too fast, couldn’t fully enjoy the demo :slightly_smiling_face:",
+    "user": "U013ZLJARC7",
+    "ts": "1686324454.340459",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sOgw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "+1 on too fast, couldn’t fully enjoy the demo "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686309242.872929",
+    "parent_user_id": "UQ2P2BYJU",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UQ2P2BYJU"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "de9a60ef-6162-4b1a-b479-5529055cbfbe",
+    "type": "message",
+    "text": "(Too bad it doesn't support RSS.)",
+    "user": "UCUSW7WVD",
+    "ts": "1686327903.908349",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KSU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Too bad it doesn't support RSS.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686260047.952019",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "4312aef9-97e5-43cd-8d1f-2d19dee121ed",
+    "type": "message",
+    "text": "As an answer to both <@U02U0AS3J49> and <@UGWUJUZHT>, friendliness is usually the core goal of a vpl. :) At least as far as I can tell. Otherwise we would just make people deal with syntax errors.",
+    "user": "U016VUZGUUQ",
+    "ts": "1686330984.885939",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qMJf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As an answer to both "
+              },
+              {
+                "type": "user",
+                "user_id": "U02U0AS3J49"
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": ", friendliness is usually the core goal of a vpl. :) At least as far as I can tell. Otherwise we would just make people deal with syntax errors."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686169579.523179",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "eaa91fd7-ae78-4d67-86ca-3ad99f53071c",
+    "type": "message",
+    "text": "I finally had occasion to try out Obsidian today. Some notes after 5 minutes of use.\n\n• The initial experience is a blank screen without bullets. I thought the outliner view was the #1 selling point of such tools? Do people use Obsidian to write free-form text?\n• I can copy a set of nested bullets from Obsidian to LogSeq and it works great. In the other direction, though, Obsidian loses all the nested structure I copied from LogSeq.\nOverall the experience has been surprising. The open source clone felt like a more polished onboarding experience than the relatively proprietary and centrally coordinated product. I'm curious if that matches other people's experience.",
+    "user": "UCUSW7WVD",
+    "ts": "1686335727.605889",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CqV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I finally had occasion to try out Obsidian today. Some notes after 5 minutes of use.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The initial experience is a blank screen without bullets. I thought the outliner view was the #1 selling point of such tools? Do people use Obsidian to write free-form text?"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "I can copy a set of nested bullets from Obsidian to LogSeq and it works great. In the other direction, though, Obsidian loses all the nested structure I copied from LogSeq."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nOverall the experience has been surprising. The open source clone felt like a more polished onboarding experience than the relatively proprietary and centrally coordinated product. I'm curious if that matches other people's experience."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686335727.605889",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1686336255.944469",
+    "reply_users": [
+      "UMQ6LR9NZ",
+      "USH01JEDQ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "7b5988fc-5e98-4617-b6e2-74490b66cad4",
+    "type": "message",
+    "text": "I am a mosaicist that uses Acme and grep as a note taking solution mostly…but, whenever I try Obsidian I’m struck by how opinionated it is — it assumes you want to organize and take notes in a specific kinda way that is mostly incompatible with how I roll.\n\nI see the value of being assumptive/shaping a specific kinda use…but I think you then need to guide folks to help them find that optimal way and Obsidian doesn’t really do that work at all, I don’t think.",
+    "user": "UMQ6LR9NZ",
+    "ts": "1686335885.646159",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qjDCQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I am a mosaicist that uses Acme and grep as a note taking solution mostly…but, whenever I try Obsidian I’m struck by how opinionated it is — it assumes you want to organize and take notes in a specific kinda way that is mostly incompatible with how I roll.\n\nI see the value of being assumptive/shaping a specific kinda use…but I think you then need to guide folks to help them find that optimal way and Obsidian doesn’t really do that work at all, I don’t think."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686335727.605889",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "957fe2a2-1e67-47cb-9793-de240e1ab22e",
+    "type": "message",
+    "text": "The first 3-4 uses of obsidian I saw were people using it like an outliner, so I too was thrown off that the default use is just markdown – seems way better to me, only a % of thinking is a fit for bullet points",
+    "user": "USH01JEDQ",
+    "ts": "1686336255.944469",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qKNF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The first 3-4 uses of obsidian I saw were people using it like an outliner, so I too was thrown off that the default use is just markdown – seems way better to me, only a % of thinking is a fit for bullet points"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686335727.605889",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "D74AC2A0-438F-47D6-BCF9-C0E50D7B65B2",
+    "type": "message",
+    "text": "<@U01AD80KMLK>  Not sure how well this performs in its current state but this company just recently came out saying they created an LLM with a context window of 5 million tokens. <https://twitter.com/magicailabs/status/1666116935904292869?s=46|https://twitter.com/magicailabs/status/1666116935904292869?s=46>",
+    "user": "U05BW1UDMFD",
+    "ts": "1686346333.956779",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pPDl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01AD80KMLK"
+              },
+              {
+                "type": "text",
+                "text": "  Not sure how well this performs in its current state but this company just recently came out saying they created an LLM with a context window of 5 million tokens. "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/magicailabs/status/1666116935904292869?s=46",
+                "text": "https://twitter.com/magicailabs/status/1666116935904292869?s=46"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1666115413829201922/pu/img/_YI9-OzKac2XPvts.jpg:large",
+        "image_width": 2048,
+        "image_height": 1151,
+        "image_bytes": 50199,
+        "from_url": "https://twitter.com/magicailabs/status/1666116935904292869?s=46",
+        "service_icon": "http://abs.twimg.com/favicons/twitter.2.ico",
+        "id": 1,
+        "original_url": "https://twitter.com/magicailabs/status/1666116935904292869?s=46",
+        "fallback": "Twitter: Magic.dev on Twitter",
+        "text": "Meet LTM-1: LLM with *5,000,000 prompt tokens*\n\nThat's ~500k lines of code or ~5k files, enough to fully cover most repositories.\n\nLTM-1 is a prototype of a neural network architecture we designed for giant context windows.",
+        "title": "Magic.dev on Twitter",
+        "title_link": "https://twitter.com/magicailabs/status/1666116935904292869?s=46",
+        "service_name": "Twitter"
+      }
+    ],
+    "thread_ts": "1685973958.518779",
+    "parent_user_id": "UGWUJUZHT",
+    "reactions": [
+      {
+        "name": "astonished",
+        "users": [
+          "U01AD80KMLK",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "client_msg_id": "c44b5383-eff9-4547-b12a-6cbc14e95dc6",
+    "type": "message",
+    "text": "GDC (Game Developers Conf) is running a <https://gdconf.com/showcase|Showcase> event at the end of June. They've sent me some codes for free passes — DM me if you want one.",
+    "user": "UC2A2ARPT",
+    "ts": "1686347078.525349",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DghQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "GDC (Game Developers Conf) is running a "
+              },
+              {
+                "type": "link",
+                "url": "https://gdconf.com/showcase",
+                "text": "Showcase"
+              },
+              {
+                "type": "text",
+                "text": " event at the end of June. They've sent me some codes for free passes — DM me if you want one."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686347078.525349",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1686375330.003259",
+    "reply_users": [
+      "UC2A2ARPT",
+      "U016VUZGUUQ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UFPPABQ7P",
+          "UMQ6LR9NZ",
+          "U03R0B9U1GD"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "e3943e73-2e2a-4ce5-a870-16163e3377b9",
+    "type": "message",
+    "text": "Meta commentary:\n\nA marketing firm emailed me about doing a quid pro quo where I'd promote this event on social media, in our newsletter, banners on our website, etc, and then they'd give us some free passes.\n\nMy typical reply to these sorts of things is a flat \"No\" or simply the ol' _Report Spam_, but… this is GDC. So there are some people here who might actually be interested.\n\nSo instead I replied \"none of those [forms of promotion] would work\", and they just sent me the codes anyway.\n\nYes, mentioning it here means they are getting a bit of promotion they otherwise wouldn't get. But if anyone is actually interested in \"attending\" this virtual event, I figure it's worth saving them $150.",
+    "user": "UC2A2ARPT",
+    "ts": "1686347505.631999",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ajh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Meta commentary:\n\nA marketing firm emailed me about doing a quid pro quo where I'd promote this event on social media, in our newsletter, banners on our website, etc, and then they'd give us some free passes.\n\nMy typical reply to these sorts of things is a flat \"No\" or simply the ol' "
+              },
+              {
+                "type": "text",
+                "text": "Report Spam",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", but… this is GDC. So there are some people here who might actually be interested.\n\nSo instead I replied \"none of those [forms of promotion] would work\", and they just sent me the codes anyway.\n\nYes, mentioning it here means they are getting a bit of promotion they otherwise wouldn't get. But if anyone is actually interested in \"attending\" this virtual event, I figure it's worth saving them $150."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1686347078.525349",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UMQ6LR9NZ",
+          "U85HCL7JP",
+          "U03R0B9U1GD"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "be2d5b2a-f01a-4d5c-9ed8-591b8e4227e5",
+    "type": "message",
+    "text": "Wow!",
+    "user": "U01AD80KMLK",
+    "ts": "1686348774.112309",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9dH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Wow!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1685973958.518779",
+    "parent_user_id": "UGWUJUZHT",
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  }
+]
