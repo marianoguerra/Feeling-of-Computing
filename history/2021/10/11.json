@@ -1,0 +1,5062 @@
+[
+  {
+    "client_msg_id": "c6d9dc7e-e73b-4da1-8a76-f7cda17b03b8",
+    "type": "message",
+    "text": "*Heretical idea:* a function call syntax where the function name can appear anywhere in the call.\n\nFirst, presume we're using Haskell-style syntax, so that `f(2,3)` (C-style) is written as `f 2 3` (Haskell-style). Second, presume that parameters (in function signatures) must be prefixed with a `&amp;` symbol (or whatever symbol you prefer; we'll need this later), so the definition of `f` would look something like `f &amp;x &amp;y = ...`. Now, imagine the _definer_ of the function can choose where the function name is supposed to appear. So we could define the function f in several ways:\n• `f &amp;x &amp;y =` , in which case a function call would look like `f 2 3`\n• `&amp;x f &amp;y =` , in which case a function call would look like `2 f 3`\n• `&amp;x &amp;y f =`, in which case a function call would look like `2 3 f`\nWhy would we want a syntax like this? Many reasons.\n\n1. We get infix operators for free:\n• `&amp;x + &amp;y =` \n• `&amp;x mod &amp;y =`\n2. We can have multi-word function names:\n• `&amp;x is less than &amp;y =`\n• `if &amp;cond then &amp;a else &amp;b =`\n3. This syntax erases the distinction between defining three separate functions returning one value each, and defining one function returning a record with three fields. I think this is nice; the distinction seemed arbitrary in the first place! Reducing the number of superficial choices a programmer needs to make helps reduce the cognitive burden of programming.\n\nAnd probably more things :slightly_smiling_face:.\n\nWhat are the downsides of this syntax?\n• Some of the \"classic\" syntax of programming languages now becomes ambiguous. In particular, we hit ambiguities when passing functions around as values. In Haskell you can write expressions like `map f list` where f is a function being passed as an argument. Given we could now define `f` as an infix or postfix function (see earlier), we need to make sure that we can _refer_ to the function in an unambiguous manner. We could do this by writing something like `map (. f .) list` where the `.` symbol means an unbound parameter. For the multi-word functions, you'd write `map (. is less than 5) list`\n• There are a few other potential issues I'm working out.\nRegardless, this seems like an interesting idea, right? :slightly_smiling_face: How do people feel about it?",
+    "user": "UCGAK10LS",
+    "ts": "1633919351.305800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1633990848.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Q7oe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Heretical idea:",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " a function call syntax where the function name can appear anywhere in the call.\n\nFirst, presume we're using Haskell-style syntax, so that "
+              },
+              {
+                "type": "text",
+                "text": "f(2,3)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (C-style) is written as "
+              },
+              {
+                "type": "text",
+                "text": "f 2 3",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (Haskell-style). Second, presume that parameters (in function signatures) must be prefixed with a "
+              },
+              {
+                "type": "text",
+                "text": "&",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " symbol (or whatever symbol you prefer; we'll need this later), so the definition of "
+              },
+              {
+                "type": "text",
+                "text": "f",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " would look something like "
+              },
+              {
+                "type": "text",
+                "text": "f &x &y = ...",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Now, imagine the "
+              },
+              {
+                "type": "text",
+                "text": "definer",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of the function can choose where the function name is supposed to appear. So we could define the function f in several ways:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "f &x &y =",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " , in which case a function call would look like "
+                  },
+                  {
+                    "type": "text",
+                    "text": "f 2 3",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "&x f &y =",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " , in which case a function call would look like "
+                  },
+                  {
+                    "type": "text",
+                    "text": "2 f 3",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "&x &y f =",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ", in which case a function call would look like "
+                  },
+                  {
+                    "type": "text",
+                    "text": "2 3 f",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWhy would we want a syntax like this? Many reasons.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "We get infix operators for free:"
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "&x + &y =",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "&x mod &y =",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n2. We can have multi-word function names:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "&x is less than &y =",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "if &cond then &a else &b =",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n3. This syntax erases the distinction between defining three separate functions returning one value each, and defining one function returning a record with three fields. I think this is nice; the distinction seemed arbitrary in the first place! Reducing the number of superficial choices a programmer needs to make helps reduce the cognitive burden of programming.\n\nAnd probably more things "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nWhat are the downsides of this syntax?\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Some of the \"classic\" syntax of programming languages now becomes ambiguous. In particular, we hit ambiguities when passing functions around as values. In Haskell you can write expressions like "
+                  },
+                  {
+                    "type": "text",
+                    "text": "map f list",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " where f is a function being passed as an argument. Given we could now define "
+                  },
+                  {
+                    "type": "text",
+                    "text": "f",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " as an infix or postfix function (see earlier), we need to make sure that we can "
+                  },
+                  {
+                    "type": "text",
+                    "text": "refer",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " to the function in an unambiguous manner. We could do this by writing something like "
+                  },
+                  {
+                    "type": "text",
+                    "text": "map (. f .) list",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " where the "
+                  },
+                  {
+                    "type": "text",
+                    "text": ".",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " symbol means an unbound parameter. For the multi-word functions, you'd write "
+                  },
+                  {
+                    "type": "text",
+                    "text": "map (. is less than 5) list",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "There are a few other potential issues I'm working out."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nRegardless, this seems like an interesting idea, right? "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " How do people feel about it?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "reply_count": 60,
+    "reply_users_count": 11,
+    "latest_reply": "1634568735.400500",
+    "reply_users": [
+      "ULYDR7EP3",
+      "UCGAK10LS",
+      "UJ6LDMMN0",
+      "UQ706GB9U",
+      "UJBAJNFLK",
+      "UBN9AFS0N",
+      "U027P92A0N5",
+      "U02FYPLHU67",
+      "U01AD80KMLK",
+      "UMVFWPZ36",
+      "UE6EFEPTQ"
+    ],
+    "replies": [
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633926081.306800"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633926285.307000"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633926372.307200"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633926391.307400"
+      },
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633926856.307700"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633927023.310100"
+      },
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633927189.310600"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633927257.311800"
+      },
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633927480.312000"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1633927532.312300"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1633927633.312500"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1633927941.312800"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633928669.313100"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633929705.313700"
+      },
+      {
+        "user": "UQ706GB9U",
+        "ts": "1633930016.315600"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1633932480.316200"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633932608.318500"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1633933358.318900"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633940541.319300"
+      },
+      {
+        "user": "U027P92A0N5",
+        "ts": "1633945505.320100"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633946551.320300"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633946599.320500"
+      },
+      {
+        "user": "U02FYPLHU67",
+        "ts": "1633951807.321000"
+      },
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633957607.322100"
+      },
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633957771.322300"
+      },
+      {
+        "user": "U01AD80KMLK",
+        "ts": "1633989791.322600"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633991515.323000"
+      },
+      {
+        "user": "U01AD80KMLK",
+        "ts": "1633991584.323200"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633991647.323400"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633992465.323600"
+      },
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633993018.324100"
+      },
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633993107.324300"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633993341.324500"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633993514.324700"
+      },
+      {
+        "user": "ULYDR7EP3",
+        "ts": "1633995899.324900"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1633997151.325200"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1634015682.325500"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1634027488.325700"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1634027774.325900"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1634027813.326100"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1634027883.326300"
+      },
+      {
+        "user": "U01AD80KMLK",
+        "ts": "1634053471.326600"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1634101466.327500"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1634171771.336800"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1634235182.341200"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1634250944.354000"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1634280378.356700"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1634280553.358100"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1634280599.359500"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1634290940.360300"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1634291402.360500"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1634291787.360700"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1634292338.360900"
+      },
+      {
+        "user": "U027P92A0N5",
+        "ts": "1634546205.393800"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1634563778.398700"
+      },
+      {
+        "user": "U027P92A0N5",
+        "ts": "1634565644.399100"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1634567169.399300"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1634567226.399500"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1634567511.399700"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1634568735.400500"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UJ6LDMMN0",
+          "UC2A2ARPT",
+          "UU45NNMHT",
+          "U79HM6726"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "646988da-3489-49be-a2ea-aa8a9f04f1ec",
+    "type": "message",
+    "text": "I think you will open up for a lot of ambiguities. It might be necessary to protect against them by automatic means, like Bison does.",
+    "user": "ULYDR7EP3",
+    "ts": "1633926081.306800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PmM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think you will open up for a lot of ambiguities. It might be necessary to protect against them by automatic means, like Bison does."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aef5ba8e-7cac-4921-b898-dac6ed2ea873",
+    "type": "message",
+    "text": "Yeah, I'm taking that as a challenge. If I can find an unambiguous syntax and semantics, the payoff could be huge :slightly_smiling_face:. Think about all the fun natural-language tricks you could do when defining functions.",
+    "user": "UCGAK10LS",
+    "ts": "1633926285.307000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "P2K93",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, I'm taking that as a challenge. If I can find an unambiguous syntax and semantics, the payoff could be huge "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ". Think about all the fun natural-language tricks you could do when defining functions."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "93847e7f-99fe-4b64-b76a-b588bc661be0",
+    "type": "message",
+    "text": "One constraint I'm going to be using is to demand each \"function call\" be delimited by brackets `(...)`. The contents of every pair of brackets will need to fit a function signature *exactly* (not a prefix or a subset of it). That means there will be no concept of operator precedence or associativity.",
+    "user": "UCGAK10LS",
+    "ts": "1633926372.307200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1633926417.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/lP3M",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One constraint I'm going to be using is to demand each \"function call\" be delimited by brackets "
+              },
+              {
+                "type": "text",
+                "text": "(...)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". The contents of every pair of brackets will need to fit a function signature "
+              },
+              {
+                "type": "text",
+                "text": "exactly",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "style": {
+                  "bold": true,
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "(not a prefix or a subset of it). That means there will be no concept of operator precedence or associativity."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a453f629-257b-4e1a-a93c-17f71db2680d",
+    "type": "message",
+    "text": "But I may be able to recover associativity by adding a separate feature that captures it.",
+    "user": "UCGAK10LS",
+    "ts": "1633926391.307400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Khbx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But I may be able to recover associativity by adding a separate feature that captures it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9b47e265-d8db-4105-88d2-f8b4ad79e07c",
+    "type": "message",
+    "text": "Multi-word function names look cool, but I'm not sure they are useful. For example, wouldn't your if...then...else function always evaluate all three arguments? Many lisps implement DSLs using macros, including some that appear more like English sentences, e.g. the Common Lisp loop macro (see <http://cl-cookbook.sourceforge.net/loop.html|http://cl-cookbook.sourceforge.net/loop.html>)",
+    "user": "ULYDR7EP3",
+    "ts": "1633926856.307700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eBaY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Multi-word function names look cool, but I'm not sure they are useful. For example, wouldn't your if...then...else function always evaluate all three arguments? Many lisps implement DSLs using macros, including some that appear more like English sentences, e.g. the Common Lisp loop macro (see "
+              },
+              {
+                "type": "link",
+                "url": "http://cl-cookbook.sourceforge.net/loop.html",
+                "text": "http://cl-cookbook.sourceforge.net/loop.html"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "03F3AF64-45C0-4677-B0D4-E45F78BA3AFC",
+    "type": "message",
+    "text": "The syntax concept I’m presenting can be contemplated separately from the operational semantics of the language. So it could be lazy, or strict :woman-shrugging:. I have some ideas about the semantics I want, but that’s for a separate thread :slightly_smiling_face:.",
+    "user": "UCGAK10LS",
+    "ts": "1633927023.310100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1633927037.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "d56C4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The syntax concept I’m presenting can be contemplated separately from the operational semantics of the language. So it could be lazy, or strict "
+              },
+              {
+                "type": "emoji",
+                "name": "woman-shrugging"
+              },
+              {
+                "type": "text",
+                "text": ". I have some ideas about the semantics I want, but that’s for a separate thread "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "ULYDR7EP3",
+          "UDQBTJ211"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "09b25166-5002-4311-aafc-bb44b29ed383",
+    "type": "message",
+    "text": "Ah, with parenthesis around every call, you might be halfway there. Will you use the `&amp;` prefix for every argument in function calls also?",
+    "user": "ULYDR7EP3",
+    "ts": "1633927189.310600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "F+e",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, with parenthesis around every call, you might be halfway there. Will you use the "
+              },
+              {
+                "type": "text",
+                "text": "&",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " prefix for every argument in function calls also?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "66D7785B-BE35-409F-887C-25A9587B95AC",
+    "type": "message",
+    "text": "Nah, I think the prefix is only necessary to disambiguate the definitions. It shouldn’t be necessary at the call site!",
+    "user": "UCGAK10LS",
+    "ts": "1633927257.311800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dzZZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Nah, I think the prefix is only necessary to disambiguate the definitions. It shouldn’t be necessary at the call site!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b1016be8-ace2-4fd4-8173-a91871e08e99",
+    "type": "message",
+    "text": "Consider any user defined functions `(fun1 &amp;X &amp;Y)` and `(&amp;X fun2 &amp;Y)`. What prevents the user from naming variables to make the ambiguous call `(fun1 fun2 var3)`?",
+    "user": "ULYDR7EP3",
+    "ts": "1633927480.312000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "J1xy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Consider any user defined functions "
+              },
+              {
+                "type": "text",
+                "text": "(fun1 &X &Y)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "(&X fun2 &Y)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". What prevents the user from naming variables to make the ambiguous call "
+              },
+              {
+                "type": "text",
+                "text": "(fun1 fun2 var3)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U0245E9RB2B"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "I played a bit with this idea few years ago, to use \"symbols with spaces\" for JavaScript functions. And I ended using parenthesis I also tried some other weird symbols, just to see if I can find one which is better visually (but failed).\n\n<https://stackblitz.com/edit/symbols-with-space>",
+    "files": [
+      {
+        "id": "F02H3NPEV8W",
+        "created": 1633927363,
+        "timestamp": 1633927363,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UJ6LDMMN0",
+        "editable": false,
+        "size": 3640,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02H3NPEV8W/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02H3NPEV8W/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H3NPEV8W-118fd385d5/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H3NPEV8W-118fd385d5/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H3NPEV8W-118fd385d5/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 26,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H3NPEV8W-118fd385d5/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "original_w": 412,
+        "original_h": 30,
+        "thumb_tiny": "AwADADDSwM5owP8AJpaKAExRgYpaKAExRilooA//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UJ6LDMMN0/F02H3NPEV8W/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02H3NPEV8W-5f94c2319f",
+        "is_starred": false,
+        "has_rich_preview": false
+      },
+      {
+        "id": "F02HAFD8CUB",
+        "created": 1633927401,
+        "timestamp": 1633927401,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UJ6LDMMN0",
+        "editable": false,
+        "size": 22324,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02HAFD8CUB/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02HAFD8CUB/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAFD8CUB-487ff356ae/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAFD8CUB-487ff356ae/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAFD8CUB-487ff356ae/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 65,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAFD8CUB-487ff356ae/image_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 87,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAFD8CUB-487ff356ae/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAFD8CUB-487ff356ae/image_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 130,
+        "original_w": 735,
+        "original_h": 133,
+        "thumb_tiny": "AwAIADC+Qf1pR9KdQKAEzjoKXJ9KKWgBMn0o59qWigD/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UJ6LDMMN0/F02HAFD8CUB/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02HAFD8CUB-2db6e965a2",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UJ6LDMMN0",
+    "ts": "1633927532.312300",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fbhn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I played a bit with this idea few years ago, to use \"symbols with spaces\" for JavaScript functions. And I ended using parenthesis I also tried some other weird symbols, just to see if I can find one which is better visually (but failed).\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://stackblitz.com/edit/symbols-with-space"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "ec9cf555-aff2-49d2-9ccb-68664322fac9",
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCGAK10LS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fb44a16f-812b-41e2-93f8-603fc4d53eed",
+    "type": "message",
+    "text": "I once thought to use a syntax like the_product_of_$1_by_$2 for the name of the function, to tell where exactly you take the parameters.",
+    "user": "UJ6LDMMN0",
+    "ts": "1633927633.312500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "i3I2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I once thought to use a syntax like the_product_of_$1_by_$2 for the name of the function, to tell where exactly you take the parameters."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "On this topic, maybe some inspiration can be taken from the text language to specify Scratch Blocks program using text. Which is only used on the Scratch forum. It is interesting that it is not a text language that is designed to be executed directly, only to generate an image of a Scratch Program that might be executed (or not).\n<https://en.scratch-wiki.info/wiki/Block_Plugin/Syntax>",
+    "files": [
+      {
+        "id": "F02HCM69FRS",
+        "created": 1633927939,
+        "timestamp": 1633927939,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UJ6LDMMN0",
+        "editable": false,
+        "size": 46215,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02HCM69FRS/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02HCM69FRS/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HCM69FRS-7570c72b14/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HCM69FRS-7570c72b14/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HCM69FRS-7570c72b14/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 143,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HCM69FRS-7570c72b14/image_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 191,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HCM69FRS-7570c72b14/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HCM69FRS-7570c72b14/image_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 287,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HCM69FRS-7570c72b14/image_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 319,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HCM69FRS-7570c72b14/image_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 382,
+        "original_w": 962,
+        "original_h": 383,
+        "thumb_tiny": "AwATADC/tTP3aPLQ/wANKRn1oC470AHlp/dqOUKgHAFTVDcDIX60m9BpaioI37fMO1P8tPSqy/e7jJ7VbHIpprowaCiiigQUhUN1GaWigBAoHQUtFFAH/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UJ6LDMMN0/F02HCM69FRS/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02HCM69FRS-d32d287efa",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UJ6LDMMN0",
+    "display_as_bot": false,
+    "ts": "1633927941.312800",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TG8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On this topic, maybe some inspiration can be taken from the text language to specify Scratch Blocks program using text. Which is only used on the Scratch forum. It is interesting that it is not a text language that is designed to be executed directly, only to generate an image of a Scratch Program that might be executed (or not).\n"
+              },
+              {
+                "type": "link",
+                "url": "https://en.scratch-wiki.info/wiki/Block_Plugin/Syntax"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "edited": {
+      "user": "UJ6LDMMN0",
+      "ts": "1633927977.000000"
+    },
+    "client_msg_id": "96f5919f-cd4a-48f7-abda-5aa4558f2e9e",
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCGAK10LS",
+          "U01ULEWACPP"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "068f50ab-68aa-4dbb-bf17-9a993191c766",
+    "type": "message",
+    "text": "<@ULYDR7EP3>\n&gt; Consider any user defined functions `(fun1 &amp;X &amp;Y)` and `(&amp;X fun2 &amp;Y)`. What prevents the user from naming variables to make the ambiguous call `(fun1 fun2 var3)`?\nThere should be some rules for how and when names/words can be re-used. The simplest is probably that if a word appears in a function name, then it can't also be the _full_ name of a variable (nullary function).\n\nAssuming `fun1` and `fun2` aren't pre-defined variables, your example doesn't violate the aforementioned rule. However, that call would match nothing, so you'd get a compile time error.",
+    "user": "UCGAK10LS",
+    "ts": "1633928669.313100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1633931045.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Xa+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "ULYDR7EP3"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Consider any user defined functions "
+              },
+              {
+                "type": "text",
+                "text": "(fun1 &X &Y)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "(&X fun2 &Y)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". What prevents the user from naming variables to make the ambiguous call "
+              },
+              {
+                "type": "text",
+                "text": "(fun1 fun2 var3)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThere should be some rules for how and when names/words can be re-used. The simplest is probably that if a word appears in a function name, then it can't also be the "
+              },
+              {
+                "type": "text",
+                "text": "full",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " name of a variable (nullary function).\n\nAssuming "
+              },
+              {
+                "type": "text",
+                "text": "fun1",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "fun2",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " aren't pre-defined variables, your example doesn't violate the aforementioned rule. However, that call would match nothing, so you'd get a compile time error."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "834f7c03-7cd3-4621-b566-a0fa3870e656",
+    "type": "message",
+    "text": "<@UJ6LDMMN0> Cool! There are probably a million directions you can go with the idea of space-separated symbols, especially if you start treating them as *lists*, i.e. data, as Lisp does. I'm being conservative right now though, and just thinking about this as a \"generalized function call syntax\".\n\nI'm going to check out that Scratch syntax :slightly_smiling_face:.\n\n(Regarding brackets: I actually prefer the _square_ bracket syntax partly because it's list-like, but also because you don't have to hold shift to type them :innocent:).",
+    "user": "UCGAK10LS",
+    "ts": "1633929705.313700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1633930404.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iml",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJ6LDMMN0"
+              },
+              {
+                "type": "text",
+                "text": " Cool! There are probably a million directions you can go with the idea of space-separated symbols, especially if you start treating them as "
+              },
+              {
+                "type": "text",
+                "text": "lists",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", i.e. data, as Lisp does. I'm being conservative right now though, and just thinking about this as a \"generalized function call syntax\".\n\nI'm going to check out that Scratch syntax "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ".\n\n(Regarding brackets: I actually prefer the "
+              },
+              {
+                "type": "text",
+                "text": "square",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " bracket syntax partly because it's list-like, but also because you don't have to hold shift to type them "
+              },
+              {
+                "type": "emoji",
+                "name": "innocent"
+              },
+              {
+                "type": "text",
+                "text": ")."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6B19F98A-CA88-4920-A12A-967C3072507B",
+    "type": "message",
+    "text": "Check out objective-c’s inline arguments function syntax. <https://www.tutorialspoint.com/objective_c/objective_c_functions.htm|https://www.tutorialspoint.com/objective_c/objective_c_functions.htm>\n\n`(int)max:(int)num1 andNum:(int)num2 {…}`",
+    "user": "UQ706GB9U",
+    "ts": "1633930016.315600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g80bf3c31da6",
+      "image_72": "https://secure.gravatar.com/avatar/80bf3c31da6a1f3f44e68bfe227fd35d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "George Campbell",
+      "display_name": "George Campbell",
+      "team": "T5TCAFTA9",
+      "name": "abersnaze",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Objective-C Functions",
+        "title_link": "https://www.tutorialspoint.com/objective_c/objective_c_functions.htm",
+        "text": "Objective-C Functions, A function is a group of statements that together perform a task. Every Objective-C program has one C function, which is main(), and all of the most trivial pro",
+        "fallback": "Objective-C Functions",
+        "from_url": "https://www.tutorialspoint.com/objective_c/objective_c_functions.htm",
+        "service_icon": "https://www.tutorialspoint.com/favicon.ico",
+        "service_name": "tutorialspoint.com",
+        "id": 1,
+        "original_url": "https://www.tutorialspoint.com/objective_c/objective_c_functions.htm"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SnXA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Check out objective-c’s inline arguments function syntax. "
+              },
+              {
+                "type": "link",
+                "url": "https://www.tutorialspoint.com/objective_c/objective_c_functions.htm",
+                "text": "https://www.tutorialspoint.com/objective_c/objective_c_functions.htm"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "(int)max:(int)num1 andNum:(int)num2 {…}",
+                "style": {
+                  "code": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCGAK10LS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "&gt; (Regarding brackets: I actually prefer the _square_ bracket syntax partly because it's list-like, but also because you don't have to hold shift to type them :innocent:)\nThat depends on your keyboard layout. On mine (AZERTY, French), it is the parenthesis that don't need extra key and *both* curly and square brackets require \"Atl-Gr\" key. Which is annoying when you code and that's why some French devs prefer using a qwerty keyboard (so without \"éàè...\" keys).",
+    "files": [
+      {
+        "id": "F02HAL05L1Z",
+        "created": 1633932468,
+        "timestamp": 1633932468,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UJ6LDMMN0",
+        "editable": false,
+        "size": 14478,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02HAL05L1Z/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02HAL05L1Z/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAL05L1Z-ed157ae445/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAL05L1Z-ed157ae445/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAL05L1Z-ed157ae445/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 281,
+        "thumb_360_h": 42,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HAL05L1Z-ed157ae445/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "original_w": 281,
+        "original_h": 42,
+        "thumb_tiny": "AwAHADCj5jYI3sfQ5o81sr8zY781HRQBJ5jYb529uaPMfA+Y+/NR0vagCUSZc5kYL2PPFN8x8ffOfrUdFAH/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UJ6LDMMN0/F02HAL05L1Z/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02HAL05L1Z-31e710aa3c",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UJ6LDMMN0",
+    "display_as_bot": false,
+    "ts": "1633932480.316200",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A9M",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Regarding brackets: I actually prefer the "
+              },
+              {
+                "type": "text",
+                "text": "square",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " bracket syntax partly because it's list-like, but also because you don't have to hold shift to type them "
+              },
+              {
+                "type": "emoji",
+                "name": "innocent"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That depends on your keyboard layout. On mine (AZERTY, French), it is the parenthesis that don't need extra key and "
+              },
+              {
+                "type": "text",
+                "text": "both",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " curly and square brackets require \"Atl-Gr\" key. Which is annoying when you code and that's why some French devs prefer using a qwerty keyboard (so without \"éàè...\" keys)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "d1cb8f8c-2ea5-4ad5-a0a4-86e9abb1a842",
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0C22C34E-5993-41D7-84E9-DF8E2362B4B9",
+    "type": "message",
+    "text": "Ah, I didn’t realise they did that for brackets! I’d love to get some statistics on (for each ASCII symbol) the percentage of people on earth who can type that symbol without any modifier keys :face_with_monocle:.\n\nIt’s really important for a language designer to know :sweat_smile:",
+    "user": "UCGAK10LS",
+    "ts": "1633932608.318500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1633932730.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CFVLv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, I didn’t realise they did that for brackets! I’d love to get some statistics on (for each ASCII symbol) the percentage of people on earth who can type that symbol without any modifier keys "
+              },
+              {
+                "type": "emoji",
+                "name": "face_with_monocle"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nIt’s really important for a language designer to know "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "88dde1ac-eb8c-4f5b-886e-7ac72b6ba6aa",
+    "type": "message",
+    "text": "I wanted something like this for my digital scientific notation Leibniz (<https://github.com/khinsen/leibniz>) and found it very easy to implement since Leibniz is a term rewriting system. There are no function calls, only rewrite rules, so it's no problem to make the equivalent of function-call syntax function-specific.\n\nFor the parenthesis issue, I adopted a feature from the Pyret language (<https://www.pyret.org/index.html>): it requires parenthesis around any operator/function call, the one exception being chained use of the same operator. So you can write `2 + 3 + 4`, meaning `(2 + 3) + 4`, which is the most frequent situation where parenthesis can become visually dominant.\n\nIt looks to me as if this approach could be transposed to more standard programming languages, but that's a bit outside of my expertise.",
+    "user": "UJBAJNFLK",
+    "ts": "1633933358.318900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "GitHub - khinsen/leibniz: A Digital Scientific Notation",
+        "title_link": "https://github.com/khinsen/leibniz",
+        "text": "A Digital Scientific Notation. Contribute to khinsen/leibniz development by creating an account on GitHub.",
+        "fallback": "GitHub: GitHub - khinsen/leibniz: A Digital Scientific Notation",
+        "image_url": "https://opengraph.githubassets.com/70973b9d1593193a81257253be92fd172772420d55d603f4122228b2995f6282/khinsen/leibniz",
+        "image_width": 500,
+        "image_height": 250,
+        "from_url": "https://github.com/khinsen/leibniz",
+        "image_bytes": 93801,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/khinsen/leibniz"
+      },
+      {
+        "title": "The Pyret Programming Language",
+        "title_link": "https://www.pyret.org/index.html",
+        "text": "...",
+        "fallback": "The Pyret Programming Language",
+        "thumb_url": "http://www.pyret.org/img/pyret-logo.png",
+        "from_url": "https://www.pyret.org/index.html",
+        "thumb_width": 501,
+        "thumb_height": 488,
+        "service_icon": "https://www.pyret.org/img/pyret-icon.png",
+        "service_name": "pyret.org",
+        "id": 2,
+        "original_url": "https://www.pyret.org/index.html"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fptb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I wanted something like this for my digital scientific notation Leibniz ("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/khinsen/leibniz"
+              },
+              {
+                "type": "text",
+                "text": ") and found it very easy to implement since Leibniz is a term rewriting system. There are no function calls, only rewrite rules, so it's no problem to make the equivalent of function-call syntax function-specific.\n\nFor the parenthesis issue, I adopted a feature from the Pyret language ("
+              },
+              {
+                "type": "link",
+                "url": "https://www.pyret.org/index.html"
+              },
+              {
+                "type": "text",
+                "text": "): it requires parenthesis around any operator/function call, the one exception being chained use of the same operator. So you can write "
+              },
+              {
+                "type": "text",
+                "text": "2 + 3 + 4",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", meaning "
+              },
+              {
+                "type": "text",
+                "text": "(2 + 3) + 4",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", which is the most frequent situation where parenthesis can become visually dominant.\n\nIt looks to me as if this approach could be transposed to more standard programming languages, but that's a bit outside of my expertise."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c833e4df-7341-406f-bb23-94bed0dd1d23",
+    "type": "message",
+    "text": "I created a language with similar ideas a while ago, it's almost complete: <https://github.com/marianoguerra/interfix>",
+    "user": "UBN9AFS0N",
+    "ts": "1633940541.319300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "GitHub - marianoguerra/interfix: an experimental programming language for the erlang vm that is actually useful",
+        "title_link": "https://github.com/marianoguerra/interfix",
+        "text": "an experimental programming language for the erlang vm that is actually useful - GitHub - marianoguerra/interfix: an experimental programming language for the erlang vm that is actually useful",
+        "fallback": "GitHub: GitHub - marianoguerra/interfix: an experimental programming language for the erlang vm that is actually useful",
+        "image_url": "https://opengraph.githubassets.com/71efae758328409f36c5c17e541cd29676e27d757a87e4af6b26ae8082b8276b/marianoguerra/interfix",
+        "image_width": 500,
+        "image_height": 250,
+        "from_url": "https://github.com/marianoguerra/interfix",
+        "image_bytes": 91669,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/marianoguerra/interfix"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CEq79",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I created a language with similar ideas a while ago, it's almost complete: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/marianoguerra/interfix"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "ok_hand",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      },
+      {
+        "name": "open_mouth",
+        "users": [
+          "UCGAK10LS",
+          "UMVFWPZ36"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c856fe5e-d51b-4134-adfb-55e7f8d337a1",
+    "type": "message",
+    "text": "<@U025PBD75TM> technically the purpose of _predictive_ Machine Learning models is to _generalize_ (somewhat) beyond what they saw in the training data. And indeed they are evaluated on data they never saw in training. But in reality this generalization goes only this far, and not really applicable to kinda \"open world\" scenarios like driving.",
+    "user": "U027P92A0N5",
+    "ts": "1633945296.319900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d6900487d910",
+      "image_72": "https://avatars.slack-edge.com/2021-07-07/2254853369060_d6900487d9109f495c79_72.jpg",
+      "first_name": "Alexander",
+      "real_name": "Alexander Chichigin",
+      "display_name": "Alex Chichigin",
+      "team": "T5TCAFTA9",
+      "name": "sad.ronin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NdRb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U025PBD75TM"
+              },
+              {
+                "type": "text",
+                "text": " technically the purpose of "
+              },
+              {
+                "type": "text",
+                "text": "predictive",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " Machine Learning models is to "
+              },
+              {
+                "type": "text",
+                "text": "generalize",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (somewhat) beyond what they saw in the training data. And indeed they are evaluated on data they never saw in training. But in reality this generalization goes only this far, and not really applicable to kinda \"open world\" scenarios like driving."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633370115.276200",
+    "parent_user_id": "U02FYPLHU67",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6cf5c7ec-a70d-48e9-94bf-21ae4b8229b1",
+    "type": "message",
+    "text": "I'm sorry but did you reinvent Agda's Mixfix syntax? :sweat_smile:",
+    "user": "U027P92A0N5",
+    "ts": "1633945505.320100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d6900487d910",
+      "image_72": "https://avatars.slack-edge.com/2021-07-07/2254853369060_d6900487d9109f495c79_72.jpg",
+      "first_name": "Alexander",
+      "real_name": "Alexander Chichigin",
+      "display_name": "Alex Chichigin",
+      "team": "T5TCAFTA9",
+      "name": "sad.ronin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "unCu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm sorry but did you reinvent Agda's Mixfix syntax? "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ea6d5319-f4c8-43d6-a933-5d986e490474",
+    "type": "message",
+    "text": "<https://2021.splashcon.org/details/live-2021-papers/1/Software-as-Computational-Media>\n\nAn upcoming SPLASH conf talk on <https://webstrates.net/> and related topics. Pretty relevant to the community I think.",
+    "user": "U027P92A0N5",
+    "ts": "1633945660.197500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d6900487d910",
+      "image_72": "https://avatars.slack-edge.com/2021-07-07/2254853369060_d6900487d9109f495c79_72.jpg",
+      "first_name": "Alexander",
+      "real_name": "Alexander Chichigin",
+      "display_name": "Alex Chichigin",
+      "team": "T5TCAFTA9",
+      "name": "sad.ronin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1ER",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://2021.splashcon.org/details/live-2021-papers/1/Software-as-Computational-Media"
+              },
+              {
+                "type": "text",
+                "text": "\n\nAn upcoming SPLASH conf talk on "
+              },
+              {
+                "type": "link",
+                "url": "https://webstrates.net/"
+              },
+              {
+                "type": "text",
+                "text": " and related topics. Pretty relevant to the community I think."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      },
+      {
+        "name": "thumbsup_all",
+        "users": [
+          "U01HKV85Y1J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1609c8c3-0e77-44e8-a4d2-4ff436b60ab0",
+    "type": "message",
+    "text": "never saw it, so coinvented :stuck_out_tongue:",
+    "user": "UBN9AFS0N",
+    "ts": "1633946551.320300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "g+G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "never saw it, so coinvented "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "ok_hand",
+        "users": [
+          "U027P92A0N5"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2914f7b6-5c5b-4f44-8b86-20bc311e7e0c",
+    "type": "message",
+    "text": "interfix doesn't require the underscores",
+    "user": "UBN9AFS0N",
+    "ts": "1633946599.320500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qxirs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "interfix doesn't require the underscores"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9cdc062f-93e8-4351-ab12-66edd9598f85",
+    "type": "message",
+    "text": "Just to check, I understood that there will be a dedicated couple of days or weekend for doing the reviews, kind of like a small event. Is that correct, or are we supposed to do the reviews as we go? I kind of liked the idea of dedicated time to focus on it, all of us.",
+    "user": "UUB7RA7PF",
+    "ts": "1633951681.320800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2fdcf29b225b",
+      "image_72": "https://avatars.slack-edge.com/2020-02-26/971836171367_2fdcf29b225b02e66825_72.png",
+      "first_name": "Martin",
+      "real_name": "Martin Sosic",
+      "display_name": "Martin",
+      "team": "T5TCAFTA9",
+      "name": "sosic.martin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tpwT/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just to check, I understood that there will be a dedicated couple of days or weekend for doing the reviews, kind of like a small event. Is that correct, or are we supposed to do the reviews as we go? I kind of liked the idea of dedicated time to focus on it, all of us."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631829268.080200",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f4a60532-3f2b-4760-988b-e9e9944f417b",
+    "type": "message",
+    "text": "You can call me a convert and subscribe me to your heresy :stuck_out_tongue:\n\nI've always been convinced of the need to reduce the syntax needed in formal end-user languages, and decoupling parameters from their exact position is a basic tool for that; passing parameters by name instead of position was an improvement in post-C languages, so it's easy to imagine what benefits that style can bring.\n\nI'll go deeper into heresy: in a visual environment (think e.g. a spreadsheet or graphical design tool), _you don't even need the function name to be adjacent to the parameters_; the environment itself can suggest the list of nearby locally available values that are compatible with the function's input types, and the user chooses which one is appropriate. Applying functions becomes a point&amp;click interaction rather than recalling which syntax I need.\n\nThis can even depend on named parameters. Think of an IDE where, when you're passing a parameter to a function, \"intellisense\" suggests all nearby variables in scope with the right type that could be used for that parameter. Conversely, you could select a value and type a parameter name over it, and it could suggest function names that use that type of the value with that parameter name as a role for the value, so that the user to choose the most adequate suggested function. How many less API reference queries would it take for the user of this system?\n\nIn this style of coding, the structure of connections is more important than the concrete syntax of the text you create them with. In my opinion visual languages are the ones that can benefit the most from this separation between structure and placement, as perfect placement of values w.r.t. functions in a graphical environment is more difficult than with raw text.",
+    "user": "U02FYPLHU67",
+    "ts": "1633951807.321000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "da03e6d17065",
+      "image_72": "https://avatars.slack-edge.com/2021-09-28/2536072635510_da03e6d17065db49a1d3_72.jpg",
+      "first_name": "Diego",
+      "real_name": "Diego Moya",
+      "display_name": "dialmove",
+      "team": "T5TCAFTA9",
+      "name": "dialmove",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U02FYPLHU67",
+      "ts": "1633951870.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ozmH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You can call me a convert and subscribe me to your heresy "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue"
+              },
+              {
+                "type": "text",
+                "text": "\n\nI've always been convinced of the need to reduce the syntax needed in formal end-user languages, and decoupling parameters from their exact position is a basic tool for that; passing parameters by name instead of position was an improvement in post-C languages, so it's easy to imagine what benefits that style can bring.\n\nI'll go deeper into heresy: in a visual environment (think e.g. a spreadsheet or graphical design tool), "
+              },
+              {
+                "type": "text",
+                "text": "you don't even need the function name to be adjacent to the parameters",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "; the environment itself can suggest the list of nearby locally available values that are compatible with the function's input types, and the user chooses which one is appropriate. Applying functions becomes a point&click interaction rather than recalling which syntax I need.\n\nThis can even depend on named parameters. Think of an IDE where, when you're passing a parameter to a function, \"intellisense\" suggests all nearby variables in scope with the right type that could be used for that parameter. Conversely, you could select a value and type a parameter name over it, and it could suggest function names that use that type of the value with that parameter name as a role for the value, so that the user to choose the most adequate suggested function. How many less API reference queries would it take for the user of this system?\n\nIn this style of coding, the structure of connections is more important than the concrete syntax of the text you create them with. In my opinion visual languages are the ones that can benefit the most from this separation between structure and placement, as perfect placement of values w.r.t. functions in a graphical environment is more difficult than with raw text."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "dart",
+        "users": [
+          "U01ULEWACPP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "dc6fc735-f266-4267-ad31-12208748cb74",
+    "type": "message",
+    "text": "there will be one week to do and submit the reviews, probably by the end of november",
+    "user": "UBN9AFS0N",
+    "ts": "1633952281.321400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9mjs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "there will be one week to do and submit the reviews, probably by the end of november"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631829268.080200",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UUB7RA7PF"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "11f26f7a-901c-44d7-abc6-97914aa5306b",
+    "type": "message",
+    "text": "I propose a \"Share your old work\" week :slightly_smiling_face: share things you did in the past, Q&amp;A in thread, next two messages are two previous attempts at solving the same problem I'm trying to solve now",
+    "user": "UBN9AFS0N",
+    "ts": "1633953175.076600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=pYN1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I propose a \"Share your old work\" week "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " share things you did in the past, Q&A in thread, next two messages are two previous attempts at solving the same problem I'm trying to solve now"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "amiga-tick",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9763bcbe-e49d-4320-9817-05f766b69910",
+    "type": "message",
+    "text": "Nodes &amp; Wires &amp; Block Programming for \"Real Time\" Data Visualization. Screenshots in Thread\n\n<https://www.youtube.com/watch?v=sGi7Tb3v2f4>",
+    "user": "UBN9AFS0N",
+    "ts": "1633953266.077400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UBN9AFS0N",
+      "ts": "1633953297.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Build a Sales Dashboard from Scratch in 15 Minutes",
+        "title_link": "https://www.youtube.com/watch?v=sGi7Tb3v2f4",
+        "author_name": "Instadeq",
+        "author_link": "https://www.youtube.com/c/Eventfabricapp",
+        "thumb_url": "https://i.ytimg.com/vi/sGi7Tb3v2f4/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Build a Sales Dashboard from Scratch in 15 Minutes",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/sGi7Tb3v2f4?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=sGi7Tb3v2f4",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=sGi7Tb3v2f4"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "X/xe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Nodes & Wires & Block Programming for \"Real Time\" Data Visualization. Screenshots in Thread\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=sGi7Tb3v2f4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633953266.077400",
+    "reply_count": 4,
+    "reply_users_count": 2,
+    "latest_reply": "1634274051.093200",
+    "reply_users": [
+      "UBN9AFS0N",
+      "UJ6LDMMN0"
+    ],
+    "replies": [
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633953357.077700"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633953380.077900"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633953429.078100"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1634274051.093200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": ":white_check_mark: Nodes &amp; Wires",
+    "files": [
+      {
+        "id": "F02HBPEJ99Q",
+        "created": 1633953347,
+        "timestamp": 1633953347,
+        "name": "Screenshot from 2021-10-10 20-53-08.png",
+        "title": "Screenshot from 2021-10-10 20-53-08.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 389820,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02HBPEJ99Q/screenshot_from_2021-10-10_20-53-08.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02HBPEJ99Q/download/screenshot_from_2021-10-10_20-53-08.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBPEJ99Q-11f7b84087/screenshot_from_2021-10-10_20-53-08_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADCfT+LUf7xqznJ46VW08A2w+pqyBzQAopaQdaWgApD0P0paQ9D9KAKunf8AHoP941awKq6b/wAeg/3jVugBMUtIehoHQUALSHofpS01jwfpQB//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02HBPEJ99Q/screenshot_from_2021-10-10_20-53-08.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02HBPEJ99Q-e360fd8f57",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633953357.077700",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Qjtd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "emoji",
+                "name": "white_check_mark"
+              },
+              {
+                "type": "text",
+                "text": " Nodes & Wires"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "7b02de90-f9e1-42db-b719-18cdfee75ece",
+    "thread_ts": "1633953266.077400",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": ":white_check_mark: Block Programming",
+    "files": [
+      {
+        "id": "F02H8PQD9B7",
+        "created": 1633953372,
+        "timestamp": 1633953372,
+        "name": "Screenshot from 2021-10-10 20-46-10.png",
+        "title": "Screenshot from 2021-10-10 20-46-10.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 427680,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02H8PQD9B7/screenshot_from_2021-10-10_20-46-10.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02H8PQD9B7/download/screenshot_from_2021-10-10_20-46-10.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H8PQD9B7-70a1e5ace9/screenshot_from_2021-10-10_20-46-10_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADCtbf8AH1F/vCtOSVlYhQOPas23/wCPqL/eFaLqTIxwaAFjldjg4H4VOPemRLtUGpKAEoPQ0tI33T9KAMa2/wCPiL/eFbVYlsf9Ji/3hW3QAUVECQep6nvS5PrQBJTW+6fpTdx9aUHOc+lAH//Z",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02H8PQD9B7/screenshot_from_2021-10-10_20-46-10.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02H8PQD9B7-94186b599f",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633953380.077900",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "x0c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "emoji",
+                "name": "white_check_mark"
+              },
+              {
+                "type": "text",
+                "text": " Block Programming"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "b5d7dbff-c3ce-4de6-b79f-f1547c584afe",
+    "thread_ts": "1633953266.077400",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": ":white_check_mark: Free Form Widget Placement &amp; Auto Layout",
+    "files": [
+      {
+        "id": "F02J1DDUNE4",
+        "created": 1633953399,
+        "timestamp": 1633953399,
+        "name": "Screenshot from 2021-10-10 20-44-27.png",
+        "title": "Screenshot from 2021-10-10 20-44-27.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 525549,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02J1DDUNE4/screenshot_from_2021-10-10_20-44-27.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02J1DDUNE4/download/screenshot_from_2021-10-10_20-44-27.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02J1DDUNE4-bc36e03ea9/screenshot_from_2021-10-10_20-44-27_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADCp5jqAAxArTgnBjRdp4UZOayjWhB91f9wVLY0rl4EEZFN3DpzRGeOh6elOxTAjkco6jAKnqfSlSZHYKuckZ6UMikDJxSRoikFWBIGKV3cNDErQtUfGSpwVGKoHpW1b/wDHvH/uinYE7DsMqjjJ9qcDxkjFFGOKYhrqGIBpEVFJAxkdafQelKwH/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02J1DDUNE4/screenshot_from_2021-10-10_20-44-27.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02J1DDUNE4-2e68674a4e",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633953429.078100",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5=98",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "emoji",
+                "name": "white_check_mark"
+              },
+              {
+                "type": "text",
+                "text": " Free Form Widget Placement & Auto Layout"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "1e7f83b6-0660-4bbd-bbae-922f11776acd",
+    "thread_ts": "1633953266.077400",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "f6092ba3-fbe8-4e59-8b56-68c7862dffb6",
+    "type": "message",
+    "text": "Programming by Demonstration Data Manipulation and Visualization\n\nThe Video Shows the Data Manipulation by Demonstration part\n\n<https://www.youtube.com/watch?v=iHthdmM8m2o>",
+    "user": "UBN9AFS0N",
+    "ts": "1633953562.079200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Instadeq Data Manipulation Overview",
+        "title_link": "https://www.youtube.com/watch?v=iHthdmM8m2o",
+        "author_name": "Instadeq",
+        "author_link": "https://www.youtube.com/c/Instadeq",
+        "thumb_url": "https://i.ytimg.com/vi/iHthdmM8m2o/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Instadeq Data Manipulation Overview",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/iHthdmM8m2o?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=iHthdmM8m2o",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=iHthdmM8m2o"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "izog",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Programming by Demonstration Data Manipulation and Visualization\n\nThe Video Shows the Data Manipulation by Demonstration part\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=iHthdmM8m2o"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633953562.079200",
+    "reply_count": 8,
+    "reply_users_count": 1,
+    "latest_reply": "1633954265.080800",
+    "reply_users": [
+      "UBN9AFS0N"
+    ],
+    "replies": [
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633953932.079400"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633953978.079600"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633954009.079800"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633954078.080000"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633954117.080200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633954155.080400"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633954214.080600"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1633954265.080800"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Visual Actions, Conditionals",
+    "files": [
+      {
+        "id": "F02GX46FH5M",
+        "created": 1633953918,
+        "timestamp": 1633953918,
+        "name": "Screenshot from 2021-10-11 14-00-36.png",
+        "title": "Screenshot from 2021-10-11 14-00-36.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 399043,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02GX46FH5M/screenshot_from_2021-10-11_14-00-36.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02GX46FH5M/download/screenshot_from_2021-10-11_14-00-36.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX46FH5M-643135628f/screenshot_from_2021-10-11_14-00-36_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADDRBU59jzSjrximuNqnBxk96UdTQA6m5+bHNOqpJcOsrAKpwcDk0AWvxpap/aZcfdT9aclw7OoKrgntmgCcKfmyOp4pwFLRQAVDJC7k4kwD7VNRSauBVW1+b5iSB3zUwhRSCMjHvUlQ3TskWVODmmlfQT01P//Z",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02GX46FH5M/screenshot_from_2021-10-11_14-00-36.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02GX46FH5M-16643446b8",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633953932.079400",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FSm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Visual Actions, Conditionals"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "44817e74-ac75-4c60-a207-2415c6c505b1",
+    "thread_ts": "1633953562.079200",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Formula Editor and Human Readable Formulas",
+    "files": [
+      {
+        "id": "F02HBQY3743",
+        "created": 1633953966,
+        "timestamp": 1633953966,
+        "name": "Screenshot from 2021-10-11 14-00-53.png",
+        "title": "Screenshot from 2021-10-11 14-00-53.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 482545,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02HBQY3743/screenshot_from_2021-10-11_14-00-53.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02HBQY3743/download/screenshot_from_2021-10-11_14-00-53.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQY3743-73891b0c17/screenshot_from_2021-10-11_14-00-53_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADDQ3puI3AEdaN6Z+8v50nlR7iSgJJzyM0eTF/zzX/vmgB29ezAn60Z+bHNN8qNeVRQfpTyue9ACEEjhiKdSAEdTmloAaoOWznrSHarD1NKygnnP50nlr6H8zQA4Dilpnlr7/maNi57/AJmgB9FN2L7/AJmorjMUe5CQc+uaEribsf/Z",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02HBQY3743/screenshot_from_2021-10-11_14-00-53.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02HBQY3743-b86fed51c9",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633953978.079600",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uM2V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Formula Editor and Human Readable Formulas"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "f4959d01-bee5-4731-91cc-08b64126abbc",
+    "thread_ts": "1633953562.079200",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Reorder Actions",
+    "files": [
+      {
+        "id": "F02H52XAD2S",
+        "created": 1633954005,
+        "timestamp": 1633954005,
+        "name": "Screenshot from 2021-10-11 14-01-11.png",
+        "title": "Screenshot from 2021-10-11 14-01-11.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 557869,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02H52XAD2S/screenshot_from_2021-10-11_14-01-11.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02H52XAD2S/download/screenshot_from_2021-10-11_14-01-11.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H52XAD2S-21ec7e910e/screenshot_from_2021-10-11_14-01-11_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADDRBU59jzS9+MU1xtU4OMnvSjqaAHVA07q5URscdx/+qpqpuuXYtvzk9FNNIlsk+0P/AM8X/I/4U5Z2ZgDEwBPXn/Cq/lr6yf8AfBp0aASKcyde6GrsibstBT82e5pwFBAIwaTy19/zNZmg6imbF9/++jS7B7/maAHUU3Yvv/30aguXaIKEJGc+9NK4m7H/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02H52XAD2S/screenshot_from_2021-10-11_14-01-11.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02H52XAD2S-cbec405a65",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633954009.079800",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zch",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Reorder Actions"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "04ee3785-9a54-462e-b188-afb9c0375652",
+    "thread_ts": "1633953562.079200",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Disable Actions",
+    "files": [
+      {
+        "id": "F02GX4F1A6B",
+        "created": 1633954071,
+        "timestamp": 1633954071,
+        "name": "Screenshot from 2021-10-11 14-02-08.png",
+        "title": "Screenshot from 2021-10-11 14-02-08.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 471284,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02GX4F1A6B/screenshot_from_2021-10-11_14-02-08.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02GX4F1A6B/download/screenshot_from_2021-10-11_14-02-08.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02GX4F1A6B-2ac9061ad1/screenshot_from_2021-10-11_14-02-08_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADDQBznjocU4fSmkAA4470qkkD6UALSZ+bHNKelNY/NjoaAHfjQeBSKeoyTj2pT0oARvun6UJ90fQU7FFACU103HNPooAYML1PJ9qcelLVW6leN1CtgYppXE3Y//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02GX4F1A6B/screenshot_from_2021-10-11_14-02-08.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02GX4F1A6B-38d20779c0",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633954078.080000",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GEkx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Disable Actions"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "2460a25c-fd56-44eb-a576-634b43782bcd",
+    "thread_ts": "1633953562.079200",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "List Comprehensions",
+    "files": [
+      {
+        "id": "F02HBQUD54J",
+        "created": 1633954112,
+        "timestamp": 1633954112,
+        "name": "Screenshot from 2021-10-11 14-02-59.png",
+        "title": "Screenshot from 2021-10-11 14-02-59.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 555279,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02HBQUD54J/screenshot_from_2021-10-11_14-02-59.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02HBQUD54J/download/screenshot_from_2021-10-11_14-02-59.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQUD54J-ef2c6586d8/screenshot_from_2021-10-11_14-02-59_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADDRBU59jzS9+MU3BG7nvmlU5A+lAC9qaNytgsWpxzTXPOO+KAHde9B4FNU445OPanHpQA1ujfShPuj6Cn4FFACUx1ywqSq93I0YXYcZppXE3ZEikgngkmnn7tUPtEv9/wDSk+0S/wB/9KrkZPOj/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02HBQUD54J/screenshot_from_2021-10-11_14-02-59.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02HBQUD54J-0932c259d1",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633954117.080200",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nWpU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "List Comprehensions"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "3b73de46-9944-43d4-93e9-a8b1cf318ddc",
+    "thread_ts": "1633953562.079200",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "List Filtering and First Class Indexes",
+    "files": [
+      {
+        "id": "F02HE171HRA",
+        "created": 1633954146,
+        "timestamp": 1633954146,
+        "name": "Screenshot from 2021-10-11 14-02-59.png",
+        "title": "Screenshot from 2021-10-11 14-02-59.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 555279,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02HE171HRA/screenshot_from_2021-10-11_14-02-59.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02HE171HRA/download/screenshot_from_2021-10-11_14-02-59.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HE171HRA-9330512437/screenshot_from_2021-10-11_14-02-59_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADDRBU59jzS9+MU3BG7nvmlU5A+lAC9qaNytgsWpxzTXPOO+KAHde9B4FNU445OPanHpQA1ujfShPuj6Cn4FFACUx1ywqSq93I0YXYcZppXE3ZEikgngkmnn7tUPtEv9/wDSk+0S/wB/9KrkZPOj/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02HE171HRA/screenshot_from_2021-10-11_14-02-59.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02HE171HRA-0726db57f3",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633954155.080400",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WYGf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "List Filtering and First Class Indexes"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "81e4ff6c-fb61-4cda-8f95-61c165f8dad3",
+    "thread_ts": "1633953562.079200",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Show Intermediate Values",
+    "files": [
+      {
+        "id": "F02HBQZ5RJN",
+        "created": 1633954200,
+        "timestamp": 1633954200,
+        "name": "Screenshot from 2021-10-11 14-03-22.png",
+        "title": "Screenshot from 2021-10-11 14-03-22.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 649537,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02HBQZ5RJN/screenshot_from_2021-10-11_14-03-22.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02HBQZ5RJN/download/screenshot_from_2021-10-11_14-03-22.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02HBQZ5RJN-f6eabb6d81/screenshot_from_2021-10-11_14-03-22_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADDRBU59jzS9+MU3G0Mc55zSqcgH2oAU9KTJ3Y5pT0pjH5iMgHtQA/8AGg8CgZ9aD0oAR/un6UJ90fQU7FM8tff8zQA6o5OXAzin+Wvv+ZpPLX3/ADNAAvL5HQU89KYI156/mafQB//Z",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02HBQZ5RJN/screenshot_from_2021-10-11_14-03-22.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02HBQZ5RJN-fd2dbf2e82",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633954214.080600",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CJA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Show Intermediate Values"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "dc2c8760-7cbf-4ddf-a4ed-db4a9eef975a",
+    "thread_ts": "1633953562.079200",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Time Travel History on Actions and Values",
+    "files": [
+      {
+        "id": "F02H53A0FPG",
+        "created": 1633954239,
+        "timestamp": 1633954239,
+        "name": "Screenshot from 2021-10-11 14-03-30.png",
+        "title": "Screenshot from 2021-10-11 14-03-30.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 514305,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02H53A0FPG/screenshot_from_2021-10-11_14-03-30.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02H53A0FPG/download/screenshot_from_2021-10-11_14-03-30.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02H53A0FPG-6dce056138/screenshot_from_2021-10-11_14-03-30_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 576,
+        "original_w": 1920,
+        "original_h": 1080,
+        "thumb_tiny": "AwAbADDRBU59jzS9+MUxxtXg4ye9OHU0AKelJnBwaU9KYzYbHQ+metAD/wAaOaAT3/nS0ANYAKfzoX7oz6U6mlAf/rGgBaXFN8tff8zRsXpz+ZoAdQaQKAcjP50tAH//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F02H53A0FPG/screenshot_from_2021-10-11_14-03-30.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02H53A0FPG-4b1559e5b5",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1633954265.080800",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "y1t5B",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Time Travel History on Actions and Values"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "bd30c2d3-190e-4c35-9f87-a7a83781d2d4",
+    "thread_ts": "1633953562.079200",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "open_mouth",
+        "users": [
+          "UMV4B97GT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "1e6d3bcb-3c9e-4077-bf65-e979dbe10683",
+    "type": "message",
+    "text": "Yes, me too , but I am very happy with the pre-review that Kartik did. It certainly will help me to get more out of the reviews and preventing install-issues.",
+    "user": "U0123H7JRDM",
+    "ts": "1633954775.321600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gfb283c8a09c",
+      "image_72": "https://secure.gravatar.com/avatar/fb283c8a09c5c8909b00498ba9634a70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Maikel",
+      "real_name": "Maikel van de Lisdonk",
+      "display_name": "Maikel",
+      "team": "T5TCAFTA9",
+      "name": "maikel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lRbcy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, me too , but I am very happy with the pre-review that Kartik did. It certainly will help me to get more out of the reviews and preventing install-issues."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631829268.080200",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UUB7RA7PF"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "db6ee333-28d7-4c75-a419-19cdd0c35403",
+    "type": "message",
+    "text": "this was so fun to read:\n\n<http://vis.csail.mit.edu/pubs/towards-convivial-info-space.pdf>",
+    "user": "UAJKEBGP8",
+    "ts": "1633955230.198300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "72578ab3b4f8",
+      "image_72": "https://avatars.slack-edge.com/2021-10-09/2610495978720_72578ab3b4f8ab9ef250_72.jpg",
+      "first_name": "Srini",
+      "real_name": "Srini K",
+      "display_name": "Srini K",
+      "team": "T5TCAFTA9",
+      "name": "skadamat",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jZ4oq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this was so fun to read:\n\n"
+              },
+              {
+                "type": "link",
+                "url": "http://vis.csail.mit.edu/pubs/towards-convivial-info-space.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633955230.198300",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1633974358.198700",
+    "reply_users": [
+      "U0245E9RB2B",
+      "UAJKEBGP8"
+    ],
+    "replies": [
+      {
+        "user": "U0245E9RB2B",
+        "ts": "1633973401.198500"
+      },
+      {
+        "user": "UAJKEBGP8",
+        "ts": "1633974358.198700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "rainbow",
+        "users": [
+          "USH01JEDQ",
+          "U014WA16VNJ"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "534bfd9f-fa27-4708-a1c8-2f8ccc6eff35",
+    "type": "message",
+    "text": "Vaguely related: <https://lobste.rs/s/jol24u/better_operator_precedence|https://lobste.rs/s/jol24u/better_operator_precedence>",
+    "user": "ULYDR7EP3",
+    "ts": "1633957607.322100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Dr8c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Vaguely related: "
+              },
+              {
+                "type": "link",
+                "url": "https://lobste.rs/s/jol24u/better_operator_precedence",
+                "text": "https://lobste.rs/s/jol24u/better_operator_precedence"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "546686ca-5d26-4d96-8746-dbeaa663c4e4",
+    "type": "message",
+    "text": "&gt; However, that call would match nothing, so you'd get a compile time error.\n&gt; \n<@UCGAK10LS> could you explain how? I imagined it'd match both.",
+    "user": "ULYDR7EP3",
+    "ts": "1633957771.322300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fGqGX",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "However, that call would match nothing, so you'd get a compile time error.\n"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCGAK10LS"
+              },
+              {
+                "type": "text",
+                "text": " could you explain how? I imagined it'd match both."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5350f4ba-b667-457c-ba8b-b1e54c9a911c",
+    "type": "message",
+    "text": "I was a core contributor for many years on <https://github.com/ReactiveX/RxJava|RxJava> 1 &amp; 2. My largest impact was to identify and pushing Erik Meijer and Ben Christensen to incorporate back pressure in to RxJava 2 which influenced <http://www.reactive-streams.org/|reactive streams> and eventually <https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html|JDK 9+ Flow>.",
+    "user": "UQ706GB9U",
+    "ts": "1633969352.086900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g80bf3c31da6",
+      "image_72": "https://secure.gravatar.com/avatar/80bf3c31da6a1f3f44e68bfe227fd35d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "George Campbell",
+      "display_name": "George Campbell",
+      "team": "T5TCAFTA9",
+      "name": "abersnaze",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nM2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I was a core contributor for many years on "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/ReactiveX/RxJava",
+                "text": "RxJava"
+              },
+              {
+                "type": "text",
+                "text": " 1 & 2. My largest impact was to identify and pushing Erik Meijer and Ben Christensen to incorporate back pressure in to RxJava 2 which influenced "
+              },
+              {
+                "type": "link",
+                "url": "http://www.reactive-streams.org/",
+                "text": "reactive streams"
+              },
+              {
+                "type": "text",
+                "text": " and eventually "
+              },
+              {
+                "type": "link",
+                "url": "https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html",
+                "text": "JDK 9+ Flow"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633969352.086900",
+    "reply_count": 2,
+    "reply_users_count": 1,
+    "latest_reply": "1633970515.087300",
+    "reply_users": [
+      "UQ706GB9U"
+    ],
+    "replies": [
+      {
+        "user": "UQ706GB9U",
+        "ts": "1633970040.087000"
+      },
+      {
+        "user": "UQ706GB9U",
+        "ts": "1633970515.087300"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "UBN9AFS0N",
+          "U013ZLJARC7",
+          "UJ6LDMMN0"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "76ad732b-7213-4a6d-9472-b5b9eacbaf02",
+    "type": "message",
+    "text": "One of the ways `Observable` are defined is as the dual of `Iterable`.\n```Iterable -&gt; Observable\ncalling iter.next() -&gt; having onNext() called\nthrowing an error from iter.hasNext() -&gt; having onError() called\nhasNext() returning false -&gt; having onComplete() called```",
+    "user": "UQ706GB9U",
+    "ts": "1633970040.087000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g80bf3c31da6",
+      "image_72": "https://secure.gravatar.com/avatar/80bf3c31da6a1f3f44e68bfe227fd35d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "George Campbell",
+      "display_name": "George Campbell",
+      "team": "T5TCAFTA9",
+      "name": "abersnaze",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UQ706GB9U",
+      "ts": "1633970119.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "R0zf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One of the ways "
+              },
+              {
+                "type": "text",
+                "text": "Observable",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " are defined is as the dual of "
+              },
+              {
+                "type": "text",
+                "text": "Iterable",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Iterable -> Observable\ncalling iter.next() -> having onNext() called\nthrowing an error from iter.hasNext() -> having onError() called\nhasNext() returning false -> having onComplete() called"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633969352.086900",
+    "parent_user_id": "UQ706GB9U",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "5fb49695-90e8-4ae0-81f3-3de4c434c2cc",
+    "type": "message",
+    "text": "the insight on reactive or async programming is the dual of debugging. With synchronous paradigms it is `When something goes wrong a bad thing happens` but for all reactive paradigms the dual is `When something goes wrong a good thing doesn't happen`",
+    "user": "UQ706GB9U",
+    "ts": "1633970515.087300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g80bf3c31da6",
+      "image_72": "https://secure.gravatar.com/avatar/80bf3c31da6a1f3f44e68bfe227fd35d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "George Campbell",
+      "display_name": "George Campbell",
+      "team": "T5TCAFTA9",
+      "name": "abersnaze",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5HE7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the insight on reactive or async programming is the dual of debugging. With synchronous paradigms it is "
+              },
+              {
+                "type": "text",
+                "text": "When something goes wrong a bad thing happens",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " but for all reactive paradigms the dual is "
+              },
+              {
+                "type": "text",
+                "text": "When something goes wrong a good thing doesn't happen",
+                "style": {
+                  "code": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633969352.086900",
+    "parent_user_id": "UQ706GB9U",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0a7663fe-59e6-446f-b42f-8f64d51e7517",
+    "type": "message",
+    "text": "I see Philip Guo is one of the authors - I've been a fan of his for years after finding his PythonTutor.",
+    "user": "U0245E9RB2B",
+    "ts": "1633973401.198500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4146ee716d5c",
+      "image_72": "https://avatars.slack-edge.com/2021-06-09/2162420776068_4146ee716d5cee83a3b8_72.jpg",
+      "first_name": "",
+      "real_name": "Timothy Johnson",
+      "display_name": "Timothy Johnson",
+      "team": "T5TCAFTA9",
+      "name": "timjohnson314",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "y6G63",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I see Philip Guo is one of the authors - I've been a fan of his for years after finding his PythonTutor."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633955230.198300",
+    "parent_user_id": "UAJKEBGP8",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6b3d5307-6b28-4450-8d9d-5a9ea7141452",
+    "type": "message",
+    "text": "yeah Philip is great, I just Zoom’d with him last week (and some of his students)",
+    "user": "UAJKEBGP8",
+    "ts": "1633974358.198700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "72578ab3b4f8",
+      "image_72": "https://avatars.slack-edge.com/2021-10-09/2610495978720_72578ab3b4f8ab9ef250_72.jpg",
+      "first_name": "Srini",
+      "real_name": "Srini K",
+      "display_name": "Srini K",
+      "team": "T5TCAFTA9",
+      "name": "skadamat",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uAH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yeah Philip is great, I just Zoom’d with him last week (and some of his students)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633955230.198300",
+    "parent_user_id": "UAJKEBGP8",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ba13f3ce-7097-4be4-9415-07fc66363b12",
+    "type": "message",
+    "text": "A cool submission to the recent wheel reinvention jam: <https://handmade.network/forums/jam/t/8121-jam_submission_-_structure_analysis_program>\n\n(Thanks to <@U85HCL7JP> for reminding me to go look at the submissions: <https://handmade.network/forums/jam>)",
+    "user": "UCUSW7WVD",
+    "ts": "1633983808.199800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mS7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A cool submission to the recent wheel reinvention jam: "
+              },
+              {
+                "type": "link",
+                "url": "https://handmade.network/forums/jam/t/8121-jam_submission_-_structure_analysis_program"
+              },
+              {
+                "type": "text",
+                "text": "\n\n(Thanks to "
+              },
+              {
+                "type": "user",
+                "user_id": "U85HCL7JP"
+              },
+              {
+                "type": "text",
+                "text": " for reminding me to go look at the submissions: "
+              },
+              {
+                "type": "link",
+                "url": "https://handmade.network/forums/jam"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U85HCL7JP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "4e872a01-0781-43f9-98a2-55115bcb792f",
+    "type": "message",
+    "text": "Natural languages split into synthetic (eg Russian, Turkish) and analytic (eg English, Chinese) languages (very roughly). Synthetic languages do a lot of agglunitation and morphology, for example they have cases like accusative or locative and lots of agreement. Analytic languages don't bother much with aggrement and morphology (which is also why NLP on English always starts off so easily). But that comes with a price: English has a relatively fixed word order, whereas in Russian you can basically order the words in your sentence almost any way you like.\n\nSo from that we learn that in order to avoid ambiguity, if we could tag the tokens in our programming language with a 'case', we could get away with much more free token order in each statement.",
+    "user": "U01AD80KMLK",
+    "ts": "1633989791.322600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a07cdcb6d037",
+      "image_72": "https://avatars.slack-edge.com/2020-09-09/1376906509376_a07cdcb6d037bf7b6a5e_72.jpg",
+      "first_name": "",
+      "real_name": "Denny Vrandečić",
+      "display_name": "Denny Vrandečić",
+      "team": "T5TCAFTA9",
+      "name": "dvrandecic",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "70bt9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Natural languages split into synthetic (eg Russian, Turkish) and analytic (eg English, Chinese) languages (very roughly). Synthetic languages do a lot of agglunitation and morphology, for example they have cases like accusative or locative and lots of agreement. Analytic languages don't bother much with aggrement and morphology (which is also why NLP on English always starts off so easily). But that comes with a price: English has a relatively fixed word order, whereas in Russian you can basically order the words in your sentence almost any way you like.\n\nSo from that we learn that in order to avoid ambiguity, if we could tag the tokens in our programming language with a 'case', we could get away with much more free token order in each statement."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMVFWPZ36",
+          "UCUSW7WVD"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8231907a-87e6-46d1-a2cb-09ef9582299b",
+    "type": "message",
+    "text": "<@U01AD80KMLK> Do you mean we could let the programmer choose the order of tokens for each function call? If so, I'd consider that an anti-feature, because now there are many syntaxes for the same call, and we can no longer exploit our \"shape recognition\" capabilities to quickly identify a function. There's merit to only allowing the _definer_ of the function to choose the token order. But perhaps I'm missing your point.",
+    "user": "UCGAK10LS",
+    "ts": "1633991515.323000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6OoE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01AD80KMLK"
+              },
+              {
+                "type": "text",
+                "text": " Do you mean we could let the programmer choose the order of tokens for each function call? If so, I'd consider that an anti-feature, because now there are many syntaxes for the same call, and we can no longer exploit our \"shape recognition\" capabilities to quickly identify a function. There's merit to only allowing the "
+              },
+              {
+                "type": "text",
+                "text": "definer",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of the function to choose the token order. But perhaps I'm missing your point."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "81b56553-8e75-4df0-8a6d-386e6d8f26f4",
+    "type": "message",
+    "text": "Yes, that was my suggestion.",
+    "user": "U01AD80KMLK",
+    "ts": "1633991584.323200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a07cdcb6d037",
+      "image_72": "https://avatars.slack-edge.com/2020-09-09/1376906509376_a07cdcb6d037bf7b6a5e_72.jpg",
+      "first_name": "",
+      "real_name": "Denny Vrandečić",
+      "display_name": "Denny Vrandečić",
+      "team": "T5TCAFTA9",
+      "name": "dvrandecic",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JC+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, that was my suggestion."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d83b0829-e1a8-44d8-a67e-1054213ec1a2",
+    "type": "message",
+    "text": "Do you think there are benefits to that level of freedom? Would it help Russians write more readable code?",
+    "user": "UCGAK10LS",
+    "ts": "1633991647.323400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cKX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Do you think there are benefits to that level of freedom? Would it help Russians write more readable code?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "510cae56-fa6f-41c9-99f7-8d3a5a4173cd",
+    "type": "message",
+    "text": "<@ULYDR7EP3> We've probably got different ideas about the underlying semantics. If I had to guess, you're thinking of each symbol in the sequence `(a b c)` as a _value_. In contrast, I was thinking of each symbol as a \"piece of syntax\" that helps identify which function to call.\n\nUnder your interpretation, `(fun1 fun2 var3)` is ambiguous, because it could be interpreted as passing the symbolic value \"fun2\" to the fun1 function, or as passing the symbolic value \"fun1\" to the fun2 function.\n\nUnder my interpretation, there is no function definition with the signature `(fun1 fun2 .)`, so you get a compile-time error.\n\nBut since starting this thread, I've actually been trending towards the first interpretation. It might turn out to be \"nicer\" in practice, especially as an alternative to passing strings around everywhere. But I think you'd now want/need variable references to be distinguished from symbols, using the `&amp;` syntax as you mentioned, or even just the parentheses (after all, a variable reference is just a function call with zero arguments). So a function call would look like `fun1 (a) (b)` or `fun1 &amp;a &amp;b`. Though I've been thinking about a more lightweight syntax inspired by Rust's lifetime syntax: `fun1 'a 'b`. It's probably necessary to avoid parentheses/syntax hell.",
+    "user": "UCGAK10LS",
+    "ts": "1633992465.323600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1633992558.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/9EmJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "ULYDR7EP3"
+              },
+              {
+                "type": "text",
+                "text": " We've probably got different ideas about the underlying semantics. If I had to guess, you're thinking of each symbol in the sequence "
+              },
+              {
+                "type": "text",
+                "text": "(a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as a "
+              },
+              {
+                "type": "text",
+                "text": "value",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". In contrast, I was thinking of each symbol as a \"piece of syntax\" that helps identify which function to call.\n\nUnder your interpretation, "
+              },
+              {
+                "type": "text",
+                "text": "(fun1 fun2 var3)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is ambiguous, because it could be interpreted as passing the symbolic value \"fun2\" to the fun1 function, or as passing the symbolic value \"fun1\" to the fun2 function.\n\nUnder my interpretation, there is no function definition with the signature "
+              },
+              {
+                "type": "text",
+                "text": "(fun1 fun2 .)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", so you get a compile-time error.\n\nBut since starting this thread, I've actually been trending towards the first interpretation. It might turn out to be \"nicer\" in practice, especially as an alternative to passing strings around everywhere. But I think you'd now want/need variable references to be distinguished from symbols, using the "
+              },
+              {
+                "type": "text",
+                "text": "&",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " syntax as you mentioned, or even just the parentheses (after all, a variable reference is just a function call with zero arguments). So a function call would look like "
+              },
+              {
+                "type": "text",
+                "text": "fun1 (a) (b)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " or "
+              },
+              {
+                "type": "text",
+                "text": "fun1 &a &b",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Though I've been thinking about a more lightweight syntax inspired by Rust's lifetime syntax: "
+              },
+              {
+                "type": "text",
+                "text": "fun1 'a 'b",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". It's probably necessary to avoid parentheses/syntax hell."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "ULYDR7EP3"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bad05507-5672-4dba-8070-99f1ba5be523",
+    "type": "message",
+    "text": "Since we're all wild heretic here: How about capitalization carrying syntactic significance? Small initial letter means it's part of the invoked function name, e.g. `fun1 Fun2 Var3` means invoke fun1 with fun2 and var3 as arguments, while `Fun1 fun2 Var3` means to invoke fun2.",
+    "user": "ULYDR7EP3",
+    "ts": "1633993018.324100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3g6i6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Since we're all wild heretic here: How about capitalization carrying syntactic significance? Small initial letter means it's part of the invoked function name, e.g. "
+              },
+              {
+                "type": "text",
+                "text": "fun1 Fun2 Var3",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " means invoke fun1 with fun2 and var3 as arguments, while "
+              },
+              {
+                "type": "text",
+                "text": "Fun1 fun2 Var3",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " means to invoke fun2."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "52120ea0-58d9-4250-9192-11b270234b0b",
+    "type": "message",
+    "text": "So essentially, capital first letter instead of `&amp;`. The heretical part would be to have the first character (or all characters) in identifiers be case insensitive.",
+    "user": "ULYDR7EP3",
+    "ts": "1633993107.324300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LZ2gQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So essentially, capital first letter instead of "
+              },
+              {
+                "type": "text",
+                "text": "&",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". The heretical part would be to have the first character (or all characters) in identifiers be case insensitive."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "260d6a68-51c7-47c6-9b7e-a957cbfdd60b",
+    "type": "message",
+    "text": "Would that be giving special treatment to Latin-based alphabets though? It would be nice to support arbitrary Unicode. Imagine asking someone writing in Hiragana to start their words with an English letter!",
+    "user": "UCGAK10LS",
+    "ts": "1633993341.324500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+4o+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Would that be giving special treatment to Latin-based alphabets though? It would be nice to support arbitrary Unicode. Imagine asking someone writing in Hiragana to start their words with an English letter!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "ULYDR7EP3"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fa5fe6e8-70bc-497e-866b-f1080a9ceda0",
+    "type": "message",
+    "text": "Also, that proposal wouldn't work with symbols like `+` and `*`. But I do like the sneakiness of it :wink:.",
+    "user": "UCGAK10LS",
+    "ts": "1633993514.324700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+LD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also, that proposal wouldn't work with symbols like "
+              },
+              {
+                "type": "text",
+                "text": "+",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "*",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". But I do like the sneakiness of it "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "470b6c54-012e-474b-b5c4-7f5223d96b54",
+    "type": "message",
+    "text": "True. \"First character in Katakana or upper-case Latin!\" :-D",
+    "user": "ULYDR7EP3",
+    "ts": "1633995899.324900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g9ad76d000ca",
+      "image_72": "https://secure.gravatar.com/avatar/59ad76d000ca1de86487e8af9da74f72.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Axel Svensson",
+      "display_name": "Axel Svensson",
+      "team": "T5TCAFTA9",
+      "name": "mail052",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SeH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "True. \"First character in Katakana or upper-case Latin!\" :-D"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1633919351.305800",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
