@@ -1,0 +1,814 @@
+[
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1735517148.339399",
+    "client_msg_id": "a4d0d301-1d69-404e-973d-85e8f4187b04",
+    "text": "The major question for me now is: how do you configure a buffer? You need some concise way to specify the space (perhaps just by naming from a small menu of options), handlers that listen for messages (e.g. keypress or mousepress), handlers for sending messages (e.g. widgets on the space that perform tasks when you interact with them), and generic handlers for sending messages to other buffers (e.g. `print`; here I'm imagining it to send a message from some arbitrary process, through say a socket, back into the environment, with enough information to route it to the appropriate buffer accompanied by a reasonable coordinate)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735514277.187609",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EYSRb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The major question for me now is: how do you configure a buffer? You need some concise way to specify the space (perhaps just by naming from a small menu of options), handlers that listen for messages (e.g. keypress or mousepress), handlers for sending messages (e.g. widgets on the space that perform tasks when you interact with them), and generic handlers for sending messages to other buffers (e.g. "
+              },
+              {
+                "type": "text",
+                "text": "print",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "; here I'm imagining it to send a message from some arbitrary process, through say a socket, back into the environment, with enough information to route it to the appropriate buffer accompanied by a reasonable coordinate)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UFEQUBNNT",
+    "type": "message",
+    "ts": "1735524952.906929",
+    "client_msg_id": "FF1E3A48-3E9E-481F-B9BB-34083E9044C2",
+    "text": "Elena and I explored this space a _little_ and you might find a useful thing or two in <https://github.com/alltom/debugview|https://github.com/alltom/debugview>\n\nI think session management was the most annoying part of our approach. Like if two parts of a program want to make bar charts, suddenly there was a coordination problem, because we wanted to stick to a tadi protocol that any process with a stdout could speak and wouldn’t require a library to effectively use.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735514277.187609",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NDJo4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Elena and I explored this space a "
+              },
+              {
+                "type": "text",
+                "text": "little",
+                "style": {
+                  "bold": false,
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and you might find a useful thing or two in "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/alltom/debugview",
+                "text": "https://github.com/alltom/debugview"
+              },
+              {
+                "type": "text",
+                "text": "\n\nI think session management was the most annoying part of our approach"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Like if two parts of a program want to make bar charts, suddenly there was a coordination problem, because we wanted to stick to a tadi protocol that any process with a stdout could speak and "
+              },
+              {
+                "type": "text",
+                "text": "wouldn’t"
+              },
+              {
+                "type": "text",
+                "text": " require a library to effectively use."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U05FWGL3EBC",
+    "type": "message",
+    "ts": "1735525250.792139",
+    "client_msg_id": "929dd810-c505-424d-a926-f985919005be",
+    "text": "does anyone work on making a programming language ? and if so, can you share a repo or some notes ? I'm curious what features are you implementing and what programming language are you using do develop it and how you do the codegen part. I'm currently struggling quite a bit with LLVM",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735525250.792139",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1735551039.500709",
+    "reply_users": [
+      "UGWUJUZHT",
+      "U05FWGL3EBC"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/YfKP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "does anyone work on making a programming language ? and if so, can you share a repo or some notes ? I'm curious what features are you implementing and what programming language are you using do develop it and how you do the codegen part. I'm currently struggling quite a bit with LLVM"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1735532520.811659",
+    "client_msg_id": "91e8c559-30d4-426b-b7f7-a80f7735ae53",
+    "text": "<https://open.substack.com/pub/programmingsimplicity/p/writing-a-compiler-in-2024?r=1egdky&amp;utm_campaign=post&amp;utm_medium=web&amp;showWelcomeOnShare=true>\n\n[I would be glad to discuss further...]",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735525250.792139",
+    "parent_user_id": "U05FWGL3EBC",
+    "attachments": [
+      {
+        "from_url": "https://open.substack.com/pub/programmingsimplicity/p/writing-a-compiler-in-2024?r=1egdky&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+        "thumb_url": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9d69eba9-d5d3-4387-a046-9b881b00bd45_131x131.png",
+        "thumb_width": 131,
+        "thumb_height": 131,
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://open.substack.com/pub/programmingsimplicity/p/writing-a-compiler-in-2024?r=1egdky&amp;utm_campaign=post&amp;utm_medium=web&amp;showWelcomeOnShare=true",
+        "fallback": "Writing a Compiler in 2024",
+        "text": "Towards Higher Level Syntax for Programming Languages 2024-12-05",
+        "title": "Writing a Compiler in 2024",
+        "title_link": "https://open.substack.com/pub/programmingsimplicity/p/writing-a-compiler-in-2024?r=1egdky&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GkMZn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://open.substack.com/pub/programmingsimplicity/p/writing-a-compiler-in-2024?r=1egdky&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true"
+              },
+              {
+                "type": "text",
+                "text": "\n\n[I would be glad to discuss further...]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U05FWGL3EBC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1735541398.776279",
+    "client_msg_id": "620ab672-9d60-41b8-90d4-ed9f8b2d7ee1",
+    "text": "Buffer configuration is what Emacs has modes for, and Smalltalk objects (what else?). In both cases, it's a finite but possibly large list of choices.\nYou could have Emacs-like modes and have programs specify their mode in an initial message.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735514277.187609",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tfEOJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Buffer configuration is what Emacs has modes for, and Smalltalk objects (what else?). In both cases, it's a finite but possibly large list of choices.\nYou could have Emacs-like modes and have programs specify their mode in an initial message."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U05FWGL3EBC",
+    "type": "message",
+    "ts": "1735551039.500709",
+    "client_msg_id": "9a678766-7d3f-451d-a064-2b0ee860299b",
+    "text": "great resources. thank you",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735525250.792139",
+    "parent_user_id": "U05FWGL3EBC",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZDkNG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "great resources. thank you"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "guitar",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "text": "My first attempt at putting all the pieces together to create a self-editable, zero toolchain, offline-first webpage with good debugger support. My CSS is quite weak so I need some more time to make it responsive and look cool, but the general idea is visible.",
+    "files": [
+      {
+        "id": "F086U5T0H1Q",
+        "created": 1735565596,
+        "timestamp": 1735565596,
+        "name": "moldablewebsite.mp4",
+        "title": "moldablewebsite.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U02E4DAQGSZ",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 32828262,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "complete",
+          "locale": "en-US",
+          "preview": {
+            "content": "This is a prototype of a web page where everything is editable. As I click through, we see there's these different cells that comprise of the page and",
+            "has_more": true
+          }
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F086U5T0H1Q-8a6159f021/moldablewebsite.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F086U5T0H1Q-8a6159f021/moldablewebsite.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F086U5T0H1Q/download/moldablewebsite.mp4",
+        "vtt": "https://files.slack.com/files-tmb/T5TCAFTA9-F086U5T0H1Q-8a6159f021/file.vtt?_xcb=de9bf",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F086U5T0H1Q-8a6159f021/file.m3u8?_xcb=de9bf",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MTIzNjgwNSxBVkVSQUdFLUJBTkRXSURUSD01NDI3MDQsQ09ERUNTPSJhdmMxLjY0MDAxZixtcDRhLjQwLjUiLFJFU09MVVRJT049ODEweDEwODAsRlJBTUUtUkFURT0yOS45NzAsU1VCVElUTEVTPSJzdWJzIgpkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWlZOVlF3U0RGUkxUaGhOakUxT1dZd01qRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURFdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EZzJWVFZVTUVneFVTMDRZVFl4TlRsbU1ESXhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBeUxuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTRObFUxVkRCSU1WRXRPR0UyTVRVNVpqQXlNUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd015NTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdPRFpWTlZRd1NERlJMVGhoTmpFMU9XWXdNakV2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01EUXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGcyVlRWVU1FZ3hVUzA0WVRZeE5UbG1NREl4TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQTFMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakE0TmxVMVZEQklNVkV0T0dFMk1UVTVaakF5TVM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3T0RaVk5WUXdTREZSTFRoaE5qRTFPV1l3TWpFdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRGN1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURnMlZUVlVNRWd4VVMwNFlUWXhOVGxtTURJeEwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREE0TG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBNE5sVTFWREJJTVZFdE9HRTJNVFU1WmpBeU1TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3T1M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWlZOVlF3U0RGUkxUaGhOakUxT1dZd01qRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TVRBdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EZzJWVFZVTUVneFVTMDRZVFl4TlRsbU1ESXhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURFeExuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTRObFUxVkRCSU1WRXRPR0UyTVRVNVpqQXlNUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBeE1pNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdPRFpWTlZRd1NERlJMVGhoTmpFMU9XWXdNakV2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01UTXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGcyVlRWVU1FZ3hVUzA0WVRZeE5UbG1NREl4TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01ERTBMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakE0TmxVMVZEQklNVkV0T0dFMk1UVTVaakF5TVM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhOUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3T0RaVk5WUXdTREZSTFRoaE5qRTFPV1l3TWpFdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNVFl1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURnMlZUVlVNRWd4VVMwNFlUWXhOVGxtTURJeEwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREUzTG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBNE5sVTFWREJJTVZFdE9HRTJNVFU1WmpBeU1TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4T0M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWlZOVlF3U0RGUkxUaGhOakUxT1dZd01qRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TVRrdWRITUtJMFZZVkVsT1JqbzFMalF3TlN3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EZzJWVFZVTUVneFVTMDRZVFl4TlRsbU1ESXhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURJd0xuUnpDaU5GV0ZRdFdDMUZUa1JNU1ZOVUNnPT0KI0VYVC1YLU1FRElBOlRZUEU9U1VCVElUTEVTLEdST1VQLUlEPSJzdWJzIixOQU1FPSJFbmdsaXNoIixERUZBVUxUPVlFUyxBVVRPU0VMRUNUPVlFUyxGT1JDRUQ9Tk8sTEFOR1VBR0U9ImVuZyIsVVJJPSJkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8yTURBS0kwVllWQzFZTFUxRlJFbEJMVk5GVVZWRlRrTkZPakVLSTBWWVZDMVlMVkJNUVZsTVNWTlVMVlJaVUVVNlZrOUVDaU5GV0ZSSlRrWTZNVEU1TGpVeE9Td0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGcyVlRWVU1FZ3hVUzA0WVRZeE5UbG1NREl4TDJacGJHVXVkblIwQ2lORldGUXRXQzFGVGtSTVNWTlUiCg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F086U5T0H1Q-8a6159f021/moldablewebsite_trans.mp4",
+        "duration_ms": 119519,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F086U5T0H1Q-8a6159f021/moldablewebsite_thumb_video.jpeg",
+        "thumb_video_w": 810,
+        "thumb_video_h": 1080,
+        "permalink": "https://futureofcoding.slack.com/files/U02E4DAQGSZ/F086U5T0H1Q/moldablewebsite.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F086U5T0H1Q-865b0bf4d9",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U02E4DAQGSZ",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8246c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My first attempt at putting all the pieces together to create a self-editable, zero toolchain, offline-first webpage with good debugger support. My CSS is quite weak so I need some more time to make it responsive and look cool, but the general idea is visible."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1735565958.937269",
+    "client_msg_id": "8ab5c343-9fc7-4240-b5c8-739d3cb82bf5",
+    "thread_ts": "1735565958.937269",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1735578395.817789",
+    "reply_users": [
+      "UE1JQM9HQ",
+      "U02E4DAQGSZ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U85HCL7JP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UE1JQM9HQ",
+    "type": "message",
+    "ts": "1735572254.051539",
+    "client_msg_id": "54d9f9a6-002b-4cf4-963a-6002f73b30fe",
+    "text": "Interesting! What does “good debugger support” mean?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735565958.937269",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pQvBW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting! What does “good debugger support” mean?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1735578395.817789",
+    "client_msg_id": "42cc370e-bf3b-4964-ad89-278c0547060a",
+    "text": "it means the idiomatic language debugger works (i.e. devtools), in contrast to shipping a facsimile which often happens with new coding environment.\n\nI would go slightly further and say the debugging experience is better than in normal Javascript because when code is updated to place a \"debugger expression\" it hot-reloads so then it immediately has the opportunity to catch an execution. debuggers + live coding have excellent synergy",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735565958.937269",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EGvcK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "it means the idiomatic language debugger works (i.e. devtools), in contrast to shipping a facsimile which often happens with new coding environment.\n\nI would go slightly further and say the debugging experience is better than in normal Javascript because when code is updated to place a \"debugger expression\" it hot-reloads so then it immediately has the opportunity to catch an execution. debuggers + live coding have excellent synergy"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "text": "Beginnings of a tiling window manager. Still a bug as you can see. I need to come up with a clean way to constrain motion within an arbitrarily nested tree of windows.",
+    "files": [
+      {
+        "id": "F086XU5AL68",
+        "created": 1735589100,
+        "timestamp": 1735589100,
+        "name": "motleywm.webm",
+        "title": "motleywm.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 2298215,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F086XU5AL68/motleywm.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F086XU5AL68/download/motleywm.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F086XU5AL68-6be799d0c8/file.m3u8?_xcb=c211c",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9OTY1MzU0LEFWRVJBR0UtQkFORFdJRFRIPTY1ODI0NCxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMjgweDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWllWVFZCVERZNExUWmlaVGM1T1dRd1l6Z3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TVM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWllWVFZCVERZNExUWmlaVGM1T1dRd1l6Z3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TWk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWllWVFZCVERZNExUWmlaVGM1T1dRd1l6Z3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWllWVFZCVERZNExUWmlaVGM1T1dRd1l6Z3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TkM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWllWVFZCVERZNExUWmlaVGM1T1dRd1l6Z3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TlM1MGN3b2pSVmhVU1U1R09qRXVPRE0xTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09EWllWVFZCVERZNExUWmlaVGM1T1dRd1l6Z3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tmk1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F086XU5AL68-6be799d0c8/file_trans.mp4",
+        "duration_ms": 31865,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F086XU5AL68-6be799d0c8/motleywm_thumb_video.jpeg",
+        "thumb_video_w": 1280,
+        "thumb_video_h": 720,
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F086XU5AL68/motleywm.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F086XU5AL68-5bec9ad750",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lQ5P4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Beginnings of a tiling window manager. Still a bug as you can see. I need to come up with a clean way to constrain motion within an arbitrarily nested tree of windows."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1735589106.381859",
+    "client_msg_id": "01c45232-49ab-4e39-96d2-d7818950a44c",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UMV4B97GT",
+          "UJBAJNFLK",
+          "U013ZLJARC7"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1735591155.109619",
+    "client_msg_id": "ff2f3c0a-3867-435a-91e1-14203d4e7d49",
+    "text": "I'm really pleased to finally share my first-ever published paper (at last!)\n\nThis is...\nDIALOGUES ON NATURAL CODE\nby me and Dave Ackley\n\nPlease enjoy!!!!!\n<https://www.todepond.com/code/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735591155.109619",
+    "reply_count": 6,
+    "reply_users_count": 3,
+    "latest_reply": "1735654255.942479",
+    "reply_users": [
+      "U03R0B9U1GD",
+      "U05PY5AQCA2",
+      "U08294YLWJH"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dvaLY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm really pleased to finally share my first-ever published paper (at last!)\n\nThis is...\nDIALOGUES ON NATURAL CODE\nby me and Dave Ackley\n\nPlease enjoy!!!!!\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.todepond.com/code/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U0378MDUG1Y",
+          "UCUSW7WVD",
+          "UFEQUBNNT",
+          "U85HCL7JP",
+          "U08294YLWJH",
+          "UMV4B97GT",
+          "UJBAJNFLK",
+          "U02E4DAQGSZ",
+          "UM7034QUQ",
+          "U05M5A8E0NT",
+          "UP00ZLX6G"
+        ],
+        "count": 11
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1735591286.765209",
+    "client_msg_id": "7be39a61-08bc-4511-845f-74edb07d8617",
+    "text": "or at least... as soon as the pdf uploads :)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735591155.109619",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bPcgk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "or at least... as soon as the pdf uploads :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1735592406.254669",
+    "client_msg_id": "64CD9521-6F22-4840-9B6F-010AB526A1FB",
+    "text": "Yeah, the “Did you really read the blog post? If so, click here” thing just cycles between two different pages when you click “here”.\n\nAlso, a paper should stand alone.\n\nI’m half-wondering if this is just punking us.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735591155.109619",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nwBbm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, the “Did you really read the blog post? If so, click here” thing just cycles between two different pages when you click “here”.\n\nAlso, a paper should stand alone.\n\nI’m half-wondering if this is just punking us."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1735592538.165479",
+    "client_msg_id": "f169203c-95ab-4cf1-8791-f0fa3986d82a",
+    "text": "i don't care what a paper \"should\" be",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735591155.109619",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cvb0D",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i don't care what a paper \"should\" be"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "fire",
+        "users": [
+          "U05SU27S1M2"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1735596077.604909",
+    "client_msg_id": "e4cb98d7-d0d9-4d79-9bcf-2c851bb5164a",
+    "text": "Somewhat inspired by <@UCUSW7WVD> I thought I would look at tiling managers / dockables for the web\n<https://observablehq.com/@tomlarkworthy/hello-golden-layout-2-6-0>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://static.observableusercontent.com/thumbnail/3a812a433fd1202df1c1c24f91bf0ea3932b66312cb45ae34984b453b01dd40e.jpg",
+        "image_width": 640,
+        "image_height": 400,
+        "image_bytes": 25932,
+        "from_url": "https://observablehq.com/@tomlarkworthy/hello-golden-layout-2-6-0",
+        "service_icon": "https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png",
+        "ts": 1735595233,
+        "id": 1,
+        "original_url": "https://observablehq.com/@tomlarkworthy/hello-golden-layout-2-6-0",
+        "fallback": "Observable: :wave: Hello Golden layout 2.6.0",
+        "text": "Drag and drop window management. <http://golden-layout.com/> This example persists to local storage! Golden Layout supports persisting the layout, but the draw-back is the componentState has to be serialisable, you cannot just pass nodes through, instead you need to look them up. It might make sense to exploit views to push or pull state in and out of components Saving state to local-storage.",
+        "title": ":wave: Hello Golden layout 2.6.0",
+        "title_link": "https://observablehq.com/@tomlarkworthy/hello-golden-layout-2-6-0",
+        "service_name": "Observable"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vil2m",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Somewhat inspired by "
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " I thought I would look at tiling managers / dockables for the web\n"
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/hello-golden-layout-2-6-0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heartbeat",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      },
+      {
+        "name": "fire",
+        "users": [
+          "U07BD7U4S4R"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U08294YLWJH",
+    "type": "message",
+    "ts": "1735598026.899929",
+    "client_msg_id": "e693d641-b5a9-4aad-9d3e-73f5659f2bcf",
+    "text": "the talk reminded me of \"Society of mind\" book by Marvin Minsky",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735591155.109619",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1sG/I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the talk reminded me of \"Society of mind\" book by Marvin Minsky"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U08294YLWJH",
+    "type": "message",
+    "ts": "1735600768.475239",
+    "client_msg_id": "052a245f-8900-4a02-bac3-0c462a32ebb2",
+    "text": "great talk",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1735591155.109619",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BCyUO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "great talk"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]
