@@ -1,0 +1,4322 @@
+[
+  {
+    "client_msg_id": "0417a2d4-1157-495b-929b-769f75214b85",
+    "type": "message",
+    "text": "What do people here think about t-expressions?\n<https://srfi.schemers.org/srfi-110/srfi-110.html|https://srfi.schemers.org/srfi-110/srfi-110.html>\n<@UCUSW7WVD> I noticed your name in the acknowledgements, do you have any comments?",
+    "user": "UT60XSVCN",
+    "ts": "1590712683.260000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbc3e6041047",
+      "image_72": "https://secure.gravatar.com/avatar/bc3e6041047849518d1b042f0a29d5af.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "S.M Mukarram Nainar",
+      "display_name": "S.M Mukarram Nainar",
+      "team": "T5TCAFTA9",
+      "name": "nainars",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "SRFI 110: Sweet-expressions (t-expressions)",
+        "title_link": "https://srfi.schemers.org/srfi-110/srfi-110.html",
+        "text": "This defines sweet-expressions (t-expressions) for Scheme, building on neoteric-expressions (n-expressions) and curly-infix-expressions (c-expressions). This defines an approach to making Scheme more 'readable' by adding syntactically-meaningful indentation, as well as supporting infix and functions whose names precede the opening parenthesis.",
+        "fallback": "SRFI 110: Sweet-expressions (t-expressions)",
+        "from_url": "https://srfi.schemers.org/srfi-110/srfi-110.html",
+        "service_name": "srfi.schemers.org",
+        "id": 1,
+        "original_url": "https://srfi.schemers.org/srfi-110/srfi-110.html"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kJy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What do people here think about t-expressions?\n"
+              },
+              {
+                "type": "link",
+                "url": "https://srfi.schemers.org/srfi-110/srfi-110.html",
+                "text": "https://srfi.schemers.org/srfi-110/srfi-110.html"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " I noticed your name in the acknowledgements, do you have any comments?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "reply_count": 33,
+    "reply_users_count": 6,
+    "latest_reply": "1591864026.151700",
+    "reply_users": [
+      "UCUSW7WVD",
+      "UJN1TAYEQ",
+      "UJBAJNFLK",
+      "UA14TGLTC",
+      "UT60XSVCN",
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590714531.260200"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590719246.260400"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590728190.266500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590730277.266700"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590760560.268200"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1590771767.269100"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590772506.269300"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590772622.269500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590776623.271700"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590778598.272500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590783069.272800"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590823456.277400"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590823867.277800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590824797.278100"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590850519.278700"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590850920.278900"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590864211.280200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590864265.280400"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590864268.280600"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590864322.280800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590864434.281100"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590864965.281300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590865332.281600"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590868774.281800"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590947901.285100"
+      },
+      {
+        "user": "UT60XSVCN",
+        "ts": "1590968897.285700"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590998268.307300"
+      },
+      {
+        "user": "UT60XSVCN",
+        "ts": "1591005647.307700"
+      },
+      {
+        "user": "UT60XSVCN",
+        "ts": "1591005709.308200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1591022363.308700"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1591062467.334800"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1591818188.145600"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1591864026.151700"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0417a2d4-1157-495b-929b-769f75214b85",
+    "type": "message",
+    "text": "What do people here think about t-expressions?\n<https://srfi.schemers.org/srfi-110/srfi-110.html|https://srfi.schemers.org/srfi-110/srfi-110.html>\n<@UCUSW7WVD> I noticed your name in the acknowledgements, do you have any comments?",
+    "user": "UT60XSVCN",
+    "ts": "1590712683.260000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbc3e6041047",
+      "image_72": "https://secure.gravatar.com/avatar/bc3e6041047849518d1b042f0a29d5af.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "S.M Mukarram Nainar",
+      "display_name": "S.M Mukarram Nainar",
+      "team": "T5TCAFTA9",
+      "name": "nainars",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "SRFI 110: Sweet-expressions (t-expressions)",
+        "title_link": "https://srfi.schemers.org/srfi-110/srfi-110.html",
+        "text": "This defines sweet-expressions (t-expressions) for Scheme, building on neoteric-expressions (n-expressions) and curly-infix-expressions (c-expressions). This defines an approach to making Scheme more 'readable' by adding syntactically-meaningful indentation, as well as supporting infix and functions whose names precede the opening parenthesis.",
+        "fallback": "SRFI 110: Sweet-expressions (t-expressions)",
+        "from_url": "https://srfi.schemers.org/srfi-110/srfi-110.html",
+        "service_name": "srfi.schemers.org",
+        "id": 1,
+        "original_url": "https://srfi.schemers.org/srfi-110/srfi-110.html"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kJy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What do people here think about t-expressions?\n"
+              },
+              {
+                "type": "link",
+                "url": "https://srfi.schemers.org/srfi-110/srfi-110.html",
+                "text": "https://srfi.schemers.org/srfi-110/srfi-110.html"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " I noticed your name in the acknowledgements, do you have any comments?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "reply_count": 33,
+    "reply_users_count": 6,
+    "latest_reply": "1591864026.151700",
+    "reply_users": [
+      "UCUSW7WVD",
+      "UJN1TAYEQ",
+      "UJBAJNFLK",
+      "UA14TGLTC",
+      "UT60XSVCN",
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590714531.260200"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590719246.260400"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590728190.266500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590730277.266700"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590760560.268200"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1590771767.269100"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590772506.269300"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590772622.269500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590776623.271700"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590778598.272500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590783069.272800"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590823456.277400"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590823867.277800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590824797.278100"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590850519.278700"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590850920.278900"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590864211.280200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590864265.280400"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590864268.280600"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590864322.280800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590864434.281100"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590864965.281300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1590865332.281600"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1590868774.281800"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590947901.285100"
+      },
+      {
+        "user": "UT60XSVCN",
+        "ts": "1590968897.285700"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1590998268.307300"
+      },
+      {
+        "user": "UT60XSVCN",
+        "ts": "1591005647.307700"
+      },
+      {
+        "user": "UT60XSVCN",
+        "ts": "1591005709.308200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1591022363.308700"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1591062467.334800"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1591818188.145600"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1591864026.151700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7fa7ab9c-95c1-4399-8dac-47330e4c2379",
+    "type": "message",
+    "text": "This looks like the best summary of my opinion: <https://news.ycombinator.com/item?id=8503353#8507385>\n\nIn searching for it I also ran into <http://www.arclanguage.org/item?id=17084>, which seems like a fun thread in general.",
+    "user": "UCUSW7WVD",
+    "ts": "1590714531.260200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Msp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This looks like the best summary of my opinion: "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=8503353#8507385"
+              },
+              {
+                "type": "text",
+                "text": "\n\nIn searching for it I also ran into "
+              },
+              {
+                "type": "link",
+                "url": "http://www.arclanguage.org/item?id=17084"
+              },
+              {
+                "type": "text",
+                "text": ", which seems like a fun thread in general."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7fa7ab9c-95c1-4399-8dac-47330e4c2379",
+    "type": "message",
+    "text": "This looks like the best summary of my opinion: <https://news.ycombinator.com/item?id=8503353#8507385>\n\nIn searching for it I also ran into <http://www.arclanguage.org/item?id=17084>, which seems like a fun thread in general.",
+    "user": "UCUSW7WVD",
+    "ts": "1590714531.260200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Msp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This looks like the best summary of my opinion: "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=8503353#8507385"
+              },
+              {
+                "type": "text",
+                "text": "\n\nIn searching for it I also ran into "
+              },
+              {
+                "type": "link",
+                "url": "http://www.arclanguage.org/item?id=17084"
+              },
+              {
+                "type": "text",
+                "text": ", which seems like a fun thread in general."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2eaac98d-fd31-4bdf-ac0e-63395407e27b",
+    "type": "message",
+    "text": "I think it is very difficult to create a new programming language syntax that, on one hand, is \"homoiconic\" and \"general\" (the goals for t-expressions), and that on the other hand, has the characteristics of a well designed notation, including suggestiveness, readability and usability.",
+    "user": "UJN1TAYEQ",
+    "ts": "1590719246.260400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yrx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think it is very difficult to create a new programming language syntax that, on one hand, is \"homoiconic\" and \"general\" (the goals for t-expressions), and that on the other hand, has the characteristics of a well designed notation, including suggestiveness, readability and usability."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2eaac98d-fd31-4bdf-ac0e-63395407e27b",
+    "type": "message",
+    "text": "I think it is very difficult to create a new programming language syntax that, on one hand, is \"homoiconic\" and \"general\" (the goals for t-expressions), and that on the other hand, has the characteristics of a well designed notation, including suggestiveness, readability and usability.",
+    "user": "UJN1TAYEQ",
+    "ts": "1590719246.260400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yrx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think it is very difficult to create a new programming language syntax that, on one hand, is \"homoiconic\" and \"general\" (the goals for t-expressions), and that on the other hand, has the characteristics of a well designed notation, including suggestiveness, readability and usability."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "C34CF8F5-69B9-46E1-972F-3E1E6B893D7B",
+    "type": "message",
+    "text": "My take on this is that if the goal of a syntax is malleability and simplicity, plain s-expressions are impossible to beat, an readability and usability can be ensured by tool support. All the proposed alternatives have failed so far because they didn’t start out with a clear alternative set of compromises. They want to better in some respect, but don’t say which price they are wiling to pay for that.",
+    "user": "UJBAJNFLK",
+    "ts": "1590728190.266500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g05e4cf66ef1",
+      "image_72": "https://secure.gravatar.com/avatar/305e4cf66ef1179f7e95981b1520ba1a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "C1ox",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My take on this is that if the goal of a syntax is malleability and simplicity, plain s-expressions are impossible to beat, an readability and usability can be ensured by tool support. All the proposed alternatives have failed so far because they didn’t start out with a clear alternative set of compromises. They want to better in some respect, but don’t say which price they are wiling to pay for that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "C34CF8F5-69B9-46E1-972F-3E1E6B893D7B",
+    "type": "message",
+    "text": "My take on this is that if the goal of a syntax is malleability and simplicity, plain s-expressions are impossible to beat, an readability and usability can be ensured by tool support. All the proposed alternatives have failed so far because they didn’t start out with a clear alternative set of compromises. They want to better in some respect, but don’t say which price they are wiling to pay for that.",
+    "user": "UJBAJNFLK",
+    "ts": "1590728190.266500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "C1ox",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My take on this is that if the goal of a syntax is malleability and simplicity, plain s-expressions are impossible to beat, an readability and usability can be ensured by tool support. All the proposed alternatives have failed so far because they didn’t start out with a clear alternative set of compromises. They want to better in some respect, but don’t say which price they are wiling to pay for that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "320fc3bb-d954-44e2-a373-986dbdc22db5",
+    "type": "message",
+    "text": "<@UJBAJNFLK> I'm curious to hear what you think of my proposal: <http://akkartik.name/post/wart>. I don't work on it anymore and the rest of the language has fatal issues, but I still think the whitespace and infix support was quite elegant.",
+    "user": "UCUSW7WVD",
+    "ts": "1590730277.266700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "p0d",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " I'm curious to hear what you think of my proposal: "
+              },
+              {
+                "type": "link",
+                "url": "http://akkartik.name/post/wart"
+              },
+              {
+                "type": "text",
+                "text": ". I don't work on it anymore and the rest of the language has fatal issues, but I still think the whitespace and infix support was quite elegant."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "320fc3bb-d954-44e2-a373-986dbdc22db5",
+    "type": "message",
+    "text": "<@UJBAJNFLK> I'm curious to hear what you think of my proposal: <http://akkartik.name/post/wart>. I don't work on it anymore and the rest of the language has fatal issues, but I still think the whitespace and infix support was quite elegant.",
+    "user": "UCUSW7WVD",
+    "ts": "1590730277.266700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "p0d",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " I'm curious to hear what you think of my proposal: "
+              },
+              {
+                "type": "link",
+                "url": "http://akkartik.name/post/wart"
+              },
+              {
+                "type": "text",
+                "text": ". I don't work on it anymore and the rest of the language has fatal issues, but I still think the whitespace and infix support was quite elegant."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "75eddd5d-b09e-4362-bb69-26d54d10b2be",
+    "type": "message",
+    "text": "Hi Scott, one of the emphases of Codestrates v2 is that it is easy to expose code in a user interface and edit it collaboratively. We also want to get at the potential weaknesses of the platform by creating a challenge that might come a bit at odds with the immediate affordances of the platform.",
+    "user": "UERRYNVMM",
+    "ts": "1590736326.266900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g37b97c5f969",
+      "image_72": "https://secure.gravatar.com/avatar/537b97c5f969fbb1fc4c2c0e2470c81c.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png",
+      "first_name": "",
+      "real_name": "Clemens Klokmose",
+      "display_name": "Clemens",
+      "team": "T5TCAFTA9",
+      "name": "clemens",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8UU62",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi Scott, one of the emphases of Codestrates v2 is that it is easy to expose code in a user interface and edit it collaboratively. We also want to get at the potential weaknesses of the platform by creating a challenge that might come a bit at odds with the immediate affordances of the platform."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590661937.255600",
+    "parent_user_id": "UERRYNVMM",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UBSMEUXAA"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "75eddd5d-b09e-4362-bb69-26d54d10b2be",
+    "type": "message",
+    "text": "Hi Scott, one of the emphases of Codestrates v2 is that it is easy to expose code in a user interface and edit it collaboratively. We also want to get at the potential weaknesses of the platform by creating a challenge that might come a bit at odds with the immediate affordances of the platform.",
+    "user": "UERRYNVMM",
+    "ts": "1590736326.266900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g37b97c5f969",
+      "image_72": "https://secure.gravatar.com/avatar/537b97c5f969fbb1fc4c2c0e2470c81c.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0000-72.png",
+      "first_name": "",
+      "real_name": "Clemens Klokmose",
+      "display_name": "Clemens",
+      "team": "T5TCAFTA9",
+      "name": "clemens",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8UU62",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi Scott, one of the emphases of Codestrates v2 is that it is easy to expose code in a user interface and edit it collaboratively. We also want to get at the potential weaknesses of the platform by creating a challenge that might come a bit at odds with the immediate affordances of the platform."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590661937.255600",
+    "parent_user_id": "UERRYNVMM",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UBSMEUXAA"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cb37762e-c33e-47f7-adc7-2d67a41f5d25",
+    "type": "message",
+    "text": "<@U0115U1RCSW> Great to know that you worked there. I really liked the work source-d did.",
+    "user": "UPVBV34EL",
+    "ts": "1590737011.267100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "259a1e56ad2e",
+      "image_72": "https://avatars.slack-edge.com/2019-10-28/811814014976_259a1e56ad2e11fe3d56_72.jpg",
+      "first_name": "",
+      "real_name": "Shubhadeep Roychowdhury",
+      "display_name": "Shubhadeep Roychowdhury",
+      "team": "T5TCAFTA9",
+      "name": "shubhadeeproychowdhur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UPVBV34EL",
+      "ts": "1590737116.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MoJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0115U1RCSW"
+              },
+              {
+                "type": "text",
+                "text": " Great to know that you worked there. I really liked the work source-d did."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590637979.252300",
+    "parent_user_id": "UPU0YJ1CM",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U0115U1RCSW"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cb37762e-c33e-47f7-adc7-2d67a41f5d25",
+    "type": "message",
+    "text": "<@U0115U1RCSW> Great to know that you worked there. I really liked the work source-d did.",
+    "user": "UPVBV34EL",
+    "ts": "1590737011.267100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "259a1e56ad2e",
+      "image_72": "https://avatars.slack-edge.com/2019-10-28/811814014976_259a1e56ad2e11fe3d56_72.jpg",
+      "first_name": "",
+      "real_name": "Shubhadeep Roychowdhury",
+      "display_name": "Shubhadeep Roychowdhury",
+      "team": "T5TCAFTA9",
+      "name": "shubhadeeproychowdhur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UPVBV34EL",
+      "ts": "1590737116.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MoJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0115U1RCSW"
+              },
+              {
+                "type": "text",
+                "text": " Great to know that you worked there. I really liked the work source-d did."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590637979.252300",
+    "parent_user_id": "UPU0YJ1CM",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U0115U1RCSW"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d6ad2614-0a1e-40f7-860c-6d4001cbef8e",
+    "type": "message",
+    "text": "Great <@U0115U1RCSW>! I was a bit disappointed when realising your repo were not updated anymore^^",
+    "user": "UPU0YJ1CM",
+    "ts": "1590756201.268000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b88e30c8a541",
+      "image_72": "https://avatars.slack-edge.com/2019-12-20/870238505987_b88e30c8a541a7725a6d_72.png",
+      "first_name": "",
+      "real_name": "Maeliza",
+      "display_name": "Maeliza",
+      "team": "T5TCAFTA9",
+      "name": "maeliza.seymour",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "C22cY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Great "
+              },
+              {
+                "type": "user",
+                "user_id": "U0115U1RCSW"
+              },
+              {
+                "type": "text",
+                "text": "! I was a bit disappointed when realising your repo were not updated anymore^^"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590637979.252300",
+    "parent_user_id": "UPU0YJ1CM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d6ad2614-0a1e-40f7-860c-6d4001cbef8e",
+    "type": "message",
+    "text": "Great <@U0115U1RCSW>! I was a bit disappointed when realising your repo were not updated anymore^^",
+    "user": "UPU0YJ1CM",
+    "ts": "1590756201.268000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b88e30c8a541",
+      "image_72": "https://avatars.slack-edge.com/2019-12-20/870238505987_b88e30c8a541a7725a6d_72.png",
+      "first_name": "",
+      "real_name": "Maeliza",
+      "display_name": "Maeliza",
+      "team": "T5TCAFTA9",
+      "name": "maeliza.seymour",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "C22cY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Great "
+              },
+              {
+                "type": "user",
+                "user_id": "U0115U1RCSW"
+              },
+              {
+                "type": "text",
+                "text": "! I was a bit disappointed when realising your repo were not updated anymore^^"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590637979.252300",
+    "parent_user_id": "UPU0YJ1CM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1d88db75-57e4-43eb-91ca-3f7e98b37810",
+    "type": "message",
+    "text": "One of my fundamental requirements for a programming language syntax is that values print as constructor expressions, which, when evaluated, reconstruct the original value. For example,\n```&gt;&gt;&gt; 2 + 2\n4\n&gt;&gt;&gt; \"foo\" ++ \"bar\"\n\"foobar\"\n&gt;&gt;&gt; [1,2,3] ++ [4,5,6]\n[1,2,3,4,5,6]```\nThe above REPL session shows a language where numbers, strings and lists print as constructor expressions.\n\nI don't *think* this requirement is in conflict with simplicity and malleability. However, Lisp dialects (languages with S-expression syntax) do not meet this requirement for lists, although they meet it for numbers and strings. For example, quoting from the Wart paper,\n```1 + 1\n⇒ 2\n\n'(1 2 3)\n⇒ (1 2 3)```\nPhilip Wadler wrote about how this causes problems for teaching Lisp to undergraduates:\n&gt; The difference between (1 2 3) and (quote (1 2 3)) is subtle, and it inevitably confuses students. In particular, it plays havoc with the substitution model of evaluation.\nFrom \"A critique of Abelson and Sussman -or- Why calculating is better than scheming\" <https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf>",
+    "user": "UJN1TAYEQ",
+    "ts": "1590760560.268200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QpGf+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One of my fundamental requirements for a programming language syntax is that values print as constructor expressions, which, when evaluated, reconstruct the original value. For example,\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": ">>> 2 + 2\n4\n>>> \"foo\" ++ \"bar\"\n\"foobar\"\n>>> [1,2,3] ++ [4,5,6]\n[1,2,3,4,5,6]"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The above REPL session shows a language where numbers, strings and lists print as constructor expressions.\n\nI don't "
+              },
+              {
+                "type": "text",
+                "text": "think",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " this requirement is in conflict with simplicity and malleability. However, Lisp dialects (languages with S-expression syntax) do not meet this requirement for lists, although they meet it for numbers and strings. For example, quoting from the Wart paper,\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "1 + 1\n⇒ 2\n\n'(1 2 3)\n⇒ (1 2 3)"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Philip Wadler wrote about how this causes problems for teaching Lisp to undergraduates:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The difference between (1 2 3) and (quote (1 2 3)) is subtle, and it inevitably confuses students. In particular, it plays havoc with the substitution model of evaluation."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "From \"A critique of Abelson and Sussman -or- Why calculating is better than scheming\" "
+              },
+              {
+                "type": "link",
+                "url": "https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      },
+      {
+        "name": "100",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      },
+      {
+        "name": "point_up",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1d88db75-57e4-43eb-91ca-3f7e98b37810",
+    "type": "message",
+    "text": "One of my fundamental requirements for a programming language syntax is that values print as constructor expressions, which, when evaluated, reconstruct the original value. For example,\n```&gt;&gt;&gt; 2 + 2\n4\n&gt;&gt;&gt; \"foo\" ++ \"bar\"\n\"foobar\"\n&gt;&gt;&gt; [1,2,3] ++ [4,5,6]\n[1,2,3,4,5,6]```\nThe above REPL session shows a language where numbers, strings and lists print as constructor expressions.\n\nI don't *think* this requirement is in conflict with simplicity and malleability. However, Lisp dialects (languages with S-expression syntax) do not meet this requirement for lists, although they meet it for numbers and strings. For example, quoting from the Wart paper,\n```1 + 1\n⇒ 2\n\n'(1 2 3)\n⇒ (1 2 3)```\nPhilip Wadler wrote about how this causes problems for teaching Lisp to undergraduates:\n&gt; The difference between (1 2 3) and (quote (1 2 3)) is subtle, and it inevitably confuses students. In particular, it plays havoc with the substitution model of evaluation.\nFrom \"A critique of Abelson and Sussman -or- Why calculating is better than scheming\" <https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf>",
+    "user": "UJN1TAYEQ",
+    "ts": "1590760560.268200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QpGf+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One of my fundamental requirements for a programming language syntax is that values print as constructor expressions, which, when evaluated, reconstruct the original value. For example,\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": ">>> 2 + 2\n4\n>>> \"foo\" ++ \"bar\"\n\"foobar\"\n>>> [1,2,3] ++ [4,5,6]\n[1,2,3,4,5,6]"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The above REPL session shows a language where numbers, strings and lists print as constructor expressions.\n\nI don't "
+              },
+              {
+                "type": "text",
+                "text": "think",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " this requirement is in conflict with simplicity and malleability. However, Lisp dialects (languages with S-expression syntax) do not meet this requirement for lists, although they meet it for numbers and strings. For example, quoting from the Wart paper,\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "1 + 1\n⇒ 2\n\n'(1 2 3)\n⇒ (1 2 3)"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Philip Wadler wrote about how this causes problems for teaching Lisp to undergraduates:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The difference between (1 2 3) and (quote (1 2 3)) is subtle, and it inevitably confuses students. In particular, it plays havoc with the substitution model of evaluation."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "From \"A critique of Abelson and Sussman -or- Why calculating is better than scheming\" "
+              },
+              {
+                "type": "link",
+                "url": "https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      },
+      {
+        "name": "100",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      },
+      {
+        "name": "point_up",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "076f589f-c072-415d-896b-6a33c8064ef1",
+    "type": "message",
+    "text": "What if the CLIs had better previews of their effects as many GUIs do?",
+    "user": "UA14TGLTC",
+    "ts": "1590771653.268600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dXB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What if the CLIs had better previews of their effects as many GUIs do?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590616757.241600",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "076f589f-c072-415d-896b-6a33c8064ef1",
+    "type": "message",
+    "text": "What if the CLIs had better previews of their effects as many GUIs do?",
+    "user": "UA14TGLTC",
+    "ts": "1590771653.268600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dXB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What if the CLIs had better previews of their effects as many GUIs do?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590616757.241600",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fff5a2ab-f42e-439d-908a-58c2b3a44365",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> Yes!  Quote is weird this way.",
+    "user": "UA14TGLTC",
+    "ts": "1590771767.269100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zrS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " Yes!  Quote is weird this way."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fff5a2ab-f42e-439d-908a-58c2b3a44365",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> Yes!  Quote is weird this way.",
+    "user": "UA14TGLTC",
+    "ts": "1590771767.269100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zrS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " Yes!  Quote is weird this way."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "558f1a16-37b1-4db2-95e6-eedd450a74f8",
+    "type": "message",
+    "text": "<@UCUSW7WVD> Wart looks interesting in many respects, in particular the way it deals with name overloading and how it encourages forking. But the topic here is syntax, which I think is not explained in sufficient detail on your page.\n\nApparently you are trading in simplicity for \"normality\" in the sense of allowing familiar infix expressions. The price to pay is a distinction between standard identifiers and infix operator identifiers. OK, but what are those rules? Is it by character class, as in Smalltalk? Some characters are only allowed in infix identifiers, and others only in standard identifiers? With mixing forbidden? Then... how do you handle the creation of synthetic identifiers in macros? Stuff like Lisp's gensym.\n\nAnother detail that is unclear is the indentation analysis. What would be the parenthesized form of\n`def foo`\n    `foo bar`\n  `foo bar`\n(assuming this is legal syntax?) That's where edge cases tend to get messy in various indentation-based proposals I have seen.",
+    "user": "UJBAJNFLK",
+    "ts": "1590772506.269300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g05e4cf66ef1",
+      "image_72": "https://secure.gravatar.com/avatar/305e4cf66ef1179f7e95981b1520ba1a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tBp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " Wart looks interesting in many respects, in particular the way it deals with name overloading and how it encourages forking. But the topic here is syntax, which I think is not explained in sufficient detail on your page.\n\nApparently you are trading in simplicity for \"normality\" in the sense of allowing familiar infix expressions. The price to pay is a distinction between standard identifiers and infix operator identifiers. OK, but what are those rules? Is it by character class, as in Smalltalk? Some characters are only allowed in infix identifiers, and others only in standard identifiers? With mixing forbidden? Then... how do you handle the creation of synthetic identifiers in macros? Stuff like Lisp's gensym.\n\nAnother detail that is unclear is the indentation analysis. What would be the parenthesized form of\n"
+              },
+              {
+                "type": "text",
+                "text": "def foo",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "    foo bar",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "  foo bar",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n(assuming this is legal syntax?) That's where edge cases tend to get messy in various indentation-based proposals I have seen."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "558f1a16-37b1-4db2-95e6-eedd450a74f8",
+    "type": "message",
+    "text": "<@UCUSW7WVD> Wart looks interesting in many respects, in particular the way it deals with name overloading and how it encourages forking. But the topic here is syntax, which I think is not explained in sufficient detail on your page.\n\nApparently you are trading in simplicity for \"normality\" in the sense of allowing familiar infix expressions. The price to pay is a distinction between standard identifiers and infix operator identifiers. OK, but what are those rules? Is it by character class, as in Smalltalk? Some characters are only allowed in infix identifiers, and others only in standard identifiers? With mixing forbidden? Then... how do you handle the creation of synthetic identifiers in macros? Stuff like Lisp's gensym.\n\nAnother detail that is unclear is the indentation analysis. What would be the parenthesized form of\n`def foo`\n    `foo bar`\n  `foo bar`\n(assuming this is legal syntax?) That's where edge cases tend to get messy in various indentation-based proposals I have seen.",
+    "user": "UJBAJNFLK",
+    "ts": "1590772506.269300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tBp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " Wart looks interesting in many respects, in particular the way it deals with name overloading and how it encourages forking. But the topic here is syntax, which I think is not explained in sufficient detail on your page.\n\nApparently you are trading in simplicity for \"normality\" in the sense of allowing familiar infix expressions. The price to pay is a distinction between standard identifiers and infix operator identifiers. OK, but what are those rules? Is it by character class, as in Smalltalk? Some characters are only allowed in infix identifiers, and others only in standard identifiers? With mixing forbidden? Then... how do you handle the creation of synthetic identifiers in macros? Stuff like Lisp's gensym.\n\nAnother detail that is unclear is the indentation analysis. What would be the parenthesized form of\n"
+              },
+              {
+                "type": "text",
+                "text": "def foo",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "    foo bar",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "  foo bar",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n(assuming this is legal syntax?) That's where edge cases tend to get messy in various indentation-based proposals I have seen."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "45f6a7dc-d69d-4bd3-90c5-9dfb0287ac22",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> You could fix that by printing all values with a quote prefix, right? I think I have seen this proposed for some Lisp.",
+    "user": "UJBAJNFLK",
+    "ts": "1590772622.269500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g05e4cf66ef1",
+      "image_72": "https://secure.gravatar.com/avatar/305e4cf66ef1179f7e95981b1520ba1a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WWE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " You could fix that by printing all values with a quote prefix, right? I think I have seen this proposed for some Lisp."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "45f6a7dc-d69d-4bd3-90c5-9dfb0287ac22",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> You could fix that by printing all values with a quote prefix, right? I think I have seen this proposed for some Lisp.",
+    "user": "UJBAJNFLK",
+    "ts": "1590772622.269500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WWE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " You could fix that by printing all values with a quote prefix, right? I think I have seen this proposed for some Lisp."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "537ab3f4-4d65-4009-ae89-60c6ae5b8e4b",
+    "type": "message",
+    "text": "<http://acko.net/blog/software-development-as-advanced-damage-control/>\n\n&gt;  When you look at code from a data-centric view, a lot of things start to look like stale or inconsistent data problems. I don't like using the word \"cache\" for this because it focuses on the negative, the absence of fresh input. The real issue is data dependencies, which are connections that must be maintained in order to present a cohesive view and cohesive behavior, derived from a changing input model.",
+    "user": "U71PMQ1V0",
+    "ts": "1590774956.270400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaac726e8ce2",
+      "image_72": "https://secure.gravatar.com/avatar/0aac726e8ce27b55809824e7f6de77e7.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Jamie Brandon",
+      "display_name": "jamii",
+      "team": "T5TCAFTA9",
+      "name": "jamie",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U71PMQ1V0",
+      "ts": "1590777389.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6Nlc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "http://acko.net/blog/software-development-as-advanced-damage-control/"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " When you look at code from a data-centric view, a lot of things start to look like stale or inconsistent data problems. I don't like using the word \"cache\" for this because it focuses on the negative, the absence of fresh input. The real issue is data dependencies, which are connections that must be maintained in order to present a cohesive view and cohesive behavior, derived from a changing input model."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590774956.270400",
+    "reply_count": 4,
+    "reply_users_count": 4,
+    "latest_reply": "1591820377.146500",
+    "reply_users": [
+      "UES04SML7",
+      "UA14TGLTC",
+      "U5STGTB3J",
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UES04SML7",
+        "ts": "1590817937.276200"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1590838636.278400"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1590918326.283900"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1591820377.146500"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFLN9JFRT",
+          "U010RH58PL7",
+          "UML4ZEKDK",
+          "UETFVV24Q",
+          "UHWC9PXBL",
+          "UES04SML7",
+          "UJBAJNFLK",
+          "UA14TGLTC",
+          "UPRSF90CW",
+          "U5STGTB3J",
+          "UD6EXQVM0"
+        ],
+        "count": 11
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "537ab3f4-4d65-4009-ae89-60c6ae5b8e4b",
+    "type": "message",
+    "text": "<http://acko.net/blog/software-development-as-advanced-damage-control/>\n\n&gt;  When you look at code from a data-centric view, a lot of things start to look like stale or inconsistent data problems. I don't like using the word \"cache\" for this because it focuses on the negative, the absence of fresh input. The real issue is data dependencies, which are connections that must be maintained in order to present a cohesive view and cohesive behavior, derived from a changing input model.",
+    "user": "U71PMQ1V0",
+    "ts": "1590774956.270400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaac726e8ce2",
+      "image_72": "https://secure.gravatar.com/avatar/0aac726e8ce27b55809824e7f6de77e7.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Jamie Brandon",
+      "display_name": "jamii",
+      "team": "T5TCAFTA9",
+      "name": "jamie",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U71PMQ1V0",
+      "ts": "1590777389.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6Nlc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "http://acko.net/blog/software-development-as-advanced-damage-control/"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " When you look at code from a data-centric view, a lot of things start to look like stale or inconsistent data problems. I don't like using the word \"cache\" for this because it focuses on the negative, the absence of fresh input. The real issue is data dependencies, which are connections that must be maintained in order to present a cohesive view and cohesive behavior, derived from a changing input model."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590774956.270400",
+    "reply_count": 4,
+    "reply_users_count": 4,
+    "latest_reply": "1591820377.146500",
+    "reply_users": [
+      "UES04SML7",
+      "UA14TGLTC",
+      "U5STGTB3J",
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UES04SML7",
+        "ts": "1590817937.276200"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1590838636.278400"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1590918326.283900"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1591820377.146500"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFLN9JFRT",
+          "U010RH58PL7",
+          "UML4ZEKDK",
+          "UETFVV24Q",
+          "UHWC9PXBL",
+          "UES04SML7",
+          "UJBAJNFLK",
+          "UA14TGLTC",
+          "UPRSF90CW",
+          "U5STGTB3J",
+          "UD6EXQVM0"
+        ],
+        "count": 11
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6125c9d2-62f9-4b8f-ab73-eba58defc00e",
+    "type": "message",
+    "text": "<https://ourmachinery.com/post/the-story-behind-the-truth-designing-a-data-model/>\n\n&gt; In short, by putting a lot of responsibilities on the data model you can make the UI code for the editor a lot simpler. This is really important to us, because one of the problems we had in Bitsquid/Stingray was that we spent _a lot_ of time on developing UI and tools. Sometimes we would spend 30 minutes to add a feature to the runtime and then a week to create a UI for it. In The Machinery we wanted to address that imbalance and make sure that we could write tool and UI code as efficiently as runtime code.\n<https://ourmachinery.com/writing-tools-faster.html>\n\n&gt; *How Do We Fix it?*\n&gt; Automate undo, copy/paste, etc with a well-defined data model\n&gt; Less busy-work\n&gt; Minimize and own the tech stack\n&gt; Make things explicit and easy to understand\n&gt; Avoid changing frameworks\n&gt; Control performance\n&gt; Reuse UIs and generate them automatically from data\n&gt; Properties, Tree, Graph, etc\n&gt; Don't have to create an UI for everything.",
+    "user": "U71PMQ1V0",
+    "ts": "1590775184.271300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaac726e8ce2",
+      "image_72": "https://secure.gravatar.com/avatar/0aac726e8ce27b55809824e7f6de77e7.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Jamie Brandon",
+      "display_name": "jamii",
+      "team": "T5TCAFTA9",
+      "name": "jamie",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U71PMQ1V0",
+      "ts": "1590777384.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NNEO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://ourmachinery.com/post/the-story-behind-the-truth-designing-a-data-model/"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In short, by putting a lot of responsibilities on the data model you can make the UI code for the editor a lot simpler. This is really important to us, because one of the problems we had in Bitsquid/Stingray was that we spent "
+              },
+              {
+                "type": "text",
+                "text": "a lot",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of time on developing UI and tools. Sometimes we would spend 30 minutes to add a feature to the runtime and then a week to create a UI for it. In The Machinery we wanted to address that imbalance and make sure that we could write tool and UI code as efficiently as runtime code."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "link",
+                "url": "https://ourmachinery.com/writing-tools-faster.html"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How Do We Fix it?",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\nAutomate undo, copy/paste, etc with a well-defined data model\nLess busy-work\nMinimize and own the tech stack\nMake things explicit and easy to understand\nAvoid changing frameworks\nControl performance\nReuse UIs and generate them automatically from data\nProperties, Tree, Graph, etc\nDon't have to create an UI for everything."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6125c9d2-62f9-4b8f-ab73-eba58defc00e",
+    "type": "message",
+    "text": "<https://ourmachinery.com/post/the-story-behind-the-truth-designing-a-data-model/>\n\n&gt; In short, by putting a lot of responsibilities on the data model you can make the UI code for the editor a lot simpler. This is really important to us, because one of the problems we had in Bitsquid/Stingray was that we spent _a lot_ of time on developing UI and tools. Sometimes we would spend 30 minutes to add a feature to the runtime and then a week to create a UI for it. In The Machinery we wanted to address that imbalance and make sure that we could write tool and UI code as efficiently as runtime code.\n<https://ourmachinery.com/writing-tools-faster.html>\n\n&gt; *How Do We Fix it?*\n&gt; Automate undo, copy/paste, etc with a well-defined data model\n&gt; Less busy-work\n&gt; Minimize and own the tech stack\n&gt; Make things explicit and easy to understand\n&gt; Avoid changing frameworks\n&gt; Control performance\n&gt; Reuse UIs and generate them automatically from data\n&gt; Properties, Tree, Graph, etc\n&gt; Don't have to create an UI for everything.",
+    "user": "U71PMQ1V0",
+    "ts": "1590775184.271300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaac726e8ce2",
+      "image_72": "https://secure.gravatar.com/avatar/0aac726e8ce27b55809824e7f6de77e7.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Jamie Brandon",
+      "display_name": "jamii",
+      "team": "T5TCAFTA9",
+      "name": "jamie",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U71PMQ1V0",
+      "ts": "1590777384.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NNEO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://ourmachinery.com/post/the-story-behind-the-truth-designing-a-data-model/"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In short, by putting a lot of responsibilities on the data model you can make the UI code for the editor a lot simpler. This is really important to us, because one of the problems we had in Bitsquid/Stingray was that we spent "
+              },
+              {
+                "type": "text",
+                "text": "a lot",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of time on developing UI and tools. Sometimes we would spend 30 minutes to add a feature to the runtime and then a week to create a UI for it. In The Machinery we wanted to address that imbalance and make sure that we could write tool and UI code as efficiently as runtime code."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "link",
+                "url": "https://ourmachinery.com/writing-tools-faster.html"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How Do We Fix it?",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\nAutomate undo, copy/paste, etc with a well-defined data model\nLess busy-work\nMinimize and own the tech stack\nMake things explicit and easy to understand\nAvoid changing frameworks\nControl performance\nReuse UIs and generate them automatically from data\nProperties, Tree, Graph, etc\nDon't have to create an UI for everything."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e114635a-bfd2-497f-9074-8b6b1d5af7a6",
+    "type": "message",
+    "text": "<@UJBAJNFLK> Thanks for thinking about this!\n\nThe rule for inserting parens is: *Multi-word lines without leading parens are grouped with later indented lines.* That's it. I work through some implications at <https://github.com/akkartik/wart/blob/master/004optional_parens>\n\nTo tweak your above example a little to make it legal code:\n```def (foo)\n    prn 1\n  prn 2```\nNow `(foo)` prints:\n```1\n2```\n---\n\n&gt; The price to pay is a distinction between standard identifiers and infix operator identifiers. OK, but what are those rules? Is it by character class, as in Smalltalk? Some characters are only allowed in infix identifiers, and others only in standard identifiers? With mixing forbidden? Then... how do you handle the creation of synthetic identifiers in macros? Stuff like Lisp's gensym.\nYeah, disjoint character classes. The major restriction is that you can't use `-` in variables, which is a bitter pill to swallow. (Mu gave up Lisp to get back `-` :slightly_smiling_face:)\n\nI don't follow the gensym question. Wart expands `$x` inside macros to something like `x1234`. But it doesn't support infix operators. Is that what you're wondering? It never occurred to me to create new infix operators inside macros.",
+    "user": "UCUSW7WVD",
+    "ts": "1590776623.271700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1590777030.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5JD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for thinking about this!\n\nThe rule for inserting parens is: "
+              },
+              {
+                "type": "text",
+                "text": "Multi-word lines without leading parens are grouped with later indented lines.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " That's it. I work through some implications at "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/akkartik/wart/blob/master/004optional_parens"
+              },
+              {
+                "type": "text",
+                "text": "\n\nTo tweak your above example a little to make it legal code:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "def (foo)\n    prn 1\n  prn 2"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Now "
+              },
+              {
+                "type": "text",
+                "text": "(foo)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " prints:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "1\n2"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "---\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The price to pay is a distinction between standard identifiers and infix operator identifiers. OK, but what are those rules? Is it by character class, as in Smalltalk? Some characters are only allowed in infix identifiers, and others only in standard identifiers? With mixing forbidden? Then... how do you handle the creation of synthetic identifiers in macros? Stuff like Lisp's gensym."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, disjoint character classes. The major restriction is that you can't use "
+              },
+              {
+                "type": "text",
+                "text": "-",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " in variables, which is a bitter pill to swallow. (Mu gave up Lisp to get back "
+              },
+              {
+                "type": "text",
+                "text": "-",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ")\n\nI don't follow the gensym question. Wart expands "
+              },
+              {
+                "type": "text",
+                "text": "$x",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " inside macros to something like "
+              },
+              {
+                "type": "text",
+                "text": "x1234",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". But it doesn't support infix operators. Is that what you're wondering? It never occurred to me to create new infix operators inside macros."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e114635a-bfd2-497f-9074-8b6b1d5af7a6",
+    "type": "message",
+    "text": "<@UJBAJNFLK> Thanks for thinking about this!\n\nThe rule for inserting parens is: *Multi-word lines without leading parens are grouped with later indented lines.* That's it. I work through some implications at <https://github.com/akkartik/wart/blob/master/004optional_parens>\n\nTo tweak your above example a little to make it legal code:\n```def (foo)\n    prn 1\n  prn 2```\nNow `(foo)` prints:\n```1\n2```\n---\n\n&gt; The price to pay is a distinction between standard identifiers and infix operator identifiers. OK, but what are those rules? Is it by character class, as in Smalltalk? Some characters are only allowed in infix identifiers, and others only in standard identifiers? With mixing forbidden? Then... how do you handle the creation of synthetic identifiers in macros? Stuff like Lisp's gensym.\nYeah, disjoint character classes. The major restriction is that you can't use `-` in variables, which is a bitter pill to swallow. (Mu gave up Lisp to get back `-` :slightly_smiling_face:)\n\nI don't follow the gensym question. Wart expands `$x` inside macros to something like `x1234`. But it doesn't support infix operators. Is that what you're wondering? It never occurred to me to create new infix operators inside macros.",
+    "user": "UCUSW7WVD",
+    "ts": "1590776623.271700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1590777030.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5JD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for thinking about this!\n\nThe rule for inserting parens is: "
+              },
+              {
+                "type": "text",
+                "text": "Multi-word lines without leading parens are grouped with later indented lines.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " That's it. I work through some implications at "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/akkartik/wart/blob/master/004optional_parens"
+              },
+              {
+                "type": "text",
+                "text": "\n\nTo tweak your above example a little to make it legal code:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "def (foo)\n    prn 1\n  prn 2"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Now "
+              },
+              {
+                "type": "text",
+                "text": "(foo)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " prints:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "1\n2"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "---\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The price to pay is a distinction between standard identifiers and infix operator identifiers. OK, but what are those rules? Is it by character class, as in Smalltalk? Some characters are only allowed in infix identifiers, and others only in standard identifiers? With mixing forbidden? Then... how do you handle the creation of synthetic identifiers in macros? Stuff like Lisp's gensym."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, disjoint character classes. The major restriction is that you can't use "
+              },
+              {
+                "type": "text",
+                "text": "-",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " in variables, which is a bitter pill to swallow. (Mu gave up Lisp to get back "
+              },
+              {
+                "type": "text",
+                "text": "-",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ")\n\nI don't follow the gensym question. Wart expands "
+              },
+              {
+                "type": "text",
+                "text": "$x",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " inside macros to something like "
+              },
+              {
+                "type": "text",
+                "text": "x1234",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". But it doesn't support infix operators. Is that what you're wondering? It never occurred to me to create new infix operators inside macros."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "09257fb8-abdd-4459-885c-2c4753f57953",
+    "type": "message",
+    "text": "<@UJBAJNFLK> One of the nice properties of `[a,b,c]` syntax for constructing lists, is that you can replace any of the list elements with a subexpression that denotes the same value. This property goes by several names: compositional semantics, composable syntax, \"the substitution model of evaluation\".\n\nThe corresponding syntax in Lisp is `(list a b c)`. So, print `'(a b c)` as `(list 'a 'b 'c)`. But that's very verbose compared to the usual alternative. In Lisp culture, `(quote a)` is so important that it is abbreviated as `'a`, but there is no abbreviation for `(list a b c)`. So let's make an abbreviation, and use `[a b c]` as an abbreviation for `(list a b c)`. So now we print `'(a b c)` as `['a 'b 'c]`.",
+    "user": "UJN1TAYEQ",
+    "ts": "1590778598.272500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3fEs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " One of the nice properties of "
+              },
+              {
+                "type": "text",
+                "text": "[a,b,c]",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " syntax for constructing lists, is that you can replace any of the list elements with a subexpression that denotes the same value. This property goes by several names: compositional semantics, composable syntax, \"the substitution model of evaluation\".\n\nThe corresponding syntax in Lisp is "
+              },
+              {
+                "type": "text",
+                "text": "(list a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". So, print "
+              },
+              {
+                "type": "text",
+                "text": "'(a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as "
+              },
+              {
+                "type": "text",
+                "text": "(list 'a 'b 'c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". But that's very verbose compared to the usual alternative. In Lisp culture, "
+              },
+              {
+                "type": "text",
+                "text": "(quote a)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is so important that it is abbreviated as "
+              },
+              {
+                "type": "text",
+                "text": "'a",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", but there is no abbreviation for "
+              },
+              {
+                "type": "text",
+                "text": "(list a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". So let's make an abbreviation, and use "
+              },
+              {
+                "type": "text",
+                "text": "[a b c]",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as an abbreviation for "
+              },
+              {
+                "type": "text",
+                "text": "(list a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". So now we print "
+              },
+              {
+                "type": "text",
+                "text": "'(a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as "
+              },
+              {
+                "type": "text",
+                "text": "['a 'b 'c]",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "09257fb8-abdd-4459-885c-2c4753f57953",
+    "type": "message",
+    "text": "<@UJBAJNFLK> One of the nice properties of `[a,b,c]` syntax for constructing lists, is that you can replace any of the list elements with a subexpression that denotes the same value. This property goes by several names: compositional semantics, composable syntax, \"the substitution model of evaluation\".\n\nThe corresponding syntax in Lisp is `(list a b c)`. So, print `'(a b c)` as `(list 'a 'b 'c)`. But that's very verbose compared to the usual alternative. In Lisp culture, `(quote a)` is so important that it is abbreviated as `'a`, but there is no abbreviation for `(list a b c)`. So let's make an abbreviation, and use `[a b c]` as an abbreviation for `(list a b c)`. So now we print `'(a b c)` as `['a 'b 'c]`.",
+    "user": "UJN1TAYEQ",
+    "ts": "1590778598.272500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3fEs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " One of the nice properties of "
+              },
+              {
+                "type": "text",
+                "text": "[a,b,c]",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " syntax for constructing lists, is that you can replace any of the list elements with a subexpression that denotes the same value. This property goes by several names: compositional semantics, composable syntax, \"the substitution model of evaluation\".\n\nThe corresponding syntax in Lisp is "
+              },
+              {
+                "type": "text",
+                "text": "(list a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". So, print "
+              },
+              {
+                "type": "text",
+                "text": "'(a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as "
+              },
+              {
+                "type": "text",
+                "text": "(list 'a 'b 'c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". But that's very verbose compared to the usual alternative. In Lisp culture, "
+              },
+              {
+                "type": "text",
+                "text": "(quote a)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is so important that it is abbreviated as "
+              },
+              {
+                "type": "text",
+                "text": "'a",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", but there is no abbreviation for "
+              },
+              {
+                "type": "text",
+                "text": "(list a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". So let's make an abbreviation, and use "
+              },
+              {
+                "type": "text",
+                "text": "[a b c]",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as an abbreviation for "
+              },
+              {
+                "type": "text",
+                "text": "(list a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". So now we print "
+              },
+              {
+                "type": "text",
+                "text": "'(a b c)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as "
+              },
+              {
+                "type": "text",
+                "text": "['a 'b 'c]",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d46a0600-66e2-413a-8019-a954d9c74459",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> FYI Racket has the property you want:\n\n```&gt; (list 1 2 3)\n'(1 2 3)\n&gt; (list 1 2 (list 3 4))\n'(1 2 (3 4))```\nI have ambivalent feelings about this 'feature', though.",
+    "user": "UCUSW7WVD",
+    "ts": "1590783069.272800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1s1Sm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " FYI Racket has the property you want:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "> (list 1 2 3)\n'(1 2 3)\n> (list 1 2 (list 3 4))\n'(1 2 (3 4))"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI have ambivalent feelings about this 'feature', though."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d46a0600-66e2-413a-8019-a954d9c74459",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> FYI Racket has the property you want:\n\n```&gt; (list 1 2 3)\n'(1 2 3)\n&gt; (list 1 2 (list 3 4))\n'(1 2 (3 4))```\nI have ambivalent feelings about this 'feature', though.",
+    "user": "UCUSW7WVD",
+    "ts": "1590783069.272800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1s1Sm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " FYI Racket has the property you want:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "> (list 1 2 3)\n'(1 2 3)\n> (list 1 2 (list 3 4))\n'(1 2 (3 4))"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI have ambivalent feelings about this 'feature', though."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590712683.260000",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8C5E9A8C-A381-4F1B-944D-1764AD251B20",
+    "type": "message",
+    "text": "What do people here think of Deno?",
+    "user": "UFLN9JFRT",
+    "ts": "1590787615.273300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g7ec98818d7f",
+      "image_72": "https://secure.gravatar.com/avatar/67ec98818d7fb6395d9a327081cd5472.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "Zubair",
+      "real_name": "Zubair Quraishi",
+      "display_name": "Zubairq",
+      "team": "T5TCAFTA9",
+      "name": "zubairq",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFLN9JFRT",
+      "ts": "1590787630.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7Q3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What do people here think of Deno?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590787615.273300",
+    "reply_count": 4,
+    "reply_users_count": 3,
+    "latest_reply": "1592036049.245900",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UETFVV24Q",
+      "UFLN9JFRT"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1590792529.274200"
+      },
+      {
+        "user": "UETFVV24Q",
+        "ts": "1590793906.274400"
+      },
+      {
+        "user": "UETFVV24Q",
+        "ts": "1590793931.274600"
+      },
+      {
+        "user": "UFLN9JFRT",
+        "ts": "1592036049.245900"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8C5E9A8C-A381-4F1B-944D-1764AD251B20",
+    "type": "message",
+    "text": "What do people here think of Deno?",
+    "user": "UFLN9JFRT",
+    "ts": "1590787615.273300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g7ec98818d7f",
+      "image_72": "https://secure.gravatar.com/avatar/67ec98818d7fb6395d9a327081cd5472.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "Zubair",
+      "real_name": "Zubair Quraishi",
+      "display_name": "Zubairq",
+      "team": "T5TCAFTA9",
+      "name": "zubairq",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFLN9JFRT",
+      "ts": "1590787630.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7Q3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What do people here think of Deno?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590787615.273300",
+    "reply_count": 4,
+    "reply_users_count": 3,
+    "latest_reply": "1592036049.245900",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UETFVV24Q",
+      "UFLN9JFRT"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1590792529.274200"
+      },
+      {
+        "user": "UETFVV24Q",
+        "ts": "1590793906.274400"
+      },
+      {
+        "user": "UETFVV24Q",
+        "ts": "1590793931.274600"
+      },
+      {
+        "user": "UFLN9JFRT",
+        "ts": "1592036049.245900"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1ebea594-1c8c-46cd-9b4e-141beb517bdd",
+    "type": "message",
+    "text": "I'm working on some approaches to extract sub-page/window frames out of existing apps. These frames would then exist as separate windows locally which you could arrange however you prefer, and can also be shared with other people, snapshot for archiving, etc. It would be a huge help to hear what people might want to use this ability for, so I recently tweeted to collect some feedback. Happy to have replies in a thread here or on Twitter, whichever you prefer.\n\n<https://twitter.com/jryans/status/1266166240114020352>",
+    "user": "UML4ZEKDK",
+    "ts": "1590790470.218300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gda74cfd81f8",
+      "image_72": "https://secure.gravatar.com/avatar/da74cfd81f892e34f7e3926f2c56f908.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "J. Ryan Stinnett",
+      "display_name": "J. Ryan Stinnett",
+      "team": "T5TCAFTA9",
+      "name": "jryans",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/jryans|@jryans>: I'm evaluating several different approaches to making this happen, and it would help enormously to hear use cases people are dreaming of. :innocent:\n\nNaming specific apps and goals you want to achieve by slicing them up into frames is even better. <https://twitter.com/rsnous/status/1259663160471982081>",
+        "ts": 1590712530,
+        "author_name": "J. Ryan Stinnett",
+        "author_link": "https://twitter.com/jryans/status/1266166240114020352",
+        "author_icon": "https://pbs.twimg.com/profile_images/3249761611/16a8377071c8693ded58d788f7fb21ff_normal.jpeg",
+        "author_subname": "@jryans",
+        "text": "I'm evaluating several different approaches to making this happen, and it would help enormously to hear use cases people are dreaming of. :innocent:\n\nNaming specific apps and goals you want to achieve by slicing them up into frames is even better. <https://twitter.com/rsnous/status/1259663160471982081>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/jryans/status/1266166240114020352",
+        "id": 1,
+        "original_url": "https://twitter.com/jryans/status/1266166240114020352",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      },
+      {
+        "fallback": "<https://twitter.com/rsnous|@rsnous>: <https://twitter.com/yoshikischmitz|@yoshikischmitz> I like the idea that you could 'carve' chunks out of a live Web app and move them around your desktop etc and they all stay wired up to the app in the back",
+        "ts": 1589162075,
+        "author_name": "Omar Rizwan",
+        "author_link": "https://twitter.com/rsnous/status/1259663160471982081",
+        "author_icon": "https://pbs.twimg.com/profile_images/646523069343793152/qXmq04Eq_normal.png",
+        "author_subname": "@rsnous",
+        "text": "<https://twitter.com/yoshikischmitz|@yoshikischmitz> I like the idea that you could 'carve' chunks out of a live Web app and move them around your desktop etc and they all stay wired up to the app in the back",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/rsnous/status/1259663160471982081",
+        "indent": true,
+        "color": "32BBF3",
+        "id": 2,
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pqZF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm working on some approaches to extract sub-page/window frames out of existing apps. These frames would then exist as separate windows locally which you could arrange however you prefer, and can also be shared with other people, snapshot for archiving, etc. It would be a huge help to hear what people might want to use this ability for, so I recently tweeted to collect some feedback. Happy to have replies in a thread here or on Twitter, whichever you prefer.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/jryans/status/1266166240114020352"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590790470.218300",
+    "reply_count": 10,
+    "reply_users_count": 4,
+    "latest_reply": "1590862388.251500",
+    "reply_users": [
+      "UKDM3GLAJ",
+      "UML4ZEKDK",
+      "UHWC9PXBL",
+      "UEQ6M68H0"
+    ],
+    "replies": [
+      {
+        "user": "UKDM3GLAJ",
+        "ts": "1590792344.218500"
+      },
+      {
+        "user": "UML4ZEKDK",
+        "ts": "1590793539.218700"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590809260.221600"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590809282.222500"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590809356.224000"
+      },
+      {
+        "user": "UML4ZEKDK",
+        "ts": "1590846649.233000"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1590851554.239900"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590852417.247000"
+      },
+      {
+        "user": "UML4ZEKDK",
+        "ts": "1590860344.250800"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590862388.251500"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "1ebea594-1c8c-46cd-9b4e-141beb517bdd",
+    "type": "message",
+    "text": "I'm working on some approaches to extract sub-page/window frames out of existing apps. These frames would then exist as separate windows locally which you could arrange however you prefer, and can also be shared with other people, snapshot for archiving, etc. It would be a huge help to hear what people might want to use this ability for, so I recently tweeted to collect some feedback. Happy to have replies in a thread here or on Twitter, whichever you prefer.\n\n<https://twitter.com/jryans/status/1266166240114020352>",
+    "user": "UML4ZEKDK",
+    "ts": "1590790470.218300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gda74cfd81f8",
+      "image_72": "https://secure.gravatar.com/avatar/da74cfd81f892e34f7e3926f2c56f908.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "J.",
+      "real_name": "J. Ryan Stinnett",
+      "display_name": "J. Ryan Stinnett",
+      "team": "T5TCAFTA9",
+      "name": "jryans",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/jryans|@jryans>: I'm evaluating several different approaches to making this happen, and it would help enormously to hear use cases people are dreaming of. :innocent:\n\nNaming specific apps and goals you want to achieve by slicing them up into frames is even better. <https://twitter.com/rsnous/status/1259663160471982081>",
+        "ts": 1590712530,
+        "author_name": "J. Ryan Stinnett",
+        "author_link": "https://twitter.com/jryans/status/1266166240114020352",
+        "author_icon": "https://pbs.twimg.com/profile_images/3249761611/16a8377071c8693ded58d788f7fb21ff_normal.jpeg",
+        "author_subname": "@jryans",
+        "text": "I'm evaluating several different approaches to making this happen, and it would help enormously to hear use cases people are dreaming of. :innocent:\n\nNaming specific apps and goals you want to achieve by slicing them up into frames is even better. <https://twitter.com/rsnous/status/1259663160471982081>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/jryans/status/1266166240114020352",
+        "id": 1,
+        "original_url": "https://twitter.com/jryans/status/1266166240114020352",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      },
+      {
+        "fallback": "<https://twitter.com/rsnous|@rsnous>: <https://twitter.com/yoshikischmitz|@yoshikischmitz> I like the idea that you could 'carve' chunks out of a live Web app and move them around your desktop etc and they all stay wired up to the app in the back",
+        "ts": 1589162075,
+        "author_name": "Omar Rizwan",
+        "author_link": "https://twitter.com/rsnous/status/1259663160471982081",
+        "author_icon": "https://pbs.twimg.com/profile_images/646523069343793152/qXmq04Eq_normal.png",
+        "author_subname": "@rsnous",
+        "text": "<https://twitter.com/yoshikischmitz|@yoshikischmitz> I like the idea that you could 'carve' chunks out of a live Web app and move them around your desktop etc and they all stay wired up to the app in the back",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/rsnous/status/1259663160471982081",
+        "indent": true,
+        "color": "32BBF3",
+        "id": 2,
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pqZF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm working on some approaches to extract sub-page/window frames out of existing apps. These frames would then exist as separate windows locally which you could arrange however you prefer, and can also be shared with other people, snapshot for archiving, etc. It would be a huge help to hear what people might want to use this ability for, so I recently tweeted to collect some feedback. Happy to have replies in a thread here or on Twitter, whichever you prefer.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/jryans/status/1266166240114020352"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590790470.218300",
+    "reply_count": 10,
+    "reply_users_count": 4,
+    "latest_reply": "1590862388.251500",
+    "reply_users": [
+      "UKDM3GLAJ",
+      "UML4ZEKDK",
+      "UHWC9PXBL",
+      "UEQ6M68H0"
+    ],
+    "replies": [
+      {
+        "user": "UKDM3GLAJ",
+        "ts": "1590792344.218500"
+      },
+      {
+        "user": "UML4ZEKDK",
+        "ts": "1590793539.218700"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590809260.221600"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590809282.222500"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590809356.224000"
+      },
+      {
+        "user": "UML4ZEKDK",
+        "ts": "1590846649.233000"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1590851554.239900"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590852417.247000"
+      },
+      {
+        "user": "UML4ZEKDK",
+        "ts": "1590860344.250800"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1590862388.251500"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e5b70f28-c86c-4d64-9375-57b54dc814e4",
+    "type": "message",
+    "text": "I’m going to give different feedback than you asked for. Not so much how would I use this, but what is table stakes for me using this. I have a strong emotional reaction to this idea (or my understanding of it).\n[Non-quote to collect my scenario:]\n&gt; I picture a rectangle select happening on an app or a web app, and then having a rectangle primitive that I can work with (maybe it’s a window on its own, maybe I combine it with other stuff). This seems like it could be super powerful. But that is not my dominant reaction. My reaction is dread. Dread for the moment I go to scroll and my scroll gets picked up by the wrong layer and now my widget is broken. And then I spend hours/days/weeks looking for a solution to this, only to discover that the app designer is handling scroll events in a way that makes it impossible. \nI assume that something like this would be finnicky and fragile. I think making it *not be*, and *convincing people* that it’s not going to be is an important problem. I think remixing apps is an important goal to work towards, but I personally would have a high bar for robustness.",
+    "user": "UKDM3GLAJ",
+    "ts": "1590792344.218500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "34e7a55348e8",
+      "image_72": "https://avatars.slack-edge.com/2020-01-04/893378739792_34e7a55348e8c86c1901_72.jpg",
+      "first_name": "",
+      "real_name": "Jared Windover",
+      "display_name": "Jared Windover",
+      "team": "T5TCAFTA9",
+      "name": "jaredwindover",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l+FQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’m going to give different feedback than you asked for. Not so much how would I use this, but what is table stakes for me using this. I have a strong emotional reaction to this idea (or my understanding of it).\n[Non-quote to collect my scenario:]\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I picture a rectangle select happening on an app or a web app, and then having a rectangle primitive that I can work with (maybe it’s a window on its own, maybe I combine it with other stuff). This seems like it could be super powerful. But that is not my dominant reaction. My reaction is dread. Dread for the moment I go to scroll and my scroll gets picked up by the wrong layer and now my widget is broken. And then I spend hours/days/weeks looking for a solution to this, only to discover that the app designer is handling scroll events in a way that makes it impossible. "
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I assume that something like this would be finnicky and fragile. I think making it "
+              },
+              {
+                "type": "text",
+                "text": "not be",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", and "
+              },
+              {
+                "type": "text",
+                "text": "convincing people",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " that it’s not going to be is an important problem. I think remixing apps is an important goal to work towards, but I personally would have a high bar for robustness."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590790470.218300",
+    "parent_user_id": "UML4ZEKDK",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e5b70f28-c86c-4d64-9375-57b54dc814e4",
+    "type": "message",
+    "text": "I’m going to give different feedback than you asked for. Not so much how would I use this, but what is table stakes for me using this. I have a strong emotional reaction to this idea (or my understanding of it).\n[Non-quote to collect my scenario:]\n&gt; I picture a rectangle select happening on an app or a web app, and then having a rectangle primitive that I can work with (maybe it’s a window on its own, maybe I combine it with other stuff). This seems like it could be super powerful. But that is not my dominant reaction. My reaction is dread. Dread for the moment I go to scroll and my scroll gets picked up by the wrong layer and now my widget is broken. And then I spend hours/days/weeks looking for a solution to this, only to discover that the app designer is handling scroll events in a way that makes it impossible. \nI assume that something like this would be finnicky and fragile. I think making it *not be*, and *convincing people* that it’s not going to be is an important problem. I think remixing apps is an important goal to work towards, but I personally would have a high bar for robustness.",
+    "user": "UKDM3GLAJ",
+    "ts": "1590792344.218500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "34e7a55348e8",
+      "image_72": "https://avatars.slack-edge.com/2020-01-04/893378739792_34e7a55348e8c86c1901_72.jpg",
+      "first_name": "",
+      "real_name": "Jared Windover",
+      "display_name": "Jared Windover",
+      "team": "T5TCAFTA9",
+      "name": "jaredwindover",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l+FQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’m going to give different feedback than you asked for. Not so much how would I use this, but what is table stakes for me using this. I have a strong emotional reaction to this idea (or my understanding of it).\n[Non-quote to collect my scenario:]\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I picture a rectangle select happening on an app or a web app, and then having a rectangle primitive that I can work with (maybe it’s a window on its own, maybe I combine it with other stuff). This seems like it could be super powerful. But that is not my dominant reaction. My reaction is dread. Dread for the moment I go to scroll and my scroll gets picked up by the wrong layer and now my widget is broken. And then I spend hours/days/weeks looking for a solution to this, only to discover that the app designer is handling scroll events in a way that makes it impossible. "
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I assume that something like this would be finnicky and fragile. I think making it "
+              },
+              {
+                "type": "text",
+                "text": "not be",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", and "
+              },
+              {
+                "type": "text",
+                "text": "convincing people",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " that it’s not going to be is an important problem. I think remixing apps is an important goal to work towards, but I personally would have a high bar for robustness."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590790470.218300",
+    "parent_user_id": "UML4ZEKDK",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "866053c4-49e5-44a6-bb54-3a2123d85fcb",
+    "type": "message",
+    "text": "I like everything except the relationship with typescript. But maybe that won't be as much of an issue in practice as I fear in theory.",
+    "user": "UC2A2ARPT",
+    "ts": "1590792529.274200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jCMX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I like everything except the relationship with typescript. But maybe that won't be as much of an issue in practice as I fear in theory."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590787615.273300",
+    "parent_user_id": "UFLN9JFRT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "866053c4-49e5-44a6-bb54-3a2123d85fcb",
+    "type": "message",
+    "text": "I like everything except the relationship with typescript. But maybe that won't be as much of an issue in practice as I fear in theory.",
+    "user": "UC2A2ARPT",
+    "ts": "1590792529.274200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jCMX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I like everything except the relationship with typescript. But maybe that won't be as much of an issue in practice as I fear in theory."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590787615.273300",
+    "parent_user_id": "UFLN9JFRT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "94f03a13-3a2c-4def-9517-93379eb454e0",
+    "type": "message",
+    "text": "<@UKDM3GLAJ> Thanks, happy to have feedback of any kind. :smile: Yes, I agree it's important to ensure it's a robust experience so that people can trust that these frames will behave as they expect. I think it could be quite an enabling, powerful tool / primitive, but only if you can be confident it will work the way you expect when first extracted and remain working thereafter.",
+    "user": "UML4ZEKDK",
+    "ts": "1590793539.218700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gda74cfd81f8",
+      "image_72": "https://secure.gravatar.com/avatar/da74cfd81f892e34f7e3926f2c56f908.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "J. Ryan Stinnett",
+      "display_name": "J. Ryan Stinnett",
+      "team": "T5TCAFTA9",
+      "name": "jryans",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "R==",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UKDM3GLAJ"
+              },
+              {
+                "type": "text",
+                "text": " Thanks, happy to have feedback of any kind. "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": " Yes, I agree it's important to ensure it's a robust experience so that people can trust that these frames will behave as they expect. I think it could be quite an enabling, powerful tool / primitive, but only if you can be confident it will work the way you expect when first extracted and remain working thereafter."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590790470.218300",
+    "parent_user_id": "UML4ZEKDK",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "94f03a13-3a2c-4def-9517-93379eb454e0",
+    "type": "message",
+    "text": "<@UKDM3GLAJ> Thanks, happy to have feedback of any kind. :smile: Yes, I agree it's important to ensure it's a robust experience so that people can trust that these frames will behave as they expect. I think it could be quite an enabling, powerful tool / primitive, but only if you can be confident it will work the way you expect when first extracted and remain working thereafter.",
+    "user": "UML4ZEKDK",
+    "ts": "1590793539.218700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gda74cfd81f8",
+      "image_72": "https://secure.gravatar.com/avatar/da74cfd81f892e34f7e3926f2c56f908.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "J.",
+      "real_name": "J. Ryan Stinnett",
+      "display_name": "J. Ryan Stinnett",
+      "team": "T5TCAFTA9",
+      "name": "jryans",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "R==",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UKDM3GLAJ"
+              },
+              {
+                "type": "text",
+                "text": " Thanks, happy to have feedback of any kind. "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": " Yes, I agree it's important to ensure it's a robust experience so that people can trust that these frames will behave as they expect. I think it could be quite an enabling, powerful tool / primitive, but only if you can be confident it will work the way you expect when first extracted and remain working thereafter."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590790470.218300",
+    "parent_user_id": "UML4ZEKDK",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "83146895-241e-4ceb-be64-0e3c23bff43c",
+    "type": "message",
+    "text": "It has a lot of excellent improvements but historically, when there’s “the thing that everyone uses” versus “the thing that’s pretty similar with incremental improvements”, it’s really hard for the 2nd thing to get traction",
+    "user": "UETFVV24Q",
+    "ts": "1590793906.274400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3e6a851923d2",
+      "image_72": "https://avatars.slack-edge.com/2020-04-20/1067569014342_3e6a851923d262ea9e74_72.png",
+      "first_name": "",
+      "real_name": "Andy F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andy.fischer",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2FU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It has a lot of excellent improvements but historically, when there’s “the thing that everyone uses” versus “the thing that’s pretty similar with incremental improvements”, it’s really hard for the 2nd thing to get traction"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590787615.273300",
+    "parent_user_id": "UFLN9JFRT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "83146895-241e-4ceb-be64-0e3c23bff43c",
+    "type": "message",
+    "text": "It has a lot of excellent improvements but historically, when there’s “the thing that everyone uses” versus “the thing that’s pretty similar with incremental improvements”, it’s really hard for the 2nd thing to get traction",
+    "user": "UETFVV24Q",
+    "ts": "1590793906.274400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3e6a851923d2",
+      "image_72": "https://avatars.slack-edge.com/2020-04-20/1067569014342_3e6a851923d262ea9e74_72.png",
+      "first_name": "",
+      "real_name": "Andy F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andy.fischer",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2FU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It has a lot of excellent improvements but historically, when there’s “the thing that everyone uses” versus “the thing that’s pretty similar with incremental improvements”, it’s really hard for the 2nd thing to get traction"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590787615.273300",
+    "parent_user_id": "UFLN9JFRT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "564d1ae2-fb83-427f-b41b-ec64735ede23",
+    "type": "message",
+    "text": "But Deno has a lot of good attention so maybe it will work out",
+    "user": "UETFVV24Q",
+    "ts": "1590793931.274600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3e6a851923d2",
+      "image_72": "https://avatars.slack-edge.com/2020-04-20/1067569014342_3e6a851923d262ea9e74_72.png",
+      "first_name": "",
+      "real_name": "Andy F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andy.fischer",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4W05",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But Deno has a lot of good attention so maybe it will work out"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590787615.273300",
+    "parent_user_id": "UFLN9JFRT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "564d1ae2-fb83-427f-b41b-ec64735ede23",
+    "type": "message",
+    "text": "But Deno has a lot of good attention so maybe it will work out",
+    "user": "UETFVV24Q",
+    "ts": "1590793931.274600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3e6a851923d2",
+      "image_72": "https://avatars.slack-edge.com/2020-04-20/1067569014342_3e6a851923d262ea9e74_72.png",
+      "first_name": "",
+      "real_name": "Andy F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andy.fischer",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4W05",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But Deno has a lot of good attention so maybe it will work out"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590787615.273300",
+    "parent_user_id": "UFLN9JFRT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2fce92b0-a909-4bce-ac00-7ff38108c046",
+    "type": "message",
+    "text": "dataflow programming tool built on top of the openFramework ecosystem: <https://mosaic.d3cod3.org>",
+    "user": "UES04SML7",
+    "ts": "1590794965.275100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g7d109cd4360",
+      "image_72": "https://secure.gravatar.com/avatar/97d109cd43603e00a23a4c90d9da4c65.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+      "first_name": "korede",
+      "real_name": "korede",
+      "display_name": "korede",
+      "team": "T5TCAFTA9",
+      "name": "kaderele",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Mosaic",
+        "title": "Mosaic, an openFrameworks based Visual Patching Creative-Coding Platform",
+        "title_link": "https://mosaic.d3cod3.org/",
+        "text": "Mosaic is an open source multi-platform (osx, linux, windows) live coding and visual programming application, based on openFrameworks.",
+        "fallback": "Mosaic: Mosaic, an openFrameworks based Visual Patching Creative-Coding Platform",
+        "thumb_url": "https://mosaic.d3cod3.org/images/mosaicLogo.png",
+        "from_url": "https://mosaic.d3cod3.org/",
+        "thumb_width": 128,
+        "thumb_height": 128,
+        "service_icon": "https://mosaic.d3cod3.org/images/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://mosaic.d3cod3.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TXk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "dataflow programming tool built on top of the openFramework ecosystem: "
+              },
+              {
+                "type": "link",
+                "url": "https://mosaic.d3cod3.org"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013HU44GLS",
+          "UBSMEUXAA"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2fce92b0-a909-4bce-ac00-7ff38108c046",
+    "type": "message",
+    "text": "dataflow programming tool built on top of the openFramework ecosystem: <https://mosaic.d3cod3.org>",
+    "user": "UES04SML7",
+    "ts": "1590794965.275100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g7d109cd4360",
+      "image_72": "https://secure.gravatar.com/avatar/97d109cd43603e00a23a4c90d9da4c65.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+      "first_name": "korede",
+      "real_name": "korede",
+      "display_name": "korede",
+      "team": "T5TCAFTA9",
+      "name": "kaderele",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Mosaic",
+        "title": "Mosaic, an openFrameworks based Visual Patching Creative-Coding Platform",
+        "title_link": "https://mosaic.d3cod3.org/",
+        "text": "Mosaic is an open source multi-platform (osx, linux, windows) live coding and visual programming application, based on openFrameworks.",
+        "fallback": "Mosaic: Mosaic, an openFrameworks based Visual Patching Creative-Coding Platform",
+        "thumb_url": "https://mosaic.d3cod3.org/images/mosaicLogo.png",
+        "from_url": "https://mosaic.d3cod3.org/",
+        "thumb_width": 128,
+        "thumb_height": 128,
+        "service_icon": "https://mosaic.d3cod3.org/images/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://mosaic.d3cod3.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TXk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "dataflow programming tool built on top of the openFramework ecosystem: "
+              },
+              {
+                "type": "link",
+                "url": "https://mosaic.d3cod3.org"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013HU44GLS",
+          "UBSMEUXAA"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cc76a396-6826-4af4-8ca8-0558aca0dd56",
+    "type": "message",
+    "text": "Hello folks! I'm Tom – been in the orbit for a little while, worked at Observable, now working on ██, unrelated to future of coding but still tinkering with ideas &amp; code about it in free moments.",
+    "user": "U014BMRB170",
+    "ts": "1590796758.251600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "aa987a15dfe3",
+      "image_72": "https://avatars.slack-edge.com/2020-05-29/1167097708305_aa987a15dfe3dcccd363_72.jpg",
+      "first_name": "",
+      "real_name": "Tom MacWright",
+      "display_name": "Tom MacWright",
+      "team": "T5TCAFTA9",
+      "name": "tom041",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "br6+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello folks! I'm Tom – been in the orbit for a little while, worked at Observable, now working on ██, unrelated to future of coding but still tinkering with ideas & code about it in free moments."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1590796758.251600",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1590855297.256800",
+    "reply_users": [
+      "UFLN9JFRT",
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "UFLN9JFRT",
+        "ts": "1590822986.253100"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1590824001.255200"
+      },
+      {
+        "user": "UFLN9JFRT",
+        "ts": "1590855297.256800"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJBAJNFLK",
+          "UFLN9JFRT",
+          "U013RRN6Y6N"
+        ],
+        "count": 3
+      },
+      {
+        "name": "wave",
+        "users": [
+          "UC2A2ARPT",
+          "UP7SQ8KT3",
+          "UA14TGLTC",
+          "UFLN9JFRT",
+          "U85HCL7JP",
+          "UF6RLAL7J",
+          "U013RRN6Y6N",
+          "UJ6LDMMN0",
+          "U0137BUHUBW"
+        ],
+        "count": 9
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  }
+]
