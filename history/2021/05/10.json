@@ -1,0 +1,2386 @@
+[
+  {
+    "client_msg_id": "50a8ad52-881e-48e0-95ef-b57dcfc81701",
+    "type": "message",
+    "text": "Yeah, they seem more like tracks.",
+    "user": "UA14TGLTC",
+    "ts": "1620616970.103100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BSmQH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, they seem more like tracks."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619467654.051900",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e8e7288f-20e5-4c8e-9d12-d317395c9cf8",
+    "type": "message",
+    "text": "I was just writing a little about Forth vs Factor other day.  Let me copy here as there's a cute comparison...\n\nThere's an insightful tutorial &lt;<https://skilldrick.github.io/easyforth/>&gt;. Shows some dubious limitations.\n\nTake a look at this FizzBuzz implementation:\n\n\t: fizz? 3 mod 0 = dup if .\" Fizz\" then ;\n\t: buzz? 5 mod 0 = dup if .\" Buzz\" then ;\n\t: fizz-buzz? dup fizz? swap buzz? or invert ;\n\t: do-fizz-buzz 100 1 do cr i fizz-buzz? if i . then loop ;\n\tdo-fizz-buzz\n\nYou have to have a custom `do-fizz-buzz` word because do/loop and if/then only work within definitions. Factor might be a better Forth &lt;<https://wiki.c2.com/?FizzBuzzTest>&gt;:\n\n\t: is3 ( n -- n ) [ 3 mod ] keep [ drop \"fizz\" ] unless ;\n\t: is5 ( n -- n ) [ 5 mod ] keep [ drop \"buzz\" ] unless ;\n\t: is15 ( n -- n ) [ 15 mod ] keep [ drop \"fizzbuzz\" ] unless ;\n\t100 iota [ is15 [ print ] [ is5 [ print ] [ is3 [ print ] [ . ] if ] if ] if ] each\n\nOh, and next to that they have a code golf Ruby version:\n\n\tputs (1..100).map{|i|r=[\"Fizz\"][i%3];r=\"#{r}Buzz\"if i%5==0;r||i}\n\nOf course my favorite FizzBuzz is the kind that uses a random number sort of like this &lt;<https://stackoverflow.com/questions/20957693/fizzbuzz-in-python-using-random-how-does-it-work>&gt;:\n\n\timport random\n\tfor i in range(0, 100):\n\t  if not i % 15:\n\t    random.seed(<tel:1178741599|1178741599>)\n   \t  print [i+1, \"Fizz\", \"Buzz\", \"FizzBuzz\"][random.randint(0,3)]\n\nWould be better if you only call `random.seed` once. :wink:",
+    "user": "UA14TGLTC",
+    "ts": "1620617117.202600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Stack Overflow",
+        "title": "fizzbuzz in Python using random, how does it work?",
+        "title_link": "https://stackoverflow.com/questions/20957693/fizzbuzz-in-python-using-random-how-does-it-work",
+        "text": "I am having a hard time figuring out how the code below works: import random for i in range(0, 100): if not i % 15: random.seed(1178741599) print [i+1, \"Fizz\", \"Buzz\", \"FizzBuzz\"][",
+        "fallback": "Stack Overflow: fizzbuzz in Python using random, how does it work?",
+        "thumb_url": "https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=73d79a89bded",
+        "from_url": "https://stackoverflow.com/questions/20957693/fizzbuzz-in-python-using-random-how-does-it-work",
+        "thumb_width": 316,
+        "thumb_height": 316,
+        "service_icon": "https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a",
+        "id": 1,
+        "original_url": "https://stackoverflow.com/questions/20957693/fizzbuzz-in-python-using-random-how-does-it-work"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fyc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I was just writing a little about Forth vs Factor other day.  Let me copy here as there's a cute comparison...\n\nThere's an insightful tutorial <"
+              },
+              {
+                "type": "link",
+                "url": "https://skilldrick.github.io/easyforth/"
+              },
+              {
+                "type": "text",
+                "text": ">. Shows some dubious limitations.\n\nTake a look at this FizzBuzz implementation:\n\n\t: fizz? 3 mod 0 = dup if .\" Fizz\" then ;\n\t: buzz? 5 mod 0 = dup if .\" Buzz\" then ;\n\t: fizz-buzz? dup fizz? swap buzz? or invert ;\n\t: do-fizz-buzz 100 1 do cr i fizz-buzz? if i . then loop ;\n\tdo-fizz-buzz\n\nYou have to have a custom `do-fizz-buzz` word because do/loop and if/then only work within definitions. Factor might be a better Forth <"
+              },
+              {
+                "type": "link",
+                "url": "https://wiki.c2.com/?FizzBuzzTest"
+              },
+              {
+                "type": "text",
+                "text": ">:\n\n\t: is3 ( n -- n ) [ 3 mod ] keep [ drop \"fizz\" ] unless ;\n\t: is5 ( n -- n ) [ 5 mod ] keep [ drop \"buzz\" ] unless ;\n\t: is15 ( n -- n ) [ 15 mod ] keep [ drop \"fizzbuzz\" ] unless ;\n\t100 iota [ is15 [ print ] [ is5 [ print ] [ is3 [ print ] [ . ] if ] if ] if ] each\n\nOh, and next to that they have a code golf Ruby version:\n\n\tputs (1..100).map{|i|r=[\"Fizz\"][i%3];r=\"#{r}Buzz\"if i%5==0;r||i}\n\nOf course my favorite FizzBuzz is the kind that uses a random number sort of like this <"
+              },
+              {
+                "type": "link",
+                "url": "https://stackoverflow.com/questions/20957693/fizzbuzz-in-python-using-random-how-does-it-work"
+              },
+              {
+                "type": "text",
+                "text": ">:\n\n\timport random\n\tfor i in range(0, 100):\n\t  if not i % 15:\n\t    random.seed("
+              },
+              {
+                "type": "link",
+                "url": "tel:1178741599",
+                "text": "1178741599"
+              },
+              {
+                "type": "text",
+                "text": ")\n   \t  print [i+1, \"Fizz\", \"Buzz\", \"FizzBuzz\"][random.randint(0,3)]\n\nWould be better if you only call `random.seed` once. "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619602565.130500",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "B1050902-B99D-4EB5-BCE1-A76445158A9A",
+    "type": "message",
+    "text": "This is an interesting direction! Did you decide to start going after graphics again? Or is this just a little detour through a more interesting test project?",
+    "user": "UC2A2ARPT",
+    "ts": "1620626424.104800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "411",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is an interesting direction! Did you decide to start going after graphics again? Or is this just a little detour through a more interesting test project?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620584015.099800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "b763afa3-83e4-4707-bb86-2952510a93aa",
+    "type": "message",
+    "text": "Oh yes graphics is totally available now, when I work without Linux. 1024x768 pixels, 256 colors.\n\nYou're probably thinking about the mouse. That's still not working.",
+    "user": "UCUSW7WVD",
+    "ts": "1620626531.105000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gnzD=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh yes graphics is totally available now, when I work without Linux. 1024x768 pixels, 256 colors.\n\nYou're probably thinking about the mouse. That's still not working."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620584015.099800",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "mouse",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "07f8b4a2-05c7-4973-80ce-35822a7bee50",
+    "type": "message",
+    "text": "Some (garish) colors and animation: <https://merveilles.town/@akkartik/106209414768288448>",
+    "user": "UCUSW7WVD",
+    "ts": "1620627665.114000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Merveilles",
+        "title": "Kartik Agaram (@akkartik@merveilles.town)",
+        "title_link": "https://merveilles.town/@akkartik/106209414768288448",
+        "text": "Attached: 1 video Zooming into the Mandelbrot set on the Mu computer Apologies for the garish colors. Still a work in progress. I recorded this on a Mac then sped it up 8x. I estimate that makes it 3x slower than my Linux computer accelerated with KVM. Sources: <https://github.com/akkartik/mu/blob/208dab22566/mandelbrot.mu> Main project page: <https://github.com/akkartik/mu>",
+        "fallback": "Merveilles: Kartik Agaram (@akkartik@merveilles.town)",
+        "thumb_url": "https://assets.merveilles.town/media_attachments/files/106/209/404/427/640/601/small/3ad5a9408bb7008a.png",
+        "video_html_width": 1280,
+        "video_html_height": 720,
+        "video_url": "https://assets.merveilles.town/media_attachments/files/106/209/404/427/640/601/original/3ad5a9408bb7008a.mp4",
+        "ts": 1620627056,
+        "from_url": "https://merveilles.town/@akkartik/106209414768288448",
+        "thumb_width": 400,
+        "thumb_height": 225,
+        "service_icon": "https://merveilles.town/favicon.ico",
+        "id": 1,
+        "original_url": "https://merveilles.town/@akkartik/106209414768288448"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "50CE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some (garish) colors and animation: "
+              },
+              {
+                "type": "link",
+                "url": "https://merveilles.town/@akkartik/106209414768288448"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620584015.099800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "de2cd863-7c44-487b-b59e-3866e0b05168",
+    "type": "message",
+    "text": "A friend of mine created this Graphical UI to procedurally generate graphics: <https://www.instagram.com/p/COioBISnAh1/>",
+    "user": "UP00ZLX6G",
+    "ts": "1620633841.007100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbf26b30edd8",
+      "image_72": "https://secure.gravatar.com/avatar/bf26b30edd8ed78a32e08172b3ffab4a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "",
+      "real_name": "Tak Tran",
+      "display_name": "Tak Tran",
+      "team": "T5TCAFTA9",
+      "name": "contact584",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Instagram",
+        "service_url": "https://www.instagram.com/",
+        "author_name": "so.superduper.cool",
+        "thumb_url": "https://scontent.cdninstagram.com/v/t51.2885-15/e35/s480x480/182083503_1170296240109256_8339431675284866987_n.jpg?tp=1&_nc_ht=scontent.cdninstagram.com&_nc_cat=104&_nc_ohc=wxp_vS5cn9oAX_mj-93&edm=AMO9-JQAAAAA&ccb=7-4&oh=e4a6e839c8acbeda1cb3ebd3e211aeec&oe=609B2F12&_nc_sid=b9f2ee",
+        "thumb_width": 480,
+        "thumb_height": 480,
+        "fallback": "Instagram Photo: ",
+        "image_url": "https://scontent.cdninstagram.com/v/t51.2885-15/e35/s480x480/182083503_1170296240109256_8339431675284866987_n.jpg?tp=1&_nc_ht=scontent.cdninstagram.com&_nc_cat=104&_nc_ohc=wxp_vS5cn9oAX_mj-93&edm=AMO9-JQAAAAA&ccb=7-4&oh=e4a6e839c8acbeda1cb3ebd3e211aeec&oe=609B2F12&_nc_sid=b9f2ee",
+        "image_width": 480,
+        "image_height": 480,
+        "from_url": "https://www.instagram.com/p/COioBISnAh1/",
+        "image_bytes": 30768,
+        "id": 1,
+        "original_url": "https://www.instagram.com/p/COioBISnAh1/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wdp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A friend of mine created this Graphical UI to procedurally generate graphics: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.instagram.com/p/COioBISnAh1/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620633841.007100",
+    "reply_count": 6,
+    "reply_users_count": 3,
+    "latest_reply": "1621121808.009900",
+    "reply_users": [
+      "UJN1TAYEQ",
+      "U013866H7LY",
+      "UP00ZLX6G"
+    ],
+    "replies": [
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1620949008.008600"
+      },
+      {
+        "user": "U013866H7LY",
+        "ts": "1621011901.009000"
+      },
+      {
+        "user": "UP00ZLX6G",
+        "ts": "1621015343.009200"
+      },
+      {
+        "user": "UP00ZLX6G",
+        "ts": "1621015362.009400"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1621121725.009700"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1621121808.009900"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart_eyes",
+        "users": [
+          "UC2A2ARPT",
+          "UA14TGLTC",
+          "U013ZLJARC7",
+          "U013866H7LY",
+          "UJ6LDMMN0",
+          "UFB8STN7K",
+          "U9ZU3C9KM"
+        ],
+        "count": 7
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "type": "message",
+    "text": "I've been doing JS for 15+ years and just learned about precedence here:",
+    "files": [
+      {
+        "id": "F020YAQUUQP",
+        "created": 1620636034,
+        "timestamp": 1620636034,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UFUKSKJRW",
+        "editable": false,
+        "size": 133819,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F020YAQUUQP/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F020YAQUUQP/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 129,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 172,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 258,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 287,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 344,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F020YAQUUQP-f261a06b0c/image_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 367,
+        "original_w": 1796,
+        "original_h": 644,
+        "thumb_tiny": "AwARADCnRx60lFAC8etHHr+lJRQAvHrRSUUAFFFFABRRRQAUUUUAf//Z",
+        "permalink": "https://futureofcoding.slack.com/files/UFUKSKJRW/F020YAQUUQP/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F020YAQUUQP-7b049c462c",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UFUKSKJRW",
+    "display_as_bot": false,
+    "ts": "1620636043.171400",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l=Kp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been doing JS for 15+ years and just learned about precedence here:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613435882.097400",
+    "parent_user_id": "U01NWARGPNC",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "91a809a5-34cd-4fb1-9148-95538918c7ad",
+    "type": "message",
+    "text": "A Discord community is being assembled to discuss this in more detail. If you'd like to join, you can DM <https://twitter.com/delaneykingrox> to request access.",
+    "user": "UML4ZEKDK",
+    "ts": "1620637638.160600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gda74cfd81f8",
+      "image_72": "https://secure.gravatar.com/avatar/da74cfd81f892e34f7e3926f2c56f908.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "J.",
+      "real_name": "J. Ryan Stinnett",
+      "display_name": "J. Ryan Stinnett",
+      "team": "T5TCAFTA9",
+      "name": "jryans",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Delaney King :point_right::skin-tone-2::woman::skin-tone-2::computer: (@delaneykingrox) | Twitter",
+        "title_link": "https://twitter.com/delaneykingrox",
+        "text": "The latest Tweets from Delaney King :point_right::skin-tone-2::female-technologist::skin-tone-2: (@delaneykingrox). Character/tech artist (Dragonage, Where The Wild Things Are, Unreal 04, Civ IV, Dungeons&amp;Dragons Online, God Of War TVC, Stellaris HD) Writer. Intersex. She/Her. Melbourne, Victoria",
+        "fallback": "Delaney King 👉🏻👩🏻💻 (@delaneykingrox) | Twitter",
+        "from_url": "https://twitter.com/delaneykingrox",
+        "service_icon": "https://abs.twimg.com/icons/apple-touch-icon-192x192.png",
+        "service_name": "twitter.com",
+        "id": 1,
+        "original_url": "https://twitter.com/delaneykingrox"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QJL2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A Discord community is being assembled to discuss this in more detail. If you'd like to join, you can DM "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/delaneykingrox"
+              },
+              {
+                "type": "text",
+                "text": " to request access."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619751552.139200",
+    "parent_user_id": "UBSMEUXAA",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1a0c3724-9e6e-40a7-8e78-ab2108b5cd8a",
+    "type": "message",
+    "text": "I’m thinking if it would make sense and be feasible to create a “two-way” editor, where the ground truth would be in code, but you could edit the elements visually, too.\n\nAny examples of:\n\n1. Two-way editors, where you could edit the same data in both visual (think Sketch, Blockly, nodes, etc) and code format (JS, Python, custom markup)? Ideally something, where formatting would be preserved when moving between these two domains.\n2. Papers related to “two-way” transformations, either from a parser point-of-view or on some higher abstraction level (strategies in general, UI:s, etc)?",
+    "user": "UEQ7QL15F",
+    "ts": "1620643079.119500",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tOi5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’m thinking if it would make sense and be feasible to create a “two-way” editor, where the ground truth would be in code, but you could edit the elements visually, too.\n\nAny examples of:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Two-way editors, where you could edit the same data in both visual (think Sketch, Blockly, nodes, etc) and code format (JS, Python, custom markup)? Ideally something, where formatting would be preserved when moving between these two domains."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Papers related to “two-way” transformations, either from a parser point-of-view or on some higher abstraction level (strategies in general, UI:s, etc)?"
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620643079.119500",
+    "reply_count": 12,
+    "reply_users_count": 10,
+    "latest_reply": "1621112755.125900",
+    "reply_users": [
+      "UBN9AFS0N",
+      "UEQ7QL15F",
+      "U01QFJWRQKV",
+      "UJBAJNFLK",
+      "U01RHB6KQ07",
+      "U01U19ECZTJ",
+      "UA14TGLTC",
+      "U01L6HZEHFX",
+      "U013ZLJARC7",
+      "U01TEJCSQ3Y"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1621112755.125900",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "b9ae34db-531b-4b62-999b-2aeafe84620a",
+    "type": "message",
+    "text": "Hahaha yeah, it’s not exactly intuitive!",
+    "user": "U01NWARGPNC",
+    "ts": "1620643150.171700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "beaca7f5eafb",
+      "image_72": "https://avatars.slack-edge.com/2021-02-15/1767152625025_beaca7f5eafb1b6233d0_72.png",
+      "first_name": "",
+      "real_name": "Katie Bell",
+      "display_name": "Katie Bell",
+      "team": "T5TCAFTA9",
+      "name": "katie",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ycv2U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hahaha yeah, it’s not exactly intuitive!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613435882.097400",
+    "parent_user_id": "U01NWARGPNC",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "0174652c-9c3a-44ee-ba32-8864fe611098",
+    "type": "message",
+    "text": "Sketch and Sketch is working on that: <http://ravichugh.github.io/sketch-n-sketch/>",
+    "user": "UBN9AFS0N",
+    "ts": "1620647055.119600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WNW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sketch and Sketch is working on that: "
+              },
+              {
+                "type": "link",
+                "url": "http://ravichugh.github.io/sketch-n-sketch/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620643079.119500",
+    "parent_user_id": "UEQ7QL15F",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEQ7QL15F",
+          "UAJKEBGP8",
+          "UC2A2ARPT",
+          "UMHG81CBH"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "6c07066a-b496-4dc0-9844-a1abf6dc31e9",
+    "type": "message",
+    "text": "Thanks! I realized I tried that back in 2018 but had already forgotten about it.",
+    "user": "UEQ7QL15F",
+    "ts": "1620647180.119900",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Qjp2a",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks! I realized I tried that back in 2018 but had already forgotten about it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620643079.119500",
+    "parent_user_id": "UEQ7QL15F",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "d4815bdd-0cf1-408e-adaa-962cacee37bf",
+    "type": "message",
+    "text": "not specifically related to editors, but a great recent piece of work related to two-way data transformation was Cambria: <https://www.inkandswitch.com/cambria.html>",
+    "user": "U01QFJWRQKV",
+    "ts": "1620647348.120100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4I1yt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "not specifically related to editors, but a great recent piece of work related to two-way data transformation was Cambria: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.inkandswitch.com/cambria.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620643079.119500",
+    "parent_user_id": "UEQ7QL15F",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "99eebf11-38e5-4512-abb5-1eeb5b3bb00b",
+    "type": "message",
+    "text": "Thanks <@UA14TGLTC> for that comparison. Factor as an improvement on Forth makes sense. But that's not a huge challenge: a language designed with minimal resource use in mind is easy to beat by just about any other criterion.",
+    "user": "UJBAJNFLK",
+    "ts": "1620652612.203100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LJn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " for that comparison. Factor as an improvement on Forth makes sense. But that's not a huge challenge: a language designed with minimal resource use in mind is easy to beat by just about any other criterion."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619602565.130500",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b26479c0-eff2-4b52-bd27-1ab1f5ef5640",
+    "type": "message",
+    "text": "Here's another recent idea in this space from the Racket universe: <https://www2.ccs.neu.edu/racket/pubs/oopsla20-abf.pdf>",
+    "user": "UJBAJNFLK",
+    "ts": "1620653063.120500",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1620653095.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6IC=V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here's another recent idea in this space from the Racket universe: "
+              },
+              {
+                "type": "link",
+                "url": "https://www2.ccs.neu.edu/racket/pubs/oopsla20-abf.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620643079.119500",
+    "parent_user_id": "UEQ7QL15F",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEQ7QL15F",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "271a4bee-68cf-4cb5-9301-5ac7b79432a2",
+    "type": "message",
+    "text": "The plot thickens: Why OpenDoc failed, and then failed 3 more times?\n\nSummary of reasons found around the web and comparing them with other implementations of the same concept:\n\n* ActiveX\n* KParts\n* Bonobo\n\nAnd a short mention of Web Components\n\n<https://instadeq.com/blog/posts/why-opendoc-failed-and-then-failed-3-more-times/>",
+    "user": "UBN9AFS0N",
+    "ts": "1620655991.162000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3nmg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The plot thickens: Why "
+              },
+              {
+                "type": "text",
+                "text": "OpenDoc",
+                "style": {
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " failed, and then failed 3 more times?\n\nSummary of reasons found around the web and comparing them with other implementations of the same concept:\n\n* ActiveX\n* KParts\n* Bonobo\n\nAnd a short mention of Web Components\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://instadeq.com/blog/posts/why-opendoc-failed-and-then-failed-3-more-times/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620655991.162000",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1620658400.162200",
+    "reply_users": [
+      "UBN9AFS0N"
+    ],
+    "replies": [
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1620658400.162200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e769ebfd-ce39-470b-b191-fea48568897b",
+    "type": "message",
+    "text": "HN Thread here: <https://news.ycombinator.com/item?id=27106195>",
+    "user": "UBN9AFS0N",
+    "ts": "1620658400.162200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "I6Q5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "HN Thread here: "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=27106195"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620655991.162000",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b45d6f74-4e30-43cb-be68-9127a7af90c7",
+    "type": "message",
+    "text": "<https://github.com/baku89/glisp>",
+    "user": "U01RHB6KQ07",
+    "ts": "1620661397.121000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "r7p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://github.com/baku89/glisp"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620643079.119500",
+    "parent_user_id": "UEQ7QL15F",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEQ7QL15F"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "078c3758-2a07-4bc2-8903-69d7bb1194aa",
+    "type": "message",
+    "text": "MVC is just two-way data-binding between your models (your data) and your views. Just represent your code as models and then have multiple views, some of which are textual, and some of which are graphical. That's what I do with FOAM (<http://foamdev.com|foamdev.com>). Just treat code as data, and the MVC it.",
+    "user": "U01U19ECZTJ",
+    "ts": "1620661426.121300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SFY=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "MVC is just two-way data-binding between your models (your data) and your views. Just represent your code as models and then have multiple views, some of which are textual, and some of which are graphical. That's what I do with FOAM ("
+              },
+              {
+                "type": "link",
+                "url": "http://foamdev.com",
+                "text": "foamdev.com"
+              },
+              {
+                "type": "text",
+                "text": "). Just treat code as data, and the MVC it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620643079.119500",
+    "parent_user_id": "UEQ7QL15F",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEQ7QL15F",
+          "UA14TGLTC",
+          "UPHDH2F0C",
+          "UPVBV34EL"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "aaec4903-6d6d-4b8f-9b54-10e43da1cab0",
+    "type": "message",
+    "text": "Hi <@U02028JHX37>! It's really nice that you got into these ideas this early. Just thought I'd mention the website <http://opetopic.net|opetopic.net> since your are creating an opetopic complex editor (but you probably already know it)",
+    "user": "U01QUBNJSEQ",
+    "ts": "1620670096.172700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "18c82e65f563",
+      "image_72": "https://avatars.slack-edge.com/2021-08-21/2402661327877_18c82e65f5630ec051b0_72.jpg",
+      "first_name": "Pablo",
+      "real_name": "Pablo Donato",
+      "display_name": "Pablo Donato",
+      "team": "T5TCAFTA9",
+      "name": "pablo.donato",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AxB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi "
+              },
+              {
+                "type": "user",
+                "user_id": "U02028JHX37"
+              },
+              {
+                "type": "text",
+                "text": "! It's really nice that you got into these ideas this early. Just thought I'd mention the website "
+              },
+              {
+                "type": "link",
+                "url": "http://opetopic.net",
+                "text": "opetopic.net"
+              },
+              {
+                "type": "text",
+                "text": " since your are creating an opetopic complex editor (but you probably already know it)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619543870.142400",
+    "parent_user_id": "U02028JHX37",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "357c765f-67dc-41cb-8506-227681ed4c74",
+    "type": "message",
+    "text": "Hello <@U021HMSCPU4>!\n\nI am quite intrigued by what you mean by \"formal substance\" and \"metamaterial substrates\". Is this known terminology, your own way to frame existing concepts, or an intuition into a new way to conceptualize abstractions?\n\nAlso on the geometry of information flow in programs/proofs, you might be interested in the branch of proof theory called <http://alessio.guglielmi.name/res/cos/#Intro|deep inference>, which also seems to find connections with <https://hal.archives-ouvertes.fr/hal-01092279|quantum physics> (through category theory of course).",
+    "user": "U01QUBNJSEQ",
+    "ts": "1620673077.173000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "18c82e65f563",
+      "image_72": "https://avatars.slack-edge.com/2021-08-21/2402661327877_18c82e65f5630ec051b0_72.jpg",
+      "first_name": "Pablo",
+      "real_name": "Pablo Donato",
+      "display_name": "Pablo Donato",
+      "team": "T5TCAFTA9",
+      "name": "pablo.donato",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "A Logical Basis for Quantum Evolution and Entanglement",
+        "title_link": "https://hal.archives-ouvertes.fr/hal-01092279",
+        "text": "We reconsider discrete quantum causal dynamics where quan-tum systems are viewed as discrete structures, namely directed acyclic graphs. In such a graph, events are considered as vertices and edges de-pict propagation between events. Evolution is described as happening between a special family of spacelike slices, which were referred to as locative slices. Such slices are not so large as to result in acausal influ-ences, but large enough to capture nonlocal correlations. In our logical interpretation, edges are assigned logical formulas in a spe-cial logical system, called BV, an instance of a deep inference system. We demonstrate that BV, with its mix of commutative and noncommutative connectives, is precisely the right logic for such analysis. We show that the commutative tensor encodes (possible) entanglement, and the non-commutative seq encodes causal precedence. With this interpretation, the locative slices are precisely the derivable strings of formulas. Several new technical results about BV are developed as part of this analysis.",
+        "fallback": "A Logical Basis for Quantum Evolution and Entanglement",
+        "from_url": "https://hal.archives-ouvertes.fr/hal-01092279",
+        "service_name": "hal.archives-ouvertes.fr",
+        "id": 1,
+        "original_url": "https://hal.archives-ouvertes.fr/hal-01092279"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "itc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello "
+              },
+              {
+                "type": "user",
+                "user_id": "U021HMSCPU4"
+              },
+              {
+                "type": "text",
+                "text": "!\n\nI am quite intrigued by what you mean by \"formal substance\" and \"metamaterial substrates\". Is this known terminology, your own way to frame existing concepts, or an intuition into a new way to conceptualize abstractions?\n\nAlso on the geometry of information flow in programs/proofs, you might be interested in the branch of proof theory called "
+              },
+              {
+                "type": "link",
+                "url": "http://alessio.guglielmi.name/res/cos/#Intro",
+                "text": "deep inference"
+              },
+              {
+                "type": "text",
+                "text": ", which also seems to find connections with "
+              },
+              {
+                "type": "link",
+                "url": "https://hal.archives-ouvertes.fr/hal-01092279",
+                "text": "quantum physics"
+              },
+              {
+                "type": "text",
+                "text": " (through category theory of course)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620554436.169500",
+    "parent_user_id": "U021HMSCPU4",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U021HMSCPU4"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "type": "message",
+    "text": "I'm running the emulated version now on Gitpod. (<https://gitpod.io/#https://github.com/akkartik/mu>). Will report back when I have runtime numbers",
+    "files": [
+      {
+        "id": "F021MS7LZ9A",
+        "created": 1620674599,
+        "timestamp": 1620674599,
+        "name": "Screen Shot 2021-05-10 at 9.23.16 AM.png",
+        "title": "Screen Shot 2021-05-10 at 9.23.16 AM.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UMVFWPZ36",
+        "editable": false,
+        "size": 235829,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F021MS7LZ9A/screen_shot_2021-05-10_at_9.23.16_am.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F021MS7LZ9A/download/screen_shot_2021-05-10_at_9.23.16_am.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 217,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 289,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 434,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 482,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 579,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F021MS7LZ9A-a450bb8867/screen_shot_2021-05-10_at_9.23.16_am_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 618,
+        "original_w": 1635,
+        "original_h": 986,
+        "thumb_tiny": "AwAcADC8Io848tfyFKYYs/6tPyFOH3qCecUAN8mL/nnH/wB8ijyIv+eaf9808Z9qWgCPyIv+eSf98ijyIv8Anmn/AHzUlFADf4qU01TmnZoAQU4UmaM0ALRTdxo3GgD/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UMVFWPZ36/F021MS7LZ9A/screen_shot_2021-05-10_at_9.23.16_am.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F021MS7LZ9A-acebe142ac",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UMVFWPZ36",
+    "display_as_bot": false,
+    "ts": "1620674650.115700",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6Lj++",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm running the emulated version now on Gitpod. ("
+              },
+              {
+                "type": "link",
+                "url": "https://gitpod.io/#https://github.com/akkartik/mu"
+              },
+              {
+                "type": "text",
+                "text": "). Will report back when I have runtime numbers"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620584015.099800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "actually wasn't too slow. now i need to learn qemu-system-i386",
+    "files": [
+      {
+        "id": "F0218UHDGFQ",
+        "created": 1620674860,
+        "timestamp": 1620674860,
+        "name": "Screen Shot 2021-05-10 at 9.27.36 AM.png",
+        "title": "Screen Shot 2021-05-10 at 9.27.36 AM.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UMVFWPZ36",
+        "editable": false,
+        "size": 23393,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0218UHDGFQ/screen_shot_2021-05-10_at_9.27.36_am.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0218UHDGFQ/download/screen_shot_2021-05-10_at_9.27.36_am.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0218UHDGFQ-e809867f8e/screen_shot_2021-05-10_at_9.27.36_am_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0218UHDGFQ-e809867f8e/screen_shot_2021-05-10_at_9.27.36_am_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0218UHDGFQ-e809867f8e/screen_shot_2021-05-10_at_9.27.36_am_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 34,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0218UHDGFQ-e809867f8e/screen_shot_2021-05-10_at_9.27.36_am_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 45,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0218UHDGFQ-e809867f8e/screen_shot_2021-05-10_at_9.27.36_am_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0218UHDGFQ-e809867f8e/screen_shot_2021-05-10_at_9.27.36_am_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 68,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0218UHDGFQ-e809867f8e/screen_shot_2021-05-10_at_9.27.36_am_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 75,
+        "original_w": 874,
+        "original_h": 82,
+        "thumb_tiny": "AwAEADC8QMjilAyKQ9RTh0FABj3NKB7milFAC496PxoooA//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UMVFWPZ36/F0218UHDGFQ/screen_shot_2021-05-10_at_9.27.36_am.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0218UHDGFQ-a495a02066",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UMVFWPZ36",
+    "display_as_bot": false,
+    "ts": "1620674883.115900",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ani",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "actually wasn't too slow. now i need to learn qemu-system-i386"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620584015.099800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2c0c8f46-f989-4554-b937-4a250d0e571e",
+    "type": "message",
+    "text": "ok using my brain instead of just copy/paste, I'm guessing it worked and I just need to have an image viewer that supports \".img\" files",
+    "user": "UMVFWPZ36",
+    "ts": "1620675022.116100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iYHIj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "ok using my brain instead of just copy/paste, I'm guessing it worked and I just need to have an image viewer that supports \".img\" files"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620584015.099800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "42e5fe84-b7be-4ed9-bbcd-3284c88f3689",
+    "type": "message",
+    "text": "This looks exciting! Definitely in my interest vein! Today I started reading about quantum control flow, which seems to parallel the same domain of concern from a very different angle.\n\n\"Metameterial\" is a real term, referring to synthesis of materials with specified properties. I think this domain will unlock many broad modes of information exchange. We are branching into spintronics, photonics, and I think the foundations of quantum computing will easily incorporate the variety of modalities by which energy, matter, and information inter-transduce. I am eager to learn how statistical mechanics and nonequilibrium thermodynamics fit into this too! It all has potential to synthesize, with the power of collected minds!\n\nBiology is always a fantastic source of inspiration for our particular human adventures. Understanding the phenomenology of consciousness, will, and active becoming will require a more careful inspection of our planetary family. How do cuttlefish process their complex visual language??\n\nI think the field of computation, especially its relationship to mathematics and physics, is in its youth. This time in history is a critical juncture, and we have boundless opportunities to help shape the future of human thought! I also want to build collaborative research and exploration tools for people to articulate, prove, invent, and explore mathematics together. Virtual reality will be a huge boon for education! Can't wait :D",
+    "user": "U021HMSCPU4",
+    "ts": "1620675041.173500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7dd7bba4672c",
+      "image_72": "https://avatars.slack-edge.com/2021-05-09/2045587888786_7dd7bba4672cdbaa2f35_72.jpg",
+      "first_name": "Jacob",
+      "real_name": "Jacob Chateau",
+      "display_name": "νοῦς",
+      "team": "T5TCAFTA9",
+      "name": "jacobchateauwork",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FfOoY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This looks exciting! Definitely in my interest vein! Today I started reading about quantum control flow, which seems to parallel the same domain of concern from a very different angle.\n\n\"Metameterial\" is a real term, referring to synthesis of materials with specified properties. I think this domain will unlock many broad modes of information exchange. We are branching into spintronics, photonics, and I think the foundations of quantum computing will easily incorporate the variety of modalities by which energy, matter, and information inter-transduce. I am eager to learn how statistical mechanics and nonequilibrium thermodynamics fit into this too! It all has potential to synthesize, with the power of collected minds!\n\nBiology is always a fantastic source of inspiration for our particular human adventures. Understanding the phenomenology of consciousness, will, and active becoming will require a more careful inspection of our planetary family. How do cuttlefish process their complex visual language??\n\nI think the field of computation, especially its relationship to mathematics and physics, is in its youth. This time in history is a critical juncture, and we have boundless opportunities to help shape the future of human thought! I also want to build collaborative research and exploration tools for people to articulate, prove, invent, and explore mathematics together. Virtual reality will be a huge boon for education! Can't wait :D"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620554436.169500",
+    "parent_user_id": "U021HMSCPU4",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "3cacae68-401c-43d8-8a98-1ff8e13f1a9c",
+    "type": "message",
+    "text": "I don't understand gitpod, but when I run Qemu locally I get a graphic window. There's a way to run without it, but it doesn't seem very supported and Mu will likely also be unusable on it since you'll be flying blind. So, unfortunately, I don't think a headless server will work.\n\nIf you like I can send you a .img file to run locally on Qemu. It's sandboxed, to my knowledge.",
+    "user": "UCUSW7WVD",
+    "ts": "1620678135.116300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1620678157.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/9WY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I don't understand gitpod, but when I run Qemu locally I get a graphic window. There's a way to run without it, but it doesn't seem very supported and Mu will likely also be unusable on it since you'll be flying blind. So, unfortunately, I don't think a headless server will work.\n\nIf you like I can send you a .img file to run locally on Qemu. It's sandboxed, to my knowledge."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620584015.099800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "1293aad4-d2f1-46fe-a678-9a86030bd7a4",
+    "type": "message",
+    "text": "<@UCUSW7WVD> Your confusion about what edges _are_ makes sense. I haven't done much to explain the technical relationship between graphical objects in Hest. So in entirely too much detail for a Slack message, here is the context needed to talk about what edges are (in the current prototypes), from the top, with a little bit of \"designer commentary\" along the way. This is long, so feel free to \"nope\" hard, haha!\n\n_Objects_ are collections of _properties_ with a unique identity. Bog standard.\n• Some say that the object \"is\" its properties, or \"has\" its properties — I go both ways.\n• This association of objects and properties in Hest isn't _graphical_ yet. There's just a little property editor in the sidebar, like you'd see in Unity (say). Inelegant, but pragmatic.\nAn object with a _position_ property (eg: x, y, z) is by convention called a _point_.\n• Nothing more to it than that.\n• _Any_ object with a position is a point.\nObjects can have other properties too, like information for the renderer / art tools.\n• An imported JPG that you place on the canvas is a point (has a position), and can be rendered as an image at that position.\n• Points will, by default, be rendered as little circles.\n• The Move tool reads/writes the position property.\n• This is all pluggable, and there will be a few episodes about how this works. It's an interesting comparison with the Glamorous Toolkit.\nAnother property that an object can possess is _data._ When a point object has some data, I call it a _data point._\n• Data points are like spreadsheet cells, yes, in that they are containers for arbitrary data.\n• But there's nothing reactive going on here.\n• The data property is just an inert bucket for state.\n• Any object can have data — subject of an upcoming episode.\n• This part of the design has lots of weaknesses — like what to do about complex data structures. Again, pragmatic for now, elegant can come later.\nAnother property that an object can possess is _behaviour_.\n• What a behaviour _is,_ and how you'd make one, is out of scope. Just think of it as some function reference.\nAnother property that an object can possess is an ordered list of references to points.\n• I call these objects _edges,_ by convention.\n• Why \"edge\" and not \"wire\" or \"path\" or \"curve\" or something else? * shrug *\n• The first point in the list is referred to as the _start point_, and the last is the _end point_.\nEdges will probably also have some special instructions for the renderer / tools.\n• The geometry of the edge will be created by interpolating the points, so the edge needs to specify the interpolation strategy to use (bezier? linear? spline?)\nNow, execution!\n\nPoints can have a property specifying which edge they're being _conveyed_ by.\n\nWhen a point is being conveyed by an edge:\n• The point's position will automatically be set by the execution engine.\n• As execution time advances, the point will be gradually moved along the edge from the start point to the end point.\nWhen the conveyed point reaches the end:\n• The end point's behaviour (function) will be invoked, if any.\n• The conveyed point will be provided as an argument to that function.\n• The function will do _whatever it does_ with that point (probably something with the _data_ inside that point, if any).\n• The result of the function will be a new point (probably with some new data).\n• The _end point_ of the conveyor edge will probably be the _start point_ of one or more other edges.\n• A copy of the new point will then be conveyed by each of those outbound edges.\nSo in this situation, I say that the edge is a \"conveyor\", the point is \"conveyed\", and the action is \"conveyance\". It's like a train on a track, or a ball in a <https://en.wikipedia.org/wiki/Rolling_ball_sculpture|rolling ball sculpture>. The conveyor is a concrete thing unto itself, with its own life and purpose. It's not just, like, a shadow or trail left behind by a point.\n\nI hope that helps you make more sense of what I mean by \"edge\".\n\nAnd as is common, a lot of this stuff is still changing in considerable ways. But the bones are all here, I think :)",
+    "user": "UC2A2ARPT",
+    "ts": "1620680545.116700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3uYY=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " Your confusion about what edges "
+              },
+              {
+                "type": "text",
+                "text": "are",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " makes sense. I haven't done much to explain the technical relationship between graphical objects in Hest. So in entirely too much detail for a Slack message, here is the context needed to talk about what edges are (in the current prototypes), from the top, with a little bit of \"designer commentary\" along the way. This is long, so feel free to \"nope\" hard, haha!\n\n"
+              },
+              {
+                "type": "text",
+                "text": "Objects",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " are collections of "
+              },
+              {
+                "type": "text",
+                "text": "properties",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " with a unique identity. Bog standard.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Some say that the object \"is\" its properties, or \"has\" its properties — I go both ways."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "This association of objects and properties in Hest isn't "
+                  },
+                  {
+                    "type": "text",
+                    "text": "graphical",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " yet. There's just a little property editor in the sidebar, like you'd see in Unity (say). Inelegant, but pragmatic."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAn object with a "
+              },
+              {
+                "type": "text",
+                "text": "position",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " property (eg: x, y, z) is by convention called a "
+              },
+              {
+                "type": "text",
+                "text": "point",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Nothing more to it than that."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Any",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " object with a position is a point."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nObjects"
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "can have other properties too, like information for the renderer / art tools.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "An imported JPG that you place on the canvas is a point (has a position), and can be rendered as an image at that position."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Points will, by default, be rendered as little circles."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The Move tool reads/writes the position property."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "This is all pluggable, and there will be a few episodes about how this works. It's an interesting comparison with the Glamorous Toolkit."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAnother property that an object can possess is "
+              },
+              {
+                "type": "text",
+                "text": "data. ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "When a point object has some data, I call it a "
+              },
+              {
+                "type": "text",
+                "text": "data point.",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Data points"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "are like spreadsheet cells, yes, in that they are containers for arbitrary data."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "But there's nothing reactive going on here."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The data property is just an inert bucket for state."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Any object can have data — subject of an upcoming episode."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "This part of the design has lots of weaknesses — like what to do about complex data structures. Again, pragmatic for now, elegant can come later."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAnother property that an object can possess is "
+              },
+              {
+                "type": "text",
+                "text": "behaviour",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "What a behaviour "
+                  },
+                  {
+                    "type": "text",
+                    "text": "is, ",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "and how you'd make one, is out of scope. Just think of it as some function reference."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAnother property that an object can possess is an ordered list of references to points.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "I call these objects "
+                  },
+                  {
+                    "type": "text",
+                    "text": "edges, ",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "by convention."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Why \"edge\" and not \"wire\" or \"path\" or \"curve\" or something else? * shrug *"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The first point in the list is referred to as the "
+                  },
+                  {
+                    "type": "text",
+                    "text": "start point",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ", and the last is the "
+                  },
+                  {
+                    "type": "text",
+                    "text": "end point",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nEdges will probably also have some special instructions for the renderer / tools.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The geometry of the edge will be created by interpolating the points, so the edge needs to specify the interpolation strategy to use (bezier? linear? spline?)"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nNow, execution!\n\nPoints can have a property specifying which edge they're being "
+              },
+              {
+                "type": "text",
+                "text": "conveyed",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " by.\n\nWhen a point is being conveyed by an edge:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The point's position will automatically be set by the execution engine."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "As execution time advances, the point will be gradually moved along the edge from the start point to the end point."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWhen the conveyed point reaches the end:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The end point's behaviour (function) will be invoked, if any."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The conveyed point will be provided as an argument to that function."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The function will do "
+                  },
+                  {
+                    "type": "text",
+                    "text": "whatever it does",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " with that point (probably something with the "
+                  },
+                  {
+                    "type": "text",
+                    "text": "data",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " inside that point, if any)."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The result of the function will be a new point (probably with some new data)."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The "
+                  },
+                  {
+                    "type": "text",
+                    "text": "end point ",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "of the conveyor edge will probably be the "
+                  },
+                  {
+                    "type": "text",
+                    "text": "start point",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " of one or more other edges."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A copy of the new point will then be conveyed by each of those outbound edges."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nSo in this situation, I say that the edge is a \"conveyor\", the point is \"conveyed\", and the action is \"conveyance\". It's like a train on a track, or a ball in a "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Rolling_ball_sculpture",
+                "text": "rolling ball sculpture"
+              },
+              {
+                "type": "text",
+                "text": ". The conveyor is a concrete thing unto itself, with its own life and purpose. It's not just, like, a shadow or trail left behind by a point.\n\nI hope that helps you make more sense of what I mean by \"edge\".\n\nAnd as is common, a lot of this stuff is still changing in considerable ways. But the bones are all here, I think :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619467654.051900",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UHWC9PXBL",
+          "UA14TGLTC"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9d480c29-0920-4d85-b25b-5b5cf8f1e014",
+    "type": "message",
+    "text": "Very illuminating, thanks. After listening to the first half of episode 4 this morning, I've been thinking about what a \"Hestified\" Game of Life looks like.",
+    "user": "UCUSW7WVD",
+    "ts": "1620681576.117000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fj3b",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Very illuminating, thanks. After listening to the first half of episode 4 this morning, I've been thinking about what a \"Hestified\" Game of Life looks like."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619467654.051900",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "f1a91569-3463-4e7b-a4a0-3b44403716ae",
+    "type": "message",
+    "text": "Why does an edge need to have a list of points rather than just a list of raw positions? Is there any scenario you've come up with that needs the additional complexity?",
+    "user": "UCUSW7WVD",
+    "ts": "1620681770.117200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "coK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Why does an edge need to have a list of points rather than just a list of raw positions? Is there any scenario you've come up with that needs the additional complexity?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619467654.051900",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "A42DE373-4529-4198-9FD0-DE5E620469CA",
+    "type": "message",
+    "text": "does execution only occur at end points or can it occur along any point in an edge (for example stepwise or continuous transformations)? if not, are the in-between points in the edge meant purely as a ux affordance or do they do something else?",
+    "user": "UHWC9PXBL",
+    "ts": "1620686062.120800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pkX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "does execution only occur at end points or can it occur along any point in an edge (for example stepwise or continuous transformations)? if not, are the in-between points in the edge meant purely as a ux affordance or do they do something else?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1619467654.051900",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "70562f85-2889-4f38-abb2-3c653453770e",
+    "type": "message",
+    "text": "Yes that's the kind of optimism and vision we want on FoC! I personally work on the collaborative tool side currently, where I try to design direct manipulation principles to perform mathematical proofs (you can read my intro for more info). I will look into this metamaterial stuff, looks really interesting!",
+    "user": "U01QUBNJSEQ",
+    "ts": "1620687637.173800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "18c82e65f563",
+      "image_72": "https://avatars.slack-edge.com/2021-08-21/2402661327877_18c82e65f5630ec051b0_72.jpg",
+      "first_name": "Pablo",
+      "real_name": "Pablo Donato",
+      "display_name": "Pablo Donato",
+      "team": "T5TCAFTA9",
+      "name": "pablo.donato",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AN3Hc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes that's the kind of optimism and vision we want on FoC! I personally work on the collaborative tool side currently, where I try to design direct manipulation principles to perform mathematical proofs (you can read my intro for more info). I will look into this metamaterial stuff, looks really interesting!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1620554436.169500",
+    "parent_user_id": "U021HMSCPU4",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  }
+]
