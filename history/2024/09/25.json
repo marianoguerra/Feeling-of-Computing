@@ -1,0 +1,1542 @@
+[
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1727242639.436099",
+    "client_msg_id": "c3793ffc-6aca-40ba-bf80-214f32544b59",
+    "text": "<@UGWUJUZHT> I actually agree with much of what you say! The only point we seem to disagree on is the role of inertia.\n\n&gt; Inertia only gets you so far.\nThe role of inertia is to keep the rate of change in society at a level that society can absorb by adapting. So yes, it's an obstacle to innovation. But if you insist in innovating faster, the society will just ignore your work. Which is what is happening to most of us here (also for other reasons of course).\n\nA \"dead end\" for innovation may well be what non-tech people are happy with. I doubt that's the case for today's IT, but that's another story. You don't want to get stuck in a dead end when doing research, but then research is a minority activity anyway, and will always remain one. As a researcher myself, I mostly share your point of view. But I also understand the majority of non-researchers who just want to tweak mainstream stuff to get a job done.\n\nMy choice of \"generalization\" was not the best one. The idea is that your new stuff and the old stuff must live in a single technological realm in which application-oriented people can move around with ease. Your new high-concurrency computers must be usable as coprocessors for commodity machines at first.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727140652.150989",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CpuR1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " I actually agree with much of what you say! The only point we seem to disagree on is the role of inertia.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Inertia only gets you so far."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The role of inertia is to keep the rate of change in society at a level that society can absorb by adapting. So yes, it's an obstacle to innovation. But if you insist in innovating faster, the society will just ignore your work. Which is what is happening to most of us here (also for other reasons of course).\n\nA \"dead end\" for innovation may well be what non-tech people are happy with. I doubt that's the case for today's IT, but that's another story. You don't want to get stuck in a dead end when doing research, but then research is a minority activity anyway, and will always remain one. As a researcher myself, I mostly share your point of view. But I also understand the majority of non-researchers who just want to tweak mainstream stuff to get a job done.\n\nMy choice of \"generalization\" was not the best one. The idea is that your new stuff and the old stuff must live in a single technological realm in which application-oriented people can move around with ease. Your new high-concurrency computers must be usable as coprocessors for commodity machines at first."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1727247142.017409",
+    "client_msg_id": "dce25fc9-97a6-475e-a9df-79918bb0f618",
+    "text": "This looks great, something I have been wanting for years! Not just for the interactivity, the constraint-based diagram construction on its own is something I find very useful.\n\nBut... React? No. I need components that I can combine as I want. Anything forcing me to use a single master framework is too much of a constraint.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727203615.988469",
+    "parent_user_id": "U07NDNXAPUK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bCs1g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This looks great, something I have been wanting for years! Not just for the interactivity, the constraint-based diagram construction on its own is something I find very useful.\n\nBut... React? No. I need components that I can combine as I want. Anything forcing me to use a single master framework is too much of a constraint."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "Hey future of coding folks,\n\nI want to advertise the idea of non-abelian spreadsheets. The idea has slowly drifted into the center of my thinking this last year. I'm not sure if its a good idea or not. It kinda depends on how you build on it. So for now I just want to convey the general idea.\n\nPicture in your mind a normal spreadsheet. In some sense it is 'abelian' (commutative) because from any cell going down and then right is the same as going right and then going down. If we make it non-abelian, so the order we go right and down matters, we get something like the picture attached below.\n\nIf you tilt your head slightly you may recognize it as the infinite binary tree. So an infinite binary tree is just the non-abelian version of the usual grid-based spreadsheet. The nodes of the tree are the cells. We can also think of finite binary trees as the analogue of tables.\n\nA key feature of regular spreadsheets is the ability to write formulas with relative references. For instance in a regular spreadsheet you can use relative references so a formula always refers to the cell to the right of the given one, and in a tree you can write a formula that always refers to the cell you get by going down and to the right from the given cell.\n\nAnother key feature of spreadsheets is that you put stuff in cells! And we do that with trees all the time. For example if we write down the syntax tree for (a+b)*c what we are doing is putting each of the symbols into a cell of the tree.\n\nWe can push this analogy to account for all trees (in particular all syntax trees). This tree can't really be visualized because it branches infinitely at each node. It is much easier to describe algebraically. I'll use the term 'free monoid on a set X', which if you aren't in the know just means the set of strings made out of the elements of X regarded as distinct characters. The infinite binary tree, or more precisely the set of nodes of the infinite binary tree, can be described as the free monoid on a two element set {L, R}. e.g. RLL describes the node you get by going right, then left, and then left again. Now let X_n denote a set with n elements and X the disjoint union of the X_n for all n. It suffices to take the free monoid on X.\n\nA reasonable question at this point is what is the interface for an infinitely branching tree? You would think it is even worse than an infinite dimensional grid, which is the abelian version. But if we are restricting ourselves to trees coming from symbolic expressions then for the most part we already have the interface. It is just the symbolic expressions we would have written down in the first place.\n\nI'll leave it at that.",
+    "files": [
+      {
+        "id": "F07NH9CRN31",
+        "created": 1727247255,
+        "timestamp": 1727247255,
+        "name": "unnamed.png",
+        "title": "unnamed.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UFPRPSA4S",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 16669,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07NH9CRN31/unnamed.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07NH9CRN31/download/unnamed.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 291,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 388,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 582,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 646,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 776,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NH9CRN31-ff3be74698/unnamed_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 828,
+        "original_w": 1084,
+        "original_h": 876,
+        "thumb_tiny": "AwAmADDTPSkGSO1B6GlHSgBOfajnOOKWkYEkY4oAT5s44p1FFAAeRQOgopq7SAO+KAHUUirgDpmloAKKKKACkAwPWlooAKKKKACiiigD/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UFPRPSA4S/F07NH9CRN31/unnamed.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07NH9CRN31-f5f24c4c5a",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UFPRPSA4S",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sO9yD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hey future of coding folks,\n\nI want to advertise the idea of non-abelian spreadsheets. The idea has slowly drifted into the center of my thinking this last year. I'm not sure if its a good idea or not. It kinda depends on how you build on it. So for now I just want to convey the general idea.\n\nPicture in your mind a normal spreadsheet. In some sense it is 'abelian' (commutative) because from any cell going down and then right is the same as going right and then going down. If we make it non-abelian, so the order we go right and down matters, we get something like the picture attached below.\n\nIf you tilt your head slightly you may recognize it as the infinite binary tree. So an infinite binary tree is just the non-abelian version of the usual grid-based spreadsheet. The nodes of the tree are the cells. We can also think of finite binary trees as the analogue of tables.\n\nA key feature of regular spreadsheets is the ability to write formulas with relative references. For instance in a regular spreadsheet you can use relative references so a formula always refers to the cell to the right of the given one, and in a tree you can write a formula that always refers to the cell you get by going down and to the right from the given cell.\n\nAnother key feature of spreadsheets is that you put stuff in cells! And we do that with trees all the time. For example if we write down the syntax tree for (a+b)*c what we are doing is putting each of the symbols into a cell of the tree.\n\nWe can push this analogy to account for all trees (in particular all syntax trees). This tree can't really be visualized because it branches infinitely at each node. It is much easier to describe algebraically. I'll use the term 'free monoid on a set X', which if you aren't in the know just means the set of strings made out of the elements of X regarded as distinct characters. The infinite binary tree, or more precisely the set of nodes of the infinite binary tree, can be described as the free monoid on a two element set {L, R}. e.g. RLL describes the node you get by going right, then left, and then left again. Now let X_n denote a set with n elements and X the disjoint union of the X_n for all n. It suffices to take the free monoid on X.\n\nA reasonable question at this point is what is the interface for an infinitely branching tree? You would think it is even worse than an infinite dimensional grid, which is the abelian version. But if we are restricting ourselves to trees coming from symbolic expressions then for the most part we already have the interface. It is just the symbolic expressions we would have written down in the first place.\n\nI'll leave it at that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1727247298.811129",
+    "client_msg_id": "68409b2a-9008-465b-b3d8-cfa1bbdc82ef",
+    "thread_ts": "1727247298.811129",
+    "reply_count": 8,
+    "reply_users_count": 4,
+    "latest_reply": "1727319046.341889",
+    "reply_users": [
+      "UBKNXPBAB",
+      "U07CGRNH6S2",
+      "U05UK5T7LPP",
+      "UFPRPSA4S"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "text": "If you want to go in all four directions (like down, right, and then up) you'll need to have a four-ways infinite tree, like the diagram shown here of the free group on two generators.\n\nI don't know if this is relevant to what you're getting at, cuz I don't know what you're getting at.",
+    "files": [
+      {
+        "id": "F07NY6LM690",
+        "created": 1727251422,
+        "timestamp": 1727251422,
+        "name": "F2 Cayley Graph.png",
+        "title": "F2 Cayley Graph.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBKNXPBAB",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 18140,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07NY6LM690/f2_cayley_graph.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07NY6LM690/download/f2_cayley_graph.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NY6LM690-80de6caa86/f2_cayley_graph_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NY6LM690-80de6caa86/f2_cayley_graph_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NY6LM690-80de6caa86/f2_cayley_graph_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NY6LM690-80de6caa86/f2_cayley_graph_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07NY6LM690-80de6caa86/f2_cayley_graph_160.png",
+        "original_w": 522,
+        "original_h": 522,
+        "thumb_tiny": "AwAwADDTooooAjdgysA3T9aEYKqgt1/SlKKFY4H+FIqo2OBx/hTGSUUUUhEbOGVgGxj9aWMgRjLdu/akdAqsQuc/pSxgGMZXt370DFYqUPIxikBVUyMdKVgAh4HShQpUcDGKOgaDZDmM8447UK4VVBbOf0pZBiM4Xt27UioGVSVwR+tAElFFFAhhdGVhkf40B0UKMj/CkdQqsQvX9KEUMqkryP1pjJKKKKQj/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UBKNXPBAB/F07NY6LM690/f2_cayley_graph.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07NY6LM690-0ef756c285",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UBKNXPBAB",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WtN4D",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you want to go in all four directions (like down, right, and then up) you'll need to have a four-ways infinite tree, like the diagram shown here of the free group on two generators.\n\nI don't know if this is relevant to what you're getting at, cuz I don't know what you're getting at."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1727251595.837229",
+    "client_msg_id": "25cd777b-764a-4857-a72a-ed677a0cc0a8",
+    "thread_ts": "1727247298.811129",
+    "parent_user_id": "UFPRPSA4S",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U05UK5T7LPP"
+        ],
+        "count": 1
+      },
+      {
+        "name": "bulb",
+        "users": [
+          "UFPRPSA4S"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UBKNXPBAB",
+    "type": "message",
+    "ts": "1727254357.585389",
+    "client_msg_id": "60e28c3e-d394-4d25-ad30-a6de0bc93b2b",
+    "text": "Based on a quick look at the code, looks like it should be pretty easy (albeit undocumented) to use this without React.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727203615.988469",
+    "parent_user_id": "U07NDNXAPUK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xfTQG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Based on a quick look at the code, looks like it should be pretty easy (albeit undocumented) to use this without React."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U07NDNXAPUK"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U07CGRNH6S2",
+    "type": "message",
+    "ts": "1727273410.894979",
+    "client_msg_id": "6a640140-e1e8-495e-a18d-33c6207ba7ab",
+    "text": "What would be a simple and real example of this?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727247298.811129",
+    "parent_user_id": "UFPRPSA4S",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FM9n9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What would be a simple and real example of this?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U07NDNXAPUK",
+    "type": "message",
+    "ts": "1727278682.907049",
+    "client_msg_id": "4bcb1003-d264-4abd-a35c-786931e744bc",
+    "text": "You definitely do not have to use React. <@UJBAJNFLK> what are you hoping to use it for? Would you be interested in talking to someone on our team to help you out?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727203615.988469",
+    "parent_user_id": "U07NDNXAPUK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rwvLg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You definitely do not have to use React. "
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " what are you hoping to use it for? Would you be interested in talking to someone on our team to help you out?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1727280637.127299",
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1727280649.000000"
+    },
+    "client_msg_id": "a4a8e812-2cdd-4c7b-bc37-2a4c7c398493",
+    "text": "<@U07NDNXAPUK> My use case would be illustrations for scientific articles or courses. These illustrations would have to be embeddable in plain HTML pages, e.g. drawing on a canvas. A static export to SVG would be a plus, both for PDF exports and for people browsing without JS support.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727203615.988469",
+    "parent_user_id": "U07NDNXAPUK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TV6K+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U07NDNXAPUK"
+              },
+              {
+                "type": "text",
+                "text": " My use case would be illustrations for scientific articles or courses. These illustrations would have to be embeddable in plain HTML pages, e.g. drawing on a canvas. A static export to SVG would be a plus, both for PDF exports and for people browsing without JS support."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05UK5T7LPP",
+    "type": "message",
+    "ts": "1727287101.819389",
+    "client_msg_id": "d455a184-ca49-4000-b3f0-61e89737a04d",
+    "text": "Oh rad, I see why it's the free monoid, since the parse tree is built up by concatenation (no inverse required).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727247298.811129",
+    "parent_user_id": "UFPRPSA4S",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FmIqB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh rad, I see why it's the free monoid, since the parse tree is built up by concatenation (no inverse required)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U05UK5T7LPP",
+    "type": "message",
+    "ts": "1727289035.179019",
+    "client_msg_id": "99000b61-b197-4daf-a605-a45814e81ff4",
+    "text": "I agree that there's a few different thesis statements here that have accreted over time and are now duking it out. I like the claim that parse trees are readily represented by spreadsheets, if only we throw out commutativity.\n\nFor my part, I'd like the tree itself to work as a paper tool, e.g. if I'm authoring a generative grammar in a Tracery-style IDE with progressive disclosure. <https://artbot.club/> is playing with these ideas, but I hit overwhelm much faster than I would in a (non)commutative spreadsheet.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727247298.811129",
+    "parent_user_id": "UFPRPSA4S",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "q3mDG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I agree that there's a few different thesis statements here that have accreted over time and are now duking it out. I like the claim that parse trees are readily represented by spreadsheets, if only we throw out commutativity.\n\nFor my part, I'd like the tree itself to work as a paper tool, e.g. if I'm authoring a generative grammar in a Tracery-style IDE with progressive disclosure. "
+              },
+              {
+                "type": "link",
+                "url": "https://artbot.club/"
+              },
+              {
+                "type": "text",
+                "text": " is playing with these ideas, but I hit overwhelm much faster than I would in a (non)commutative spreadsheet."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U07NDNXAPUK",
+    "type": "message",
+    "ts": "1727291661.762589",
+    "client_msg_id": "b89a0f33-2904-4fb3-8e47-6c0cebfe1ba5",
+    "text": "If you are primarily interested in static diagrams then <https://penrose.cs.cmu.edu/try/|vanilla Penrose> may be a better fit.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727203615.988469",
+    "parent_user_id": "U07NDNXAPUK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "G3mpt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you are primarily interested in static diagrams then "
+              },
+              {
+                "type": "link",
+                "url": "https://penrose.cs.cmu.edu/try/",
+                "text": "vanilla Penrose"
+              },
+              {
+                "type": "text",
+                "text": " may be a better fit."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1727294460.365299",
+    "client_msg_id": "da3487dd-03e7-4481-9ed6-1703fca60d3c",
+    "text": "I created a wiki page about <https://wiki.futureofcoding.org/Propagators/|Propagators> any resource you would add? Do you know of related ideas?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727294460.365299",
+    "reply_count": 7,
+    "reply_users_count": 5,
+    "latest_reply": "1727355489.576509",
+    "reply_users": [
+      "U03R0B9U1GD",
+      "U0378MDUG1Y",
+      "U06BUK2M2RH",
+      "U02PUDETGRW",
+      "UBN9AFS0N"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1727355489.576509",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Hm8rG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I created a wiki page about "
+              },
+              {
+                "type": "link",
+                "url": "https://wiki.futureofcoding.org/Propagators/",
+                "text": "Propagators"
+              },
+              {
+                "type": "text",
+                "text": " any resource you would add? Do you know of related ideas?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U05UK5T7LPP",
+          "U06BUK2M2RH",
+          "U013ZLJARC7",
+          "UFPRPSA4S",
+          "UJBAJNFLK"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1727297038.698439",
+    "client_msg_id": "e6c69bd8-6d5a-45d5-b832-6c82ac7d860b",
+    "text": "do scoped propagators count?\n<https://www.orionreed.com/posts/scoped-propagators|https://www.orionreed.com/posts/scoped-propagators>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727294460.365299",
+    "parent_user_id": "UBN9AFS0N",
+    "attachments": [
+      {
+        "image_url": "https://www.orionreed.com/website-embed.png",
+        "image_width": 800,
+        "image_height": 418,
+        "image_bytes": 28423,
+        "from_url": "https://www.orionreed.com/posts/scoped-propagators",
+        "service_icon": "https://www.orionreed.com/favicon.ico?v=4",
+        "id": 1,
+        "original_url": "https://www.orionreed.com/posts/scoped-propagators",
+        "fallback": "Orion Reed",
+        "text": "My research investigates the intersection of computing, human-system interfaces, and emancipatory politics. I am interested in the potential of computing as a medium for thought, as a tool for collective action, and as a means of emancipation.",
+        "title": "Orion Reed",
+        "title_link": "https://www.orionreed.com/posts/scoped-propagators",
+        "service_name": "orionreed.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FVg6T",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "do scoped propagators count?\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.orionreed.com/posts/scoped-propagators",
+                "text": "https://www.orionreed.com/posts/scoped-propagators"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UDCLA1HU4",
+    "type": "message",
+    "ts": "1727300707.881969",
+    "client_msg_id": "0c5b578c-91e9-4ecd-8988-0e60449529db",
+    "text": "I've been looking at programming by demonstration recently (somewhat inspired by Pygmalion). There are some nice recent examples of using PbD for things like data wrangling (clean up data, extraction, etc.) and I know some examples for visual things (bar chart) - but I was hoping to use PbD to create something like TODO list app - do people in this group know if there are any systems (recent or ancient) that do something like this?\n\nI actually have a prototype where I can construct adding of new items to the list using PbD (you do a sequence of actions to create and add an item and then you can replay that), but other things are trickier - e.g. to count checked items or to remove items that are completed, there needs to be some way of parameterizing the actions (so that they can be applied to all items) and specifying pre-conditions (so that they only apply to certain items) - I'm really not quite sure how to best do those...",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "reply_count": 14,
+    "reply_users_count": 4,
+    "latest_reply": "1727309266.937919",
+    "reply_users": [
+      "UBN9AFS0N",
+      "UC2A2ARPT",
+      "UDCLA1HU4",
+      "U05UK5T7LPP"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1727309266.937919",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7DLVX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been looking at programming by demonstration recently (somewhat inspired by Pygmalion). There are some nice recent examples of using PbD for things like data wrangling (clean up data, extraction, etc.) and I know some examples for visual things (bar chart) - but I was hoping to use PbD to create something like TODO list app - do people in this group know if there are any systems (recent or ancient) that do something like this?\n\nI actually have a prototype where I can construct adding of new items to the list using PbD (you do a sequence of actions to create and add an item and then you can replay that), but other things are trickier - e.g. to count checked items or to remove items that are completed, there needs to be some way of parameterizing the actions (so that they can be applied to all items) and specifying pre-conditions (so that they only apply to certain items) - I'm really not quite sure how to best do those..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1727301977.999679",
+    "client_msg_id": "e7d91034-7f78-4e8a-b7ab-cf08af23de1e",
+    "text": "Not directly PbD but it was developed during my PbD/PbE era :slightly_smiling_face:\n\n<https://www.youtube.com/watch?v=Q9E6gv2raBY>\n\nPS: 6 years ago :face_holding_back_tears:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=Q9E6gv2raBY",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/Q9E6gv2raBY/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/Q9E6gv2raBY?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"List Operations\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=Q9E6gv2raBY",
+        "fallback": "YouTube Video: List Operations",
+        "title": "List Operations",
+        "title_link": "https://www.youtube.com/watch?v=Q9E6gv2raBY",
+        "author_name": "Instadeq",
+        "author_link": "https://www.youtube.com/@Instadeq",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0qasj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Not directly PbD but it was developed during my PbD/PbE era "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=Q9E6gv2raBY"
+              },
+              {
+                "type": "text",
+                "text": "\n\nPS: 6 years ago "
+              },
+              {
+                "type": "emoji",
+                "name": "face_holding_back_tears",
+                "unicode": "1f979"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1727302019.401929",
+    "client_msg_id": "d2ddcd24-c121-48d5-adfb-d0f5b188c7c4",
+    "text": "just to clarify (or confuse), that instadeq is not the same as the current thing called instadeq",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CXLt+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "just to clarify (or confuse), that instadeq is not the same as the current thing called instadeq"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1727302097.074299",
+    "client_msg_id": "a92a7b4f-ad01-4ded-bfb1-f2ee3a159c9f",
+    "text": "more here: <https://www.youtube.com/watch?v=iHthdmM8m2o>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=iHthdmM8m2o",
+        "thumb_url": "https://i.ytimg.com/vi/iHthdmM8m2o/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/iHthdmM8m2o?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Instadeq Data Manipulation Overview\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=iHthdmM8m2o",
+        "fallback": "YouTube Video: Instadeq Data Manipulation Overview",
+        "title": "Instadeq Data Manipulation Overview",
+        "title_link": "https://www.youtube.com/watch?v=iHthdmM8m2o",
+        "author_name": "Instadeq",
+        "author_link": "https://www.youtube.com/@Instadeq",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rLlfA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "more here: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=iHthdmM8m2o"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1727302193.875899",
+    "client_msg_id": "34cd1dc2-5647-4e7e-bc12-32a1b0c89735",
+    "text": "&gt; I actually have a prototype where I can construct adding of new items to the list using PbD (you do a sequence of actions to create and add an item and then you can replay that), but other things are trickier - e.g. to count checked items or to remove items that are completed, there needs to be some way of parameterizing the actions (so that they can be applied to all items) and specifying pre-conditions (so that they only apply to certain items) - I'm really not quite sure how to best do those...\nWhat's the limiting factor? Is it, say, that you don't have a good UI to give people access to the programming model? Or do you not have a programming model that allows parameterization?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Hugni",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I actually have a prototype where I can construct adding of new items to the list using PbD (you do a sequence of actions to create and add an item and then you can replay that), but other things are trickier - e.g. to count checked items or to remove items that are completed, there needs to be some way of parameterizing the actions (so that they can be applied to all items) and specifying pre-conditions (so that they only apply to certain items) - I'm really not quite sure how to best do those..."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWhat's the limiting factor? Is it, say, that you don't have a good UI to give people access to the programming model? Or do you not have a programming model that allows parameterization?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1727302271.614339",
+    "client_msg_id": "ff37c87a-7a4e-4988-a297-db368eceb0f1",
+    "text": "I guess, it'd help to know what the user-facing affordances are for the parts that are working. It might be that you're missing a representation (like… it's hard to parameterize something if you can't get your hands on it in some way).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2SfEe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I guess, it'd help to know what the user-facing affordances are for the parts that are working. It might be that you're missing a representation (like… it's hard to parameterize something if you can't get your hands on it in some way)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UDCLA1HU4",
+    "type": "message",
+    "ts": "1727302677.857039",
+    "client_msg_id": "701c29c7-e69f-4266-bcbc-08e4db4fc7fc",
+    "text": "<@UC2A2ARPT> I should do some video of what I've got (once it does at least something) - framing in terms of representation vs. UI is very good! I guess right now I'm missing both - I can imagine possible representation. Currently, this is a sequence of edits that do something to a document (app/whatever).\n\nI think I could do what I want if I added a way to say an edit is only applicable if a certain condition holds (otherwise it should be skipped when replaying). The other thing I need is some kind of \"apply these edits to all of these things\". I think I can add these two things to the representation reasonably well - then the limiting factor will be a sensible UI for those. (So if there are any PbD systems that have similar concepts, I'd be curious how they handle the user-interaction...)\n\nIt may also be that my current thinking about the representation is wrong - and so if there are other ways of doing this, it would be interesting to know...\n\nI remember seeing nice demos in Wrangler - where generalization was easy (you do things on one row, it generalizes to all other rows). But I suppose in document context, you can generalise to something like (perhaps cleverly inferred) CSS selector...",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9Yo06",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " I should do some video of what I've got (once it does at least something) - framing in terms of representation vs. UI is very good! I guess right now I'm missing both - I can imagine possible representation. Currently, this is a sequence of edits that do something to a document (app/whatever).\n\nI think I could do what I want if I added a way to say an edit is only applicable if a certain condition holds (otherwise it should be skipped when replaying). The other thing I need is some kind of \"apply these edits to all of these things\". I think I can add these two things to the representation reasonably well - then the limiting factor will be a sensible UI for those. (So if there are any PbD systems that have similar concepts, I'd be curious how they handle the user-interaction...)\n\nIt may also be that my current thinking about the representation is wrong - and so if there are other ways of doing this, it would be interesting to know...\n\nI remember seeing nice demos in Wrangler - where generalization was easy (you do things on one row, it generalizes to all other rows). But I suppose in document context, you can generalise to something like (perhaps cleverly inferred) CSS selector..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U05UK5T7LPP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UDCLA1HU4",
+    "type": "message",
+    "ts": "1727302876.990409",
+    "client_msg_id": "d4281d2c-33f6-4054-8adc-ec2853c80b5c",
+    "text": "<@UBN9AFS0N> Thanks for the videos! It may not be _exactly_ the answer to what I need, but there is lots to think about there!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OvGVa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UBN9AFS0N"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for the videos! It may not be "
+              },
+              {
+                "type": "text",
+                "text": "exactly",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the answer to what I need, but there is lots to think about there!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1727303095.037839",
+    "client_msg_id": "b4007472-e6e5-4641-9f21-017659be9e9f",
+    "text": "&gt; The other thing I need is some kind of \"apply these edits to all of these things\".\nMy thoughts on this, if it's helpful:\n\nYou need an affordance on your action that allows you to say \"I selected _this concrete stuff_ *because* _it has these qualities_\". If the qualities are visible / tangible things you can see and touch (eg: \"I selected this object *because* it is red\") then that lends itself quite naturally to PbD, because you don't need much additional representation beyond what's already on the canvas. But if you want to work with qualities that _aren't_ visible / tangible (eg: \"I selected this object *because* it has unsaved changes\"), well you have two choices: 1. find a way to make those qualities visible/tangible on the canvas, 2. find a way to expose that stuff via some UI and be okay with the fact that it's a little more abstract.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "w+NwB",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The other thing I need is some kind of \"apply these edits to all of these things\"."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nMy thoughts on this, if it's helpful:\n\nYou need an affordance on your action that allows you to say \"I selected "
+              },
+              {
+                "type": "text",
+                "text": "this concrete stuff",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "because",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "it has these qualities",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\". If the qualities are visible / tangible things you can see and touch (eg: \"I selected this object "
+              },
+              {
+                "type": "text",
+                "text": "because",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " it is red\") then that lends itself quite naturally to PbD, because you don't need much additional representation beyond what's already on the canvas. But if you want to work with qualities that "
+              },
+              {
+                "type": "text",
+                "text": "aren't",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " visible / tangible (eg: \"I selected this object "
+              },
+              {
+                "type": "text",
+                "text": "because",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " it has unsaved changes\"), well you have two choices: 1. find a way to make those qualities visible/tangible on the canvas, 2. find a way to expose that stuff via some UI and be okay with the fact that it's a little more abstract."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U05UK5T7LPP",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1727303365.679069",
+    "client_msg_id": "0ae83a96-fd0c-4cbb-8860-cd4bbb866c3e",
+    "text": "<@UDCLA1HU4> on instadeq 1 (the one from the videos above) if you applied an action to a thing inside the collection the inferred action was to that item and you had to \"drag the `i`\" to make it apply to every item in the collection. On instadeq 2 I did the reverse, by default it applies to all and you have to remove the iterator to make it apply to a single item or a slice.\n\nI got some of the ideas from the <https://github.com/redplanetlabs/specter|specter library>\n\nthe idea of reifying/defunctionalizing path transversal and updates may be useful to you",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "j5g4I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UDCLA1HU4"
+              },
+              {
+                "type": "text",
+                "text": " on instadeq 1 (the one from the videos above) if you applied an action to a thing inside the collection the inferred action was to that item and you had to \"drag the "
+              },
+              {
+                "type": "text",
+                "text": "i",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\" to make it apply to every item in the collection. On instadeq 2 I did the reverse, by default it applies to all and you have to remove the iterator to make it apply to a single item or a slice.\n\nI got some of the ideas from the "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/redplanetlabs/specter",
+                "text": "specter library"
+              },
+              {
+                "type": "text",
+                "text": "\n\nthe idea of reifying/defunctionalizing path transversal and updates may be useful to you"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UDCLA1HU4",
+    "type": "message",
+    "ts": "1727303500.367159",
+    "client_msg_id": "a9f267d3-30d4-4a75-86a6-3c98159ad850",
+    "text": "Thanks for the ideas (I have some boring things to finish now, but will get back to this soon enough!)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727300707.881969",
+    "parent_user_id": "UDCLA1HU4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f561T",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the ideas (I have some boring things to finish now, but will get back to this soon enough!)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0378MDUG1Y",
+    "type": "message",
+    "ts": "1727306287.764839",
+    "client_msg_id": "795E0719-0179-4F9A-AA6B-39F089662842",
+    "text": "Cc <@U06BUK2M2RH> ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727294460.365299",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dvUiV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Cc "
+              },
+              {
+                "type": "user",
+                "user_id": "U06BUK2M2RH"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U0378MDUG1Y",
+    "type": "message",
+    "ts": "1727306362.463589",
+    "client_msg_id": "275123A8-3F2D-4B3E-96A4-3B22E71ED431",
+    "text": "Dennis is working on a propagator network project called holograph \n\n<https://futureofcoding.slack.com/archives/C03RR0W5DGC/p1722025110960059|https://futureofcoding.slack.com/archives/C03RR0W5DGC/p1722025110960059>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727294460.365299",
+    "parent_user_id": "UBN9AFS0N",
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C03RR0W5DGC/p1722025110960059",
+        "ts": "1722025110.960059",
+        "author_id": "U06BUK2M2RH",
+        "channel_id": "C03RR0W5DGC",
+        "channel_team": "T5TCAFTA9",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "message_blocks": [
+          {
+            "team": "T5TCAFTA9",
+            "channel": "C03RR0W5DGC",
+            "ts": "1722025110.960059",
+            "message": {
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "y435Y",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "Hello- little update on "
+                        },
+                        {
+                          "type": "link",
+                          "url": "http://www.holograph.so",
+                          "text": "www.holograph.so"
+                        },
+                        {
+                          "type": "text",
+                          "text": " - formerly known as the "
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1716413598853019",
+                          "text": "propagator simulator"
+                        },
+                        {
+                          "type": "text",
+                          "text": "- I am working on performance had had the nerdiest proud moment ever and figured of all people, ya'll would appreciate it.\n\nI built a propagation speed profiler in holograph to test how fast propagation was occurring for a little recursively incrementing loop (in the grey box). Im using a buffer to collect and average the values over time and another buffer to collect and display averages as a chart. You can see the propagation speed and compare it with the total Propagations Per Second (PPS in the top left). Before this work i was at a hard cap of 60 pps and now total pps often gets over 300. Still a long road ahead but it feels like a big win right now "
+                        },
+                        {
+                          "type": "emoji",
+                          "name": "tada",
+                          "unicode": "1f389"
+                        },
+                        {
+                          "type": "text",
+                          "text": "\n\nIn any case, this example demonstrates major stuff added since my first post here:\n"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rich_text_list",
+                      "elements": [
+                        {
+                          "type": "rich_text_section",
+                          "elements": [
+                            {
+                              "type": "text",
+                              "text": "Get and set shape properties"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rich_text_section",
+                          "elements": [
+                            {
+                              "type": "text",
+                              "text": "Trigger click events"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rich_text_section",
+                          "elements": [
+                            {
+                              "type": "text",
+                              "text": "Dashed arrows that don't fire propagators"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rich_text_section",
+                          "elements": [
+                            {
+                              "type": "text",
+                              "text": "Async functions/fetch/await syntax"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rich_text_section",
+                          "elements": [
+                            {
+                              "type": "text",
+                              "text": "Lots of cool examples to explore- including some made my folk here :)"
+                            }
+                          ]
+                        }
+                      ],
+                      "style": "bullet",
+                      "indent": 0,
+                      "offset": 0,
+                      "border": 0
+                    },
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "\nHope ya'll enjoyed the update! If ya'll find anything wonky or have ideas let me know !"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "files": [
+          {
+            "id": "F07ECFZPEJG",
+            "created": 1722024135,
+            "timestamp": 1722024135,
+            "name": "ezgif-3-b2fdc5e7db.gif",
+            "title": "ezgif-3-b2fdc5e7db.gif",
+            "mimetype": "image/gif",
+            "filetype": "gif",
+            "pretty_type": "GIF",
+            "user": "U06BUK2M2RH",
+            "user_team": "T5TCAFTA9",
+            "editable": false,
+            "size": 1746763,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07ECFZPEJG/ezgif-3-b2fdc5e7db.gif",
+            "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07ECFZPEJG/download/ezgif-3-b2fdc5e7db.gif",
+            "media_display_type": "unknown",
+            "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_64.png",
+            "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_80.png",
+            "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_360.png",
+            "thumb_360_w": 360,
+            "thumb_360_h": 352,
+            "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_480.png",
+            "thumb_480_w": 480,
+            "thumb_480_h": 470,
+            "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_160.png",
+            "thumb_360_gif": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_360.gif",
+            "thumb_480_gif": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_480.gif",
+            "original_w": 600,
+            "original_h": 587,
+            "deanimate": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_deanimate.png",
+            "deanimate_gif": "https://files.slack.com/files-tmb/T5TCAFTA9-F07ECFZPEJG-aae03be753/ezgif-3-b2fdc5e7db_deanimate_gif.png",
+            "thumb_tiny": "AwAuADDR289aMUHOeBRyQe1ABijJzxijtTWB3ZAoAdz7UtMAPp+tPoAKKKKAEpGPuRTqaX7c0AN59TTwMdTmmDk9RxT80AIx59xQGA4oKknPFGw+o/KgBcj1ppx2xTgCD1paAI8/SngetLgelFAH/9k=",
+            "permalink": "https://futureofcoding.slack.com/files/U06BUK2M2RH/F07ECFZPEJG/ezgif-3-b2fdc5e7db.gif",
+            "permalink_public": "https://slack-files.com/T5TCAFTA9-F07ECFZPEJG-9d16d604dc",
+            "comments_count": 0,
+            "is_starred": false,
+            "has_rich_preview": false,
+            "file_access": "visible"
+          }
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C03RR0W5DGC/p1722025110960059",
+        "fallback": "[July 26th, 2024 1:18 PM] dhansen909: Hello- little update on <http://www.holograph.so|www.holograph.so> - formerly known as the <https://futureofcoding.slack.com/archives/CCL5VVBAN/p1716413598853019|propagator simulator>- I am working on performance had had the nerdiest proud moment ever and figured of all people, ya'll would appreciate it.\n\nI built a propagation speed profiler in holograph to test how fast propagation was occurring for a little recursively incrementing loop (in the grey box). Im using a buffer to collect and average the values over time and another buffer to collect and display averages as a chart. You can see the propagation speed and compare it with the total Propagations Per Second (PPS in the top left). Before this work i was at a hard cap of 60 pps and now total pps often gets over 300. Still a long road ahead but it feels like a big win right now :tada:\n\nIn any case, this example demonstrates major stuff added since my first post here:\n• Get and set shape properties\n• Trigger click events\n• Dashed arrows that don't fire propagators\n• Async functions/fetch/await syntax\n• Lots of cool examples to explore- including some made my folk here :)\nHope ya'll enjoyed the update! If ya'll find anything wonky or have ideas let me know !",
+        "text": "Hello- little update on <http://www.holograph.so|www.holograph.so> - formerly known as the <https://futureofcoding.slack.com/archives/CCL5VVBAN/p1716413598853019|propagator simulator>- I am working on performance had had the nerdiest proud moment ever and figured of all people, ya'll would appreciate it.\n\nI built a propagation speed profiler in holograph to test how fast propagation was occurring for a little recursively incrementing loop (in the grey box). Im using a buffer to collect and average the values over time and another buffer to collect and display averages as a chart. You can see the propagation speed and compare it with the total Propagations Per Second (PPS in the top left). Before this work i was at a hard cap of 60 pps and now total pps often gets over 300. Still a long road ahead but it feels like a big win right now :tada:\n\nIn any case, this example demonstrates major stuff added since my first post here:\n• Get and set shape properties\n• Trigger click events\n• Dashed arrows that don't fire propagators\n• Async functions/fetch/await syntax\n• Lots of cool examples to explore- including some made my folk here :)\nHope ya'll enjoyed the update! If ya'll find anything wonky or have ideas let me know !",
+        "author_name": "Dennis Hansen",
+        "author_link": "https://futureofcoding.slack.com/team/U06BUK2M2RH",
+        "author_icon": "https://avatars.slack-edge.com/2023-12-28/6396121022742_9eac202d45a2827e9fa6_48.jpg",
+        "author_subname": "Dennis Hansen",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "footer": "Thread in Slack Conversation"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vSv6h",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Dennis is working on a propagator network project called holograph \n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C03RR0W5DGC/p1722025110960059",
+                "text": "https://futureofcoding.slack.com/archives/C03RR0W5DGC/p1722025110960059"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U06BUK2M2RH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U06BUK2M2RH",
+    "type": "message",
+    "ts": "1727308688.988659",
+    "client_msg_id": "9AD1293A-A460-44BE-BF15-447514FA7C72",
+    "text": "Thanks for the mention <@U0378MDUG1Y> . Also Edward Kmett did a Haskell implementation  <https://github.com/ekmett/propagators|https://github.com/ekmett/propagators>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727294460.365299",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kcuiT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the mention "
+              },
+              {
+                "type": "user",
+                "user_id": "U0378MDUG1Y"
+              },
+              {
+                "type": "text",
+                "text": " . Also Edward Kmett did a Haskell implementation  "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/ekmett/propagators",
+                "text": "https://github.com/ekmett/propagators"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U06BUK2M2RH",
+    "type": "message",
+    "ts": "1727308758.096799",
+    "client_msg_id": "F474BA1F-5DC9-4EC7-B243-FF9B2B10C4B0",
+    "text": "Also this was great <https://youtu.be/JXOOO9MLvhs?si=uNEe547eGFaAjVDp|https://youtu.be/JXOOO9MLvhs?si=uNEe547eGFaAjVDp>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1727294460.365299",
+    "parent_user_id": "UBN9AFS0N",
+    "attachments": [
+      {
+        "from_url": "https://youtu.be/JXOOO9MLvhs?si=uNEe547eGFaAjVDp",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/JXOOO9MLvhs/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/JXOOO9MLvhs?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Thomas Kristensen - Propagators in Clojure\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://youtu.be/JXOOO9MLvhs?si=uNEe547eGFaAjVDp",
+        "fallback": "YouTube Video: Thomas Kristensen - Propagators in Clojure",
+        "title": "Thomas Kristensen - Propagators in Clojure",
+        "title_link": "https://youtu.be/JXOOO9MLvhs?si=uNEe547eGFaAjVDp",
+        "author_name": "ClojureTV",
+        "author_link": "https://www.youtube.com/@ClojureTV",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yvhlr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also this was great "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/JXOOO9MLvhs?si=uNEe547eGFaAjVDp",
+                "text": "https://youtu.be/JXOOO9MLvhs?si=uNEe547eGFaAjVDp"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
