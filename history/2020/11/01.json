@@ -1,0 +1,1201 @@
+[
+  {
+    "client_msg_id": "f9a02255-ed2b-4588-bf00-49fd3f9b74d0",
+    "type": "message",
+    "text": "<@UHWC9PXBL> i’m still formulating my thoughts but I think canvases might not be ideal for knowledge transfer (documentation). Along your lines of thought, I _think_ documentation wants to be in a more linear format (e.g. notion doc or markdown file) so that it’s readable with ability to drill down/explore on the side. The notion-style slashword interface would be cool!\n\nMakes me think of <@US6TKS2HW>’s post <https://futureofcoding.slack.com/archives/CCL5VVBAN/p1600909703001500>",
+    "user": "U019PRL1BNU",
+    "ts": "1604192759.127300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "748829849f84",
+      "image_72": "https://avatars.slack-edge.com/2020-10-10/1444204670448_748829849f84c5e6d568_72.jpg",
+      "first_name": "",
+      "real_name": "Paul Shen",
+      "display_name": "Paul Shen",
+      "team": "T5TCAFTA9",
+      "name": "paulshen0",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1600909703001500",
+        "fallback": "[September 23rd, 2020 6:08 PM] raathigesh92: Experimenting with a code documentation idea - <https://twitter.com/Raathigesh/status/1308728988160765952>",
+        "ts": "1600909703.001500",
+        "author_id": "US6TKS2HW",
+        "author_subname": "Raathi",
+        "channel_id": "CCL5VVBAN",
+        "channel_name": "share-your-work",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "text": "Experimenting with a code documentation idea - <https://twitter.com/Raathigesh/status/1308728988160765952>",
+        "author_name": "Raathi",
+        "author_link": "https://futureofcoding.slack.com/team/US6TKS2HW",
+        "author_icon": "https://avatars.slack-edge.com/2020-01-03/891659417364_08d810dfba72ae74c1d2_48.jpg",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1600909703001500",
+        "footer": "Thread in #share-your-work"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vYtAz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              },
+              {
+                "type": "text",
+                "text": " i’m still formulating my thoughts but I think canvases might not be ideal for knowledge transfer (documentation). Along your lines of thought, I "
+              },
+              {
+                "type": "text",
+                "text": "think",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " documentation wants to be in a more linear format (e.g. notion doc or markdown file) so that it’s readable with ability to drill down/explore on the side. The notion-style slashword interface would be cool!\n\nMakes me think of "
+              },
+              {
+                "type": "user",
+                "user_id": "US6TKS2HW"
+              },
+              {
+                "type": "text",
+                "text": "’s post "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1600909703001500"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604079401.115400",
+    "parent_user_id": "U019PRL1BNU",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "acde8a1c-1070-44ca-a1c8-01adb614b986",
+    "type": "message",
+    "text": "I think I understand your description. So at the write to `out`,  `x2` is \"shadowing\" `x` in `eax`, `x` is on the stack, then `out` clobbers `x2`?\n\nMy instincts say,  if you're doing it this way, `out` should be spilled to the stack like other vars when you enter `$foo:body`. Then the break would in principle pop `x`, immediately pop `out`, and `ret`. If you're treating output vars as a special case wrt storage management, I don't see how you're getting any benefit from making them syntactically look like regular vars.\n\nIs anything sensible supposed to happen if you don't immediately follow a write to an output with a break or something? Is that verboten, and if so is it checked?\n\nMaybe you should just ban mapping multiple vars to to same register in the same block, and consider `out` mapped at the function level. `x` isn't allowed to be in `eax` until you push a new block.\n\nHopefully this is semi-useful, but it's late here. :) FWIW, I didn't invent the idea about returns being the start of a new lifetime. It's mostly derived from Single Static Information IR, which has a similar relationship to SSA as Plan9 does to Unix: even more idealistic, and no one uses it.",
+    "user": "U016VUZGUUQ",
+    "ts": "1604212779.128700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U016VUZGUUQ",
+      "ts": "1604212834.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GM0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think I understand your description. So at the write to "
+              },
+              {
+                "type": "text",
+                "text": "out",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ",  "
+              },
+              {
+                "type": "text",
+                "text": "x2",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is \"shadowing\" "
+              },
+              {
+                "type": "text",
+                "text": "x",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " in `eax`, `x` is on the stack, then `out` clobbers `x2`?\n\nMy instincts say,  if you're doing it this way, `out` should be spilled to the stack like other vars when you enter "
+              },
+              {
+                "type": "text",
+                "text": "$foo:body",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Then the break would in principle pop `x`, immediately pop `out`, and `ret`. If you're treating output vars as a special case wrt storage management, I don't see how you're getting any benefit from making them syntactically look like regular vars.\n\nIs anything sensible supposed to happen if you don't immediately follow a write to an output with a break or something? Is that verboten, and if so is it checked?\n\nMaybe you should just ban mapping multiple vars to to same register in the same block, and consider "
+              },
+              {
+                "type": "text",
+                "text": "out",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " mapped at the function level. "
+              },
+              {
+                "type": "text",
+                "text": "x",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " isn't allowed to be in "
+              },
+              {
+                "type": "text",
+                "text": "eax",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " until you push a new block.\n\nHopefully this is semi-useful, but it's late here. :) FWIW, I didn't invent the idea about returns being the start of a new lifetime. It's mostly derived from Single Static Information IR, which has a similar relationship to SSA as Plan9 does to Unix: even more idealistic, and no one uses it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604180931.125900",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "26059464-075b-4e73-b1c2-a311089c6c76",
+    "type": "message",
+    "text": "&gt; Can you see me drowning in my own ambition yet?  :man-swimming::skin-tone-4::shark:\nYes! I guess people here knows that feeling. :sweat_smile: I guess we are a bunch of futurists swimming or sailing the seas of programming. Sometime feeling like drowning, sometime like surfing.",
+    "user": "UJ6LDMMN0",
+    "ts": "1604224153.129200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "p83",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Can you see me drowning in my own ambition yet?  "
+              },
+              {
+                "type": "emoji",
+                "name": "man-swimming",
+                "skin_tone": 4
+              },
+              {
+                "type": "emoji",
+                "name": "shark"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes! I guess people here knows that feeling. "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              },
+              {
+                "type": "text",
+                "text": " I guess we are a bunch of futurists swimming or sailing the seas of programming. Sometime feeling like drowning, sometime like surfing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604155452.122300",
+    "parent_user_id": "UJ6LDMMN0",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "8c5497e8-6093-49b0-ae8d-fdc986431526",
+    "type": "message",
+    "text": "&gt; The motivation behind it is to build a “better Excel” for power users and also software developers who would rather not deal with all the incidental complexity of modern app development for a project with complex logic, ie not just some CRUD app.\nI also think it is an interesting target audience. Not really all end users,  but some that want to do a bit more programming. And trying to create tools for them and also for some \"expert\" developers is something very interesting.",
+    "user": "UJ6LDMMN0",
+    "ts": "1604225096.129500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HZz1",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The motivation behind it is to build a “better Excel” for power users and also software developers who would rather not deal with all the incidental complexity of modern app development for a project with complex logic, ie not just some CRUD app."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I also think it is an interesting target audience. Not really all end users,  but some that want to do a bit more programming. And trying to create tools for them and also for some \"expert\" developers is something very interesting."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604155452.122300",
+    "parent_user_id": "UJ6LDMMN0",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "147a8965-ee02-40b2-86b5-c1d1928f422c",
+    "type": "message",
+    "text": "I like your idea to keep history to make things more explorable by keeping the time dimension. I guess this can become very tricky. I guess you have to find a way to manage the space limit for the history, i.e. when it takes too much resources. For simple use case it can be fine, but when you manage big tables that changes often you will have to remove part of the history.",
+    "user": "UJ6LDMMN0",
+    "ts": "1604225294.129700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lg1R",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I like your idea to keep history to make things more explorable by keeping the time dimension. I guess this can become very tricky. I guess you have to find a way to manage the space limit for the history, i.e. when it takes too much resources. For simple use case it can be fine, but when you manage big tables that changes often you will have to remove part of the history."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604155452.122300",
+    "parent_user_id": "UJ6LDMMN0",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "c0ced576-8d3f-46b1-851a-e498167508c3",
+    "type": "message",
+    "text": "Ropes: an Alternative to Strings\n\n<https://www.cs.rit.edu/usr/local/pub/jeh/courses/QUARTERS/FP/Labs/CedarRope/rope-paper.pdf>",
+    "user": "UPVBV34EL",
+    "ts": "1604230479.163900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "259a1e56ad2e",
+      "image_72": "https://avatars.slack-edge.com/2019-10-28/811814014976_259a1e56ad2e11fe3d56_72.jpg",
+      "first_name": "",
+      "real_name": "Shubhadeep Roychowdhury",
+      "display_name": "Shubhadeep Roychowdhury",
+      "team": "T5TCAFTA9",
+      "name": "shubhadeeproychowdhur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hrtn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ropes: an Alternative to Strings\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.cs.rit.edu/usr/local/pub/jeh/courses/QUARTERS/FP/Labs/CedarRope/rope-paper.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604230479.163900",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1604272788.177300",
+    "reply_users": [
+      "UHWC9PXBL"
+    ],
+    "replies": [
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1604272788.177300"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ac3c1237-b9d5-4331-bd9a-e9e3a7c1dd5e",
+    "type": "message",
+    "text": "&gt; sometime like surfing\nI’ll try and get there! :man-surfing::skin-tone-4:\n\n&gt; And trying to create tools for them and also for some “expert” developers is something very interesting.\nThis honestly comes from me being a big personal finance nerd, and I once made a spreadsheet that calculates all of my finances, think a personal double sided balance sheet. Coming back a year later though, it made the engineer side want to cry. It was impossible to maintain efficiently, but I also didn’t want to manage an app to do it either. Then as I learned more about the adoption of Functions-as-a-Service, it seemed to really extend the upper limit for the use cases.\n\n&gt; I guess you have to find a way to manage the space limit for the history, i.e. when it takes too much resources.\nYeah, this is definitely an outstanding question. I imagine I will just do a simple set sized FIFO cache to start out, and then down the road I could push to something like IndexedDB (once those bindings actually exist in Rust -&gt; wasm).",
+    "user": "U01BAS8GU86",
+    "ts": "1604243602.129900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "24e71f2ba4a9",
+      "image_72": "https://avatars.slack-edge.com/2020-10-23/1445768371157_24e71f2ba4a9059b8c54_72.jpg",
+      "first_name": "",
+      "real_name": "Everett Pompeii",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "epompeii",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/FpF",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "sometime like surfing"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’ll try and get there! "
+              },
+              {
+                "type": "emoji",
+                "name": "man-surfing",
+                "skin_tone": 4
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And trying to create tools for them and also for some “expert” developers is something very interesting."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This honestly comes from me being a big personal finance nerd, and I once made a spreadsheet that calculates all of my finances, think a personal double sided balance sheet. Coming back a year later though, it made the engineer side want to cry. It was impossible to maintain efficiently, but I also didn’t want to manage an app to do it either. Then as I learned more about the adoption of Functions-as-a-Service, it seemed to really extend the upper limit for the use cases.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I guess you have to find a way to manage the space limit for the history, i.e. when it takes too much resources."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, this is definitely an outstanding question. I imagine I will just do a simple set sized FIFO cache to start out, and then down the road I could push to something like IndexedDB (once those bindings actually exist in Rust -> wasm)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604155452.122300",
+    "parent_user_id": "UJ6LDMMN0",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "3F8BBD2C-F886-4960-8FBC-B388C47BC3D8",
+    "type": "message",
+    "text": "Hello I’m John.  I live in Southern California and I currently write a lot of rust on the front and backend of an ad exchange. I have written PureScript, elm and Haskell previously. I love the future of programming. There are three or four topics that are at the top of my mind recently: types as visual design, polymorphic version control and diffing, type theories for tierless distributed computing, and user operations and self hosting with functional package management. ",
+    "user": "U01DKR962S2",
+    "ts": "1604245004.141300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5fae55cf900",
+      "image_72": "https://secure.gravatar.com/avatar/5fae55cf900c6577e6c3841a344015bd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "",
+      "real_name": "John Soo",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jsoo1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t1ke",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello I’m John.  I live in Southern California and I currently write a lot of rust on the front and backend of an ad exchange. I have written PureScript, elm and Haskell previously. I love the future of programming. There are three or four topics that are at the top of my mind recently: types as visual design, polymorphic version control and diffing, type theories for tierless distributed computing, and user operations and self hosting with functional package management. "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604245004.141300",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1604718206.145200",
+    "reply_users": [
+      "UA14TGLTC",
+      "U01DKR962S2"
+    ],
+    "replies": [
+      {
+        "user": "UA14TGLTC",
+        "ts": "1604381578.143800"
+      },
+      {
+        "user": "U01DKR962S2",
+        "ts": "1604718206.145200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "wave",
+        "users": [
+          "UJBAJNFLK",
+          "UC2A2ARPT",
+          "UKP3B2J5D",
+          "USH01JEDQ",
+          "U01BBPSACAH",
+          "U019CPED6T1",
+          "U0123H7JRDM",
+          "UHWC9PXBL",
+          "UPVBV34EL",
+          "U01CT57FTP0",
+          "U01DUNFS2N4",
+          "US370TRJA",
+          "UA14TGLTC",
+          "U013ZLJARC7",
+          "UAHHWT22U"
+        ],
+        "count": 15
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "25D2806A-D71C-4580-B07A-93F78B512794",
+    "type": "message",
+    "text": "Looking for visual generative art(ists) that are familiar with or interested in Christopher Alexander’s work. I’m toying with the idea of collaborating towards a series of artworks that manifest and demonstrate Alexander’s 15 geometric properties of wholeness in the digital space and which could later on perhaps serve as material for a practical studio course that teaches these properties in a way more accessible to computer people so that they don’t have to become architects first to learn them.\n\nI tweeted a little thread about this as a beacon for interested people to find me and to start a discussion (and perhaps even collaboration?).\n\nWould greatly appreciate if you helped spread the word to people you know who might be interested. :pray:\n\n<https://twitter.com/stefanlesser/status/1322929366251327488?s=21|https://twitter.com/stefanlesser/status/1322929366251327488?s=21>",
+    "user": "U5STGTB3J",
+    "ts": "1604246358.170200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/stefanlesser|@stefanlesser>: As part of my Building Beauty studies (<https://www.buildingbeauty.org/building-beauty-online>) I’m reading Christopher Alexander’s The Nature of Order and learn about what makes buildings and art (and things in general) wholesome and beautiful.",
+        "ts": 1604245914,
+        "author_name": "Stefan Lesser",
+        "author_link": "https://twitter.com/stefanlesser/status/1322929366251327488",
+        "author_icon": "https://pbs.twimg.com/profile_images/378800000350383902/ea834338bc94043c1d14c94538e39eda_normal.jpeg",
+        "author_subname": "@stefanlesser",
+        "text": "As part of my Building Beauty studies (<https://www.buildingbeauty.org/building-beauty-online>) I’m reading Christopher Alexander’s The Nature of Order and learn about what makes buildings and art (and things in general) wholesome and beautiful.",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/stefanlesser/status/1322929366251327488?s=21",
+        "id": 1,
+        "original_url": "https://twitter.com/stefanlesser/status/1322929366251327488?s=21",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1rpA8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Looking for visual generative art(ists) that are familiar with or interested in Christopher Alexander’s work. I’m toying with the idea of collaborating towards a series of artworks that manifest and demonstrate Alexander’s 15 geometric properties of wholeness in the digital space and which could later on perhaps serve as material for a practical studio course that teaches these properties in a way more accessible to computer people so that they don’t have to become architects first to learn them.\n\n"
+              },
+              {
+                "type": "text",
+                "text": "I tweeted a little thread about this as a beacon for interested people to find me and to start a discussion (and perhaps even collaboration?).\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Would greatly appreciate if you helped spread the word to people you know who might be interested. "
+              },
+              {
+                "type": "emoji",
+                "name": "pray"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/stefanlesser/status/1322929366251327488?s=21",
+                "text": "https://twitter.com/stefanlesser/status/1322929366251327488?s=21"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604246358.170200",
+    "reply_count": 12,
+    "reply_users_count": 3,
+    "latest_reply": "1605598099.245100",
+    "reply_users": [
+      "UJ6LDMMN0",
+      "U5STGTB3J",
+      "UDKTZSD6H"
+    ],
+    "replies": [
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1604253431.171000"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1604253491.171200"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1604270355.176600"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1604631658.187700"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1604741272.193400"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1605224490.225700"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1605390533.228600"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1605390634.228800"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1605412220.229300"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1605412449.229600"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1605595507.244900"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1605598099.245100"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UKP3B2J5D",
+          "UJ6LDMMN0",
+          "UC2A2ARPT",
+          "UMWF81HTP"
+        ],
+        "count": 4
+      },
+      {
+        "name": "wave",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "DC20D0AD-8475-4EE2-906C-A183CAA32727",
+    "type": "message",
+    "text": "Interesting look at UIs <https://eugenkiss.github.io/7guis/|https://eugenkiss.github.io/7guis/>",
+    "user": "ULM3U6275",
+    "ts": "1604250184.170800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yKS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting look at UIs "
+              },
+              {
+                "type": "link",
+                "url": "https://eugenkiss.github.io/7guis/",
+                "text": "https://eugenkiss.github.io/7guis/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U019CPED6T1",
+          "U0123H7JRDM",
+          "UBSMEUXAA",
+          "UHWC9PXBL",
+          "UJ6LDMMN0",
+          "UGYGY18UX",
+          "UML4ZEKDK",
+          "U013ZLJARC7"
+        ],
+        "count": 8
+      },
+      {
+        "name": "bookmark",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6104a9de-5e60-4af8-853b-9206a6ee013f",
+    "type": "message",
+    "text": "I would be interested in following this adventure! I have just started exploring generative art and would love to experiment things along this line. I guess you are looking for artists with more experience, that may more or less already use the 15 geometric properties (even subconsciously), but I am really curious about this topic. And it will be a good way for me to enter the Alexander's world.",
+    "user": "UJ6LDMMN0",
+    "ts": "1604253431.171000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SnSw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I would be interested in following this adventure! I have just started exploring generative art and would love to experiment things along this line. I guess you are looking for artists with more experience, that may more or less already use the 15 geometric properties (even subconsciously), but I am really curious about this topic. And it will be a good way for me to enter the Alexander's world."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604246358.170200",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "81bf18b2-6ec2-4935-a7df-546d8a4d7253",
+    "type": "message",
+    "text": "And to get in touch to more artists, maybe you could try a post on Instagram, I guess they are more present there.",
+    "user": "UJ6LDMMN0",
+    "ts": "1604253491.171200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AI3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And to get in touch to more artists, maybe you could try a post on Instagram, I guess they are more present there."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604246358.170200",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "2f329135-198a-4ce7-bfbc-83e1de75b93a",
+    "type": "message",
+    "text": "Oh my wow.  Such a well realized prototype.  I'll take all of this please.  \"ACM SIGCHI 2016\" — please tell me this line of inquiry didn't just die?!",
+    "user": "UA14TGLTC",
+    "ts": "1604256538.171800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8uD1E",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh my wow.  Such a well realized prototype.  I'll take all of this please.  \"ACM SIGCHI 2016\" — please tell me this line of inquiry didn't just die?!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604054171.142100",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "59ED475F-1695-4E2C-B79A-DDBE1F3F9F8E",
+    "type": "message",
+    "text": "<@UJ6LDMMN0> No, I don’t care about experience, I only care about interest in exploring Alexander’s work. And the 15 properties are just an example that looks promising to me; there might very well be other connections to explore. \n\nI’m not aware of anybody having done this before, and there is some thoughtful exploration needed to figure out if and how the 15 properties can map to digital art, but I don’t see any reasons why they shouldn’t.",
+    "user": "U5STGTB3J",
+    "ts": "1604270355.176600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JdYIr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJ6LDMMN0"
+              },
+              {
+                "type": "text",
+                "text": " No, I don’t care about experience, I only care about interest in exploring Alexander’s work. And the 15 properties are just an example that looks promising to me; there might very well be other connections to explore. \n\nI’m not aware of anybody having done this before, and there is some thoughtful exploration needed to figure out if and how the 15 properties can map to digital art, but I don’t see any reasons why they shouldn’t."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604246358.170200",
+    "parent_user_id": "U5STGTB3J",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "D4833DFA-254A-4655-979B-C336175D9C10",
+    "type": "message",
+    "text": "i suspect that documentation is kind of like a wiki—locally linear pages but globally a graph, with individual narratives referencing the same fragments more than once",
+    "user": "UHWC9PXBL",
+    "ts": "1604272639.132500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/pd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i suspect that documentation is kind of like a wiki—locally linear pages but globally a graph, with individual narratives referencing the same fragments more than once"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604079401.115400",
+    "parent_user_id": "U019PRL1BNU",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "8C8C55D7-3CBE-4984-8A9C-50E580BB38CC",
+    "type": "message",
+    "text": "another approach is standoff annotations: <https://sourceforge.net/p/tei/feature-requests/_discuss/thread/1e0e4acb/13db/attachment/A%20Generic%20Formalism%20for%20Encoding%20Standoff%20annotations%20in%20TEI.pdf|https://sourceforge.net/p/tei/feature-requests/_discuss/thread/1e0e4acb/13db/attachment/A%20Generic%20Formalism%20for%20Encoding%20Standoff%20annotations%20in%20TEI.pdf>",
+    "user": "UHWC9PXBL",
+    "ts": "1604272788.177300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/q5QX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "another approach is standoff annotations: "
+              },
+              {
+                "type": "link",
+                "url": "https://sourceforge.net/p/tei/feature-requests/_discuss/thread/1e0e4acb/13db/attachment/A%20Generic%20Formalism%20for%20Encoding%20Standoff%20annotations%20in%20TEI.pdf",
+                "text": "https://sourceforge.net/p/tei/feature-requests/_discuss/thread/1e0e4acb/13db/attachment/A%20Generic%20Formalism%20for%20Encoding%20Standoff%20annotations%20in%20TEI.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604230479.163900",
+    "parent_user_id": "UPVBV34EL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UPVBV34EL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "5374e27b-d520-45b8-a16f-9f2bb2f6ed36",
+    "type": "message",
+    "text": "First para: that's right.\n\nSecond para: if we spill `out` to the stack, then the assignment to it is kinda misleading. It looks like we're writing to a register but we're really writing to the stack. The only reason to expose registers is that many instructions have constraints on how many writes to memory they can perform. Memory variables that look like registers defeat the purpose.\n\nPerhaps I should just use a calling convention where outputs go to the stack rather than registers. I'll keep that in mind.\n\nPara 3: yes it's supposed to be checked. But it isn't currently. Having strong checks is the purpose of this issue.\n\nPara 4: I may well have to do that. It would be dashed inconvenient, though, to not be able to assign an output from nested blocks.\n\nMany thanks for all these comments! As always, follow-up questions appreciated.",
+    "user": "UCUSW7WVD",
+    "ts": "1604273716.132700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dJew",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "First para: that's right.\n\nSecond para: if we spill "
+              },
+              {
+                "type": "text",
+                "text": "out",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " to the stack, then the assignment to it is kinda misleading. It looks like we're writing to a register but we're really writing to the stack. The only reason to expose registers is that many instructions have constraints on how many writes to memory they can perform. Memory variables that look like registers defeat the purpose.\n\nPerhaps I should just use a calling convention where outputs go to the stack rather than registers. I'll keep that in mind.\n\nPara 3: yes it's supposed to be checked. But it isn't currently. Having strong checks is the purpose of this issue.\n\nPara 4: I may well have to do that. It would be dashed inconvenient, though, to not be able to assign an output from nested blocks.\n\nMany thanks for all these comments! As always, follow-up questions appreciated."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604180931.125900",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

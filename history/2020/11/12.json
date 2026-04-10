@@ -1,0 +1,1060 @@
+[
+  {
+    "client_msg_id": "80d687a3-5d31-4155-8bbf-8edc9efb95b2",
+    "type": "message",
+    "text": "<@UPX3PH28N> the refactor concern is a good one.  I've long asked myself how to better manage refactoring from a dynamic perspective — as opposed to adding static features to a dynamic language.  Since a refactor wants to be behaviorally invariant (to some degree), why not keep track of the behavior?\n\nConsider the case of changing a parameter type.  If the normal brain dynamic way is to make the change and see what tests break, then the galaxy brain dynamic way would be to show all the places where code needs to change from having remembered (traced) all the times the function is called in practice.  Using traces in this way feels a lot like static analysis and loops around when you switch from concrete traces to more symbolic/partial kind of evaluation.  You find yourself back in familiar static typing territory when the symbolic evaluation is more limited.",
+    "user": "UA14TGLTC",
+    "ts": "1605152712.386100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9Rh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UPX3PH28N"
+              },
+              {
+                "type": "text",
+                "text": " the refactor concern is a good one.  I've long asked myself how to better manage refactoring from a dynamic perspective — as opposed to adding static features to a dynamic language.  Since a refactor wants to be behaviorally invariant (to some degree), why not keep track of the behavior?\n\nConsider the case of changing a parameter type.  If the normal brain dynamic way is to make the change and see what tests break, then the galaxy brain dynamic way would be to show all the places where code needs to change from having remembered (traced) all the times the function is called in practice.  Using traces in this way feels a lot like static analysis and loops around when you switch from concrete traces to more symbolic/partial kind of evaluation.  You find yourself back in familiar static typing territory when the symbolic evaluation is more limited."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605124537.384800",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "CE3A859C-123A-41D0-A369-553DA73D7F87",
+    "type": "message",
+    "text": "Yeah I don’t think termination is really so interesting. I think there’s a good metaphor out there but I can’t bring one to mind. I do like what you get with more expressive types though. Those usually require totality ",
+    "user": "U01DKR962S2",
+    "ts": "1605157962.224000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5fae55cf900",
+      "image_72": "https://secure.gravatar.com/avatar/5fae55cf900c6577e6c3841a344015bd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "",
+      "real_name": "John Soo",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jsoo1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rpfX3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah I don’t think termination is really so interesting. I think there’s a good metaphor out there but I can’t bring one to mind. I do like what you get with more expressive types though. Those usually require totality "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1604952430.207700",
+    "parent_user_id": "UPVBV34EL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ae1db0ba-59ef-4b68-96f8-c4f2cb5b181d",
+    "type": "message",
+    "text": "<@UCUSW7WVD> What do you mean by \"The growing prevalence of pattern matching in modern languages seems to bear this out.\"? I'm trying to reach for examples of pattern matching in modern languages and am drawing a blank.",
+    "user": "U015902ESJC",
+    "ts": "1605161690.386300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5446491963e3",
+      "image_72": "https://avatars.slack-edge.com/2020-05-30/1167794177073_5446491963e3446625b7_72.png",
+      "first_name": "Robert",
+      "real_name": "Robert Butler",
+      "display_name": "Robert Butler",
+      "team": "T5TCAFTA9",
+      "name": "robert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2f+MC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " What do you mean by \"The growing prevalence of pattern matching in modern languages seems to bear this out.\"? I'm trying to reach for examples of pattern matching in modern languages and am drawing a blank."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605124537.384800",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "839551c6-eb20-4886-9cdd-1fe2feea180d",
+    "type": "message",
+    "text": "Approximately in chronological order:\n\nSML: <https://courses.cs.washington.edu/courses/cse341/04wi/lectures/03-ml-functions.html|https://courses.cs.washington.edu/courses/cse341/04wi/lectures/03-ml-functions.html>\n\nHaskell: <http://learnyouahaskell.com/syntax-in-functions|http://learnyouahaskell.com/syntax-in-functions>\n\nScheme: <https://www.gnu.org/software/guile/manual/html_node/Syntax-Rules.html|https://www.gnu.org/software/guile/manual/html_node/Syntax-Rules.html>\n\nScala: <https://docs.scala-lang.org/tour/pattern-matching.html|https://docs.scala-lang.org/tour/pattern-matching.html>\n\nRust: <https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html|https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html>\n\nSwift: <https://docs.swift.org/swift-book/ReferenceManual/Patterns.html|https://docs.swift.org/swift-book/ReferenceManual/Patterns.html>\n\nEtc.",
+    "user": "UCUSW7WVD",
+    "ts": "1605167685.386500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=2Ng",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Approximately in chronological order:\n\nSML: "
+              },
+              {
+                "type": "link",
+                "url": "https://courses.cs.washington.edu/courses/cse341/04wi/lectures/03-ml-functions.html",
+                "text": "https://courses.cs.washington.edu/courses/cse341/04wi/lectures/03-ml-functions.html"
+              },
+              {
+                "type": "text",
+                "text": "\n\nHaskell: "
+              },
+              {
+                "type": "link",
+                "url": "http://learnyouahaskell.com/syntax-in-functions",
+                "text": "http://learnyouahaskell.com/syntax-in-functions"
+              },
+              {
+                "type": "text",
+                "text": "\n\nScheme: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.gnu.org/software/guile/manual/html_node/Syntax-Rules.html",
+                "text": "https://www.gnu.org/software/guile/manual/html_node/Syntax-Rules.html"
+              },
+              {
+                "type": "text",
+                "text": "\n\nScala: "
+              },
+              {
+                "type": "link",
+                "url": "https://docs.scala-lang.org/tour/pattern-matching.html",
+                "text": "https://docs.scala-lang.org/tour/pattern-matching.html"
+              },
+              {
+                "type": "text",
+                "text": "\n\nRust: "
+              },
+              {
+                "type": "link",
+                "url": "https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html",
+                "text": "https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html"
+              },
+              {
+                "type": "text",
+                "text": "\n\nSwift: "
+              },
+              {
+                "type": "link",
+                "url": "https://docs.swift.org/swift-book/ReferenceManual/Patterns.html",
+                "text": "https://docs.swift.org/swift-book/ReferenceManual/Patterns.html"
+              },
+              {
+                "type": "text",
+                "text": "\n\nEtc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605124537.384800",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "U015902ESJC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e08c4fd9-e9ee-42ca-987a-cace973cd046",
+    "type": "message",
+    "text": "Erlang/Elixir, too.",
+    "user": "U016VUZGUUQ",
+    "ts": "1605172819.398700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AmZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Erlang/Elixir, too."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605124537.384800",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5aca824e-180c-4cd4-aec3-e902e45eb47d",
+    "type": "message",
+    "text": "Are there any languages/compilers in existence which perform optimization steps while staying in the high level language, and makes these steps visible to the user?\n\nFor example, instead of compiling from a tail-recursive C function, directly to a loop in assembly, it first optimises to a loop in C, then the translation to ASM is a dumb single-pass compilation.\n\nFor example, this (contrived) tail call elimination is quite hard to follow if you are expecting function calls to appear in the assembly <https://godbolt.org/z/jhecj5>\n\nYou could have a compiler that first said, \"You code is equivalent to this code\" <https://godbolt.org/z/3v6ezj> - which is easier to see why it compiles to those same instructions.",
+    "user": "UDQBTJ211",
+    "ts": "1605186819.404500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Compiler Explorer - C++ (x86-64 gcc 8.2)",
+        "title_link": "https://godbolt.org/z/jhecj5",
+        "text": "static int sum_int(int num, int acc) { if (num == 0) return acc; return sum_int(num - 1, acc + num); } int sum(int num) { return sum_int(num, 0); }",
+        "fallback": "Compiler Explorer - C++ (x86-64 gcc 8.2)",
+        "from_url": "https://godbolt.org/z/jhecj5",
+        "service_icon": "https://godbolt.org/favicon.ico?v=1",
+        "service_name": "godbolt.org",
+        "id": 1,
+        "original_url": "https://godbolt.org/z/jhecj5"
+      },
+      {
+        "title": "Compiler Explorer - C++ (x86-64 gcc 8.2)",
+        "title_link": "https://godbolt.org/z/3v6ezj",
+        "text": "int sum(int num) { int r = 0; while(num != 0){ r += num; num--; } return r; }",
+        "fallback": "Compiler Explorer - C++ (x86-64 gcc 8.2)",
+        "from_url": "https://godbolt.org/z/3v6ezj",
+        "service_icon": "https://godbolt.org/favicon.ico?v=1",
+        "service_name": "godbolt.org",
+        "id": 2,
+        "original_url": "https://godbolt.org/z/3v6ezj"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "B7UJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Are there any languages/compilers in existence which perform optimization steps while staying in the high level language, and makes these steps visible to the user?\n\nFor example, instead of compiling from a tail-recursive C function, directly to a loop in assembly, it first optimises to a loop in C, then the translation to ASM is a dumb single-pass compilation.\n\nFor example, this (contrived) tail call elimination is quite hard to follow if you are expecting function calls to appear in the assembly "
+              },
+              {
+                "type": "link",
+                "url": "https://godbolt.org/z/jhecj5"
+              },
+              {
+                "type": "text",
+                "text": "\n\nYou could have a compiler that first said, \"You code is equivalent to this code\" "
+              },
+              {
+                "type": "link",
+                "url": "https://godbolt.org/z/3v6ezj"
+              },
+              {
+                "type": "text",
+                "text": " - which is easier to see why it compiles to those same instructions."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605186819.404500",
+    "reply_count": 6,
+    "reply_users_count": 3,
+    "latest_reply": "1605383420.460600",
+    "reply_users": [
+      "UBN9AFS0N",
+      "UPX3PH28N",
+      "U01661S9F34"
+    ],
+    "replies": [
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1605187174.404700"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1605187224.404900"
+      },
+      {
+        "user": "UPX3PH28N",
+        "ts": "1605194047.413700"
+      },
+      {
+        "user": "UPX3PH28N",
+        "ts": "1605194219.413900"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1605211967.414200"
+      },
+      {
+        "user": "U01661S9F34",
+        "ts": "1605383420.460600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b0be16df-4f37-4cba-9a9e-451f70f7cac3",
+    "type": "message",
+    "text": "<http://nanopass.org/>",
+    "user": "UBN9AFS0N",
+    "ts": "1605187174.404700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "e9/O",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "http://nanopass.org/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605186819.404500",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U013ZLJARC7",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "66a7f1d7-2323-445f-a53d-a9010c6f488b",
+    "type": "message",
+    "text": "<https://www.youtube.com/watch?v=Os7FE3J-U5Q>",
+    "user": "UBN9AFS0N",
+    "ts": "1605187224.404900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1M+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=Os7FE3J-U5Q"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605186819.404500",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UDQBTJ211"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UDQBTJ211"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8B879729-A9B0-405A-8E65-B608B686E239",
+    "type": "message",
+    "text": "This is very close to what I am imagining: a gradual typechecker that can deal with holes. Sort of a combination between the Typescript compiler and Hazel. Except in addition to being \"gradually typed\", the language would be \"gradually programmed\": the user would initially provide only names with some (loose) type annotations and (later) maybe some implementation details attached to them (which is why I realize my use of the term \"pseudocode\" was probably more misleading than anything). ",
+    "user": "UG0EL18H3",
+    "ts": "1605191179.413500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "25cc47143833",
+      "image_72": "https://avatars.slack-edge.com/2019-08-01/702360681283_25cc471438337c72e600_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Rabl",
+      "display_name": "crabl",
+      "team": "T5TCAFTA9",
+      "name": "chris.rabl",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Tnqw0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is very close to what I am imagining: a gradual typechecker that can deal with holes. Sort of a combination between the Typescript compiler and Hazel. Except in addition to being \"gradually typed\", the language would be \"gradually programmed\": the user would initially provide only names with some (loose) type annotations and (later) maybe some implementation details attached to them (which is why I realize my use of the term \"pseudocode\" was probably more misleading than anything). "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605124537.384800",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "75e14712-c963-494e-bea4-5ade32657208",
+    "type": "message",
+    "text": "GHC has a couple of intermediate forms that the code goes through. <https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/debugging.html|https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/debugging.html>",
+    "user": "UPX3PH28N",
+    "ts": "1605194047.413700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g58ad4af42f7",
+      "image_72": "https://secure.gravatar.com/avatar/58ad4af42f7cff8698951a7befb26f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Alexey Shmalko",
+      "display_name": "Alexey Shmalko",
+      "team": "T5TCAFTA9",
+      "name": "rasen.dubi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SUedN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "GHC has a couple of intermediate forms that the code goes through. "
+              },
+              {
+                "type": "link",
+                "url": "https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/debugging.html",
+                "text": "https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/debugging.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605186819.404500",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fb81eda7-749e-443a-b5b0-77832c8846b0",
+    "type": "message",
+    "text": "Another interesting thing in GHC are rewrite rules: the programmer can specify how to transform expressions in high-level language into equivalent but faster expressions. <https://downloads.haskell.org/~ghc/7.0.3/docs/html/users_guide/rewrite-rules.html|https://downloads.haskell.org/~ghc/7.0.3/docs/html/users_guide/rewrite-rules.html> <https://wiki.haskell.org/GHC/Using_rules|https://wiki.haskell.org/GHC/Using_rules>",
+    "user": "UPX3PH28N",
+    "ts": "1605194219.413900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g58ad4af42f7",
+      "image_72": "https://secure.gravatar.com/avatar/58ad4af42f7cff8698951a7befb26f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Alexey Shmalko",
+      "display_name": "Alexey Shmalko",
+      "team": "T5TCAFTA9",
+      "name": "rasen.dubi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0wEO=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Another interesting thing in GHC are rewrite rules: the programmer can specify how to transform expressions in high-level language into equivalent but faster expressions. "
+              },
+              {
+                "type": "link",
+                "url": "https://downloads.haskell.org/~ghc/7.0.3/docs/html/users_guide/rewrite-rules.html",
+                "text": "https://downloads.haskell.org/~ghc/7.0.3/docs/html/users_guide/rewrite-rules.html"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://wiki.haskell.org/GHC/Using_rules",
+                "text": "https://wiki.haskell.org/GHC/Using_rules"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605186819.404500",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1516e866-4574-45f6-87d5-5a9b2335e4c3",
+    "type": "message",
+    "text": "Video is out!\n<https://futureofcoding.slack.com/archives/C5U3SEW6A/p1605011905212900>",
+    "user": "U013ZLJARC7",
+    "ts": "1605194393.224400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1605011905212900",
+        "fallback": "[November 10th, 2020 4:38 AM] prax08: Adding interactive visual syntax to textual code: <https://youtu.be/8htgAxJuK5c>",
+        "ts": "1605011905.212900",
+        "author_id": "UDKTZSD6H",
+        "author_subname": "Prathyush",
+        "channel_id": "C5U3SEW6A",
+        "channel_name": "linking-together",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "text": "Adding interactive visual syntax to textual code: <https://youtu.be/8htgAxJuK5c>",
+        "author_name": "Prathyush",
+        "author_link": "https://futureofcoding.slack.com/team/UDKTZSD6H",
+        "author_icon": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1605011905212900",
+        "footer": "Thread in #linking-together"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "On4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Video is out!\n"
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1605011905212900"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600423022.000700",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "96c5f772-46bb-4842-bcc3-9c2a6731e5be",
+    "type": "message",
+    "text": "Some fun Nodevember work from the primary author of <https://www.nodebox.net|Nodebox>:\n<https://twitter.com/enigmeta/status/1326937371305242625?s=21>",
+    "user": "U013ZLJARC7",
+    "ts": "1605208896.225500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/enigmeta|@enigmeta>: Nodevember day 11 — Prehistoric\n#nodevember #nodevember2020\n<https://nodevember-2020.netlify.app/day_11/> <https://pbs.twimg.com/ext_tw_video_thumb/1326937318377336834/pu/img/GuFHFX7Tcxf5taVE.jpg>",
+        "ts": 1605201497,
+        "author_name": "Frederik De Bleser",
+        "author_link": "https://twitter.com/enigmeta/status/1326937371305242625",
+        "author_icon": "https://pbs.twimg.com/profile_images/1251624842857721856/zPXyEcaK_normal.jpg",
+        "author_subname": "@enigmeta",
+        "text": "Nodevember day 11 — Prehistoric\n#nodevember #nodevember2020\n<https://nodevember-2020.netlify.app/day_11/>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/enigmeta/status/1326937371305242625?s=21",
+        "thumb_url": "https://pbs.twimg.com/ext_tw_video_thumb/1326937318377336834/pu/img/GuFHFX7Tcxf5taVE.jpg",
+        "thumb_width": 1062,
+        "thumb_height": 422,
+        "video_html_width": 1062,
+        "video_html_height": 422,
+        "video_html": "<video controls poster=\"https://pbs.twimg.com/ext_tw_video_thumb/1326937318377336834/pu/img/GuFHFX7Tcxf5taVE.jpg\" width=\"1062\" height=\"422\"><source type=\"video/mp4\" src=\"https://video.twimg.com/ext_tw_video/1326937318377336834/pu/vid/1062x422/RSyYU6jsgMIwoeJw.mp4?tag=10\"></video>",
+        "id": 1,
+        "original_url": "https://twitter.com/enigmeta/status/1326937371305242625?s=21",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BDi7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some fun Nodevember work from the primary author of "
+              },
+              {
+                "type": "link",
+                "url": "https://www.nodebox.net",
+                "text": "Nodebox"
+              },
+              {
+                "type": "text",
+                "text": ":\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/enigmeta/status/1326937371305242625?s=21"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ca8b7b54-1b66-4975-a83f-d1022fdec558",
+    "type": "message",
+    "text": "to add more, almost all optimization passes on Erlang/Elixir are done one a representation called \"core erlang\" which is a low level yet human readabble functional language",
+    "user": "UBN9AFS0N",
+    "ts": "1605211967.414200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "id51",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "to add more, almost all optimization passes on Erlang/Elixir are done one a representation called \"core erlang\" which is a low level yet human readabble functional language"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605186819.404500",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UPX3PH28N"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c0f40849-a823-4f78-a83e-9f9f8e8008a3",
+    "type": "message",
+    "text": "<@UG0EL18H3> You may like something like this\n<https://github.com/fulcrologic/guardrails>",
+    "user": "U01DUNFS2N4",
+    "ts": "1605217151.414500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "487dc9587476",
+      "image_72": "https://avatars.slack-edge.com/2020-11-16/1517848162945_487dc95874762ac0e044_72.jpg",
+      "first_name": "Jarrett",
+      "real_name": "Jarrett Atkinson",
+      "display_name": "jatkins",
+      "team": "T5TCAFTA9",
+      "name": "jj_atkinson",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "fulcrologic/guardrails",
+        "title_link": "https://github.com/fulcrologic/guardrails",
+        "text": "A middle ground between unguarded functions and enforced spec instrumentation. - fulcrologic/guardrails",
+        "fallback": "GitHub: fulcrologic/guardrails",
+        "thumb_url": "https://avatars3.githubusercontent.com/u/30102823?s=400&v=4",
+        "from_url": "https://github.com/fulcrologic/guardrails",
+        "thumb_width": 211,
+        "thumb_height": 211,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/fulcrologic/guardrails"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zN1H",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UG0EL18H3"
+              },
+              {
+                "type": "text",
+                "text": " You may like something like this\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/fulcrologic/guardrails"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605124537.384800",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e5191cd8-fa42-4693-8ede-9b436966b5f9",
+    "type": "message",
+    "text": "It allows the use of any level of specification that you want. not-nil? int? positive-int? etc. I'm using it in my current work projects to instrument common functions so I don't get calling semantics wrong.",
+    "user": "U01DUNFS2N4",
+    "ts": "1605220210.414900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "487dc9587476",
+      "image_72": "https://avatars.slack-edge.com/2020-11-16/1517848162945_487dc95874762ac0e044_72.jpg",
+      "first_name": "Jarrett",
+      "real_name": "Jarrett Atkinson",
+      "display_name": "jatkins",
+      "team": "T5TCAFTA9",
+      "name": "jj_atkinson",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZHW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It allows the use of any level of specification that you want. not-nil? int? positive-int? etc. I'm using it in my current work projects to instrument common functions so I don't get calling semantics wrong."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1605124537.384800",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "<@U5STGTB3J> I have been thinking over this on the past few days as my animation library is taking shape. At one point I thought I shouldn't do this because I want to do his work justice.\n\nThe only book I have read from Christopher Alexander is Notes on the Synthesis of Form. And that is one book I keep revisiting even after years of reading it because it was such a dense book even when it is low on page count. That is one of those life changing books of mine that hinted me to the idea that synergies from different domains could be brought into practices like design/engineering.\n\nRe: geometry, I think Christopher Alexander's style is much more in line with that of Frank Lloyd Wright. Both of them have this sort of geometric sense which aligns greatly with nature. So to point out what I mean by the bouba style, I think Ernst Haeckel's work would be exemplary. There's this sort of morphogenetic unfolding nature to whole of Alexander's ouevre which I find culminates in him identifying those 15 patterns.\n\nIf I understand it correctly, those 15 patterns are a distillation of what he find \"animating\"/life giving in nature. This is one of the reasons I think it would be injustice if I straight away jump into animating them without imbibing his (dense) context. What do you think?",
+    "files": [
+      {
+        "id": "F01F0T9U8TB",
+        "created": 1605224398,
+        "timestamp": 1605224398,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UDKTZSD6H",
+        "editable": false,
+        "size": 2070034,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01F0T9U8TB/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01F0T9U8TB/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 256,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 341,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 512,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 569,
+        "thumb_800_h": 800,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 682,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F01F0T9U8TB-3f6b146b4c/image_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 728,
+        "thumb_1024_h": 1024,
+        "original_w": 750,
+        "original_h": 1055,
+        "thumb_tiny": "AwAwACKOOJPKGRkkdaWJYuQwGRxj1qNPNFvuBXAGffFJCgb5mBJP61DKsTsIdmSFx9aiRYzCGIGT+lI0aBenvx3psKNIpCjjPc0LYa03IioyeaTaPWmnqc8Gkqybl5Ij5G0yHkdKZG+DtZuc4x2pQ0ixYDDIGcU6CNXUg/exnNJ2BXW41nAAA+XjjFEZ2Lkk5frjinRRLsJPQDvUauyjB24zgZFT6FXQw25zwePpSfZ29f0pG83ceSee1J+99W/Oq17klhY5Gt8lgCRxx2psJdht29OMk4qRbhDEATjjmmwS/KeMck5zSAJVdF5AIHOAeKRIn2ZJXJ5AIpzzAAgDP5UokRsPuAA6jPSkNFQlwTknNGX9WqRpssSF4Jo83/ZqhH//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UDKTZSD6H/F01F0T9U8TB/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01F0T9U8TB-3ad5582a1f",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UDKTZSD6H",
+    "display_as_bot": false,
+    "ts": "1605224490.225700",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MuB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": " I have been thinking over this on the past few days as my animation library is taking shape. At one point I thought I shouldn't do this because I want to do his work justice.\n\nThe only book I have read from Christopher Alexander is Notes on the Synthesis of Form. And that is one book I keep revisiting even after years of reading it because it was such a dense book even when it is low on page count. That is one of those life changing books of mine that hinted me to the idea that synergies from different domains could be brought into practices like design/engineering.\n\nRe: geometry, I think Christopher Alexander's style is much more in line with that of Frank Lloyd Wright. Both of them have this sort of geometric sense which aligns greatly with nature. So to point out what I mean by the bouba style, I think Ernst Haeckel's work would be exemplary. There's this sort of morphogenetic unfolding nature to whole of Alexander's ouevre which I find culminates in him identifying those 15 patterns.\n\nIf I understand it correctly, those 15 patterns are a distillation of what he find \"animating\"/life giving in nature. This is one of the reasons I think it would be injustice if I straight away jump into animating them without imbibing his (dense) context. What do you think?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1605224600.000000"
+    },
+    "thread_ts": "1604246358.170200",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

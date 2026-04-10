@@ -1,0 +1,1912 @@
+[
+  {
+    "client_msg_id": "5c38b1be-6cc3-4d60-b610-1b56f6194a19",
+    "type": "message",
+    "text": "I'm not a hardware designer, but I've had classes on HW design and I've done quite a bit of research on it. In general, does it make sense to design hardware that supports functional languages? Correct me if I'm wrong here, but it seems to me that the most expensive operation for languages like clojure are around their <https://en.wikipedia.org/wiki/Persistent_data_structure|data structures> (even though they are really fast). Could fixed function hardware be designed to make persistant data structures a winning choice? e.g. could be stuff like improving cache synchronization. I don't know where this would fit best though - would this type of FF HW be best placed within the cpu core, or perhaps alongside the ram? Just spit balling here, hopefully someone here knows enough to say weather this is dumb or a possible idea.",
+    "user": "U01DUNFS2N4",
+    "ts": "1606178161.100100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "j+8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm not a hardware designer, but I've had classes on HW design and I've done quite a bit of research on it. In general, does it make sense to design hardware that supports functional languages? Correct me if I'm wrong here, but it seems to me that the most expensive operation for languages like clojure are around their "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Persistent_data_structure",
+                "text": "data structures"
+              },
+              {
+                "type": "text",
+                "text": " (even though they are really fast). Could fixed function hardware be designed to make persistant data structures a winning choice? e.g. could be stuff like improving cache synchronization. I don't know where this would fit best though - would this type of FF HW be best placed within the cpu core, or perhaps alongside the ram? Just spit balling here, hopefully someone here knows enough to say weather this is dumb or a possible idea."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "reply_count": 10,
+    "reply_users_count": 5,
+    "latest_reply": "1606234884.109100",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UN9SCH5RD",
+      "UCUSW7WVD",
+      "U01DUNFS2N4",
+      "U013ZLJARC7"
+    ],
+    "subscribed": false,
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "cfb622bd-d772-4a11-a38e-42a9aba29342",
+    "type": "message",
+    "text": "I'm reminded of this recent <https://twitter.com/Catfish_Man/status/1326238434235568128|tweet> from Apple engineer Dave Smith about the perf of the M1 chip:\n\n&gt; fun fact: retaining and releasing an NSObject takes ~30 nanoseconds on current gen Intel, and ~6.5 nanoseconds on an M1\n&gt; \n&gt; …and ~14 nanoseconds on an M1 emulating an Intel :innocent: \nThey designed the M1 chip to do really well at object retain/release because Swift &amp; Obj-C use reference counting extensively (rather than, say, some sort of full-blown GC).\n\nWould be interesting to know what work they did to the hardware to accelerate that particular pattern. Like you said — is it just in the CPU, or is it affected by memory latency, or..?\n\nWould also be interesting to know whether other languages could be pulled along in the slipstream of that particular HW optimization.",
+    "user": "UC2A2ARPT",
+    "ts": "1606178935.100200",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1606179374.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7E75B",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm reminded of this recent "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/Catfish_Man/status/1326238434235568128",
+                "text": "tweet"
+              },
+              {
+                "type": "text",
+                "text": " from Apple engineer Dave Smith about the perf of the M1 chip:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "fun fact: retaining and releasing an NSObject takes ~30 nanoseconds on current gen Intel, and ~6.5 nanoseconds on an M1\n\n…and ~14 nanoseconds on an M1 emulating an Intel "
+              },
+              {
+                "type": "emoji",
+                "name": "innocent"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThey designed the M1 chip to do really well at object retain/release because Swift & Obj-C use reference counting extensively (rather than, say, some sort of full-blown GC).\n\nWould be interesting to know what work they did to the hardware to accelerate that particular pattern. Like you said — is it just in the CPU, or is it affected by memory latency, or..?\n\nWould also be interesting to know whether other languages could be pulled along in the slipstream of that particular HW optimization."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "f837435a-acd2-41c0-b58f-7371b167a1f5",
+    "type": "message",
+    "text": "I think it is a rabbit hole. Hardware is inherently stateful, state machines are a good model to think about it. There were whole teams trying to come up with Lisp machines and the effort is well documented elsewhere but they ultimately failed to get traction (there's also a distinction to be made between \"functional\" and \"immutable\"). I feel like stateful hardware with an immutable layer on top is the correct way to model something like Clojure.",
+    "user": "UN9SCH5RD",
+    "ts": "1606182152.101000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jhkg0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think it is a rabbit hole. Hardware is inherently stateful, state machines are a good model to think about it. There were whole teams trying to come up with Lisp machines and the effort is well documented elsewhere but they ultimately failed to get traction (there's also a distinction to be made between \"functional\" and \"immutable\"). I feel like stateful hardware with an immutable layer on top is the correct way to model something like Clojure."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UKP3B2J5D"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "e1b5e03a-bc94-4d89-a689-18681389d4f0",
+    "type": "message",
+    "text": "Yeah, this has been explored a whole lot. I'd have more citations to provide 10+ years ago when I did my PhD in computer architecture. One thing to note here is that the whole CISC thing that RISC was in response to was a trend of adding special instructions for common patterns in software.\n\nWhich is not to say there's nothing to explore here. It's gotten quite unfashionable for 30+ years now. That seems like enough time for another turn of the wheel.",
+    "user": "UCUSW7WVD",
+    "ts": "1606184017.101300",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1606184055.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CkZ8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, this has been explored a whole lot. I'd have more citations to provide 10+ years ago when I did my PhD in computer architecture. One thing to note here is that the whole CISC thing that RISC was in response to was a trend of adding special instructions for common patterns in software.\n\nWhich is not to say there's nothing to explore here. It's gotten quite unfashionable for 30+ years now. That seems like enough time for another turn of the wheel."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "ferris_wheel",
+        "users": [
+          "UN9SCH5RD",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "6b881d98-aea6-4ca6-ab6a-750af880cc14",
+    "type": "message",
+    "text": "Is TerminusDB really git-like?  Easy branching and merging?",
+    "user": "UA14TGLTC",
+    "ts": "1606188816.269700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YLOXp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Is TerminusDB really git-like?  Easy branching and merging?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606107649.267700",
+    "parent_user_id": "UN9SCH5RD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "f170a1de-b76e-4f28-91d6-5cc962ba2302",
+    "type": "message",
+    "text": "On the one hand: yeah, RISC has definitely had a good run for the past 30 years.\n\nOn the other hand: chips are extremely wide now wherever the software is able to make use of that (eg: SIMD, GPU units); SoCs have dedicated image signal processors, ML accelerators, crypto accelerators, video decoding (and sometimes encoding); mobile chips (or, at least, Apple's chips) have heterogeneous cores, some for high-perf and some for low-power.\n\nSo there seems to be a move away from simple, undifferentiated compute and a return to specialized hardware aplenty — but this time it's physical specialization, rather than instruction specialization.\n\nCuriously, it seems the opposite might be happening in memory. RAM and VRAM are frequently merged (ie. by M1, modern game consoles, mobile devices), there's the thought that we might see NVRAM combine RAM and storage, I wouldn't be surprised if L3 cache fell out of favour.",
+    "user": "UC2A2ARPT",
+    "ts": "1606192516.101600",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1606192558.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HQTFn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On the one hand: yeah, RISC has definitely had a good run for the past 30 years.\n\nOn the other hand: chips are extremely wide now wherever the software is able to make use of that (eg: SIMD, GPU units); SoCs have dedicated image signal processors, ML accelerators, crypto accelerators, video decoding (and sometimes encoding); mobile chips (or, at least, Apple's chips) have heterogeneous cores, some for high-perf and some for low-power.\n\nSo there seems to be a move away from simple, undifferentiated compute and a return to specialized hardware aplenty — but this time it's physical specialization, rather than instruction specialization.\n\nCuriously, it seems the opposite might be happening in memory. RAM and VRAM are frequently merged (ie. by M1, modern game consoles, mobile devices), there's the thought that we might see NVRAM combine RAM and storage, I wouldn't be surprised if L3 cache fell out of favour."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "20e53919-cc79-4324-9d1a-0302f6760c37",
+    "type": "message",
+    "text": "<https://terminusdb.com/docs/discussion/branch/>",
+    "user": "UN9SCH5RD",
+    "ts": "1606194411.269900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "TerminusDB Documentation",
+        "title": "Branching and Merging",
+        "title_link": "https://terminusdb.com/docs/discussion/branch/",
+        "text": "Documentation for TerminusDB",
+        "fallback": "TerminusDB Documentation: Branching and Merging",
+        "from_url": "https://terminusdb.com/docs/discussion/branch/",
+        "service_icon": "https://terminusdb.com/docs/favicon.png",
+        "id": 1,
+        "original_url": "https://terminusdb.com/docs/discussion/branch/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zCrR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://terminusdb.com/docs/discussion/branch/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606107649.267700",
+    "parent_user_id": "UN9SCH5RD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "6f6b21d4-d345-463f-8ab8-5a10c14d6e69",
+    "type": "message",
+    "text": "I have to spend more time with the git layer, in theory merging two sets of triples is trivial (you'll never have conflicts, since facts can state opposite things with no issue). Not sure how's it is handled when you add the schemas though. Data could be valid in isolation but not when merged together.",
+    "user": "UN9SCH5RD",
+    "ts": "1606194554.270200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aPMCK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I have to spend more time with the git layer, in theory merging two sets of triples is trivial (you'll never have conflicts, since facts can state opposite things with no issue). Not sure how's it is handled when you add the schemas though. Data could be valid in isolation but not when merged together."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606107649.267700",
+    "parent_user_id": "UN9SCH5RD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "95bb1834-f60d-4a75-af1e-6f0e39fb8b73",
+    "type": "message",
+    "text": "Hi Paul, nice to see you here!",
+    "user": "UJBAJNFLK",
+    "ts": "1606201191.173600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l1c7C",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi Paul, nice to see you here!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606160053.171500",
+    "parent_user_id": "U01F5UR4R1C",
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U01F5UR4R1C"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "ED293135-3110-4274-8367-3C5992202D16",
+    "type": "message",
+    "text": "<@UCUSW7WVD> my only disagreement with your post is that, yes, lisp machine have been tried. However, afaik most lisps before clojure used more out less standard mutable data structures. My theory (could still be wrong) is that the data structures provide the biggest possible ROI for hardware. ",
+    "user": "U01DUNFS2N4",
+    "ts": "1606202711.106000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RFQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " my only disagreement with your post is that, yes, lisp machine have been tried. However, afaik most lisps before clojure used more out less standard mutable data structures. My theory (could still be wrong) is that the data structures provide the biggest possible ROI for hardware. "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "e3b5f728-64e0-4d7f-91c6-20c7ca07f637",
+    "type": "message",
+    "text": "Perhaps you're responding to Emanuel's comment? I didn't really mention Lisp machines.",
+    "user": "UCUSW7WVD",
+    "ts": "1606203055.106200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "km9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Perhaps you're responding to Emanuel's comment? I didn't really mention Lisp machines."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "005f4f72-bc15-4415-88f9-50cdedb18033",
+    "type": "message",
+    "text": "Hello Everyone,\nMy name is Greg and I’m a software engineer at Adzerk, where I get to code in Clojure, doing backend development and data engineering. Big fan of Lisp, Functional Programming and PL topics in general, with a keen interest in how FOC ideas can make data exploration and analysis easier and more accessible for everyone, including non programmers.\nFew years ago I had a chance to work on Mathematica inspired custom language with Notebook based UI and backed by Hadoop Data Lake, built as a data exploration platform for a financial institution and it was quite an eye opening experience.\nI’m very excited to discover that there is a community of people sharing the dissatisfaction with current state of programming and dedicated to exploring ideas on how to improve its future!",
+    "user": "U01FBBVPZB5",
+    "ts": "1606221622.180400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd85aea997cc",
+      "image_72": "https://secure.gravatar.com/avatar/d85aea997ccd96eee89f1d372b33ae5b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Caban",
+      "display_name": "nabacg",
+      "team": "T5TCAFTA9",
+      "name": "nabacg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YCs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello Everyone,\nMy name is Greg and I’m a software engineer at Adzerk, where I get to code in Clojure, doing backend development and data engineering. Big fan of Lisp, Functional Programming and PL topics in general, with a keen interest in how FOC ideas can make data exploration and analysis easier and more accessible for everyone, including non programmers.\nFew years ago I had a chance to work on Mathematica inspired custom language with Notebook based UI and backed by Hadoop Data Lake, built as a data exploration platform for a financial institution and it was quite an eye opening experience.\nI’m very excited to discover that there is a community of people sharing the dissatisfaction with current state of programming and dedicated to exploring ideas on how to improve its future!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606221622.180400",
+    "reply_count": 6,
+    "reply_users_count": 2,
+    "latest_reply": "1606475042.188700",
+    "reply_users": [
+      "U01DKR962S2",
+      "U01FBBVPZB5"
+    ],
+    "replies": [
+      {
+        "user": "U01DKR962S2",
+        "ts": "1606249430.183200"
+      },
+      {
+        "user": "U01FBBVPZB5",
+        "ts": "1606383682.185400"
+      },
+      {
+        "user": "U01DKR962S2",
+        "ts": "1606414247.187600"
+      },
+      {
+        "user": "U01DKR962S2",
+        "ts": "1606414315.188300"
+      },
+      {
+        "user": "U01FBBVPZB5",
+        "ts": "1606474713.188500"
+      },
+      {
+        "user": "U01FBBVPZB5",
+        "ts": "1606475042.188700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U01FM9NJPRN"
+        ],
+        "count": 1
+      },
+      {
+        "name": "wave",
+        "users": [
+          "U01FM9NJPRN",
+          "U0123H7JRDM",
+          "UK3LH8CF5",
+          "U013ZLJARC7",
+          "UJBAJNFLK",
+          "U8A5MS6R1",
+          "UN9SCH5RD",
+          "UC2A2ARPT",
+          "UHWC9PXBL",
+          "UJ6LDMMN0",
+          "U01DKR962S2",
+          "U01DUNFS2N4",
+          "UA14TGLTC",
+          "U019CPED6T1",
+          "UAHHWT22U"
+        ],
+        "count": 15
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "BCB3D7B7-0D3C-4BF8-8BBB-B3BA80B2C371",
+    "type": "message",
+    "text": "Oops, mobile is hard to read :)",
+    "user": "U01DUNFS2N4",
+    "ts": "1606226570.107100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TiLp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oops, mobile is hard to read :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "9241C51C-77A2-4CCC-9F54-333CC1EC4650",
+    "type": "message",
+    "text": "I thought you had made both comments, but with each of you making one my comment applies less",
+    "user": "U01DUNFS2N4",
+    "ts": "1606226703.108400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Goc1H",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I thought you had made both comments, but with each of you making one my comment applies less"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "81d14db2-1912-4719-807e-a296ff889511",
+    "type": "message",
+    "text": "<@U01DUNFS2N4> While most Lisps allow one to tinker with the inner workings of cons cells, it's probably worth noting that the standard list building process of `(cons elem the-list)`  (construct a new list with `elem` as the head and `the-list` as the tail) does not modify `the-list` in any way, allowing other reference holders to continue as if nothing has happened. It's a form of \"unenforced immutability,\" if you will.\n\nYou can read about how this works in the context of Common Lisp here:\n<http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html>",
+    "user": "U013ZLJARC7",
+    "ts": "1606229953.108800",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "title": "Immutable Persistent Data Structures in Common Lisp - the zero bit stream",
+        "title_link": "http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html",
+        "text": "0. The Rationale Clojure, Scala, and Haskell (and other languages) have recently brought the idea of immutable (and persistent) data structures into …",
+        "fallback": "Immutable Persistent Data Structures in Common Lisp - the zero bit stream",
+        "from_url": "http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html",
+        "service_name": "blog.thezerobit.com",
+        "id": 1,
+        "original_url": "http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TV=c6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01DUNFS2N4"
+              },
+              {
+                "type": "text",
+                "text": " While most Lisps allow one to tinker with the inner workings of cons cells, it's probably worth noting that the standard list building process of "
+              },
+              {
+                "type": "text",
+                "text": "(cons elem the-list)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "  (construct a new list with "
+              },
+              {
+                "type": "text",
+                "text": "elem",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as the head and "
+              },
+              {
+                "type": "text",
+                "text": "the-list",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as the tail) does not modify "
+              },
+              {
+                "type": "text",
+                "text": "the-list ",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "in any way, allowing other reference holders to continue as if nothing has happened. It's a form of \"unenforced immutability,\" if you will.\n\nYou can read about how this works in the context of Common Lisp here:\n"
+              },
+              {
+                "type": "link",
+                "url": "http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "type": "message",
+    "text": "Maybe we should do a Netflix mini series :thinking_face:",
+    "files": [
+      {
+        "id": "F01FMEBH2TW",
+        "created": 1606234563,
+        "timestamp": 1606234563,
+        "name": "Screenshot from 2020-11-24 17-11-05.png",
+        "title": "Screenshot from 2020-11-24 17-11-05.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 42767,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01FMEBH2TW/screenshot_from_2020-11-24_17-11-05.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01FMEBH2TW/download/screenshot_from_2020-11-24_17-11-05.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 172,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 229,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 343,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 381,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 458,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FMEBH2TW-fcc8554278/screenshot_from_2020-11-24_17-11-05_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 488,
+        "original_w": 1139,
+        "original_h": 543,
+        "thumb_tiny": "AwAWADDSHXqaXNGKKAE/E0uaKKAD8aKKKAGrkM2TkZ4pf89aO5o7UAH+etH+etFLQAnP+TQKO9LQB//Z",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F01FMEBH2TW/screenshot_from_2020-11-24_17-11-05.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01FMEBH2TW-43e07d3013",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1606234580.279500",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5O65c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Maybe we should do a Netflix mini series "
+              },
+              {
+                "type": "emoji",
+                "name": "thinking_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UKP3B2J5D",
+          "UHWC9PXBL",
+          "U013866H7LY",
+          "U010328JA1E",
+          "UA14TGLTC",
+          "U019CPED6T1"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "590c0ee9-00f7-408f-bcd8-92a367374406",
+    "type": "message",
+    "text": "Ah, interesting. I've come across this before, but I didn't think about it w.r.t. this topic",
+    "user": "U01DUNFS2N4",
+    "ts": "1606234884.109100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AE/s",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, interesting. I've come across this before, but I didn't think about it w.r.t. this topic"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "2b2b294a-fb74-444e-b47f-5b1fd82f625f",
+    "type": "message",
+    "text": "anyone know of efforts to internationalize natural language programming languages?",
+    "user": "UV1CVSXGC",
+    "ts": "1606238576.036600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "bacfa5ca638a",
+      "image_72": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Martens",
+      "display_name": "Chris Martens (they/them)",
+      "team": "T5TCAFTA9",
+      "name": "contextadventure",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IKe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "anyone know of efforts to internationalize natural language programming languages?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "reply_count": 25,
+    "reply_users_count": 9,
+    "latest_reply": "1611049945.002200",
+    "reply_users": [
+      "U01AD80KMLK",
+      "UN9SCH5RD",
+      "UDKTZSD6H",
+      "UV1CVSXGC",
+      "UJBAJNFLK",
+      "U01BSAKUDJQ",
+      "UFPPABQ7P",
+      "UCDBW1H26",
+      "UAVCC2X70"
+    ],
+    "replies": [
+      {
+        "user": "U01AD80KMLK",
+        "ts": "1606239014.036700"
+      },
+      {
+        "user": "U01AD80KMLK",
+        "ts": "1606239033.036900"
+      },
+      {
+        "user": "UN9SCH5RD",
+        "ts": "1606240384.037400"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1606249031.037700"
+      },
+      {
+        "user": "UV1CVSXGC",
+        "ts": "1606256697.038000"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1606298622.038400"
+      },
+      {
+        "user": "U01BSAKUDJQ",
+        "ts": "1606824623.039600"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1608141358.047700"
+      },
+      {
+        "user": "UV1CVSXGC",
+        "ts": "1608141462.048000"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1608141560.050000"
+      },
+      {
+        "user": "UV1CVSXGC",
+        "ts": "1608141571.050200"
+      },
+      {
+        "user": "UV1CVSXGC",
+        "ts": "1608141594.050500"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1608189508.050700"
+      },
+      {
+        "user": "UV1CVSXGC",
+        "ts": "1608230166.050900"
+      },
+      {
+        "user": "UCDBW1H26",
+        "ts": "1609949085.089100"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1609950991.089600"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1610995602.000100"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1610995698.000300"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1610995812.000600"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1610995902.001000"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1610995972.001200"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1610995991.001400"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1610996075.001600"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1610996166.001800"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1611049945.002200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "type": "message",
+    "text": "",
+    "user": "UV1CVSXGC",
+    "ts": "1606238757.102100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "bacfa5ca638a",
+      "image_72": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Martens",
+      "display_name": "Chris Martens (they/them)",
+      "team": "T5TCAFTA9",
+      "name": "contextadventure",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "[November 24th, 2020 12:22 PM] contextadventure: anyone know of efforts to internationalize natural language programming languages?",
+        "ts": "1606238576.036600",
+        "author_id": "UV1CVSXGC",
+        "author_subname": "Chris Martens",
+        "channel_id": "CLYCGTCPL",
+        "channel_name": "of-end-user-programming",
+        "is_msg_unfurl": true,
+        "text": "anyone know of efforts to internationalize natural language programming languages?",
+        "author_name": "Chris Martens",
+        "author_link": "https://futureofcoding.slack.com/team/UV1CVSXGC",
+        "author_icon": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_48.jpg",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "color": "D0D0D0",
+        "from_url": "https://futureofcoding.slack.com/archives/CLYCGTCPL/p1606238576036600",
+        "is_share": true,
+        "footer": "Posted in #of-end-user-programming"
+      }
+    ],
+    "thread_ts": "1606238757.102100",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1606239058.102200",
+    "reply_users": [
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1606239058.102200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f488a5cc-e27f-41c6-95e6-0db5eae9a2e1",
+    "type": "message",
+    "text": "We're aiming for that in Wikifunctions. Each function will have labels in natural languages, and you can read your code in English, German, or any of the other 300 languages of Wikimedia",
+    "user": "U01AD80KMLK",
+    "ts": "1606239014.036700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a07cdcb6d037",
+      "image_72": "https://avatars.slack-edge.com/2020-09-09/1376906509376_a07cdcb6d037bf7b6a5e_72.jpg",
+      "first_name": "",
+      "real_name": "Denny Vrandečić",
+      "display_name": "Denny Vrandečić",
+      "team": "T5TCAFTA9",
+      "name": "dvrandecic",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GG7=Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "We're aiming for that in Wikifunctions. Each function will have labels in natural languages, and you can read your code in English, German, or any of the other 300 languages of Wikimedia"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "f1b19e72-8776-4ec3-9584-c14ba6489f00",
+    "type": "message",
+    "text": "<https://meta.wikimedia.org/wiki/Abstract_Wikipedia>",
+    "user": "U01AD80KMLK",
+    "ts": "1606239033.036900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a07cdcb6d037",
+      "image_72": "https://avatars.slack-edge.com/2020-09-09/1376906509376_a07cdcb6d037bf7b6a5e_72.jpg",
+      "first_name": "",
+      "real_name": "Denny Vrandečić",
+      "display_name": "Denny Vrandečić",
+      "team": "T5TCAFTA9",
+      "name": "dvrandecic",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01AD80KMLK",
+      "ts": "1606239094.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0LQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://meta.wikimedia.org/wiki/Abstract_Wikipedia"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "64753bc5-7602-430d-821d-c12ed6ee2495",
+    "type": "message",
+    "text": "(To anyone who might reply here – please add replies to <https://futureofcoding.slack.com/archives/CLYCGTCPL/p1606238576036600|the thread> in <#CLYCGTCPL|of-end-user-programming>. Thanks!)",
+    "user": "UC2A2ARPT",
+    "ts": "1606239058.102200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1606239078.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6q6l5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(To anyone who might reply here – please add replies to "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/CLYCGTCPL/p1606238576036600",
+                "text": "the thread"
+              },
+              {
+                "type": "text",
+                "text": " in "
+              },
+              {
+                "type": "channel",
+                "channel_id": "CLYCGTCPL"
+              },
+              {
+                "type": "text",
+                "text": ". Thanks!)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238757.102100",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "83ecd355-8e77-462d-a402-3f5ea9fc0ae8",
+    "type": "message",
+    "text": "<https://ide.wy-lang.org/> :slightly_smiling_face:",
+    "user": "UN9SCH5RD",
+    "ts": "1606240384.037400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xOJJh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://ide.wy-lang.org/"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "700c3aa2-f036-4146-860d-e73654f386f6",
+    "type": "message",
+    "text": "I forgot which channel has the de facto role of jobs postings now but I assume it's this one. Anyways <https://twitter.com/unisonweb/status/1331262378340720640?s=19|https://twitter.com/unisonweb/status/1331262378340720640?s=19>",
+    "user": "UFQQ3P867",
+    "ts": "1606245835.281400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "75bc4f5fbeed",
+      "image_72": "https://avatars.slack-edge.com/2019-12-20/882734188373_75bc4f5fbeedc5a2213e_72.jpg",
+      "first_name": "",
+      "real_name": "Max Krieger",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "photos482",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/unisonweb|@unisonweb>: We're hiring a front-end developer to build futuristic programming tools for Unison! RTs welcome :pray: <https://www.notion.so/unisonweb/Jobs-at-Unison-Computing-072661c2d03a45cf98151d122c06943b>",
+        "ts": 1606232659,
+        "author_name": "Unison",
+        "author_link": "https://twitter.com/unisonweb/status/1331262378340720640",
+        "author_icon": "https://pbs.twimg.com/profile_images/1173694283070808064/dGB40Lmj_normal.jpg",
+        "author_subname": "@unisonweb",
+        "text": "We're hiring a front-end developer to build futuristic programming tools for Unison! RTs welcome :pray: <https://www.notion.so/unisonweb/Jobs-at-Unison-Computing-072661c2d03a45cf98151d122c06943b>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/unisonweb/status/1331262378340720640?s=19",
+        "id": 1,
+        "original_url": "https://twitter.com/unisonweb/status/1331262378340720640?s=19",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AGS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I forgot which channel has the de facto role of jobs postings now but I assume it's this one. Anyways "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/unisonweb/status/1331262378340720640?s=19",
+                "text": "https://twitter.com/unisonweb/status/1331262378340720640?s=19"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606245835.281400",
+    "reply_count": 5,
+    "reply_users_count": 5,
+    "latest_reply": "1610170727.462200",
+    "reply_users": [
+      "UAJKEBGP8",
+      "UC2A2ARPT",
+      "U01F5UR4R1C",
+      "U013ZLJARC7",
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UAJKEBGP8",
+        "ts": "1606246101.281600"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1606263220.282700"
+      },
+      {
+        "user": "U01F5UR4R1C",
+        "ts": "1606270901.282900"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1606308052.283800"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1610170727.462200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heavy_check_mark",
+        "users": [
+          "UCUSW7WVD",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "908e8b03-bed5-4e43-9a08-3d001e909ab3",
+    "type": "message",
+    "text": "cc <@UHWC9PXBL>",
+    "user": "UAJKEBGP8",
+    "ts": "1606246101.281600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "72578ab3b4f8",
+      "image_72": "https://avatars.slack-edge.com/2021-10-09/2610495978720_72578ab3b4f8ab9ef250_72.jpg",
+      "first_name": "Srini",
+      "real_name": "Srini K",
+      "display_name": "Srini K",
+      "team": "T5TCAFTA9",
+      "name": "skadamat",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LHuP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "cc "
+              },
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606245835.281400",
+    "parent_user_id": "UFQQ3P867",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "d353b62d-920d-478b-ac78-5826d9165a9c",
+    "type": "message",
+    "text": "Just published a new essay y’all might find interesting, on why code is an important medium for communication (no new ideas for this forum, of course :slightly_smiling_face: ) in many cases we get access to more precision than mathematical notation offers. but much more powerfully, code can power many different representations of some idea:\n\n1. the symbols of the themselves\n2. mathematical notation generated from the symbols\n3. animations\n4. graphical renderings \nalternate title might have been “Code as a better serialization format for scientific ideas”. Enjoy!\n<https://roadtoreality.substack.com/p/increasing-our-channel-capacity>",
+    "user": "U01EHAE9D0W",
+    "ts": "1606248562.273000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gcd378611a91",
+      "image_72": "https://secure.gravatar.com/avatar/cd378611a91eb7852ae19cd582de718a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Sam Ritchie",
+      "display_name": "Sam Ritchie",
+      "team": "T5TCAFTA9",
+      "name": "sritchie09",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01EHAE9D0W",
+      "ts": "1606248606.000000"
+    },
+    "attachments": [
+      {
+        "title": "Increasing our Channel Capacity",
+        "title_link": "https://roadtoreality.substack.com/p/increasing-our-channel-capacity",
+        "text": "Code as Communication, and the kinesthetics of powerful ideas.",
+        "fallback": "Increasing our Channel Capacity",
+        "image_url": "https://cdn.substack.com/image/fetch/h_600,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb9e430b7-7846-4e68-a61c-56f972ba63e5_1920x1920.png",
+        "from_url": "https://roadtoreality.substack.com/p/increasing-our-channel-capacity",
+        "image_width": 250,
+        "image_height": 250,
+        "image_bytes": 191248,
+        "service_icon": "https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/ab167268-c6b5-4bac-b49b-71f1a6fba8e2/apple-touch-icon-57x57.png",
+        "service_name": "roadtoreality.substack.com",
+        "id": 1,
+        "original_url": "https://roadtoreality.substack.com/p/increasing-our-channel-capacity"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZnHBI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just published a new essay y’all might find interesting, on why code is an important medium for communication (no new ideas for this forum, of course "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " ) in many cases we get access to more precision than mathematical notation offers. but much more powerfully, code can power many different representations of some idea:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "the symbols of the themselves"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "mathematical notation generated from the symbols"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "animations"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "graphical renderings "
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nalternate title might have been “Code as a better serialization format for scientific ideas”. Enjoy!\n"
+              },
+              {
+                "type": "link",
+                "url": "https://roadtoreality.substack.com/p/increasing-our-channel-capacity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "reply_count": 10,
+    "reply_users_count": 3,
+    "latest_reply": "1606765772.303900",
+    "reply_users": [
+      "UJBAJNFLK",
+      "U01EHAE9D0W",
+      "UDQKHNP51"
+    ],
+    "replies": [
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1606298304.273800"
+      },
+      {
+        "user": "U01EHAE9D0W",
+        "ts": "1606322842.274200"
+      },
+      {
+        "user": "U01EHAE9D0W",
+        "ts": "1606322938.274500"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1606725897.282600"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1606731625.282800"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1606731808.283000"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1606731931.283200"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1606733409.283500"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1606748906.291700"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1606765772.303900"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7",
+          "U8A5MS6R1",
+          "US370TRJA"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "790f7fe9-2456-4c88-8491-d8fd771dec52",
+    "type": "message",
+    "text": "At a slight risk of fanboying here, but your book on Scala was instrumental in moving me away from Java &amp; helped me gain a thorough understanding of FP. Many thanks for that! Glad to hear even more cool projects are in the works!",
+    "user": "U01DUNFS2N4",
+    "ts": "1606248578.182300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "487dc9587476",
+      "image_72": "https://avatars.slack-edge.com/2020-11-16/1517848162945_487dc95874762ac0e044_72.jpg",
+      "first_name": "Jarrett",
+      "real_name": "Jarrett Atkinson",
+      "display_name": "jatkins",
+      "team": "T5TCAFTA9",
+      "name": "jj_atkinson",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5QOPu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "At a slight risk of fanboying here, but your book on Scala was instrumental in moving me away from Java & helped me gain a thorough understanding of FP. Many thanks for that! Glad to hear even more cool projects are in the works!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606160053.171500",
+    "parent_user_id": "U01F5UR4R1C",
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U01F5UR4R1C"
+        ],
+        "count": 1
+      },
+      {
+        "name": "pray",
+        "users": [
+          "U01F5UR4R1C"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "CF49843C-2D88-4A76-B867-7491C5FD0595",
+    "type": "message",
+    "text": "I have done two small efforts in this direction. First one is to make Javascript programmable in my mother tongue using some regex hacks: <https://makers-of-kerala.com/thengascript/>\n\nAnother one was a plan to use Lisp macros: <https://twitter.com/prathyvsh/status/635733805567840256?s=21>\n\nIf you are interested in looking at such efforts, then Yor lang: <https://github.com/anoniscoding/yorlang> and Wenyan: <https://ide.wy-lang.org/> are two nice projects.\n\nIf its for a more fundamental base from which to internationalize the base language, think there was something that leveraged Jetbrains MPS platform.",
+    "user": "UDKTZSD6H",
+    "ts": "1606249031.037700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1606258236.000000"
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/prathyvsh|@prathyvsh>: Programming Lisp in my native Indian language - Malayalam. This is so much fun. Thanks Elango Cheran and <https://twitter.com/ra|@ra>. <https://pbs.twimg.com/media/CNJPsfRWoAAOjTE.png>",
+        "ts": 1440405725,
+        "author_name": "Prathyush",
+        "author_link": "https://twitter.com/prathyvsh/status/635733805567840256",
+        "author_icon": "https://pbs.twimg.com/profile_images/1157092207075061760/v_xB---l_normal.jpg",
+        "author_subname": "@prathyvsh",
+        "text": "Programming Lisp in my native Indian language - Malayalam. This is so much fun. Thanks Elango Cheran and <https://twitter.com/ra|@ra>. <https://pbs.twimg.com/media/CNJPsfRWoAAOjTE.png>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/prathyvsh/status/635733805567840256?s=21",
+        "image_url": "https://pbs.twimg.com/media/CNJPsfRWoAAOjTE.png",
+        "image_width": 300,
+        "image_height": 175,
+        "image_bytes": 10124,
+        "id": 2,
+        "original_url": "https://twitter.com/prathyvsh/status/635733805567840256?s=21",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "B8A984AC-D522-4151-8AB6-4D5404A9B9DC",
+    "type": "message",
+    "text": "Hey! I am friends and coworkers with some adzerk alumni! Welcome!",
+    "user": "U01DKR962S2",
+    "ts": "1606249430.183200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5fae55cf900",
+      "image_72": "https://secure.gravatar.com/avatar/5fae55cf900c6577e6c3841a344015bd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "",
+      "real_name": "John Soo",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jsoo1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01DKR962S2",
+      "ts": "1606249439.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0OP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hey! I am friends and coworkers with some adzerk alumni! Welcome!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606221622.180400",
+    "parent_user_id": "U01FBBVPZB5",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "E11C1447-791A-4925-BA98-05A4C18C1758",
+    "type": "message",
+    "text": "That’s awesome! Unison is so promising!",
+    "user": "U01DKR962S2",
+    "ts": "1606250749.184000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5fae55cf900",
+      "image_72": "https://secure.gravatar.com/avatar/5fae55cf900c6577e6c3841a344015bd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "",
+      "real_name": "John Soo",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jsoo1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TZ3e",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That’s awesome! Unison is so promising!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606160053.171500",
+    "parent_user_id": "U01F5UR4R1C",
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U01F5UR4R1C"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "79b404af-3078-4053-b590-680283acc72f",
+    "type": "message",
+    "text": "thanks all!",
+    "user": "UV1CVSXGC",
+    "ts": "1606256697.038000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "bacfa5ca638a",
+      "image_72": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Martens",
+      "display_name": "Chris Martens (they/them)",
+      "team": "T5TCAFTA9",
+      "name": "contextadventure",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WKaye",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "thanks all!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  }
+]
