@@ -1,0 +1,576 @@
+[
+  {
+    "type": "message",
+    "text": "I showed lines.love <https://futureofcoding.slack.com/archives/CCL5VVBAN/p1654451164815879|here ><https://futureofcoding.slack.com/archives/CCL5VVBAN/p1654451164815879|a few weeks ago>, and I've been mostly fixing bugs since. It might be converging to a fixed point now; no more features, bugs slowing to a trickle, most changes containing a 1-line fix and a dozen lines for a test. Then my hope is that it will continue to work reliably for a while without needing any updates (assuming future versions of <https://love2d.org> cooperate).\n\nTo freeze things I need to provide escape hatches. When people ask for new features, provide them either in forks (<https://github.com/akkartik/lines-polygon-experiment#readme|example>) or as separate applications entirely. That way the lines.love codebase stays approachable/hackable/habitable, particularly for people who don't need the additional features. Here's an example of a separate application: an exporter to markdown+SVG: <https://codeberg.org/akkartik/lines2md>.\n\nYou can see it in action in this video. There's minimal UI here. I export files by dragging them on the exporter window, and it emits new files in the folder window that I can then open in any markdown application (that can render SVG).",
+    "files": [
+      {
+        "id": "F03N6U5ADNY",
+        "created": 1656807195,
+        "timestamp": 1656807195,
+        "name": "lines-export.webm",
+        "title": "lines-export.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "editable": false,
+        "size": 4356033,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F03N6U5ADNY/lines-export.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F03N6U5ADNY/download/lines-export.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F03N6U5ADNY-835df4d36e/file.m3u8?_xcb=a610f",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NTc0NDU0LEFWRVJBR0UtQkFORFdJRFRIPTQ5MDA2NCxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xOTIweDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdNMDQyVlRWQlJFNVpMVGd6TldSbU5HUXpObVV2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRE5PTmxVMVFVUk9XUzA0TXpWa1pqUmtNelpsTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakF6VGpaVk5VRkVUbGt0T0RNMVpHWTBaRE0yWlM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pVdU16TTVMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TTA0MlZUVkJSRTVaTFRnek5XUm1OR1F6Tm1VdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWQzFZTFVWT1JFeEpVMVFLCiNFWFQtWC1TVFJFQU0tSU5GOkJBTkRXSURUSD0zODQ4ODksQVZFUkFHRS1CQU5EV0lEVEg9MzM4ODk2LENPREVDUz0iYXZjMS42NDAwMWYsbXA0YS40MC41IixSRVNPTFVUSU9OPTEyODB4NzIwLEZSQU1FLVJBVEU9MjkuOTcwCmh0dHBzOi8vZmlsZXMuc2xhY2suY29tL2ZpbGVzLXRtYi9UNVRDQUZUQTktRjAzTjZVNUFETlktODM1ZGY0ZDM2ZS9maWxlX0hfMjY0XzEyODB4NzIwXzM1MDBLQlBTXzdRVkJSLm0zdTgK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F03N6U5ADNY-835df4d36e/file_trans.mp4",
+        "duration_ms": 23356,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F03N6U5ADNY-835df4d36e/lines-export_thumb_video.jpeg",
+        "thumb_video_w": 1920,
+        "thumb_video_h": 1080,
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F03N6U5ADNY/lines-export.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F03N6U5ADNY-28a6a89e87",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "ts": "1656807435.038059",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jsA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I showed lines.love "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1654451164815879",
+                "text": "here "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1654451164815879",
+                "text": "a few weeks ago",
+                "style": {
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", and I've been mostly fixing bugs since. It might be converging to a fixed point now; no more features, bugs slowing to a trickle, most changes containing a 1-line fix and a dozen lines for a test. Then my hope is that it will continue to work reliably for a while without needing any updates (assuming future versions of "
+              },
+              {
+                "type": "link",
+                "url": "https://love2d.org"
+              },
+              {
+                "type": "text",
+                "text": " cooperate).\n\nTo freeze things I need to provide escape hatches. When people ask for new features, provide them either in forks ("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/akkartik/lines-polygon-experiment#readme",
+                "text": "example"
+              },
+              {
+                "type": "text",
+                "text": ") or as separate applications entirely. That way the lines.love codebase stays approachable/hackable/habitable, particularly for people who don't need the additional features. Here's an example of a separate application: an exporter to markdown+SVG: "
+              },
+              {
+                "type": "link",
+                "url": "https://codeberg.org/akkartik/lines2md"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nYou can see it in action in this video. There's minimal UI here. I export files by dragging them on the exporter window, and it emits new files in the folder window that I can then open in any markdown application (that can render SVG)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "ac9ffffb-66b0-4eba-b2aa-438e51876e89",
+    "thread_ts": "1656807435.038059",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1656832852.513049",
+    "reply_users": [
+      "U013ZLJARC7"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "UBN9AFS0N"
+        ],
+        "count": 2
+      },
+      {
+        "name": "ok_hand",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0e9c77ea-150b-40ea-860f-8ea1cc77d14f",
+    "type": "message",
+    "text": "I like that Cook paper, but am surprised that he doesn't mention the angle from which one can see an object as a set of functions that have been partially evaluated against an underlying record.",
+    "user": "U013ZLJARC7",
+    "ts": "1656832062.069629",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U013ZLJARC7",
+      "ts": "1656832073.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cnY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I like that Cook paper, but am surprised that he doesn't mention the angle from which one can see an object as a set of functions that have been partially evaluated against an underlying record."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656755068.057889",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ce5f8322-5bf7-446f-9477-2b2df151ea8c",
+    "type": "message",
+    "text": "It feels in many ways like the drawing DSL you've embedded in the text is to SVG as markdown is to HTML.",
+    "user": "U013ZLJARC7",
+    "ts": "1656832852.513049",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U013ZLJARC7",
+      "ts": "1656838259.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0pps",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It feels in many ways like the drawing DSL you've embedded in the text is to SVG as markdown is to HTML."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656807435.038059",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "02edc170-900f-47d4-bc27-70ba74a2c056",
+    "type": "message",
+    "text": "I used to do that kind of thing a long long time ago :smile: <https://github.com/marianoguerra/json-edit>",
+    "user": "UBN9AFS0N",
+    "ts": "1656838637.532819",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Mz3Q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I used to do that kind of thing a long long time ago "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/marianoguerra/json-edit"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656686558.134719",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "smiley",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "a6232095-28a7-444e-a056-9821301e8071",
+    "type": "message",
+    "text": "“Mojo of the thing is _simulation_” - Alan Kay",
+    "user": "U02JDAYKW7J",
+    "ts": "1656847308.400429",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uuQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "“Mojo of the thing is "
+              },
+              {
+                "type": "text",
+                "text": "simulation",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "” - Alan Kay"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656616850.210279",
+    "parent_user_id": "U02028JHX37",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5066a2ec-8577-471a-8a2a-427f712ccc64",
+    "type": "message",
+    "text": "I love this post: <https://lord.io/spreadsheets/>\nThe \"further reading\" section at the bottom also has great pointers.",
+    "user": "U022YTVTSR5",
+    "ts": "1656864191.367979",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1FB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I love this post: "
+              },
+              {
+                "type": "link",
+                "url": "https://lord.io/spreadsheets/"
+              },
+              {
+                "type": "text",
+                "text": "\nThe \"further reading\" section at the bottom also has great pointers."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656690451.872139",
+    "parent_user_id": "UNKSN1MRQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "41c4a27f-cb7a-4b7f-be1c-079f4c058b8d",
+    "type": "message",
+    "text": "<@U03CEGR3HSL> Interesting...\n\nWhat do you mean by \"the ideas can respond to interactions of the recipient\"? Does that mean that eg. the spreadsheet is the idea, or does that mean that there is an agent/mechanism that updates the ideas/facts? Would this agent itself be a kind of medium?",
+    "user": "U02028JHX37",
+    "ts": "1656871984.758749",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vo7+s",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U03CEGR3HSL"
+              },
+              {
+                "type": "text",
+                "text": " Interesting...\n\nWhat do you mean by \"the ideas can respond to interactions of the recipient\"? Does that mean that eg. the spreadsheet is the idea, or does that mean that there is an agent/mechanism that updates the ideas/facts? Would this agent itself be a kind of medium?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656616850.210279",
+    "parent_user_id": "U02028JHX37",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "34cc20d4-d95b-4663-b534-895b39e390f3",
+    "type": "message",
+    "text": "I love seeing a Notion-like interface!\n\nFrom the presentation perspective: it would be easier to understand if you framed it in a more story-like structure. For example: \"If you need to get some data from Google Maps API, and store it in a CSV, this is how you would do that...\", and show it end-to end. Even after watching the video and playing with it I'm still unclear if this is supposed to be executed, deployed, or if it will generate code or just a yaml config file.\n\nMy opinions on the UI:\n• it would be nice to have the cards be either pop-ups (be on top of content), or be on the side of the active column, that way it wouldn't move the content up and down.\n• It's a bit hard to visually parse the indentation level, maybe increase the horizontal space added with each level, and/or reduce the blank space between the item (icon + text) and the parent line",
+    "user": "U022YTVTSR5",
+    "ts": "1656872867.660419",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A65kq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I love seeing a Notion-like interface!\n\nFrom the presentation perspective: it would be easier to understand if you framed it in a more story-like structure. For example: \"If you need to get some data from Google Maps API, and store it in a CSV, this is how you would do that...\", and show it end-to end. Even after watching the video and playing with it I'm still unclear if this is supposed to be executed, deployed, or if it will generate code or just a yaml config file.\n\nMy opinions on the UI:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "it would be nice to have the cards be either pop-ups (be on top of content), or be on the side of the active column, that way it wouldn't move the content up and down."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "It's a bit hard to visually parse the indentation level, maybe increase the horizontal space added with each level, and/or reduce the blank space between the item (icon + text) and the parent line"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656686558.134719",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "b667ef94-4276-4556-8cde-1ed5d6e73049",
+    "type": "message",
+    "text": "In the case of a spreadsheet, the spreadsheet software is the medium.\n\nThe idea is whatever you are encoding in a particular spreadsheet workbook using the medium. For example, your model of how finances work at your company and how they will be affected by your projections for income and expenses.\n\nResponding to the recipient means after you give me your workbook containing your model and your projections, I can make changes and observe the results. I can ask \"what if\" questions by checking to see what happens if our earnings end up being 30% lower than you project, for example.",
+    "user": "U03CEGR3HSL",
+    "ts": "1656877582.607199",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f4r",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In the case of a spreadsheet, the spreadsheet software is the medium.\n\nThe idea is whatever you are encoding in a particular spreadsheet workbook using the medium. For example, your model of how finances work at your company and how they will be affected by your projections for income and expenses.\n\nResponding to the recipient means after you give me your workbook containing your model and your projections, I can make changes and observe the results. I can ask \"what if\" questions by checking to see what happens if our earnings end up being 30% lower than you project, for example."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656616850.210279",
+    "parent_user_id": "U02028JHX37",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7f0955af-dc17-4ac5-9412-3327a211d1d7",
+    "type": "message",
+    "text": "<@U03CEGR3HSL> Would a video qualify as a dynamic medium? Certainly a spreadsheet has a richer interaction scheme; can one somehow measure the richness of interactions provided by the medium? For example, a spreadsheet that allows to \"compute backwards\" (set the result and observe the possible compatible input configurations) could be richer than a regular spreadsheet. Is there then a \"maximally rich\" dynamic medium?",
+    "user": "U02028JHX37",
+    "ts": "1656880391.772229",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+g6R",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U03CEGR3HSL"
+              },
+              {
+                "type": "text",
+                "text": " Would a video qualify as a dynamic medium? Certainly a spreadsheet has a richer interaction scheme; can one somehow measure the richness of interactions provided by the medium? For example, a spreadsheet that allows to \"compute backwards\" (set the result and observe the possible compatible input configurations) could be richer than a regular spreadsheet. Is there then a \"maximally rich\" dynamic medium?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1656616850.210279",
+    "parent_user_id": "U02028JHX37",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "In an editor that the main building block is a function, is straight-forward to open a stacktrace.\nDo you know/use any plugins that can do something similar in other editors?",
+    "files": [
+      {
+        "id": "F03N5KFUEJE",
+        "created": 1656887635,
+        "timestamp": 1656887635,
+        "name": "Screen Recording 2022-07-03 at 5.29.17 PM.mov",
+        "title": "Screen Recording 2022-07-03 at 5.29.17 PM.mov",
+        "mimetype": "video/quicktime",
+        "filetype": "mov",
+        "pretty_type": "QuickTime Movie",
+        "user": "U85HCL7JP",
+        "editable": false,
+        "size": 7173687,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F03N5KFUEJE-7ba8d20c47/screen_recording_2022-07-03_at_5.29.17_pm.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F03N5KFUEJE-7ba8d20c47/screen_recording_2022-07-03_at_5.29.17_pm.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F03N5KFUEJE/download/screen_recording_2022-07-03_at_5.29.17_pm.mov",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F03N5KFUEJE-7ba8d20c47/file.m3u8?_xcb=93bd8",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NDI2MjA4LEFWRVJBR0UtQkFORFdJRFRIPTM5NTE1NixDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xNjM0eDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdNMDQxUzBaVlJVcEZMVGRpWVRoa01qQmpORGN2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRE5PTlV0R1ZVVktSUzAzWW1FNFpESXdZelEzTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakF6VGpWTFJsVkZTa1V0TjJKaE9HUXlNR00wTnk5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pFdU9UQXlMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TTA0MVMwWlZSVXBGTFRkaVlUaGtNakJqTkRjdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWQzFZTFVWT1JFeEpVMVFLCiNFWFQtWC1TVFJFQU0tSU5GOkJBTkRXSURUSD0zMTQ3NzMsQVZFUkFHRS1CQU5EV0lEVEg9Mjk4MjQ1LENPREVDUz0iYXZjMS42NDAwMWYsbXA0YS40MC41IixSRVNPTFVUSU9OPTEwOTB4NzIwLEZSQU1FLVJBVEU9MjkuOTcwCmh0dHBzOi8vZmlsZXMuc2xhY2suY29tL2ZpbGVzLXRtYi9UNVRDQUZUQTktRjAzTjVLRlVFSkUtN2JhOGQyMGM0Ny9maWxlX0hfMjY0XzEyODB4NzIwXzM1MDBLQlBTXzdRVkJSLm0zdTgK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F03N5KFUEJE-7ba8d20c47/screen_recording_2022-07-03_at_5.29.17_pm_trans.mp4",
+        "duration_ms": 19919,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F03N5KFUEJE-7ba8d20c47/screen_recording_2022-07-03_at_5.29.17_pm_thumb_video.jpeg",
+        "thumb_video_w": 2552,
+        "thumb_video_h": 1688,
+        "permalink": "https://futureofcoding.slack.com/files/U85HCL7JP/F03N5KFUEJE/screen_recording_2022-07-03_at_5.29.17_pm.mov",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F03N5KFUEJE-16706d633a",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "U85HCL7JP",
+    "display_as_bot": false,
+    "ts": "1656887652.556199",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tJEQU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In an editor that the main building block is a function, is straight-forward to open a stacktrace.\nDo you know/use any plugins that can do something similar in other editors?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "bc4eb20c-a7e1-4f26-a333-ea24d71973c6",
+    "thread_ts": "1656887652.556199",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1656951539.204569",
+    "reply_users": [
+      "U02E4DAQGSZ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

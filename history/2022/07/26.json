@@ -1,0 +1,547 @@
+[
+  {
+    "client_msg_id": "34db4b3a-a453-4eca-9ff5-fdec3a7505be",
+    "type": "message",
+    "text": "Oh hey, I came here to mention what we’re doing with splootcode but it’s already mentioned! The goal is to get all the benefit of a REPL without the downsides.",
+    "user": "U01NWARGPNC",
+    "ts": "1658807399.726479",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6Rq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh hey, I came here to mention what we’re doing with splootcode but it’s already mentioned! The goal is to get all the benefit of a REPL without the downsides."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b56a538f-c3f9-4099-bf24-ff4c19216603",
+    "type": "message",
+    "text": "That, and very few real programs spend all their time doing &lt;whatever microbenchmark&gt;.",
+    "user": "U013ZLJARC7",
+    "ts": "1658818098.559019",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GOrbi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That, and very few real programs spend all their time doing <whatever microbenchmark>."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658719664.388359",
+    "parent_user_id": "UPVBV34EL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "a3c953a7-d2f0-4f01-909d-c6892e87d4bd",
+    "type": "message",
+    "text": "For benchmarking this is not a good task.  As the kind of thing I write all the time, the start of an interview for fresh grads, it's not so bad.  Let's see now.\n\nHmm, this Ruby smells...\n```counts = Hash.new(0)\nSTDIN.each_line { |line| line.downcase.split.each { |w| counts[w] += 1 }}\ncounts.sort_by { |k,v| -v }.each { |k,v| puts \"#{k} #{v}\" }```\nold.  A quick round of golf:\n```STDIN.flat_map{_1.downcase.split}.\n  tally.sort_by{-_2}.\n  each{puts _1.join(\" \")}```\nIt only goes to show that counting things is a common Rubyism.\n\nGames like this always remind me of the _The Evolution of a Haskell Programmer_ <https://pages.cpsc.ucalgary.ca/~robin/class/449/Evolution.htm>.",
+    "user": "UA14TGLTC",
+    "ts": "1658825714.755789",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pVfSK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For benchmarking this is not a good task.  As the kind of thing I write all the time, the start of an interview for fresh grads, it's not so bad.  Let's see now.\n\nHmm, this Ruby smells...\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "counts = Hash.new(0)\nSTDIN.each_line { |line| line.downcase.split.each { |w| counts[w] += 1 }}\ncounts.sort_by { |k,v| -v }.each { |k,v| puts \"#{k} #{v}\" }"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "old.  A quick round of golf:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "STDIN.flat_map{_1.downcase.split}.\n  tally.sort_by{-_2}.\n  each{puts _1.join(\" \")}"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It only goes to show that counting things is a common Rubyism.\n\nGames like this always remind me of the "
+              },
+              {
+                "type": "text",
+                "text": "The Evolution of a Haskell Programmer ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "link",
+                "url": "https://pages.cpsc.ucalgary.ca/~robin/class/449/Evolution.htm"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658719664.388359",
+    "parent_user_id": "UPVBV34EL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6307124d-96ef-495e-b876-c9f9f8cfd8b2",
+    "type": "message",
+    "text": "Graph homeomorphisms for the win!  I'll second <@UC2A2ARPT> that serious layout support should be a focus.  Is one factor simply that wire programs are more hacked together than carefully factored.  I mean hacked together text code is a horror, and often can be perfectly cleanly formatted yet semantically tangled.  One quality (a feature perhaps?) of functional programming is that a big ball of mud tends to look like one.",
+    "user": "UA14TGLTC",
+    "ts": "1658826293.114579",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Fh/NV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Graph homeomorphisms for the win!  I'll second "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " that serious layout support should be a focus.  Is one factor simply that wire programs are more hacked together than carefully factored.  I mean hacked together text code is a horror, and often can be perfectly cleanly formatted yet semantically tangled.  One quality (a feature perhaps?) of functional programming is that a big ball of mud tends to look like one."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658710069.408479",
+    "parent_user_id": "U017GNJM021",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d0106b4d-df3f-48e3-ab54-93afc3ec7854",
+    "type": "message",
+    "text": "I'd say Scratch feels REPLy since you can click on a stack of blocks to execute them.",
+    "user": "UA14TGLTC",
+    "ts": "1658826358.192039",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UA14TGLTC",
+      "ts": "1658826464.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7Sc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'd say Scratch feels REPLy since you can click on a stack of blocks to execute them."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3504f2f3-71ae-464c-8029-f8354e0f9d8d",
+    "type": "message",
+    "text": "Including unused ones in the tray.",
+    "user": "UA14TGLTC",
+    "ts": "1658826379.254319",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Hfqh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Including unused ones in the tray."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f267ab1e-c997-4c83-8325-6bf39f6a9226",
+    "type": "message",
+    "text": "<@U01NWARGPNC> what are the downsides of a REPL you are trying to avoid with your approach",
+    "user": "U03LMRE6MQE",
+    "ts": "1658828263.936069",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "a/Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01NWARGPNC"
+              },
+              {
+                "type": "text",
+                "text": " what are the downsides of a REPL you are trying to avoid with your approach"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e34810ea-077b-4956-98ae-959cfb81b30e",
+    "type": "message",
+    "text": "Where did the name splootcode come from",
+    "user": "U03LMRE6MQE",
+    "ts": "1658828292.525969",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lKH=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Where did the name splootcode come from"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7099b36f-868f-440d-9e63-9044ea2a2dbd",
+    "type": "message",
+    "text": "<@U01NWARGPNC> have joined the waitlist, are there any video etc in the meantime",
+    "user": "U03LMRE6MQE",
+    "ts": "1658828330.284009",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rCoqS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01NWARGPNC"
+              },
+              {
+                "type": "text",
+                "text": " have joined the waitlist, are there any video etc in the meantime"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1d5e6760-b597-4658-8e37-d8ea0d9db2ab",
+    "type": "message",
+    "text": "The downside of a repl is mostly that you need to type whole statements every time - a typo is mildly irritating to fix in one line of code but if you write a loop or a function, then re-building it is annoying. You can't just go back and edit the code, you might have to hit the up arrow keys many times to find it.\n\nThen once you've iterated on the code you want to write, you need to copy paste it back into your code.\n\nI'm not saying repls are bad - I just want the code editor to have that level of insight into the code all the time without having to switch into a repl at all. :)",
+    "user": "U01NWARGPNC",
+    "ts": "1658828678.139599",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8a1b",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The downside of a repl is mostly that you need to type whole statements every time - a typo is mildly irritating to fix in one line of code but if you write a loop or a function, then re-building it is annoying. You can't just go back and edit the code, you might have to hit the up arrow keys many times to find it.\n\nThen once you've iterated on the code you want to write, you need to copy paste it back into your code.\n\nI'm not saying repls are bad - I just want the code editor to have that level of insight into the code all the time without having to switch into a repl at all. :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "eeda42aa-6fc8-4e46-b3ea-b0902943d2ed",
+    "type": "message",
+    "text": "And as a not-so-proud user of a readline implemented REPL, each line is separately remembered.  So if I make the mistake of trying to enter four lines and line three is incorrect, then the fix is: up arrow, up arrow, up arrow, up arrow, return, up arrow, up arrow, up arrow, up arrow, return, up arrow, up arrow, up arrow, up arrow, fix the mispelling, return, up arrow, up arrow, up arrow, up arrow, return.  Of course this always happens when I'm in the thick of something and not at all interested in improving my tools.",
+    "user": "UA14TGLTC",
+    "ts": "1658829802.286429",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "I8BSg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And as a not-so-proud user of a readline implemented REPL, each line is separately remembered.  So if I make the mistake of trying to enter four lines and line three is incorrect, then the fix is: up arrow, up arrow, up arrow, up arrow, return, up arrow, up arrow, up arrow, up arrow, return, up arrow, up arrow, up arrow, up arrow, fix the mispelling, return, up arrow, up arrow, up arrow, up arrow, return.  Of course this always happens when I'm in the thick of something and not at all interested in improving my tools."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "33ad83e3-04f8-4353-b5c7-ff6159359a0e",
+    "type": "message",
+    "text": "Teletype REPLs were fine back when we had teletype hardware. Using one today — when we can have in-place evaluation in our editors — is, IMO, completely mad.",
+    "user": "U013ZLJARC7",
+    "ts": "1658830847.851599",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "78N",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Teletype REPLs were fine back when we had teletype hardware. Using one today — when we can have in-place evaluation in our editors — is, IMO, completely mad."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "reactions": [
+      {
+        "name": "wolf",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      },
+      {
+        "name": "100",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "28bdff93-8150-4d0b-962c-8e112d075bf8",
+    "type": "message",
+    "text": "Quicker, easier, more seductive.",
+    "user": "UA14TGLTC",
+    "ts": "1658831927.592889",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oiXE9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Quicker, easier, more seductive."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658752861.226259",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c9343671-8628-4e88-a24a-805f35d91e8d",
+    "type": "message",
+    "text": "`cat file.txt | wc -w`",
+    "user": "U03LT7540HZ",
+    "ts": "1658866898.991459",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Te3k",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "cat file.txt | wc -w",
+                "style": {
+                  "code": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658719664.388359",
+    "parent_user_id": "UPVBV34EL",
+    "reactions": [
+      {
+        "name": "rolling_on_the_floor_laughing",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "0043928d-a294-49c8-9722-8a806c3b2753",
+    "type": "message",
+    "text": "I suppose they are counting how many times each word appears...",
+    "user": "U03LT7540HZ",
+    "ts": "1658866928.429499",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "66s",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I suppose they are counting how many times each word appears..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1658719664.388359",
+    "parent_user_id": "UPVBV34EL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
