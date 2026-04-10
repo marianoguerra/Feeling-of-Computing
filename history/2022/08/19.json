@@ -1,0 +1,728 @@
+[
+  {
+    "client_msg_id": "ef65ecd2-ded7-4db9-b713-9c2eca4b23f7",
+    "type": "message",
+    "text": "I agree.\n\nI think we try too hard to generate software factory workers instead of competent craftsmen. \n\nWe create people who can assemble big blocks they don't understand in certain standard ways to solve certain common problems, not people with a deep understanding of their tools and how to solve new problems and create new tools.\n\nThis is described well at <https://wiki.c2.com/?PlugCompatibleInterchangeableEngineers|https://wiki.c2.com/?PlugCompatibleInterchangeableEngineers>\n\nAnd the prioritization of sticking to some made-up schedule and shipping \"on time\" over software quality has created a proliferation of bugs at every level of the stack.\n\nIn the days before the internet was widely available, shipping software on physical media, such as a ROM cartridge, floppy disk, or optical disk, automatically created an incentive for the developers to get the software as correct as possible the first time, because distributing updates was slow and unreliable. Bugs were less common than they are today, and they generally had a smaller impact on the user.\n\nThe mad rush to ship now and fix later, which comes from the illusion that fixing it later is cheaper because we can just require the user to be connected to the internet and installing updates all the time, leads to code being written more quickly without understanding or planning, and shipped while still error prone and unreliable.\n\nFurthermore, as anyone can tell you who has run older operating systems or programs on modern hardware, we have on average gained small amounts of functionality over the years while the software has become drastically slower and buggier.\n\nI suspect that the only way to solve this in the long term is to push for a broad societal migration towards Free Software. Free Software authors seem to take more time getting their code as correct as possible before they make an official release. In fact, it's common for them to spend years getting to their 1.0 release, upon which they stake their reputations. On the other hand, 1.0 releases of proprietary software are sometimes broken to the point of being unusable.\n\nHowever, using Free Software will not, by itself, solve the problem. It has its own issues with bloat and complexity over time, but Free Software authors seem, on average, to do a better job of taking the time necessary to pay down technical debt and perform necessary refactoring, so for the moment it seems like our best hope.",
+    "user": "U03CEGR3HSL",
+    "ts": "1660877894.840649",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+QXF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I agree.\n\nI think we try too hard to generate software factory workers instead of competent craftsmen. \n\nWe create people who can assemble big blocks they don't understand in certain standard ways to solve certain common problems, not people with a deep understanding of their tools and how to solve new problems and create new tools.\n\nThis is described well at "
+              },
+              {
+                "type": "link",
+                "url": "https://wiki.c2.com/?PlugCompatibleInterchangeableEngineers",
+                "text": "https://wiki.c2.com/?PlugCompatibleInterchangeableEngineers"
+              },
+              {
+                "type": "text",
+                "text": "\n\nAnd the prioritization of sticking to some made-up schedule and shipping \"on time\" over software quality has created a proliferation of bugs at every level of the stack.\n\nIn the days before the internet was widely available, shipping software on physical media, such as a ROM cartridge, floppy disk, or optical disk, automatically created an incentive for the developers to get the software as correct as possible the first time, because distributing updates was slow and unreliable. Bugs were less common than they are today, and they generally had a smaller impact on the user.\n\nThe mad rush to ship now and fix later, which comes from the illusion that fixing it later is cheaper because we can just require the user to be connected to the internet and installing updates all the time, leads to code being written more quickly without understanding or planning, and shipped while still error prone and unreliable.\n\nFurthermore, as anyone can tell you who has run older operating systems or programs on modern hardware, we have on average gained small amounts of functionality over the years while the software has become drastically slower and buggier.\n\nI suspect that the only way to solve this in the long term is to push for a broad societal migration towards Free Software. Free Software authors seem to take more time getting their code as correct as possible before they make an official release. In fact, it's common for them to spend years getting to their 1.0 release, upon which they stake their reputations. On the other hand, 1.0 releases of proprietary software are sometimes broken to the point of being unusable.\n\nHowever, using Free Software will not, by itself, solve the problem. It has its own issues with bloat and complexity over time, but Free Software authors seem, on average, to do a better job of taking the time necessary to pay down technical debt and perform necessary refactoring, so for the moment it seems like our best hope."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660851475.637629",
+    "parent_user_id": "U0245E9RB2B",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cebea924-9543-44e7-b915-f2fe6068664b",
+    "type": "message",
+    "text": "On the criteria to be used in decomposing systems into modules by D. L. Parnas\n<https://dl.acm.org/doi/10.1145/361598.361623|https://dl.acm.org/doi/10.1145/361598.361623>\n\nThis is one of my favorite papers, and the basic concept that each design decision should be hidden within a module of some sort, where \"module\" can mean anything from a collection of procedures to a language specific feature, has served me well for many years.\n\nAlso, the principle that programs should be broken up by concern and not by the order in which things happen has informed my design decisions for a long time.\n\nHas this paper's approach informed anyone else's design over the years? If so, how?\n\nWhat principles do the rest of you use to make your programs more resilient against changes in the specifications?",
+    "user": "U03CEGR3HSL",
+    "ts": "1660888406.320979",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f6Fb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On the criteria to be used in decomposing systems into modules by D. L. Parnas\n"
+              },
+              {
+                "type": "link",
+                "url": "https://dl.acm.org/doi/10.1145/361598.361623",
+                "text": "https://dl.acm.org/doi/10.1145/361598.361623"
+              },
+              {
+                "type": "text",
+                "text": "\n\nThis is one of my favorite papers, and the basic concept that each design decision should be hidden within a module of some sort, where \"module\" can mean anything from a collection of procedures to a language specific feature, has served me well for many years.\n\nAlso, the principle that programs should be broken up by concern and not by the order in which things happen has informed my design decisions for a long time.\n\nHas this paper's approach informed anyone else's design over the years? If so, how?\n\nWhat principles do the rest of you use to make your programs more resilient against changes in the specifications?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "reading-together",
+    "channel_id": "C037X8XMFB3"
+  },
+  {
+    "client_msg_id": "48e6d989-6871-4802-93d5-7b98dcde6a22",
+    "type": "message",
+    "text": "<@U03CEGR3HSL> Did you capitalize Free Software because you have a specific definition in mind, or is it just any open-source software?\n\nIf we consider only projects that take years to get to their 1.0 release because the authors are refining their craft - then yes, I would expect it to be high quality. But very few open-source projects that I've seen meet that bar.\n\nMost of the repos I come across on Github were started several years ago, worked on for a few months, and then abandoned.\n\nI think whether it's open-source or not, Sturgeon's law applies - \"90% of everything is crap.\"",
+    "user": "U0245E9RB2B",
+    "ts": "1660889396.732839",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cWsh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U03CEGR3HSL"
+              },
+              {
+                "type": "text",
+                "text": " Did you capitalize Free Software because you have a specific definition in mind, or is it just any open-source software?\n\nIf we consider only projects that take years to get to their 1.0 release because the authors are refining their craft - then yes, I would expect it to be high quality. But very few open-source projects that I've seen meet that bar.\n\nMost of the repos I come across on Github were started several years ago, worked on for a few months, and then abandoned.\n\nI think whether it's open-source or not, Sturgeon's law applies - \"90% of everything is crap.\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660851475.637629",
+    "parent_user_id": "U0245E9RB2B",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "471033f8-cb34-4302-9847-3680233f6f55",
+    "type": "message",
+    "text": "How did the meetup go?  Busy with other things, I haven't checked in on FoC for a few days, else I would have tried to join.",
+    "user": "UA14TGLTC",
+    "ts": "1660893151.435949",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "De9Z8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How did the meetup go?  Busy with other things, I haven't checked in on FoC for a few days, else I would have tried to join."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660659617.169979",
+    "parent_user_id": "U03FKLDAAN8",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c93a37a2-4e9d-4af8-a193-18b686ba4eec",
+    "type": "message",
+    "text": "Harel is a classic for a reason.",
+    "user": "UA14TGLTC",
+    "ts": "1660893198.625589",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DAn9g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Harel is a classic for a reason."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660664383.942219",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "01b5ccf8-4a6c-4ea2-86aa-425bc8f7656e",
+    "type": "message",
+    "text": "I can't read <@U03CEGR3HSL>’s mind, but Free Software as such would be a special, value laden subset.  <https://www.gnu.org/philosophy/open-source-misses-the-point.html>",
+    "user": "UA14TGLTC",
+    "ts": "1660893417.638699",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "X116R",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I can't read "
+              },
+              {
+                "type": "user",
+                "user_id": "U03CEGR3HSL"
+              },
+              {
+                "type": "text",
+                "text": "’s mind, but Free Software as such would be a special, value laden subset.  "
+              },
+              {
+                "type": "link",
+                "url": "https://www.gnu.org/philosophy/open-source-misses-the-point.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660851475.637629",
+    "parent_user_id": "U0245E9RB2B",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U0245E9RB2B"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f672b3ba-a575-4c1d-9fc7-a5a456a3e1e6",
+    "type": "message",
+    "text": "I found the article disappointing tbh, and the Hacker News comments were even worse. Nobody seems to be talking about the biggest opportunity for improvement: finding a completely new programming paradigm that removes a lot of the \"accidental complexity\" in everyday programming. That's the best opportunity we have to remove all of the \"boilerplate\" and \"glue code\" the author is referring to. That's what I believe the Future of Coding to be, that's what I've been working on for the last 3 years, and that's what I think everyone else should be working on too.",
+    "user": "UCGAK10LS",
+    "ts": "1660904732.504589",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1660904764.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3MV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I found the article disappointing tbh, and the Hacker News comments were even worse. Nobody seems to be talking about the biggest opportunity for improvement: finding a completely new programming paradigm that removes a lot of the \"accidental complexity\" in everyday programming. That's the best opportunity we have to remove all of the \"boilerplate\" and \"glue code\" the author is referring to. That's what I believe the Future of Coding to be, that's what I've been working on for the last 3 years, and that's what I think everyone else should be working on too."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660758319.637509",
+    "parent_user_id": "UPVBV34EL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8d06e4a1-9f9e-4656-b6da-a0b0c43da16f",
+    "type": "message",
+    "text": "Hello everyone! I hope you had a great summer so far. I found this to be interesting. For a long time it seemed the Dweb community and web3 to be at oods. But here we have Filecoin ( web3) founding spritely (dweb) .\nI'm looking forward to see more collaboration along these lines in the future:  <https://twitter.com/dustyweb/status/1559960708007305217>",
+    "user": "UJFN50C00",
+    "ts": "1660904754.095659",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UJFN50C00",
+      "ts": "1660904855.000000"
+    },
+    "attachments": [
+      {
+        "from_url": "https://twitter.com/dustyweb/status/1559960708007305217",
+        "ts": 1660758590,
+        "id": 1,
+        "original_url": "https://twitter.com/dustyweb/status/1559960708007305217",
+        "fallback": "<https://twitter.com/dustyweb|@dustyweb>: The <https://twitter.com/spritelyinst|@spritelyinst>, of which I'm CTO, has received its first multi-year substantial funding thanks to <https://twitter.com/FFDWeb|@FFDWeb>! <https://spritely.institute/news/ffdw-support-announcement.html>\n\nWe're here to build the decentralized networks of the future! Time for a thread! :thread: <https://twitter.com/spritelyinst/status/1559958201067442176>",
+        "text": "The <https://twitter.com/spritelyinst|@spritelyinst>, of which I'm CTO, has received its first multi-year substantial funding thanks to <https://twitter.com/FFDWeb|@FFDWeb>! <https://spritely.institute/news/ffdw-support-announcement.html>\n\nWe're here to build the decentralized networks of the future! Time for a thread! :thread: <https://twitter.com/spritelyinst/status/1559958201067442176>",
+        "author_name": "Christine Lemmer-Webber",
+        "author_link": "https://twitter.com/dustyweb/status/1559960708007305217",
+        "author_icon": "https://pbs.twimg.com/profile_images/1552997427086499848/pVoXT5vb_normal.jpg",
+        "author_subname": "@dustyweb",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      },
+      {
+        "from_url": "https://twitter.com/spritelyinst/status/1559958201067442176",
+        "ts": 1660757992,
+        "indent": true,
+        "color": "32BBF3",
+        "id": 2,
+        "fallback": "<https://twitter.com/spritelyinst|@spritelyinst>: We so grateful to receive a substantial grant from <https://twitter.com/FFDWeb|@FFDWeb>! They are supporting us in so many ways...\n\n<https://medium.com/@FFDWeb/ffdw-supports-spritely-networked-communities-institute-to-develop-decentralized-social-media-36833f7273c9>\n\nAlso, <https://twitter.com/dustyweb|@dustyweb> &amp; <https://twitter.com/frandallfarmer|@frandallfarmer>  will be at #DWebCamp, would be happy to meet with potential supporters, sponsors, or technical partners in person.",
+        "text": "We so grateful to receive a substantial grant from <https://twitter.com/FFDWeb|@FFDWeb>! They are supporting us in so many ways...\n\n<https://medium.com/@FFDWeb/ffdw-supports-spritely-networked-communities-institute-to-develop-decentralized-social-media-36833f7273c9>\n\nAlso, <https://twitter.com/dustyweb|@dustyweb> &amp; <https://twitter.com/frandallfarmer|@frandallfarmer>  will be at #DWebCamp, would be happy to meet with potential supporters, sponsors, or technical partners in person.",
+        "author_name": "The Spritely Institute",
+        "author_link": "https://twitter.com/spritelyinst/status/1559958201067442176",
+        "author_icon": "https://pbs.twimg.com/profile_images/1541439036627341319/Eu_-ChaI_normal.jpg",
+        "author_subname": "@spritelyinst",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TVwA=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello everyone! I hope you had a great summer so far. I found this to be interesting. For a long time it seemed the Dweb community and web3 to be at oods. But here we have Filecoin ( web3) founding spritely (dweb) .\nI'm looking forward to see more collaboration along these lines in the future:  "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/dustyweb/status/1559960708007305217"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660904754.095659",
+    "reply_count": 6,
+    "reply_users_count": 3,
+    "latest_reply": "1661097632.473859",
+    "reply_users": [
+      "UE6EFEPTQ",
+      "UHWC9PXBL",
+      "UJFN50C00"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "type": "message",
+    "text": "Hey! I found some logic programming related stuff in the dev holochain discord which I found somehow relevant and wanted to share here:\n\nand here:",
+    "files": [
+      {
+        "id": "F03UQDQC20Z",
+        "created": 1660907855,
+        "timestamp": 1660907855,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UJFN50C00",
+        "editable": false,
+        "size": 161001,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F03UQDQC20Z/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F03UQDQC20Z/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UQDQC20Z-4a1b7d267f/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UQDQC20Z-4a1b7d267f/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UQDQC20Z-4a1b7d267f/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 333,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UQDQC20Z-4a1b7d267f/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 444,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UQDQC20Z-4a1b7d267f/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UQDQC20Z-4a1b7d267f/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 666,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UQDQC20Z-4a1b7d267f/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 740,
+        "original_w": 918,
+        "original_h": 849,
+        "thumb_tiny": "AwAsADCuGOPu/rSEg8kD86RelLz6U7gGR6D86Mj+6Pzo59KXJ9KLgJkf3R+dLvHoPzNHPpTT1ouAA4pd3uKaMd6Xj1oELu9xRn3FN49TRQMdmmk5oooAQ0q4zzSgA0u0UgGUU8qKTApiEopcUhFAH//Z",
+        "permalink": "https://futureofcoding.slack.com/files/UJFN50C00/F03UQDQC20Z/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F03UQDQC20Z-2c395a1100",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UJFN50C00",
+    "display_as_bot": false,
+    "ts": "1660907862.872259",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XMHvI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hey! I found some logic programming related stuff in the dev holochain discord which I found somehow relevant and wanted to share here:\n\nand here:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "edited": {
+      "user": "UJFN50C00",
+      "ts": "1660908145.000000"
+    },
+    "client_msg_id": "d57e77eb-bb1c-422c-85db-7186817a35d7",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "8a1cdc43-7917-4a0b-957d-820a534c7e65",
+    "type": "message",
+    "text": "Link to prolog Code: <https://github.com/perspect3vism/ad4m-executor/blob/main/src/tests/sdna/todo.pl>\nLink to discord message <https://discord.com/channels/919686143581253632/966000883391430696/1001443505492729907>",
+    "user": "UJFN50C00",
+    "ts": "1660907930.775749",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://discord.com/channels/919686143581253632/966000883391430696/1001443505492729907",
+        "id": 1,
+        "original_url": "https://discord.com/channels/919686143581253632/966000883391430696/1001443505492729907",
+        "fallback": "Discord: Discord - A New Way to Chat with Friends &amp; Communities",
+        "text": "Discord is the easiest way to communicate over voice, video, and text. Chat, hang out, and stay close with your friends and communities.",
+        "title": "Discord - A New Way to Chat with Friends &amp; Communities",
+        "title_link": "https://discord.com/channels/919686143581253632/966000883391430696/1001443505492729907",
+        "service_name": "Discord"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "M1Qb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Link to prolog Code: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/perspect3vism/ad4m-executor/blob/main/src/tests/sdna/todo.pl"
+              },
+              {
+                "type": "text",
+                "text": "\nLink to discord message "
+              },
+              {
+                "type": "link",
+                "url": "https://discord.com/channels/919686143581253632/966000883391430696/1001443505492729907"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "type": "message",
+    "text": "",
+    "files": [
+      {
+        "id": "F03UE94BECC",
+        "created": 1660908138,
+        "timestamp": 1660908138,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UJFN50C00",
+        "editable": false,
+        "size": 160285,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F03UE94BECC/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F03UE94BECC/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UE94BECC-48c20302dc/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UE94BECC-48c20302dc/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UE94BECC-48c20302dc/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 208,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UE94BECC-48c20302dc/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 278,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UE94BECC-48c20302dc/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UE94BECC-48c20302dc/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 417,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F03UE94BECC-48c20302dc/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 463,
+        "original_w": 904,
+        "original_h": 523,
+        "thumb_tiny": "AwAbADCsDxS59jSDpwaOaYC59jRn2NJzRzQAufY00/Sl5pDQAq9KWmg0ZNIB1FMzRk+tAD6a1Jk+tFMD/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UJFN50C00/F03UE94BECC/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F03UE94BECC-bf8e1a9210",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UJFN50C00",
+    "display_as_bot": false,
+    "ts": "1660908148.956579",
+    "client_msg_id": "91c908c1-2d56-41ae-8e6d-de1f4a270d8f",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "36277914-16e9-42c5-aca3-b4b6b115828f",
+    "type": "message",
+    "text": "Link to Github project: <https://github.com/perspect3vism/ad4m-executor>",
+    "user": "UJFN50C00",
+    "ts": "1660908185.613209",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WACvn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Link to Github project: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/perspect3vism/ad4m-executor"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "F0F00F7C-9C75-483A-BEA8-B327BEDE1722",
+    "type": "message",
+    "text": "The meetup was a lot of fun! Turns out most of us had some similarities in projects. Definitely want to meet again and can post publicly (and @ you) when we do.",
+    "user": "UK3LH8CF5",
+    "ts": "1660920338.857719",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jdls",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The meetup was a lot of fun! Turns out most of us had some similarities in projects. Definitely want to meet again and can post publicly (and @ you) when we do."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660659617.169979",
+    "parent_user_id": "U03FKLDAAN8",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8acc81ca-ba6a-47fa-8bc3-6e7a82720698",
+    "type": "message",
+    "text": "Although at a technical level, there are a whole bunch of licenses that count as both (GPL, BSD, MIT, Apache, etc.), from a cultural perspective, the Free Software authors are working to expand and protect the freedom of people who use computers (which these days means pretty much everyone) and care deeply about the usefulness of the software they create, which includes its accuracy and reliability. See <https://www.gnu.org/prep/standards/standards.html#Semantics|https://www.gnu.org/prep/standards/standards.html#Semantics>\n\nOn the other hand, many Open Source projects are just toys that people choose to share or projects that people choose to develop more openly for pragmatic reasons.\n\nOf course, these are generalizations and there are many exceptions. My comment above remains mostly true if one substitutes something like \"quality Open Source\" for \"Free Software.\"",
+    "user": "U03CEGR3HSL",
+    "ts": "1660929812.236719",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.gnu.org/prep/standards/standards.html#Semantics",
+        "service_icon": "https://www.gnu.org/favicon.ico",
+        "id": 1,
+        "original_url": "https://www.gnu.org/prep/standards/standards.html#Semantics",
+        "fallback": "GNU Coding Standards",
+        "text": "GNU Coding Standards",
+        "title": "GNU Coding Standards",
+        "title_link": "https://www.gnu.org/prep/standards/standards.html#Semantics",
+        "service_name": "gnu.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=Ws",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Although at a technical level, there are a whole bunch of licenses that count as both (GPL, BSD, MIT, Apache, etc.), from a cultural perspective, the Free Software authors are working to expand and protect the freedom of people who use computers (which these days means pretty much everyone) and care deeply about the usefulness of the software they create, which includes its accuracy and reliability. See "
+              },
+              {
+                "type": "link",
+                "url": "https://www.gnu.org/prep/standards/standards.html#Semantics",
+                "text": "https://www.gnu.org/prep/standards/standards.html#Semantics"
+              },
+              {
+                "type": "text",
+                "text": "\n\nOn the other hand, many Open Source projects are just toys that people choose to share or projects that people choose to develop more openly for pragmatic reasons.\n\nOf course, these are generalizations and there are many exceptions. My comment above remains mostly true if one substitutes something like \"quality Open Source\" for \"Free Software.\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660851475.637629",
+    "parent_user_id": "U0245E9RB2B",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "77c37381-af0c-43dc-a540-c6d880403d20",
+    "type": "message",
+    "text": "<@UGWUJUZHT> I’m excited to dig in those presentations. The first things I saw were language and diagrams around the concept of modular state machines. I want to see how that’s formalized up. I have a coworker that would chew this up too (ahem ahem <@U03SYASNRFX>) as we’ve been talking about this quite a bit.\n\nIf I can grok StateCharts, I think I’ll end up with a brand new and useful organization tool for state management. That, as they say, is _legit_.",
+    "user": "U03E4LY27FS",
+    "ts": "1660939745.531329",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SRD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " I’m excited to dig in those presentations. The first things I saw were language and diagrams around the concept of modular state machines. I want to see how that’s formalized up. I have a coworker that would chew this up too (ahem ahem "
+              },
+              {
+                "type": "user",
+                "user_id": "U03SYASNRFX"
+              },
+              {
+                "type": "text",
+                "text": ") as we’ve been talking about this quite a bit.\n\nIf I can grok StateCharts, I think I’ll end up with a brand new and useful organization tool for state management. That, as they say, is "
+              },
+              {
+                "type": "text",
+                "text": "legit",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660664383.942219",
+    "parent_user_id": "U03LMRE6MQE",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U03SYASNRFX"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UGWUJUZHT",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ddc89998-9ba7-45f8-88f1-4ffaed79599b",
+    "type": "message",
+    "text": "Umm, define \"DWeb\" and \"Web3\" without reference to orthogonal business models.",
+    "user": "UE6EFEPTQ",
+    "ts": "1660945791.296219",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3/hUq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Umm, define \"DWeb\" and \"Web3\" without reference to orthogonal business models."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660904754.095659",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

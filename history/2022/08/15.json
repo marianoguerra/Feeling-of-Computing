@@ -1,0 +1,1491 @@
+[
+  {
+    "client_msg_id": "60e6b064-df86-478b-96b0-1a6019f530bf",
+    "type": "message",
+    "text": "(I think present-company. is probably the channel for this. From the member handbook \"If you’d like help with your homework, this is the place to ask.\" Not that this is necessarily homework. But anyway.)\nIs the question how to define a transformation that sends four coordinates v1,v2,v3,v4 to the four coordinates (0.25,0.25), (0.25, 0.75), (0.75, 0.25), (0.75, 0.75)?",
+    "user": "UFPRPSA4S",
+    "ts": "1660522015.198799",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "==6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(I think present-company. is probably the channel for this. From the member handbook \"If you’d like help with your homework, this is the place to ask.\" Not that this is necessarily homework. But anyway.)\nIs the question how to define a transformation that sends four coordinates v1,v2,v3,v4 to the four coordinates (0.25,0.25), (0.25, 0.75), (0.75, 0.25), (0.75, 0.75)?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "reactions": [
+      {
+        "name": "amiga-tick",
+        "users": [
+          "U03E4LY27FS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2b8361d4-43b9-4937-9ac1-02886991aea3",
+    "type": "message",
+    "text": "I’ll happily remove this and pop it over there. I didn’t realize that was a line in there - my apologies for the break.\n\nI think that’s my question, yeah… The target coordinates will vary, but that’s the idea. And the reason being that the same vertices (v1-4) will always pipe through the graphics pipeline, but the vertices for each constant that defines the instance being drawn will be unique. I want to take an input vertex which is at one of those coordinates, and say, “This coordinate is at ___ u,v position within the bounds given by the constants that define this instance)“.\n\nI think I haven’t define the problem correctly, because the more I write it out, the more I think something is missing.. I’m just not sure.",
+    "user": "U03E4LY27FS",
+    "ts": "1660522595.292599",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uTi6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’ll happily remove this and pop it over there. I didn’t realize that was a line in there - my apologies for the break.\n\nI think that’s my question, yeah… The target coordinates will vary, but that’s the idea. And the reason being that the same vertices (v1-4) will always pipe through the graphics pipeline, but the vertices for each constant that defines the instance being drawn will be unique. I want to take an input vertex which is at one of those coordinates, and say, “This coordinate is at ___ u,v position within the bounds given by the constants that define this instance)“.\n\nI think I haven’t define the problem correctly, because the more I write it out, the more I think something is missing.. I’m just not sure."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c9f83c1b-9339-4e40-ac93-f40802fc47a0",
+    "type": "message",
+    "text": "I'll describe how you can map vectors v1...v4 to vectors w1...w4 assuming they label the edges of rectangles in the order top-left, bottom-left, top-right, bottom-right. The mapping can be expressed as the composite of three simpler maps:\n(1) Translate the original rectangle to the origin. This is achieved by the mapping sending an arbitrary vector x to x-v1.\n(2) Scale the resulting rectangle so it is the same size as the rectangle w1...w4. In the horizontal direction you have to scale by |w3-w1|/|v3-v1|. In the vertical direction it is |w2-w1|/|v2-v1|.\n(3) Translate the resulting rectangle from the origin to w1. This is the mapping sending an arbitrary vector x to x+w1. Composing these three maps will map  v1...v4 to w1...w4.\n\nI hope this helps. I don't know graphics programming, but if you have any other math questions, or need some more detail, I'm glad to help.",
+    "user": "UFPRPSA4S",
+    "ts": "1660528616.583249",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4t=zw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'll describe how you can map vectors v1...v4 to vectors w1...w4 assuming they label the edges of rectangles in the order top-left, bottom-left, top-right, bottom-right. The mapping can be expressed as the composite of three simpler maps:\n(1) Translate the original rectangle to the origin. This is achieved by the mapping sending an arbitrary vector x to x-v1.\n(2) Scale the resulting rectangle so it is the same size as the rectangle w1...w4. In the horizontal direction you have to scale by |w3-w1|/|v3-v1|. In the vertical direction it is |w2-w1|/|v2-v1|.\n(3) Translate the resulting rectangle from the origin to w1. This is the mapping sending an arbitrary vector x to x+w1. Composing these three maps will map  v1...v4 to w1...w4.\n\nI hope this helps. I don't know graphics programming, but if you have any other math questions, or need some more detail, I'm glad to help."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U03E4LY27FS",
+          "UCUSW7WVD"
+        ],
+        "count": 2
+      },
+      {
+        "name": "star2",
+        "users": [
+          "U03E4LY27FS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d3ec6b3c-ef1e-4efb-b7d3-d225e9124fc2",
+    "type": "message",
+    "text": "This is quite helpful Robin, I’m going to save this snippet because I’m going to be scaling nodes soon.. and this is exactly the math I think I’ll need. I sincerely appreciate it.",
+    "user": "U03E4LY27FS",
+    "ts": "1660529481.122759",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "whP8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is quite helpful Robin, I’m going to save this snippet because I’m going to be scaling nodes soon.. and this is exactly the math I think I’ll need. I sincerely appreciate it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UFPRPSA4S"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "db697426-b2a7-416a-aa02-d12739ea1f4d",
+    "type": "message",
+    "text": "You're correct about those games. What is maybe more interesting to discuss is the game *engines*. You can't make Minecraft look like doom - but you probably can implement doom in minecraft's engine. I don't know how trivial of a statement that is, but that's his point",
+    "user": "U017GNJM021",
+    "ts": "1660530392.769899",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "c5M",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You're correct about those games. What is maybe more interesting to discuss is the game "
+              },
+              {
+                "type": "text",
+                "text": "engines",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". You can't make Minecraft look like doom - but you probably can implement doom in minecraft's engine. I don't know how trivial of a statement that is, but that's his point"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660501055.885689",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "2e87cdd6-cd35-4701-ad56-e40890cc25f4",
+    "type": "message",
+    "text": "I see. I thought he was talking about building levels in the Doom game?",
+    "user": "UCUSW7WVD",
+    "ts": "1660530921.434049",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oOsw6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I see. I thought he was talking about building levels in the Doom game?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660501055.885689",
+    "parent_user_id": "U017GNJM021",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6db75450-81d2-4f3b-b127-a6f0b07fd22d",
+    "type": "message",
+    "text": "I'm personally quite happy to see this thread in this channel. I'm happy to give long-time members the benefit of the doubt that they're working on some sort of FoC project rather than extrinsically motivated \"home work\". It's not like there's a lot of thinking together going on here anyway :smile:",
+    "user": "UCUSW7WVD",
+    "ts": "1660531484.766349",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8y6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm personally quite happy to see this thread in this channel. I'm happy to give long-time members the benefit of the doubt that they're working on some sort of FoC project rather than extrinsically motivated \"home work\". It's not like there's a lot of thinking together going on here anyway "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "reactions": [
+      {
+        "name": "sparkles",
+        "users": [
+          "U03E4LY27FS"
+        ],
+        "count": 1
+      },
+      {
+        "name": "beer",
+        "users": [
+          "U03E4LY27FS"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UFPRPSA4S"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "622177ca-dc1a-4093-bc91-4b965a4ed000",
+    "type": "message",
+    "text": "I love to read it Kartik, haha. This is something absolutely plan to share with FoC - as soon as I have it working. I’ve been making leaps all this week, and I’ve been reaching out more now I’m getting closer to a wrap up of this next step.",
+    "user": "U03E4LY27FS",
+    "ts": "1660531674.443749",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yR=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I love to read it Kartik, haha. This is something absolutely plan to share with FoC - as soon as I have it working. I’ve been making leaps all this week, and I’ve been reaching out more now I’m getting closer to a wrap up of this next step."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b8d5a63b-1df7-42e7-b2cb-722440ce4612",
+    "type": "message",
+    "text": "Better video that might resonate w more people less interested in CLJS and more with CLJ work.\n\n<https://www.youtube.com/watch?v=PwzucD5qoD4>",
+    "user": "U036TFVAWJD",
+    "ts": "1660533069.179309",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=PwzucD5qoD4",
+        "thumb_url": "https://i.ytimg.com/vi/PwzucD5qoD4/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/PwzucD5qoD4?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen title=\"Data Rabbit - nREPLs, SQL, JDBC, Viz (Nivo, Vega-lite), Sub-flows\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=PwzucD5qoD4",
+        "fallback": "YouTube Video: Data Rabbit - nREPLs, SQL, JDBC, Viz (Nivo, Vega-lite), Sub-flows",
+        "title": "Data Rabbit - nREPLs, SQL, JDBC, Viz (Nivo, Vega-lite), Sub-flows",
+        "title_link": "https://www.youtube.com/watch?v=PwzucD5qoD4",
+        "author_name": "Ryan Robitaille",
+        "author_link": "https://www.youtube.com/c/RyanRobitaille",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xc0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Better video that might resonate w more people less interested in CLJS and more with CLJ work.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=PwzucD5qoD4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660441700.275339",
+    "parent_user_id": "U036TFVAWJD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0b7bac44-bfbb-438d-8e86-c81d60d34d05",
+    "type": "message",
+    "text": "My compound graph editing tool now has undo/redo and jump-to-node: <https://grapherx.netlify.app/>\nAlso came across another open-source tool which has quite a few features (except the parent-child relations between nodes which was crucial for me): <https://prsm.uk/>",
+    "user": "U018S42NMMM",
+    "ts": "1660538987.981079",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://prsm.uk/",
+        "thumb_url": "https://prsm.uk/public/pexels-dobromir-hristov-3845161.jpg",
+        "thumb_width": 4000,
+        "thumb_height": 2250,
+        "service_icon": "https://prsm.uk/apple-touch-icon.14f1d764.png",
+        "id": 1,
+        "original_url": "https://prsm.uk/",
+        "fallback": "PRSM: Participatory System Mapper",
+        "text": "The Participatory System Mapper (PRSM) is an app that makes it easy to draw networks (or maps) of systems, working together collaboratively",
+        "title": "PRSM: Participatory System Mapper",
+        "title_link": "https://prsm.uk/",
+        "service_name": "prsm.uk"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nDviI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My compound graph editing tool now has undo/redo and jump-to-node: "
+              },
+              {
+                "type": "link",
+                "url": "https://grapherx.netlify.app/"
+              },
+              {
+                "type": "text",
+                "text": "\nAlso came across another open-source tool which has quite a few features (except the parent-child relations between nodes which was crucial for me): "
+              },
+              {
+                "type": "link",
+                "url": "https://prsm.uk/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660538987.981079",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1660586434.500099",
+    "reply_users": [
+      "U03TX2GT080"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "U03HC3XHZGW"
+        ],
+        "count": 1
+      },
+      {
+        "name": "raised_hands",
+        "users": [
+          "U035VS7E01K"
+        ],
+        "count": 1
+      },
+      {
+        "name": "eyes",
+        "users": [
+          "UJZS8UUJV"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "11ad47fa-1c8e-42c6-9585-6557df1a14cf",
+    "type": "message",
+    "text": "u want a simple matrix that maps between the two vector spaces (which you can invert if you need to go the other way). A simple 2x2 matrix can;t do translations, which is what homogeneous coordinates solves. Instead of a point (x,y) you make them (x,y,1) and multiply by a 3x3 matrix which has 0s in certain elements. That extra 1 on the end is leverage by the transformation matrix to move the origin. See <https://web.cse.ohio-state.edu/~shen.94/681/Site/Slides_files/transformation_review.pdf>",
+    "user": "U02E4DAQGSZ",
+    "ts": "1660542338.682429",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NHgD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "u want a simple matrix that maps between the two vector spaces (which you can invert if you need to go the other way). A simple 2x2 matrix can;t do translations, which is what homogeneous coordinates solves. Instead of a point (x,y) you make them (x,y,1) and multiply by a 3x3 matrix which has 0s in certain elements. That extra 1 on the end is leverage by the transformation matrix to move the origin. See "
+              },
+              {
+                "type": "link",
+                "url": "https://web.cse.ohio-state.edu/~shen.94/681/Site/Slides_files/transformation_review.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "737b14a9-d00e-45ba-acfe-01048fe2057e",
+    "type": "message",
+    "text": "I would say you don't want to break the transform down into translating then rotating etc. It's all covered by vector-matrix multiplication, and it's far more composable and effecient (and idiomatic graphics programming) to stick to the matrix representation of transforms.",
+    "user": "U02E4DAQGSZ",
+    "ts": "1660543865.718769",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uvu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I would say you don't want to break the transform down into translating then rotating etc. It's all covered by vector-matrix multiplication, and it's far more composable and effecient (and idiomatic graphics programming) to stick to the matrix representation of transforms."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b998f765-f9f5-4cae-ab74-95bb0e1369e3",
+    "type": "message",
+    "text": "here is a very concrete example in practice that matches your problem <https://math.stackexchange.com/questions/296794/finding-the-transform-matrix-from-4-projected-points-with-javascript>",
+    "user": "U02E4DAQGSZ",
+    "ts": "1660546331.940939",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://math.stackexchange.com/questions/296794/finding-the-transform-matrix-from-4-projected-points-with-javascript",
+        "thumb_url": "https://cdn.sstatic.net/Sites/math/Img/apple-touch-icon@2.png?v=4ec1df2e49b1",
+        "thumb_width": 316,
+        "thumb_height": 316,
+        "service_icon": "https://cdn.sstatic.net/Sites/math/Img/apple-touch-icon.png?v=0ae50baa40ed",
+        "id": 1,
+        "original_url": "https://math.stackexchange.com/questions/296794/finding-the-transform-matrix-from-4-projected-points-with-javascript",
+        "fallback": "Mathematics Stack Exchange: Finding the Transform matrix from 4 projected points (with Javascript)",
+        "text": "I'm working on a project using Chrome - JS and Webkit 3D CSS3 transform matrix. The final goal is to create a tool for artistic projects using projectors and animation - somewhat far away from using",
+        "title": "Finding the Transform matrix from 4 projected points (with Javascript)",
+        "title_link": "https://math.stackexchange.com/questions/296794/finding-the-transform-matrix-from-4-projected-points-with-javascript",
+        "service_name": "Mathematics Stack Exchange"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FyMAT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "here is a very concrete example in practice that matches your problem "
+              },
+              {
+                "type": "link",
+                "url": "https://math.stackexchange.com/questions/296794/finding-the-transform-matrix-from-4-projected-points-with-javascript"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660513026.932579",
+    "parent_user_id": "U03E4LY27FS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6bf45066-7663-4211-b5b8-a20738170fc9",
+    "type": "message",
+    "text": "&gt; “The top row of alphabetic keys of the standard typewriter reads QWERTY. For me this symbolizes the way in which technology can all too often serve not as a force for progress but for keeping things stuck. The QWERTY arrangement has no rational explanation, only a historical one. It was introduced in response to a problem in the early days of the typewriter: The keys used to jam. The idea was to minimize the collision problem by separating those keys that followed one another frequently … QWERTY has stayed on despite the existence of other, more “rational” systems ... Although these justifications have no rational foundation, they illustrate a process, a social process, of myth construction that allows us to build a justification for primitivity into any system. And I think that we are well on the road to doing exactly the same thing with the computer. We are in the process of digging ourselves into an anachronism by preserving practices that have no rational basis beyond their historical roots in an earlier period of technological and theoretical development.”\nFrom “Mindstorms: Children, Computers, and Powerful Ideas” <http://worrydream.com/refs/Papert%20-%20Mindstorms%201st%20ed.pdf>",
+    "user": "U03FPD8BF19",
+    "ts": "1660556550.531629",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ful",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "“The top row of alphabetic keys of the standard typewriter reads QWERTY. For me this symbolizes the way in which technology can all too often serve not as a force for progress but for keeping things stuck. The QWERTY arrangement has no rational explanation, only a historical one. It was introduced in response to a problem in the early days of the typewriter: The keys used to jam. The idea was to minimize the collision problem by separating those keys that followed one another frequently … QWERTY has stayed on despite the existence of other, more “rational” systems ... Although these justifications have no rational foundation, they illustrate a process, a social process, of myth construction that allows us to build a justification for primitivity into any system. And I think that we are well on the road to doing exactly the same thing with the computer. We are in the process of digging ourselves into an anachronism by preserving practices that have no rational basis beyond their historical roots in an earlier period of technological and theoretical development.”"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "From “Mindstorms: Children, Computers, and Powerful Ideas” "
+              },
+              {
+                "type": "link",
+                "url": "http://worrydream.com/refs/Papert%20-%20Mindstorms%201st%20ed.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660556550.531629",
+    "reply_count": 2,
+    "reply_users_count": 1,
+    "latest_reply": "1660700196.027829",
+    "reply_users": [
+      "UA14TGLTC"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U01DBLH2DN1",
+          "U013ZLJARC7",
+          "UHWC9PXBL",
+          "UJBAJNFLK",
+          "UBSMEUXAA",
+          "U03SYASNRFX",
+          "UA14TGLTC"
+        ],
+        "count": 7
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "82B6D51E-C41F-4597-8EF0-2477407470DB",
+    "type": "message",
+    "text": "Calling all type nerds: my new job deals with a lot of encrypted data that shouldn't be transmitted in plaintext. We’ve just added sorbet to our rails project (gradual typechecker). I feel like I've read somewhere that it's possible to use types to enforce that kind of restriction. Does anyone have any experience using types for that (or links to talks/papers/blog posts)?",
+    "user": "UHWC9PXBL",
+    "ts": "1660577052.279489",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UHWC9PXBL",
+      "ts": "1660577065.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IiPI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Calling all type nerds: my new job deals with a lot of encrypted data that shouldn't be transmitted in plaintext. We’ve just added sorbet to our rails project (gradual typechecker). I feel like I've read somewhere that it's possible to use types to enforce that kind of restriction. Does anyone have any experience using types for that (or links to talks/papers/blog posts)?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "reply_count": 24,
+    "reply_users_count": 5,
+    "latest_reply": "1660634183.477299",
+    "reply_users": [
+      "UBN9AFS0N",
+      "UHWC9PXBL",
+      "UFPPABQ7P",
+      "U035QJ14NN9",
+      "U02E4DAQGSZ"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1660634183.477299",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "233f1bdb-0741-44a0-a04f-df8a37f505e1",
+    "type": "message",
+    "text": "Language-based information-flow security <https://ieeexplore.ieee.org/abstract/document/1159651>",
+    "user": "UBN9AFS0N",
+    "ts": "1660578027.011019",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hK4K6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Language-based information-flow security "
+              },
+              {
+                "type": "link",
+                "url": "https://ieeexplore.ieee.org/abstract/document/1159651"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "47d1009e-f4b0-4cef-aa10-805c2252b082",
+    "type": "message",
+    "text": "you may find more searching for \"tainted data\", \"taint propagation\" and similar",
+    "user": "UBN9AFS0N",
+    "ts": "1660578161.041829",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UKMk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "you may find more searching for \"tainted data\", \"taint propagation\" and similar"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "BC2E7C74-A707-4EF8-9629-7D5E6CDDBEFC",
+    "type": "message",
+    "text": "for anyone looking, here's the preprint: <https://www.cs.cornell.edu/andru/papers/jsac/sm-jsac03.pdf|https://www.cs.cornell.edu/andru/papers/jsac/sm-jsac03.pdf>",
+    "user": "UHWC9PXBL",
+    "ts": "1660578515.363409",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pfS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "for anyone looking, here's the preprint: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.cs.cornell.edu/andru/papers/jsac/sm-jsac03.pdf",
+                "text": "https://www.cs.cornell.edu/andru/papers/jsac/sm-jsac03.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "6B8032AA-118C-4BFA-9BE7-EECBD6AEBAB6",
+    "type": "message",
+    "text": "<@UFPPABQ7P> ",
+    "user": "UHWC9PXBL",
+    "ts": "1660578888.786369",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RwH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UFPPABQ7P"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "8CCA46E7-EC9D-43E4-8D05-412B7555EC0D",
+    "type": "message",
+    "text": "i'm almost imagining something like a NoTransmit&lt;a&gt; getting returned from the decryption function and delegating all the methods to the member… but then using some kind of exclusion logic on methods that transmit data to the client. or like have the transmission methods only accept Encrypted&lt;a&gt; for certain values of a. is that too wild?",
+    "user": "UHWC9PXBL",
+    "ts": "1660578970.711569",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1jgH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i'm almost imagining something like a NoTransmit<a> getting returned from the decryption function and delegating all the methods to the member… but then using some kind of exclusion logic on methods that transmit data to the client. or like have the transmission methods only accept Encrypted<a> for certain values of a. is that too wild?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "5f7a1411-6c86-4df8-9003-0226274d9b74",
+    "type": "message",
+    "text": "I might be harebrained to say this. But, my initial thought is to have a kind of encrypted dictionary of information + a centralized security master with an access log.",
+    "user": "UFPPABQ7P",
+    "ts": "1660579515.111989",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MdN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I might be harebrained to say this. But, my initial thought is to have a kind of encrypted dictionary of information + a centralized security master with an access log."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "B58A03F9-4661-4D40-96AC-0799376EFB73",
+    "type": "message",
+    "text": "the company is SOC 2 compliant—encryption at rest and in transit is already happening ",
+    "user": "UHWC9PXBL",
+    "ts": "1660579556.289779",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UHWC9PXBL",
+      "ts": "1660579587.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "n6e",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the company is SOC 2 compliant—encryption at rest and in transit is already happening "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "df961224-17d2-4004-9d71-aba0d02c69b5",
+    "type": "message",
+    "text": "Ah, so this is just a type design question?",
+    "user": "UFPPABQ7P",
+    "ts": "1660579591.881269",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "X23q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, so this is just a type design question?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "1C8DFA1D-5209-469E-8EEB-B5F3AA2190C9",
+    "type": "message",
+    "text": "yeah the scenario is basically: the server decrypts some data for a calculation, then asks an api a question or sends some data to a client, while accidentally including some personally identifiable info. we catch it in code reviews but i was was wondering if there was a way to catch it at compile time",
+    "user": "UHWC9PXBL",
+    "ts": "1660579667.831009",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1/MW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yeah the scenario is basically: the server decrypts some data for a calculation, then asks an api a question or sends some data to a client, while accidentally including some personally identifiable info. we catch it in code reviews but i was was wondering if there was a way to catch it at compile time"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "d3e9bdeb-4561-499a-bae1-543794cb4c55",
+    "type": "message",
+    "text": "Something simple could be to always return decrypted data back to the user code under a `{ $dec: ___ }` key, so then, you would always have to access the decrypted data by using `respJson.userName.$dec` then, you can write a linter to statically check all use-sites accesses of the decrypted data.\n\nJust spit balling. This could obv be modified to some other tools in Ruby",
+    "user": "UFPPABQ7P",
+    "ts": "1660579912.305439",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "966",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Something simple could be to always return decrypted data back to the user code under a "
+              },
+              {
+                "type": "text",
+                "text": "{ $dec: ___ }",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " key, so then, you would always have to access the decrypted data by using "
+              },
+              {
+                "type": "text",
+                "text": "respJson.userName.$dec",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " then, you can write a linter to statically check all use-sites accesses of the decrypted data.\n\nJust spit balling. This could obv be modified to some other tools in Ruby"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "25442c0f-462f-440a-9b3a-bf9b0a01a68d",
+    "type": "message",
+    "text": "Or, it's easier to lint with your eyes...",
+    "user": "UFPPABQ7P",
+    "ts": "1660579948.273689",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ryM8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Or, it's easier to lint with your eyes..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "8936335F-1ED7-41D9-BBEF-5B00DBC302C3",
+    "type": "message",
+    "text": "yeah i'm pretty much trying to figure out how to encode that with a type—the decryption process is really clever, so it basically feels like you're using a regular rails object even though it's encrypted in memory. that's really nice for ergonomics and not having to update the whole codebase but it also means there's no guardrail to prevent you from sending it somewhere. maybe the answer is just to look through the encryption/decryption code and see if there's an obvious spot for a shim ",
+    "user": "UHWC9PXBL",
+    "ts": "1660580033.074959",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zEbW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yeah i'm pretty much trying to figure out how to encode that with a type—the decryption process is really clever, so it basically feels like you're using a regular rails object even though it's encrypted in memory. that's really nice for ergonomics and not having to update the whole codebase but it also means there's no guardrail to prevent you from sending it somewhere. maybe the answer is just to look through the encryption/decryption code and see if there's an obvious spot for a shim "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "28bb79bd-c3ba-471f-9d05-3e76b281b0f2",
+    "type": "message",
+    "text": "a data type that throws when encoded/decoded? (if that's a thing in ruby)",
+    "user": "UBN9AFS0N",
+    "ts": "1660580072.115619",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xylW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "a data type that throws when encoded/decoded? (if that's a thing in ruby)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "BC3EC89C-472D-496B-8E96-21003966940E",
+    "type": "message",
+    "text": "so we want it to be decoded for use. we just don't want the decoded data sent off the server ",
+    "user": "UHWC9PXBL",
+    "ts": "1660580096.574949",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cA/61",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "so we want it to be decoded for use. we just don't want the decoded data sent off the server "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "A16A1EE8-AB14-4378-BE43-34E15FC415FD",
+    "type": "message",
+    "text": "or saved without encryption (very unlikely because the save instructions etc get interrupted by an encrypt-first proxy afaict)",
+    "user": "UHWC9PXBL",
+    "ts": "1660580166.758879",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UHWC9PXBL",
+      "ts": "1660580177.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9nRk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "or saved without encryption (very unlikely because the save instructions etc get interrupted by an encrypt-first proxy afaict)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "E47208BB-959A-49BC-BACE-7F9B26D09487",
+    "type": "message",
+    "text": "this is kind of like the expression problem tbh: it's really easy in a dynamic OO PL to make sure that data gets encrypted/decrypted for save and use but it's really hard when we start calling functions like ‘`respond_to`’ or ‘`to_json`’ with that data as arguments or values deep in a hash somewhere ",
+    "user": "UHWC9PXBL",
+    "ts": "1660580298.124039",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "p4=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this is kind of like the expression problem tbh: it's really easy in a dynamic OO PL to make sure that data gets encrypted/decrypted for save and use but it's really hard when we start calling functions like ‘"
+              },
+              {
+                "type": "text",
+                "text": "respond_to",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "’ or ‘"
+              },
+              {
+                "type": "text",
+                "text": "to_json",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "’ with that data as arguments or values deep in a hash somewhere "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "22383FAB-1CFD-4426-86AF-5BE1CA1FE9CD",
+    "type": "message",
+    "text": "i'm hoping there's some way to make that data a wrapped type that complains only when it's going over the wire",
+    "user": "UHWC9PXBL",
+    "ts": "1660580389.163469",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4cM+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i'm hoping there's some way to make that data a wrapped type that complains only when it's going over the wire"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "d7b26506-aa1b-4c1c-b4f6-f4549a3877bf",
+    "type": "message",
+    "text": "Sounds almost like sonarqube control flow analysis type stuff. Tracking when a piece of data was unwrapped and where it goes in order to detect this type of issue statically.\n\nNot really an answer...",
+    "user": "UFPPABQ7P",
+    "ts": "1660580516.270109",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1660580588.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cN/g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sounds almost like sonarqube control flow analysis type stuff. Tracking when a piece of data was unwrapped and where it goes in order to detect this type of issue statically.\n\nNot really an answer..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "3112513b-7cd8-4a84-bd9e-54d4cd45b87f",
+    "type": "message",
+    "text": "Another strategy is to try to completely isolate communications with this business logic somehow. So, you can do all the dangerous PII Management inside the business logic process, but it has to go through a small port to communicate externally (port like Elm)",
+    "user": "UFPPABQ7P",
+    "ts": "1660580684.162459",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "luJO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Another strategy is to try to completely isolate communications with this business logic somehow. So, you can do all the dangerous PII Management inside the business logic process, but it has to go through a small port to communicate externally (port like Elm)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "d8366a21-b311-474a-8e23-ea0179015a4f",
+    "type": "message",
+    "text": "One other crazy idea, would be to include mocking tools to generate pii during your testing. And, then use a proxies on the request to make sure pii matching data from the mocker are not being sent between services.",
+    "user": "UFPPABQ7P",
+    "ts": "1660580798.577349",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l53",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One other crazy idea, would be to include mocking tools to generate pii during your testing. And, then use a proxies on the request to make sure pii matching data from the mocker are not being sent between services."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "c45f0042-9d66-498b-b791-85fd9999ed0e",
+    "type": "message",
+    "text": "Almost like a security fuzzer *",
+    "user": "UFPPABQ7P",
+    "ts": "1660580820.991009",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1660586226.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hrj6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Almost like a security fuzzer *"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "CBEF7029-A94C-4F4B-AA62-7D8ECD7BB22D",
+    "type": "message",
+    "text": "woah these are all great ideas thank you",
+    "user": "UHWC9PXBL",
+    "ts": "1660581635.152709",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oQzXx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "woah these are all great ideas thank you"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "F86B547A-EDCE-4BA9-960C-04315469FFFA",
+    "type": "message",
+    "text": "Perhaps create a Classified&lt;T&gt; type that can only be read by a Declassifier object, giving you something like object capabilities.",
+    "user": "U035QJ14NN9",
+    "ts": "1660585317.747369",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YVF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Perhaps create a Classified<T> type that can only be read by a Declassifier object, giving you something like object capabilities."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660577052.279489",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "0ebb5d32-fda9-4ccb-b33a-d3a3e6f4c92d",
+    "type": "message",
+    "text": "Just checked out grapherx and the resizing of the larger node as you’re moving the smaller nodes is really cool",
+    "user": "U03TX2GT080",
+    "ts": "1660586434.500099",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "i9i",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just checked out grapherx and the resizing of the larger node as you’re moving the smaller nodes is really cool"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1660538987.981079",
+    "parent_user_id": "U018S42NMMM",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "abd5e5ad-6a9b-447f-aaf6-90a2b0887cc3",
+    "type": "message",
+    "text": "This week (Week 33) I've tried building a completely pure actor based runtime. <https://petersaxton.uk/log/> I think it's somewhat promising as an approach but I wonder if at this point I should write a fully fledged effect type for my system. Also is it even possible to represent dynamic types in a structurally typed system.",
+    "user": "U03LMRE6MQE",
+    "ts": "1660588459.008419",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0k0BB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This week (Week 33) I've tried building a completely pure actor based runtime. "
+              },
+              {
+                "type": "link",
+                "url": "https://petersaxton.uk/log/"
+              },
+              {
+                "type": "text",
+                "text": " I think it's somewhat promising as an approach but I wonder if at this point I should write a fully fledged effect type for my system. Also is it even possible to represent dynamic types in a structurally typed system."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  }
+]
