@@ -47,12 +47,10 @@ async function main() {
   const ctx = { usersById, channelsById };
 
   const items = [];
-  function onDayData(data, info) {
-    console.log(info);
+  function onDayData(data, _info) {
     for (const msg of data) {
       const message = Message.Class.fromData(msg, ctx);
       items.push(message);
-      console.log(msg, message);
     }
   }
   await walk(fetcher, fromDate, toDate, onDayData);
