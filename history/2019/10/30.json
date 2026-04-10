@@ -1,0 +1,2695 @@
+[
+  {
+    "client_msg_id": "c355495b-b90d-4308-af35-312e64730d47",
+    "type": "message",
+    "text": "&gt;  I'd like to build a radically different kind of text editor as part of a projectional editor for my programming language.\n\n<@UJN1TAYEQ> can  you describe what you're looking for in more detail? Have you written this up somewhere? One way would be to customize one of the existing text editors.",
+    "user": "U8A5MS6R1",
+    "ts": "1572406981.102000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572333153.013800",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "type": "message",
+    "text": "On the original topic: yes there is a fair bit of essential complexity in both designing and implementing text editing type stuff. Yet I feel a lot of incidental complexity pops up while implementing editors as well. Even when you've figured out all the corner cases and decided their behavior - how do you encode it? How do you detect the layout and  reflow? How do you keep track of events and of different versions of your buffer? The standard APIs dictate a lot here and the usual programming tools limit what you can 'see'. For instance, we don't usually see the layout live as we edit code. Here's an example of what may be possible:",
+    "files": [
+      {
+        "id": "FPLRF8RB5",
+        "created": 1572407988,
+        "timestamp": 1572407988,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U8A5MS6R1",
+        "editable": false,
+        "size": 398023,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-FPLRF8RB5/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-FPLRF8RB5/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-FPLRF8RB5-b0224f88a3/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-FPLRF8RB5-b0224f88a3/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-FPLRF8RB5-b0224f88a3/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 289,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-FPLRF8RB5-b0224f88a3/image_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 386,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-FPLRF8RB5-b0224f88a3/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-FPLRF8RB5-b0224f88a3/image_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 578,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-FPLRF8RB5-b0224f88a3/image_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 643,
+        "image_exif_rotation": 1,
+        "original_w": 809,
+        "original_h": 650,
+        "thumb_tiny": "AwAmADC+epowTT2IyOM01cbutACYNLg0nHPJ/KlXAHrQAmDTlBBpR9KWgBjE7sY/So4pS0pXZwO9T0UCIj1Py09OegxUUysyMFb5vrRbAhDuYNz2OaYX1sT0UmRS0hjCzZ4Ao3N6ClPWk70ANKsQRxzxSQx+XkDncckk08Uo6igBfm9qBnvilooA/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/U8A5MS6R1/FPLRF8RB5/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-FPLRF8RB5-11a7645237",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": true,
+    "user": "U8A5MS6R1",
+    "display_as_bot": false,
+    "ts": "1572407991.102200",
+    "edited": {
+      "user": "U8A5MS6R1",
+      "ts": "1572408079.000000"
+    },
+    "client_msg_id": "4b5900ee-a185-4183-bde3-4ed157646df0",
+    "thread_ts": "1572333153.013800",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "770c6d57-6f85-4356-ad67-43aa1a1f699e",
+    "type": "message",
+    "text": "It is amusing to me that his laptop has an Erlang sticker, when Joe Armstrong, the inventor had such a dim view of the Actor model. There is a lively reunion on YouTube of three famous senior UK computer scientists who each selected a different technology to pursue. One was Hewitt, the actor model, and Armstrong, and Hoare who had some other paradigm i forget which. Anyway they had a debate about what were the results, and Armstrong ripped them to shreds because he pointed out that is system worked and theirs didn't actually work. Pharo has the best IDE i have ever seen, but the underlying language smalltalk was DOA (dead on arrival). The original editions of the smalltalk book by Goldberg are worth a lot, because sensible people like me who bought that book tossed it out because the language is so clunky and hard to read, and frankly absurd. You send the message PLUS to the number 3 along with another operator 2, and then the 3 updates itself to 5. That isn't too far out, but when you get to bitmap manipulation, the model really gets ugly.\n\n The actor model creates not only huge numbers of little islands of state, but then compounds that mistake by creating a message passing system that is hell to debug. In any toolchain that becomes hypercomplex to understand, there are always exceptional people who claim it is no problem, but if you take a big actor model program, and pass it to another programmer, they will have zero chance of understanding it. It becomes a nightmare of dependencies and cross-connections, just like the human body.\n\nI only make these possibly inflammatory remarks to warn people to look up Armstrong's talk, and think twice about wasting your time on a model that has such a legacy of failure.    If someone would like to debate this with me, we can have Steve Krouse act as referee, and hold a fire extinguisher nearby so when you burst into flames you won't be permanently harmed ;-&gt;",
+    "user": "UEQ6M68H0",
+    "ts": "1572414362.359200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1572503120.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "reply_count": 30,
+    "reply_users_count": 6,
+    "latest_reply": "1572553145.430800",
+    "reply_users": [
+      "ULM3U6275",
+      "UBN9AFS0N",
+      "UJBAJNFLK",
+      "UJN1TAYEQ",
+      "U8A5MS6R1",
+      "UEQ6M68H0"
+    ],
+    "replies": [
+      {
+        "user": "ULM3U6275",
+        "ts": "1572415496.360500"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572425567.361200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572425602.361400"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1572425723.361600"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1572440360.362400"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572449278.365200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572449311.365500"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572449342.365700"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572454660.373100"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1572455175.373500"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572456072.373800"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572456203.374000"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572456498.376500"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1572456587.376700"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1572456703.376900"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572456904.377200"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572457704.379200"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1572458462.379500"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572469244.379900"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572471412.380200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572474176.380500"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572474183.380800"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572474209.381000"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572482335.382300"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572506344.385200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572511945.385500"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572546653.412700"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572548856.414300"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572552878.430600"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572553145.430800"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "770c6d57-6f85-4356-ad67-43aa1a1f699e",
+    "type": "message",
+    "text": "It is amusing to me that his laptop has an Erlang sticker, when Joe Armstrong, the inventor had such a dim view of the Actor model. There is a lively reunion on YouTube of three famous senior UK computer scientists who each selected a different technology to pursue. One was Hewitt, the actor model, and Armstrong, and Hoare who had some other paradigm i forget which. Anyway they had a debate about what were the results, and Armstrong ripped them to shreds because he pointed out that is system worked and theirs didn't actually work. Pharo has the best IDE i have ever seen, but the underlying language smalltalk was DOA (dead on arrival). The original editions of the smalltalk book by Goldberg are worth a lot, because sensible people like me who bought that book tossed it out because the language is so clunky and hard to read, and frankly absurd. You send the message PLUS to the number 3 along with another operator 2, and then the 3 updates itself to 5. That isn't too far out, but when you get to bitmap manipulation, the model really gets ugly.\n\n The actor model creates not only huge numbers of little islands of state, but then compounds that mistake by creating a message passing system that is hell to debug. In any toolchain that becomes hypercomplex to understand, there are always exceptional people who claim it is no problem, but if you take a big actor model program, and pass it to another programmer, they will have zero chance of understanding it. It becomes a nightmare of dependencies and cross-connections, just like the human body.\n\nI only make these possibly inflammatory remarks to warn people to look up Armstrong's talk, and think twice about wasting your time on a model that has such a legacy of failure.    If someone would like to debate this with me, we can have Steve Krouse act as referee, and hold a fire extinguisher nearby so when you burst into flames you won't be permanently harmed ;-&gt;",
+    "user": "UEQ6M68H0",
+    "ts": "1572414362.359200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1572503120.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "reply_count": 30,
+    "reply_users_count": 6,
+    "latest_reply": "1572553145.430800",
+    "reply_users": [
+      "ULM3U6275",
+      "UBN9AFS0N",
+      "UJBAJNFLK",
+      "UJN1TAYEQ",
+      "U8A5MS6R1",
+      "UEQ6M68H0"
+    ],
+    "replies": [
+      {
+        "user": "ULM3U6275",
+        "ts": "1572415496.360500"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572425567.361200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572425602.361400"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1572425723.361600"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1572440360.362400"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572449278.365200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572449311.365500"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572449342.365700"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572454660.373100"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1572455175.373500"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572456072.373800"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572456203.374000"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572456498.376500"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1572456587.376700"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1572456703.376900"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572456904.377200"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572457704.379200"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1572458462.379500"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572469244.379900"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572471412.380200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572474176.380500"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572474183.380800"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572474209.381000"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572482335.382300"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572506344.385200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1572511945.385500"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572546653.412700"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1572548856.414300"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572552878.430600"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1572553145.430800"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "F2EB8313-B7D9-428B-8E11-C751D8E79C34",
+    "type": "message",
+    "text": "I don’t think Smalltalk numbers are, as you suggest, mutable. Also, Erlang, as I understand it, uses a mutable state actor model.",
+    "user": "ULM3U6275",
+    "ts": "1572415496.360500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1572415578.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "F2EB8313-B7D9-428B-8E11-C751D8E79C34",
+    "type": "message",
+    "text": "I don’t think Smalltalk numbers are, as you suggest, mutable. Also, Erlang, as I understand it, uses a mutable state actor model.",
+    "user": "ULM3U6275",
+    "ts": "1572415496.360500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1572415578.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5696848D-B5EA-4D9C-8541-8922B99249DC",
+    "type": "message",
+    "text": "This is a great article. The things vs. dependencies dichotomy is a powerful insight and resonates strongly with me, who has always been vary of too many dependencies. The “getting an old web app to run” example describes succinctly why I think today’s web has serious issues beyond repair.\n\nI’m not sure about the link to scarcity and abundance. This seems more like describing the shadows thrown on the wall by the real reason. And as you might expect I believe the real reason to be rooted in business models (<https://twitter.com/stefanlesser/status/1188384797510586368>)*. That aligns with the points he makes about SaaS vs. Bitcoin.\n\nIn summary I think each of us today is in a great position where we can choose to blindly build on infrastructure that “isn’t ours” and we only shallowly understand but make impressive progress, or go back and refine and simplify the stack, make it easier to understand, but solve boring infrastructural problems that have been solved already, just not well enough.\n\n*) I posted the wrong tweet before and changed it now, but the preview here in Slack is still the wrong one. Sorry.",
+    "user": "U5STGTB3J",
+    "ts": "1572417986.112900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U5STGTB3J",
+      "ts": "1572418296.000000"
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/stefanlesser|@stefanlesser>: “This relentless pressure to take on treat upon treat, year upon year, has pushed the typical level of pleasure-consumption to a point far beyond what is actually most pleasurable for most of us.” \nLess is more — <https://twitter.com/DavidDCain|@DavidDCain> remix.\n<https://www.raptitude.com/2019/10/how-to-make-life-more-pleasurable/>",
+        "ts": 1572259892,
+        "author_name": "Stefan Lesser",
+        "author_link": "https://twitter.com/stefanlesser/status/1188770265171402753",
+        "author_icon": "https://pbs.twimg.com/profile_images/378800000350383902/ea834338bc94043c1d14c94538e39eda_normal.jpeg",
+        "author_subname": "@stefanlesser",
+        "text": "“This relentless pressure to take on treat upon treat, year upon year, has pushed the typical level of pleasure-consumption to a point far beyond what is actually most pleasurable for most of us.” \nLess is more — <https://twitter.com/DavidDCain|@DavidDCain> remix.\n<https://www.raptitude.com/2019/10/how-to-make-life-more-pleasurable/>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/stefanlesser/status/1188770265171402753",
+        "id": 1,
+        "original_url": "https://twitter.com/stefanlesser/status/1188770265171402753",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1572389576.102800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "11B386FB-B06C-4079-81B6-BF8FE49D5798",
+    "type": "message",
+    "text": "See also: <https://futureofcoding.slack.com/archives/CE1R695T7/p1572333153013800>",
+    "user": "U5STGTB3J",
+    "ts": "1572418031.113400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/CE1R695T7/p1572333153013800",
+        "fallback": "[October 29th, 2019 12:12 AM] ivanreese: <https://lord.io/blog/2019/text-editing-hates-you-too/>\n\nFolks who are given to arguing that complexity is spiraling out of control, what say you to this?",
+        "ts": "1572333153.013800",
+        "author_id": "UC2A2ARPT",
+        "author_subname": "Ivan Reese",
+        "channel_id": "CE1R695T7",
+        "channel_name": "graphics",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "text": "<https://lord.io/blog/2019/text-editing-hates-you-too/>\n\nFolks who are given to arguing that complexity is spiraling out of control, what say you to this?",
+        "author_name": "Ivan Reese",
+        "author_link": "https://futureofcoding.slack.com/team/UC2A2ARPT",
+        "author_icon": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/CE1R695T7/p1572333153013800",
+        "footer": "Thread in #graphics"
+      }
+    ],
+    "thread_ts": "1572389576.102800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8cdaff20-4c06-4987-9f15-2b6af15b92df",
+    "type": "message",
+    "text": "That post is all over the place. Tengentially, In relation to node.js dependencies I'm starting to have a change of heart. I often find it insane the number of dependencies. But, ... I think for many older techs it's just that the dependencies are hidden. Many C/C++ projects require 50 to 100 libraries to be installed. Each of those libraries was probaby dependent on other libraries when it was compiled so its dependencies are hidden. That also means any latent vulnerabilities in those libraries are hidden since the resulting library has no meta data about its dependencies. node on the other hand, all dependencies are far more explicit. It looks insane but it's actually just seeing the how the sausage is made vs older techs which ends up hiding it.\n\nNot saying I'm totally convinced, just an observation dealing with C++ projects and having to manually and globally install libs and tools that would have all be handled locally in node.",
+    "user": "UC6997THT",
+    "ts": "1572423963.114800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "f3eb3ca69d86",
+      "image_72": "https://avatars.slack-edge.com/2018-08-13/414472553296_f3eb3ca69d86feb77929_72.png",
+      "first_name": "Gregg",
+      "real_name": "Gregg Tavares",
+      "display_name": "gman",
+      "team": "T5TCAFTA9",
+      "name": "slack1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572389576.102800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "f634bff4-d221-4504-bf80-48a7bb96c9b1",
+    "type": "message",
+    "text": "<@UHLAV7BB5> Thanks, that makes it much clearer for me. The visual workflow approach has worked quite well in scientific computing (though not in all situations), so adapting it to other application areas looks like a worthwhile experiment.",
+    "user": "UJBAJNFLK",
+    "ts": "1572425193.182900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572276575.176500",
+    "parent_user_id": "UHLAV7BB5",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "72c6a082-8b99-4636-893f-9050d67ab5ec",
+    "type": "message",
+    "text": "I'm not sure this is relevant but my background in memory constrained apps with lots of data means that macros have to happen at build time not runtime. An example macro might get the size of N files, take tha max size of those sizes, and check that that size is under some specified max size, then use the size of the largest file to statically allocate a specifically sized piece of memory. There is no memory free to include any of this logic at runtime nor could it be done at runtime since if maxsize(files) &gt; maxSizeAvailale the program will crash. That's something we need to catch at build time and fix the files (take out some data, simplifiy something, etc..). And, even if it could be done at runtime it would be a bad user experience waiting for the system to get the max size of N files adding to the wait time for the app to start.\n\nSo at one level I agree it's code transformation all the way down but each transformation stage has a purpose.",
+    "user": "UC6997THT",
+    "ts": "1572425309.361000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "f3eb3ca69d86",
+      "image_72": "https://avatars.slack-edge.com/2018-08-13/414472553296_f3eb3ca69d86feb77929_72.png",
+      "first_name": "Gregg",
+      "real_name": "Gregg Tavares",
+      "display_name": "gman",
+      "team": "T5TCAFTA9",
+      "name": "slack1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1571972846.216600",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "72c6a082-8b99-4636-893f-9050d67ab5ec",
+    "type": "message",
+    "text": "I'm not sure this is relevant but my background in memory constrained apps with lots of data means that macros have to happen at build time not runtime. An example macro might get the size of N files, take tha max size of those sizes, and check that that size is under some specified max size, then use the size of the largest file to statically allocate a specifically sized piece of memory. There is no memory free to include any of this logic at runtime nor could it be done at runtime since if maxsize(files) &gt; maxSizeAvailale the program will crash. That's something we need to catch at build time and fix the files (take out some data, simplifiy something, etc..). And, even if it could be done at runtime it would be a bad user experience waiting for the system to get the max size of N files adding to the wait time for the app to start.\n\nSo at one level I agree it's code transformation all the way down but each transformation stage has a purpose.",
+    "user": "UC6997THT",
+    "ts": "1572425309.361000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "f3eb3ca69d86",
+      "image_72": "https://avatars.slack-edge.com/2018-08-13/414472553296_f3eb3ca69d86feb77929_72.png",
+      "first_name": "Gregg",
+      "real_name": "Gregg Tavares",
+      "display_name": "gman",
+      "team": "T5TCAFTA9",
+      "name": "slack1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1571972846.216600",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8e5ef5bd-f8ee-439b-8c2b-c035f4c5021a",
+    "type": "message",
+    "text": "Erlang is close to the actor model but not exactly, the creators didn't know about its existence until they already implemented the first erlang prototypes.",
+    "user": "UBN9AFS0N",
+    "ts": "1572425567.361200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8e5ef5bd-f8ee-439b-8c2b-c035f4c5021a",
+    "type": "message",
+    "text": "Erlang is close to the actor model but not exactly, the creators didn't know about its existence until they already implemented the first erlang prototypes.",
+    "user": "UBN9AFS0N",
+    "ts": "1572425567.361200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1124bc83-cf41-422b-b79a-d53c8a9e10e5",
+    "type": "message",
+    "text": "Erlang is immutable, the way erlang processes keep state is simply by recursing passing the next state to themselves",
+    "user": "UBN9AFS0N",
+    "ts": "1572425602.361400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1124bc83-cf41-422b-b79a-d53c8a9e10e5",
+    "type": "message",
+    "text": "Erlang is immutable, the way erlang processes keep state is simply by recursing passing the next state to themselves",
+    "user": "UBN9AFS0N",
+    "ts": "1572425602.361400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "08b2c240-be6e-40f1-ab21-fd5c17eed496",
+    "type": "message",
+    "text": "<@UEQ6M68H0> If you believe that Smalltalk was a failure because it applied its OO approach even to arithmetic, you will have to explain why Python, which does exactly the same (up to syntactic sugar) has worked so well for so many people.\n<@ULM3U6275> Smalltalk numbers are indeed immutable, as are characters and booleans but perhaps not much else. The value of immutability was discovered after Smalltalk, and that's perhaps one of its main defects. Pharo is introducing immutability, though in an unusual way (you can set an object to be immutable but also back to mutable).",
+    "user": "UJBAJNFLK",
+    "ts": "1572425723.361600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g05e4cf66ef1",
+      "image_72": "https://secure.gravatar.com/avatar/305e4cf66ef1179f7e95981b1520ba1a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "08b2c240-be6e-40f1-ab21-fd5c17eed496",
+    "type": "message",
+    "text": "<@UEQ6M68H0> If you believe that Smalltalk was a failure because it applied its OO approach even to arithmetic, you will have to explain why Python, which does exactly the same (up to syntactic sugar) has worked so well for so many people.\n<@ULM3U6275> Smalltalk numbers are indeed immutable, as are characters and booleans but perhaps not much else. The value of immutability was discovered after Smalltalk, and that's perhaps one of its main defects. Pharo is introducing immutability, though in an unusual way (you can set an object to be immutable but also back to mutable).",
+    "user": "UJBAJNFLK",
+    "ts": "1572425723.361600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3a310ffd-6abd-465a-bf43-e96a02d7bdf4",
+    "type": "message",
+    "text": "This video is not quite about end-user programming, but about making the digital world comprehensible to end users, so I think it fits into this channel's topic: <https://www.youtube.com/watch?v=F1G7-TNOgy8>",
+    "user": "UJBAJNFLK",
+    "ts": "1572425867.133200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1572425926.000000"
+    },
+    "thread_ts": "1572425867.133200",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1572619190.001200",
+    "reply_users": [
+      "UML4ZEKDK"
+    ],
+    "replies": [
+      {
+        "user": "UML4ZEKDK",
+        "ts": "1572619190.001200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "6c7bcd81-11c6-4c26-b6d0-a52fa5a5efd2",
+    "type": "message",
+    "text": "I would assume you have few large customers? The average customer value of my customers is so small I'm literally loosing money talking to them - unless it is for learning purposes.",
+    "user": "UPV1HUCBH",
+    "ts": "1572434287.361900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3527ce71ac1f",
+      "image_72": "https://avatars.slack-edge.com/2019-10-25/811091636935_3527ce71ac1fa089154e_72.jpg",
+      "first_name": "Tibor",
+      "real_name": "Tibor Halter",
+      "display_name": "Tibor Halter",
+      "team": "T5TCAFTA9",
+      "name": "tibor.halter",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572282098.317700",
+    "parent_user_id": "UPV1HUCBH",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6c7bcd81-11c6-4c26-b6d0-a52fa5a5efd2",
+    "type": "message",
+    "text": "I would assume you have few large customers? The average customer value of my customers is so small I'm literally loosing money talking to them - unless it is for learning purposes.",
+    "user": "UPV1HUCBH",
+    "ts": "1572434287.361900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3527ce71ac1f",
+      "image_72": "https://avatars.slack-edge.com/2019-10-25/811091636935_3527ce71ac1fa089154e_72.jpg",
+      "first_name": "Tibor",
+      "real_name": "Tibor Halter",
+      "display_name": "Tibor Halter",
+      "team": "T5TCAFTA9",
+      "name": "tibor.halter",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572282098.317700",
+    "parent_user_id": "UPV1HUCBH",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f18dc2bc-3054-4ef9-a85b-2068e85029f9",
+    "type": "message",
+    "text": "As we are planning to stay with this community I will let you know what will happen.",
+    "user": "UHLAV7BB5",
+    "ts": "1572435157.183100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gc357041ad05",
+      "image_72": "https://secure.gravatar.com/avatar/4c357041ad053c323f203260530f1fdc.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0007-72.png",
+      "first_name": "",
+      "real_name": "Kai Richard König",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "kai.richard.koenig",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572276575.176500",
+    "parent_user_id": "UHLAV7BB5",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "d5687c59-2e33-4730-94b7-75719c48a603",
+    "type": "message",
+    "text": "I think the main advantage to talking with customers for a startup or other growth companies is precisely about learning. It helps at directing the product development to right directions and to get insights that you wouldn’t otherwise get (or even know about) and also the opposite, to validate which areas are working or good-enough.",
+    "user": "UEQ7QL15F",
+    "ts": "1572435916.362100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g52d221ae708",
+      "image_72": "https://secure.gravatar.com/avatar/a52d221ae708f36674644a348005633a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Janne",
+      "real_name": "Janne Aukia",
+      "display_name": "jaukia",
+      "team": "T5TCAFTA9",
+      "name": "janne.aukia",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572282098.317700",
+    "parent_user_id": "UPV1HUCBH",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d5687c59-2e33-4730-94b7-75719c48a603",
+    "type": "message",
+    "text": "I think the main advantage to talking with customers for a startup or other growth companies is precisely about learning. It helps at directing the product development to right directions and to get insights that you wouldn’t otherwise get (or even know about) and also the opposite, to validate which areas are working or good-enough.",
+    "user": "UEQ7QL15F",
+    "ts": "1572435916.362100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g52d221ae708",
+      "image_72": "https://secure.gravatar.com/avatar/a52d221ae708f36674644a348005633a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Janne",
+      "real_name": "Janne Aukia",
+      "display_name": "jaukia",
+      "team": "T5TCAFTA9",
+      "name": "janne.aukia",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572282098.317700",
+    "parent_user_id": "UPV1HUCBH",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fa7d48f7-cd03-4c86-98cd-ce5a8d594f08",
+    "type": "message",
+    "text": "If your goal is truly to motivate people to watch Armstrong's talk, then post a link to it. Trolling the forum with ill informed, inflammatory bullshit is not a good way to spread whatever message you derived from Armstrong's talk. Instead, you are just pissing everybody off.",
+    "user": "UJN1TAYEQ",
+    "ts": "1572440360.362400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UBKNXPBAB"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fa7d48f7-cd03-4c86-98cd-ce5a8d594f08",
+    "type": "message",
+    "text": "If your goal is truly to motivate people to watch Armstrong's talk, then post a link to it. Trolling the forum with ill informed, inflammatory bullshit is not a good way to spread whatever message you derived from Armstrong's talk. Instead, you are just pissing everybody off.",
+    "user": "UJN1TAYEQ",
+    "ts": "1572440360.362400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UBKNXPBAB"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5aebd10f-8441-4ec6-9ce1-2a5e64383d83",
+    "type": "message",
+    "text": "SQL, datalog both provide ways to Manage lots of data. \n\nSpecter in clojure, and lenses in haskell are both programming solutions I'm aware of for these types of issues as well.",
+    "user": "UJNJQD2AC",
+    "ts": "1572443360.363400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd7dd06bd18b",
+      "image_72": "https://secure.gravatar.com/avatar/8d7dd06bd18b8fce6a4c04dfede7f616.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "",
+      "real_name": "Drewverlee",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "drew.verlee",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572270935.312600",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5aebd10f-8441-4ec6-9ce1-2a5e64383d83",
+    "type": "message",
+    "text": "SQL, datalog both provide ways to Manage lots of data. \n\nSpecter in clojure, and lenses in haskell are both programming solutions I'm aware of for these types of issues as well.",
+    "user": "UJNJQD2AC",
+    "ts": "1572443360.363400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd7dd06bd18b",
+      "image_72": "https://secure.gravatar.com/avatar/8d7dd06bd18b8fce6a4c04dfede7f616.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "",
+      "real_name": "Drewverlee",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "drew.verlee",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572270935.312600",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "67f82368-fc7a-4f6f-a621-be954d5be08c",
+    "type": "message",
+    "text": "I didn't see the word graphicially...",
+    "user": "UJNJQD2AC",
+    "ts": "1572443465.363600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd7dd06bd18b",
+      "image_72": "https://secure.gravatar.com/avatar/8d7dd06bd18b8fce6a4c04dfede7f616.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "",
+      "real_name": "Drewverlee",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "drew.verlee",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572270935.312600",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "67f82368-fc7a-4f6f-a621-be954d5be08c",
+    "type": "message",
+    "text": "I didn't see the word graphicially...",
+    "user": "UJNJQD2AC",
+    "ts": "1572443465.363600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd7dd06bd18b",
+      "image_72": "https://secure.gravatar.com/avatar/8d7dd06bd18b8fce6a4c04dfede7f616.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "",
+      "real_name": "Drewverlee",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "drew.verlee",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572270935.312600",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0b4471ad-21fa-4f73-870b-6e3905bc6709",
+    "type": "message",
+    "text": "&gt; I think each of us today is in a great position where we can choose to blindly build on infrastructure that “isn’t ours” and we only shallowly understand but make impressive progress\n\nIsn’t that a summary of the history of computing though? Not unique to anything today in shifting toward cloud services/more dependencies. I would imagine people made the same arguments as new languages came to replace assembly for example, and then when languages with GC became more popular than languages where you had to manage memory explicitly",
+    "user": "UN89MTTML",
+    "ts": "1572447048.116100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g91ae73eb7a3",
+      "image_72": "https://secure.gravatar.com/avatar/91ae73eb7a309b760a0030e0f85ccbfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-72.png",
+      "first_name": "",
+      "real_name": "Scott Werner",
+      "display_name": "Scott Werner",
+      "team": "T5TCAFTA9",
+      "name": "stwerner",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572389576.102800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "a7358c65-0777-45b3-9f31-7421e5e228fb",
+    "type": "message",
+    "text": "Perhaps it's overstating things to say they're 'not attending'. Perhaps they're just not emphasizing that the \"bicycle for the mind\" will also train design experience.",
+    "user": "UCUSW7WVD",
+    "ts": "1572447600.133900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572002424.061800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "3284418b-605f-4d24-9d76-2e95b82aba47",
+    "type": "message",
+    "text": "A bicycle for the mind will expand minds. Not just for the domains they care about but also for meta capabilities like system design. Seems obvious when I put it like that..",
+    "user": "UCUSW7WVD",
+    "ts": "1572447891.134100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572002424.061800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "84A03F15-B4B9-4053-BC31-4F3707676492",
+    "type": "message",
+    "text": "<@UBN9AFS0N> Erlang processes see one another as mutable actors, don’t they?",
+    "user": "ULM3U6275",
+    "ts": "1572449278.365200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1572449296.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "84A03F15-B4B9-4053-BC31-4F3707676492",
+    "type": "message",
+    "text": "<@UBN9AFS0N> Erlang processes see one another as mutable actors, don’t they?",
+    "user": "ULM3U6275",
+    "ts": "1572449278.365200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1572449296.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ce298c33-442d-460f-ab4d-8e7a80cb4ef9",
+    "type": "message",
+    "text": "in the sense that internal state may be mutated by sending messages? yes",
+    "user": "UBN9AFS0N",
+    "ts": "1572449311.365500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ce298c33-442d-460f-ab4d-8e7a80cb4ef9",
+    "type": "message",
+    "text": "in the sense that internal state may be mutated by sending messages? yes",
+    "user": "UBN9AFS0N",
+    "ts": "1572449311.365500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d7daab87-80d7-45df-a410-54fee4c207d9",
+    "type": "message",
+    "text": "but state is only accesible from the actor itself and \"mutated in time\", that is, returning a new immutable state after handling a message",
+    "user": "UBN9AFS0N",
+    "ts": "1572449342.365700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d7daab87-80d7-45df-a410-54fee4c207d9",
+    "type": "message",
+    "text": "but state is only accesible from the actor itself and \"mutated in time\", that is, returning a new immutable state after handling a message",
+    "user": "UBN9AFS0N",
+    "ts": "1572449342.365700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0789f78e-f1ba-41ec-b55c-d797b62c3394",
+    "type": "message",
+    "text": "Technical update on the product I'm developing: \"Cell/Formula Dependency Cycle Detection &amp; Evaluation Order\"\n\nFancy stuff to free the user from having to care about order and indicate when a dependency loop is created.\n\n<https://youtu.be/MEH8oTpBsfU>",
+    "user": "UBN9AFS0N",
+    "ts": "1572449634.156000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Cell/Formula Dependency Cycle Detection &amp; Evaluation Order",
+        "title_link": "https://youtu.be/MEH8oTpBsfU",
+        "author_name": "Mariano Guerra",
+        "author_link": "https://www.youtube.com/user/marianoguerra",
+        "thumb_url": "https://i.ytimg.com/vi/MEH8oTpBsfU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Cell/Formula Dependency Cycle Detection & Evaluation Order",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/MEH8oTpBsfU?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/MEH8oTpBsfU",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/MEH8oTpBsfU"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0789f78e-f1ba-41ec-b55c-d797b62c3394",
+    "type": "message",
+    "text": "Technical update on the product I'm developing: \"Cell/Formula Dependency Cycle Detection &amp; Evaluation Order\"\n\nFancy stuff to free the user from having to care about order and indicate when a dependency loop is created.\n\n<https://youtu.be/MEH8oTpBsfU>",
+    "user": "UBN9AFS0N",
+    "ts": "1572449634.156000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Cell/Formula Dependency Cycle Detection &amp; Evaluation Order",
+        "title_link": "https://youtu.be/MEH8oTpBsfU",
+        "author_name": "Mariano Guerra",
+        "author_link": "https://www.youtube.com/user/marianoguerra",
+        "thumb_url": "https://i.ytimg.com/vi/MEH8oTpBsfU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Cell/Formula Dependency Cycle Detection & Evaluation Order",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/MEH8oTpBsfU?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/MEH8oTpBsfU",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/MEH8oTpBsfU"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "be2e254f-2d0a-4d02-bd08-4da13212507b",
+    "type": "message",
+    "text": "I really like the way you put that:\n&gt; not just for the domains they care about but also for meta capabilities like system design\nwhat about flipping it on its head? Would focusing on expanding capabilities for system design result in gains to the other domains?",
+    "user": "UN89MTTML",
+    "ts": "1572451641.134300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g91ae73eb7a3",
+      "image_72": "https://secure.gravatar.com/avatar/91ae73eb7a309b760a0030e0f85ccbfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-72.png",
+      "first_name": "",
+      "real_name": "Scott Werner",
+      "display_name": "Scott Werner",
+      "team": "T5TCAFTA9",
+      "name": "stwerner",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572002424.061800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "c7e63eb9-5d9e-4dfd-ba3e-145b9698c4c0",
+    "type": "message",
+    "text": "Good point! The esteem programmers hold Christopher Alexander suggests other fields already do use design. But yes, I think software can be a vector to disseminate it further.",
+    "user": "UCUSW7WVD",
+    "ts": "1572451752.134500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572002424.061800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "CE4F364A-E559-4FC0-9258-D3FFE8F97B75",
+    "type": "message",
+    "text": "<@UN89MTTML> I agree that in the last half century we as an industry have probably put an emphasis on that half, and that's perhaps also why many of us here complain about lack of progress and exploding complexity. But I also see small and big efforts today that focus on rebuilding infrastructure from the ground up. Some of the larger efforts:\n\nSwift for instance (and some other modern languages too) tries to tackle the Unicode and floating point challenges we discussed elsewhere (and more) on a fundamental level. Swift (and Rust) also don't use GC.\nLLVM (and maybe soon MLIR) has fundamentally improved the infrastructure for building languages, compilers, and development tools and environments.\nReactive frameworks are bringing declarative approaches to web and native GUIs. Some of these frameworks even consider values like internationalization or accessibility as fundamental and build them right in.\nAnd both Apple and Google are re-building stacks down to the hardware level, for processing hardware that is not based on classic CPUs (Metal, image processing, TensorFlow, etc.).\n\nI’m sure there are more examples.",
+    "user": "U5STGTB3J",
+    "ts": "1572453897.135200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U5STGTB3J",
+      "ts": "1572454319.000000"
+    },
+    "thread_ts": "1572389576.102800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "61A13DE3-C2A3-4773-A053-0A789FF3D830",
+    "type": "message",
+    "text": "<@UCUSW7WVD> Interesting. So are you saying Kay and Victor are too focused on computation still and not enough on design?",
+    "user": "U5STGTB3J",
+    "ts": "1572454096.136400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572002424.061800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "type": "message",
+    "subtype": "thread_broadcast",
+    "text": "But there is no referential transparency between actors(processes), correct? The reference that one actor has to another does not change in order to reference the new state, so wrt state between actors we have exactly the situation as we do with mutable objects messaging one another in smalltalk. The two differences (which are both interesting) is the enhanced isolation of actors internal state from one another and that actors have message queues and their own threads of execution - both of which make actors more pure in the OO sense as state and processing are more encapsulated.",
+    "user": "ULM3U6275",
+    "ts": "1572454660.373100",
+    "thread_ts": "1572414362.359200",
+    "root": {
+      "client_msg_id": "770c6d57-6f85-4356-ad67-43aa1a1f699e",
+      "type": "message",
+      "text": "It is amusing to me that his laptop has an Erlang sticker, when Joe Armstrong, the inventor had such a dim view of the Actor model. There is a lively reunion on YouTube of three famous senior UK computer scientists who each selected a different technology to pursue. One was Hewitt, the actor model, and Armstrong, and Hoare who had some other paradigm i forget which. Anyway they had a debate about what were the results, and Armstrong ripped them to shreds because he pointed out that is system worked and theirs didn't actually work. Pharo has the best IDE i have ever seen, but the underlying language smalltalk was DOA (dead on arrival). The original editions of the smalltalk book by Goldberg are worth a lot, because sensible people like me who bought that book tossed it out because the language is so clunky and hard to read, and frankly absurd. You send the message PLUS to the number 3 along with another operator 2, and then the 3 updates itself to 5. That isn't too far out, but when you get to bitmap manipulation, the model really gets ugly.\n\n The actor model creates not only huge numbers of little islands of state, but then compounds that mistake by creating a message passing system that is hell to debug. In any toolchain that becomes hypercomplex to understand, there are always exceptional people who claim it is no problem, but if you take a big actor model program, and pass it to another programmer, they will have zero chance of understanding it. It becomes a nightmare of dependencies and cross-connections, just like the human body.\n\nI only make these possibly inflammatory remarks to warn people to look up Armstrong's talk, and think twice about wasting your time on a model that has such a legacy of failure.    If someone would like to debate this with me, we can have Steve Krouse act as referee, and hold a fire extinguisher nearby so when you burst into flames you won't be permanently harmed ;-&gt;",
+      "user": "UEQ6M68H0",
+      "ts": "1572414362.359200",
+      "team": "T5TCAFTA9",
+      "edited": {
+        "user": "UEQ6M68H0",
+        "ts": "1572503120.000000"
+      },
+      "thread_ts": "1572414362.359200",
+      "reply_count": 30,
+      "reply_users_count": 6,
+      "latest_reply": "1572553145.430800",
+      "reply_users": [
+        "ULM3U6275",
+        "UBN9AFS0N",
+        "UJBAJNFLK",
+        "UJN1TAYEQ",
+        "U8A5MS6R1",
+        "UEQ6M68H0"
+      ],
+      "subscribed": false
+    },
+    "client_msg_id": "F1AFB109-00B7-4D48-AEE5-D0D4A8C8D54E",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "subtype": "thread_broadcast",
+    "text": "But there is no referential transparency between actors(processes), correct? The reference that one actor has to another does not change in order to reference the new state, so wrt state between actors we have exactly the situation as we do with mutable objects messaging one another in smalltalk. The two differences (which are both interesting) is the enhanced isolation of actors internal state from one another and that actors have message queues and their own threads of execution - both of which make actors more pure in the OO sense as state and processing are more encapsulated.",
+    "user": "ULM3U6275",
+    "ts": "1572454660.373100",
+    "thread_ts": "1572414362.359200",
+    "root": {
+      "client_msg_id": "770c6d57-6f85-4356-ad67-43aa1a1f699e",
+      "type": "message",
+      "text": "It is amusing to me that his laptop has an Erlang sticker, when Joe Armstrong, the inventor had such a dim view of the Actor model. There is a lively reunion on YouTube of three famous senior UK computer scientists who each selected a different technology to pursue. One was Hewitt, the actor model, and Armstrong, and Hoare who had some other paradigm i forget which. Anyway they had a debate about what were the results, and Armstrong ripped them to shreds because he pointed out that is system worked and theirs didn't actually work. Pharo has the best IDE i have ever seen, but the underlying language smalltalk was DOA (dead on arrival). The original editions of the smalltalk book by Goldberg are worth a lot, because sensible people like me who bought that book tossed it out because the language is so clunky and hard to read, and frankly absurd. You send the message PLUS to the number 3 along with another operator 2, and then the 3 updates itself to 5. That isn't too far out, but when you get to bitmap manipulation, the model really gets ugly.\n\n The actor model creates not only huge numbers of little islands of state, but then compounds that mistake by creating a message passing system that is hell to debug. In any toolchain that becomes hypercomplex to understand, there are always exceptional people who claim it is no problem, but if you take a big actor model program, and pass it to another programmer, they will have zero chance of understanding it. It becomes a nightmare of dependencies and cross-connections, just like the human body.\n\nI only make these possibly inflammatory remarks to warn people to look up Armstrong's talk, and think twice about wasting your time on a model that has such a legacy of failure.    If someone would like to debate this with me, we can have Steve Krouse act as referee, and hold a fire extinguisher nearby so when you burst into flames you won't be permanently harmed ;-&gt;",
+      "user": "UEQ6M68H0",
+      "ts": "1572414362.359200",
+      "team": "T5TCAFTA9",
+      "edited": {
+        "user": "UEQ6M68H0",
+        "ts": "1572503120.000000"
+      },
+      "thread_ts": "1572414362.359200",
+      "reply_count": 30,
+      "reply_users_count": 6,
+      "latest_reply": "1572553145.430800",
+      "reply_users": [
+        "ULM3U6275",
+        "UBN9AFS0N",
+        "UJBAJNFLK",
+        "UJN1TAYEQ",
+        "U8A5MS6R1",
+        "UEQ6M68H0"
+      ],
+      "replies": [
+        {
+          "user": "ULM3U6275",
+          "ts": "1572415496.360500"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572425567.361200"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572425602.361400"
+        },
+        {
+          "user": "UJBAJNFLK",
+          "ts": "1572425723.361600"
+        },
+        {
+          "user": "UJN1TAYEQ",
+          "ts": "1572440360.362400"
+        },
+        {
+          "user": "ULM3U6275",
+          "ts": "1572449278.365200"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572449311.365500"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572449342.365700"
+        },
+        {
+          "user": "ULM3U6275",
+          "ts": "1572454660.373100"
+        },
+        {
+          "user": "U8A5MS6R1",
+          "ts": "1572455175.373500"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572456072.373800"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572456203.374000"
+        },
+        {
+          "user": "ULM3U6275",
+          "ts": "1572456498.376500"
+        },
+        {
+          "user": "U8A5MS6R1",
+          "ts": "1572456587.376700"
+        },
+        {
+          "user": "U8A5MS6R1",
+          "ts": "1572456703.376900"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572456904.377200"
+        },
+        {
+          "user": "ULM3U6275",
+          "ts": "1572457704.379200"
+        },
+        {
+          "user": "U8A5MS6R1",
+          "ts": "1572458462.379500"
+        },
+        {
+          "user": "UEQ6M68H0",
+          "ts": "1572469244.379900"
+        },
+        {
+          "user": "UEQ6M68H0",
+          "ts": "1572471412.380200"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572474176.380500"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572474183.380800"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572474209.381000"
+        },
+        {
+          "user": "UEQ6M68H0",
+          "ts": "1572482335.382300"
+        },
+        {
+          "user": "UEQ6M68H0",
+          "ts": "1572506344.385200"
+        },
+        {
+          "user": "UBN9AFS0N",
+          "ts": "1572511945.385500"
+        },
+        {
+          "user": "ULM3U6275",
+          "ts": "1572546653.412700"
+        },
+        {
+          "user": "UEQ6M68H0",
+          "ts": "1572548856.414300"
+        },
+        {
+          "user": "ULM3U6275",
+          "ts": "1572552878.430600"
+        },
+        {
+          "user": "ULM3U6275",
+          "ts": "1572553145.430800"
+        }
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "client_msg_id": "F1AFB109-00B7-4D48-AEE5-D0D4A8C8D54E",
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1572454793.000000"
+    },
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4981af49-c0fe-4428-a077-ac9999f7b812",
+    "type": "message",
+    "text": "<@ULM3U6275>’s comment is spot on. Externally, when you send a message to an Erlang process you don't know what 'version' it's at. So it looks like this mutable bundle of state you're interacting with. This is very similar to any other actor model. The only thing is a process has more control of when it accepts new messages and can do so when it has reached a consistent state.\n\nHere's an interesting comment from Joe Armstrong:\n&gt; Then, my thesis supervisor said \"But you're wrong, Erlang is extremely object oriented\". He said object oriented languages aren't object oriented. I might think, though I'm not quite sure if I believe this or not, but Erlang might be the only object oriented language because the 3 tenets of object oriented programming are that it's based on message passing, that you have isolation between objects and have polymorphism.\n\nSource: <https://www.infoq.com/interviews/johnson-armstrong-oop/>",
+    "user": "U8A5MS6R1",
+    "ts": "1572455175.373500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "InfoQ",
+        "title": "Ralph Johnson, Joe Armstrong on the State of OOP",
+        "title_link": "https://www.infoq.com/interviews/johnson-armstrong-oop/",
+        "text": "Ralph Johnson and Joe Armstrong discuss the state of OOP, what Smalltalk got right/wrong and the image concept. Also: Joe decides he likes OOP as long as its done the Erlang way: focused on messaging.",
+        "fallback": "InfoQ: Ralph Johnson, Joe Armstrong on the State of OOP",
+        "from_url": "https://www.infoq.com/interviews/johnson-armstrong-oop/",
+        "service_icon": "https://cdn.infoq.com/statics_s1_20191025-0248/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://www.infoq.com/interviews/johnson-armstrong-oop/"
+      }
+    ],
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4981af49-c0fe-4428-a077-ac9999f7b812",
+    "type": "message",
+    "text": "<@ULM3U6275>’s comment is spot on. Externally, when you send a message to an Erlang process you don't know what 'version' it's at. So it looks like this mutable bundle of state you're interacting with. This is very similar to any other actor model. The only thing is a process has more control of when it accepts new messages and can do so when it has reached a consistent state.\n\nHere's an interesting comment from Joe Armstrong:\n&gt; Then, my thesis supervisor said \"But you're wrong, Erlang is extremely object oriented\". He said object oriented languages aren't object oriented. I might think, though I'm not quite sure if I believe this or not, but Erlang might be the only object oriented language because the 3 tenets of object oriented programming are that it's based on message passing, that you have isolation between objects and have polymorphism.\n\nSource: <https://www.infoq.com/interviews/johnson-armstrong-oop/>",
+    "user": "U8A5MS6R1",
+    "ts": "1572455175.373500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "InfoQ",
+        "title": "Ralph Johnson, Joe Armstrong on the State of OOP",
+        "title_link": "https://www.infoq.com/interviews/johnson-armstrong-oop/",
+        "text": "Ralph Johnson and Joe Armstrong discuss the state of OOP, what Smalltalk got right/wrong and the image concept. Also: Joe decides he likes OOP as long as its done the Erlang way: focused on messaging.",
+        "fallback": "InfoQ: Ralph Johnson, Joe Armstrong on the State of OOP",
+        "from_url": "https://www.infoq.com/interviews/johnson-armstrong-oop/",
+        "service_icon": "https://cdn.infoq.com/statics_s1_20191025-0248/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://www.infoq.com/interviews/johnson-armstrong-oop/"
+      }
+    ],
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2b48da86-583a-40ce-a2a2-a82afc434944",
+    "type": "message",
+    "text": "<@ULM3U6275> yes",
+    "user": "UBN9AFS0N",
+    "ts": "1572456072.373800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2b48da86-583a-40ce-a2a2-a82afc434944",
+    "type": "message",
+    "text": "<@ULM3U6275> yes",
+    "user": "UBN9AFS0N",
+    "ts": "1572456072.373800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c3bff051-9b10-4263-9016-cc7e2c2ff3be",
+    "type": "message",
+    "text": "I was just highlighting that state is not mutable in erlang (nothing is mutable on the erlang vm), but yes, you can keep a reference to the same process and it will \"mutate\", it's the only thing that can change state while you hold the same reference if I remember correctly",
+    "user": "UBN9AFS0N",
+    "ts": "1572456203.374000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c3bff051-9b10-4263-9016-cc7e2c2ff3be",
+    "type": "message",
+    "text": "I was just highlighting that state is not mutable in erlang (nothing is mutable on the erlang vm), but yes, you can keep a reference to the same process and it will \"mutate\", it's the only thing that can change state while you hold the same reference if I remember correctly",
+    "user": "UBN9AFS0N",
+    "ts": "1572456203.374000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2819252B-373A-4648-86CE-96E3B855DD6B",
+    "type": "message",
+    "text": "“State is not mutable in Erlang” If the way people wrote Erlang only involved a single process/actor, I would agree.",
+    "user": "ULM3U6275",
+    "ts": "1572456498.376500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2819252B-373A-4648-86CE-96E3B855DD6B",
+    "type": "message",
+    "text": "“State is not mutable in Erlang” If the way people wrote Erlang only involved a single process/actor, I would agree.",
+    "user": "ULM3U6275",
+    "ts": "1572456498.376500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ef8d6508-5dee-4056-b92b-f956a20deb17",
+    "type": "message",
+    "text": "Oh I think another important aspect of Erlang processes is that each is 'single threaded' in the sense there can only be one control flow happening inside at one time - any other messages sent it it will wait.  This is a nice property because you can think locally and ensure it always reaches some consistent state.\n\nRe state - if you write into a db from a process (dets/mnesia?) - you're still dealing with mutable state again.",
+    "user": "U8A5MS6R1",
+    "ts": "1572456587.376700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ef8d6508-5dee-4056-b92b-f956a20deb17",
+    "type": "message",
+    "text": "Oh I think another important aspect of Erlang processes is that each is 'single threaded' in the sense there can only be one control flow happening inside at one time - any other messages sent it it will wait.  This is a nice property because you can think locally and ensure it always reaches some consistent state.\n\nRe state - if you write into a db from a process (dets/mnesia?) - you're still dealing with mutable state again.",
+    "user": "U8A5MS6R1",
+    "ts": "1572456587.376700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c5d1caee-bab9-4bad-953a-290e1a65ec36",
+    "type": "message",
+    "text": "BTW I always thought of Erlang as very close to the actor model, intentionally or unintentionally. So I'm a bit confused about the assertion that Armstrong held a dim view of the actor model. I think I found the panel discussion referred to (haven't finished watching yet): <https://www.youtube.com/watch?v=37wFVVVZlVU>",
+    "user": "U8A5MS6R1",
+    "ts": "1572456703.376900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Let's #TalkConcurrency Panel Discussion with Sir Tony Hoare, Joe Armstrong, and Carl Hewitt",
+        "title_link": "https://www.youtube.com/watch?v=37wFVVVZlVU",
+        "author_name": "Erlang Solutions",
+        "author_link": "https://www.youtube.com/user/ErlangSolutions",
+        "thumb_url": "https://i.ytimg.com/vi/37wFVVVZlVU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Let's #TalkConcurrency Panel Discussion with Sir Tony Hoare, Joe Armstrong, and Carl Hewitt",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/37wFVVVZlVU?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=37wFVVVZlVU",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=37wFVVVZlVU"
+      }
+    ],
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c5d1caee-bab9-4bad-953a-290e1a65ec36",
+    "type": "message",
+    "text": "BTW I always thought of Erlang as very close to the actor model, intentionally or unintentionally. So I'm a bit confused about the assertion that Armstrong held a dim view of the actor model. I think I found the panel discussion referred to (haven't finished watching yet): <https://www.youtube.com/watch?v=37wFVVVZlVU>",
+    "user": "U8A5MS6R1",
+    "ts": "1572456703.376900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Let's #TalkConcurrency Panel Discussion with Sir Tony Hoare, Joe Armstrong, and Carl Hewitt",
+        "title_link": "https://www.youtube.com/watch?v=37wFVVVZlVU",
+        "author_name": "Erlang Solutions",
+        "author_link": "https://www.youtube.com/user/ErlangSolutions",
+        "thumb_url": "https://i.ytimg.com/vi/37wFVVVZlVU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Let's #TalkConcurrency Panel Discussion with Sir Tony Hoare, Joe Armstrong, and Carl Hewitt",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/37wFVVVZlVU?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=37wFVVVZlVU",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=37wFVVVZlVU"
+      }
+    ],
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "111114ae-9059-4bc8-8d92-874d63755b5c",
+    "type": "message",
+    "text": "Hmm, not sure I understand that distinction.\n\nPerhaps a concrete example will help, in two parts:\n1. Spreadsheets are great for non-programmers. Let's generalize spreadsheets beyond tables.\n2. Spreadsheets often grow too complex to debug, and bugs are often missed. Let's improve spreadsheets to be easier to debug.\n\nI've long suspected both these endeavors to be doomed. If you focus on just one side the other will get you. And if you try to focus on both the problem ends up getting too constrained.\n\nThe issue here is that both problems are Romanticist in their framing. Here's a Classicist reframing: spreadsheets are great for non-programmers but they're _fundamentally incomplete_. Let's use spreadsheets as a gateway drug to teach people to test what they build, value simple solutions over complex ones, decouple solutions into sub-systems, etc.\n\nI'm starting to think Alan Kay and Bret Victor would agree with this. The new steelman model of them in my head agrees that tools need to help people change, but just hasn't found a way to clearly communicate this nuance at scale. Their fundamental goal is to inspire.",
+    "user": "UCUSW7WVD",
+    "ts": "1572456721.136600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572002424.061800",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "5ddba2a6-3b4b-4a85-91e0-5576df823911",
+    "type": "message",
+    "text": "usually people make the distinction between \"sequential erlang\", the language and its semantics that you write as modules and functions and \"Erlang/OTP\" the concurrency primitives and patterns used to organize processes into systems, the immutability is in the sequential part (the language) the \"mutability\" is in the platform",
+    "user": "UBN9AFS0N",
+    "ts": "1572456904.377200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5ddba2a6-3b4b-4a85-91e0-5576df823911",
+    "type": "message",
+    "text": "usually people make the distinction between \"sequential erlang\", the language and its semantics that you write as modules and functions and \"Erlang/OTP\" the concurrency primitives and patterns used to organize processes into systems, the immutability is in the sequential part (the language) the \"mutability\" is in the platform",
+    "user": "UBN9AFS0N",
+    "ts": "1572456904.377200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7EC60C99-56E4-4F86-94D4-17E637686D72",
+    "type": "message",
+    "text": "Yes, or have any interaction (i/o) with the actual world at all, but who needs users, keyboards, mice, touch screens, user interfaces, files, databases, sensors, or network communications? ;)",
+    "user": "ULM3U6275",
+    "ts": "1572457704.379200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1572461181.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7EC60C99-56E4-4F86-94D4-17E637686D72",
+    "type": "message",
+    "text": "Yes, or have any interaction (i/o) with the actual world at all, but who needs users, keyboards, mice, touch screens, user interfaces, files, databases, sensors, or network communications? ;)",
+    "user": "ULM3U6275",
+    "ts": "1572457704.379200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1572461181.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f4f6ce92-9991-4061-b492-6f983c308f8e",
+    "type": "message",
+    "text": "The immutable model, single assignment, etc does affect how you write code in the small, based on my very limited experience with Erlang. The main thing I liked was things aren't going to just change underneath you - within your process of course. Its kind of like working in a single threaded isolated heap. But you know when you're looking outside the process that you'll may get anything. Also you don't usually synchronously look outside your process. You just send a message and are done. Then later, you may get a message related to one you sent.",
+    "user": "U8A5MS6R1",
+    "ts": "1572458462.379500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f4f6ce92-9991-4061-b492-6f983c308f8e",
+    "type": "message",
+    "text": "The immutable model, single assignment, etc does affect how you write code in the small, based on my very limited experience with Erlang. The main thing I liked was things aren't going to just change underneath you - within your process of course. Its kind of like working in a single threaded isolated heap. But you know when you're looking outside the process that you'll may get anything. Also you don't usually synchronously look outside your process. You just send a message and are done. Then later, you may get a message related to one you sent.",
+    "user": "U8A5MS6R1",
+    "ts": "1572458462.379500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6f8dca13-d13e-46f8-a52c-f1e618a3e35a",
+    "type": "message",
+    "text": "In the talk above the Hoare and Hewitt are somewhat smug, and Armstrong upbraids them because he points out his system actually built shipping products that worked well. Their approaches did not work.  It is easy to lump Erlang/Elixir into a category with other languages, but it is a unique beast; with a very clever runtime that creates a stack and heap for each micro-process. This allows you to reboot a process, and not have some godawful pile of a million tiny chunks of memory that have to be marked and swept. When it comes to massive multithreading, there is only two ways to do it: a super meticulously hand-crafted runtime, or use the runtime that Erlang/Elixir have, because it solves an immensely difficult problem.\n\nIf you take the straight actor model, and combine non-reversibility with  concurrency, your system will be incredibly fragile. That is Armstrong's point. He wasn't a theoretician like Hewitt and Hoare, but someone building real high volume things, not toys.",
+    "user": "UEQ6M68H0",
+    "ts": "1572469244.379900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1572469263.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6f8dca13-d13e-46f8-a52c-f1e618a3e35a",
+    "type": "message",
+    "text": "In the talk above the Hoare and Hewitt are somewhat smug, and Armstrong upbraids them because he points out his system actually built shipping products that worked well. Their approaches did not work.  It is easy to lump Erlang/Elixir into a category with other languages, but it is a unique beast; with a very clever runtime that creates a stack and heap for each micro-process. This allows you to reboot a process, and not have some godawful pile of a million tiny chunks of memory that have to be marked and swept. When it comes to massive multithreading, there is only two ways to do it: a super meticulously hand-crafted runtime, or use the runtime that Erlang/Elixir have, because it solves an immensely difficult problem.\n\nIf you take the straight actor model, and combine non-reversibility with  concurrency, your system will be incredibly fragile. That is Armstrong's point. He wasn't a theoretician like Hewitt and Hoare, but someone building real high volume things, not toys.",
+    "user": "UEQ6M68H0",
+    "ts": "1572469244.379900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1572469263.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "255cfcae-08d9-4272-99e8-1dd57ecfcd73",
+    "type": "message",
+    "text": "Armstrong has a lot of good videos up. They are entertaining and informative. One thing to remember though is that Erlang was banned inside Ericsson, where it was created, and that banning is probably related to the poor transferability score that Erlang possesses. If you notice that Elixir is having much greater acceptance, because some would describe the Erlang syntax as opaque. A program in commercial use lasts decades, and the ability to transfer code from one person to the next is a major factor in language selection. This means sticking with popular languages, but also avoiding ones like LISP, FORTH, and APL which have super low transferability.  It would be great to hear from people who used to work at Ericsson as to why exactly it was banned. There was no question that his system worked well, and was robust; but maybe it was too hard to maintain and thus fragile in the end? There is a lot of information in failure, and i wish people would be more honest about the failures of the past; this is how you get wisdom.",
+    "user": "UEQ6M68H0",
+    "ts": "1572471412.380200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1572471487.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "255cfcae-08d9-4272-99e8-1dd57ecfcd73",
+    "type": "message",
+    "text": "Armstrong has a lot of good videos up. They are entertaining and informative. One thing to remember though is that Erlang was banned inside Ericsson, where it was created, and that banning is probably related to the poor transferability score that Erlang possesses. If you notice that Elixir is having much greater acceptance, because some would describe the Erlang syntax as opaque. A program in commercial use lasts decades, and the ability to transfer code from one person to the next is a major factor in language selection. This means sticking with popular languages, but also avoiding ones like LISP, FORTH, and APL which have super low transferability.  It would be great to hear from people who used to work at Ericsson as to why exactly it was banned. There was no question that his system worked well, and was robust; but maybe it was too hard to maintain and thus fragile in the end? There is a lot of information in failure, and i wish people would be more honest about the failures of the past; this is how you get wisdom.",
+    "user": "UEQ6M68H0",
+    "ts": "1572471412.380200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1572471487.000000"
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e3bc1f65-4009-41b2-b400-c328c152aaf3",
+    "type": "message",
+    "text": "<https://twitter.com/JaneWalerud/status/1189461281184636928>",
+    "user": "UBN9AFS0N",
+    "ts": "1572474176.380500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/JaneWalerud|@JaneWalerud>: <https://twitter.com/FrancescoC|@FrancescoC> <https://twitter.com/mjcoffeeholick|@mjcoffeeholick> <https://twitter.com/ElixirConfLA|@ElixirConfLA> In 1998, E/// had 19 products dependent on Erlang and no success on selling E/// outside the organisation for five years. 1/n",
+        "ts": 1572424643,
+        "author_name": "Jane Walerud",
+        "author_link": "https://twitter.com/JaneWalerud/status/1189461281184636928",
+        "author_icon": "https://pbs.twimg.com/profile_images/712613127242780674/Hox3ZiuD_normal.jpg",
+        "author_subname": "@JaneWalerud",
+        "text": "<https://twitter.com/FrancescoC|@FrancescoC> <https://twitter.com/mjcoffeeholick|@mjcoffeeholick> <https://twitter.com/ElixirConfLA|@ElixirConfLA> In 1998, E/// had 19 products dependent on Erlang and no success on selling E/// outside the organisation for five years. 1/n",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/JaneWalerud/status/1189461281184636928",
+        "id": 1,
+        "original_url": "https://twitter.com/JaneWalerud/status/1189461281184636928",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e3bc1f65-4009-41b2-b400-c328c152aaf3",
+    "type": "message",
+    "text": "<https://twitter.com/JaneWalerud/status/1189461281184636928>",
+    "user": "UBN9AFS0N",
+    "ts": "1572474176.380500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/JaneWalerud|@JaneWalerud>: <https://twitter.com/FrancescoC|@FrancescoC> <https://twitter.com/mjcoffeeholick|@mjcoffeeholick> <https://twitter.com/ElixirConfLA|@ElixirConfLA> In 1998, E/// had 19 products dependent on Erlang and no success on selling E/// outside the organisation for five years. 1/n",
+        "ts": 1572424643,
+        "author_name": "Jane Walerud",
+        "author_link": "https://twitter.com/JaneWalerud/status/1189461281184636928",
+        "author_icon": "https://pbs.twimg.com/profile_images/712613127242780674/Hox3ZiuD_normal.jpg",
+        "author_subname": "@JaneWalerud",
+        "text": "<https://twitter.com/FrancescoC|@FrancescoC> <https://twitter.com/mjcoffeeholick|@mjcoffeeholick> <https://twitter.com/ElixirConfLA|@ElixirConfLA> In 1998, E/// had 19 products dependent on Erlang and no success on selling E/// outside the organisation for five years. 1/n",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/JaneWalerud/status/1189461281184636928",
+        "id": 1,
+        "original_url": "https://twitter.com/JaneWalerud/status/1189461281184636928",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "efe0f762-b0f3-4199-9c54-9073ea6f799c",
+    "type": "message",
+    "text": "that thread explains why",
+    "user": "UBN9AFS0N",
+    "ts": "1572474183.380800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "efe0f762-b0f3-4199-9c54-9073ea6f799c",
+    "type": "message",
+    "text": "that thread explains why",
+    "user": "UBN9AFS0N",
+    "ts": "1572474183.380800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "df1e452b-6d40-4dc1-8993-4ce1f99a19f4",
+    "type": "message",
+    "text": "Erlang is used a lot again inside Ericsson since it was open sourced and the ban was lifted",
+    "user": "UBN9AFS0N",
+    "ts": "1572474209.381000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "df1e452b-6d40-4dc1-8993-4ce1f99a19f4",
+    "type": "message",
+    "text": "Erlang is used a lot again inside Ericsson since it was open sourced and the ban was lifted",
+    "user": "UBN9AFS0N",
+    "ts": "1572474209.381000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1572414362.359200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
