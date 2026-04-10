@@ -80,11 +80,6 @@ export const ConversationsViewer = component({
     activeMessage: null,
     messages: Messages.make(),
   },
-  computed: {
-    gridClass() {
-      return this.activeMessage ? "conversations-grid grid gap-3 has-thread" : "conversations-grid grid gap-3";
-    },
-  },
   methods: {
     updateActiveMessageIfSet(fn) {
       return this.updateActiveMessage((m) => (m ? fn(m) : null));
@@ -117,12 +112,18 @@ export const ConversationsViewer = component({
         "thread"
         "messages";
     }
-    .conversations-grid > .area-nav { grid-area: nav; }
-    .conversations-grid > .area-messages { grid-area: messages; }
-    .conversations-grid > .area-thread { grid-area: thread; }
+    .conversations-grid > .area-nav {
+      grid-area: nav;
+    }
+    .conversations-grid > .area-messages {
+      grid-area: messages;
+    }
+    .conversations-grid > .area-thread {
+      grid-area: thread;
+    }
 
     @media (min-width: 768px) {
-      .conversations-grid.has-thread {
+      .conversations-grid:has(.area-thread) {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto 1fr;
         grid-template-areas:
@@ -130,13 +131,13 @@ export const ConversationsViewer = component({
           "messages thread";
         height: 100vh;
       }
-      .conversations-grid.has-thread > .area-messages,
-      .conversations-grid.has-thread > .area-thread {
+      .conversations-grid:has(.area-thread) > .area-messages,
+      .conversations-grid:has(.area-thread) > .area-thread {
         overflow-y: auto;
       }
     }
   `,
-  view: html`<section :class="$gridClass">
+  view: html`<section class="conversations-grid grid gap-3">
     <nav
       class="area-nav flex flex-wrap p-3 gap-3 justify-evenly bg-base-300 z-2 sticky top-0"
     >
