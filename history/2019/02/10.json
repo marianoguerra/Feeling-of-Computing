@@ -1,0 +1,572 @@
+[
+  {
+    "client_msg_id": "0a7bd5ab-c350-4460-b08c-dbdffca684db",
+    "type": "message",
+    "text": "(continuing about \"the mechanism\", as I said I would before)\n\nSo now we're past the \"what\" and \"why\", here's the \"how\" (in answer to Shalab's question about semantics):\n\nSuch a tool needs a way to represent arbitrary data &amp; code, including its own. Textual \"source code\" will not do, because it must be parsed *into* structure before it can be dealt with in any meaningful way. Instead we need a direct representation that structure (e.g. an AST) *to begin with*. Essentially, a JSON / Lisp -like structure (lists, dictionaries, and simple values like strings and numbers).\n\nThus, all that is needed is the *minimum possible* of the following:\n* A user interface for viewing &amp; manipulating that kind of structure.\n* An interpreter and/or compiler, so that structure is actually runnable as \"code\".\n* All of the above is coded / stored in that \"structure\", and thus also exposed for direct user modification. (A small amount of low-level code is needed to make it work at all; but it is either embedded within and/or compiled from the high level structure).\n\nIn my next reply (sorry, it will have an end) I'll explain the semantics of the built-in interpreter / structural code.",
+    "user": "UAVCC2X70",
+    "ts": "1549758009.963800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1549777045.000000"
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0a7bd5ab-c350-4460-b08c-dbdffca684db",
+    "type": "message",
+    "text": "(continuing about \"the mechanism\", as I said I would before)\n\nSo now we're past the \"what\" and \"why\", here's the \"how\" (in answer to Shalab's question about semantics):\n\nSuch a tool needs a way to represent arbitrary data &amp; code, including its own. Textual \"source code\" will not do, because it must be parsed *into* structure before it can be dealt with in any meaningful way. Instead we need a direct representation that structure (e.g. an AST) *to begin with*. Essentially, a JSON / Lisp -like structure (lists, dictionaries, and simple values like strings and numbers).\n\nThus, all that is needed is the *minimum possible* of the following:\n* A user interface for viewing &amp; manipulating that kind of structure.\n* An interpreter and/or compiler, so that structure is actually runnable as \"code\".\n* All of the above is coded / stored in that \"structure\", and thus also exposed for direct user modification. (A small amount of low-level code is needed to make it work at all; but it is either embedded within and/or compiled from the high level structure).\n\nIn my next reply (sorry, it will have an end) I'll explain the semantics of the built-in interpreter / structural code.",
+    "user": "UAVCC2X70",
+    "ts": "1549758009.963800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1549777045.000000"
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "36976803-e0a6-409e-89ff-3cf6fdff5ef4",
+    "type": "message",
+    "text": "The model of an Smalltalk system is not textual code. It's objects, and the compiled code is captured as objects as well. You are correct in that a key aspect of Smalltalk is to be bootstrapped and deeply reflective. Pharo is a Smalltalk, but its model is different from the original Smalltalk. For example, the AST is the key element. It can be annotated directly. The textual representation is an input format, but it is not an essential one from the machinery point of view.\n\nGlamorous Toolkit is a development environment that extends the base language with a visual and interaction language to allow you to construct custom visual representations while you are using the interface.",
+    "user": "UE1JQM9HQ",
+    "ts": "1549771803.964800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "36976803-e0a6-409e-89ff-3cf6fdff5ef4",
+    "type": "message",
+    "text": "The model of an Smalltalk system is not textual code. It's objects, and the compiled code is captured as objects as well. You are correct in that a key aspect of Smalltalk is to be bootstrapped and deeply reflective. Pharo is a Smalltalk, but its model is different from the original Smalltalk. For example, the AST is the key element. It can be annotated directly. The textual representation is an input format, but it is not an essential one from the machinery point of view.\n\nGlamorous Toolkit is a development environment that extends the base language with a visual and interaction language to allow you to construct custom visual representations while you are using the interface.",
+    "user": "UE1JQM9HQ",
+    "ts": "1549771803.964800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b13b161d-32ce-460f-9665-771c2b2c27b0",
+    "type": "message",
+    "text": "(continuing from previous)\n\nThe semantics of the built-in interpreter / structural code are straight-forward:\n\nSince everything in the tool (and anything that *could* be in the tool) consists of the same structural elements, the only possible actions that the code can take, is all the operations that can be performed on those structural elements. At the most fundamental level that's the basic CRUD operations (set, get, has? / exists?, delete), and basic arithmetic and logical operations.\n\nTada!\n\n... Ok, so maybe it's not entirely straightforward, since there are limitless ways I could have chosen to represent such operations. But I will say that after exploring different approaches and trying hard to derive the simplest model, I essentially arrived (unintentionally, but seemingly inescapably) at the standard LISP representation.\n\nPut simply:\n* Anything other than a list (\"array\") evaluates to itself.\n* A list is evaluated by evaluating each item in it, with the first item being the operation to perform, and the remaining items being the arguments for that operation.\n* The interpreter knows NOTHING about which operations can be performed, and instead looks them up by name from some \"context\".\n* The interpreter can be invoked with different \"contexts\", which allows for context-specific code / DSLs\n\nFurthermore, the same set of operations can be invoked either by code or by user interaction.\n\nI've since started a new project, \"Interact\", which is essentially the same thing, but is starting with the UI and working downwards, whereas my \"objects\" project is working from the ground up.\n\nIn my next reply, I'll say a bit about intentions for this tool",
+    "user": "UAVCC2X70",
+    "ts": "1549780084.966200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1549782992.000000"
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b13b161d-32ce-460f-9665-771c2b2c27b0",
+    "type": "message",
+    "text": "(continuing from previous)\n\nThe semantics of the built-in interpreter / structural code are straight-forward:\n\nSince everything in the tool (and anything that *could* be in the tool) consists of the same structural elements, the only possible actions that the code can take, is all the operations that can be performed on those structural elements. At the most fundamental level that's the basic CRUD operations (set, get, has? / exists?, delete), and basic arithmetic and logical operations.\n\nTada!\n\n... Ok, so maybe it's not entirely straightforward, since there are limitless ways I could have chosen to represent such operations. But I will say that after exploring different approaches and trying hard to derive the simplest model, I essentially arrived (unintentionally, but seemingly inescapably) at the standard LISP representation.\n\nPut simply:\n* Anything other than a list (\"array\") evaluates to itself.\n* A list is evaluated by evaluating each item in it, with the first item being the operation to perform, and the remaining items being the arguments for that operation.\n* The interpreter knows NOTHING about which operations can be performed, and instead looks them up by name from some \"context\".\n* The interpreter can be invoked with different \"contexts\", which allows for context-specific code / DSLs\n\nFurthermore, the same set of operations can be invoked either by code or by user interaction.\n\nI've since started a new project, \"Interact\", which is essentially the same thing, but is starting with the UI and working downwards, whereas my \"objects\" project is working from the ground up.\n\nIn my next reply, I'll say a bit about intentions for this tool",
+    "user": "UAVCC2X70",
+    "ts": "1549780084.966200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1549782992.000000"
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f451c4a1-8e1a-45b3-a1fd-afa27f6327bb",
+    "type": "message",
+    "text": "We just released v0.5.1 of Glamorous Toolkit (<http://gtoolkit.com|gtoolkit.com>), the moldable development environment built in Pharo. The release notes are here: <https://medium.com/feenk/glamorous-toolkit-v0-5-1-4c8757d58310>. I'd be very happy to hear and address your feedback.",
+    "user": "UE1JQM9HQ",
+    "ts": "1549780913.109300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1549780913.109300",
+    "reply_count": 5,
+    "reply_users_count": 3,
+    "latest_reply": "1549958228.001300",
+    "reply_users": [
+      "UF5PAGQQ4",
+      "UEGFXUK3M",
+      "UE1JQM9HQ"
+    ],
+    "replies": [
+      {
+        "user": "UF5PAGQQ4",
+        "ts": "1549795568.109500"
+      },
+      {
+        "user": "UEGFXUK3M",
+        "ts": "1549887213.000600"
+      },
+      {
+        "user": "UEGFXUK3M",
+        "ts": "1549887226.000800"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1549958015.001100"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1549958228.001300"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC",
+          "UF5PAGQQ4",
+          "U85HCL7JP",
+          "UBN9AFS0N",
+          "UAHHWT22U",
+          "UEGFXUK3M",
+          "UE0ETTCG7"
+        ],
+        "count": 7
+      },
+      {
+        "name": "tada",
+        "users": [
+          "UEGFXUK3M",
+          "UFPPABQ7P"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "f451c4a1-8e1a-45b3-a1fd-afa27f6327bb",
+    "type": "message",
+    "text": "We just released v0.5.1 of Glamorous Toolkit (<http://gtoolkit.com|gtoolkit.com>), the moldable development environment built in Pharo. The release notes are here: <https://medium.com/feenk/glamorous-toolkit-v0-5-1-4c8757d58310>. I'd be very happy to hear and address your feedback.",
+    "user": "UE1JQM9HQ",
+    "ts": "1549780913.109300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1549780913.109300",
+    "reply_count": 5,
+    "reply_users_count": 3,
+    "latest_reply": "1549958228.001300",
+    "reply_users": [
+      "UF5PAGQQ4",
+      "UEGFXUK3M",
+      "UE1JQM9HQ"
+    ],
+    "replies": [
+      {
+        "user": "UF5PAGQQ4",
+        "ts": "1549795568.109500"
+      },
+      {
+        "user": "UEGFXUK3M",
+        "ts": "1549887213.000600"
+      },
+      {
+        "user": "UEGFXUK3M",
+        "ts": "1549887226.000800"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1549958015.001100"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1549958228.001300"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC",
+          "UF5PAGQQ4",
+          "U85HCL7JP",
+          "UBN9AFS0N",
+          "UAHHWT22U",
+          "UEGFXUK3M",
+          "UE0ETTCG7"
+        ],
+        "count": 7
+      },
+      {
+        "name": "tada",
+        "users": [
+          "UEGFXUK3M",
+          "UFPPABQ7P"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "05620c22-1094-41d5-a7cb-612c935a1e11",
+    "type": "message",
+    "text": "(continuing from previous ... sorry, I mentioned that I am not concise)\n\nIt might sound like I've invented a \"language\" with a LISP-like structure. However, that structure is NOT textual, nor is it intended to be \"source code\". It is just an *underlying representation* of generic code (i.e. an AST), of which the operations / commands / etc. are entirely customizable.\n\nSure, it's executable within the tool, but it's also a stored representation that can be processed as data, generated dynamically, or sent as JSON.\n\nThe point is to make the development, visualization, representation, or execution of software (or other entities like videos or images), completely moldable from top to bottom -- and the tools for doing the molding are also moldable.\n\nAnd not just for making and editing things, but this can actually BE the environment that one thinks of as \"the computer\".\n\nFor example, the tool can be used to:\n* Build other programs\n* Be an execution environment itself, and add, inspect, or modify anything running in it\n* Alter the tools that the tool gives you to do any of these things. This can include how code/data is built, visualized, manipulated, and/or compiled or serialized to something else. This can include \"languages\", UI widgets, or whatever.\n* Immediately inspect or run / invoke any piece of code (and then do the same with the result that it generates).\n* Compile a common code format to any (or multiple) target languages, environments, or data formats.\n* Model &amp; simulate full-stack (distributed) applications all in one place (\"sandbox\"), and then compile / generate to its constituent parts to be installed elsewhere.\n* Same as above, but actually host the application in itself.\n* The tool itself can serialize / compile itself (and all its contents) into another context. The result can be, a program that bootstraps the tool into existence in a new place (e.g. web browser or JVM / CLR); or code that can be embedded in another program; or a message sent to another copy of the tool somewhere else (e.g. on a different machine), which then recreates itself on the other side.\n\nThese are just examples, and note that anything that can applied to a program can also be applied to the tool itself. This means that any other tool or approach for making, visualizing, or representing software or data, can be added to the tool and applied to anything else, and perhaps be combined with each other.",
+    "user": "UAVCC2X70",
+    "ts": "1549786956.967200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1551513503.000000"
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "05620c22-1094-41d5-a7cb-612c935a1e11",
+    "type": "message",
+    "text": "(continuing from previous ... sorry, I mentioned that I am not concise)\n\nIt might sound like I've invented a \"language\" with a LISP-like structure. However, that structure is NOT textual, nor is it intended to be \"source code\". It is just an *underlying representation* of generic code (i.e. an AST), of which the operations / commands / etc. are entirely customizable.\n\nSure, it's executable within the tool, but it's also a stored representation that can be processed as data, generated dynamically, or sent as JSON.\n\nThe point is to make the development, visualization, representation, or execution of software (or other entities like videos or images), completely moldable from top to bottom -- and the tools for doing the molding are also moldable.\n\nAnd not just for making and editing things, but this can actually BE the environment that one thinks of as \"the computer\".\n\nFor example, the tool can be used to:\n* Build other programs\n* Be an execution environment itself, and add, inspect, or modify anything running in it\n* Alter the tools that the tool gives you to do any of these things. This can include how code/data is built, visualized, manipulated, and/or compiled or serialized to something else. This can include \"languages\", UI widgets, or whatever.\n* Immediately inspect or run / invoke any piece of code (and then do the same with the result that it generates).\n* Compile a common code format to any (or multiple) target languages, environments, or data formats.\n* Model &amp; simulate full-stack (distributed) applications all in one place (\"sandbox\"), and then compile / generate to its constituent parts to be installed elsewhere.\n* Same as above, but actually host the application in itself.\n* The tool itself can serialize / compile itself (and all its contents) into another context. The result can be, a program that bootstraps the tool into existence in a new place (e.g. web browser or JVM / CLR); or code that can be embedded in another program; or a message sent to another copy of the tool somewhere else (e.g. on a different machine), which then recreates itself on the other side.\n\nThese are just examples, and note that anything that can applied to a program can also be applied to the tool itself. This means that any other tool or approach for making, visualizing, or representing software or data, can be added to the tool and applied to anything else, and perhaps be combined with each other.",
+    "user": "UAVCC2X70",
+    "ts": "1549786956.967200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1551513503.000000"
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "33d0c947-9b07-40f9-9c4a-dae35f308f08",
+    "type": "message",
+    "text": "I’m curious, would you say that Pharo is at a “practical” level right now? So for example would you be able to develop an multithreaded “enterprise” application with it?",
+    "user": "UF5PAGQQ4",
+    "ts": "1549795568.109500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g99a3fab7a1a",
+      "image_72": "https://secure.gravatar.com/avatar/299a3fab7a1a2d6644455dedae9fce0a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Stathis Sideris",
+      "display_name": "Stathis",
+      "team": "T5TCAFTA9",
+      "name": "sideris",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1549780913.109300",
+    "parent_user_id": "UE1JQM9HQ",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "33d0c947-9b07-40f9-9c4a-dae35f308f08",
+    "type": "message",
+    "text": "I’m curious, would you say that Pharo is at a “practical” level right now? So for example would you be able to develop an multithreaded “enterprise” application with it?",
+    "user": "UF5PAGQQ4",
+    "ts": "1549795568.109500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g99a3fab7a1a",
+      "image_72": "https://secure.gravatar.com/avatar/299a3fab7a1a2d6644455dedae9fce0a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Stathis Sideris",
+      "display_name": "Stathis",
+      "team": "T5TCAFTA9",
+      "name": "sideris",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1549780913.109300",
+    "parent_user_id": "UE1JQM9HQ",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "dab1d935-0bcc-416e-ab6c-66ca2d706ea2",
+    "type": "message",
+    "text": "hello world!",
+    "user": "UDPMQFJ1M",
+    "ts": "1549800541.012100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2d4fc7756fd",
+      "image_72": "https://secure.gravatar.com/avatar/42d4fc7756fd580868784de273db913e.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0016-72.png",
+      "first_name": "",
+      "real_name": "Ramsey Nasser",
+      "display_name": "nasser",
+      "team": "T5TCAFTA9",
+      "name": "ram",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1549800541.012100",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1549989605.000800",
+    "reply_users": [
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1549989605.000800"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "wave::skin-tone-4",
+        "users": [
+          "UBN9AFS0N",
+          "UE0H4170F",
+          "UF6RLAL7J",
+          "UC2A2ARPT",
+          "UDJ2TKB99"
+        ],
+        "count": 5
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UDLGND5GA"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "4463d75d-fdfd-45d8-9a6c-73087a872b32",
+    "type": "message",
+    "text": "<@UE0H4170F> yeah Oskar is an invention of Larry's. no documentation of it that I know of.",
+    "user": "UDPMQFJ1M",
+    "ts": "1549801152.013800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2d4fc7756fd",
+      "image_72": "https://secure.gravatar.com/avatar/42d4fc7756fd580868784de273db913e.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0016-72.png",
+      "first_name": "",
+      "real_name": "Ramsey Nasser",
+      "display_name": "nasser",
+      "team": "T5TCAFTA9",
+      "name": "ram",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "376fa4f7-dd68-40c3-9e76-a68cd21958de",
+    "type": "message",
+    "text": "(revoked comment -- I had a false understanding of SmallTalk being text-based. I stand corrected! Thanks, Tudor. I am leaving the below portion as it was)\n\nConsider that the web is based on REST messages, and compare that to the user experience that actually comes out of a web browser. I think the same kind of thing can be done to change how we interact with code.\n\nThe current state of programming is like replacing a web browser with a really good JSON viewer / editor, combined with the ability to send arbitrary REST requests. We'd still have access to the same \"information\" and the same ability to process\"data\" -- isn't that good enough?\n\nThe only reason that we (as an industry) tolerate that for software development is because we don't know what's missing.\n\nAnd there is SO much more good visualization / UI of the underlying data, than spitting out a 1:1 representation. BV elaborates *really well* in his \"Magic Ink\" paper (link below), and I hope to open the door to exploring (with ease) that same space for code.\n\n<http://worrydream.com/MagicInk>",
+    "user": "UAVCC2X70",
+    "ts": "1549825422.969100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1549950089.000000"
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "376fa4f7-dd68-40c3-9e76-a68cd21958de",
+    "type": "message",
+    "text": "(revoked comment -- I had a false understanding of SmallTalk being text-based. I stand corrected! Thanks, Tudor. I am leaving the below portion as it was)\n\nConsider that the web is based on REST messages, and compare that to the user experience that actually comes out of a web browser. I think the same kind of thing can be done to change how we interact with code.\n\nThe current state of programming is like replacing a web browser with a really good JSON viewer / editor, combined with the ability to send arbitrary REST requests. We'd still have access to the same \"information\" and the same ability to process\"data\" -- isn't that good enough?\n\nThe only reason that we (as an industry) tolerate that for software development is because we don't know what's missing.\n\nAnd there is SO much more good visualization / UI of the underlying data, than spitting out a 1:1 representation. BV elaborates *really well* in his \"Magic Ink\" paper (link below), and I hope to open the door to exploring (with ease) that same space for code.\n\n<http://worrydream.com/MagicInk>",
+    "user": "UAVCC2X70",
+    "ts": "1549825422.969100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1549950089.000000"
+    },
+    "thread_ts": "1527044282.000289",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

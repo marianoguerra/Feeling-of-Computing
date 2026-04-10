@@ -1,0 +1,761 @@
+[
+  {
+    "client_msg_id": "750FDB4A-AC17-4261-9E94-527FD6E55061",
+    "type": "message",
+    "text": "Sometimes I think of ideas how to teach basic logic behind computer skills in more human way.  I feel as programmers really are capable of abstractions. And it is abstractions and ability to create metaphors for them is really needed. For example. Simple thing like a traffic lights. It is an abstraction and a metaphor. Red is danger. Fire. Warning. Green is life, way to grow, prevail. Yellow is a transitional color between them. The colors were found naturally. Out of real emotional attachment to other things in life besides road traffic regulation. When it comes to transfer knowledge of computer to everyone, one would need to find things connecting to other aspects of life. Cache is absolutely nothing to most people. Meta data is also far out. You know it took me months trying to figure out what some programmers mean by agile. )) and I still think that every one of them means something different ) ",
+    "user": "UEBU4L0BD",
+    "ts": "1550362888.145600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c222f08ae3ac",
+      "image_72": "https://avatars.slack-edge.com/2018-12-19/507735697633_c222f08ae3ac4e54e907_72.png",
+      "first_name": "Katerina",
+      "real_name": "Katerina solstad",
+      "display_name": "Katyaso",
+      "team": "T5TCAFTA9",
+      "name": "katyasorok",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550285570.108200",
+    "parent_user_id": "UD43R8ZFV",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UD43R8ZFV",
+          "U8A5MS6R1"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "750FDB4A-AC17-4261-9E94-527FD6E55061",
+    "type": "message",
+    "text": "Sometimes I think of ideas how to teach basic logic behind computer skills in more human way.  I feel as programmers really are capable of abstractions. And it is abstractions and ability to create metaphors for them is really needed. For example. Simple thing like a traffic lights. It is an abstraction and a metaphor. Red is danger. Fire. Warning. Green is life, way to grow, prevail. Yellow is a transitional color between them. The colors were found naturally. Out of real emotional attachment to other things in life besides road traffic regulation. When it comes to transfer knowledge of computer to everyone, one would need to find things connecting to other aspects of life. Cache is absolutely nothing to most people. Meta data is also far out. You know it took me months trying to figure out what some programmers mean by agile. )) and I still think that every one of them means something different ) ",
+    "user": "UEBU4L0BD",
+    "ts": "1550362888.145600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c222f08ae3ac",
+      "image_72": "https://avatars.slack-edge.com/2018-12-19/507735697633_c222f08ae3ac4e54e907_72.png",
+      "first_name": "Katerina",
+      "real_name": "Katerina solstad",
+      "display_name": "Katyaso",
+      "team": "T5TCAFTA9",
+      "name": "katyasorok",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550285570.108200",
+    "parent_user_id": "UD43R8ZFV",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UD43R8ZFV",
+          "U8A5MS6R1"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f8a1463f-2d6d-4607-a537-56f5ec9bdbe7",
+    "type": "message",
+    "text": "\"1) expressing computation is a solved problem. We have Lambda calculus, Lisp-like functions, Smalltalk-like messages. These are fine. We don't need to worry about these.\"\n\nI'm not sure.... if it were a solved problem, couldn't we all agree about how to do it?\n\nEvery language seems to express even basic computation a little differently. What is 0x4000'0000 + 0x9000'0000? In some languages it's a syntax error, in some it's +0xD000'0000, in some -805'306'368, and in some you get a runtime exception. There are seemingly legitimate reasons why each language made the choice it did, and I don't think we've done a good job at standardizing any of the basic decisions that go into our languages. We certainly haven't specified things in a way that would make it practical to convert code between programming languages, and so everybody picks one language in which to write a library and if the language from which you'd like to use the library isn't the same language, you're sh*t out of luck.\n\nThat's why one of my big interests is on standardizing this stuff without belittling any of the popular semantic choices - I mean, it's easy for comp-sci types, for example, to say \"+0xD000'0000 is obviously the right answer, we just need our systems to use that as the answer\", but no, in reality -805'306'368 or an OverflowException might be a better answer in a particular situation.\n\n\"The second of these thoughts has me looking into logic programming in Prolog and Minikanren where we \"flatten\" our program into a sequence of facts and rules which can be added in more or less any order, leaving the inference engine running around drawing out the implications.\"\n\nMy thinking on this is that this is something I definitely want my programming environment to be *able* to do, but I think the Prolog lovers were mistaken in thinking that in the future all programming would basically be like Prolog programming. I believe there should be a programming language/environment that lets you do *everything* fairly seamlessly - everything from low-level-but-very-fast hand-written vectorized code with mod-2^32 arithmetic, up to theorem proving and prolog-style stuff where the computer magically finds the solution for you (this code may also be fast, eventually, when the underlying algorithms are both optimized and use dynamic codegen). As a consequence I think that the foundation for such an environment must be somehow imperative in its nature, even though functional / declarative / constraint-based / domain-specific ways of programming would be preferred most of the time.",
+    "user": "UD6EXQVM0",
+    "ts": "1550366974.005200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1550380354.000000"
+    },
+    "thread_ts": "1543869198.036500",
+    "parent_user_id": "UEKEQGB9C",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "3bec85ff-b641-4b17-8303-092d43b0ceba",
+    "type": "message",
+    "text": "I’ve been dreaming of making some sort of “ultimate programming language” for over 15 years—but to my surprise, never found any like-minded folks until recently. I registered <http://loyc.net/> in 2007 with the idea of making a democratically-extensible compiler with multiple input syntaxes; as time passed it morphed into a set of general ideas for language building. More concretely I wrote the C# parser generator LLLPG and the Lisp-inspired macro system it runs within (it's designed so that the same macro system could support any programming language, I just haven't had time to go beyond C#). But for this group the most relevant thing I've made is LESv2 and LESv3, two simple languages to represent universal syntax trees. I've worked a bit with Jonathan Van der Cruise who made Flame, a compiler-building framework for C#. I learned about Haxe just this year, but I've wanted to build something for several years that would let you write libraries targeting several languages at once. I think I could build something better than Haxe and Cito (Ć) - if only I had some funding and manpower. I’d also be interested in a system for bridging programming languages at run-time so they could communicate seamlessly. For now, I’m too busy at my new job to do anything, including hang out here! (truth be told it's a horrible job and I desperately wish to find something better.) I’ve been bursting with ideas for years and hate being unable to execute on them.\n\nLinks:\n• Loyc trees <http://loyc.net/loyc-trees>\n• LES <http://loyc.net/les> &lt;= Use this to prototype new programming languages\n• LLLPG <http://ecsharp.net/lllpg>\n• LeMP <http://ecsharp.net/lemp>\n• Flame <https://github.com/jonathanvdc/Flame>\n• Haxe <https://haxe.org>",
+    "user": "UD6EXQVM0",
+    "ts": "1550368121.006600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1557439518.000000"
+    },
+    "thread_ts": "1550368121.006600",
+    "reply_count": 5,
+    "reply_users_count": 4,
+    "latest_reply": "1553211006.057700",
+    "reply_users": [
+      "UCKRZS3DZ",
+      "UEQ6M68H0",
+      "UF5PAGQQ4",
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UCKRZS3DZ",
+        "ts": "1550387608.017600"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1550398412.018200"
+      },
+      {
+        "user": "UF5PAGQQ4",
+        "ts": "1550403783.018400"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1551034989.002100"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1553211006.057700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "wave",
+        "users": [
+          "U8A5MS6R1",
+          "UC2A2ARPT",
+          "U85HCL7JP",
+          "UCKRZS3DZ",
+          "UA14TGLTC",
+          "U5TCAFTD3",
+          "UCUSW7WVD",
+          "UDLFL2HD4",
+          "UEGFXUK3M"
+        ],
+        "count": 9
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "1e5f401c-3dd9-421f-ba3e-d5dd5133e0a5",
+    "type": "message",
+    "text": "I want to work on the foundations of programming and on interoperability, and I think my work is relevant to everyone here. Many researchers, for instance, have made experimental programming languages and environments - but they can't interoperate with each other! Many languages can only interoperate with C, one of the most archaic languages in existence!\n\nWe must break down these silo walls, so I want to work on those common foundations: to figure out a way to let you write a library in a language that will convert itself to several different languages and run easily on many platforms. To figure out how to standardize everything from point data types (X,Y coordinates), to D-style ranges (an abstraction for subsequences), to whatever data types neural networks are made of, to the way debuggers work. (current thinking: a StackOverflow-like site where people vote on interface designs?). In short, I want to solve the technical problems that create friction in both the niche of programming language design and in the broader world of software engineering. (But, as I say, no time, can't do it. It's funny to have enough urgent work to fill a lifetime, but treat it like a minor hobby to do on weekends sometimes.)\n\nOh and Bret Victor inspired me yada yada I invent on principle blah blah. Like the rest of y'all :slightly_smiling_face: But seriously, Bret Victor FTW.\n\nTwitter: @DPiepgrass  Site: <http://david.loyc.net|david.loyc.net>",
+    "user": "UD6EXQVM0",
+    "ts": "1550369313.016100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1551043970.000000"
+    },
+    "thread_ts": "1550369313.016100",
+    "reply_count": 7,
+    "reply_users_count": 6,
+    "latest_reply": "1551156433.010200",
+    "reply_users": [
+      "UC21F8Q48",
+      "UCUSW7WVD",
+      "UAVCC2X70",
+      "UEQ6M68H0",
+      "UA14TGLTC",
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UC21F8Q48",
+        "ts": "1550544849.019500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1550557566.019800"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1550706692.000300"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1550885882.001000"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1550909672.001400"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1550909811.001600"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1551156433.010200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UA14TGLTC",
+          "UDJ2TKB99"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "9a9de7bb-4579-4e57-9789-fb2781b9e510",
+    "type": "message",
+    "text": "These Loyc trees remind a bit <https://ipld.io/>\nAlso a DAG",
+    "user": "UCKRZS3DZ",
+    "ts": "1550387608.017600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCKRZS3DZ",
+      "ts": "1550387886.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "IPLD",
+        "title": "IPLD - The data model of the content-addressable web",
+        "title_link": "https://ipld.io/",
+        "text": "The data model of the content-addressable web. It allows us to treat all hash-linked data structures as subsets of a unified information space, unifying all data models that link data with hashes as instances of IPLD.",
+        "fallback": "IPLD: IPLD - The data model of the content-addressable web",
+        "thumb_url": "https://ipld.io/img/ipld-logo.png",
+        "from_url": "https://ipld.io/",
+        "thumb_width": 146,
+        "thumb_height": 166,
+        "service_icon": "https://ipld.io/favicon.ico",
+        "id": 1,
+        "original_url": "https://ipld.io/"
+      }
+    ],
+    "thread_ts": "1550368121.006600",
+    "parent_user_id": "UD6EXQVM0",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "352544c7-eebd-4553-b19c-672136632040",
+    "type": "message",
+    "text": "In my work experience, I've observed a situation where \"modularity\" had replaced coherent system design, and got worse and worse over time as others continued to believe that we'd achieve scalability once we achieved some perfect modular system; but what I observed was the exact opposite.",
+    "user": "UAVCC2X70",
+    "ts": "1550391048.014700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1550472299.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "scream",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "352544c7-eebd-4553-b19c-672136632040",
+    "type": "message",
+    "text": "In my work experience, I've observed a situation where \"modularity\" had replaced coherent system design, and got worse and worse over time as others continued to believe that we'd achieve scalability once we achieved some perfect modular system; but what I observed was the exact opposite.",
+    "user": "UAVCC2X70",
+    "ts": "1550391048.014700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1550472299.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "scream",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "30b2b5fa-9628-4304-aa12-8d27fbc4970d",
+    "type": "message",
+    "text": "That is an interesting observation. I'd be curious to learn more about how \"modularity\" came to be at odds with coherent system design. Would it be possible to provide more details?",
+    "user": "UE1JQM9HQ",
+    "ts": "1550391970.014900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "30b2b5fa-9628-4304-aa12-8d27fbc4970d",
+    "type": "message",
+    "text": "That is an interesting observation. I'd be curious to learn more about how \"modularity\" came to be at odds with coherent system design. Would it be possible to provide more details?",
+    "user": "UE1JQM9HQ",
+    "ts": "1550391970.014900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e811027d-5ca1-42d3-b6f0-59d165dde3f0",
+    "type": "message",
+    "text": "<@UAVCC2X70> please share your horror story.  In my experience, it's when modules are drawn with the wrong bounds so you get tight coupling plus communication overhead.",
+    "user": "UA14TGLTC",
+    "ts": "1550395229.015200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e811027d-5ca1-42d3-b6f0-59d165dde3f0",
+    "type": "message",
+    "text": "<@UAVCC2X70> please share your horror story.  In my experience, it's when modules are drawn with the wrong bounds so you get tight coupling plus communication overhead.",
+    "user": "UA14TGLTC",
+    "ts": "1550395229.015200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "eb1d2914-365d-4cbb-9fe1-b307ef85d94f",
+    "type": "message",
+    "text": "I strongly suggest you drop the # character in front of keywords. The # character is not  a quickly typed character, and from an ergonomic standpoint, the only high frequency characters in your language should be located near the home row. There are 8 or so punctuation characters near the home row you can use instead.",
+    "user": "UEQ6M68H0",
+    "ts": "1550398412.018200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550368121.006600",
+    "parent_user_id": "UD6EXQVM0",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "381d175a-2cd3-4f5a-9999-07eef2b951da",
+    "type": "message",
+    "text": "&gt;I’ve been bursting with ideas for years and hate being unable to execute on them.\nThis feeling is way too familiar :slightly_smiling_face:",
+    "user": "UF5PAGQQ4",
+    "ts": "1550403783.018400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g99a3fab7a1a",
+      "image_72": "https://secure.gravatar.com/avatar/299a3fab7a1a2d6644455dedae9fce0a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Stathis Sideris",
+      "display_name": "Stathis",
+      "team": "T5TCAFTA9",
+      "name": "sideris",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550368121.006600",
+    "parent_user_id": "UD6EXQVM0",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "192a24c4-2455-49f1-ad06-eab788f5a47b",
+    "type": "message",
+    "text": "So I read this and first I think - are Haskell and Lisp really opposites? They both seemed similarly overwhelming to me. Lisp because it was different than everything I was used to (being invented in 1958 makes it an alien world, and I have no doubt that you could easily get hopelessly lost in a maze of twisty little macros like the OP said, if the original author wasn't good at both designing good abstractions and documenting them.) Haskell because it has so many unusual abstractions that you must learn before you can understand others' code or write effective code yourself. I think I prefer Haskell's form of Hell, because it's strongly typed, more modern, and better-planned-out, but I'm not really satisfied with either of them.",
+    "user": "UD6EXQVM0",
+    "ts": "1550438893.015500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1550438976.000000"
+    },
+    "thread_ts": "1542958731.034300",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "192a24c4-2455-49f1-ad06-eab788f5a47b",
+    "type": "message",
+    "text": "So I read this and first I think - are Haskell and Lisp really opposites? They both seemed similarly overwhelming to me. Lisp because it was different than everything I was used to (being invented in 1958 makes it an alien world, and I have no doubt that you could easily get hopelessly lost in a maze of twisty little macros like the OP said, if the original author wasn't good at both designing good abstractions and documenting them.) Haskell because it has so many unusual abstractions that you must learn before you can understand others' code or write effective code yourself. I think I prefer Haskell's form of Hell, because it's strongly typed, more modern, and better-planned-out, but I'm not really satisfied with either of them.",
+    "user": "UD6EXQVM0",
+    "ts": "1550438893.015500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1550438976.000000"
+    },
+    "thread_ts": "1542958731.034300",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "8ef3b155-6d56-42c8-86a9-fd79d7b70adc",
+    "type": "message",
+    "text": "I like having a Lisp-style macro system available, but I think creating a macro system so people can *write* macros is the wrong approach. What I want from a macro system is a good set of well-designed macros designed by professionals, that everybody knows, so that you rarely need to write a new macro of your own.\n\nHaskell, similarly, has a lot of good things to offer, but pure functional programming is not a form of thought that comes naturally, nor is the various abstractions based on higher mathematics.\n\nI actually think it's important to teach some of these abstractions and probably someday they will be a part of every school curriculum - but I think a good programming language embraces diverse forms of thought - imperative, declarative, functional, domain-specific - and allows programmers to write programs in a way that resembles the way they think about the problem they're solving. The role of the programming language is not to enforce \"purity\", but to provide rich, intuitive functionality and to guide people into the \"pit of success\" - by making the probably-better way of doing things easier than the probably-worse way.\n\nShort pit-of-success example: in languages like JavaScript creating a global variable is super easy, but a member variable must be accessed through \"this\", as in `this.v`. This should be flipped on its head so the member variable is easy to reach and the global variable is written `global.v`.",
+    "user": "UD6EXQVM0",
+    "ts": "1550439744.016000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1550439766.000000"
+    },
+    "thread_ts": "1542958731.034300",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "8ef3b155-6d56-42c8-86a9-fd79d7b70adc",
+    "type": "message",
+    "text": "I like having a Lisp-style macro system available, but I think creating a macro system so people can *write* macros is the wrong approach. What I want from a macro system is a good set of well-designed macros designed by professionals, that everybody knows, so that you rarely need to write a new macro of your own.\n\nHaskell, similarly, has a lot of good things to offer, but pure functional programming is not a form of thought that comes naturally, nor is the various abstractions based on higher mathematics.\n\nI actually think it's important to teach some of these abstractions and probably someday they will be a part of every school curriculum - but I think a good programming language embraces diverse forms of thought - imperative, declarative, functional, domain-specific - and allows programmers to write programs in a way that resembles the way they think about the problem they're solving. The role of the programming language is not to enforce \"purity\", but to provide rich, intuitive functionality and to guide people into the \"pit of success\" - by making the probably-better way of doing things easier than the probably-worse way.\n\nShort pit-of-success example: in languages like JavaScript creating a global variable is super easy, but a member variable must be accessed through \"this\", as in `this.v`. This should be flipped on its head so the member variable is easy to reach and the global variable is written `global.v`.",
+    "user": "UD6EXQVM0",
+    "ts": "1550439744.016000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1550439766.000000"
+    },
+    "thread_ts": "1542958731.034300",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "CC76EBE6-3AC6-4B65-BABF-0A39B0DAA31E",
+    "type": "message",
+    "text": "It might be Inspired by <https://youtu.be/UScm9avQM1Y> )) ",
+    "user": "UEBU4L0BD",
+    "ts": "1550442258.146900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c222f08ae3ac",
+      "image_72": "https://avatars.slack-edge.com/2018-12-19/507735697633_c222f08ae3ac4e54e907_72.png",
+      "first_name": "Katerina",
+      "real_name": "Katerina solstad",
+      "display_name": "Katyaso",
+      "team": "T5TCAFTA9",
+      "name": "katyasorok",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Larry Wall: Computer Programming in 5 Minutes",
+        "title_link": "https://youtu.be/UScm9avQM1Y",
+        "author_name": "Big Think",
+        "author_link": "https://www.youtube.com/user/bigthink",
+        "thumb_url": "https://i.ytimg.com/vi/UScm9avQM1Y/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Larry Wall: Computer Programming in 5 Minutes",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/UScm9avQM1Y?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/UScm9avQM1Y",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/UScm9avQM1Y"
+      }
+    ],
+    "thread_ts": "1548980413.792300",
+    "parent_user_id": "U85HCL7JP",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "CC76EBE6-3AC6-4B65-BABF-0A39B0DAA31E",
+    "type": "message",
+    "text": "It might be Inspired by <https://youtu.be/UScm9avQM1Y> )) ",
+    "user": "UEBU4L0BD",
+    "ts": "1550442258.146900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c222f08ae3ac",
+      "image_72": "https://avatars.slack-edge.com/2018-12-19/507735697633_c222f08ae3ac4e54e907_72.png",
+      "first_name": "Katerina",
+      "real_name": "Katerina solstad",
+      "display_name": "Katyaso",
+      "team": "T5TCAFTA9",
+      "name": "katyasorok",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Larry Wall: Computer Programming in 5 Minutes",
+        "title_link": "https://youtu.be/UScm9avQM1Y",
+        "author_name": "Big Think",
+        "author_link": "https://www.youtube.com/user/bigthink",
+        "thumb_url": "https://i.ytimg.com/vi/UScm9avQM1Y/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Larry Wall: Computer Programming in 5 Minutes",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/UScm9avQM1Y?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/UScm9avQM1Y",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/UScm9avQM1Y"
+      }
+    ],
+    "thread_ts": "1548980413.792300",
+    "parent_user_id": "U85HCL7JP",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

@@ -1,0 +1,792 @@
+[
+  {
+    "client_msg_id": "ae45c593-5623-4e75-80ad-8da0acf96cad",
+    "type": "message",
+    "text": "I can't say I understand what you're trying to accomplish by revisiting assembly language - particularly assembly language for a specific processor. I myself would kill (like, a mouse or something) to get a job working on the design of WebAssembly, but then I'd be programming everything in a higher-level language, except if I had to write some WebAssembly code (in which case I'd be interested in higher-level representations of it). x86? Yeah, I used it a bit 20 years ago when I had no choice.\n\nSo what are your goals and motivation?",
+    "user": "UD6EXQVM0",
+    "ts": "1550448457.016600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1550448640.000000"
+    },
+    "thread_ts": "1544261823.037100",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "ae45c593-5623-4e75-80ad-8da0acf96cad",
+    "type": "message",
+    "text": "I can't say I understand what you're trying to accomplish by revisiting assembly language - particularly assembly language for a specific processor. I myself would kill (like, a mouse or something) to get a job working on the design of WebAssembly, but then I'd be programming everything in a higher-level language, except if I had to write some WebAssembly code (in which case I'd be interested in higher-level representations of it). x86? Yeah, I used it a bit 20 years ago when I had no choice.\n\nSo what are your goals and motivation?",
+    "user": "UD6EXQVM0",
+    "ts": "1550448457.016600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD6EXQVM0",
+      "ts": "1550448640.000000"
+    },
+    "thread_ts": "1544261823.037100",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "ts": "1550475280.000200",
+    "user": "UBUFWBGNN",
+    "text": "<@UBUFWBGNN> has joined the channel",
+    "channel_name": "of-music",
+    "channel_id": "CEZ6QTHL1"
+  },
+  {
+    "client_msg_id": "0a561367-425e-4867-af7d-fa5178cb0129",
+    "type": "message",
+    "text": "<@UA14TGLTC> - That's essentially what happened.\n\nLet's say the product was a UI widget, with multiple similar but highly customized variations.\n\nVersion 1 had inconsistencies and unclear boundaries between features, which made it difficult to share (or even identify) features across different code-bases. Each feature was developed in whatever code-base needed it at the time, and then copied ad-hoc to others as needed. Let's say the code was 10 Smurfs in size.\n\nVersion 2 included *all* features in a single \"I can be anything\" code-base (single repository). Each feature was factored nicely into it's own \"module\"; but there was a lot of complex mechanism to dynamically load or enable/disable modules on the fly. This code was 30 Smurfs in size.\n\nVersion 3 allowed you to statically include *just* the modules you need, from the start. However, each module now lived in it's own repository, had its own version, it's own CI/CD system, and was built on top of a swarm of the latest tools/technologies/frameworks/etc. The modules would listen to each other's events and monitor each other's state, and proactively try to cause their own behavior(s) to happen at the right time and/or trigger each other to pick up the next step. Many of these modules equated to tiny steps (one-liners) before, but had become full-fledged modules with their own state &amp; events, and watching the state &amp; events of others, and also with all the configuration files that each module then came with (new retirement imposed by the new technology stack). The whole thing had undergone changes &amp; refactorings across all modules over time. The typical size of one of these (after combining all modules used for a given instance of the widget) was 400 Smurfs.\n\nSo sure, it only included the modules you needed, BUT:\n* The code was MUCH larger and more complicated to follow (especially being split across MANY repositories)\n* Most instances needed most of the modules, anyway\n* There was CONSTANT breakages and build errors related to not having the right combination of modules (or incompatible versions of different modules).\n* ... I won't go on any further.",
+    "user": "UAVCC2X70",
+    "ts": "1550476186.017100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1550480041.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UFD2JRE58"
+        ],
+        "count": 1
+      },
+      {
+        "name": "scream",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0a561367-425e-4867-af7d-fa5178cb0129",
+    "type": "message",
+    "text": "<@UA14TGLTC> - That's essentially what happened.\n\nLet's say the product was a UI widget, with multiple similar but highly customized variations.\n\nVersion 1 had inconsistencies and unclear boundaries between features, which made it difficult to share (or even identify) features across different code-bases. Each feature was developed in whatever code-base needed it at the time, and then copied ad-hoc to others as needed. Let's say the code was 10 Smurfs in size.\n\nVersion 2 included *all* features in a single \"I can be anything\" code-base (single repository). Each feature was factored nicely into it's own \"module\"; but there was a lot of complex mechanism to dynamically load or enable/disable modules on the fly. This code was 30 Smurfs in size.\n\nVersion 3 allowed you to statically include *just* the modules you need, from the start. However, each module now lived in it's own repository, had its own version, it's own CI/CD system, and was built on top of a swarm of the latest tools/technologies/frameworks/etc. The modules would listen to each other's events and monitor each other's state, and proactively try to cause their own behavior(s) to happen at the right time and/or trigger each other to pick up the next step. Many of these modules equated to tiny steps (one-liners) before, but had become full-fledged modules with their own state &amp; events, and watching the state &amp; events of others, and also with all the configuration files that each module then came with (new retirement imposed by the new technology stack). The whole thing had undergone changes &amp; refactorings across all modules over time. The typical size of one of these (after combining all modules used for a given instance of the widget) was 400 Smurfs.\n\nSo sure, it only included the modules you needed, BUT:\n* The code was MUCH larger and more complicated to follow (especially being split across MANY repositories)\n* Most instances needed most of the modules, anyway\n* There was CONSTANT breakages and build errors related to not having the right combination of modules (or incompatible versions of different modules).\n* ... I won't go on any further.",
+    "user": "UAVCC2X70",
+    "ts": "1550476186.017100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1550480041.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UFD2JRE58"
+        ],
+        "count": 1
+      },
+      {
+        "name": "scream",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e873cb58-a35e-44ca-a733-bf9fb6f8c9b6",
+    "type": "message",
+    "text": "<@UE1JQM9HQ> - I agree that true modularity is not at odds with coherent systems (although too much of it can be -- I forget who says it, but \"code should be as simple as possible, but no simpler\").\n\nSo, granted, the real problem there was actually a lack of critical thinking &amp; proper analysis (e.g. asking the right questions).\n\nBut it does seem that many people don't understand the difference (hence the quotes), and my experience has caused me to see excessive focus on \"modularity\" as a red flag / as something commonly (mis)used as a \"silver bullet\"",
+    "user": "UAVCC2X70",
+    "ts": "1550480711.020000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1550482802.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e873cb58-a35e-44ca-a733-bf9fb6f8c9b6",
+    "type": "message",
+    "text": "<@UE1JQM9HQ> - I agree that true modularity is not at odds with coherent systems (although too much of it can be -- I forget who says it, but \"code should be as simple as possible, but no simpler\").\n\nSo, granted, the real problem there was actually a lack of critical thinking &amp; proper analysis (e.g. asking the right questions).\n\nBut it does seem that many people don't understand the difference (hence the quotes), and my experience has caused me to see excessive focus on \"modularity\" as a red flag / as something commonly (mis)used as a \"silver bullet\"",
+    "user": "UAVCC2X70",
+    "ts": "1550480711.020000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1550482802.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "338dd134-0fa0-4deb-b881-0a49b286a0da",
+    "type": "message",
+    "text": "<@UAVCC2X70> Super interesting, thanks!\nThere is something very relaxing about reading about _other_ dev's terrible experiences :stuck_out_tongue:\n\nWith increasing age I think I am a bit of a simplicity pessimist because there is a similar story to be told about most types of approach. We often feel like there is some type of inner simplicity waiting to get out that we are missing but real work so often turns out to be a messy impendance filled PITA. I fear that when we do get a simple elegant implementation, it's actually luck that the problem allowed it and didn't throw up assumption-breakers rather than virtues of our approach. Try a successful approach on a different problem and it can spin out of control.",
+    "user": "UFD2JRE58",
+    "ts": "1550487572.022000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ca63ca2aa38f",
+      "image_72": "https://avatars.slack-edge.com/2019-01-20/529811744742_ca63ca2aa38fa658cc4f_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Woods",
+      "display_name": "duncanawoods",
+      "team": "T5TCAFTA9",
+      "name": "duncan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFD2JRE58",
+      "ts": "1550487713.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "338dd134-0fa0-4deb-b881-0a49b286a0da",
+    "type": "message",
+    "text": "<@UAVCC2X70> Super interesting, thanks!\nThere is something very relaxing about reading about _other_ dev's terrible experiences :stuck_out_tongue:\n\nWith increasing age I think I am a bit of a simplicity pessimist because there is a similar story to be told about most types of approach. We often feel like there is some type of inner simplicity waiting to get out that we are missing but real work so often turns out to be a messy impendance filled PITA. I fear that when we do get a simple elegant implementation, it's actually luck that the problem allowed it and didn't throw up assumption-breakers rather than virtues of our approach. Try a successful approach on a different problem and it can spin out of control.",
+    "user": "UFD2JRE58",
+    "ts": "1550487572.022000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ca63ca2aa38f",
+      "image_72": "https://avatars.slack-edge.com/2019-01-20/529811744742_ca63ca2aa38fa658cc4f_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Woods",
+      "display_name": "duncanawoods",
+      "team": "T5TCAFTA9",
+      "name": "duncan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFD2JRE58",
+      "ts": "1550487713.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "361a941c-6297-4b70-8f44-ef40e20b1554",
+    "type": "message",
+    "text": "Well said <@UFD2JRE58>.  Perhaps accidental complexity abounds in software projects because an abundance of the desired behavior is in fact accidental.  Brings to mind a recent project where one tiny corner of a country required an exceptional case that touched every part of the system.  Some 50 if-statements later we had it in hand.  No idea how I could have handled that particular cross-cutting concern better.",
+    "user": "UA14TGLTC",
+    "ts": "1550496138.022800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "361a941c-6297-4b70-8f44-ef40e20b1554",
+    "type": "message",
+    "text": "Well said <@UFD2JRE58>.  Perhaps accidental complexity abounds in software projects because an abundance of the desired behavior is in fact accidental.  Brings to mind a recent project where one tiny corner of a country required an exceptional case that touched every part of the system.  Some 50 if-statements later we had it in hand.  No idea how I could have handled that particular cross-cutting concern better.",
+    "user": "UA14TGLTC",
+    "ts": "1550496138.022800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "80cfd8e7-6f5b-40ed-b1e5-eb4f14afa07f",
+    "type": "message",
+    "text": "I strongly disagree with the view that software is just inescapably messy and unfixable. Most accidental complexity is an *objective* matter that can be dealt with through basic composition &amp; decomposition -- skills that any professional software developer should have, and which are foundational to coherent code design. This goes hand-in-hand with understanding &amp; designing software (first and foremost) in terms of the *human* model (i.e. the terms that matter).\n\nIf these things are lacking to begin with, then adding more technology &amp; frameworks &amp; patterns (etc.) is not going to change that -- in fact it will often make this problem even worse!\n\nSadly, *most* software is much more complex than it needs to be, largely due to the wide-spread lack / misunderstanding of these *foundational* things. That is the status quo of professional software, which is just dismal.\n\nIt's a real shame because it's not hard -- any competent developer can grasp these things. But because of that gap, we (as an industry) chase or own tails and hop from fad to fad, and eventually \"accept\" that it's hopeless (\"it never works out\") and attribute simplicity to luck. \n\n...\n\nPerhaps the bigger problem, then, is what to do about this culture / gap? If one cannot get the team on board or to stop barking up the wrong tree (or if we cannot change the industry at large), then we are stuck with having to deal with these problems regardless.\n\nFor example, it seems impossible to challenge the view that the software industry knows what's best, so if you do what everyone else is doing (e.g. use the latest greatest frameworks and follow the standards), then you're doing it \"right\". When in reality, the industry is a pop culture based on fads and popularity. One is professional because they do all the things that other professional software vendors do. But others are professional because they do too.\n\nJim Coplien describes the level of professionalism / maturity of the industry in the following, and my experience has matched his description:\n <https://www.infoq.com/interviews/coplien-dci-architecture>\n(You can listen to it, or read the transcript)",
+    "user": "UAVCC2X70",
+    "ts": "1550510474.023000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1550592187.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "80cfd8e7-6f5b-40ed-b1e5-eb4f14afa07f",
+    "type": "message",
+    "text": "I strongly disagree with the view that software is just inescapably messy and unfixable. Most accidental complexity is an *objective* matter that can be dealt with through basic composition &amp; decomposition -- skills that any professional software developer should have, and which are foundational to coherent code design. This goes hand-in-hand with understanding &amp; designing software (first and foremost) in terms of the *human* model (i.e. the terms that matter).\n\nIf these things are lacking to begin with, then adding more technology &amp; frameworks &amp; patterns (etc.) is not going to change that -- in fact it will often make this problem even worse!\n\nSadly, *most* software is much more complex than it needs to be, largely due to the wide-spread lack / misunderstanding of these *foundational* things. That is the status quo of professional software, which is just dismal.\n\nIt's a real shame because it's not hard -- any competent developer can grasp these things. But because of that gap, we (as an industry) chase or own tails and hop from fad to fad, and eventually \"accept\" that it's hopeless (\"it never works out\") and attribute simplicity to luck. \n\n...\n\nPerhaps the bigger problem, then, is what to do about this culture / gap? If one cannot get the team on board or to stop barking up the wrong tree (or if we cannot change the industry at large), then we are stuck with having to deal with these problems regardless.\n\nFor example, it seems impossible to challenge the view that the software industry knows what's best, so if you do what everyone else is doing (e.g. use the latest greatest frameworks and follow the standards), then you're doing it \"right\". When in reality, the industry is a pop culture based on fads and popularity. One is professional because they do all the things that other professional software vendors do. But others are professional because they do too.\n\nJim Coplien describes the level of professionalism / maturity of the industry in the following, and my experience has matched his description:\n <https://www.infoq.com/interviews/coplien-dci-architecture>\n(You can listen to it, or read the transcript)",
+    "user": "UAVCC2X70",
+    "ts": "1550510474.023000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1550592187.000000"
+    },
+    "thread_ts": "1550137467.010900",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "060fc0b8-0289-4ac0-a61f-142da7ce03ca",
+    "type": "message",
+    "text": "So TIL, via Mark Coniglio, that prior art for animation created with motion capture goes back at least 15 years before the 1985 \"Brilliance\" ad (which afaik is still the first animation use of optical mocap).",
+    "user": "UDLGND5GA",
+    "ts": "1550515549.003400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDLGND5GA",
+      "ts": "1550515818.000000"
+    },
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "7848b045-050f-4ab8-b118-555b17fa96d3",
+    "type": "message",
+    "text": "<https://www.youtube.com/watch?v=D_WGsfonXQI>",
+    "user": "UDLGND5GA",
+    "ts": "1550515567.003600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "1985 Brilliance",
+        "title_link": "https://www.youtube.com/watch?v=D_WGsfonXQI",
+        "author_name": "Nicolas Miranda Ojeda",
+        "author_link": "https://www.youtube.com/user/INicracKI",
+        "thumb_url": "https://i.ytimg.com/vi/D_WGsfonXQI/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: 1985 Brilliance",
+        "video_html": "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/D_WGsfonXQI?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 300,
+        "from_url": "https://www.youtube.com/watch?v=D_WGsfonXQI",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=D_WGsfonXQI"
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "5511e598-7ac3-4b6b-80ff-d966801b006d",
+    "type": "message",
+    "text": "Below is documentation of a live performance called \"Turn On\", in LA--in ***1969***, using a Scanimate analog computer and what looks like wired inertial sensors:",
+    "user": "UDLGND5GA",
+    "ts": "1550515591.004300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDLGND5GA",
+      "ts": "1550515718.000000"
+    },
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "f3c33296-1123-405c-afd9-70f5496d5ce0",
+    "type": "message",
+    "text": "<https://www.youtube.com/watch?v=SGF0Okaee1o>",
+    "user": "UDLGND5GA",
+    "ts": "1550515624.004500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Scanimate News Report",
+        "title_link": "https://www.youtube.com/watch?v=SGF0Okaee1o",
+        "author_name": "Anthony Singleton",
+        "author_link": "https://www.youtube.com/user/AnthonyKSingleton",
+        "thumb_url": "https://i.ytimg.com/vi/SGF0Okaee1o/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Scanimate News Report",
+        "video_html": "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/SGF0Okaee1o?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 300,
+        "from_url": "https://www.youtube.com/watch?v=SGF0Okaee1o",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=SGF0Okaee1o"
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "bbbb0813-1d47-420c-b92b-504a9ddb3fd3",
+    "type": "message",
+    "text": "And a single high-res still here:",
+    "user": "UDLGND5GA",
+    "ts": "1550515637.005000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "9094ad89-b885-45d9-8c08-1958a6ddef63",
+    "type": "message",
+    "text": "<https://www.msn.com/en-us/news/photos/50-years-ago-in-photos-a-look-back-at-1969/ss-BBTyr9d?ocid=spartanntp&amp;fbclid=IwAR2fQQunm8aEGqvuqiAglUx1XXopcOG5YkKOVQJchBX2fHLnGKOear4vbag&amp;fullscreen=true#image=6>",
+    "user": "UDLGND5GA",
+    "ts": "1550515643.005200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "50 Years Ago in Photos: A Look Back at 1969",
+        "title_link": "https://www.msn.com/en-us/news/photos/50-years-ago-in-photos-a-look-back-at-1969/ss-BBTyr9d?ocid=spartanntp&fbclid=IwAR2fQQunm8aEGqvuqiAglUx1XXopcOG5YkKOVQJchBX2fHLnGKOear4vbag&fullscreen=true#image=6",
+        "text": "A half-century ago, humans first set foot on the moon, hundreds of thousands of young people gathered in New York’s Catskill Mountains for a music festival that became a cultural milestone, and so much more.",
+        "fallback": "50 Years Ago in Photos: A Look Back at 1969",
+        "from_url": "https://www.msn.com/en-us/news/photos/50-years-ago-in-photos-a-look-back-at-1969/ss-BBTyr9d?ocid=spartanntp&fbclid=IwAR2fQQunm8aEGqvuqiAglUx1XXopcOG5YkKOVQJchBX2fHLnGKOear4vbag&fullscreen=true#image=6",
+        "service_icon": "https://www.msn.com/favicon.ico",
+        "service_name": "50 Years Ago in Photos: A Look Back at 1969",
+        "id": 1,
+        "original_url": "https://www.msn.com/en-us/news/photos/50-years-ago-in-photos-a-look-back-at-1969/ss-BBTyr9d?ocid=spartanntp&amp;fbclid=IwAR2fQQunm8aEGqvuqiAglUx1XXopcOG5YkKOVQJchBX2fHLnGKOear4vbag&amp;fullscreen=true#image=6"
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "d2210fa9-b4ee-468a-b0dd-26037d7fae63",
+    "type": "message",
+    "text": "Makes me wonder what other prior art is out there for the conventionally-accepted CG milestones--like, maybe there's a documented use of 2D drawing in animation older than Foldes' \"Hunger\"...",
+    "user": "UDLGND5GA",
+    "ts": "1550516091.007000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDLGND5GA",
+      "ts": "1550516118.000000"
+    },
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "a2764af5-6de3-499d-b21d-461d3c6a594f",
+    "type": "message",
+    "text": "Turns out there's documentation of the full show at the Paley Center archives in NYC and LA. Also despite looking like '00s modern dance it's apparently actually sketch comedy.",
+    "user": "UDLGND5GA",
+    "ts": "1550516388.008400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDLGND5GA",
+      "ts": "1550516404.000000"
+    },
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "c2ca0f97-1686-445c-83bc-e8cb6a8a3b34",
+    "type": "message",
+    "text": "What's striking to me about this particular example--it's precisely the wheel I reinvented as a novice coder at Eyebeam in 2012, with Victoria Nece (who's now doing some really cool similar stuff at Adobe)....projecting 3D mocap coordinates onto 2D puppet characters. Despite the technology being a Kinect and MacBook that together cost less than an inflation-adjusted hour's rental of the Scanimate system...ultimately we followed the same chain of reasoning.",
+    "user": "UDLGND5GA",
+    "ts": "1550516704.010000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDLGND5GA",
+      "ts": "1550517599.000000"
+    },
+    "thread_ts": "1550516704.010000",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1550786027.000100",
+    "reply_users": [
+      "UD43R8ZFV"
+    ],
+    "replies": [
+      {
+        "user": "UD43R8ZFV",
+        "ts": "1550786027.000100"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "39ffd9b3-5330-4c8b-b8b6-3eac01d6ffac",
+    "type": "message",
+    "text": "Like the \"Turn On\" folks, we had sensors to capture a performer's movement in 3D, and the graphics hardware to render them in 3D. But we were lacking a software layer to interpret the data--only in our case just because of our own lack of experience, not because no solution yet existed. _Projecting 3D coordinates onto a 2D plane became a way to work with 3D data without having to think about 3D graphics._",
+    "user": "UDLGND5GA",
+    "ts": "1550517492.012200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDLGND5GA",
+      "ts": "1550517654.000000"
+    },
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "1D6DC033-882C-4174-9D0E-36038608DB54",
+    "type": "message",
+    "text": "Here is an idea explaining the algorithm for linked list. Group of people, a robe in a length of exactly 20 feet. The road. The tree at the end of the road. How can someone from the group to go towards the tree and stop exactly 20 feet from it?  Exercise at first might have an idea to go all away to the tree, place the robe there that measure the distance and the other end of the road will be the place to stop. Modification for  more optimal decision would be two people holding a robe and walking towards the tree with a robe between them. Once the leading person gets to the tree, the one behind is standing where we wanted to be. Just came to me as possible way to explain. So not know how useful it is but things like that can be taught to children at early age. ",
+    "user": "UEBU4L0BD",
+    "ts": "1550534389.157900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c222f08ae3ac",
+      "image_72": "https://avatars.slack-edge.com/2018-12-19/507735697633_c222f08ae3ac4e54e907_72.png",
+      "first_name": "Katerina",
+      "real_name": "Katerina solstad",
+      "display_name": "Katyaso",
+      "team": "T5TCAFTA9",
+      "name": "katyasorok",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550534389.157900",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1550619398.183400",
+    "reply_users": [
+      "UA14TGLTC",
+      "UEBU4L0BD"
+    ],
+    "replies": [
+      {
+        "user": "UA14TGLTC",
+        "ts": "1550542345.158300"
+      },
+      {
+        "user": "UEBU4L0BD",
+        "ts": "1550619398.183400"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1D6DC033-882C-4174-9D0E-36038608DB54",
+    "type": "message",
+    "text": "Here is an idea explaining the algorithm for linked list. Group of people, a robe in a length of exactly 20 feet. The road. The tree at the end of the road. How can someone from the group to go towards the tree and stop exactly 20 feet from it?  Exercise at first might have an idea to go all away to the tree, place the robe there that measure the distance and the other end of the road will be the place to stop. Modification for  more optimal decision would be two people holding a robe and walking towards the tree with a robe between them. Once the leading person gets to the tree, the one behind is standing where we wanted to be. Just came to me as possible way to explain. So not know how useful it is but things like that can be taught to children at early age. ",
+    "user": "UEBU4L0BD",
+    "ts": "1550534389.157900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c222f08ae3ac",
+      "image_72": "https://avatars.slack-edge.com/2018-12-19/507735697633_c222f08ae3ac4e54e907_72.png",
+      "first_name": "Katerina",
+      "real_name": "Katerina solstad",
+      "display_name": "Katyaso",
+      "team": "T5TCAFTA9",
+      "name": "katyasorok",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1550534389.157900",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1550619398.183400",
+    "reply_users": [
+      "UA14TGLTC",
+      "UEBU4L0BD"
+    ],
+    "replies": [
+      {
+        "user": "UA14TGLTC",
+        "ts": "1550542345.158300"
+      },
+      {
+        "user": "UEBU4L0BD",
+        "ts": "1550619398.183400"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
