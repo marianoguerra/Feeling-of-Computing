@@ -1,0 +1,560 @@
+[
+  {
+    "client_msg_id": "e1bf6668-cd22-4a44-9bbb-2665900baba6",
+    "type": "message",
+    "text": "*Befunge, but readable*\n\n<https://github.com/m-ender/hexagony> made the rounds of the internet yesterday, and caused me to swap in an old interest of mine that I've flailed ineffectually at in the past (e.g. <https://twitter.com/akkartik/status/1238349948074070017>): a way to display a program that makes its large-scale structure really obvious (rather than obfuscating it as Befunge does).\n\nOne problem I have with Befunge (not the one you're thinking of, ha) and other _fungeoids_ [1] is that you have a bunch of static information about a program visible in 2D on screen, but a key piece -- the stack -- is invisible. The question I keep returning to is how one might go about making the stack (or any other run-time state used by the program) visible without just bolting it on on the side. This time around, I got hooked on the following metaphor. Imagine a spaceship that contains some data, sets out on a voyage across an infinite 2D plane, and performs various operations depending on the objects it collides with.\n\nExample 1: The space ship contains a row of boxes. Colliding with a number pushes a box on to the nose,  colliding with an operator operates on the 1 or 2 front-most boxes in the front. This is a way to display a stack, but a stack in isolation doesn't seem to scale well to larger programs.\n\nExample 2: The spaceship contains a number. Colliding with the BF-inspired primitives `+` and `-` [2] causes the number to be incremented and decremented, respectively. Now build addition out of it. Zooming into a number `n` shows it to be a loop of n iterations. When the spaceship collides with `n` it loops through n times, and the number inside it has n added to it. At a high zoom, you see the spaceship loop n times before exiting the \"solar system\". At a low zoom you see the spaceship exit instantaneously with n added to its value. Now you can imagine a reduce operation as a series of solar systems that the spaceship visits one by one.\n\nExample 3: The spaceship contains a binary heap to insert and delete elements from depending on objects it collides with. Zooming into any single collision reveals the tree structure to be the \"space\" that a smaller spaceship containing a single number bounces among.\n\nTwo properties that seem important from these examples:\n• A hierarchical nature where space and spaceship are duals, and zooming in and out causes them to turn into each other.\n• Rendering the state of a spaceship needs to be extensible[3]. We need to leave Befunge's ASCII behind.\nAt the largest scale, state machines feel like a really powerful way to represent the state within a spaceship. I often find them to be the outermost architecture of a large program. But to _actually find_ the state machine I have to flail around for a long time. If we could use some visual paradigm at the largest scales but zoom into text as needed, programs might be much more comprehensible.\n\n[1] <https://esolangs.org/wiki/Fungeoid>\n[2] <https://en.wikipedia.org/wiki/Brainfuck#Language_design>\n[3] Like in my old Pong demo: <https://handmade.network/snippet/1561>",
+    "user": "UCUSW7WVD",
+    "ts": "1681698511.039269",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Zenfo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Befunge, but readable",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/m-ender/hexagony"
+              },
+              {
+                "type": "text",
+                "text": " made the rounds of the internet yesterday, and caused me to swap in an old interest of mine that I've flailed ineffectually at in the past (e.g. "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/akkartik/status/1238349948074070017"
+              },
+              {
+                "type": "text",
+                "text": "): a way to display a program that makes its large-scale structure really obvious (rather than obfuscating it as Befunge does).\n\nOne problem I have with Befunge (not the one you're thinking of, ha) and other "
+              },
+              {
+                "type": "text",
+                "text": "fungeoids",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " [1] is that you have a bunch of static information about a program visible in 2D on screen, but a key piece -- the stack -- is invisible. The question I keep returning to is how one might go about making the stack (or any other run-time state used by the program) visible without just bolting it on on the side. This time around, I got hooked on the following metaphor. Imagine a spaceship that contains some data, sets out on a voyage across an infinite 2D plane, and performs various operations depending on the objects it collides with.\n\nExample 1: The space ship contains a row of boxes. Colliding with a number pushes a box on to the nose,  colliding with an operator operates on the 1 or 2 front-most boxes in the front. This is a way to display a stack, but a stack in isolation doesn't seem to scale well to larger programs.\n\nExample 2: The spaceship contains a number. Colliding with the BF-inspired primitives "
+              },
+              {
+                "type": "text",
+                "text": "+",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "-",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " [2] causes the number to be incremented and decremented, respectively. Now build addition out of it. Zooming into a number "
+              },
+              {
+                "type": "text",
+                "text": "n",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " shows it to be a loop of n iterations. When the spaceship collides with "
+              },
+              {
+                "type": "text",
+                "text": "n",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " it loops through n times, and the number inside it has n added to it. At a high zoom, you see the spaceship loop n times before exiting the \"solar system\". At a low zoom you see the spaceship exit instantaneously with n added to its value. Now you can imagine a reduce operation as a series of solar systems that the spaceship visits one by one.\n\nExample 3: The spaceship contains a binary heap to insert and delete elements from depending on objects it collides with. Zooming into any single collision reveals the tree structure to be the \"space\" that a smaller spaceship containing a single number bounces among.\n\nTwo properties that seem important from these examples:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A hierarchical nature where space and spaceship are duals, and zooming in and out causes them to turn into each other."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Rendering the state of a spaceship needs to be extensible[3]. We need to leave Befunge's ASCII behind."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAt the largest scale, state machines feel like a really powerful way to represent the state within a spaceship. I often find them to be the outermost architecture of a large program. But to "
+              },
+              {
+                "type": "text",
+                "text": "actually find",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the state machine I have to flail around for a long time. If we could use some visual paradigm at the largest scales but zoom into text as needed, programs might be much more comprehensible.\n\n[1] "
+              },
+              {
+                "type": "link",
+                "url": "https://esolangs.org/wiki/Fungeoid"
+              },
+              {
+                "type": "text",
+                "text": "\n[2] "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Brainfuck#Language_design"
+              },
+              {
+                "type": "text",
+                "text": "\n[3] Like in my old Pong demo: "
+              },
+              {
+                "type": "link",
+                "url": "https://handmade.network/snippet/1561"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1681699086.000000"
+    },
+    "thread_ts": "1681698511.039269",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1681730692.950799",
+    "reply_users": [
+      "UGWUJUZHT"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c4af53bf-a1b5-42c3-9084-ba3550914fc7",
+    "type": "message",
+    "text": "Hey! Someone (<@U053BEW53L6>) asked me for any links/references to delve deeper into creative coding-y stuff.\nSo I updated my list of coding influences. You might find something new there (or you might not).\nCheck it out if you're interested: <https://github.com/TodePond/KnowPond/blob/main/coding-influences.md>",
+    "user": "U03R0B9U1GD",
+    "ts": "1681728924.792799",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GTkuU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hey! Someone ("
+              },
+              {
+                "type": "user",
+                "user_id": "U053BEW53L6"
+              },
+              {
+                "type": "text",
+                "text": ") asked me for any links/references to delve deeper into creative coding-y stuff.\nSo I updated my list of coding influences. You might find something new there (or you might not).\nCheck it out if you're interested: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/TodePond/KnowPond/blob/main/coding-influences.md"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U03R0B9U1GD",
+      "ts": "1681730187.000000"
+    },
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U053BEW53L6",
+          "UBSMEUXAA",
+          "U01LCRM5RT7"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6b912d62-e572-4aa6-8a4b-f74ad8c79a7e",
+    "type": "message",
+    "text": "“... A hierarchical nature ...”\n\nFWIW, I strongly agree with this phrase.  A minor change in POV might make this whole problem simpler...\n\nWe need notations that *embrace* hierarchy and relative-ism.  Lisp lists, UNIX relative pathnames, StateChart nested machines, Kinopio “/”, HTML links, Dave Ackley all swirl around this flame...  Force-fitting 4D reality down into a single 2D notation causes self-imposed accidental complexity (epicycles).  We need to be thinking in terms of trees of stacks, trees of CPUs/machines/phones, trees of messages, etc.",
+    "user": "UGWUJUZHT",
+    "ts": "1681730692.950799",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "j5A",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "“... A hierarchical nature ...”\n\nFWIW, I strongly agree with this phrase.  A minor change in POV might make this whole problem simpler...\n\nWe need notations that "
+              },
+              {
+                "type": "text",
+                "text": "embrace",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " hierarchy and relative-ism.  Lisp lists, UNIX relative pathnames, StateChart nested machines, Kinopio “/”, HTML links, Dave Ackley all swirl around this flame...  Force-fitting 4D reality down into a single 2D notation causes self-imposed accidental complexity (epicycles).  We need to be thinking in terms of trees of stacks, trees of CPUs/machines/phones, trees of messages, etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1681698511.039269",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f6876150-7788-47de-b09c-314f7d112c9e",
+    "type": "message",
+    "text": "Tooll 3 is an open source software to create realtime motion graphics.\n\n<https://www.youtube.com/watch?v=PrxhwOC9hLw>\n\n<https://github.com/still-scene/t3>",
+    "user": "UBN9AFS0N",
+    "ts": "1681737627.569609",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3+T",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Tooll 3 is an open source software to create realtime motion graphics.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=PrxhwOC9hLw"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/still-scene/t3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=PrxhwOC9hLw",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/PrxhwOC9hLw/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/PrxhwOC9hLw?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Tooll3 - A free software for Procedural Motion Design\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=PrxhwOC9hLw",
+        "fallback": "YouTube Video: Tooll3 - A free software for Procedural Motion Design",
+        "title": "Tooll3 - A free software for Procedural Motion Design",
+        "title_link": "https://www.youtube.com/watch?v=PrxhwOC9hLw",
+        "author_name": "Pixtur",
+        "author_link": "https://www.youtube.com/@pixtur",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b9caccb1-8210-4021-a228-2d386150b264",
+    "type": "message",
+    "text": "For anyone looking to kill some time, I threw up a little page about some sound design that I did for the FoC podcast, with a few links to various places on the internet.\n\n<https://ivanish.ca/wormhole/>",
+    "user": "UC2A2ARPT",
+    "ts": "1681749866.175309",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "23y92",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For anyone looking to kill some time, I threw up a little page about some sound design that I did for the FoC podcast, with a few links to various places on the internet.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://ivanish.ca/wormhole/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1681749866.175309",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1681919260.029079",
+    "reply_users": [
+      "U03R0B9U1GD"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UMQ6LR9NZ",
+          "U03R0B9U1GD",
+          "U04MTMF6Y4W",
+          "UA14TGLTC",
+          "U01LCRM5RT7"
+        ],
+        "count": 5
+      },
+      {
+        "name": "ear",
+        "users": [
+          "UMQ6LR9NZ",
+          "U01LCRM5RT7"
+        ],
+        "count": 2
+      },
+      {
+        "name": "headphones",
+        "users": [
+          "UMQ6LR9NZ",
+          "U01LCRM5RT7"
+        ],
+        "count": 2
+      },
+      {
+        "name": "birthday",
+        "users": [
+          "U03R0B9U1GD",
+          "U01LCRM5RT7"
+        ],
+        "count": 2
+      },
+      {
+        "name": "joy",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "361af63e-8e9c-4acd-ba87-71c95f6800da",
+    "type": "message",
+    "text": "Someone is trying to boot Linux from a Scratch project. :open_mouth::exploding_head::heart_eyes_cat:\n\nIn fact, it's a RISC-V emulator programmed with Scratch.\n\nHere is his journey (quoting the author):\n&gt; I actually started this project with not very much understanding of RISC-V, but after a few hours of debugging I got the hang of it. The emulator was actually based of off <https://github.com/cnlohr/mini-rv32ima>, which i ported to Java a while back, and from Java I ported to SCPP (A programming language I wrote) and from SCPP I ported it to here [(i.e. plain Scratch)].\nRegarding SCPP:\n&gt; SCPP (Scratch C Plus Plus) <https://github.com/Its-Jakey/SCPP>\nIt's really interesting to see the creativity of people that learned programming with Scratch, then start exploring new horizons to eventually come back to Scratch.\n\n<https://www.reddit.com/r/scratch/comments/12k8kvu/got_linux_booting_on_scratch/>",
+    "user": "UJ6LDMMN0",
+    "ts": "1681755320.357939",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Av3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Someone is trying to boot Linux from a Scratch project. "
+              },
+              {
+                "type": "emoji",
+                "name": "open_mouth",
+                "unicode": "1f62e"
+              },
+              {
+                "type": "emoji",
+                "name": "exploding_head",
+                "unicode": "1f92f"
+              },
+              {
+                "type": "emoji",
+                "name": "heart_eyes_cat",
+                "unicode": "1f63b"
+              },
+              {
+                "type": "text",
+                "text": "\n\nIn fact, it's a RISC-V emulator programmed with Scratch.\n\nHere is his journey (quoting the author):\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I actually started this project with not very much understanding of RISC-V, but after a few hours of debugging I got the hang of it. The emulator was actually based of off "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/cnlohr/mini-rv32ima"
+              },
+              {
+                "type": "text",
+                "text": ", which i ported to Java a while back, and from Java I ported to SCPP (A programming language I wrote) and from SCPP I ported it to here [(i.e. plain Scratch)]."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Regarding SCPP:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "SCPP (Scratch C Plus Plus) "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/Its-Jakey/SCPP"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nIt's really interesting to see the creativity of people that learned programming with Scratch, then start exploring new horizons to eventually come back to Scratch.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.reddit.com/r/scratch/comments/12k8kvu/got_linux_booting_on_scratch/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://preview.redd.it/vp839bq2bkta1.png?overlay-align=bottom,left&crop=1200:628.272251309,smart&overlay-height=15p&overlay=%2Fwatermark%2Ft5_2rmk6.png%3Fs%3De4557a029c6bf9f5aa0d103edd25a0f2a975828f&width=1200&height=628.272251309&auto=webp&v=enabled&s=29f8a1e70f3f15fc38a003341fa19be4f6344b8a",
+        "image_width": 1200,
+        "image_height": 628,
+        "image_bytes": 93596,
+        "from_url": "https://www.reddit.com/r/scratch/comments/12k8kvu/got_linux_booting_on_scratch/",
+        "service_icon": "http://www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://www.reddit.com/r/scratch/comments/12k8kvu/got_linux_booting_on_scratch/",
+        "fallback": "reddit: Got Linux booting on scratch!!!",
+        "text": "Posted in r/scratch by u/bilman66 • 864 points and 164 comments",
+        "title": "Got Linux booting on scratch!!!",
+        "title_link": "https://www.reddit.com/r/scratch/comments/12k8kvu/got_linux_booting_on_scratch/",
+        "service_name": "reddit"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart_on_fire",
+        "users": [
+          "UCUSW7WVD",
+          "UBSMEUXAA",
+          "UJBAJNFLK",
+          "U03R0B9U1GD",
+          "U04M1BPS6AF"
+        ],
+        "count": 5
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7",
+          "U03R0B9U1GD"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

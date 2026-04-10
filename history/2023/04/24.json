@@ -1,0 +1,390 @@
+[
+  {
+    "client_msg_id": "e27c37d6-dc7b-41c5-97c7-a18dde41c220",
+    "type": "message",
+    "text": "Where does the string \"hello world\" come from when you run the program?\n\nI went back and reread your earlier writings (seeing running code often causes me to focus on a thing). Some reactions:\n• Components include two concerns: what code runs inside them, and what queues are wired up to them. I think having to duplicate the code inside every time you clone a component is a non-starter. You say, \"deduplicating code is a compiler concern\" (<https://publish.obsidian.md/programmingsimplicity/2023-01-24-0D+Ideal+vs.+Reality>) which feels handwavy. Compilers are rocket science, and if we don't have the compilers to do this (we don't have compilers to do a lot, and it isn't obvious to me that compilers can deduplicate arbitrary code without risking lots of performance _regressions_) then somebody still has to do it.\n• As a consequence it seems to me that components are strictly higher level than functions. You don't want to put raw code inside components. Stick a function call into the component, and now copying the component is cheap and you don't need a complicated compiler to make it cheap. This is fine. I wouldn't get too hung up on this. Like you said, use both. The interesting question here is when we should wrap a function in a component abstraction.\n• Calling these things zero-dependency is not quite accurate. As you define it, hardwiring the name of a function call is a dependency. But you have names of components like `echo` hard-wired into your example. Again, this is fine. I wouldn't get too hung up on this. The technical idea is sound. You just need a better name and positioning to avoid these distracting quibbles and focus the audience's attention on the core idea.\n• Request for example #1: How might you perform dependency injection with components? Pass something into a port that causes a component with that name to be invoked? Does this help make things more decoupled? Dependency injection does help decouple functions.\n• Request for example #2: Check out the example of run-length encoding at <https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html>. I'm curious how this program would look with your approach. Might you need coroutines? A component can have multiple inputs and outputs in parallel. Can it have multiple outputs _in series_? So that pumping in one input results in multiple outputs? Then this question has me wondering if it should have multiple inputs in series as well. What might that mean?\n• You've mentioned before that this looks like hardware. One challenge with designing hardware circuits is getting just right the timing of signals coming into a piece of combinatorial circuit, and debugging the weird errors when we don't. We need the sequential latches just so to make the circuit more robust. But the latches add latency. I wonder if your approach shares this problem. What are the semantics of a component with two inputs that receives a signal/value on only one of them? You could block and wait for the other, or not. Both seem to have trade-offs, and I think I can construct subtle bugs both ways.\n• There are still some gaps before this can be the notation for concurrency. As you said, you need both functions and components to coexist. And you need a way to go between them: wrap a series of function calls in some queues to turn it into a component, or wrap a set of components into a function so you can give it a name/address to combine with multiple sets of queues. Functions provide abstraction. Copying components does not.\nOn the whole, this needs a whole lot more examples. I'd forget the tooling initially and just hand-write a bunch of examples. Do they seem clear? Are there notational changes that might make them clearer? Etc.",
+    "user": "UCUSW7WVD",
+    "ts": "1682314437.051729",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kr7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Where does the string \"hello world\" come from when you run the program?\n\nI went back and reread your earlier writings (seeing running code often causes me to focus on a thing). Some reactions:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Components include two concerns: what code runs inside them, and what queues are wired up to them. I think having to duplicate the code inside every time you clone a component is a non-starter. You say, \"deduplicating code is a compiler concern\" ("
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://publish.obsidian.md/programmingsimplicity/2023-01-24-0D+Ideal+vs.+Reality"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") which feels handwavy. Compilers are rocket science, and if we don't have the compilers to do this (we don't have compilers to do a lot, and it isn't obvious to me that compilers can deduplicate arbitrary code without risking lots of performance "
+                  },
+                  {
+                    "type": "text",
+                    "text": "regressions",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ") then somebody still has to do it."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "As a consequence it seems to me that components are strictly higher level than functions. You don't want to put raw code inside components. Stick a function call into the component, and now copying the component is cheap and you don't need a complicated compiler to make it cheap. This is fine. I wouldn't get too hung up on this. Like you said, use both. The interesting question here is when we should wrap a function in a component abstraction."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Calling these things zero-dependency is not quite accurate. As you define it, hardwiring the name of a function call is a dependency. But you have names of components like "
+                  },
+                  {
+                    "type": "text",
+                    "text": "echo",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " hard-wired into your example. Again, this is fine. I wouldn't get too hung up on this. The technical idea is sound. You just need a better name and positioning to avoid these distracting quibbles and focus the audience's attention on the core idea."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Request for example #1: How might you perform dependency injection with components? Pass something into a port that causes a component with that name to be invoked? Does this help make things more decoupled? Dependency injection does help decouple functions."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Request for example #2: Check out the example of run-length encoding at "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". I'm curious how this program would look with your approach. Might you need coroutines? A component can have multiple inputs and outputs in parallel. Can it have multiple outputs "
+                  },
+                  {
+                    "type": "text",
+                    "text": "in series",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "? So that pumping in one input results in multiple outputs? Then this question has me wondering if it should have multiple inputs in series as well. What might that mean?"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "You've mentioned before that this looks like hardware. One challenge with designing hardware circuits is getting just right the timing of signals coming into a piece of combinatorial circuit, and debugging the weird errors when we don't. We need the sequential latches just so to make the circuit more robust. But the latches add latency. I wonder if your approach shares this problem. What are the semantics of a component with two inputs that receives a signal/value on only one of them? You could block and wait for the other, or not. Both seem to have trade-offs, and I think I can construct subtle bugs both ways."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "There are still some gaps before this can be the notation for concurrency. As you said, you need both functions and components to coexist. And you need a way to go between them: wrap a series of function calls in some queues to turn it into a component, or wrap a set of components into a function so you can give it a name/address to combine with multiple sets of queues. Functions provide abstraction. Copying components does not."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nOn the whole, this needs a whole lot more examples. I'd forget the tooling initially and just hand-write a bunch of examples. Do they seem clear? Are there notational changes that might make them clearer? Etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1682314581.000000"
+    },
+    "thread_ts": "1681811012.388819",
+    "parent_user_id": "UGWUJUZHT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "subtype": "thread_broadcast",
+    "text": "For those of you interested in the work of Christopher Alexander, I'll be presenting in the Building Beauty Nature of Order webinar about some concepts from cognitive science I found useful to make sense of Alexander's magnum opus _The Nature of Order_.\n\nIn the forum this is taking place, I can luckily assume that the audience is already familiar with _The Nature of Order_, but even if you aren't, you get some ideas of what he's talking about in there, and perhaps my CogSci framing helps discovering it in a different way.\n\nThere'll be almost no talk about architecture, and a lot about design theory and philosophy. If that sounds interesting to you, you can sign up here (it's free, I just needed a vehicle to distribute the Zoom link later, which I don't have yet): <https://lu.ma/6x2tmli3>\n\n(Also posting to the channel, as the thread has cooled down a while ago; hope that’s ok.)",
+    "user": "U5STGTB3J",
+    "ts": "1682355737.709349",
+    "thread_ts": "1681130678.227659",
+    "root": {
+      "client_msg_id": "868acb22-0159-448f-a62d-f5ab897f93be",
+      "type": "message",
+      "text": "Has anyone read Christopher Alexander’s _The Timeless Way of Building_ in light of future of code? He’s the literal architect whose concept of patterns inspired the software patterns movement. In practice, Java enterprise software patterns are a lot of the past-of-code that we want to get away from. I’ve read that Alexander thought that community missed the point, and from _Timeless Way_ I believe it. From the first chapter he gets into the concept that people should be able to build their own buildings, that it doesn’t take extensive planning, and that it resonates with something very natural within us and within the world. I don’t want to say more as I really think you need to read it in context for it to sink in; but I’d recommend picking up a copy.",
+      "user": "U02AK2Z5JR1",
+      "ts": "1681130678.227659",
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "jTl7",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "Has anyone read Christopher Alexander’s "
+                },
+                {
+                  "type": "text",
+                  "text": "The Timeless Way of Building",
+                  "style": {
+                    "italic": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " in light of future of code? He’s the literal architect whose concept of patterns inspired the software patterns movement. In practice, Java enterprise software patterns are a lot of the past-of-code that we want to get away from. I’ve read that Alexander thought that community missed the point, and from "
+                },
+                {
+                  "type": "text",
+                  "text": "Timeless Way",
+                  "style": {
+                    "italic": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " I believe it. From the first chapter he gets into the concept that people should be able to build their own buildings, that it doesn’t take extensive planning, and that it resonates with something very natural within us and within the world. I don’t want to say more as I really think you need to read it in context for it to sink in; but I’d recommend picking up a copy."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "team": "T5TCAFTA9",
+      "thread_ts": "1681130678.227659",
+      "reply_count": 10,
+      "reply_users_count": 8,
+      "latest_reply": "1682355737.709349",
+      "reply_users": [
+        "U015S8EC3B5",
+        "UK3LH8CF5",
+        "U04QB9V2RNG",
+        "UBKNXPBAB",
+        "U04PDG834SF",
+        "U5STGTB3J",
+        "UGWUJUZHT",
+        "U052H47TXML"
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Jfk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For those of you interested in the work of Christopher Alexander, I'll be presenting in the Building Beauty Nature of Order webinar about some concepts from cognitive science I found useful to make sense of Alexander's magnum opus "
+              },
+              {
+                "type": "text",
+                "text": "The Nature of Order",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n\nIn the forum this is taking place, I can luckily assume that the audience is already familiar with "
+              },
+              {
+                "type": "text",
+                "text": "The Nature of Order",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", but even if you aren't, you get some ideas of what he's talking about in there, and perhaps my CogSci framing helps discovering it in a different way.\n\nThere'll be almost no talk about architecture, and a lot about design theory and philosophy. If that sounds interesting to you, you can sign up here (it's free, I just needed a vehicle to distribute the Zoom link later, which I don't have yet): "
+              },
+              {
+                "type": "link",
+                "url": "https://lu.ma/6x2tmli3"
+              },
+              {
+                "type": "text",
+                "text": "\n\n(Also posting to the channel, as the thread has cooled down a while ago; hope that’s ok.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "attachments": [
+      {
+        "image_url": "https://social-images.lu.ma/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=85,width=1000,height=500/api/event-social-image?event_name=Finding%20Meaning%20in%20The%20Nature%20of%20Order&event_start_at=2023-04-27T15%3A00%3A00.000Z&event_theme=legacy&event_timezone=Europe%2FLondon&host_avatar_url=https%3A%2F%2Fcdn.lu.ma%2Favatars%2Fpl%2F7d61f3e1-63d7-428b-9c86-7406b1136ff8&host_name=Stefan%20Lesser",
+        "image_width": 2000,
+        "image_height": 1000,
+        "image_bytes": 77647,
+        "from_url": "https://lu.ma/6x2tmli3",
+        "service_icon": "https://lu.ma/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://lu.ma/6x2tmli3",
+        "fallback": "Finding Meaning in The Nature of Order · Luma",
+        "text": "I’ll be presenting my recent thinking on the cognitive science in Christopher Alexander’s work in the Nature of Order webinar of the Building Beauty program next Thursday, April 27th....",
+        "title": "Finding Meaning in The Nature of Order · Luma",
+        "title_link": "https://lu.ma/6x2tmli3",
+        "service_name": "lu.ma"
+      }
+    ],
+    "client_msg_id": "8b521a2b-3d12-4701-adb1-9494b42a0c46",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGWUJUZHT",
+          "UDQBTJ211",
+          "U0245E9RB2B",
+          "U04LWR320HK"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c3e010bd-a7d6-4d9a-873d-cc0ead729430",
+    "type": "message",
+    "text": "<https://www.youtube.com/playlist?list=PLyrlk8Xaylp7pSb2hnEFDdA0swG7GBRKY|LIVE @ SPLASH 2022 Video Playlist>\n\n<https://liveprog.org/>",
+    "user": "UBN9AFS0N",
+    "ts": "1682360195.369909",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ObB8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/playlist?list=PLyrlk8Xaylp7pSb2hnEFDdA0swG7GBRKY",
+                "text": "LIVE @ SPLASH 2022 Video Playlist"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://liveprog.org/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/playlist?list=PLyrlk8Xaylp7pSb2hnEFDdA0swG7GBRKY",
+        "service_icon": "https://www.youtube.com/s/desktop/dc71232b/img/favicon.ico",
+        "thumb_url": "https://i.ytimg.com/vi/kKDn9FzvRuM/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLDAiHJ_f1LHjW5k9yhPpFhecDbtfw&days_since_epoch=19471",
+        "thumb_width": 168,
+        "thumb_height": 94,
+        "id": 1,
+        "original_url": "https://www.youtube.com/playlist?list=PLyrlk8Xaylp7pSb2hnEFDdA0swG7GBRKY",
+        "fallback": "YouTube: LIVE @ SPLASH 2022",
+        "text": "Share your videos with friends, family, and the world",
+        "title": "LIVE @ SPLASH 2022",
+        "title_link": "https://www.youtube.com/playlist?list=PLyrlk8Xaylp7pSb2hnEFDdA0swG7GBRKY",
+        "service_name": "YouTube"
+      },
+      {
+        "from_url": "https://liveprog.org/",
+        "service_icon": "https://liveprog.org/images/favicon.png",
+        "thumb_url": "https://liveprog.org/images/favicon.png",
+        "thumb_width": 128,
+        "thumb_height": 128,
+        "id": 2,
+        "original_url": "https://liveprog.org/",
+        "fallback": "Workshop on Live Programming (LIVE)",
+        "text": "The Seventh Workshop on Live Programming (LIVE 2022) will take place online (and in person) on Dec 6 in conjunction with SPLASH 2021. LIVE invites submissions of ideas for improving the immediacy, usability, and learnability of programming.",
+        "title": "Workshop on Live Programming (LIVE)",
+        "title_link": "https://liveprog.org/",
+        "service_name": "liveprog.org"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U013ZLJARC7",
+          "U01JNTE35QS"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

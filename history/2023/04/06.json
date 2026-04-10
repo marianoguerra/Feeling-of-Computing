@@ -1,0 +1,245 @@
+[
+  {
+    "client_msg_id": "04f1cff8-1722-4cfe-b633-ceaf92c7396d",
+    "type": "message",
+    "text": "In my structure editor tech it is possible to store both logic and data in the same interpretable data structure fairly efficiently (I've written a custom sequential tree). Because of this, creating clones/forks and storing snapshots/images of both state and logic is trivial. Diffing and merging should be possible too, but obviously come with their caveats.\n\nCurrently one use case I'm thinking for this would be stateful cloud functions. It should be easy and fast to write the snapshot to a persistent storage and then load it when the function needs to run, and then write the possibly changed version back to wait for the next run. Keeping the snapshots in storage would work as a free history of the program state (and logic) that you'd be able to open up in the structure editor. Of course, it won't just scale to infinity size persistent data and handling concurrent requests would be an extra hurdle. However, it should work fairly well for what is usually required of cloud functions. It is also able to keep much of the interpreted intermediate results and only recompute what's necessary.\n\nEmitting some kind of \"rewind\" messages to external systems still wouldn't be easy, but could be possible by diffing the snapshots and then constructing the rewind message from the diff..",
+    "user": "U0296ACR13M",
+    "ts": "1680764953.591719",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cGa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In my structure editor tech it is possible to store both logic and data in the same interpretable data structure fairly efficiently (I've written a custom sequential tree). Because of this, creating clones/forks and storing snapshots/images of both state and logic is trivial. Diffing and merging should be possible too, but obviously come with their caveats.\n\nCurrently one use case I'm thinking for this would be stateful cloud functions. It should be easy and fast to write the snapshot to a persistent storage and then load it when the function needs to run, and then write the possibly changed version back to wait for the next run. Keeping the snapshots in storage would work as a free history of the program state (and logic) that you'd be able to open up in the structure editor. Of course, it won't just scale to infinity size persistent data and handling concurrent requests would be an extra hurdle. However, it should work fairly well for what is usually required of cloud functions. It is also able to keep much of the interpreted intermediate results and only recompute what's necessary.\n\nEmitting some kind of \"rewind\" messages to external systems still wouldn't be easy, but could be possible by diffing the snapshots and then constructing the rewind message from the diff.."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U0296ACR13M",
+      "ts": "1680765408.000000"
+    },
+    "thread_ts": "1680622758.013259",
+    "parent_user_id": "UKB1S7ZMY",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "Thinking about multi-agent / multi-tool systems where humans and bots collaborate:",
+    "files": [
+      {
+        "id": "F0523TTPD0B",
+        "created": 1680783785,
+        "timestamp": 1680783785,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U018S42NMMM",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 257637,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0523TTPD0B/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0523TTPD0B/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 206,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 275,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 412,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 458,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 550,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F0523TTPD0B-45e585fa12/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 586,
+        "original_w": 2518,
+        "original_h": 1442,
+        "thumb_tiny": "AwAbADDSoqLewlkAIIAGB6U7e20nZkj0NAD6QsAcE8+lMLMR97H0H/16EfoBt6kYXrQAvmA9AfyNOVt3akKhiTyKMbOQTyec0AOwDRgelFFADWRWHTHegHb1XB9QKdRQBGZDn0HuKVdz4LAAfzp9FAH/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U018S42NMMM/F0523TTPD0B/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0523TTPD0B-0fb67bd552",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U018S42NMMM",
+    "display_as_bot": false,
+    "ts": "1680783794.893509",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Jei2F",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thinking about multi-agent / multi-tool systems where humans and bots collaborate:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "4810522f-5e57-4899-81c8-9aff6a8383f7",
+    "reactions": [
+      {
+        "name": "scream",
+        "users": [
+          "U03R0B9U1GD",
+          "U04LK1R1VC1"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "client_msg_id": "247bd9a2-74ec-4e16-b706-3335f19ebc6e",
+    "type": "message",
+    "text": "The last couple podcasts connecting with _programmer_ productivity reminded me of this article trying to trace software's impact — or not — on overall productivity. It's main claim is that software, so far,  has not had the expected impact on overall productivity, and that the challenge is that it is _hard_ and _expensive_ to model the real world within the constraints of programming. (Maybe you read it differently!) It seems to me that this is one big challenge with end-user programming, too: many people don't want to think beforehand about all the exceptions to a rule that happen in real life, since real life allows you to address those exceptions on-the-fly.\n\n<https://web.archive.org/web/20221206161753/https://austinvernon.eth.link/blog/softwareisprocess.html>",
+    "user": "U04E5QAD6DD",
+    "ts": "1680786565.555119",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2H1E/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The last couple podcasts connecting with "
+              },
+              {
+                "type": "text",
+                "text": "programmer",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " productivity reminded me of this article trying to trace software's impact — or not — on overall productivity. It's main claim is that software, so far,  has not had the expected impact on overall productivity, and that the challenge is that it is "
+              },
+              {
+                "type": "text",
+                "text": "hard",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "expensive",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " to model the real world within the constraints of programming. (Maybe you read it differently!) It seems to me that this is one big challenge with end-user programming, too: many people don't want to think beforehand about all the exceptions to a rule that happen in real life, since real life allows you to address those exceptions on-the-fly.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://web.archive.org/web/20221206161753/https://austinvernon.eth.link/blog/softwareisprocess.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1680786565.555119",
+    "reply_count": 4,
+    "reply_users_count": 1,
+    "latest_reply": "1681046224.328229",
+    "reply_users": [
+      "U015S8EC3B5"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U050XKVAGKF",
+          "UJBAJNFLK"
+        ],
+        "count": 2
+      },
+      {
+        "name": "eyes",
+        "users": [
+          "U04MTMF6Y4W"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9C86A123-F47A-4560-A422-FAC86D6AD972",
+    "type": "message",
+    "text": "DoD calls this “human-machine teaming”",
+    "user": "U05212JGNBG",
+    "ts": "1680823982.152169",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fS6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "DoD calls this “human-machine teaming”"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  }
+]
