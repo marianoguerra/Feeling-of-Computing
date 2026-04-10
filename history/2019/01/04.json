@@ -1,0 +1,1554 @@
+[
+  {
+    "client_msg_id": "eac2a3e0-1a49-4965-a567-30f11b7bfdab",
+    "type": "message",
+    "text": "Welcome Miles, great to have you here!\n\nI've been working with Typed FP (Reason/OCaml) from last year, and after starting to see the interesting things PL Theory can do, I have a newfound respect for computer science academia and the steady progression to more powerful type systems. Also the guarantees they provide can be useful for things like bi-directional programming (<http://ravichugh.github.io/sketch-n-sketch/>).\n\nI'm curious about Dotty - I've wanted to learn how it does incremental compilation and have watched an Odersky talk about it. My main question was how it caches compilation results, and how to compute cache keys for AST nodes efficiently (if that is how it is done).",
+    "user": "UEZPBFZPC",
+    "ts": "1546586421.051300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEZPBFZPC",
+      "ts": "1546586466.000000"
+    },
+    "thread_ts": "1546543604.049200",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "43b50a4e-ab02-412a-92ff-bb23a7c55652",
+    "type": "message",
+    "text": "Incremental compilation is joint effort between the compiler (this is pretty much the same for scalac and dotc) and build tools. These days most build tools share a common library called Zinc to handle their end of it: <https://github.com/sbt/zinc>.",
+    "user": "UF71PR58X",
+    "ts": "1546599564.051700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546543604.049200",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "91c33fcf-ecfd-40c6-b0c2-10c4409c650b",
+    "type": "message",
+    "text": "There's no real incrementality from the compilers PoV. It will only ever handle complete compilation units, taking them from source, translating them relative to _existing compilation artefacts_ and producing compilation artefacts.",
+    "user": "UF71PR58X",
+    "ts": "1546599702.051900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546543604.049200",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "408069a3-938e-47b1-8dc6-41420baa9a51",
+    "type": "message",
+    "text": "The key to incrementality is what counts as an _existing compilation artefact_.",
+    "user": "UF71PR58X",
+    "ts": "1546599730.052100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546543604.049200",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "d1566302-e700-49b5-a75d-08fd86937674",
+    "type": "message",
+    "text": "Build tools based on zinc keep track of the relationship between sources and compilation artefacts. They insert a phase into the compiler pipeline which allows them to accurately track semantic dependencies between sources and artefacts and then keep track of local source changes which require recompilation to be propagated more widely.",
+    "user": "UF71PR58X",
+    "ts": "1546599910.052300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546543604.049200",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "b2e9d943-3822-4559-8e56-24ddb6d379bd",
+    "type": "message",
+    "text": "If you're curious you'll find the guts of the dependency extraction process in Zinc here: <https://github.com/sbt/zinc/blob/develop/internal/compiler-bridge/src/main/scala/xsbt/Dependency.scala>.",
+    "user": "UF71PR58X",
+    "ts": "1546600098.052500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546543604.049200",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "5ca041a8-c669-414d-8093-26b2bb9155f8",
+    "type": "message",
+    "text": "Hi folks.",
+    "user": "UF71PR58X",
+    "ts": "1546600892.264500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5ca041a8-c669-414d-8093-26b2bb9155f8",
+    "type": "message",
+    "text": "Hi folks.",
+    "user": "UF71PR58X",
+    "ts": "1546600892.264500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "49fc7425-1979-4e63-83a7-18493e05a902",
+    "type": "message",
+    "text": "As I mentioned in <#CC2JRGVLK|introductions> types are very much my thing. I'm very interested in where languages like Agda and Idris are taking us. In particular I think it's fascinating to see how types can allow tools to help us to write programs.",
+    "user": "UF71PR58X",
+    "ts": "1546601073.267400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "49fc7425-1979-4e63-83a7-18493e05a902",
+    "type": "message",
+    "text": "As I mentioned in <#CC2JRGVLK|introductions> types are very much my thing. I'm very interested in where languages like Agda and Idris are taking us. In particular I think it's fascinating to see how types can allow tools to help us to write programs.",
+    "user": "UF71PR58X",
+    "ts": "1546601073.267400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "873bfec5-a32f-4dd8-9ba6-7da4054668b3",
+    "type": "message",
+    "text": "This talk that Edwin Brady gave at CodeMesh this year has some really nice examples of that: <https://www.youtube.com/watch?v=mOtKD7ml0NU>",
+    "user": "UF71PR58X",
+    "ts": "1546601136.268200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Edwin Brady - Idris 2: Type-driven development of Idris | Code Mesh LDN 18",
+        "title_link": "https://www.youtube.com/watch?v=mOtKD7ml0NU",
+        "author_name": "Code Sync",
+        "author_link": "https://www.youtube.com/channel/UC47eUBNO8KBH_V8AfowOWOw",
+        "thumb_url": "https://i.ytimg.com/vi/mOtKD7ml0NU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Edwin Brady - Idris 2: Type-driven development of Idris | Code Mesh LDN 18",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/mOtKD7ml0NU?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=mOtKD7ml0NU",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=mOtKD7ml0NU"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heavy_check_mark",
+        "users": [
+          "UAST2M9EW"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "873bfec5-a32f-4dd8-9ba6-7da4054668b3",
+    "type": "message",
+    "text": "This talk that Edwin Brady gave at CodeMesh this year has some really nice examples of that: <https://www.youtube.com/watch?v=mOtKD7ml0NU>",
+    "user": "UF71PR58X",
+    "ts": "1546601136.268200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Edwin Brady - Idris 2: Type-driven development of Idris | Code Mesh LDN 18",
+        "title_link": "https://www.youtube.com/watch?v=mOtKD7ml0NU",
+        "author_name": "Code Sync",
+        "author_link": "https://www.youtube.com/channel/UC47eUBNO8KBH_V8AfowOWOw",
+        "thumb_url": "https://i.ytimg.com/vi/mOtKD7ml0NU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Edwin Brady - Idris 2: Type-driven development of Idris | Code Mesh LDN 18",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/mOtKD7ml0NU?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=mOtKD7ml0NU",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=mOtKD7ml0NU"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heavy_check_mark",
+        "users": [
+          "UAST2M9EW"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2a64fafc-33f7-47ce-8ce2-73a174e793c8",
+    "type": "message",
+    "text": "Do people here find this sort of thing appealing?",
+    "user": "UF71PR58X",
+    "ts": "1546601191.269400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546601191.269400",
+    "reply_count": 13,
+    "reply_users_count": 5,
+    "latest_reply": "1547056412.307700",
+    "reply_users": [
+      "UEZPBFZPC",
+      "UEQ6M68H0",
+      "UF71PR58X",
+      "U8A5MS6R1",
+      "UDQKHNP51"
+    ],
+    "replies": [
+      {
+        "user": "UEZPBFZPC",
+        "ts": "1546610387.273100"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1546837155.275700"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1546851454.275900"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1546851568.276100"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1546851594.276300"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1546887369.277300"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1547055594.306400"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1547055641.306600"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1547055779.306800"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1547056249.307000"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1547056347.307200"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1547056360.307400"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1547056412.307700"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2a64fafc-33f7-47ce-8ce2-73a174e793c8",
+    "type": "message",
+    "text": "Do people here find this sort of thing appealing?",
+    "user": "UF71PR58X",
+    "ts": "1546601191.269400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546601191.269400",
+    "reply_count": 13,
+    "reply_users_count": 5,
+    "latest_reply": "1547056412.307700",
+    "reply_users": [
+      "UEZPBFZPC",
+      "UEQ6M68H0",
+      "UF71PR58X",
+      "U8A5MS6R1",
+      "UDQKHNP51"
+    ],
+    "replies": [
+      {
+        "user": "UEZPBFZPC",
+        "ts": "1546610387.273100"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1546837155.275700"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1546851454.275900"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1546851568.276100"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1546851594.276300"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1546887369.277300"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1547055594.306400"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1547055641.306600"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1547055779.306800"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1547056249.307000"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1547056347.307200"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1547056360.307400"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1547056412.307700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "01e93bc9-d06b-45bf-bb67-b11c55a8740b",
+    "type": "message",
+    "text": "There's a lovely example of using dependent and linear types to infer the implementation of matrix transpose from it's signature starting here: <https://youtu.be/mOtKD7ml0NU?t=1575>",
+    "user": "UF71PR58X",
+    "ts": "1546601500.270400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UF71PR58X",
+      "ts": "1546601795.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Edwin Brady - Idris 2: Type-driven development of Idris | Code Mesh LDN 18",
+        "title_link": "https://youtu.be/mOtKD7ml0NU?t=1575",
+        "author_name": "Code Sync",
+        "author_link": "https://www.youtube.com/channel/UC47eUBNO8KBH_V8AfowOWOw",
+        "thumb_url": "https://i.ytimg.com/vi/mOtKD7ml0NU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Edwin Brady - Idris 2: Type-driven development of Idris | Code Mesh LDN 18",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/mOtKD7ml0NU?start=1575&feature=oembed&start=1575&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/mOtKD7ml0NU?t=1575",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/mOtKD7ml0NU?t=1575"
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "01e93bc9-d06b-45bf-bb67-b11c55a8740b",
+    "type": "message",
+    "text": "There's a lovely example of using dependent and linear types to infer the implementation of matrix transpose from it's signature starting here: <https://youtu.be/mOtKD7ml0NU?t=1575>",
+    "user": "UF71PR58X",
+    "ts": "1546601500.270400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UF71PR58X",
+      "ts": "1546601795.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Edwin Brady - Idris 2: Type-driven development of Idris | Code Mesh LDN 18",
+        "title_link": "https://youtu.be/mOtKD7ml0NU?t=1575",
+        "author_name": "Code Sync",
+        "author_link": "https://www.youtube.com/channel/UC47eUBNO8KBH_V8AfowOWOw",
+        "thumb_url": "https://i.ytimg.com/vi/mOtKD7ml0NU/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Edwin Brady - Idris 2: Type-driven development of Idris | Code Mesh LDN 18",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/mOtKD7ml0NU?start=1575&feature=oembed&start=1575&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/mOtKD7ml0NU?t=1575",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/mOtKD7ml0NU?t=1575"
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5533eae4-12b8-42b8-bf7a-eb8f8205fe3e",
+    "type": "message",
+    "text": "Really fun Bootstrap talk! The concrete to abstract reminds me of one of my favorite articles of all time: <https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/>",
+    "user": "U5TCAFTD3",
+    "ts": "1546607291.271000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "blog :: Brent -&gt; [String]",
+        "service_url": "http://byorgey.wordpress.com",
+        "title": "Abstraction, intuition, and the “monad tutorial fallacy”",
+        "title_link": "https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/",
+        "author_name": "Brent",
+        "author_link": "https://byorgey.wordpress.com/author/byorgey/",
+        "text": "While working on an article for the Monad.Reader, I&rsquo;ve had the opportunity to think about how people learn and gain intuition for abstraction, and the implications for pedagogy.  The heart of the matter is that people begin with the concrete, and move to the abstract.  Humans are very good at pattern recognition, so this is a natural progression.  By examining concrete objects in detail, one begins to notice similarities and patterns, until one comes to understand on a more abstract, intuitive level.  This is why it&rsquo;s such good pedagogical practice to demonstrate examples of concepts you are trying to teach.  It&rsquo;s particularly important to note that this process doesn&rsquo;t change even when one is presented with the abstraction up front!  For example, when presented with a mathematical definition for the first time, most people (me included) don&rsquo;t &ldquo;get it&rdquo; immediately: it is only after examining some specific instances of the definition, and working through the implications of the definition in detail, that one begins to appreciate the definition and gain an understanding of what it &ldquo;really says.&rdquo;\nUnfortunately, there is a whole cottage industry of monad tutorials that get this wrong.  To see what I mean, imagine the following scenario: Joe Haskeller is trying to learn about monads.  After struggling to understand them for a week, looking at examples, writing code, reading things other people have written, he finally has an &ldquo;aha!&rdquo; moment: everything is suddenly clear, and Joe Understands Monads!  What has really happened, of course, is that Joe&rsquo;s brain has fit all the details together into a higher-level abstraction, a metaphor which Joe can use to get an intuitive grasp of monads; let us suppose that Joe&rsquo;s metaphor is that Monads are Like Burritos.  Here is where Joe badly misinterprets his own thought process: &ldquo;Of course!&rdquo; Joe thinks.  &ldquo;It&rsquo;s all so simple now.  The key to understanding monads is that they are Like Burritos.  If only I had thought of this before!&rdquo;  The problem, of course, is that if Joe HAD thought of this before, it wouldn&rsquo;t have helped: the week of struggling through details was a necessary and integral part of forming Joe&rsquo;s Burrito intuition, not a sad consequence of his failure to hit upon the idea sooner.  \nBut now Joe goes and writes a monad tutorial called &ldquo;Monads are Burritos,&rdquo; under the well-intentioned but mistaken assumption that if other people read his magical insight, learning about monads will be a snap for them.  &ldquo;Monads are easy,&rdquo; Joe writes.  &ldquo;Think of them as burritos.&rdquo;  Joe hides all the actual details about types and such because those are scary, and people will learn better if they can avoid all that difficult and confusing stuff.  Of course, exactly the opposite is true, and all Joe has done is make it harder for people to learn about monads, because now they have to spend a week thinking that monads are burritos and getting utterly confused, and then a week trying to forget about the burrito analogy, before they can actually get down to the business of learning about monads.  (Of course, certainly not all monad tutorials are like this, and I don&rsquo;t even have any particular ones in mind, just a general impression left over from reading many of them, but if the shoe fits&hellip;)\nWhat I term the &ldquo;monad tutorial fallacy,&rdquo; then, consists in failing to recognize the critical role that struggling through fundamental details plays in the building of intuition.  This, I suspect, is also one of the things that separates good teachers from poor ones.  If you ever find yourself frustrated and astounded that someone else does not grasp a concept as easily and intuitively as you do, even after you clearly explain your intuition to them (&ldquo;look, it&rsquo;s really quite simple,&rdquo; you say&hellip;) then you are suffering from the monad tutorial fallacy.",
+        "fallback": "blog :: Brent -&gt; [String] Link: Abstraction, intuition, and the &#8220;monad tutorial&nbsp;fallacy&#8221;",
+        "from_url": "https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/",
+        "service_icon": "https://s2.wp.com/i/webclip.png",
+        "id": 1,
+        "original_url": "https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/"
+      }
+    ],
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEZPBFZPC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5533eae4-12b8-42b8-bf7a-eb8f8205fe3e",
+    "type": "message",
+    "text": "Really fun Bootstrap talk! The concrete to abstract reminds me of one of my favorite articles of all time: <https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/>",
+    "user": "U5TCAFTD3",
+    "ts": "1546607291.271000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "blog :: Brent -&gt; [String]",
+        "service_url": "http://byorgey.wordpress.com",
+        "title": "Abstraction, intuition, and the “monad tutorial fallacy”",
+        "title_link": "https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/",
+        "author_name": "Brent",
+        "author_link": "https://byorgey.wordpress.com/author/byorgey/",
+        "text": "While working on an article for the Monad.Reader, I&rsquo;ve had the opportunity to think about how people learn and gain intuition for abstraction, and the implications for pedagogy.  The heart of the matter is that people begin with the concrete, and move to the abstract.  Humans are very good at pattern recognition, so this is a natural progression.  By examining concrete objects in detail, one begins to notice similarities and patterns, until one comes to understand on a more abstract, intuitive level.  This is why it&rsquo;s such good pedagogical practice to demonstrate examples of concepts you are trying to teach.  It&rsquo;s particularly important to note that this process doesn&rsquo;t change even when one is presented with the abstraction up front!  For example, when presented with a mathematical definition for the first time, most people (me included) don&rsquo;t &ldquo;get it&rdquo; immediately: it is only after examining some specific instances of the definition, and working through the implications of the definition in detail, that one begins to appreciate the definition and gain an understanding of what it &ldquo;really says.&rdquo;\nUnfortunately, there is a whole cottage industry of monad tutorials that get this wrong.  To see what I mean, imagine the following scenario: Joe Haskeller is trying to learn about monads.  After struggling to understand them for a week, looking at examples, writing code, reading things other people have written, he finally has an &ldquo;aha!&rdquo; moment: everything is suddenly clear, and Joe Understands Monads!  What has really happened, of course, is that Joe&rsquo;s brain has fit all the details together into a higher-level abstraction, a metaphor which Joe can use to get an intuitive grasp of monads; let us suppose that Joe&rsquo;s metaphor is that Monads are Like Burritos.  Here is where Joe badly misinterprets his own thought process: &ldquo;Of course!&rdquo; Joe thinks.  &ldquo;It&rsquo;s all so simple now.  The key to understanding monads is that they are Like Burritos.  If only I had thought of this before!&rdquo;  The problem, of course, is that if Joe HAD thought of this before, it wouldn&rsquo;t have helped: the week of struggling through details was a necessary and integral part of forming Joe&rsquo;s Burrito intuition, not a sad consequence of his failure to hit upon the idea sooner.  \nBut now Joe goes and writes a monad tutorial called &ldquo;Monads are Burritos,&rdquo; under the well-intentioned but mistaken assumption that if other people read his magical insight, learning about monads will be a snap for them.  &ldquo;Monads are easy,&rdquo; Joe writes.  &ldquo;Think of them as burritos.&rdquo;  Joe hides all the actual details about types and such because those are scary, and people will learn better if they can avoid all that difficult and confusing stuff.  Of course, exactly the opposite is true, and all Joe has done is make it harder for people to learn about monads, because now they have to spend a week thinking that monads are burritos and getting utterly confused, and then a week trying to forget about the burrito analogy, before they can actually get down to the business of learning about monads.  (Of course, certainly not all monad tutorials are like this, and I don&rsquo;t even have any particular ones in mind, just a general impression left over from reading many of them, but if the shoe fits&hellip;)\nWhat I term the &ldquo;monad tutorial fallacy,&rdquo; then, consists in failing to recognize the critical role that struggling through fundamental details plays in the building of intuition.  This, I suspect, is also one of the things that separates good teachers from poor ones.  If you ever find yourself frustrated and astounded that someone else does not grasp a concept as easily and intuitively as you do, even after you clearly explain your intuition to them (&ldquo;look, it&rsquo;s really quite simple,&rdquo; you say&hellip;) then you are suffering from the monad tutorial fallacy.",
+        "fallback": "blog :: Brent -&gt; [String] Link: Abstraction, intuition, and the &#8220;monad tutorial&nbsp;fallacy&#8221;",
+        "from_url": "https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/",
+        "service_icon": "https://s2.wp.com/i/webclip.png",
+        "id": 1,
+        "original_url": "https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/"
+      }
+    ],
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEZPBFZPC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "46dada86-889d-4be0-bd76-c8466e0771bd",
+    "type": "message",
+    "text": "I assumed that the compilation unit would be much more fine grained - like individual AST nodes, rather than a single source file. This raised difficult questions like how to know if an AST node has changed between compilations, what if that change will lead to non-local changes in the output etc.. So a file as a CompilationUnit makes a lot more sense, thanks!",
+    "user": "UEZPBFZPC",
+    "ts": "1546608673.053100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546543604.049200",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "7c2aced4-1faf-403f-b799-34ef346e8ff4",
+    "type": "message",
+    "text": "I needed a way to do incremental transforms on a tree quickly, and Yaron Minsky's incremental library is where I think a solution will be:\n<https://www.youtube.com/watch?v=R3xX37RGJKE>",
+    "user": "UEZPBFZPC",
+    "ts": "1546608768.053300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "\"Data Driven UIs, Incrementally\" by Yaron Minsky",
+        "title_link": "https://www.youtube.com/watch?v=R3xX37RGJKE",
+        "author_name": "Strange Loop",
+        "author_link": "https://www.youtube.com/channel/UC_QIfHvN9auy2CoOdSfMWDw",
+        "thumb_url": "https://i.ytimg.com/vi/R3xX37RGJKE/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: \"Data Driven UIs, Incrementally\" by Yaron Minsky",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/R3xX37RGJKE?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=R3xX37RGJKE",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=R3xX37RGJKE"
+      }
+    ],
+    "thread_ts": "1546543604.049200",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "4e1fb223-36e8-4fd1-8740-c4c5c3233721",
+    "type": "message",
+    "text": "I had read that a long ago, and unless I'm remembering it wrong, you were a lucky student of his? :slightly_smiling_face:",
+    "user": "UEZPBFZPC",
+    "ts": "1546608891.271700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEZPBFZPC",
+      "ts": "1546608897.000000"
+    },
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4e1fb223-36e8-4fd1-8740-c4c5c3233721",
+    "type": "message",
+    "text": "I had read that a long ago, and unless I'm remembering it wrong, you were a lucky student of his? :slightly_smiling_face:",
+    "user": "UEZPBFZPC",
+    "ts": "1546608891.271700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEZPBFZPC",
+      "ts": "1546608897.000000"
+    },
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f02d0f72-6fa1-488a-b40c-232b5681ce7e",
+    "type": "message",
+    "text": "I was! So lucky",
+    "user": "U5TCAFTD3",
+    "ts": "1546608923.272000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f02d0f72-6fa1-488a-b40c-232b5681ce7e",
+    "type": "message",
+    "text": "I was! So lucky",
+    "user": "U5TCAFTD3",
+    "ts": "1546608923.272000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0b45c2bc-0160-4559-a59b-8096f8bd41ca",
+    "type": "message",
+    "text": "He's on the podcast",
+    "user": "U5TCAFTD3",
+    "ts": "1546608930.272200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0b45c2bc-0160-4559-a59b-8096f8bd41ca",
+    "type": "message",
+    "text": "He's on the podcast",
+    "user": "U5TCAFTD3",
+    "ts": "1546608930.272200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "df54e94d-7c42-495d-9e6e-25a58a41b785",
+    "type": "message",
+    "text": "I love text as a medium to program. A purely visual environment will make the \"programming is writing\" analogies moot, and that'll be a sad thing to lose :slightly_smiling_face:\n\nBut today's environments are too text-centric. Ansible's YAML configs for example are a pain to work with, and I've often wished there was a graphical, interactive way to configure system provisioning.\n\nI think a judicious mix of both text and visual environments is what we should move towards.",
+    "user": "UEZPBFZPC",
+    "ts": "1546609531.272400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1545983608.108800",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "df54e94d-7c42-495d-9e6e-25a58a41b785",
+    "type": "message",
+    "text": "I love text as a medium to program. A purely visual environment will make the \"programming is writing\" analogies moot, and that'll be a sad thing to lose :slightly_smiling_face:\n\nBut today's environments are too text-centric. Ansible's YAML configs for example are a pain to work with, and I've often wished there was a graphical, interactive way to configure system provisioning.\n\nI think a judicious mix of both text and visual environments is what we should move towards.",
+    "user": "UEZPBFZPC",
+    "ts": "1546609531.272400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1545983608.108800",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c6890873-fcf7-48a4-ad49-182b9e65112e",
+    "type": "message",
+    "text": "<http://joshuahhh.com/projects/pane/> is one kind of environment I have in mind. It would be wonderful to visualize the flow of data rather than control when working with long data transformation pipelines. PANE did it by swapping functions and data in our typical flowchart diagrams. Amazing stuff",
+    "user": "UEZPBFZPC",
+    "ts": "1546609714.272600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1545983608.108800",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c6890873-fcf7-48a4-ad49-182b9e65112e",
+    "type": "message",
+    "text": "<http://joshuahhh.com/projects/pane/> is one kind of environment I have in mind. It would be wonderful to visualize the flow of data rather than control when working with long data transformation pipelines. PANE did it by swapping functions and data in our typical flowchart diagrams. Amazing stuff",
+    "user": "UEZPBFZPC",
+    "ts": "1546609714.272600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1545983608.108800",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3bda79b3-45fb-4307-9282-ddd200209bff",
+    "type": "message",
+    "text": "Also there is some good stuff going on with \"Moldable Tools\" in the SmallTalk world - <https://www.youtube.com/watch?v=baxtyeFVn3w>",
+    "user": "UEZPBFZPC",
+    "ts": "1546610097.272800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Lambda World 2018 - What FP can learn from Smalltalk by Aditya Siram",
+        "title_link": "https://www.youtube.com/watch?v=baxtyeFVn3w",
+        "author_name": "Lambda World",
+        "author_link": "https://www.youtube.com/channel/UCEBcDOjv-bhAmLavY71RMHA",
+        "thumb_url": "https://i.ytimg.com/vi/baxtyeFVn3w/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Lambda World 2018 - What FP can learn from Smalltalk by Aditya Siram",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/baxtyeFVn3w?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=baxtyeFVn3w",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=baxtyeFVn3w"
+      }
+    ],
+    "thread_ts": "1545983608.108800",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3bda79b3-45fb-4307-9282-ddd200209bff",
+    "type": "message",
+    "text": "Also there is some good stuff going on with \"Moldable Tools\" in the SmallTalk world - <https://www.youtube.com/watch?v=baxtyeFVn3w>",
+    "user": "UEZPBFZPC",
+    "ts": "1546610097.272800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Lambda World 2018 - What FP can learn from Smalltalk by Aditya Siram",
+        "title_link": "https://www.youtube.com/watch?v=baxtyeFVn3w",
+        "author_name": "Lambda World",
+        "author_link": "https://www.youtube.com/channel/UCEBcDOjv-bhAmLavY71RMHA",
+        "thumb_url": "https://i.ytimg.com/vi/baxtyeFVn3w/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Lambda World 2018 - What FP can learn from Smalltalk by Aditya Siram",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/baxtyeFVn3w?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=baxtyeFVn3w",
+        "service_icon": "https://a.slack-edge.com/2089/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=baxtyeFVn3w"
+      }
+    ],
+    "thread_ts": "1545983608.108800",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c4fce0c3-3016-4853-b5b9-70ff302761d6",
+    "type": "message",
+    "text": "I do! But I already bought into Typed FP, and was blown away by this talk. \"Tell more things about your program to the compiler and it'll do amazing things!\"",
+    "user": "UEZPBFZPC",
+    "ts": "1546610387.273100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546601191.269400",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c4fce0c3-3016-4853-b5b9-70ff302761d6",
+    "type": "message",
+    "text": "I do! But I already bought into Typed FP, and was blown away by this talk. \"Tell more things about your program to the compiler and it'll do amazing things!\"",
+    "user": "UEZPBFZPC",
+    "ts": "1546610387.273100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546601191.269400",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d6d3dc63-b815-4d68-9bd4-84010208de4d",
+    "type": "message",
+    "text": "Yes, I enjoyed that episode.",
+    "user": "UEZPBFZPC",
+    "ts": "1546610509.273300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U5TCAFTD3"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d6d3dc63-b815-4d68-9bd4-84010208de4d",
+    "type": "message",
+    "text": "Yes, I enjoyed that episode.",
+    "user": "UEZPBFZPC",
+    "ts": "1546610509.273300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge45ce1ec733",
+      "image_72": "https://secure.gravatar.com/avatar/2e45ce1ec733f588158cdf54c736c13d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "Jasim",
+      "real_name": "Jasim A Basheer",
+      "display_name": "Jasim",
+      "team": "T5TCAFTA9",
+      "name": "jasim.ab",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1546533296.261900",
+    "parent_user_id": "UEZPBFZPC",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U5TCAFTD3"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "edb66402-8042-4922-bb3d-18a9a37c7235",
+    "type": "message",
+    "text": "Yeah I think so!",
+    "user": "UDLGND5GA",
+    "ts": "1546613629.006900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g55e6ae108ed",
+      "image_72": "https://secure.gravatar.com/avatar/455e6ae108edbb0568eb036d8cab103d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "",
+      "real_name": "Nick Fox-Gieg",
+      "display_name": "n1ckfg",
+      "team": "T5TCAFTA9",
+      "name": "nick908",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "1d34594f-b879-484b-bd08-911e8191f592",
+    "type": "message",
+    "text": "<https://twitter.com/warianoguerra/status/1081254250863386624>",
+    "user": "UBN9AFS0N",
+    "ts": "1546628605.003100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/warianoguerra|@warianoguerra>: A Programming Language where comments can be enabled at runtime (per function/module) to be sent as traces to an external system.",
+        "ts": 1546626076,
+        "author_name": "Mariano Guerra",
+        "author_link": "https://twitter.com/warianoguerra/status/1081254250863386624",
+        "author_icon": "https://pbs.twimg.com/profile_images/694511090043068417/D3heJMUr_normal.jpg",
+        "author_subname": "@warianoguerra",
+        "text": "A Programming Language where comments can be enabled at runtime (per function/module) to be sent as traces to an external system.",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/warianoguerra/status/1081254250863386624",
+        "id": 1,
+        "original_url": "https://twitter.com/warianoguerra/status/1081254250863386624",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1546628605.003100",
+    "reply_count": 19,
+    "reply_users_count": 5,
+    "latest_reply": "1547065456.011500",
+    "reply_users": [
+      "UCUSW7WVD",
+      "UBN9AFS0N",
+      "UBSMEUXAA",
+      "UEXN47YUV",
+      "U5Y7114NS"
+    ],
+    "replies": [
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546649776.003300"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546662019.003500"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546710043.003800"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546710969.004000"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546711012.004200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546716847.004400"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546718233.004700"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546718282.004900"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546718386.005100"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546718513.005300"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546728048.005600"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546728073.005800"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546728131.006000"
+      },
+      {
+        "user": "UEXN47YUV",
+        "ts": "1546731616.006200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546733521.006400"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546733577.006600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546733690.006900"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546740980.007200"
+      },
+      {
+        "user": "U5Y7114NS",
+        "ts": "1547065456.011500"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "1d34594f-b879-484b-bd08-911e8191f592",
+    "type": "message",
+    "text": "<https://twitter.com/warianoguerra/status/1081254250863386624>",
+    "user": "UBN9AFS0N",
+    "ts": "1546628605.003100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/warianoguerra|@warianoguerra>: A Programming Language where comments can be enabled at runtime (per function/module) to be sent as traces to an external system.",
+        "ts": 1546626076,
+        "author_name": "Mariano Guerra",
+        "author_link": "https://twitter.com/warianoguerra/status/1081254250863386624",
+        "author_icon": "https://pbs.twimg.com/profile_images/694511090043068417/D3heJMUr_normal.jpg",
+        "author_subname": "@warianoguerra",
+        "text": "A Programming Language where comments can be enabled at runtime (per function/module) to be sent as traces to an external system.",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/warianoguerra/status/1081254250863386624",
+        "id": 1,
+        "original_url": "https://twitter.com/warianoguerra/status/1081254250863386624",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1546628605.003100",
+    "reply_count": 19,
+    "reply_users_count": 5,
+    "latest_reply": "1547065456.011500",
+    "reply_users": [
+      "UCUSW7WVD",
+      "UBN9AFS0N",
+      "UBSMEUXAA",
+      "UEXN47YUV",
+      "U5Y7114NS"
+    ],
+    "replies": [
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546649776.003300"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546662019.003500"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546710043.003800"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546710969.004000"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546711012.004200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546716847.004400"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546718233.004700"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546718282.004900"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546718386.005100"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1546718513.005300"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546728048.005600"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546728073.005800"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546728131.006000"
+      },
+      {
+        "user": "UEXN47YUV",
+        "ts": "1546731616.006200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546733521.006400"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546733577.006600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1546733690.006900"
+      },
+      {
+        "user": "UBSMEUXAA",
+        "ts": "1546740980.007200"
+      },
+      {
+        "user": "U5Y7114NS",
+        "ts": "1547065456.011500"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

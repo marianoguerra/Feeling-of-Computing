@@ -1,0 +1,489 @@
+[
+  {
+    "client_msg_id": "3068a00e-52f4-46e6-a9df-3d658999f62a",
+    "type": "message",
+    "text": "Interesting. That looks more like an alternative to JSON or ProtoBufs. I was thinking more about representing graphs with labeled edge types. What needs standardization is the labels for each edge type in a semantic graph: constructor, + operator, etc.",
+    "user": "UD43R8ZFV",
+    "ts": "1547774570.337200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "85ee3dacef95",
+      "image_72": "https://avatars.slack-edge.com/2018-09-30/445630960161_85ee3dacef95dd5617e4_72.png",
+      "first_name": "Tim",
+      "real_name": "Tim Swast",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "tswast",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD43R8ZFV",
+      "ts": "1547783532.000000"
+    },
+    "thread_ts": "1539201698.000100",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3068a00e-52f4-46e6-a9df-3d658999f62a",
+    "type": "message",
+    "text": "Interesting. That looks more like an alternative to JSON or ProtoBufs. I was thinking more about representing graphs with labeled edge types. What needs standardization is the labels for each edge type in a semantic graph: constructor, + operator, etc.",
+    "user": "UD43R8ZFV",
+    "ts": "1547774570.337200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "85ee3dacef95",
+      "image_72": "https://avatars.slack-edge.com/2018-09-30/445630960161_85ee3dacef95dd5617e4_72.png",
+      "first_name": "Tim",
+      "real_name": "Tim Swast",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "tswast",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UD43R8ZFV",
+      "ts": "1547783532.000000"
+    },
+    "thread_ts": "1539201698.000100",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "35d7ca58-8bb9-4930-9cee-a66cf4dccfe8",
+    "type": "message",
+    "text": "functional reactive programming and large datasets\n\nany insights?\n\nI wrote a native photo viewer (think Picasa or iPhoto). I set it to show 250k photos. With a naive implementation that had serious problems for the \"reactive\" part. For example there are settings on how to display the photos (with or without filename, with or without size, etc...).  My understanding of \"reactive\" effectively all 250k photos are connected in some way to the state of `settings.showDate` and `settings.showFilename`. Of course that 250k can possibly be trimmed to just those photos that are on display (*) but even then there might be 100 to 500 photos visible which just seemed to kill all perf.\n\nObviously there are ways to optimize but it did make me question if \"reactive\" stuff is really a solution for anything but relatively small forms.  For example one way to fix the perf was to basically move the reactive part much higher up. The \"photo grid\" is \"reactive\" to those settings, not each individual photo. Still in a way that doesn't seems to me the promise of \"reactive\" where I can just declare what I want to display and what state it depends on and \"magic\" happens so it's wonder if \"reactive\" is actually the best way.\n\nI suppose I should define reactive. My understand is a reactive system is one in which a change to state triggers a change to all views of that state in some automated way. You don't have to declare the relationship between the state and the views. The fact the view used the state is enough for the system to figure out there's a connection.\n\n\n(*) given a pinterest style display, any change that affects the size an image is display requires a re-layout so even if you're only displaying a small portion of all photos you actually have to apply to setting to all photos above the ones being viewed in order to figure out what is actually visible given the re-layout.",
+    "user": "UC6997THT",
+    "ts": "1547785034.337600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "f3eb3ca69d86",
+      "image_72": "https://avatars.slack-edge.com/2018-08-13/414472553296_f3eb3ca69d86feb77929_72.png",
+      "first_name": "Gregg",
+      "real_name": "Gregg Tavares",
+      "display_name": "gman",
+      "team": "T5TCAFTA9",
+      "name": "slack1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547785034.337600",
+    "reply_count": 4,
+    "reply_users_count": 3,
+    "latest_reply": "1547868637.367700",
+    "reply_users": [
+      "U5STGTB3J",
+      "UA14TGLTC",
+      "UFEQUBNNT"
+    ],
+    "replies": [
+      {
+        "user": "U5STGTB3J",
+        "ts": "1547817554.357100"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1547830152.357600"
+      },
+      {
+        "user": "UFEQUBNNT",
+        "ts": "1547865439.365700"
+      },
+      {
+        "user": "UFEQUBNNT",
+        "ts": "1547868637.367700"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UDJ2TKB99"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "35d7ca58-8bb9-4930-9cee-a66cf4dccfe8",
+    "type": "message",
+    "text": "functional reactive programming and large datasets\n\nany insights?\n\nI wrote a native photo viewer (think Picasa or iPhoto). I set it to show 250k photos. With a naive implementation that had serious problems for the \"reactive\" part. For example there are settings on how to display the photos (with or without filename, with or without size, etc...).  My understanding of \"reactive\" effectively all 250k photos are connected in some way to the state of `settings.showDate` and `settings.showFilename`. Of course that 250k can possibly be trimmed to just those photos that are on display (*) but even then there might be 100 to 500 photos visible which just seemed to kill all perf.\n\nObviously there are ways to optimize but it did make me question if \"reactive\" stuff is really a solution for anything but relatively small forms.  For example one way to fix the perf was to basically move the reactive part much higher up. The \"photo grid\" is \"reactive\" to those settings, not each individual photo. Still in a way that doesn't seems to me the promise of \"reactive\" where I can just declare what I want to display and what state it depends on and \"magic\" happens so it's wonder if \"reactive\" is actually the best way.\n\nI suppose I should define reactive. My understand is a reactive system is one in which a change to state triggers a change to all views of that state in some automated way. You don't have to declare the relationship between the state and the views. The fact the view used the state is enough for the system to figure out there's a connection.\n\n\n(*) given a pinterest style display, any change that affects the size an image is display requires a re-layout so even if you're only displaying a small portion of all photos you actually have to apply to setting to all photos above the ones being viewed in order to figure out what is actually visible given the re-layout.",
+    "user": "UC6997THT",
+    "ts": "1547785034.337600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "f3eb3ca69d86",
+      "image_72": "https://avatars.slack-edge.com/2018-08-13/414472553296_f3eb3ca69d86feb77929_72.png",
+      "first_name": "Gregg",
+      "real_name": "Gregg Tavares",
+      "display_name": "gman",
+      "team": "T5TCAFTA9",
+      "name": "slack1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547785034.337600",
+    "reply_count": 4,
+    "reply_users_count": 3,
+    "latest_reply": "1547868637.367700",
+    "reply_users": [
+      "U5STGTB3J",
+      "UA14TGLTC",
+      "UFEQUBNNT"
+    ],
+    "replies": [
+      {
+        "user": "U5STGTB3J",
+        "ts": "1547817554.357100"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1547830152.357600"
+      },
+      {
+        "user": "UFEQUBNNT",
+        "ts": "1547865439.365700"
+      },
+      {
+        "user": "UFEQUBNNT",
+        "ts": "1547868637.367700"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UDJ2TKB99"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9f651103-a28a-40a4-a0b9-f33c815d66bc",
+    "type": "message",
+    "text": "Awesome Gregor, I remember you from SDR, great to see you again :slightly_smiling_face:",
+    "user": "UEH6T3RJB",
+    "ts": "1547810662.092900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5184556fcf3",
+      "image_72": "https://secure.gravatar.com/avatar/75184556fcf3aa660f5e56b8e5bdd46d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0021-72.png",
+      "first_name": "",
+      "real_name": "Antranig Basman",
+      "display_name": "Bosmon",
+      "team": "T5TCAFTA9",
+      "name": "amb26slack",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547679117.090400",
+    "parent_user_id": "UDRF3ALP4",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "AB20934A-7B95-467F-95F1-C73E3F06EFEB",
+    "type": "message",
+    "text": "If performance is what you’re after and the naive implementation doesn’t deliver on that, I’d suspect that it’s a combination of dealing with the large dataset as a whole plus working with image data. In a responsive implementation I’d expect the user interface determining (and drastically limiting) the amount of computation that is needed. \n\nPart of that would be a step where the data source of 250k images is filtered for just the images that are currently displayed, plus a few rows before and after what’s visible currently, if you’re going for buttery-smooth scrolling. Coming from native mobile development, I’d also expect a custom rendering step that performs a downscaling operation to thumbnail-sized images so that only the pixels that are actually rendered are copied into memory; most frameworks take advantage of on-the-fly scaling of images but still copy the much bigger source image into memory and decoding and copying many large images into memory will reduce performance significantly. \n\nBoth filtering and scaling / thumbnail creation could be implemented as sequential operations on a source stream of images. The tricky part is that you do need in fact additional data for those operations that originate in the current view state, mainly the scroll view content offset to determine which images to display, and the current view size plus some configuration values to know what size the thumbnails should be. \n\nAs far as I understand reactive libraries, there should be primitives to combine your image source stream with a stream that supplies scroll view offset and another one that supplies view size changes, so that you have everything you need to implement the filtering and scaling steps, so that everything updates correctly as soon as one of the parameters changes.",
+    "user": "U5STGTB3J",
+    "ts": "1547817554.357100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U5STGTB3J",
+      "ts": "1547817635.000000"
+    },
+    "thread_ts": "1547785034.337600",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "AB20934A-7B95-467F-95F1-C73E3F06EFEB",
+    "type": "message",
+    "text": "If performance is what you’re after and the naive implementation doesn’t deliver on that, I’d suspect that it’s a combination of dealing with the large dataset as a whole plus working with image data. In a responsive implementation I’d expect the user interface determining (and drastically limiting) the amount of computation that is needed. \n\nPart of that would be a step where the data source of 250k images is filtered for just the images that are currently displayed, plus a few rows before and after what’s visible currently, if you’re going for buttery-smooth scrolling. Coming from native mobile development, I’d also expect a custom rendering step that performs a downscaling operation to thumbnail-sized images so that only the pixels that are actually rendered are copied into memory; most frameworks take advantage of on-the-fly scaling of images but still copy the much bigger source image into memory and decoding and copying many large images into memory will reduce performance significantly. \n\nBoth filtering and scaling / thumbnail creation could be implemented as sequential operations on a source stream of images. The tricky part is that you do need in fact additional data for those operations that originate in the current view state, mainly the scroll view content offset to determine which images to display, and the current view size plus some configuration values to know what size the thumbnails should be. \n\nAs far as I understand reactive libraries, there should be primitives to combine your image source stream with a stream that supplies scroll view offset and another one that supplies view size changes, so that you have everything you need to implement the filtering and scaling steps, so that everything updates correctly as soon as one of the parameters changes.",
+    "user": "U5STGTB3J",
+    "ts": "1547817554.357100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U5STGTB3J",
+      "ts": "1547817635.000000"
+    },
+    "thread_ts": "1547785034.337600",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cb510756-894b-49cd-8b3e-808190408b5f",
+    "type": "message",
+    "text": "Certainly, any given reactive implementation is going to grief you in one way or another.  (Cross out \"reactive\" and the sentence is likely still true,)  Moreover, naive implementations usually do trade simplicity for non-specific scalability limits.  (Probably can cross out \"naive\".)  Still, reactive under your own definition <@UC6997THT> gives you options, \"a reactive system is one in which a change to state triggers a change to all views of that state in *some* automated way.\"  It's the flexibility of some that gives you potential power.  As <@U5STGTB3J> went into details, but one classic idea is separating *what* you want to show from *when* you calculate it.  The pattern has been around for as long as there have been list views.  I suppose a system is more reactive when dependent calculations are handled in a principled way rather than a case-by-case textForRowAtIndex: implementation.",
+    "user": "UA14TGLTC",
+    "ts": "1547830152.357600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547785034.337600",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cb510756-894b-49cd-8b3e-808190408b5f",
+    "type": "message",
+    "text": "Certainly, any given reactive implementation is going to grief you in one way or another.  (Cross out \"reactive\" and the sentence is likely still true,)  Moreover, naive implementations usually do trade simplicity for non-specific scalability limits.  (Probably can cross out \"naive\".)  Still, reactive under your own definition <@UC6997THT> gives you options, \"a reactive system is one in which a change to state triggers a change to all views of that state in *some* automated way.\"  It's the flexibility of some that gives you potential power.  As <@U5STGTB3J> went into details, but one classic idea is separating *what* you want to show from *when* you calculate it.  The pattern has been around for as long as there have been list views.  I suppose a system is more reactive when dependent calculations are handled in a principled way rather than a case-by-case textForRowAtIndex: implementation.",
+    "user": "UA14TGLTC",
+    "ts": "1547830152.357600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547785034.337600",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f1173719-827b-4811-9de7-4b5cc8543333",
+    "type": "message",
+    "text": "What would those 50 engineers be doing?",
+    "user": "UC2A2ARPT",
+    "ts": "1547833695.357800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547649655.328500",
+    "parent_user_id": "U85MWBKEY",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f1173719-827b-4811-9de7-4b5cc8543333",
+    "type": "message",
+    "text": "What would those 50 engineers be doing?",
+    "user": "UC2A2ARPT",
+    "ts": "1547833695.357800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547649655.328500",
+    "parent_user_id": "U85MWBKEY",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cb99d674-435c-4530-98be-5da4354015d9",
+    "type": "message",
+    "text": "Writing code to integrate with the plethora of AWS syste... oh I see what you are saying.",
+    "user": "U8A5MS6R1",
+    "ts": "1547835119.358000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547649655.328500",
+    "parent_user_id": "U85MWBKEY",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cb99d674-435c-4530-98be-5da4354015d9",
+    "type": "message",
+    "text": "Writing code to integrate with the plethora of AWS syste... oh I see what you are saying.",
+    "user": "U8A5MS6R1",
+    "ts": "1547835119.358000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547649655.328500",
+    "parent_user_id": "U85MWBKEY",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c079034d-2245-439d-992b-034af8b69374",
+    "type": "message",
+    "text": "BTW, retro-fitting 'low code' layers on top of code heavy systems tend to have very hard limits. It's got to be designed in from the start.",
+    "user": "U8A5MS6R1",
+    "ts": "1547835244.358200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547649655.328500",
+    "parent_user_id": "U85MWBKEY",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c079034d-2245-439d-992b-034af8b69374",
+    "type": "message",
+    "text": "BTW, retro-fitting 'low code' layers on top of code heavy systems tend to have very hard limits. It's got to be designed in from the start.",
+    "user": "U8A5MS6R1",
+    "ts": "1547835244.358200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547649655.328500",
+    "parent_user_id": "U85MWBKEY",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c80e8863-2ebe-426f-a890-d086c51e4ee6",
+    "type": "message",
+    "text": "Oh Antranig you too! Indeed great to see you again.",
+    "user": "UDRF3ALP4",
+    "ts": "1547840281.093400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cc11a4b410bd",
+      "image_72": "https://avatars.slack-edge.com/2019-01-16/527084657030_cc11a4b410bd932425de_72.jpg",
+      "first_name": "Gregor",
+      "real_name": "Gregor",
+      "display_name": "Gregor",
+      "team": "T5TCAFTA9",
+      "name": "gregorwbr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1547679117.090400",
+    "parent_user_id": "UDRF3ALP4",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  }
+]
