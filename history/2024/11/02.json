@@ -1,0 +1,551 @@
+[
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1730513227.656589",
+    "edited": {
+      "user": "UGWUJUZHT",
+      "ts": "1730581388.000000"
+    },
+    "client_msg_id": "4d2165f8-bdbe-4f5e-a4f1-8563f2338142",
+    "text": "my understanding / interpretation of programming substrates ... <https://programmingsimplicity.substack.com/p/programming-substrates-imo?r=1egdky>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730126791.364429",
+    "parent_user_id": "U6KQ2S410",
+    "attachments": [
+      {
+        "image_url": "https://substackcdn.com/image/youtube/w_728,c_limit/4GOeYylCMJI",
+        "image_width": 728,
+        "image_height": 410,
+        "image_bytes": 20842,
+        "from_url": "https://programmingsimplicity.substack.com/p/programming-substrates-imo?r=1egdky",
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://programmingsimplicity.substack.com/p/programming-substrates-imo?r=1egdky",
+        "fallback": "Programming Substrates IMO",
+        "text": "2024-10-30",
+        "title": "Programming Substrates IMO",
+        "title_link": "https://programmingsimplicity.substack.com/p/programming-substrates-imo?r=1egdky",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hpXGj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "my understanding / interpretation of programming substrates ... "
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/programming-substrates-imo?r=1egdky"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0296ACR13M",
+    "type": "message",
+    "ts": "1730543831.741889",
+    "client_msg_id": "61f447ad-2c96-4bd7-b07e-4c2e74750be4",
+    "text": "Sounds like a very interesting discussion, but I missed the meeting. Is there a recording available?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730305704.887279",
+    "parent_user_id": "U0217A6C4KW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Uc1n6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sounds like a very interesting discussion, but I missed the meeting. Is there a recording available?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U01DWJSAF2B",
+    "type": "message",
+    "ts": "1730544344.124919",
+    "client_msg_id": "ed13a083-5750-4e85-a7ec-b581889205af",
+    "text": "Hello! I'm curious if anyone here has a good idea about interleaving works between a compute shader and a fragment shader.\n\nSome relevant details:\n• My app is built with Rust and wgpu, and I'm running on an M1 Macbook Pro.\n• I have a single encoder with a compute pipeline and a render pipeline.\n• The compute shader writes to a storage buffer defined like this:\n```@group(0) @binding(2) var&lt;storage, read_write&gt; output: array&lt;vec4&lt;f32&gt;&gt;;```\n• The fragment shader reads from the same buffer. Basically, each fragment is just one element of the `vec4&lt;f32&gt;`. The fragment shader is very simple, and doesn't touch anything else in the storage buffer.\nI've added timestamp queries to the pipeline, and what I'm seeing is this:\n```Duration #1: 47.800208ms\nDuration #2: 47.809876ms\nFrame time: 51.2545ms```\n`Duration #1` is computed from the compute shader timestamps (the duration between the beginning and end of the compute pass) and `Duration #2` is the time for the render pass, computed the same way.\n\n`Frame time` is measured on the CPU.\n\nI expected the duration of the compute shader and fragment shader to add up to the frame time (approximately). But it doesn't and I'm confused about why! Could it be due to interleaving of the compute pass and render pass? If so, I'm curious how the synchronization works. How does the GPU figure out the dependencies between the write (a compute shader invocation) and the reader (fragment shader invocation)?\n\nI don't have any explicit synchronization, but I'm also not seeing any tearing or anything that would indicate that there is a data race between the shaders.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730544344.124919",
+    "reply_count": 5,
+    "reply_users_count": 3,
+    "latest_reply": "1730646459.110919",
+    "reply_users": [
+      "UE6EFEPTQ",
+      "U01DWJSAF2B",
+      "U013ZLJARC7"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9bRb/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello! I'm curious if anyone here has a good idea about interleaving works between a compute shader and a fragment shader.\n\nSome relevant details:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "My app is built with Rust and wgpu, and I'm running on an M1 Macbook Pro."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "I have a single encoder with a compute pipeline and a render pipeline."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The compute shader writes to a storage buffer defined like this:"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "@group(0) @binding(2) var<storage, read_write> output: array<vec4<f32>>;"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The fragment shader reads from the same buffer. Basically, each fragment is just one element of the "
+                  },
+                  {
+                    "type": "text",
+                    "text": "vec4<f32>",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ". The fragment shader is very simple, and doesn't touch anything else in the storage buffer."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI've added timestamp queries to the pipeline, and what I'm seeing is this:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Duration #1: 47.800208ms\nDuration #2: 47.809876ms\nFrame time: 51.2545ms"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Duration #1",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is computed from the compute shader timestamps (the duration between the beginning and end of the compute pass) and "
+              },
+              {
+                "type": "text",
+                "text": "Duration #2",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is the time for the render pass, computed the same way.\n\n"
+              },
+              {
+                "type": "text",
+                "text": "Frame time",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is measured on the CPU.\n\nI expected the duration of the compute shader and fragment shader to add up to the frame time (approximately). But it doesn't and I'm confused about why! Could it be due to interleaving of the compute pass and render pass? If so, I'm curious how the synchronization works. How does the GPU figure out the dependencies between the write (a compute shader invocation) and the reader (fragment shader invocation)?\n\nI don't have any explicit synchronization, but I'm also not seeing any tearing or anything that would indicate that there is a data race between the shaders."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1730554413.232549",
+    "client_msg_id": "fecedd6d-bf2c-498d-b9f4-3d4b66ed6632",
+    "text": "those durations are suspiciously close for being times of completely different processes! plus, is it possible that the compute for frame N was run in frame N-1?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730544344.124919",
+    "parent_user_id": "U01DWJSAF2B",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sbdUj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "those durations are suspiciously close for being times of completely different processes! plus, is it possible that the compute for frame N was run in frame N-1?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "user": "U01DWJSAF2B",
+    "type": "message",
+    "ts": "1730555807.005099",
+    "client_msg_id": "9F9A0474-11BA-442E-BFA1-F2A5F41CEA2C",
+    "text": "I agree. My colleague’s theory was that they are interleaved, and that they are both running at the same time but that they are somehow synchronized by the runtime. I’m skeptical that we’d get that for free. ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730544344.124919",
+    "parent_user_id": "U01DWJSAF2B",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+JjPY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I agree"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " My "
+              },
+              {
+                "type": "text",
+                "text": "colleague’s"
+              },
+              {
+                "type": "text",
+                "text": " theory was that they are interleaved, and that they are both running at the same time but that they are somehow synchronized by the runtime"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " I’m skeptical that "
+              },
+              {
+                "type": "text",
+                "text": "we’d"
+              },
+              {
+                "type": "text",
+                "text": " get that for free"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "user": "U01DWJSAF2B",
+    "type": "message",
+    "ts": "1730555911.600089",
+    "client_msg_id": "B5A844B8-A35B-4BE9-A50B-6C138FF956CF",
+    "text": "I also wondered whether they are somehow running in parallel but the computer shader is one frame ahead, but I don’t see how that’s possible in the code. Both pipelines are added to the same encoder and so definitely submitted together. ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730544344.124919",
+    "parent_user_id": "U01DWJSAF2B",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GMrm6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I also wondered whether they are somehow running in parallel but the computer shader is one frame ahead, but I "
+              },
+              {
+                "type": "text",
+                "text": "don’t"
+              },
+              {
+                "type": "text",
+                "text": " see how "
+              },
+              {
+                "type": "text",
+                "text": "that’s"
+              },
+              {
+                "type": "text",
+                "text": " possible in the code"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Both pipelines are added to the same encoder and so definitely submitted together"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "user": "U01DWJSAF2B",
+    "type": "message",
+    "ts": "1730556099.453219",
+    "client_msg_id": "BD26F5B4-4EE3-4CD4-9F15-93FE848AA034",
+    "text": "I asked on another forum, and the conclusion was that the timestamps may not be reliable. There are a bunch of wgpu issues related to timestamps on Metal and TBDR architectures ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730544344.124919",
+    "parent_user_id": "U01DWJSAF2B",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PXGVO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I asked on another forum, and the conclusion was that the timestamps may not be reliable"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " There are a bunch of wgpu issues related to timestamps on Metal and TBDR architectures "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1730568035.764669",
+    "client_msg_id": "36d41762-3b52-4274-8bc8-cf6bb0fc1674",
+    "text": "Actually, <@UEP7RL0HX> did claim to be \"living in the gap\", so there's 3 of us maybe: <https://futureofcoding.slack.com/archives/C5T9GPWFL/p1728549129367529?thread_ts=1728520021.525509&amp;cid=C5T9GPWFL>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730126791.364429",
+    "parent_user_id": "U6KQ2S410",
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1728549129367529?thread_ts=1728520021.525509&amp;cid=C5T9GPWFL",
+        "ts": "1728549129.367529",
+        "author_id": "UEP7RL0HX",
+        "channel_id": "C5T9GPWFL",
+        "channel_team": "T5TCAFTA9",
+        "is_msg_unfurl": true,
+        "is_reply_unfurl": true,
+        "message_blocks": [
+          {
+            "team": "T5TCAFTA9",
+            "channel": "C5T9GPWFL",
+            "ts": "1728549129.367529",
+            "message": {
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "QkCHM",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "I am currently “living” in the gap, tinkering with filling it by extending the spreadsheet paradigm beyond rows and columns of text, numbers, and dates. As I envision it, cells are described using text, where each cell represents a different application component, including data, GUI widgets, and even code. Groups of cells may be arranged hierarchically, such as a window-type parent cell and its child GUI widget cells. Different cell types have different attributes. Date-type cells have a value attribute that represents the date, a date format attribute, etc. GUI widget-type cells have display-type attributes. Code-type cells have code-triggering attributes (e.g., time-based, cell attribute value-based, etc.) As in a spreadsheet, cell attribute values are defined using literals or reactive formulas that may depend on other cell attribute values. As in a spreadsheet, the application “runs” when cell attribute values change and other cell attribute values are recalculated. See "
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://github.com/Danskydan/Hilltop"
+                        },
+                        {
+                          "type": "text",
+                          "text": " for a brief write-up."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1728549129367529?thread_ts=1728520021.525509&amp;cid=C5T9GPWFL",
+        "fallback": "[October 10th, 2024 1:32 AM] dswirsky: I am currently “living” in the gap, tinkering with filling it by extending the spreadsheet paradigm beyond rows and columns of text, numbers, and dates. As I envision it, cells are described using text, where each cell represents a different application component, including data, GUI widgets, and even code. Groups of cells may be arranged hierarchically, such as a window-type parent cell and its child GUI widget cells. Different cell types have different attributes. Date-type cells have a value attribute that represents the date, a date format attribute, etc. GUI widget-type cells have display-type attributes. Code-type cells have code-triggering attributes (e.g., time-based, cell attribute value-based, etc.) As in a spreadsheet, cell attribute values are defined using literals or reactive formulas that may depend on other cell attribute values. As in a spreadsheet, the application “runs” when cell attribute values change and other cell attribute values are recalculated. See <https://github.com/Danskydan/Hilltop> for a brief write-up.",
+        "text": "I am currently “living” in the gap, tinkering with filling it by extending the spreadsheet paradigm beyond rows and columns of text, numbers, and dates. As I envision it, cells are described using text, where each cell represents a different application component, including data, GUI widgets, and even code. Groups of cells may be arranged hierarchically, such as a window-type parent cell and its child GUI widget cells. Different cell types have different attributes. Date-type cells have a value attribute that represents the date, a date format attribute, etc. GUI widget-type cells have display-type attributes. Code-type cells have code-triggering attributes (e.g., time-based, cell attribute value-based, etc.) As in a spreadsheet, cell attribute values are defined using literals or reactive formulas that may depend on other cell attribute values. As in a spreadsheet, the application “runs” when cell attribute values change and other cell attribute values are recalculated. See <https://github.com/Danskydan/Hilltop> for a brief write-up.",
+        "author_name": "Dan Swirsky",
+        "author_link": "https://futureofcoding.slack.com/team/UEP7RL0HX",
+        "author_icon": "https://secure.gravatar.com/avatar/c4c54a8f7c01b3e22a1e82ae29c85f70.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-48.png",
+        "author_subname": "Dan Swirsky",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "footer": "Thread in Slack Conversation"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ncjh/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Actually, "
+              },
+              {
+                "type": "user",
+                "user_id": "UEP7RL0HX"
+              },
+              {
+                "type": "text",
+                "text": " did claim to be \"living in the gap\", so there's 3 of us maybe: "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1728549129367529?thread_ts=1728520021.525509&cid=C5T9GPWFL"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

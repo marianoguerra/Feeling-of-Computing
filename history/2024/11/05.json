@@ -1,0 +1,139 @@
+[
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1730839381.105659",
+    "client_msg_id": "dea1fb7e-3b3c-45ae-a744-f5c9599ee263",
+    "text": "Exploring / fooling around with making a REPL for drawware (inspired by <@UC2A2ARPT>’s reference to the paper <https://vrozen.github.io/assets/papers/PAINT2024_preprint.pdf|Advanced Game Engine Wizardry for Visual Programming Environments>.\n\nSurprising revelation: On the same computer, using just a websocket to connect a browser-based GUI to a Python program which interprets the diagram by shelling out results in turn-around that is \"fast enough\". It looks instantaneous. No further optimization, nor premature optimization, is required. Biggest missing feature at this point: a change to the diagram should cause the Python program to recompile and re-run the diagram and to update the output fields on the GUI. I think that this could be done by having the Python program periodically sample the 'test.drawio' file timestamp. I know that this is possible, but, I haven't worked out the details yet (suggestions welcome).\n\n<https://open.substack.com/pub/programmingsimplicity/p/beginning-to-work-on-a-repl-for-drawware?r=1egdky&amp;utm_campaign=post&amp;utm_medium=web&amp;showWelcomeOnShare=true>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://open.substack.com/pub/programmingsimplicity/p/beginning-to-work-on-a-repl-for-drawware?r=1egdky&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+        "image_url": "https://substackcdn.com/image/youtube/w_728,c_limit/uzG8ffW07Og",
+        "image_width": 728,
+        "image_height": 410,
+        "image_bytes": 89816,
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://open.substack.com/pub/programmingsimplicity/p/beginning-to-work-on-a-repl-for-drawware?r=1egdky&amp;utm_campaign=post&amp;utm_medium=web&amp;showWelcomeOnShare=true",
+        "fallback": "Beginning to Work On a REPL for Drawware",
+        "text": "2024-11-05",
+        "title": "Beginning to Work On a REPL for Drawware",
+        "title_link": "https://open.substack.com/pub/programmingsimplicity/p/beginning-to-work-on-a-repl-for-drawware?r=1egdky&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "V5noa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Exploring / fooling around with making a REPL for drawware (inspired by "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": "’s reference to the paper "
+              },
+              {
+                "type": "link",
+                "url": "https://vrozen.github.io/assets/papers/PAINT2024_preprint.pdf",
+                "text": "Advanced Game Engine Wizardry for Visual Programming Environments"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nSurprising revelation: On the same computer, using just a websocket to connect a browser-based GUI to a Python program which interprets the diagram by shelling out results in turn-around that is \"fast enough\". It looks instantaneous. No further optimization, nor premature optimization, is required. Biggest missing feature at this point: a change to the diagram should cause the Python program to recompile and re-run the diagram and to update the output fields on the GUI. I think that this could be done by having the Python program periodically sample the 'test.drawio' file timestamp. I know that this is possible, but, I haven't worked out the details yet (suggestions welcome).\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://open.substack.com/pub/programmingsimplicity/p/beginning-to-work-on-a-repl-for-drawware?r=1egdky&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U0123H7JRDM",
+          "UJBAJNFLK",
+          "U013ZLJARC7",
+          "U05UK5T7LPP"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1730840939.618699",
+    "client_msg_id": "855396bb-7a50-454e-b1ce-c30311f2b00a",
+    "text": "&gt; I think this might answer my long-standing question about timing. So if a component has two input ports, there's no automatic way to consume from both in parallel?\nCorrect.\n\nI believe that this kind of thing is an Architectural decision and should not be built in under-the-hood into the tools. Components can have multiple input ports. The tool only guarantees that the inputs are queued up in order of arrival. The Architect decides what to do about the inputs.\n\nFurther... multi-processing is essentially a fiction in FP. ...\nFurther... there is exactly one \"race condition\" in reality. ...\n\n<https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730687068.670909",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "image_url": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F25eb1b68-d2e4-4b8a-9be9-720cf268fd61_163x222.png",
+        "image_width": 163,
+        "image_height": 222,
+        "image_bytes": 8201,
+        "from_url": "https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky",
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky",
+        "fallback": "Multiple Input Ports, Only One Input Queue",
+        "text": "Software Components, Race Conditions 2024-11-05",
+        "title": "Multiple Input Ports, Only One Input Queue",
+        "title_link": "https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jioyU",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think this might answer my long-standing question about timing. So if a component has two input ports, there's no automatic way to consume from both in parallel?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nCorrect.\n\nI believe that this kind of thing is an Architectural decision and should not be built in under-the-hood into the tools. Components can have multiple input ports. The tool only guarantees that the inputs are queued up in order of arrival. The Architect decides what to do about the inputs.\n\nFurther... multi-processing is essentially a fiction in FP. ...\nFurther... there is exactly one \"race condition\" in reality. ...\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

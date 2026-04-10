@@ -1,0 +1,944 @@
+[
+  {
+    "text": "Over the last weeks I have been working on my moldable inspector for Common Lisp again, with the goal of turning it into a support platform for explainable data science. One big task that I have finally achieved is code browsing. You can navigate through the code by clicking on symbols in displayed code. And you can transclude code into HTML, as shown on the first pane.\n\nThis wasn't trivial to do because Common Lisp cannot be statically parsed. When loading code, Lisp reads one top-level form (everything between a top-level pair of parentheses), executes it, and then goes on to the next one. The semantics of each form thus depend on the previous ones. Static parsing, as I do here, can never be perfect. The goal is getting the parser to deal with 99% of code correctly and not crash on the remaining 1%.\n\nFortunately, others had done most of the hard work, and I could use <https://s-expressionists.github.io/Eclector/|Eclector>, a portable and extensible Common Lisp reader, as the basis for my code browser.\n\nThe code for my demo <https://codeberg.org/khinsen/ratp-points-of-sale/|available on Codeberg>.",
+    "files": [
+      {
+        "id": "F082PKND6FM",
+        "created": 1732705496,
+        "timestamp": 1732705496,
+        "name": "simplescreenrecorder-2024-11-27_11.59.45.mkv",
+        "title": "simplescreenrecorder-2024-11-27_11.59.45.mkv",
+        "mimetype": "video/x-matroska",
+        "filetype": "mkv",
+        "pretty_type": "Matroska Video",
+        "user": "UJBAJNFLK",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 786432,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F082PKND6FM-32202c79b1/simplescreenrecorder-2024-11-27_11.59.45.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F082PKND6FM-32202c79b1/simplescreenrecorder-2024-11-27_11.59.45.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F082PKND6FM/download/simplescreenrecorder-2024-11-27_11.59.45.mkv",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F082PKND6FM-32202c79b1/file.m3u8?_xcb=7e4a5",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MTM4MjI5NyxBVkVSQUdFLUJBTkRXSURUSD0xMDUzMjUwLENPREVDUz0iYXZjMS42NDAwMjgsbXA0YS40MC41IixSRVNPTFVUSU9OPTE5MjB4MTA4MCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09ESlFTMDVFTmtaTkxUTXlNakF5WXpjNVlqRXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURFdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EZ3lVRXRPUkRaR1RTMHpNakl3TW1NM09XSXhMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBeUxuUnpDaU5GV0ZSSlRrWTZNaTQ0TnpBc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTRNbEJMVGtRMlJrMHRNekl5TURKak56bGlNUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd015NTBjd29qUlZoVUxWZ3RSVTVFVEVsVFZBbz0K",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F082PKND6FM-32202c79b1/simplescreenrecorder-2024-11-27_11.59.45_trans.mp4",
+        "duration_ms": 14881,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F082PKND6FM-32202c79b1/simplescreenrecorder-2024-11-27_11.59.45_thumb_video.jpeg",
+        "thumb_video_w": 1920,
+        "thumb_video_h": 1080,
+        "permalink": "https://futureofcoding.slack.com/files/UJBAJNFLK/F082PKND6FM/simplescreenrecorder-2024-11-27_11.59.45.mkv",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F082PKND6FM-e14d0645a4",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible",
+        "media_progress": {
+          "offset_ms": 14411,
+          "max_offset_ms": 14411,
+          "duration_ms": 14951,
+          "media_watched": true
+        }
+      }
+    ],
+    "upload": false,
+    "user": "UJBAJNFLK",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5NM37",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Over the last weeks I have been working on my moldable inspector for Common Lisp again, with the goal of turning it into a support platform for explainable data science. One big task that I have finally achieved is code browsing. You can navigate through the code by clicking on symbols in displayed code. And you can transclude code into HTML, as shown on the first pane.\n\nThis wasn't trivial to do because Common Lisp cannot be statically parsed. When loading code, Lisp reads one top-level form (everything between a top-level pair of parentheses), executes it, and then goes on to the next one. The semantics of each form thus depend on the previous ones. Static parsing, as I do here, can never be perfect. The goal is getting the parser to deal with 99% of code correctly and not crash on the remaining 1%.\n\nFortunately, others had done most of the hard work, and I could use "
+              },
+              {
+                "type": "link",
+                "url": "https://s-expressionists.github.io/Eclector/",
+                "text": "Eclector"
+              },
+              {
+                "type": "text",
+                "text": ", a portable and extensible Common Lisp reader, as the basis for my code browser.\n\nThe code for my demo "
+              },
+              {
+                "type": "link",
+                "url": "https://codeberg.org/khinsen/ratp-points-of-sale/",
+                "text": "available on Codeberg"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1732705810.768409",
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1732711577.000000"
+    },
+    "client_msg_id": "87b6ac80-9987-4e2a-8bf5-acb3e2038f05",
+    "thread_ts": "1732705810.768409",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1732718379.627369",
+    "reply_users": [
+      "UE1JQM9HQ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "UE1JQM9HQ"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U02E4DAQGSZ"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UE1JQM9HQ",
+    "type": "message",
+    "ts": "1732718379.627369",
+    "client_msg_id": "d0883e0d-3fbe-4119-b37d-050685b581ba",
+    "text": "Beautiful!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732705810.768409",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "C04yh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Beautiful!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "text": "So orthogonal artifact 1 of (maybe) 3 for reimplementing (a subset of) Observable in userspace is done (<https://observablehq.com/@tomlarkworthy/exporter|exporter>).  The next thing, as discussed in the demo, is to preserve the editing experience by adding a userspace code editor, so that the exported, unbundled (offline-first) notebook carries its own editor around with it.\n\nProgress is pretty good. It ends up a little different to Observable as it is pinned to a specific cell, but it can also do extra things like edit the variables in dependancies which is what you want when the export format has bundled all the dependancies. You might need to change them too!\n\nThe third required project, I thought of while preparing for the demo, is the notebook renderer itself. That should also be in userspace and hackable. Even with the editor component, you can't reorder cells, as there is a whole presentation layer that lives above the runtime that chooses how to render the results. That rendering process itself needs to be hackable, so you can leave the vertical notebook format entirely. Currently the single file format follows the path of the existing observable runtime of instantiating the DOM before starting the runtime and piping observations to the DOM, but for maximum control we should let userspace be informed of the runtime changes and choose how to render. Just a shower thought at the moment but I definitely think the \"renderer\" should be another orthogonal component.\n\nI am trying to document my learnings about the Observable system in some reference documentation <https://observablehq.com/@tomlarkworthy/observable-notes|here> if you want to learn more. That documentation actually hacks the runtime so the concepts are explained adjacent to the actually executing concepts. I love literate programming.\n\naside: I am enjoying the single file hermetic webpage format, its like portable statically linked binary that ends up being way faster than normal webpages.",
+    "files": [
+      {
+        "id": "F082P5ABVMK",
+        "created": 1732731647,
+        "timestamp": 1732731647,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U02E4DAQGSZ",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 244882,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F082P5ABVMK/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F082P5ABVMK/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 158,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 210,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 316,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 351,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 421,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F082P5ABVMK-176d9d305a/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 449,
+        "original_w": 2422,
+        "original_h": 1062,
+        "thumb_tiny": "AwAVADDR/iyKXLe1Hej8KADJpaQcetHNAC0Uc0mPr+dAC0lLSUAFLSUUALRSUUAf/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/U02E4DAQGSZ/F082P5ABVMK/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F082P5ABVMK-eb9867c7fc",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U02E4DAQGSZ",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BfhFQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So orthogonal artifact 1 of (maybe) 3 for reimplementing (a subset of) Observable in userspace is done ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/exporter",
+                "text": "exporter"
+              },
+              {
+                "type": "text",
+                "text": ").  The next thing, as discussed in the demo, is to preserve the editing experience by adding a userspace code editor, so that the exported, unbundled (offline-first) notebook carries its own editor around with it.\n\nProgress is pretty good. It ends up a little different to Observable as it is pinned to a specific cell, but it can also do extra things like edit the variables in dependancies which is what you want when the export format has bundled all the dependancies. You might need to change them too!\n\nThe third required project, I thought of while preparing for the demo, is the notebook renderer itself. That should also be in userspace and hackable. Even with the editor component, you can't reorder cells, as there is a whole presentation layer that lives above the runtime that chooses how to render the results. That rendering process itself needs to be hackable, so you can leave the vertical notebook format entirely. Currently the single file format follows the path of the existing observable runtime of instantiating the DOM before starting the runtime and piping observations to the DOM, but for maximum control we should let userspace be informed of the runtime changes and choose how to render. Just a shower thought at the moment but I definitely think the \"renderer\" should be another orthogonal component.\n\nI am trying to document my learnings about the Observable system in some reference documentation "
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/observable-notes",
+                "text": "here"
+              },
+              {
+                "type": "text",
+                "text": " if you want to learn more. That documentation actually hacks the runtime so the concepts are explained adjacent to the actually executing concepts. I love literate programming.\n\naside: I am enjoying the single file hermetic webpage format, its like portable statically linked binary that ends up being way faster than normal webpages."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1732732726.325769",
+    "client_msg_id": "737aec7b-0c27-4bf4-84bc-88b4a0c48766",
+    "thread_ts": "1732732726.325769",
+    "reply_count": 5,
+    "reply_users_count": 2,
+    "latest_reply": "1732737213.870409",
+    "reply_users": [
+      "U0123H7JRDM",
+      "U02E4DAQGSZ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U0123H7JRDM",
+          "UJBAJNFLK",
+          "U06DZDM8C93"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U07RHJSL1U6",
+    "type": "message",
+    "ts": "1732732866.836069",
+    "client_msg_id": "69550434-c579-4e8c-97c7-27d63ee592c9",
+    "text": "Hi,\n\nSharing fish tower \n\nWas built as half experiment with how quickly I could get a websocket real time thingy up and running,  and to see if I could market a London Filet O Fish First Timer meetup using a webtoy.\n\nI think people don't use webtoys to market real world events as much as I would've thought - I think this gets cheaper with AI and perhaps we'll see this a lot more?\n\n<https://fishtower.conradgodfrey.com/|https://fishtower.conradgodfrey.com/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "reply_count": 10,
+    "reply_users_count": 2,
+    "latest_reply": "1732743446.176349",
+    "reply_users": [
+      "UC2A2ARPT",
+      "U07RHJSL1U6"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "592wX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi,\n\nSharing fish tower \n\nWas built as half experiment with how quickly I could get a websocket real time thingy up and running,  and to see if I could market a London Filet O Fish First Timer meetup using a webtoy.\n\nI think people don't use webtoys to market real world events as much as I would've thought - I think this gets cheaper with AI and perhaps we'll see this a lot more?\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://fishtower.conradgodfrey.com/",
+                "text": "https://fishtower.conradgodfrey.com/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U03R0B9U1GD",
+          "U06LQ54LB1R"
+        ],
+        "count": 3
+      },
+      {
+        "name": "fish",
+        "users": [
+          "UC2A2ARPT",
+          "U03R0B9U1GD"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1732733365.723699",
+    "client_msg_id": "1c0303a9-c8de-4352-b7b5-c847a4e20f40",
+    "text": "\"London Filet O Fish First Timer meetup\"\n\nA meetup for people who have never eaten a Filet O Fish in London?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "O85SB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"London Filet O Fish First Timer meetup\"\n\nA meetup for people who have never eaten a Filet O Fish in London?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U07RHJSL1U6",
+    "type": "message",
+    "ts": "1732733481.948369",
+    "client_msg_id": "0eb365f0-3f96-4a83-a225-7dc192580c7a",
+    "text": "Exactly",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7IFS6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Exactly"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U07RHJSL1U6",
+    "type": "message",
+    "ts": "1732733492.610919",
+    "client_msg_id": "9fffd952-2a92-4e6b-b000-f772e8011194",
+    "text": "Happening in 10 minutes at London bridge McDonald's",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aaGmE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Happening in 10 minutes at London bridge McDonald's"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U07RHJSL1U6",
+    "type": "message",
+    "ts": "1732733498.675179",
+    "client_msg_id": "200b3af8-6aa5-4821-b14d-fd9a4979253b",
+    "text": "I've never had one",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0ATfr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've never had one"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1732733507.820629",
+    "client_msg_id": "0521e2fb-9de1-4e4a-a477-517635e1de6f",
+    "text": "oh wow",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CvhB5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "oh wow"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1732733519.506789",
+    "client_msg_id": "c13e9925-ab24-4bfa-81ae-eb03f052b5bf",
+    "text": "good luck have fun wish I could be there to try a filet o fish",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lYUWa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "good luck have fun wish I could be there to try a filet o fish"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "raised_hands",
+        "users": [
+          "U07RHJSL1U6"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1732733527.977469",
+    "client_msg_id": "aa4e69ca-25fe-40f4-b2df-41ae7df038ee",
+    "text": "haven't had one since I was 5 maybe?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qDQgX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "haven't had one since I was 5 maybe?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1732734575.091869",
+    "client_msg_id": "666dce1f-0082-470a-8b22-a8430105c06b",
+    "text": "Here's the recording of the <https://www.youtube.com/watch?v=ZG6GRDo-pfQ|Future of Coding Virtual Meetup 7>. This time, I added some notes and timestamps to the description, just in case that's helpful.\n\nFor next month, we'll have to figure out something a little different so we don't collide uncomfortably with the holiday season. TBD!",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=ZG6GRDo-pfQ",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/ZG6GRDo-pfQ/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/ZG6GRDo-pfQ?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Virtual Meetup 7 • November 27, 2024\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=ZG6GRDo-pfQ",
+        "fallback": "YouTube Video: Virtual Meetup 7 • November 27, 2024",
+        "title": "Virtual Meetup 7 • November 27, 2024",
+        "title_link": "https://www.youtube.com/watch?v=ZG6GRDo-pfQ",
+        "author_name": "Future of Coding",
+        "author_link": "https://www.youtube.com/@futureofcoding",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0EqRb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here's the recording of the "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=ZG6GRDo-pfQ",
+                "text": "Future of Coding Virtual Meetup 7"
+              },
+              {
+                "type": "text",
+                "text": ". This time, I added some notes and timestamps to the description, just in case that's helpful.\n\nFor next month, we'll have to figure out something a little different so we don't collide uncomfortably with the holiday season. TBD!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U0123H7JRDM",
+          "U02E4DAQGSZ",
+          "U06JCQL6ERJ",
+          "U06LQ54LB1R",
+          "UFPPABQ7P"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U07RHJSL1U6",
+    "type": "message",
+    "ts": "1732735362.252869",
+    "client_msg_id": "f789a45d-10a1-4438-a9fc-693faba6ab03",
+    "text": "It was nice! Just kind of tasted like.... McDonald's burger? Anyway I'm going to take the site offline now because I'm out and about and lots of people seem to be trying to hack it and I haven't really protected it",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zHxWl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It was nice! Just kind of tasted like.... McDonald's burger? Anyway I'm going to take the site offline now because I'm out and about and lots of people seem to be trying to hack it and I haven't really protected it"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1732736907.812709",
+    "client_msg_id": "C14F802A-23A2-4BC2-AB37-366B9E5107E1",
+    "text": "How big is the single file?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732726.325769",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6QIof",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How big is the single file?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1732737031.714269",
+    "edited": {
+      "user": "U02E4DAQGSZ",
+      "ts": "1732737072.000000"
+    },
+    "client_msg_id": "19c343c4-5966-45f3-9bc6-2328f4403970",
+    "text": "500kb and gzips to 256kb which it auto does on s3 upload (I did not demo that). It prints out it's content so often I find a 1mb image in there accidentally",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732726.325769",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9h7IV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "500kb and gzips to 256kb which it auto does on s3 upload (I did not demo that). It prints out it's content so often I find a 1mb image in there accidentally"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1732737086.390219",
+    "client_msg_id": "76E31CB0-3F02-4CE7-AE9C-FEEEFEC8B18E",
+    "text": "Thats pretty small, very good!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732726.325769",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7L3fW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thats pretty small, very good!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1732737163.164389",
+    "client_msg_id": "63258d39-b163-4cca-a8c2-503117f8e161",
+    "text": "Yeah if you look at the file attachments they are gzipped, so the notebook decompresses as part of the importmap dance",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732726.325769",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0GzOP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah if you look at the file attachments they are gzipped, so the notebook decompresses as part of the importmap dance"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1732737213.870409",
+    "client_msg_id": "8c39059d-8f8f-4877-8f55-7ab975a652e4",
+    "text": "The raw JavaScript in the notebook is left uncompressed for hacking, it's just the dependencies like the runtime that are compressed",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732726.325769",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lNirc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The raw JavaScript in the notebook is left uncompressed for hacking, it's just the dependencies like the runtime that are compressed"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "text": "the final shape - I'll replay the database and do some sort of write up later :slightly_smiling_face: .",
+    "files": [
+      {
+        "id": "F083FF114MN",
+        "created": 1732741552,
+        "timestamp": 1732741552,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U07RHJSL1U6",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 842472,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F083FF114MN/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F083FF114MN/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_360.png",
+        "thumb_360_w": 271,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_480.png",
+        "thumb_480_w": 362,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_720.png",
+        "thumb_720_w": 543,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 1062,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_960.png",
+        "thumb_960_w": 723,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F083FF114MN-d66af41ed4/image_1024.png",
+        "thumb_1024_w": 772,
+        "thumb_1024_h": 1024,
+        "original_w": 1462,
+        "original_h": 1940,
+        "thumb_tiny": "AwAwACTSZd3cj6GmMMd3/M1JTW54wCKAGqM92/M09V29yfqaagI6ge+KfQAUUUUAFFFVp53RiFKDHrSbsNK5ZoqGCYyJkgE5x8tTUxBRRRQAVQu/vvV+qF3996mRUSSw/wBV/wACNW6qWH+qP+8at01sJ7hRRRTEf//Z",
+        "permalink": "https://futureofcoding.slack.com/files/U07RHJSL1U6/F083FF114MN/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F083FF114MN-530521881b",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U07RHJSL1U6",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tuj3E",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the final shape - I'll replay the database and do some sort of write up later "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": " ."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1732741579.016689",
+    "client_msg_id": "0a46d4ec-15b9-4d5e-9d6e-3e2b1d27c66d",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1732743446.176349",
+    "client_msg_id": "FCDEBCF4-EE3D-4DDD-B370-E298F55EF763",
+    "text": "Oh my god incredible! Thanks so much for sharing this. It was fun while it lasted.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1732732866.836069",
+    "parent_user_id": "U07RHJSL1U6",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lUxNb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh my god incredible! Thanks so much for sharing this"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " It was fun while it lasted"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]
