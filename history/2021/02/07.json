@@ -1,0 +1,2287 @@
+[
+  {
+    "client_msg_id": "878cb8eb-90af-4a26-a68d-f73e85f5d001",
+    "type": "message",
+    "text": "What would a language that \"always compiles\" and \"never crashes\" look like? Where there is no such thing as a syntax error, type error, or runtime error? Where every text string (or AST) is executable? I'm thinking this can be done with a compositional approach to errors: instead of crashing when a result is undefined (due to syntactic or semantic errors), return an \"undefined\" value, which in turn poisons all of the expressions it is used within, similar to how NaN works. Would such a semantics have merit? It would let you run incomplete programs (like <https://hazel.org/|Hazel>), and also let you _recover_ from errors (with the equivalent of an isNaN() function). But perhaps most importantly, it would be a good foundation for a _live &amp; persistent programming environment:_ if there is no need for code to be checked prior to execution, then there doesn't need to be a \"compile time\". This doesn't make programs harder to reason about: a programmer can still use static analysis tools (incl. \"type inference\") to understand and _enforce_ runtime behaviour (e.g. verifying/requiring the absence of \"undefined\").",
+    "user": "UCGAK10LS",
+    "ts": "1612656314.123000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1612656866.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9Ebg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What would a language that \"always compiles\" and \"never crashes\" look like? Where there is no such thing as a syntax error, type error, or runtime error? Where every text string (or AST) is executable? I'm thinking this can be done with a compositional approach to errors: instead of crashing when a result is undefined (due to syntactic or semantic errors), return an \"undefined\" value, which in turn poisons all of the expressions it is used within, similar to how NaN works. Would such a semantics have merit? It would let you run incomplete programs (like "
+              },
+              {
+                "type": "link",
+                "url": "https://hazel.org/",
+                "text": "Hazel"
+              },
+              {
+                "type": "text",
+                "text": "), and also let you "
+              },
+              {
+                "type": "text",
+                "text": "recover",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " from errors (with the equivalent of an isNaN() function). But perhaps most importantly, it would be a good foundation for a "
+              },
+              {
+                "type": "text",
+                "text": "live & persistent programming environment:",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " if there is no need for code to be checked prior to execution, then there doesn't need to be a \"compile time\". This doesn't make programs harder to reason about: a programmer can still use static analysis tools (incl. \"type inference\") to understand and "
+              },
+              {
+                "type": "text",
+                "text": "enforce",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " runtime behaviour (e.g. verifying/requiring the absence of \"undefined\")."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "reply_count": 28,
+    "reply_users_count": 10,
+    "latest_reply": "1612941084.145400",
+    "reply_users": [
+      "UMVFWPZ36",
+      "UCGAK10LS",
+      "U01L1TTFP62",
+      "U016VUZGUUQ",
+      "UAVCC2X70",
+      "UDQBTJ211",
+      "UF71PR58X",
+      "UHWC9PXBL",
+      "U016LEA3J1H",
+      "UDQKHNP51"
+    ],
+    "replies": [
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1612657435.123500"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1612657439.123700"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1612657481.123900"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1612657647.124200"
+      },
+      {
+        "user": "U01L1TTFP62",
+        "ts": "1612657726.124400"
+      },
+      {
+        "user": "U01L1TTFP62",
+        "ts": "1612657826.124600"
+      },
+      {
+        "user": "U01L1TTFP62",
+        "ts": "1612657989.124900"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1612659051.125300"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1612663797.125800"
+      },
+      {
+        "user": "U016VUZGUUQ",
+        "ts": "1612664009.126000"
+      },
+      {
+        "user": "U016VUZGUUQ",
+        "ts": "1612664472.126300"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1612664556.126500"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1612664675.126700"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1612676446.127600"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1612677439.128100"
+      },
+      {
+        "user": "UDQBTJ211",
+        "ts": "1612689178.130800"
+      },
+      {
+        "user": "UF71PR58X",
+        "ts": "1612717793.131300"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1612722075.132700"
+      },
+      {
+        "user": "U016LEA3J1H",
+        "ts": "1612734749.133000"
+      },
+      {
+        "user": "U016VUZGUUQ",
+        "ts": "1612735490.133200"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1612747339.133800"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1612747414.134200"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1612772658.135200"
+      },
+      {
+        "user": "UMVFWPZ36",
+        "ts": "1612802542.135800"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1612838391.136300"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1612865794.136600"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1612939912.145200"
+      },
+      {
+        "user": "UAVCC2X70",
+        "ts": "1612941084.145400"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U01L1TTFP62",
+          "UAVCC2X70"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9a20d468-4351-4132-838c-5ce70fc9aa98",
+    "type": "message",
+    "text": "This pattern is common in dataflow languages",
+    "user": "UMVFWPZ36",
+    "ts": "1612657435.123500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "macR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This pattern is common in dataflow languages"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0b5686b4-33ed-4efb-a12a-d3ac90e20df2",
+    "type": "message",
+    "text": "I also think they do it in go",
+    "user": "UMVFWPZ36",
+    "ts": "1612657439.123700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "43F0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I also think they do it in go"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "32b9e0f6-e8de-41c0-a956-228501f7d3f9",
+    "type": "message",
+    "text": "see <https://blog.golang.org/errors-are-values>",
+    "user": "UMVFWPZ36",
+    "ts": "1612657481.123900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Errors are values - The Go Blog",
+        "title_link": "https://blog.golang.org/errors-are-values",
+        "text": "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.",
+        "fallback": "Errors are values - The Go Blog",
+        "from_url": "https://blog.golang.org/errors-are-values",
+        "service_icon": "https://blog.golang.org/favicon.ico",
+        "service_name": "blog.golang.org",
+        "id": 1,
+        "original_url": "https://blog.golang.org/errors-are-values"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "owZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "see "
+              },
+              {
+                "type": "link",
+                "url": "https://blog.golang.org/errors-are-values"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fbfb8688-8c91-450e-a0b7-8aee4631a581",
+    "type": "message",
+    "text": "The title of that Go post is perhaps deceiving, since their approach to errors is just the same old approach that C code uses: an error is a separate return value that must be checked in order to be noticed. It is not compositional, and Go programs still crash in a myriad of ways.",
+    "user": "UCGAK10LS",
+    "ts": "1612657647.124200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1612657850.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "O6XTh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The title of that Go post is perhaps deceiving, since their approach to errors is just the same old approach that C code uses: an error is a separate return value that must be checked in order to be noticed. It is not compositional, and Go programs still crash in a myriad of ways."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0658feac-1a49-40a4-96d7-d88c5ee70632",
+    "type": "message",
+    "text": "LabVIEW (a dataflow language) has errors that are just another value returned, although it does not always compile because it runs a type propagation algorithm that will break your code if the types don't match up. But it is always compiling in the background, ready to run if it can. If an error is returned, the program doesn't crash and they aren't exceptions. You can ignore the error, process it, generate a more specific one, etc. However, it still has the problem of the developer not knowing what errors could be generated, which is a problem in every language I have ever used, and a tough problem.\n\nI'd love a language that specifically separated functions between those that can and cannot return errors. Functions that can return errors should return them as values and the documentation should list exactly why and when an error is returned. Additionally, the errors should be pattern matchable.",
+    "user": "U01L1TTFP62",
+    "ts": "1612657726.124400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "dc9ee60375b5",
+      "image_72": "https://avatars.slack-edge.com/2021-01-29/1687447231174_dc9ee60375b5ce940578_72.png",
+      "first_name": "",
+      "real_name": "bmitc",
+      "display_name": "bmitc",
+      "team": "T5TCAFTA9",
+      "name": "bmitchell33",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/V2I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "LabVIEW (a dataflow language) has errors that are just another value returned, although it does not always compile because it runs a type propagation algorithm that will break your code if the types don't match up. But it is always compiling in the background, ready to run if it can. If an error is returned, the program doesn't crash and they aren't exceptions. You can ignore the error, process it, generate a more specific one, etc. However, it still has the problem of the developer not knowing what errors could be generated, which is a problem in every language I have ever used, and a tough problem.\n\nI'd love a language that specifically separated functions between those that can and cannot return errors. Functions that can return errors should return them as values and the documentation should list exactly why and when an error is returned. Additionally, the errors should be pattern matchable."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UCGAK10LS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5ae2c4d9-6d57-4015-bb3a-64523c808b98",
+    "type": "message",
+    "text": "I need to go through The Common Lisp Condition System book: <https://www.amazon.com/Common-Lisp-Condition-System-Mechanisms/dp/148426133X>",
+    "user": "U01L1TTFP62",
+    "ts": "1612657826.124600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "dc9ee60375b5",
+      "image_72": "https://avatars.slack-edge.com/2021-01-29/1687447231174_dc9ee60375b5ce940578_72.png",
+      "first_name": "",
+      "real_name": "bmitc",
+      "display_name": "bmitc",
+      "team": "T5TCAFTA9",
+      "name": "bmitchell33",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pFZi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I need to go through The Common Lisp Condition System book: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.amazon.com/Common-Lisp-Condition-System-Mechanisms/dp/148426133X"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6c996b87-e893-4fa6-966f-e10e70ad6597",
+    "type": "message",
+    "text": "Thanks for the link to Hazel <@UCGAK10LS>. That seems interesting.\n\nThere's also the approach of Elixir and Erlang that take the stance that errors are unavoidable, so they provide mechanisms to recover when they do happen, including live inspection. (Which is what I understand the Common Lisp condition system to address.)",
+    "user": "U01L1TTFP62",
+    "ts": "1612657989.124900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "dc9ee60375b5",
+      "image_72": "https://avatars.slack-edge.com/2021-01-29/1687447231174_dc9ee60375b5ce940578_72.png",
+      "first_name": "",
+      "real_name": "bmitc",
+      "display_name": "bmitc",
+      "team": "T5TCAFTA9",
+      "name": "bmitchell33",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2KD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the link to Hazel "
+              },
+              {
+                "type": "user",
+                "user_id": "UCGAK10LS"
+              },
+              {
+                "type": "text",
+                "text": ". That seems interesting.\n\nThere's also the approach of Elixir and Erlang that take the stance that errors are unavoidable, so they provide mechanisms to recover when they do happen, including live inspection. (Which is what I understand the Common Lisp condition system to address.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCGAK10LS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "20cf7efd-1208-470c-b4fc-d55916404854",
+    "type": "message",
+    "text": "&gt; I'd love a language that specifically separated functions between those that can and cannot return errors.\nMost functions beyond the identity function and constants can return errors: you simply have to pass them a value that is not part of their domain :slightly_smiling_face:. Sometimes the domain is tricky: for example the *div* instruction takes all numeric divisors apart from zero, and it's often hard to statically verify that zero won't be given. That's perhaps the simplest use-case for an \"undefined\" return value.\n\nBut if a value is explicitly considered part of the domain, yet can still induce some \"error-like\" result (for example, failure to pass a JSON string), then I agree they should probably return a _specific_ error value that distinguishes this class of error from the more general \"I passed a string to a function expecting an integer\" undefined result.",
+    "user": "UCGAK10LS",
+    "ts": "1612659051.125300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1612663253.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WSuiN",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'd love a language that specifically separated functions between those that can and cannot return errors."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Most functions beyond the identity function and constants can return errors: you simply have to pass them a value that is not part of their domain "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ". Sometimes the domain is tricky: for example the "
+              },
+              {
+                "type": "text",
+                "text": "div",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " instruction takes all numeric divisors apart from zero, and it's often hard to statically verify that zero won't be given. That's perhaps the simplest use-case for an \"undefined\" return value.\n\nBut if a value is explicitly considered part of the domain, yet can still induce some \"error-like\" result (for example, failure to pass a JSON string), then I agree they should probably return a "
+              },
+              {
+                "type": "text",
+                "text": "specific",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " error value that distinguishes this class of error from the more general \"I passed a string to a function expecting an integer\" undefined result."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6210a22e-9207-4baa-a4bc-f68b11e742a4",
+    "type": "message",
+    "text": "Didn't know about esoteric.codes. Lots of great content in it! Thanks for sharing!",
+    "user": "U013HU44GLS",
+    "ts": "1612662096.074600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9e0e557132",
+      "image_72": "https://avatars.slack-edge.com/2020-05-12/1132600153425_cb9e0e5571321437af24_72.jpg",
+      "first_name": "Jean-Louis",
+      "real_name": "Jean-Louis Villecroze",
+      "display_name": "CocoaGeek",
+      "team": "T5TCAFTA9",
+      "name": "jeanlouis.villecroze",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ha79",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Didn't know about esoteric.codes. Lots of great content in it! Thanks for sharing!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612604714.072800",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "131ae1ca-ab29-4a4a-b622-4dd70a9e69f7",
+    "type": "message",
+    "text": "Of course, \"specific error values\" are implemented in modern languages as *sum types*, enabling pattern matching etc. But they unfortunately aren't compositional: what happens if you try and sum a \"parsing error\" and an \"I/O error\" together? That's where having a single NaN-like \"undefined\" value might come in handy: it just declares that an expression was given inputs outside its domain.\n\"parsing error\" + \"I/O error\" = \"undefined\"",
+    "user": "UCGAK10LS",
+    "ts": "1612663797.125800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "R3Eot",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Of course, \"specific error values\" are implemented in modern languages as "
+              },
+              {
+                "type": "text",
+                "text": "sum types",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", enabling pattern matching etc. But they unfortunately aren't compositional: what happens if you try and sum a \"parsing error\" and an \"I/O error\" together? That's where having a single NaN-like \"undefined\" value might come in handy: it just declares that an expression was given inputs outside its domain.\n\"parsing error\" + \"I/O error\" = \"undefined\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7685c294-093e-49d7-be25-45488dab4fdf",
+    "type": "message",
+    "text": "Runtime errors are a fundamentally optional concept. There's not necessarily a concept of an error in a Turing machine: the closest thing is if you hit a gap in your transition table, but you can fill those in with any default that strikes your fancy. In a more conventionally shaped language, that probably means ignoring or no-opping any state or operation you don't understand.... so yeah, it looks like JavaScript, but more so.\n\nI haven't tried it, but <http://om-language.org|om-language.org> claims to have the property that all UTF-8 strings are valid OM programs. Unclear how it handles errors, but the words \"error\", \"fail\", \"halt\", and \"stop\" are absent from its front page.",
+    "user": "U016VUZGUUQ",
+    "ts": "1612664009.126000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kcs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Runtime errors are a fundamentally optional concept. There's not necessarily a concept of an error in a Turing machine: the closest thing is if you hit a gap in your transition table, but you can fill those in with any default that strikes your fancy. In a more conventionally shaped language, that probably means ignoring or no-opping any state or operation you don't understand.... so yeah, it looks like JavaScript, but more so.\n\nI haven't tried it, but "
+              },
+              {
+                "type": "link",
+                "url": "http://om-language.org",
+                "text": "om-language.org"
+              },
+              {
+                "type": "text",
+                "text": " claims to have the property that all UTF-8 strings are valid OM programs. Unclear how it handles errors, but the words \"error\", \"fail\", \"halt\", and \"stop\" are absent from its front page."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCGAK10LS",
+          "U01AD80KMLK"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "737a6647-7f27-4d16-80c1-e9251b6b3edb",
+    "type": "message",
+    "text": "For a live programming environment, rather than propagating poison values, the behavior I would rather see is this: at the first sign of trouble, save the continuation (and maybe a bit before that?) and pop up an interactive prompt to get a valid value from the user, and call the continuation with that value. (With the right UI, I think this is approximately the right model for mixing automatic and human-driven work in general)",
+    "user": "U016VUZGUUQ",
+    "ts": "1612664472.126300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dejT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For a live programming environment, rather than propagating poison values, the behavior I would rather see is this: at the first sign of trouble, save the continuation (and maybe a bit before that?) and pop up an interactive prompt to get a valid value from the user, and call the continuation with that value. (With the right UI, I think this is approximately the right model for mixing automatic and human-driven work in general)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d94e9376-a778-48be-8323-e07c0fc49685",
+    "type": "message",
+    "text": "I think an absent transition in a Turing machine should be considered the same as crashing: the machine cannot proceed from that point. Looking more broadly at imperative languages, it's probably only those with _structured_ control flow can \"back out\" and continue after an error: just jump past/out of the current structure (block, function, etc). Turing machines don't really have a good option.\n\nI should point out though, that I was specifically thinking about *declarative languages* (those based on composable expressions) as I wrote my original post.\n\nI'll check out Om :slightly_smiling_face:",
+    "user": "UCGAK10LS",
+    "ts": "1612664556.126500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1612665078.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kGATo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think an absent transition in a Turing machine should be considered the same as crashing: the machine cannot proceed from that point. Looking more broadly at imperative languages, it's probably only those with "
+              },
+              {
+                "type": "text",
+                "text": "structured",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " control flow can \"back out\" and continue after an error: just jump past/out of the current structure (block, function, etc). Turing machines don't really have a good option.\n\nI should point out though, that I was specifically thinking about "
+              },
+              {
+                "type": "text",
+                "text": "declarative languages",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (those based on composable expressions) as I wrote my original post.\n\nI'll check out Om "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fff69b06-3b89-4ade-b514-752c598f4fc0",
+    "type": "message",
+    "text": "<@U016VUZGUUQ> When I say \"live programming\" I don't mean that the user is always sitting at the computer while execution occurs, I just mean that code is immediately evaluated as it is written (and as new inputs come in), and the code doesn't \"restart\" unless specifically asked. I'd still want someone to be able to write a cloud service using such an environment, so interactive error resolution wouldn't be practical.",
+    "user": "UCGAK10LS",
+    "ts": "1612664675.126700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1612664744.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "T3co",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U016VUZGUUQ"
+              },
+              {
+                "type": "text",
+                "text": " When I say \"live programming\" I don't mean that the user is always sitting at the computer while execution occurs, I just mean that code is immediately evaluated as it is written (and as new inputs come in), and the code doesn't \"restart\" unless specifically asked. I'd still want someone to be able to write a cloud service using such an environment, so interactive error resolution wouldn't be practical."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "93b26055-d509-4f18-92c4-8eb5e2d06da9",
+    "type": "message",
+    "text": "A language consisting only of \"print\" statements. And since that is the only operation, the syntax for a print statement is just the text to be printed. Each statement is on its own line. Each statement prints a new line of text. The statement to print an empty line of text, is an empty line of text.\n\nThis language has well defined syntax and semantics, and every input program is valid.",
+    "user": "UAVCC2X70",
+    "ts": "1612676446.127600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1612676710.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "R+nl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A language consisting only of \"print\" statements. And since that is the only operation, the syntax for a print statement is just the text to be printed. Each statement is on its own line. Each statement prints a new line of text. The statement to print an empty line of text, is an empty line of text.\n\nThis language has well defined syntax and semantics, and every input program is valid."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U01AD80KMLK"
+        ],
+        "count": 1
+      },
+      {
+        "name": "zany_face",
+        "users": [
+          "UCGAK10LS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9209ffb9-46dd-4a30-a3b5-7a51bea13158",
+    "type": "message",
+    "text": "On a more serious note, how about one that stubbornly continues to parse the current \"token\" or construct until it hits a well-defined delimiter? Things with special syntax take a default meaning if they don't match.\n\nFor example:\n\n\" starts a string, and includes anything until the next \". Invalid escaped characters fall back to their literal representation.\n\nA block starts with BEGIN and indescriminantly includes everything until an END is correctly matched.\n\nUnrecognized or unexpected tokens are simply skipped over. So assuming the closing-parenthesis is expected, A(B,C) is the same as A(B,C,+$4:\"/:upside_down_face:¶\nEND\n{¢=]X)\n\nUnrecognized variables become NULL (what could possibly go wrong there? :wink:)",
+    "user": "UAVCC2X70",
+    "ts": "1612677439.128100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1612677885.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8L1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On a more serious note, how about one that stubbornly continues to parse the current \"token\" or construct until it hits a well-defined delimiter? Things with special syntax take a default meaning if they don't match.\n\nFor example:\n\n\" starts a string, and includes anything until the next \". Invalid escaped characters fall back to their literal representation.\n\nA block starts with BEGIN and indescriminantly includes everything until an END is correctly matched.\n\nUnrecognized or unexpected tokens are simply skipped over. So assuming the closing-parenthesis is expected, A(B,C) is the same as A(B,C,+$4:\"/"
+              },
+              {
+                "type": "emoji",
+                "name": "upside_down_face"
+              },
+              {
+                "type": "text",
+                "text": "¶\nEND\n{¢=]X)\n\nUnrecognized variables become NULL (what could possibly go wrong there? "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9246d616-5584-40a1-a3d0-f3ec90339e4f",
+    "type": "message",
+    "text": "At the start of my career, I committed to muscle memory the sequence of keyboard keys to navigate from windows-start through the submenus, and select the right command. Until one day a coworker finally picked up on this and said, \"You know you can just press [Windows key]+L?\" ... Good to know!",
+    "user": "UAVCC2X70",
+    "ts": "1612678609.129800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1612678672.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MtO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "At the start of my career, I committed to muscle memory the sequence of keyboard keys to navigate from windows-start through the submenus, and select the right command. Until one day a coworker finally picked up on this and said, \"You know you can just press [Windows key]+L?\" ... Good to know!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612400942.093500",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f7552890-007f-4e8e-b5a0-44d9b3f715e3",
+    "type": "message",
+    "text": "This seems relevant:\n<https://m.xkcd.com/378/|https://m.xkcd.com/378/>",
+    "user": "UAVCC2X70",
+    "ts": "1612678783.130200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Real Programmers",
+        "title_link": "https://xkcd.com/378/",
+        "author_name": "xkcd",
+        "author_link": "https://xkcd.com/",
+        "image_url": "https://imgs.xkcd.com/comics/real_programmers.png",
+        "image_width": 740,
+        "image_height": 406,
+        "image_bytes": 84499,
+        "text": "[Title text] \"Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want.\"",
+        "fallback": "xkcd: Real Programmers",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/xkcd.png",
+        "id": 1,
+        "original_url": "https://m.xkcd.com/378/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OGV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This seems relevant:\n"
+              },
+              {
+                "type": "link",
+                "url": "https://m.xkcd.com/378/",
+                "text": "https://m.xkcd.com/378/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612400942.093500",
+    "parent_user_id": "UFB8STN7K",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5bb3313f-8ced-4a0e-aa82-a1b69c530bd1",
+    "type": "message",
+    "text": "Most form-like interfaces. I'm serious!",
+    "user": "UAVCC2X70",
+    "ts": "1612678909.130500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "r7PD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Most form-like interfaces. I'm serious!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612462643.103300",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "631469ef-5448-4b21-a00a-7226a8a59069",
+    "type": "message",
+    "text": "There's a good talk from I think Strange Loop which is basically the system <@U016VUZGUUQ> describes. It's a sort of infinite stack of Lisp interpreters. Whenever an unhandled error occurs, it doesn't crash, it bumps you up one meta-level and gives you a chance to \"explain yourself\".\n\nUnfortunately I can't remember the speaker's name so I can't find it now... I think she might actually be on the Slack.",
+    "user": "UDQBTJ211",
+    "ts": "1612689178.130800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yfi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's a good talk from I think Strange Loop which is basically the system "
+              },
+              {
+                "type": "user",
+                "user_id": "U016VUZGUUQ"
+              },
+              {
+                "type": "text",
+                "text": " describes. It's a sort of infinite stack of Lisp interpreters. Whenever an unhandled error occurs, it doesn't crash, it bumps you up one meta-level and gives you a chance to \"explain yourself\".\n\nUnfortunately I can't remember the speaker's name so I can't find it now... I think she might actually be on the Slack."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UCGAK10LS",
+          "UAVCC2X70",
+          "UMVFWPZ36"
+        ],
+        "count": 3
+      },
+      {
+        "name": "bulb",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "90d5095a-d90f-42a2-8c94-568190a813d5",
+    "type": "message",
+    "text": "<@UMVFWPZ36> I noticed this exchange:\n```&gt; If this can be made in 2 months by one person, why hasn't this already been done before?\n\nGood question! I invented the technology that makes it possible years ago.```\nI'm curious what technology you are referring to. (If your answer is \"Tree Notation\": in what sense does Tree Notation make this system possible in a way that JSON / YAML / etc. would not?)",
+    "user": "UBKNXPBAB",
+    "ts": "1612690026.046500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48812709bdc",
+      "image_72": "https://secure.gravatar.com/avatar/d48812709bdc0ff86746b7fbe56b0f13.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Joshua Horowitz",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "joshuah",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NuAG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UMVFWPZ36"
+              },
+              {
+                "type": "text",
+                "text": " I noticed this exchange:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "> If this can be made in 2 months by one person, why hasn't this already been done before?\n\nGood question! I invented the technology that makes it possible years ago."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm curious what technology you are referring to. (If your answer is \"Tree Notation\": in what sense does Tree Notation make this system possible in a way that JSON / YAML / etc. would not?)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612633663.043600",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD",
+          "UMVFWPZ36"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2bcaae5f-c877-427e-bc81-bb20df0bca8e",
+    "type": "message",
+    "text": "Released a new version of Stamp with an updated readme (<https://github.com/treenotation/jtree/tree/master/langs/stamp>)",
+    "user": "UMVFWPZ36",
+    "ts": "1612715794.047200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "treenotation/jtree",
+        "title_link": "https://github.com/treenotation/jtree/tree/master/langs/stamp",
+        "text": "Tree Notation TypeScript/Javascript library. Contribute to treenotation/jtree development by creating an account on GitHub.",
+        "fallback": "GitHub: treenotation/jtree",
+        "thumb_url": "https://avatars.githubusercontent.com/u/51207659?s=400&v=4",
+        "from_url": "https://github.com/treenotation/jtree/tree/master/langs/stamp",
+        "thumb_width": 174,
+        "thumb_height": 174,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/treenotation/jtree/tree/master/langs/stamp"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jC6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Released a new version of Stamp with an updated readme ("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/treenotation/jtree/tree/master/langs/stamp"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612715794.047200",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1612740814.049400",
+    "reply_users": [
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1612740814.049400"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart_eyes",
+        "users": [
+          "USH01JEDQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2638ad88-ecd9-4357-a79b-96b7db0c8ff4",
+    "type": "message",
+    "text": "Copy/pasteability",
+    "user": "UMVFWPZ36",
+    "ts": "1612715822.047500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "U87",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Copy/pasteability"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612633663.043600",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e9cee0eb-5e58-4d07-9d28-08d779d230ce",
+    "type": "message",
+    "text": "Of both \"source programs\", but also \"grammars\"",
+    "user": "UMVFWPZ36",
+    "ts": "1612715834.047700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qLUn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Of both \"source programs\", but also \"grammars\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612633663.043600",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "6b5d6a11-b17c-4f69-95fe-658274e65e2a",
+    "type": "message",
+    "text": "Tree Languages are \"robust\" to copy/paste",
+    "user": "UMVFWPZ36",
+    "ts": "1612715897.047900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eTAjL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Tree Languages are \"robust\" to copy/paste"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612633663.043600",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "37ac9bb1-422d-42b3-89d8-e8ba7f1680b6",
+    "type": "message",
+    "text": "Here's another look at it: <https://github.com/treenotation/copypaster>",
+    "user": "UMVFWPZ36",
+    "ts": "1612715907.048100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "treenotation/copypaster",
+        "title_link": "https://github.com/treenotation/copypaster",
+        "text": "Let's make copy/paste-able web forms with eReceipts the standard - treenotation/copypaster",
+        "fallback": "GitHub: treenotation/copypaster",
+        "thumb_url": "https://avatars.githubusercontent.com/u/51207659?s=400&v=4",
+        "from_url": "https://github.com/treenotation/copypaster",
+        "thumb_width": 174,
+        "thumb_height": 174,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/treenotation/copypaster"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "V/Mz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here's another look at it: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/treenotation/copypaster"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612633663.043600",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "4e8f71b4-1ed5-419c-828a-c8ca89fdb767",
+    "type": "message",
+    "text": "Or <https://www.youtube.com/watch?v=vn2aJA5ANUc> (you can see copy/pasting tree programs in a spreadsheet works as expected)",
+    "user": "UMVFWPZ36",
+    "ts": "1612715944.048400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "If Spreadsheets and Programming Languages had a baby",
+        "title_link": "https://www.youtube.com/watch?v=vn2aJA5ANUc",
+        "author_name": "Breck Yunits",
+        "author_link": "https://www.youtube.com/user/kcerb7",
+        "thumb_url": "https://i.ytimg.com/vi/vn2aJA5ANUc/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: If Spreadsheets and Programming Languages had a baby",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/vn2aJA5ANUc?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=vn2aJA5ANUc",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=vn2aJA5ANUc"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zckP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Or "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=vn2aJA5ANUc"
+              },
+              {
+                "type": "text",
+                "text": " (you can see copy/pasting tree programs in a spreadsheet works as expected)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612633663.043600",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "7ea3ca42-b380-4a63-b70e-f133cb696428",
+    "type": "message",
+    "text": "I think you might be referring to this talk by Nada Amin: <https://www.youtube.com/watch?v=SrKj4hYic5A&amp;ab_channel=StrangeLoopConference>",
+    "user": "UF71PR58X",
+    "ts": "1612717793.131300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ga7e159fad28",
+      "image_72": "https://secure.gravatar.com/avatar/8a7e159fad28f672ca794fb7f2bf7f0f.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Miles Sabin",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "miles",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "\"Programming Should Eat Itself\" by Nada Amin",
+        "title_link": "https://www.youtube.com/watch?v=SrKj4hYic5A&amp;ab_channel=StrangeLoopConference",
+        "author_name": "Strange Loop Conference",
+        "author_link": "https://www.youtube.com/channel/UC_QIfHvN9auy2CoOdSfMWDw",
+        "thumb_url": "https://i.ytimg.com/vi/SrKj4hYic5A/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: \"Programming Should Eat Itself\" by Nada Amin",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/SrKj4hYic5A?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=SrKj4hYic5A&amp;ab_channel=StrangeLoopConference",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=SrKj4hYic5A&amp;ab_channel=StrangeLoopConference"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BO4e",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think you might be referring to this talk by Nada Amin: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=SrKj4hYic5A&ab_channel=StrangeLoopConference"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UDQBTJ211",
+          "UHWC9PXBL",
+          "U013ZLJARC7"
+        ],
+        "count": 3
+      },
+      {
+        "name": "fire",
+        "users": [
+          "U016VUZGUUQ",
+          "UAVCC2X70"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6e27b97f-5579-4e91-8606-d88cf07c5949",
+    "type": "message",
+    "text": "<https://joshondesign.com/2021/01/14/intro_hl> from <@UKFSDUCH2> looks really cool. It can be tried online in <https://apps.josh.earth/hl/>, and there is a Github repo  <https://github.com/joshmarinacci/humanist_lang>",
+    "user": "U85HCL7JP",
+    "ts": "1612719185.075900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c5d8f6a2266",
+      "image_72": "https://avatars.slack-edge.com/2020-07-25/1286770110448_0c5d8f6a2266551a36f2_72.jpg",
+      "first_name": "",
+      "real_name": "Daniel Garcia",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "daniel.garcia.carmona",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "React App",
+        "title_link": "https://apps.josh.earth/hl/",
+        "text": "Web site created using create-react-app",
+        "fallback": "React App",
+        "from_url": "https://apps.josh.earth/hl/",
+        "service_icon": "https://apps.josh.earth/hl/logo192.png",
+        "service_name": "apps.josh.earth",
+        "id": 1,
+        "original_url": "https://apps.josh.earth/hl/"
+      },
+      {
+        "service_name": "GitHub",
+        "title": "joshmarinacci/humanist_lang",
+        "title_link": "https://github.com/joshmarinacci/humanist_lang",
+        "text": "Contribute to joshmarinacci/humanist_lang development by creating an account on GitHub.",
+        "fallback": "GitHub: joshmarinacci/humanist_lang",
+        "thumb_url": "https://avatars.githubusercontent.com/u/276938?s=400&v=4",
+        "from_url": "https://github.com/joshmarinacci/humanist_lang",
+        "thumb_width": 400,
+        "thumb_height": 400,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 2,
+        "original_url": "https://github.com/joshmarinacci/humanist_lang"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xMe1f",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://joshondesign.com/2021/01/14/intro_hl"
+              },
+              {
+                "type": "text",
+                "text": " from "
+              },
+              {
+                "type": "user",
+                "user_id": "UKFSDUCH2"
+              },
+              {
+                "type": "text",
+                "text": " looks really cool. It can be tried online in "
+              },
+              {
+                "type": "link",
+                "url": "https://apps.josh.earth/hl/"
+              },
+              {
+                "type": "text",
+                "text": ", and there is a Github repo  "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/joshmarinacci/humanist_lang"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612719185.075900",
+    "reply_count": 7,
+    "reply_users_count": 3,
+    "latest_reply": "1617134689.069100",
+    "reply_users": [
+      "UBKNXPBAB",
+      "U013ZLJARC7",
+      "UKFSDUCH2"
+    ],
+    "replies": [
+      {
+        "user": "UBKNXPBAB",
+        "ts": "1612754911.078300"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1612805541.078900"
+      },
+      {
+        "user": "UKFSDUCH2",
+        "ts": "1617031956.060900"
+      },
+      {
+        "user": "UBKNXPBAB",
+        "ts": "1617052273.062100"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1617097067.065400"
+      },
+      {
+        "user": "UBKNXPBAB",
+        "ts": "1617123743.066200"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1617134689.069100"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7",
+          "UAVCC2X70",
+          "U019CPED6T1"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "BE0ECC20-7ABA-4E63-9AE7-6ED9B51EDDC3",
+    "type": "message",
+    "text": "the behavior <@U016VUZGUUQ> describes is pretty much exactly how smalltalk works: <https://youtu.be/eGaKZBr0ga4|https://youtu.be/eGaKZBr0ga4>",
+    "user": "UHWC9PXBL",
+    "ts": "1612722075.132700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "MountainWest RubyConf 2014 - But Really, You Should Learn Smalltalk",
+        "title_link": "https://youtu.be/eGaKZBr0ga4",
+        "author_name": "Confreaks",
+        "author_link": "https://www.youtube.com/user/Confreaks",
+        "thumb_url": "https://i.ytimg.com/vi/eGaKZBr0ga4/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: MountainWest RubyConf 2014 - But Really, You Should Learn Smalltalk",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/eGaKZBr0ga4?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/eGaKZBr0ga4",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/eGaKZBr0ga4"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8xeX5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the behavior "
+              },
+              {
+                "type": "user",
+                "user_id": "U016VUZGUUQ"
+              },
+              {
+                "type": "text",
+                "text": " describes is pretty much exactly how smalltalk works: "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/eGaKZBr0ga4",
+                "text": "https://youtu.be/eGaKZBr0ga4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCGAK10LS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "045671f4-e38e-4ef2-8136-f8230631576e",
+    "type": "message",
+    "text": "Taxonomies of Visual Programming by Brad A. Myers (via hackernews) #1989 <https://www.cs.cmu.edu/~bam/papers/vltax2.pdf>",
+    "user": "U013HU44GLS",
+    "ts": "1612733789.076700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9e0e557132",
+      "image_72": "https://avatars.slack-edge.com/2020-05-12/1132600153425_cb9e0e5571321437af24_72.jpg",
+      "first_name": "Jean-Louis",
+      "real_name": "Jean-Louis Villecroze",
+      "display_name": "CocoaGeek",
+      "team": "T5TCAFTA9",
+      "name": "jeanlouis.villecroze",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A1Xcx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Taxonomies of Visual Programming by Brad A. Myers (via hackernews) #1989 "
+              },
+              {
+                "type": "link",
+                "url": "https://www.cs.cmu.edu/~bam/papers/vltax2.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U01LAJFKC2K",
+          "U01DX39SB33",
+          "U013ZLJARC7"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "36d1b7d0-1d32-49a4-a99e-fa97f8bd55ba",
+    "type": "message",
+    "text": "you might also be interested in the \"typed holes\" concept that Darklang and others have been pushing forward, its not quite error-less but it is a lot closer to runnable-while-incomplete programs",
+    "user": "U016LEA3J1H",
+    "ts": "1612734749.133000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7082261f477c",
+      "image_72": "https://avatars.slack-edge.com/2020-07-06/1225163496802_7082261f477cd8a85548_72.jpg",
+      "first_name": "Harry",
+      "real_name": "Harry Brundage",
+      "display_name": "Harry Brundage",
+      "team": "T5TCAFTA9",
+      "name": "harry",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OI/C",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "you might also be interested in the \"typed holes\" concept that Darklang and others have been pushing forward, its not quite error-less but it is a lot closer to runnable-while-incomplete programs"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5ae73f60-4603-49c3-83f0-4749f583b56d",
+    "type": "message",
+    "text": "Combining \"no syntax errors\" and \"composable expressions\" might be actually impossible. I'm guessing you would start by dealing with the case when you can't tell where an expression ends and the outer one it is composed with resumes. Or maybe mandatory structured editing.",
+    "user": "U016VUZGUUQ",
+    "ts": "1612735490.133200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1Y91",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Combining \"no syntax errors\" and \"composable expressions\" might be actually impossible. I'm guessing you would start by dealing with the case when you can't tell where an expression ends and the outer one it is composed with resumes. Or maybe mandatory structured editing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612656314.123000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "dddebbe7-178f-461c-a1eb-af143face3d8",
+    "type": "message",
+    "text": "Saw this on HN. Super clever. I've run into this exact problem before.",
+    "user": "UC2A2ARPT",
+    "ts": "1612740814.049400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1612741068.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hf1A",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Saw this on HN. Super clever. I've run into this exact problem before."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612715794.047200",
+    "parent_user_id": "UMVFWPZ36",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

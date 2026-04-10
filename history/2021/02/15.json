@@ -1,0 +1,2540 @@
+[
+  {
+    "type": "message",
+    "text": "The Mu computer seems to be making its way fully off third-party operating systems. Here's a demo of some (fairly barebones by the standards of previous demos) operations of the live-updating postfix shell.\n\n<https://archive.org/details/akkartik-mu-shell-20210214|https://archive.org/details/akkartik-mu-shell-20210214>\n\nIf you're curious about the sources, start browsing at <http://akkartik.github.io/mu/html/baremetal/shell/line.mu.html|http://akkartik.github.io/mu/html/baremetal/shell/line.mu.html>. The architecture is much cleaner than the prototype I was working with before. Functions contain lines, lines contain words, words contain gap buffers. Rendering a thing renders its constituent things. Render takes a top-left coordinate and returns a bottom-right coordinate. Each thing knows which constituent thing has its cursor, shows its cursor when rendering, redirects keystrokes to it as they come in.\n\nThat's the positive. On the negative side, my experience working with bare metal leads me to despair of ever getting a disk or network. I spent 3 weeks at the start of the year struggling to support a mouse before I gave up. I gave up not because it's impossible to build (I was almost there) but because it's impossible to explain to anyone, at least with my current level of development. There's just too much historical accident in dealing with ancient PS/2 hardware that modern systems continue to pretend to be. And PS/2 was supposed to be easy. At least there's a single lowest-common-denominator way all devices work. With disk and network even that disappears. You need to support umpteen devices. Which means anybody hacking on their own computer now will encounter hardware their computer doesn't have, and which they shouldn't have to care about. In other words, going down this road seems to lead only to where we already are.\n\nSo I've been thinking about what's next. The thought of giving up on Mu has crossed my mind. It may yet happen. When I started Mu I had programs I wanted to write. It was always a means to an end. Lately I can't remember what they were, and the projects I recall seem obsolete, overtaken by events. There does seem to be one niche where one can write interesting programs about the world without needing to actually, you know, _talk_ to the world over HTTP. That niche is simulation. Building computational models. And it might even be particularly important to the world in the next few years, given the volatility and turmoil I see all around me. As a baby step, here's Conway's Game of Life in Mu without an operating system: <https://archive.org/details/akkartik-mu-life-2021-02-13|https://archive.org/details/akkartik-mu-life-2021-02-13>. Sources: <http://akkartik.github.io/mu/html/baremetal/life.mu.html|http://akkartik.github.io/mu/html/baremetal/life.mu.html>. For a while I used to implement Life in every new language I learned. Not sure how or why I stopped.",
+    "files": [
+      {
+        "id": "F01MN296YCF",
+        "created": 1613351450,
+        "timestamp": 1613351450,
+        "name": "mu-shell.png",
+        "title": "mu-shell.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "editable": false,
+        "size": 34616,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01MN296YCF/mu-shell.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01MN296YCF/download/mu-shell.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 123,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 163,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 245,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 272,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 327,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F01MN296YCF-0152b5b015/mu-shell_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 349,
+        "image_exif_rotation": 1,
+        "original_w": 1457,
+        "original_h": 496,
+        "thumb_tiny": "AwAQADCmJ58cTN/31Qbi4HPnNj13VBRQBOLic4xM3P8AtUn2i4Gf3r8e9Q0ZPrQBOZ51ODK/Ts1N+1T/APPV/wA6iooA/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F01MN296YCF/mu-shell.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01MN296YCF-bfe9e5b1e9",
+        "is_starred": false,
+        "has_rich_preview": false
+      },
+      {
+        "id": "F01N2R0MZU2",
+        "created": 1613351453,
+        "timestamp": 1613351453,
+        "name": "mu-life.png",
+        "title": "mu-life.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "editable": false,
+        "size": 253518,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01N2R0MZU2/mu-life.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01N2R0MZU2/download/mu-life.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 225,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 300,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 450,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 500,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 600,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F01N2R0MZU2-ba006dbaef/mu-life_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 640,
+        "original_w": 3360,
+        "original_h": 2100,
+        "thumb_tiny": "AwAeADDNV2T7rFfoad50v/PR/wDvo0yigB/nS/8APR/++jR50v8Az0f/AL6NMoIxQA/zpf8Ano//AH0aazs/3mLfU5pKKACiiigAooooAKKKKAP/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F01N2R0MZU2/mu-life.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01N2R0MZU2-cadb542689",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "ts": "1613351462.087400",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jD4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The Mu computer seems to be making its way fully off third-party operating systems. Here's a demo of some (fairly barebones by the standards of previous demos) operations of the live-updating postfix shell.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://archive.org/details/akkartik-mu-shell-20210214",
+                "text": "https://archive.org/details/akkartik-mu-shell-20210214"
+              },
+              {
+                "type": "text",
+                "text": "\n\nIf you're curious about the sources, start browsing at "
+              },
+              {
+                "type": "link",
+                "url": "http://akkartik.github.io/mu/html/baremetal/shell/line.mu.html",
+                "text": "http://akkartik.github.io/mu/html/baremetal/shell/line.mu.html"
+              },
+              {
+                "type": "text",
+                "text": ". The architecture is much cleaner than the prototype I was working with before. Functions contain lines, lines contain words, words contain gap buffers. Rendering a thing renders its constituent things. Render takes a top-left coordinate and returns a bottom-right coordinate. Each thing knows which constituent thing has its cursor, shows its cursor when rendering, redirects keystrokes to it as they come in.\n\nThat's the positive. On the negative side, my experience working with bare metal leads me to despair of ever getting a disk or network. I spent 3 weeks at the start of the year struggling to support a mouse before I gave up. I gave up not because it's impossible to build (I was almost there) but because it's impossible to explain to anyone, at least with my current level of development. There's just too much historical accident in dealing with ancient PS/2 hardware that modern systems continue to pretend to be. And PS/2 was supposed to be easy. At least there's a single lowest-common-denominator way all devices work. With disk and network even that disappears. You need to support umpteen devices. Which means anybody hacking on their own computer now will encounter hardware their computer doesn't have, and which they shouldn't have to care about. In other words, going down this road seems to lead only to where we already are.\n\nSo I've been thinking about what's next. The thought of giving up on Mu has crossed my mind. It may yet happen. When I started Mu I had programs I wanted to write. It was always a means to an end. Lately I can't remember what they were, and the projects I recall seem obsolete, overtaken by events. There does seem to be one niche where one can write interesting programs about the world without needing to actually, you know, "
+              },
+              {
+                "type": "text",
+                "text": "talk",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " to the world over HTTP. That niche is simulation. Building computational models. And it might even be particularly important to the world in the next few years, given the volatility and turmoil I see all around me. As a baby step, here's Conway's Game of Life in Mu without an operating system: "
+              },
+              {
+                "type": "link",
+                "url": "https://archive.org/details/akkartik-mu-life-2021-02-13",
+                "text": "https://archive.org/details/akkartik-mu-life-2021-02-13"
+              },
+              {
+                "type": "text",
+                "text": ". Sources: "
+              },
+              {
+                "type": "link",
+                "url": "http://akkartik.github.io/mu/html/baremetal/life.mu.html",
+                "text": "http://akkartik.github.io/mu/html/baremetal/life.mu.html"
+              },
+              {
+                "type": "text",
+                "text": ". For a while I used to implement Life in every new language I learned. Not sure how or why I stopped."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1613354990.000000"
+    },
+    "thread_ts": "1613351462.087400",
+    "reply_count": 8,
+    "reply_users_count": 6,
+    "latest_reply": "1613560924.111200",
+    "reply_users": [
+      "UDQBTJ211",
+      "U013ZLJARC7",
+      "UC2A2ARPT",
+      "UCUSW7WVD",
+      "UG0EL18H3",
+      "UUQ2EQW21"
+    ],
+    "replies": [
+      {
+        "user": "UDQBTJ211",
+        "ts": "1613372444.088400"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1613381239.089000"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1613406132.090500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1613410777.090800"
+      },
+      {
+        "user": "UDQBTJ211",
+        "ts": "1613423802.098200"
+      },
+      {
+        "user": "UG0EL18H3",
+        "ts": "1613478614.106400"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1613557437.110900"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1613560924.111200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7",
+          "U0123H7JRDM",
+          "UJ6LDMMN0"
+        ],
+        "count": 3
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UC2A2ARPT",
+          "U01661S9F34",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      },
+      {
+        "name": "cry",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "ca85da22-eb2e-44f1-84cb-6c19fdea2952",
+    "type": "message",
+    "text": "Independent of text vs visual, the possibility that the world chose WIMP because people consider typing difficult/elitist is an indictment of our global society. If the future of programming is visual, I hope it's not because we're an idiocracy.",
+    "user": "UCUSW7WVD",
+    "ts": "1613353033.063000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Unj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Independent of text vs visual, the possibility that the world chose WIMP because people consider typing difficult/elitist is an indictment of our global society. If the future of programming is visual, I hope it's not because we're an idiocracy."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613299130.046800",
+    "parent_user_id": "U5STGTB3J",
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "U013ZLJARC7",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      },
+      {
+        "name": "point_up",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      },
+      {
+        "name": "expressionless",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "371737e2-f65d-4088-aa14-eef940476c0c",
+    "type": "message",
+    "text": "Have you considered picking a particular machine and only targeting that? It would simplify the hardware stuff.",
+    "user": "UDQBTJ211",
+    "ts": "1613372444.088400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XQ3Vu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Have you considered picking a particular machine and only targeting that? It would simplify the hardware stuff."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613351462.087400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "ee3db51e-e410-4b05-81a1-095082475130",
+    "type": "message",
+    "text": "Would that be interesting:\n\n<https://blog.repl.it/clui|https://blog.repl.it/clui>",
+    "user": "UGX9MS77V",
+    "ts": "1613372477.160800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g7efa9536450",
+      "image_72": "https://secure.gravatar.com/avatar/f7efa95364507635a0021a1231eb6b65.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Aleksander",
+      "display_name": "Sumowski",
+      "team": "T5TCAFTA9",
+      "name": "dev704",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "repl.it",
+        "title": "CLUI: Building a Graphical Command Line",
+        "title_link": "https://blog.repl.it/clui",
+        "text": "&gt; “Command line interfaces. Once that was all we had. Then they disappeared, replaced by what we thought was a great advance: GUIs. GUIs…",
+        "fallback": "repl.it: CLUI: Building a Graphical Command Line",
+        "from_url": "https://blog.repl.it/clui",
+        "service_icon": "https://repl.it/public/images/favicon.ico",
+        "id": 1,
+        "original_url": "https://blog.repl.it/clui"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CxH1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Would that be interesting:\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://blog.repl.it/clui",
+                "text": "https://blog.repl.it/clui"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613053771.151300",
+    "parent_user_id": "UF5PAGQQ4",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UJ6LDMMN0",
+          "U013ZLJARC7",
+          "UF5PAGQQ4",
+          "UA14TGLTC"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2f0115da-2d13-4d09-8045-d1da735dbaf0",
+    "type": "message",
+    "text": "<@UFPPABQ7P> One reason to avoid Electron is resource use. Each Electron app uses a specific non-shared, multi-hundred megabyte version of Chrome under the covers. The webview library I posted upthread uses whichever browser engine shared library is already bundled with the operating system, making the executable tiny and the memory footprint while running much smaller.",
+    "user": "U013ZLJARC7",
+    "ts": "1613376392.063200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZiS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UFPPABQ7P"
+              },
+              {
+                "type": "text",
+                "text": " One reason to avoid Electron is resource use. Each Electron app uses a specific non-shared, multi-hundred megabyte version of Chrome under the covers. The webview library I posted upthread uses whichever browser engine shared library is already bundled with the operating system, making the executable tiny and the memory footprint while running much smaller."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612923157.036800",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "135257fa-ecde-4125-859d-267f3e2964ab",
+    "type": "message",
+    "text": "Scoring is also horrible. OTOH, Ableton Live is definitely better than cutting up strips of reel-to-reel tape, so that's something...",
+    "user": "U013ZLJARC7",
+    "ts": "1613376629.012100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hAV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Scoring is also horrible. OTOH, Ableton Live is definitely better than cutting up strips of reel-to-reel tape, so that's something..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613272157.003800",
+    "parent_user_id": "UN9SCH5RD",
+    "reactions": [
+      {
+        "name": "slightly_smiling_face",
+        "users": [
+          "UN9SCH5RD",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-music",
+    "channel_id": "CEZ6QTHL1"
+  },
+  {
+    "client_msg_id": "e292ed4d-bf95-4fa7-80f8-926d7a9085c3",
+    "type": "message",
+    "text": "The Database Inside Your Codebase <https://feifan.blog/posts/the-database-inside-your-codebase|https://feifan.blog/posts/the-database-inside-your-codebase>. Querying a code base like a database has been my dream for years. What are the state of the art for this? I had the idea of designing a language that can query itself for a while but nothing concrete yet.",
+    "user": "U01L6HZEHFX",
+    "ts": "1613378800.139200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3a9710d9a208",
+      "image_72": "https://avatars.slack-edge.com/2021-01-29/1686621807717_3a9710d9a208814fffb1_72.jpg",
+      "first_name": "Thanh",
+      "real_name": "Thanh Dinh",
+      "display_name": "Thanh Dinh",
+      "team": "T5TCAFTA9",
+      "name": "thanhdk",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01L6HZEHFX",
+      "ts": "1613379035.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "The Blog of Feifan Zhou",
+        "title": "The Database Inside Your Codebase",
+        "title_link": "https://feifan.blog/posts/the-database-inside-your-codebase",
+        "text": "Navigating codebases of any meaningful size is difficult. Most of a programmer's time is spent jumping through the codebase, reading or skimming to build a mental model of the constructs and conventions within it. These constructs — among them: the DSLs, interfaces, and taxonomy of types that exist — are arguably the most important precursor to understanding where and how to make changes. But these constructs only exist in programmers' heads. It's difficult or impossible to navigate most codebases through the lens of those constructs; programmers lack \"code browsers\" that present the underlying code independently of files and the filesystem hierarchy. Yet code browsers that can do so — and we'll look at some examples below — would be incredibly useful. This is because instances of these constructs can be thought of as records in a database, albeit an ad-hoc, poorly-specified database that can only be queried through carefully-crafted regexes.",
+        "fallback": "The Blog of Feifan Zhou: The Database Inside Your Codebase",
+        "image_url": "https://files.tanagram.app/file/tanagram-data/prod-feifans-blog/joshua-sortino-LqKhnDzSF-8-unsplash.jpg",
+        "ts": 1613242431,
+        "from_url": "https://feifan.blog/posts/the-database-inside-your-codebase",
+        "image_width": 374,
+        "image_height": 250,
+        "image_bytes": 954111,
+        "id": 1,
+        "original_url": "https://feifan.blog/posts/the-database-inside-your-codebase"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DN9sN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The Database Inside Your Codebase "
+              },
+              {
+                "type": "link",
+                "url": "https://feifan.blog/posts/the-database-inside-your-codebase",
+                "text": "https://feifan.blog/posts/the-database-inside-your-codebase"
+              },
+              {
+                "type": "text",
+                "text": ". Querying a code base like a database has been my dream for years. What are the state of the art for this? I had the idea of designing a language that can query itself for a while but nothing concrete yet."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613378800.139200",
+    "reply_count": 4,
+    "reply_users_count": 4,
+    "latest_reply": "1613420999.144600",
+    "reply_users": [
+      "UDQBTJ211",
+      "UN9SCH5RD",
+      "UJBAJNFLK",
+      "U01JNTE35QS"
+    ],
+    "replies": [
+      {
+        "user": "UDQBTJ211",
+        "ts": "1613382097.143600"
+      },
+      {
+        "user": "UN9SCH5RD",
+        "ts": "1613385144.143800"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1613388523.144200"
+      },
+      {
+        "user": "U01JNTE35QS",
+        "ts": "1613420999.144600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "raised_hands",
+        "users": [
+          "U01LAJFKC2K",
+          "U01L6HZEHFX",
+          "U01KZQEQVUP",
+          "UJ6LDMMN0",
+          "U01661S9F34",
+          "UHWC9PXBL"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "46327662-440d-4793-88c0-51592f8d62f0",
+    "type": "message",
+    "text": "<@U014D735SLA> I don't know about any, but am also interested! Brother and I are building our DSL (waps-lang.dev) and we are approaching it in pretty ad-hoc manner - it would be cool to have some kind of community to learn from. Although we are doing it in Haskell. Is there a specific reason why you would use F#?",
+    "user": "UUB7RA7PF",
+    "ts": "1613380857.063700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mzriq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U014D735SLA"
+              },
+              {
+                "type": "text",
+                "text": " I don't know about any, but am also interested! Brother and I are building our DSL (waps-lang.dev) and we are approaching it in pretty ad-hoc manner - it would be cool to have some kind of community to learn from. Although we are doing it in Haskell. Is there a specific reason why you would use F#?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613320242.057800",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "c5abe522-c5cf-4988-929c-5a79b766153b",
+    "type": "message",
+    "text": "The beginning of the thread of work that leads to Go's concurrency model was Pike and Cardelli trying to make multi-device interfaces nicer to build, specifically dealing with concurrency while supporting the mouse. Maybe it would be fun to harvest some of those ideas in the context of Mu?\n<http://doc.cat-v.org/bell_labs/squeak/>",
+    "user": "U013ZLJARC7",
+    "ts": "1613381239.089000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tHiJ+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The beginning of the thread of work that leads to Go's concurrency model was Pike and Cardelli trying to make multi-device interfaces nicer to build, specifically dealing with concurrency while supporting the mouse. Maybe it would be fun to harvest some of those ideas in the context of Mu?\n"
+              },
+              {
+                "type": "link",
+                "url": "http://doc.cat-v.org/bell_labs/squeak/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613351462.087400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "5f53b6df-e1e4-4011-8c5d-54e2e8e99a0c",
+    "type": "message",
+    "text": "JetBrains IDEs tend to have very good static analysis and refactoring, not sure to what extent the model is exposed to query freely. OpenGrok also has some semantic features. Other than that I think you covered most of it in your article.",
+    "user": "UDQBTJ211",
+    "ts": "1613382097.143600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sHgeo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "JetBrains IDEs tend to have very good static analysis and refactoring, not sure to what extent the model is exposed to query freely. OpenGrok also has some semantic features. Other than that I think you covered most of it in your article."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613378800.139200",
+    "parent_user_id": "U01L6HZEHFX",
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9168276c-daa7-485e-929f-6fdc0527ade2",
+    "type": "message",
+    "text": "the two products that come to mind are <https://codeql.github.com/docs/writing-codeql-queries/introduction-to-ql/|Semle's CodeQL> and <https://www.ndepend.com/docs/cqlinq-features#Object|NDepend's CQLinq>",
+    "user": "UN9SCH5RD",
+    "ts": "1613385144.143800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UN9SCH5RD",
+      "ts": "1613385153.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1SgYB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the two products that come to mind are "
+              },
+              {
+                "type": "link",
+                "url": "https://codeql.github.com/docs/writing-codeql-queries/introduction-to-ql/",
+                "text": "Semle's CodeQL"
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "link",
+                "url": "https://www.ndepend.com/docs/cqlinq-features#Object",
+                "text": "NDepend's CQLinq"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613378800.139200",
+    "parent_user_id": "U01L6HZEHFX",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "30d1bb9a-0275-4e8c-8f3a-5d89b2b0aed5",
+    "type": "message",
+    "text": "It's a built-in feature of Smalltalk systems. And <@UE1JQM9HQ>'s Glamorous Toolkit is extending this approch to other languages.",
+    "user": "UJBAJNFLK",
+    "ts": "1613388523.144200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dJ4sH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's a built-in feature of Smalltalk systems. And "
+              },
+              {
+                "type": "user",
+                "user_id": "UE1JQM9HQ"
+              },
+              {
+                "type": "text",
+                "text": "'s Glamorous Toolkit is extending this approch to other languages."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613378800.139200",
+    "parent_user_id": "U01L6HZEHFX",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UML4ZEKDK",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "27DC9832-6B48-4400-8924-B335E2562204",
+    "type": "message",
+    "text": "FWIW I’ve had good experiences with Camtasia. But not free.",
+    "user": "UCS1K3QTH",
+    "ts": "1613390205.162000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "af83411b2f9d",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433010126754_af83411b2f9d3dc221a8_72.jpg",
+      "first_name": "Stephen",
+      "real_name": "Stephen De Gabrielle",
+      "display_name": "Stephen De Gabrielle",
+      "team": "T5TCAFTA9",
+      "name": "spdegabrielle",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uy5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "FWIW I’ve had good experiences with Camtasia. But not free."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613075425.154200",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9829f599-9919-418e-b4ca-eb7d9e93c1b3",
+    "type": "message",
+    "text": "Off topic I suppose, but a thought prompted by this thread: is there such a thing as a Slack-like chat service but where rather than text-based, exchanges are sketch and doodle based? I can imagine such a thing combined with a tablet+pen.",
+    "user": "UF71PR58X",
+    "ts": "1613390835.064100",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UF71PR58X",
+      "ts": "1613395755.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ogq=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Off topic I suppose, but a thought prompted by this thread: is there such a thing as a Slack-like chat service but where rather than text-based, exchanges are sketch and doodle based? I can imagine such a thing combined with a tablet+pen."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613299130.046800",
+    "parent_user_id": "U5STGTB3J",
+    "reactions": [
+      {
+        "name": "thread-please",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UF71PR58X"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "4169baa5-d66b-4cd5-b043-db003a264861",
+    "type": "message",
+    "text": "<@UCUSW7WVD> It's probably because we're a lazy-ocracy more than an idiocracy, which tbh is a good hing.",
+    "user": "UL5AX4G2H",
+    "ts": "1613401759.064600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UFZ1S",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " It's probably because we're a lazy-ocracy more than an idiocracy, which tbh is a good hing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613299130.046800",
+    "parent_user_id": "U5STGTB3J",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "24615701-50ab-4c32-90d4-8c724a18ccfb",
+    "type": "message",
+    "text": "Thanks  <@U01KZQEQVUP>! Main idea for now is paid hosting, yes, although we are also open to other possibilities - one idea being building paid products on top, like visual editor.",
+    "user": "UUB7RA7PF",
+    "ts": "1613405546.089700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2fdcf29b225b",
+      "image_72": "https://avatars.slack-edge.com/2020-02-26/971836171367_2fdcf29b225b02e66825_72.png",
+      "first_name": "Martin",
+      "real_name": "Martin Sosic",
+      "display_name": "Martin",
+      "team": "T5TCAFTA9",
+      "name": "sosic.martin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sh4uR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks  "
+              },
+              {
+                "type": "user",
+                "user_id": "U01KZQEQVUP"
+              },
+              {
+                "type": "text",
+                "text": "! Main idea for now is paid hosting, yes, although we are also open to other possibilities - one idea being building paid products on top, like visual editor."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613018041.063700",
+    "parent_user_id": "UUB7RA7PF",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "bbc53ff6-f91a-4529-bde0-ab8e041b8fcd",
+    "type": "message",
+    "text": "<@U01KZQEQVUP> I didn't know about Mailchimp rejecting protonmail domains! Too bad, but I am gald <http://pm.com|pm.com> worked.",
+    "user": "UUB7RA7PF",
+    "ts": "1613405589.089900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2fdcf29b225b",
+      "image_72": "https://avatars.slack-edge.com/2020-02-26/971836171367_2fdcf29b225b02e66825_72.png",
+      "first_name": "Martin",
+      "real_name": "Martin Sosic",
+      "display_name": "Martin",
+      "team": "T5TCAFTA9",
+      "name": "sosic.martin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "e/A",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01KZQEQVUP"
+              },
+              {
+                "type": "text",
+                "text": " I didn't know about Mailchimp rejecting protonmail domains! Too bad, but I am gald "
+              },
+              {
+                "type": "link",
+                "url": "http://pm.com",
+                "text": "pm.com"
+              },
+              {
+                "type": "text",
+                "text": " worked."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613018041.063700",
+    "parent_user_id": "UUB7RA7PF",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "d285ea87-7613-440a-8129-28f06eec52f5",
+    "type": "message",
+    "text": "Good questions. This is only my 2nd Electron project (the first being the rough prototypes for my FoC project, Hest), so I'm just now getting out of the early part of the learning curve. I'm at the point where I understand what it's like to work with Electron, and so I'm interested in looking at the other options — ideally, other options that people like _better_ than Electron — to see what those projects have decided to do differently, and to for the first time _feel_ that difference. I've looked at other options in the past (pretty much everything linked in this thread, as it turns out, so I guess the field is pretty small), but I wasn't able to really get much of a sense for each project beyond _this looks unsupported,_ or _the gaps in the docs are worrying_. But now that I know some of the not-obvious pains and joys of Electron, I was hoping that reflecting on alternatives would help me discover a few more not-obvious pains and joys.\n\nNo luck, but it was worth a shot!",
+    "user": "UC2A2ARPT",
+    "ts": "1613405794.064800",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QQW9Y",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Good questions. This is only my 2nd Electron project (the first being the rough prototypes for my FoC project, Hest), so I'm just now getting out of the early part of the learning curve. I'm at the point where I understand what it's like to work with Electron, and so I'm interested in looking at the other options — ideally, other options that people like "
+              },
+              {
+                "type": "text",
+                "text": "better",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " than Electron — to see what those projects have decided to do differently, and to for the first time "
+              },
+              {
+                "type": "text",
+                "text": "feel",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " that difference. I've looked at other options in the past (pretty much everything linked in this thread, as it turns out, so I guess the field is pretty small), but I wasn't able to really get much of a sense for each project beyond "
+              },
+              {
+                "type": "text",
+                "text": "this looks unsupported,",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " or "
+              },
+              {
+                "type": "text",
+                "text": "the gaps in the docs are worrying",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". But now that I know some of the not-obvious pains and joys of Electron, I was hoping that reflecting on alternatives would help me discover a few more not-obvious pains and joys.\n\nNo luck, but it was worth a shot!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1612923157.036800",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "4a15fed7-7b35-49f6-8507-24ed1a0f4e47",
+    "type": "message",
+    "text": "text is visual. check mate",
+    "user": "U01JHG5RQDQ",
+    "ts": "1613405841.065000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "61Te",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "text is visual. check mate"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613299130.046800",
+    "parent_user_id": "U5STGTB3J",
+    "reactions": [
+      {
+        "name": "heavy_check_mark",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      },
+      {
+        "name": "mate_drink",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "8544c74d-b021-47d6-8dc0-38d7cbd0ab1f",
+    "type": "message",
+    "text": "&gt; I gave up not because it's impossible to build (I was almost there) but because it's impossible to explain to anyone\nIf this community had a giant corkboard wall where we pinned up beloved quotes, this would now be on that wall.",
+    "user": "UC2A2ARPT",
+    "ts": "1613406132.090500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3YPc",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I gave up not because it's impossible to build (I was almost there) but because it's impossible to explain to anyone"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nIf this community had a giant corkboard wall where we pinned up beloved quotes, this would now be on that wall."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613351462.087400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U013ZLJARC7",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "03d2537c-1d57-4c34-a813-de381ef25dc5",
+    "type": "message",
+    "text": "Is there such a thing as a Slack-like chat service but where rather than text-based, exchanges are sketch and doodle based? I can imagine such a thing combined with a tablet+pen.",
+    "user": "UF71PR58X",
+    "ts": "1613408375.066300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oc/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Is there such a thing as a Slack-like chat service but where rather than text-based, exchanges are sketch and doodle based? I can imagine such a thing combined with a tablet+pen."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613408375.066300",
+    "reply_count": 10,
+    "reply_users_count": 6,
+    "latest_reply": "1613785994.010600",
+    "reply_users": [
+      "UAJKEBGP8",
+      "UF71PR58X",
+      "U01JNTE35QS",
+      "UP00ZLX6G",
+      "UCUSW7WVD",
+      "UHWC9PXBL"
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD",
+          "UC2A2ARPT",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "3dde6d8d-63d7-4ad3-85b1-9ab3b9f715c9",
+    "type": "message",
+    "text": "<@UUB7RA7PF> I've heard of Wasp lang, it seems like a pretty great project!\nMany reasons for trialing F# during this phase. It's mostly because it shares a lot of similarities with Rust (which we use heavily), and it has great support in VS Code (which we use mainly since we also use a lot of TypeScript).\nI really like the sorbet ecosystem, and believe that F# has a better \"works out of the box\" feel than languages like Haskell or OCaml. The compatibility with C# is awesome as well to leverage a huge existing ecosystem (maybe: depending on .Net 5 compat).\nHonestly, Haskell also feels really intimidating and seems to have a fractured ecosystem of different language extensions. But, that's just my early take on things. I'll certainly hold stronger opinions after spending more time with FSharp",
+    "user": "UFPPABQ7P",
+    "ts": "1613408461.066400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/kVj/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UUB7RA7PF"
+              },
+              {
+                "type": "text",
+                "text": " I've heard of Wasp lang, it seems like a pretty great project!\nMany reasons for trialing F# during this phase. It's mostly because it shares a lot of similarities with Rust (which we use heavily), and it has great support in VS Code (which we use mainly since we also use a lot of TypeScript).\nI really like the sorbet ecosystem, and believe that F# has a better \"works out of the box\" feel than languages like Haskell or OCaml. The compatibility with C# is awesome as well to leverage a huge existing ecosystem (maybe: depending on .Net 5 compat).\nHonestly, Haskell also feels really intimidating and seems to have a fractured ecosystem of different language extensions. But, that's just my early take on things. I'll certainly hold stronger opinions after spending more time with FSharp"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613320242.057800",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "142f3c13-0c18-4366-bd7a-78ea92bb0170",
+    "type": "message",
+    "text": "That was a charming article. It's nice to read someone effusing about a beloved tool from a bygone era. I'm too young (and hot, and tasteful) to have lived through the era myself, but I absolutely recognize the superiority of UNIX when compared to NT, as a lifelong Mac user. I did bristle at \"GUI-laden Macintosh\", though. That felt unfair to me. The Mac I type this on is thin _and_ light. Whatever weight is added due to the presence of the GUI is hardly noticeable. Surely, the glass in my laptop's trackpad weighs less than the full-travel clicky keyboard and CRT required by your portable UNIX terminal of choice.\n\nLet's all bear in mind that what is being compared here is text vs visual in the context of operating systems, not in the context of programming, which are not the same thing at all. That said, I'm going to talk about programming, because that's an argument I can win. If there was any flaw with the original Macintosh (which there wasn't, but just go with me here) it's that the only visual programming environment for it was released 3 years late. And even then, that environment wasn't truly \"_visual_ programming\", as the included art tools were entirely separate from the programming tools. At best, you could call it \"hypermedia programming\", as you had to work very quickly to be able to do the job of both an artist and a programmer. And there we see the true advantage of visual programming — by programming entirely with one's art skill, you do not need to waste time developing full thoughts, as you do with writing. With a simple sketch, you can reconfigure your web browser to... do other things. Wow, writing is tedious. Here, let me finish the thought more appropriately: ✂︎⚗︎︎🃍▼. Simple!\n\nBut rather than concerning ourselves with the worst instances, let us compare only the best. We've seen a text operating system created by thoughtful writers (UNIX), and a visual operating system created by thoughtful artists (Macintosh). We've seen a text programming system created by thoughtful writers (Tcl). We truly have not yet seen a visual programming system created by thoughtful artists.\n\nSo _nobody_ is allowed to say visual programming is worse than textual programming, because as I've just proven — in _your_ domain, using words (bleh) — visual programming doesn't exist yet.",
+    "user": "UC2A2ARPT",
+    "ts": "1613409463.066700",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1613409497.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ccs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That was a charming article. It's nice to read someone effusing about a beloved tool from a bygone era. I'm too young (and hot, and tasteful) to have lived through the era myself, but I absolutely recognize the superiority of UNIX when compared to NT, as a lifelong Mac user. I did bristle at \"GUI-laden Macintosh\", though. That felt unfair to me. The Mac I type this on is thin "
+              },
+              {
+                "type": "text",
+                "text": "and",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " light. Whatever weight is added due to the presence of the GUI is hardly noticeable. Surely, the glass in my laptop's trackpad weighs less than the full-travel clicky keyboard and CRT required by your portable UNIX terminal of choice.\n\nLet's all bear in mind that what is being compared here is text vs visual in the context of operating systems, not in the context of programming, which are not the same thing at all. That said, I'm going to talk about programming, because that's an argument I can win. If there was any flaw with the original Macintosh (which there wasn't, but just go with me here) it's that the only visual programming environment for it was released 3 years late. And even then, that environment wasn't truly \""
+              },
+              {
+                "type": "text",
+                "text": "visual",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " programming\", as the included art tools were entirely separate from the programming tools. At best, you could call it \"hypermedia programming\", as you had to work very quickly to be able to do the job of both an artist and a programmer. And there we see the true advantage of visual programming — by programming entirely with one's art skill, you do not need to waste time developing full thoughts, as you do with writing. With a simple sketch, you can reconfigure your web browser to... do other things. Wow, writing is tedious. Here, let me finish the thought more appropriately: ✂︎⚗︎︎🃍▼. Simple!\n\nBut rather than concerning ourselves with the worst instances, let us compare only the best. We've seen a text operating system created by thoughtful writers (UNIX), and a visual operating system created by thoughtful artists (Macintosh). We've seen a text programming system created by thoughtful writers (Tcl). We truly have not yet seen a visual programming system created by thoughtful artists.\n\nSo "
+              },
+              {
+                "type": "text",
+                "text": "nobody",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is allowed to say visual programming is worse than textual programming, because as I've just proven — in "
+              },
+              {
+                "type": "text",
+                "text": "your",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " domain, using words (bleh) — visual programming doesn't exist yet."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613299130.046800",
+    "parent_user_id": "U5STGTB3J",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UCUSW7WVD",
+          "U5STGTB3J",
+          "UKDM3GLAJ"
+        ],
+        "count": 3
+      },
+      {
+        "name": "joy",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      },
+      {
+        "name": "apple",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "f8823153-74f6-40b1-9da0-6047d307a2f9",
+    "type": "message",
+    "text": "I’ve been dreaming of something just like this Miles for a few months now! I work as a Developer Advocate and I got an iPad + pencil last year for the explicit reason of being able to quickly share context with end-users trying to learn",
+    "user": "UAJKEBGP8",
+    "ts": "1613410169.067300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Qa/Y",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’ve been dreaming of something just like this Miles for a few months now! I work as a Developer Advocate and I got an iPad + pencil last year for the explicit reason of being able to quickly share context with end-users trying to learn"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613408375.066300",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "e1e8cf2b-8520-4220-b412-fbc7d5513e26",
+    "type": "message",
+    "text": "I imagine the network effect is the biggest hurdle here, not enough people have doodle friendly devices :thinking_face:",
+    "user": "UAJKEBGP8",
+    "ts": "1613410194.067500",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Nln",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I imagine the network effect is the biggest hurdle here, not enough people have doodle friendly devices "
+              },
+              {
+                "type": "emoji",
+                "name": "thinking_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613408375.066300",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "5ee5fe29-91a4-4974-8e5e-056b0d832f5b",
+    "type": "message",
+    "text": "Also! It seems like Scribble kinda does this:\n\n<https://apps.apple.com/us/app/scribble-together-whiteboard/id1266088066>",
+    "user": "UAJKEBGP8",
+    "ts": "1613410225.067700",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "service_name": "App Store",
+        "title": "‎Scribble Together Whiteboard",
+        "title_link": "https://apps.apple.com/us/app/scribble-together-whiteboard/id1266088066",
+        "text": "‎Draw to­geth­er in real time, from any­where! In seconds, any­one can follow along with your drawing or draw with you from the app or on the web. Use Scrib­ble along­side a call; talk with Face­Time or any other app you like. DRAW ON ANY­THING Draw over pdfs and im­ages. Snap a pic­ture of home­wor…",
+        "fallback": "App Store: ‎Scribble Together Whiteboard",
+        "image_url": "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/c7/3e/9e/c73e9eb0-e3ae-22ce-c0de-5459b79dfddd/AppIcon-0-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/1200x630wa.png",
+        "image_width": 476,
+        "image_height": 250,
+        "from_url": "https://apps.apple.com/us/app/scribble-together-whiteboard/id1266088066",
+        "image_bytes": 65835,
+        "service_icon": "https://apps.apple.com/favicon.ico",
+        "id": 1,
+        "original_url": "https://apps.apple.com/us/app/scribble-together-whiteboard/id1266088066"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9yW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also! It seems like Scribble kinda does this:\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://apps.apple.com/us/app/scribble-together-whiteboard/id1266088066"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613408375.066300",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "11d5aec6-6247-4e88-8ac6-39a26c663311",
+    "type": "message",
+    "text": "by May Li Khoe and her partner",
+    "user": "UAJKEBGP8",
+    "ts": "1613410239.068000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+Wv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "by May Li Khoe and her partner"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613408375.066300",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "4d64f781-34f8-4988-984c-c57bb9b7c5d8",
+    "type": "message",
+    "text": "<@UDQBTJ211> I've been reluctant to do that because it feels like it limits the number of people who can try Mu out, and therefore who I can collaborate with.\n\nI've been counting on my fingers when I hear from someone who seems to have actually tried to run Mu. In spite of all my efforts to keep it accessible, I'm not out of fingers yet. So I'm loath to add new constraints. At some point it must make sense to just consider this path over-constrained and go do something else. (Or maybe it means I haven't found the right vein of potential collaborators to tap yet? Hmm, perhaps the right machine would help there.)\n\nThere _is_ one option I'm reluctantly starting to focus on: virtio. This is apparently a driver that only works atop an emulator or hypervisor. Programs within the VM get a nice interface, and the VM translates it to real-world hardware (perhaps using a mainstream OS). If I go this route you'd need a cloud computer to run Mu :grimacing:",
+    "user": "UCUSW7WVD",
+    "ts": "1613410777.090800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1613416903.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8DmY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UDQBTJ211"
+              },
+              {
+                "type": "text",
+                "text": " I've been reluctant to do that because it feels like it limits the number of people who can try Mu out, and therefore who I can collaborate with.\n\nI've been counting on my fingers when I hear from someone who seems to have actually tried to run Mu. In spite of all my efforts to keep it accessible, I'm not out of fingers yet. So I'm loath to add new constraints. At some point it must make sense to just consider this path over-constrained and go do something else. (Or maybe it means I haven't found the right vein of potential collaborators to tap yet? Hmm, perhaps the right machine would help there.)\n\nThere "
+              },
+              {
+                "type": "text",
+                "text": "is",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " one option I'm reluctantly starting to focus on: virtio. This is apparently a driver that only works atop an emulator or hypervisor. Programs within the VM get a nice interface, and the VM translates it to real-world hardware (perhaps using a mainstream OS). If I go this route you'd need a cloud computer to run Mu "
+              },
+              {
+                "type": "emoji",
+                "name": "grimacing"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613351462.087400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "b02e4095-834c-4a22-9fe3-2ffe91d24e2a",
+    "type": "message",
+    "text": "There are lots of shared whiteboard apps ... the extra I'm asking for is the chat-like conversational element.",
+    "user": "UF71PR58X",
+    "ts": "1613410920.068200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AqKt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There are lots of shared whiteboard apps ... the extra I'm asking for is the chat-like conversational element."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613408375.066300",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "bfdae639-458d-4a6b-9532-3ff5d1923b22",
+    "type": "message",
+    "text": "I just came back to leave the same comment actually :sweat_smile: I realized you meant a chat / nested style convo interface with scribbles. I haven’t seen this after all",
+    "user": "UAJKEBGP8",
+    "ts": "1613411087.068400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "22K",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I just came back to leave the same comment actually "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              },
+              {
+                "type": "text",
+                "text": " I realized you meant a chat / nested style convo interface with scribbles. I haven’t seen this after all"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613408375.066300",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "2c286b9e-b70f-4826-ad48-c97419b6b36a",
+    "type": "message",
+    "text": ":turtle: Instadeq All The Way Down\n\n<https://www.youtube.com/watch?v=NcUVSKS-tak>",
+    "user": "UBN9AFS0N",
+    "ts": "1613414841.091300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "🐢 Instadeq All The Way Down",
+        "title_link": "https://www.youtube.com/watch?v=NcUVSKS-tak",
+        "author_name": "Mariano Guerra",
+        "author_link": "https://www.youtube.com/c/MarianoGuerra",
+        "thumb_url": "https://i.ytimg.com/vi/NcUVSKS-tak/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: 🐢 Instadeq All The Way Down",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/NcUVSKS-tak?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=NcUVSKS-tak",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=NcUVSKS-tak"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lhjU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "emoji",
+                "name": "turtle"
+              },
+              {
+                "type": "text",
+                "text": " Instadeq All The Way Down\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=NcUVSKS-tak"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "reply_count": 8,
+    "reply_users_count": 3,
+    "latest_reply": "1613416512.097500",
+    "reply_users": [
+      "UCUSW7WVD",
+      "UBN9AFS0N",
+      "U0123H7JRDM"
+    ],
+    "replies": [
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1613415438.091600"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1613415536.091800"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1613415553.092000"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1613415581.092200"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1613415636.092500"
+      },
+      {
+        "user": "U0123H7JRDM",
+        "ts": "1613416350.097100"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1613416487.097300"
+      },
+      {
+        "user": "UBN9AFS0N",
+        "ts": "1613416512.097500"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "exploding_head",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "sunglasses",
+        "users": [
+          "U0123H7JRDM",
+          "U013ZLJARC7",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "6adc132c-e3f9-4ae8-8632-284fda42570c",
+    "type": "message",
+    "text": "Oh, just one level down :joy:\n\nStill very cool.",
+    "user": "UCUSW7WVD",
+    "ts": "1613415438.091600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/8Xrf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh, just one level down "
+              },
+              {
+                "type": "emoji",
+                "name": "joy"
+              },
+              {
+                "type": "text",
+                "text": "\n\nStill very cool."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "cdb1a305-b33d-43b6-a3e3-c3ce0a802881",
+    "type": "message",
+    "text": "I can make it infinite, but I have to clone the inception entity at each level so it gets a new id and doesn't introduce a loop",
+    "user": "UBN9AFS0N",
+    "ts": "1613415536.091800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BuvDt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I can make it infinite, but I have to clone the inception entity at each level so it gets a new id and doesn't introduce a loop"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "26b34aab-8e86-42b6-bc8c-d46f9d1c9c35",
+    "type": "message",
+    "text": "I do the first level by hand to prove the point :smile:",
+    "user": "UBN9AFS0N",
+    "ts": "1613415553.092000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "I1YR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I do the first level by hand to prove the point "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "049b8adc-37ce-4ce0-a1c4-4373c92db224",
+    "type": "message",
+    "text": "since the second level isn't changed it points to the root, and that's how the loop happens",
+    "user": "UBN9AFS0N",
+    "ts": "1613415581.092200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "s/1Eh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "since the second level isn't changed it points to the root, and that's how the loop happens"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0c95f2b8-3061-416a-8025-9b8990437eb4",
+    "type": "message",
+    "text": "<@UFPPABQ7P> thanks for detailed answer! That makes a lot of sense, the whole interplay with other technologies from the NET ecosystem. I thought there might be some special reason why it is a great fit for DSLs but I assume it is the same arguments as for Haskell.\nHaskell is a weird animal, but on the other hand it does have pretty good IDE support I think - although probably not as good as F# does. I wouldn't say system is fractured, there are just many extensions to choose from - but never felt like a problem. Anyway I didn't want to defend Haskell :smile:, I certainly don't have enough experience to do anything like that, just offering quick view :slightly_smiling_face:.\nExcited to hear more about the whole journey once you get more into it!",
+    "user": "UUB7RA7PF",
+    "ts": "1613415634.068600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rdV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UFPPABQ7P"
+              },
+              {
+                "type": "text",
+                "text": " thanks for detailed answer! That makes a lot of sense, the whole interplay with other technologies from the NET ecosystem. I thought there might be some special reason why it is a great fit for DSLs but I assume it is the same arguments as for Haskell.\nHaskell is a weird animal, but on the other hand it does have pretty good IDE support I think - although probably not as good as F# does. I wouldn't say system is fractured, there are just many extensions to choose from - but never felt like a problem. Anyway I didn't want to defend Haskell "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": ", I certainly don't have enough experience to do anything like that, just offering quick view "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ".\nExcited to hear more about the whole journey once you get more into it!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613320242.057800",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "158e35b3-64a8-43b8-9aa8-c4b5546e5c9a",
+    "type": "message",
+    "text": "infinite entities may generate some problems with GC :stuck_out_tongue:",
+    "user": "UBN9AFS0N",
+    "ts": "1613415636.092500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Tmi9f",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "infinite entities may generate some problems with GC "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "36BB3738-53A5-469C-BDC2-CD009429993E",
+    "type": "message",
+    "text": "Very cool! Which global state library do you use? I just finished a big refactoring myself to move from redux to zustand to get more control also to be able to use my own flow project within itself. ",
+    "user": "U0123H7JRDM",
+    "ts": "1613416350.097100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gfb283c8a09c",
+      "image_72": "https://secure.gravatar.com/avatar/fb283c8a09c5c8909b00498ba9634a70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Maikel",
+      "real_name": "Maikel van de Lisdonk",
+      "display_name": "Maikel",
+      "team": "T5TCAFTA9",
+      "name": "maikel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "L/KtW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Very cool! Which global state library do you use? I just finished a big refactoring myself to move from redux to zustand to get more control also to be able to use my own flow project within itself. "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e14dc224-709f-494e-b1df-24c912ccdc5d",
+    "type": "message",
+    "text": "there's not much global state, just the entry point of the graph and the graph itself, it's my own library",
+    "user": "UBN9AFS0N",
+    "ts": "1613416487.097300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Xb/g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "there's not much global state, just the entry point of the graph and the graph itself, it's my own library"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "7c8bacbe-1847-430c-8f27-c0285cdba3cb",
+    "type": "message",
+    "text": "that's how inception works, I clone the entry node and add a reference to it in the graph",
+    "user": "UBN9AFS0N",
+    "ts": "1613416512.097500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bt+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "that's how inception works, I clone the entry node and add a reference to it in the graph"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613414841.091300",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "b20f846a-6009-4531-b66f-4d8f08dc29b7",
+    "type": "message",
+    "text": "Our own platform is built on top of a reactive database model, and the builder assets are stored in the db, as is the executable (VM for now, soon to be wasm). This allows the interesting ability to build tools as apps in our builder, and also to have plugins that are themselves apps built using the builder. Furthermore the database is a git meets mongodb style multi versioned log structured thing so you can also access previous states of all entities.",
+    "user": "U01JNTE35QS",
+    "ts": "1613420999.144600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "97155db555c2",
+      "image_72": "https://avatars.slack-edge.com/2021-01-13/1631845309525_97155db555c2091ecd20_72.jpg",
+      "first_name": "",
+      "real_name": "Vijay Chakravarthy",
+      "display_name": "Vijay Chakravarthy",
+      "team": "T5TCAFTA9",
+      "name": "vchakrav",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DQ7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Our own platform is built on top of a reactive database model, and the builder assets are stored in the db, as is the executable (VM for now, soon to be wasm). This allows the interesting ability to build tools as apps in our builder, and also to have plugins that are themselves apps built using the builder. Furthermore the database is a git meets mongodb style multi versioned log structured thing so you can also access previous states of all entities."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613378800.139200",
+    "parent_user_id": "U01L6HZEHFX",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1c5c3245-caac-4b20-b5ae-628f94dad643",
+    "type": "message",
+    "text": "iMessage has doodling capability built into it, but I dont think that has taken off.. the UX aspect of it and the use cases for it seem a little complex. Mainly because of the stream nature of chat vs the in place nature of whiteboard/sketching models.",
+    "user": "U01JNTE35QS",
+    "ts": "1613421151.069000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6keo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "iMessage has doodling capability built into it, but I dont think that has taken off.. the UX aspect of it and the use cases for it seem a little complex. Mainly because of the stream nature of chat vs the in place nature of whiteboard/sketching models."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613408375.066300",
+    "parent_user_id": "UF71PR58X",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "3c465af1-7d27-490a-abaf-25c60b9f724f",
+    "type": "message",
+    "text": "Hmm yeah. The only thing I could think of would maybe be a Raspberry Pi because while it is a tiny audience in some respects, you are more likely to get traction with it.",
+    "user": "UDQBTJ211",
+    "ts": "1613423802.098200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "owJae",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hmm yeah. The only thing I could think of would maybe be a Raspberry Pi because while it is a tiny audience in some respects, you are more likely to get traction with it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613351462.087400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "A9871050-CA74-4E62-BE5C-BB100A614A6B",
+    "type": "message",
+    "text": "incidentally if anyone hasn’t seen them yet, youtube user tantacrul did a series of interface critiques of music software that ended with him getting a job as head of product for MuseScore <https://youtube.com/playlist?list=PLsZOjdXUWZAd0D3rxIG7mD7VMGJfCdwzS|https://youtube.com/playlist?list=PLsZOjdXUWZAd0D3rxIG7mD7VMGJfCdwzS>",
+    "user": "UHWC9PXBL",
+    "ts": "1613427060.014300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "title": "Tantacrul on Music Software",
+        "title_link": "https://youtube.com/playlist?list=PLsZOjdXUWZAd0D3rxIG7mD7VMGJfCdwzS",
+        "text": "[ 2 hours, 51 minutes, 56 seconds ] A collection of Tantacrul's work involving music software, including the reviews/critiques on his main channel, and his c...",
+        "fallback": "YouTube: Tantacrul on Music Software",
+        "thumb_url": "https://i.ytimg.com/vi/7PFRyONURSo/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLA-8FfrEshA2H-OTXU6--ugKgX5Zw&days_since_epoch=18673",
+        "from_url": "https://youtube.com/playlist?list=PLsZOjdXUWZAd0D3rxIG7mD7VMGJfCdwzS",
+        "thumb_width": 168,
+        "thumb_height": 94,
+        "service_icon": "https://www.youtube.com/s/desktop/3748dff5/img/favicon.ico",
+        "id": 1,
+        "original_url": "https://youtube.com/playlist?list=PLsZOjdXUWZAd0D3rxIG7mD7VMGJfCdwzS"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Pk7jd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "incidentally if anyone hasn’t seen them yet, youtube user tantacrul did a series of interface critiques of music software that ended with him getting a job as head of product for MuseScore "
+              },
+              {
+                "type": "link",
+                "url": "https://youtube.com/playlist?list=PLsZOjdXUWZAd0D3rxIG7mD7VMGJfCdwzS",
+                "text": "https://youtube.com/playlist?list=PLsZOjdXUWZAd0D3rxIG7mD7VMGJfCdwzS"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1613272157.003800",
+    "parent_user_id": "UN9SCH5RD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UN9SCH5RD",
+          "UA14TGLTC",
+          "U013ZLJARC7"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "of-music",
+    "channel_id": "CEZ6QTHL1"
+  }
+]
