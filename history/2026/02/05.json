@@ -1,0 +1,269 @@
+[
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1770264634.668969",
+    "client_msg_id": "51661572-585c-4dcc-9ff4-83e523244be1",
+    "text": "&gt; I disagree with the takeaway. In my experience, any sufficiently large program will require most of these variants. Having it all under the same programming language can really help reduce complexity.  \nAgreed about the large program vs. many paradigms. Change the phrase \"programming language\" to \"programming development environment\" and I agree. \"Programming Languages\" are just stone-age IDEs.\n\n&gt; To me, the call+response paradigm is enough to express all of this elegantly. It all still boils down to sequences. An async call is something you either wait for (in the sequence, not the underlying thread) or that you fire and forget (in which case, you don't wait for).\nI don't agree. I wrote a lot of compilers, RTOSs, embedded systems and driver code. Call+response is a clumsy paradigm for that kind of stuff. Something like <https://guitarvydas.github.io/2023/11/27/Statecharts-Papers-We-Love-Video.html|StateCharts> is much more suitable. There are probably other choices, too. When architecting asynchronous devices, you need architectural access to concepts like fan-out, control of routing, side-effects, etc. Call+response restricts your architectural choices too severely, causing you to go into a tailspin of inventing workarounds to appease the paradigm, instead of spending time solving the actual problems. All of the fancy stuff we've invented in the last 50+ year rabbit-hole is obviously useful, but, afaik, none of it was necessary for building MOAD.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1770152622.876859",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "from_url": "https://guitarvydas.github.io/2023/11/27/Statecharts-Papers-We-Love-Video.html",
+        "ts": 1701043200,
+        "id": 1,
+        "original_url": "https://guitarvydas.github.io/2023/11/27/Statecharts-Papers-We-Love-Video.html",
+        "fallback": "Computing Simplicity: Statecharts papers we love video",
+        "text": "Statecharts Papers We Love Video",
+        "title": "Statecharts papers we love video",
+        "title_link": "https://guitarvydas.github.io/2023/11/27/Statecharts-Papers-We-Love-Video.html",
+        "service_name": "Computing Simplicity"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ms2f1",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I disagree with the takeaway. In my experience, any sufficiently large program will require most of these variants. Having it all under the same programming language can really help reduce complexity.  "
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAgreed about the large program vs. many paradigms. Change the phrase \"programming language\" to \"programming development environment\" and I agree. \"Programming Languages\" are just stone-age IDEs.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "To me, the call+response paradigm is enough to express all of this elegantly. It all still boils down to sequences. An async call is something you either wait for (in the sequence, not the underlying thread) or that you fire and forget (in which case, you don't wait for)."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI don't agree. I wrote a lot of compilers, RTOSs, embedded systems and driver code. Call+response is a clumsy paradigm for that kind of stuff. Something like "
+              },
+              {
+                "type": "link",
+                "url": "https://guitarvydas.github.io/2023/11/27/Statecharts-Papers-We-Love-Video.html",
+                "text": "StateCharts"
+              },
+              {
+                "type": "text",
+                "text": " is much more suitable. There are probably other choices, too. When architecting asynchronous devices, you need architectural access to concepts like fan-out, control of routing, side-effects, etc. Call+response restricts your architectural choices too severely, causing you to go into a tailspin of inventing workarounds to appease the paradigm, instead of spending time solving the actual problems. All of the fancy stuff we've invented in the last 50+ year rabbit-hole is obviously useful, but, afaik, none of it was necessary for building MOAD."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U08HU0GT52A",
+    "type": "message",
+    "ts": "1770320647.780089",
+    "client_msg_id": "9075BCD7-21A4-41EA-BCB2-17770D144D1A",
+    "text": "Nice — I really liked your master thesis. I think it opens a very interesting angle on personal computation, especially how people, devices, data and physical situations become one shared computational environment. That connects very directly to what I’m trying to do.\nJust to clarify one small detail about the demo video:\nit is actually three independent peers, each running its own local instance and synchronised via Gun. It can scale to many peers in a LAN or across multiple devices. I only showed it on one machine because it’s much easier to demonstrate in a short video.\nAbout your question on making the writing of software more multi-dimensional — that is exactly where my current focus is.\nThe terminal is only a temporary surface. What I’m really working on is the semantic layer.\nIn the same way that map / filter / reduce gave us a language to think about data transformation, and high-level languages let us describe computation without thinking about machine details, my goal is to build a higher-level language to describe distributed / decentralised computation itself — things like partial information, multi-directional dependencies, and cross-peer synchronisation as first-class concepts.\nMy hope is that once this layer is solid, genuinely multi-dimensional authoring interfaces (spatial, relational, multi-view) can grow naturally on top of it.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1770114682.753069",
+    "parent_user_id": "U08HU0GT52A",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8lcBE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Nice — I really liked your master thesis. I think it opens a very interesting angle on personal computation, especially how people, devices, data and physical situations become one shared computational environment. That connects very directly to what I’m trying to do."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Just to clarify one small detail about the demo video:"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "it is actually three independent peers, each running its own local instance and synchronised via Gun. It can scale to many peers in a LAN or across multiple devices. I only showed it on one machine because it’s much easier to demonstrate in a short video."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "About your question on making the writing of software more multi-dimensional — that is exactly where my current focus is."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "The terminal is only a temporary surface. What I’m really working on is the semantic layer."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "In the same way that map / filter / reduce gave us a language to think about data transformation, and high-level languages let us describe computation without thinking about machine details, my goal is to build a higher-level language to describe distributed / decentralised computation itself — things like partial information, multi-directional dependencies, and cross-peer synchronisation as first-class concepts."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "My hope is that once this layer is solid, genuinely multi-dimensional authoring interfaces (spatial, relational, multi-view) can grow naturally on top of it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1770333930.325449",
+    "client_msg_id": "d6028fd1-c672-49b5-bc58-74a58c580268",
+    "text": "&gt; AI can now port code between programming languages with surprising accuracy. This capability raises an intriguing question: should we create new languages specifically designed for directing AI?\n <https://programmingsimplicity.substack.com/p/do-we-need-a-new-programming-language?r=1egdky|do we need a new programming language for the AI era?>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1770333930.325449",
+    "reply_count": 14,
+    "reply_users_count": 7,
+    "latest_reply": "1771080226.115619",
+    "reply_users": [
+      "U05GSC0B4A0",
+      "U02E4DAQGSZ",
+      "UA14TGLTC",
+      "UGWUJUZHT",
+      "U02U0AS3J49",
+      "UJBAJNFLK",
+      "UJFN50C00"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DGAIK",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "AI can now port code between programming languages with surprising accuracy. This capability raises an intriguing question: should we create new languages specifically designed for directing AI?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n "
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/do-we-need-a-new-programming-language?r=1egdky",
+                "text": "do we need a new programming language for the AI era?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1770333930.325449",
+    "client_msg_id": "d6028fd1-c672-49b5-bc58-74a58c580268",
+    "text": "&gt; AI can now port code between programming languages with surprising accuracy. This capability raises an intriguing question: should we create new languages specifically designed for directing AI?\n <https://programmingsimplicity.substack.com/p/do-we-need-a-new-programming-language?r=1egdky|do we need a new programming language for the AI era?>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1770333930.325449",
+    "reply_count": 11,
+    "reply_users_count": 7,
+    "latest_reply": "1770624355.372329",
+    "reply_users": [
+      "U05GSC0B4A0",
+      "U02E4DAQGSZ",
+      "UA14TGLTC",
+      "UGWUJUZHT",
+      "U02U0AS3J49",
+      "UJBAJNFLK",
+      "UJFN50C00"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DGAIK",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "AI can now port code between programming languages with surprising accuracy. This capability raises an intriguing question: should we create new languages specifically designed for directing AI?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n "
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/do-we-need-a-new-programming-language?r=1egdky",
+                "text": "do we need a new programming language for the AI era?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

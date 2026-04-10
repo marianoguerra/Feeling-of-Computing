@@ -1,0 +1,1245 @@
+[
+  {
+    "text": "Here's my answer: 24 lines of LÖVE that simply rotate what you draw 48 times.\n\n```N = 48 -- numbers of axes of radial symmetry\nPoints = {}\nRotate = true\nW, H = love.window.getMode()\n\nfunction love.draw()\n  local g = love.graphics\n  g.setBackgroundColor(0.2,0.2,0.4)\n  g.setColor(0.8,0.8,0.8)\n  g.translate(W/2, H/2)\n  g.circle('fill', 0,0, 50)\n  for i=1,N do\n    g.line(-W,0, W,0)\n    if #Points >= 4 then\n      g.line(Points)\n    end\n    g.rotate(2*math.pi/N)\n    if not Rotate then break end\n  end\nend\n\nfunction love.keypressed()\n  Rotate = not Rotate\nend\n\nfunction love.mousemoved(x,y)\n  if not love.mouse.isDown(1) then\n    return\n  end\n  table.insert(Points, x-W/2)\n  table.insert(Points, y-H/2)\nend```\nI think of it as a <https://en.wikipedia.org/wiki/Mandala#/media/File:Chenrezig_Sand_Mandala.jpg|mandala>. The chicken scratches that yield it when seen without all the rotated copies.program. By using a computer you eliminate any possibility of meditation or transcendant peace :slightly_smiling_face: But on the other hand, it takes whatever my kids throw at it and makes it beautiful.",
+    "files": [
+      {
+        "id": "F0AC1MDBAFM",
+        "created": 1769923813,
+        "timestamp": 1769923813,
+        "name": "mandala1.png",
+        "title": "mandala1.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 1498656,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0AC1MDBAFM/mandala1.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0AC1MDBAFM/download/mandala1.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 186,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 248,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 371,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 413,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 495,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC1MDBAFM-521dd808b4/mandala1_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 528,
+        "original_w": 1920,
+        "original_h": 990,
+        "thumb_tiny": "AwAZADCuSzHOWJxg96UHBBDEAcZHWkITPLMD/u//AF6d8nXc2c8kr/8AXqxBmQcZI7nHagvIOjtg+pqdFjXIDMBk/pQ3l8ZY4yO3FICASOAcu3PHU8U3zJB1Z/bmlITGdzAg9Nv/ANekATszf98j/GmA3p0x+VKeAPfkGkNPl6n/AHjQMQMQOpAPf/P+eaUuzerdhnmkX7yf570Sfff/AHqAAEZ6njv3puc+gpY/9an1FJ2oEf/Z",
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0AC1MDBAFM/mandala1.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0AC1MDBAFM-38c0cbc73a",
+        "alt_txt": "A central white area with 48 lines radiating out. Overlaid on that is an organic looking pattern of circles.",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      },
+      {
+        "id": "F0AC839TNSW",
+        "created": 1769923818,
+        "timestamp": 1769923818,
+        "name": "mandala2.png",
+        "title": "mandala2.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 57405,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0AC839TNSW/mandala2.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0AC839TNSW/download/mandala2.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 186,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 248,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 371,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 413,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 495,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC839TNSW-4d5095fcca/mandala2_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 528,
+        "original_w": 1920,
+        "original_h": 990,
+        "thumb_tiny": "AwAZADCsWJJJJJ6daQMwOQxGOOtLhP7zfl/9ejCf3m/L/wCvViAO4HDMPoaXzJP77fnS7Yw+1mbAODxSMI9xwzYzxxQAeZJ/fb86PMk/vt+dJhP7zf8AfP8A9ejCf3m/75/+vQAh60lKetJTAKKKKACiiigD/9k=",
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0AC839TNSW/mandala2.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0AC839TNSW-dc2b263053",
+        "alt_txt": "The chicken scratches that yield it when seen without all the rotated copies.",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "In64s",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here's my answer: 24 lines of LÖVE that simply rotate what you draw 48 times.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "N = 48 -- numbers of axes of radial symmetry\nPoints = {}\nRotate = true\nW, H = love.window.getMode()\n\nfunction love.draw()\n  local g = love.graphics\n  g.setBackgroundColor(0.2,0.2,0.4)\n  g.setColor(0.8,0.8,0.8)\n  g.translate(W/2, H/2)\n  g.circle('fill', 0,0, 50)\n  for i=1,N do\n    g.line(-W,0, W,0)\n    if #Points >= 4 then\n      g.line(Points)\n    end\n    g.rotate(2*math.pi/N)\n    if not Rotate then break end\n  end\nend\n\nfunction love.keypressed()\n  Rotate = not Rotate\nend\n\nfunction love.mousemoved(x,y)\n  if not love.mouse.isDown(1) then\n    return\n  end\n  table.insert(Points, x-W/2)\n  table.insert(Points, y-H/2)\nend"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI think of it as a "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Mandala#/media/File:Chenrezig_Sand_Mandala.jpg",
+                "text": "mandala"
+              },
+              {
+                "type": "text",
+                "text": ". The chicken scratches that yield it when seen without all the rotated copies.program. By using a computer you eliminate any possibility of meditation or transcendant peace "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": " But on the other hand, it takes whatever my kids throw at it and makes it beautiful."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1769923984.522649",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1769924052.000000"
+    },
+    "client_msg_id": "a517551e-9478-4c78-a035-f549e188d1e5",
+    "thread_ts": "1769361114.918999",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "guitar",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1769945431.179459",
+    "client_msg_id": "5E7D3F9D-0283-4E7B-91B1-AA69B03F8B92",
+    "text": "I love the story about your son. my son is 8 and my daughter is 10. ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769384610.270969",
+    "parent_user_id": "U08294YLWJH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "++7Rz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I love the story about your son"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " my son is 8 and my daughter is 10"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1769945431.179459",
+    "client_msg_id": "5E7D3F9D-0283-4E7B-91B1-AA69B03F8B92",
+    "text": "I love the story about your son. my son is 8 and my daughter is 10. ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769384610.270969",
+    "parent_user_id": "U08294YLWJH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "++7Rz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I love the story about your son"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " my son is 8 and my daughter is 10"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1769945528.354269",
+    "client_msg_id": "05BEF1B6-92D0-4989-B65B-4B56A4CAA63B",
+    "text": "And somehow my related it to this ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769384610.270969",
+    "parent_user_id": "U08294YLWJH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Pka3G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And somehow my related it to this "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1769945528.354269",
+    "client_msg_id": "05BEF1B6-92D0-4989-B65B-4B56A4CAA63B",
+    "text": "And somehow my related it to this ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769384610.270969",
+    "parent_user_id": "U08294YLWJH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Pka3G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And somehow my related it to this "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1769945532.356979",
+    "client_msg_id": "ECC960FB-0374-4BB3-83D5-48C8212AF9E1",
+    "text": "<https://sethpurcell.com/writing/screens-in-museums/|https://sethpurcell.com/writing/screens-in-museums/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769384610.270969",
+    "parent_user_id": "U08294YLWJH",
+    "attachments": [
+      {
+        "image_url": "https://sethpurcell.com/hero.jpg",
+        "image_width": 4032,
+        "image_height": 1186,
+        "image_bytes": 626304,
+        "from_url": "https://sethpurcell.com/writing/screens-in-museums/",
+        "service_icon": "https://sethpurcell.com/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://sethpurcell.com/writing/screens-in-museums/",
+        "fallback": "I Didn't Bring My Son to a Museum to Look at Screens | Seth Purcell",
+        "title": "I Didn't Bring My Son to a Museum to Look at Screens | Seth Purcell",
+        "title_link": "https://sethpurcell.com/writing/screens-in-museums/",
+        "service_name": "sethpurcell.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uZwr/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://sethpurcell.com/writing/screens-in-museums/",
+                "text": "https://sethpurcell.com/writing/screens-in-museums/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1769945532.356979",
+    "client_msg_id": "ECC960FB-0374-4BB3-83D5-48C8212AF9E1",
+    "text": "<https://sethpurcell.com/writing/screens-in-museums/|https://sethpurcell.com/writing/screens-in-museums/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769384610.270969",
+    "parent_user_id": "U08294YLWJH",
+    "attachments": [
+      {
+        "image_url": "https://sethpurcell.com/hero.jpg",
+        "image_width": 4032,
+        "image_height": 1186,
+        "image_bytes": 626304,
+        "from_url": "https://sethpurcell.com/writing/screens-in-museums/",
+        "service_icon": "https://sethpurcell.com/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://sethpurcell.com/writing/screens-in-museums/",
+        "fallback": "I Didn't Bring My Son to a Museum to Look at Screens | Seth Purcell",
+        "title": "I Didn't Bring My Son to a Museum to Look at Screens | Seth Purcell",
+        "title_link": "https://sethpurcell.com/writing/screens-in-museums/",
+        "service_name": "sethpurcell.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uZwr/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://sethpurcell.com/writing/screens-in-museums/",
+                "text": "https://sethpurcell.com/writing/screens-in-museums/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1769945591.633949",
+    "client_msg_id": "24DC88B9-6C16-4DC5-8E35-8067649CC4FC",
+    "text": "via <https://news.ycombinator.com/item?id=45199931|https://news.ycombinator.com/item?id=45199931>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769384610.270969",
+    "parent_user_id": "U08294YLWJH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UDu9G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "via "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=45199931",
+                "text": "https://news.ycombinator.com/item?id=45199931"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1769945591.633949",
+    "client_msg_id": "24DC88B9-6C16-4DC5-8E35-8067649CC4FC",
+    "text": "via <https://news.ycombinator.com/item?id=45199931|https://news.ycombinator.com/item?id=45199931>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769384610.270969",
+    "parent_user_id": "U08294YLWJH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UDu9G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "via "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=45199931",
+                "text": "https://news.ycombinator.com/item?id=45199931"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U08HU0GT52A",
+    "type": "message",
+    "ts": "1769970073.454439",
+    "edited": {
+      "user": "U08HU0GT52A",
+      "ts": "1769970089.000000"
+    },
+    "client_msg_id": "7ed61070-908f-4728-8dc3-408d4038142c",
+    "text": "Hi everyone! I’m recently working  on *Lain*, a programming language for distributed computation that attempts to implements some idea from smalltalk/pharo and scheme in propagator model,\nThe core premise is that the compiler itself is a propagator network: it compiles ASTs into meta-compiler networks where the AST can be *partially evaluated* at any point. This allows the environment to remain fluid even in distributed settings. I’ve recently synchronized the repository with *Gun.js*. This allows for a single, universal environment shared across multiple peers,  The prototype is in a very early research stage, and the design is evolving rapidly. I’d love to hear your thoughts! Repo: <https://github.com/Semi-0/lain-lang>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769970073.454439",
+    "reply_count": 7,
+    "reply_users_count": 3,
+    "latest_reply": "1770119333.185569",
+    "reply_users": [
+      "UMQ6LR9NZ",
+      "U02E4DAQGSZ",
+      "U08HU0GT52A"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "46H7l",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi everyone! I’m recently working  on "
+              },
+              {
+                "type": "text",
+                "text": "Lain",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", a programming language for distributed computation that attempts to implements some idea from smalltalk/pharo and scheme in propagator model,\nThe core premise is that the compiler itself is a propagator network: it compiles ASTs into meta-compiler networks where the AST can be "
+              },
+              {
+                "type": "text",
+                "text": "partially evaluated",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " at any point. This allows the environment to remain fluid even in distributed settings. I’ve recently synchronized the repository with "
+              },
+              {
+                "type": "text",
+                "text": "Gun.js",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". This allows for a single, universal environment shared across multiple peers,  The prototype is in a very early research stage, and the design is evolving rapidly. I’d love to hear your thoughts! Repo: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/Semi-0/lain-lang"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7",
+          "U06SS0DHZD1"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heart",
+        "users": [
+          "U070Z6JQ50E"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U08HU0GT52A",
+    "type": "message",
+    "ts": "1769970120.946169",
+    "client_msg_id": "b9bcd4ba-2412-456f-8c3e-4efb2eb0731f",
+    "text": "And here is a video demo of how it worked: <https://www.youtube.com/watch?v=yg91Hchd1hI>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=yg91Hchd1hI",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/yg91Hchd1hI/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/yg91Hchd1hI?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"lain demo\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=yg91Hchd1hI",
+        "fallback": "YouTube Video: lain demo",
+        "title": "lain demo",
+        "title_link": "https://www.youtube.com/watch?v=yg91Hchd1hI",
+        "author_name": "パンディ・リン",
+        "author_link": "https://www.youtube.com/@pterrim5538",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "axxwq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And here is a video demo of how it worked: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=yg91Hchd1hI"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "Robocoop2 was so last week. Robocoop3 is agentic and can explore and patch the runtime automatically. As *everything* is userspace, this includes fixing the UI.  Here is a video of me asking it to fix the close button icons.",
+    "files": [
+      {
+        "id": "F0AC9PU77B4",
+        "created": 1769971110,
+        "timestamp": 1769971110,
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U02E4DAQGSZ",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 13237141,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "name": "white_icon_ai.mp4",
+        "title": "white_icon_ai.mp4",
+        "is_transcription_region_supported": true,
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC9PU77B4-4d23dd78a9/white_icon_ai.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC9PU77B4-4d23dd78a9/white_icon_ai.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0AC9PU77B4/download/white_icon_ai.mp4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC9PU77B4-4d23dd78a9/file.m3u8?_xcb=905fa",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MTAzNDQ2OSxBVkVSQUdFLUJBTkRXSURUSD04MDM1MDIsQ09ERUNTPSJhdmMxLjY0MDAyOCxtcDRhLjQwLjUiLFJFU09MVVRJT049MTkyMHgxMDgwLEZSQU1FLVJBVEU9MjkuOTcwCmRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzNDaU5GV0ZRdFdDMU5SVVJKUVMxVFJWRlZSVTVEUlRveENpTkZXRlF0V0MxUVRFRlpURWxUVkMxVVdWQkZPbFpQUkFvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3UVVNNVVGVTNOMEkwTFRSa01qTmtaRGM0WVRrdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNREV1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTUVGRE9WQlZOemRDTkMwMFpESXpaR1EzT0dFNUwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREF5TG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpCQlF6bFFWVGMzUWpRdE5HUXlNMlJrTnpoaE9TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FVTTVVRlUzTjBJMExUUmtNak5rWkRjNFlUa3ZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURRdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01FRkRPVkJWTnpkQ05DMDBaREl6WkdRM09HRTVMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBMUxuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQkJRemxRVlRjM1FqUXROR1F5TTJSa056aGhPUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd05pNTBjd29qUlZoVVNVNUdPalF1TWpNNExBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdRVU01VUZVM04wSTBMVFJrTWpOa1pEYzRZVGt2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01EY3VkSE1LSTBWWVZDMVlMVVZPUkV4SlUxUUsK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC9PU77B4-4d23dd78a9/white_icon_ai_trans.mp4",
+        "duration_ms": 40273,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0AC9PU77B4-4d23dd78a9/white_icon_ai_thumb_video.jpeg",
+        "thumb_video_w": 1920,
+        "thumb_video_h": 1080,
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0AC9PU77B4/white_icon_ai.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0AC9PU77B4-03af846cc8",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U02E4DAQGSZ",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PbV6b",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Robocoop2 was so last week. Robocoop3 is agentic and can explore and patch the runtime automatically. As "
+              },
+              {
+                "type": "text",
+                "text": "everything",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is userspace, this includes fixing the UI.  Here is a video of me asking it to fix the close button icons."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1769971142.056149",
+    "client_msg_id": "9ce63840-db20-4376-baa1-9dbb760ff1d7",
+    "thread_ts": "1769971142.056149",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1770058772.941309",
+    "reply_users": [
+      "U06SS0DHZD1",
+      "U02E4DAQGSZ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "text": "Here is a game I made in my language beagle. It is using c interop with raylib for all the drawing. But you'll notice one cool thing, the pause and rewind. What is particularly cool to me about this feature is that the game wasn't designed with that in mind. Instead, on each frame I capture a delimited continuation and store them in a ring buffer. Now we can rewind through them and resume execution at any point in the program.\n\nThis is a small step towards some of the things in the <https://www.youtube.com/watch?v=72y2EC5fkcE> They seem to not be doing this exact strategy. I've considered reaching out to see if I can learn of the details of what they have going on. But as a flesh out more of the robust live coding stuff I want, I definitely think I could be a good amount of the way there.\n\nI also think without too much trouble, I could get to the bret victor style seeing the future. If the game has a simulation step separate from rendering, it should be possible to do that without too much work from the game.",
+    "files": [
+      {
+        "id": "F0ACNN5RW2D",
+        "created": 1769971616,
+        "timestamp": 1769971616,
+        "mimetype": "video/quicktime",
+        "filetype": "mov",
+        "pretty_type": "QuickTime Movie",
+        "user": "UK3LH8CF5",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 1250035,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "name": "Screen Recording 2026-01-28 at 4.05.47 PM.mov",
+        "title": "Screen Recording 2026-01-28 at 4.05.47 PM.mov",
+        "is_transcription_region_supported": true,
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACNN5RW2D-3b7760bafd/screen_recording_2026-01-28_at_4.05.47___pm.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACNN5RW2D-3b7760bafd/screen_recording_2026-01-28_at_4.05.47___pm.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0ACNN5RW2D/download/screen_recording_2026-01-28_at_4.05.47___pm.mov",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACNN5RW2D-3b7760bafd/file.m3u8?_xcb=0abad",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NTUyMTY3LEFWRVJBR0UtQkFORFdJRFRIPTUwMjQ2MCxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMzQweDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdRVU5PVGpWU1Z6SkVMVE5pTnpjMk1HSmhabVF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRUZEVGs0MVVsY3lSQzB6WWpjM05qQmlZV1prTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2TVM0eE5qZ3NDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakJCUTA1T05WSlhNa1F0TTJJM056WXdZbUZtWkM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVMVmd0UlU1RVRFbFRWQW89Cg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACNN5RW2D-3b7760bafd/screen_recording_2026-01-28_at_4.05.47___pm_trans.mp4",
+        "duration_ms": 13179,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACNN5RW2D-3b7760bafd/screen_recording_2026-01-28_at_4.05.47___pm_thumb_video.jpeg",
+        "thumb_video_w": 1736,
+        "thumb_video_h": 1400,
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0ACNN5RW2D/screen_recording_2026-01-28_at_4.05.47___pm.mov",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0ACNN5RW2D-fbb3657159",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UK3LH8CF5",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "53f/W",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here is a game I made in my language beagle. It is using c interop with raylib for all the drawing. But you'll notice one cool thing, the pause and rewind. What is particularly cool to me about this feature is that the game wasn't designed with that in mind. Instead, on each frame I capture a delimited continuation and store them in a ring buffer. Now we can rewind through them and resume execution at any point in the program.\n\nThis is a small step towards some of the things in the "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=72y2EC5fkcE"
+              },
+              {
+                "type": "text",
+                "text": " They seem to not be doing this exact strategy. I've considered reaching out to see if I can learn of the details of what they have going on. But as a flesh out more of the robust live coding stuff I want, I definitely think I could be a good amount of the way there.\n\nI also think without too much trouble, I could get to the bret victor style seeing the future. If the game has a simulation step separate from rendering, it should be possible to do that without too much work from the game."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1769973336.467879",
+    "client_msg_id": "23e2d010-6b74-49e6-999d-16659c0e05ca",
+    "thread_ts": "1769973336.467879",
+    "reply_count": 8,
+    "reply_users_count": 3,
+    "latest_reply": "1770192504.942049",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UK3LH8CF5",
+      "U08294YLWJH"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMQ6LR9NZ",
+          "U02E4DAQGSZ",
+          "U06SS0DHZD1",
+          "U0123H7JRDM",
+          "UA14TGLTC",
+          "UMV4B97GT",
+          "U06BUK2M2RH",
+          "UML4ZEKDK",
+          "U05UK5T7LPP"
+        ],
+        "count": 9
+      },
+      {
+        "name": "heart_eyes",
+        "users": [
+          "UMQ6LR9NZ",
+          "U02E4DAQGSZ",
+          "UMHG81CBH"
+        ],
+        "count": 3
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7",
+          "U08294YLWJH"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769973812.814199",
+    "client_msg_id": "EB7F6B75-4CBC-415D-A12F-1BCA6BF74983",
+    "text": "How crucial is the ring buffer? I imagine you could use some other structure (like a tree) without much difficulty, though perhaps with perf tradeoffs.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cKx1S",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How crucial is the ring buffer? I imagine you could use some other structure (like a tree) without much difficulty, though perhaps with perf tradeoffs"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UK3LH8CF5",
+    "type": "message",
+    "ts": "1769973952.846589",
+    "client_msg_id": "0e238d7b-5b8d-42f6-988c-48743482df04",
+    "text": "Like to do branching of timelines? Yeah, its a ring buffer only see I have a window of time I'm saving. Otherwise it is unbounded memory growth. One thing I did accidentally discover is that if that buffer is a persistent data structure, that results in unbounded memory growth, because I will hold onto past versions of it in the continuation, which in turn hold onto past versions.... So it is again unbounded memory growth",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t+peB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Like to do branching of timelines? Yeah, its a ring buffer only see I have a window of time I'm saving. Otherwise it is unbounded memory growth. One thing I did accidentally discover is that if that buffer is a persistent data structure, that results in unbounded memory growth, because I will hold onto past versions of it in the continuation, which in turn hold onto past versions.... So it is again unbounded memory growth"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769973987.151509",
+    "client_msg_id": "63C9E965-0BC7-4733-8CE3-32F461255694",
+    "text": "What's a little unbounded memory growth between friends.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jEM4V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What's a little unbounded memory growth between friends"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "slightly_smiling_face",
+        "users": [
+          "UK3LH8CF5"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UK3LH8CF5",
+    "type": "message",
+    "ts": "1769974070.977739",
+    "client_msg_id": "3b90aedd-0dea-4ce7-be13-967133054a41",
+    "text": "Got any interesting data structure in mind that I should try?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AnCGZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Got any interesting data structure in mind that I should try?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769974580.445079",
+    "client_msg_id": "1ACACF65-24C9-4F3C-A889-C41FB44B23AF",
+    "text": "Any tree. Branching history.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HPyAO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Any tree"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Branching history"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U06SS0DHZD1",
+    "type": "message",
+    "ts": "1769978434.950229",
+    "client_msg_id": "f5f47a13-c4dd-456d-9934-7c35034337bd",
+    "text": "AI loops fascinate me... Intuitively, this sort of AI based self-improvement should make the environment arbitrarily moldable... One could ask AI to turn this environment into almost anything (a game, a social network, a software tool). Change its appearance. Expand it with new capabilities... In reality AI, when left alone with larger tasks, still makes too many mistakes... I wonder if that's the only limiting factor now. The mistakes that we observe in agents... The AI's inability to identify common patterns &amp; simplify, to plan ahead, the lack of a design \"hunch\"... Because if that's the only problem, then it might just be fixable with better training data... (just posting random thoughts, not expecting any response, but would be curious of others' thoughts on this matter)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769971142.056149",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4fg8u",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "AI loops fascinate me... Intuitively, this sort of AI based self-improvement should make the environment arbitrarily moldable... One could ask AI to turn this environment into almost anything (a game, a social network, a software tool). Change its appearance. Expand it with new capabilities... In reality AI, when left alone with larger tasks, still makes too many mistakes... I wonder if that's the only limiting factor now. The mistakes that we observe in agents... The AI's inability to identify common patterns & simplify, to plan ahead, the lack of a design \"hunch\"... Because if that's the only problem, then it might just be fixable with better training data... (just posting random thoughts, not expecting any response, but would be curious of others' thoughts on this matter)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U02QC0PPER3",
+    "type": "message",
+    "ts": "1769980210.782039",
+    "client_msg_id": "1818b7f8-d07d-4077-b5b8-62e1753eaa1e",
+    "text": "I'll be unoriginal and cite the classic <https://en.wikipedia.org/wiki/Munching_square|Munching square>.  e.g. <https://www.shadertoy.com/view/Mtsyz2> (I do love the grayscale variants, but the B&amp;W shows the \"munching\" process best)\n\nEDIT: and the \\/ maze but now I see Kartik already mentioned it. [For more sophisticated maze algorithms, <http://www.mazesforprogrammers.com/> is great fun.]",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769361114.918999",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gACLc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'll be unoriginal and cite the classic "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Munching_square",
+                "text": "Munching square"
+              },
+              {
+                "type": "text",
+                "text": ".  e.g. "
+              },
+              {
+                "type": "link",
+                "url": "https://www.shadertoy.com/view/Mtsyz2"
+              },
+              {
+                "type": "text",
+                "text": " (I do love the grayscale variants, but the B&W shows the \"munching\" process best)\n\nEDIT: and the \\/ maze but now I see Kartik already mentioned it. [For more sophisticated maze algorithms, "
+              },
+              {
+                "type": "link",
+                "url": "http://www.mazesforprogrammers.com/"
+              },
+              {
+                "type": "text",
+                "text": " is great fun.]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "text": "",
+    "files": [
+      {
+        "id": "F0ACA40ATV0",
+        "created": 1769980618,
+        "timestamp": 1769980618,
+        "mimetype": "video/quicktime",
+        "filetype": "mov",
+        "pretty_type": "QuickTime Movie",
+        "user": "UK3LH8CF5",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 2379816,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "name": "Screen Recording 2026-02-01 at 4.14.56 PM.mov",
+        "title": "Screen Recording 2026-02-01 at 4.14.56 PM.mov",
+        "is_transcription_region_supported": true,
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/screen_recording_2026-02-01_at_4.14.56___pm.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/screen_recording_2026-02-01_at_4.14.56___pm.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0ACA40ATV0/download/screen_recording_2026-02-01_at_4.14.56___pm.mov",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/file.m3u8?_xcb=387da",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NTg2NzI1LEFWRVJBR0UtQkFORFdJRFRIPTUwNTUwNixDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMzQweDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdRVU5CTkRCQlZGWXdMVFEwWW1VNFltTXpOVEF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRUZEUVRRd1FWUldNQzAwTkdKbE9HSmpNelV3TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakJCUTBFME1FRlVWakF0TkRSaVpUaGlZek0xTUM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pVdU9EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3UVVOQk5EQkJWRll3TFRRMFltVTRZbU16TlRBdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWQzFZTFVWT1JFeEpVMVFLCg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/screen_recording_2026-02-01_at_4.14.56___pm_trans.mp4",
+        "duration_ms": 23823,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/screen_recording_2026-02-01_at_4.14.56___pm_thumb_video.jpeg",
+        "thumb_video_w": 1736,
+        "thumb_video_h": 1400,
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0ACA40ATV0/screen_recording_2026-02-01_at_4.14.56___pm.mov",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0ACA40ATV0-0bdbb48b57",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UK3LH8CF5",
+    "display_as_bot": false,
+    "type": "message",
+    "ts": "1769980633.034319",
+    "client_msg_id": "f8c7200a-45ac-4486-a436-050044adfbd0",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U02U0AS3J49",
+          "UP00ZLX6G",
+          "UMHG81CBH",
+          "U08294YLWJH",
+          "UML4ZEKDK"
+        ],
+        "count": 5
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7",
+          "U08294YLWJH"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U03C0DRJB8B"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "URKQXRCAC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769989994.870629",
+    "client_msg_id": "1148BD7C-FFBE-4273-99FB-67775C3269CD",
+    "text": "Coooooool",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bC/wy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Coooooool"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]
