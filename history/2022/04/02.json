@@ -1,0 +1,333 @@
+[
+  {
+    "client_msg_id": "930f7649-4693-4316-8102-f0881b0b1594",
+    "type": "message",
+    "text": "Hi everyone, I’m the founder of <https://causal.app> and we just raised our <https://tech.eu/2022/03/25/keeping-it-casual-london-based-platform-raises-20-million-to-replace-clunky-and-outdated-traditional-spreadsheets|series A>. We’re building a better number crunching tool to replace spreadsheets (move away from thinking in terms of cells and rather think in terms of higher level concepts like in BI tools). We want to help people make better decisions with numbers. As you can imagine, we have to solve lots of difficult product challenges and need help with design, engineering, … If you are interested or know anyone who might be please email me at <mailto:lukas@causal.app|lukas@causal.app>",
+    "user": "U039W8C4PK6",
+    "ts": "1648888402.144799",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9/RV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi everyone, I’m the founder of "
+              },
+              {
+                "type": "link",
+                "url": "https://causal.app"
+              },
+              {
+                "type": "text",
+                "text": " and we just raised our "
+              },
+              {
+                "type": "link",
+                "url": "https://tech.eu/2022/03/25/keeping-it-casual-london-based-platform-raises-20-million-to-replace-clunky-and-outdated-traditional-spreadsheets",
+                "text": "series A"
+              },
+              {
+                "type": "text",
+                "text": ". We’re building a better number crunching tool to replace spreadsheets (move away from thinking in terms of cells and rather think in terms of higher level concepts like in BI tools). We want to help people make better decisions with numbers. As you can imagine, we have to solve lots of difficult product challenges and need help with design, engineering, … If you are interested or know anyone who might be please email me at "
+              },
+              {
+                "type": "link",
+                "url": "mailto:lukas@causal.app",
+                "text": "lukas@causal.app"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648888402.144799",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1648972481.015689",
+    "reply_users": [
+      "U01FAFPDFL4",
+      "UF6RLAL7J"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "wave",
+        "users": [
+          "UMV4B97GT",
+          "U01JNTE35QS",
+          "U01P8U8FZPH",
+          "U013ZLJARC7"
+        ],
+        "count": 4
+      },
+      {
+        "name": "the_horns",
+        "users": [
+          "UF6RLAL7J"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U035QJ14NN9"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "type": "message",
+    "text": "Good question about production errors... and timely. I had an issue popup. I thought the fact I can debug and step through the server code would be enough, but retrospectively obvious in hindsight, of course that does not help for those heisenberg bugs that happen in production for unexpected situations. I had just such an issue occur.\n\nAnyway, the bug was that the server would break against malformed requests. A classic case of not checking my preconditions. It was quite easy to generate a malformed request as anyone who clicked the API link in the backend notebook source would generate such a request. But all I saw was the server would break after a while randomly. Turns out even though I had Sentry setup, it does not notify *caught* exceptions and Observable's runtime catches errors.\n\nTo find the error I resorted to exporting a notebooks state using flatdata. I had to create a method for exporting a notebooks state first (<https://observablehq.com/@tomlarkworthy/notebook-snapshot>)\n\nOnce I could see the cell \"validatedConfig\" was unexpectedly throwing it was fairly obvious what the programming mistake was. Then it became obvious why Sentry was not detecting it. So I created a generic catchAll method that creates a global notebook error handler (<https://observablehq.com/@tomlarkworthy/catch-all>), and from there I could upgrade my Sentry integration to capture notebook runtime exceptions too (<https://observablehq.com/@endpointservices/sentry>)\n\nSo now those random errors in prod *should* be picked up by sentry, and sentry is awesome because it includes the context and line numbers (pictured)\n\nSo now the answer to detecting bugs in prod is to just use Sentry! What's cool about using a browser as the backend is that a single Sentry installation covers both frontend AND backend monitoring. That same sentry setup is present and active regardless of whether using the whitelabel domain (<https://thetarot.online>) the front end notebook (<https://observablehq.com/@tomlarkworthy/tarot>) the backend notebook (<https://observablehq.com/@tomlarkworthy/tarot-backend>), the webcode API endpoint (<https://webcode.run/observablehq.com/@tomlarkworthy/tarot-backend;api>) or the application embedded in Medium (<https://medium.com/@tom-larkworthy/gpt-3-knows-tarot-385d935662a3>). You integrate a single state-of-the-art production monitoring solution and cover all bases with a single tool.",
+    "files": [
+      {
+        "id": "F039RF11C21",
+        "created": 1648913848,
+        "timestamp": 1648913848,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U02E4DAQGSZ",
+        "editable": false,
+        "size": 258010,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F039RF11C21/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F039RF11C21/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 103,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 137,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 206,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 228,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 274,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F039RF11C21-76f1a9f046/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 292,
+        "image_exif_rotation": 1,
+        "original_w": 1688,
+        "original_h": 482,
+        "thumb_tiny": "AwANADDR4Jzn9aXP40hXJ60bfegB2aKbtPrRtPrQA7NFJg+v6UY96AP/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U02E4DAQGSZ/F039RF11C21/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F039RF11C21-2b1b75d224",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "U02E4DAQGSZ",
+    "display_as_bot": false,
+    "ts": "1648914344.453699",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "n8w",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Good question about production errors... and timely. I had an issue popup. I thought the fact I can debug and step through the server code would be enough, but retrospectively obvious in hindsight, of course that does not help for those heisenberg bugs that happen in production for unexpected situations. I had just such an issue occur.\n\nAnyway, the bug was that the server would break against malformed requests. A classic case of not checking my preconditions. It was quite easy to generate a malformed request as anyone who clicked the API link in the backend notebook source would generate such a request. But all I saw was the server would break after a while randomly. Turns out even though I had Sentry setup, it does not notify "
+              },
+              {
+                "type": "text",
+                "text": "caught",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " exceptions and Observable's runtime catches errors.\n\nTo find the error I resorted to exporting a notebooks state using flatdata. I had to create a method for exporting a notebooks state first ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/notebook-snapshot"
+              },
+              {
+                "type": "text",
+                "text": ")\n\nOnce I could see the cell \"validatedConfig\" was unexpectedly throwing it was fairly obvious what the programming mistake was. Then it became obvious why Sentry was not detecting it. So I created a generic catchAll method that creates a global notebook error handler ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/catch-all"
+              },
+              {
+                "type": "text",
+                "text": "), and from there I could upgrade my Sentry integration to capture notebook runtime exceptions too ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@endpointservices/sentry"
+              },
+              {
+                "type": "text",
+                "text": ")\n\nSo now those random errors in prod "
+              },
+              {
+                "type": "text",
+                "text": "should",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " be picked up by sentry, and sentry is awesome because it includes the context and line numbers (pictured)\n\nSo now the answer to detecting bugs in prod is to just use Sentry! What's cool about using a browser as the backend is that a single Sentry installation covers both frontend AND backend monitoring. That same sentry setup is present and active regardless of whether using the whitelabel domain ("
+              },
+              {
+                "type": "link",
+                "url": "https://thetarot.online"
+              },
+              {
+                "type": "text",
+                "text": ") the front end notebook ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/tarot"
+              },
+              {
+                "type": "text",
+                "text": ") the backend notebook ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/tarot-backend"
+              },
+              {
+                "type": "text",
+                "text": "), the webcode API endpoint ("
+              },
+              {
+                "type": "link",
+                "url": "https://webcode.run/observablehq.com/@tomlarkworthy/tarot-backend;api"
+              },
+              {
+                "type": "text",
+                "text": ") or the application embedded in Medium ("
+              },
+              {
+                "type": "link",
+                "url": "https://medium.com/@tom-larkworthy/gpt-3-knows-tarot-385d935662a3"
+              },
+              {
+                "type": "text",
+                "text": "). You integrate a single state-of-the-art production monitoring solution and cover all bases with a single tool."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "a7a7c414-1542-4604-b94c-683f365c1e53",
+    "thread_ts": "1647859090.612199",
+    "parent_user_id": "U02E4DAQGSZ",
+    "subtype": "thread_broadcast",
+    "root": {
+      "client_msg_id": "618c9d70-9261-424a-9d18-7e7e664cb208",
+      "type": "message",
+      "text": "So the AI tarot reading app is done: <https://thetarot.online/index.html>\nIt has been programmed entirely within Observable. Production traffic is routed through the developers notebook if you have it open, so you can observe the system live. I exploit observables dataflow so each step of the processing pipeline is cached, so you can see exactly where a problem occurred, and thanks to hot code reload, you can fix a bug and have the pipeline continue without rerunning prior steps allowing easy iterative programming workflows. Of course, because Observable notebooks are executing Javascript, you can attach a debugger too (even programmatically)\nOne click forkable, MIT licensed.\n\nThis is what I think the future of software development should look like. But I am struggling to communicate this well. The idea is to make cloud programming feel local, to exclusively test in prod, because when you are hitting third party APIs its a waste of effort mocking a staging environment, or a local environment. I want to remove the thick layers of indirection in the development process that no longer make sense. Forget git, forget toolchains, just straight to prod using modern Javascript, debugged with the authoritative debuggers built into browsers.",
+      "user": "U02E4DAQGSZ",
+      "ts": "1647859090.612199",
+      "team": "T5TCAFTA9",
+      "edited": {
+        "user": "U02E4DAQGSZ",
+        "ts": "1647859459.000000"
+      },
+      "attachments": [
+        {
+          "from_url": "https://thetarot.online/index.html",
+          "image_url": "https://storage.googleapis.com/larkworthy-dfb11.appspot.com/%40tomlarkworthy/tarot-backend/images/-MyWC6L4ZE1HtVWM1SRc",
+          "image_width": 492,
+          "image_height": 250,
+          "image_bytes": 283204,
+          "id": 1,
+          "original_url": "https://thetarot.online/index.html",
+          "fallback": "Tarot Reader",
+          "text": "Ask a question for the cards",
+          "title": "Tarot Reader",
+          "title_link": "https://thetarot.online/index.html",
+          "service_name": "thetarot.online"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "A99",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "So the AI tarot reading app is done: "
+                },
+                {
+                  "type": "link",
+                  "url": "https://thetarot.online/index.html"
+                },
+                {
+                  "type": "text",
+                  "text": "\nIt has been programmed entirely within Observable. Production traffic is routed through the developers notebook if you have it open, so you can observe the system live. I exploit observables dataflow so each step of the processing pipeline is cached, so you can see exactly where a problem occurred, and thanks to hot code reload, you can fix a bug and have the pipeline continue without rerunning prior steps allowing easy iterative programming workflows. Of course, because Observable notebooks are executing Javascript, you can attach a debugger too (even programmatically)\nOne click forkable, MIT licensed.\n\nThis is what I think the future of software development should look like. But I am struggling to communicate this well. The idea is to make cloud programming feel local, to exclusively test in prod, because when you are hitting third party APIs its a waste of effort mocking a staging environment, or a local environment. I want to remove the thick layers of indirection in the development process that no longer make sense. Forget git, forget toolchains, just straight to prod using modern Javascript, debugged with the authoritative debuggers built into browsers."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "thread_ts": "1647859090.612199",
+      "reply_count": 14,
+      "reply_users_count": 5,
+      "latest_reply": "1648917094.583549",
+      "reply_users": [
+        "U01HKV85Y1J",
+        "U02E4DAQGSZ",
+        "UFPPABQ7P",
+        "U01FAFPDFL4",
+        "UCUSW7WVD"
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]
