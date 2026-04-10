@@ -1,0 +1,657 @@
+[
+  {
+    "client_msg_id": "52e4566e-6dee-4ce7-bcd2-2fd0731a667b",
+    "type": "message",
+    "text": "<https://ar5iv.labs.arxiv.org/html/2212.06094|Prompting Is Programming: A Query Language For Large Language Models>\n\nwe present the novel idea of Language Model Programming (LMP). LMP generalizes language model prompting from pure text prompts to an intuitive combination of text prompting and scripting. Additionally, LMP allows constraints to be specified over the language model output. This enables easy adaption to many tasks, while abstracting language model internals and providing high-level semantics.\n\nTo enable LMP, we implement LMQL (short for Language Model Query Language), which leverages the constraints and control flow from an LMP prompt to generate an efficient inference procedure that minimizes the number of expensive calls to the underlying language model.\n\nWe show that LMQL can capture a wide range of state-of-the-art prompting methods in an intuitive way, especially facilitating interactive flows that are challenging to implement with existing high-level APIs. Our evaluation shows that we retain or increase the accuracy on several downstream tasks, while also significantly reducing the required amount of computation or cost in the case of pay-to-use APIs (13-85% cost savings).\n\n<https://arxiv.org/pdf/2212.06094.pdf|PDF Version>",
+    "user": "UBN9AFS0N",
+    "ts": "1675076566.637939",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jrGS1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://ar5iv.labs.arxiv.org/html/2212.06094",
+                "text": "Prompting Is Programming: A Query Language For Large Language Models"
+              },
+              {
+                "type": "text",
+                "text": "\n\nwe present the novel idea of Language Model Programming (LMP). LMP generalizes language model prompting from pure text prompts to an intuitive combination of text prompting and scripting. Additionally, LMP allows constraints to be specified over the language model output. This enables easy adaption to many tasks, while abstracting language model internals and providing high-level semantics.\n\nTo enable LMP, we implement LMQL (short for Language Model Query Language), which leverages the constraints and control flow from an LMP prompt to generate an efficient inference procedure that minimizes the number of expensive calls to the underlying language model.\n\nWe show that LMQL can capture a wide range of state-of-the-art prompting methods in an intuitive way, especially facilitating interactive flows that are challenging to implement with existing high-level APIs. Our evaluation shows that we retain or increase the accuracy on several downstream tasks, while also significantly reducing the required amount of computation or cost in the case of pay-to-use APIs (13-85% cost savings).\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://arxiv.org/pdf/2212.06094.pdf",
+                "text": "PDF Version"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UPVBV34EL",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "type": "message",
+    "subtype": "thread_broadcast",
+    "text": "Just finished listening…great!\n\nSome thoughts on the whole “drawing the interface” vs. “building a machine arranging widgets using a grammar”:\n\n1. Widgets vs. drawn UI\nWe used to actually be much more in the “draw the interface” space, basically Views that draw what they have to display. Widgets were added later on for standard interactive elements such as text boxes and sliders etc.\n\nAnd there was a clear distinction, in that for most applications, the dynamic content (document) would be drawn dynamically using a custom view, whereas ancillary/auxiliary information (inspectors etc.) would be fixed layouts of widgets, which might be dynamically enabled or disabled.\n\nBut the whole structure of the UI was largely fixed (dynamic content inside the views + widgets in static layouts).\n\nAlthough there was a bit of a trend towards widgets, that trend really took off with the Web and the iPhone.\n\nWith the iPhone, the content both got more dynamic, partly due to latency hiding with animations, partly due to the small screen making it necessary to hide unused UI, rather than juts disable it, and at the same time our tooling got more static, with UIViews that have dynamic content discouraged and preference given to static layers that are moved in and out and around.\n\nWith the DOM, you really don’t have many options except to change the structure if you want dynamic content (Canvas notwithstanding).\n\nSo we’ve been moving more and more towards a situation where even purely informational applications display their information via these static/rigid widget sets, at the same time that they information got more dynamic.",
+    "user": "U017TE5R09M",
+    "ts": "1675090374.403969",
+    "thread_ts": "1670554845.886979",
+    "root": {
+      "client_msg_id": "b4e7257c-3bee-43b0-a502-e4d8c6b9ebe2",
+      "type": "message",
+      "text": "Future of Coding • Episode 60\nBret Victor • Magic Ink\n:link: <https://futureofcoding.org/episodes/060>\n\nHey, ya'll ever hear of this guy? He posts some _wild_ stuff. Feels like it might be relevant to the folks here. Maybe a little fringe. For instance, he thinks that software could be — get this — _better!_ You might be surprised to learn that I also think software could be better. Radical idea, yes, but it feels like it's finally time for us to take the idea seriously.\n\nNext month, we're reading Peter Naur's Programming as Theory Building, with a little bit of Gilbert Ryle's The Concept of Mind as background.",
+      "user": "UC2A2ARPT",
+      "ts": "1670554845.886979",
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "Ii=70",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "Future of Coding • Episode 60\nBret Victor • Magic Ink\n"
+                },
+                {
+                  "type": "emoji",
+                  "name": "link",
+                  "unicode": "1f517"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "url": "https://futureofcoding.org/episodes/060"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\nHey, ya'll ever hear of this guy? He posts some "
+                },
+                {
+                  "type": "text",
+                  "text": "wild ",
+                  "style": {
+                    "italic": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "stuff. Feels like it might be relevant to the folks here. Maybe a little fringe. For instance, he thinks that software could be — get this — "
+                },
+                {
+                  "type": "text",
+                  "text": "better!",
+                  "style": {
+                    "italic": true
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " You might be surprised to learn that I also think software could be better. Radical idea, yes, but it feels like it's finally time for us to take the idea seriously.\n\nNext month, we're reading Peter Naur's Programming as Theory Building, with a little bit of Gilbert Ryle's The Concept of Mind as background."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "team": "T5TCAFTA9",
+      "thread_ts": "1670554845.886979",
+      "reply_count": 6,
+      "reply_users_count": 3,
+      "latest_reply": "1675098024.595069",
+      "reply_users": [
+        "U03CEGR3HSL",
+        "UA14TGLTC",
+        "U017TE5R09M"
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qSuR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just finished listening…great!\n\nSome thoughts on the whole “drawing the interface” vs. “building a machine arranging widgets using a grammar”:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Widgets vs. drawn UI"
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWe used to actually be much more in the “draw the interface” space, basically Views that draw what they have to display. Widgets were added later on for standard interactive elements such as text boxes and sliders etc.\n\nAnd there was a clear distinction, in that for most applications, the dynamic content (document) would be drawn dynamically using a custom view, whereas ancillary/auxiliary information (inspectors etc.) would be fixed layouts of widgets, which might be dynamically enabled or disabled.\n\nBut the whole structure of the UI was largely fixed (dynamic content inside the views + widgets in static layouts).\n\nAlthough there was a bit of a trend towards widgets, that trend really took off with the Web and the iPhone.\n\nWith the iPhone, the content both got more dynamic, partly due to latency hiding with animations, partly due to the small screen making it necessary to hide unused UI, rather than juts disable it, and at the same time our tooling got more static, with UIViews that have dynamic content discouraged and preference given to static layers that are moved in and out and around.\n\nWith the DOM, you really don’t have many options except to change the structure if you want dynamic content (Canvas notwithstanding).\n\nSo we’ve been moving more and more towards a situation where even purely informational applications display their information via these static/rigid widget sets, at the same time that they information got more dynamic."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "58bb16fe-757c-4c15-814c-575eff680364",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "1ddf0d1a-beb6-41e8-b4b0-ddfb1b6578fe",
+    "type": "message",
+    "text": "Naming is hard:\n\nWith the newsletter looking for its place under the Future of Coding Brand Conglomerate :tm: I tried to give each feature a consistent place and name, this is the current state of affairs:\n\n• Newsletter: <https://newsletter.futureofcoding.org/>\n• Search: <https://search.futureofcoding.org/>\n• History Search: <https://history.futureofcoding.org/>\n• Link Search: <https://links.futureofcoding.org/>\nNow http redirects to https automatically\n\n:loudspeaker: *Looking for feedback*, let me know what you think, I would like to start linking more stuff to the <http://futureofcoding.org|futureofcoding.org> domain instead of github and tinyletter but for that I need stable links that don't break",
+    "user": "UBN9AFS0N",
+    "ts": "1675101488.081879",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Yf5Bw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Naming is hard:\n\nWith the newsletter looking for its place under the Future of Coding Brand Conglomerate "
+              },
+              {
+                "type": "emoji",
+                "name": "tm",
+                "unicode": "2122-fe0f"
+              },
+              {
+                "type": "text",
+                "text": " I tried to give each feature a consistent place and name, this is the current state of affairs:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Newsletter: "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://newsletter.futureofcoding.org/"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Search: "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://search.futureofcoding.org/"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "History Search: "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://history.futureofcoding.org/"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Link Search: "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://links.futureofcoding.org/"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nNow http redirects to https automatically\n\n"
+              },
+              {
+                "type": "emoji",
+                "name": "loudspeaker",
+                "unicode": "1f4e2"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "Looking for feedback",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", let me know what you think, I would like to start linking more stuff to the "
+              },
+              {
+                "type": "link",
+                "url": "http://futureofcoding.org",
+                "text": "futureofcoding.org"
+              },
+              {
+                "type": "text",
+                "text": " domain instead of github and tinyletter but for that I need stable links that don't break"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UBN9AFS0N",
+      "ts": "1675106943.000000"
+    },
+    "thread_ts": "1675101488.081879",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1675106119.668909",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UBN9AFS0N"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1675106119.668909",
+    "reactions": [
+      {
+        "name": "rainbow",
+        "users": [
+          "USH01JEDQ",
+          "UA14TGLTC",
+          "U023V63MF6V"
+        ],
+        "count": 3
+      },
+      {
+        "name": "tada",
+        "users": [
+          "U0123H7JRDM",
+          "U03KTCHFH3L"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "DC3B71BF-0583-435C-9970-F32E1B6F7E58",
+    "type": "message",
+    "text": "Has anyone read \"compilers principles techniques and tools\" and/or \"modern compiler design\"? Can you recommend one them or another book about the subject? I am getting some experience building compilers currently and the last year or so, but I am still rather new to it and looking for some good reference to help me grow",
+    "user": "U0123H7JRDM",
+    "ts": "1675102505.951319",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "M2T",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Has anyone read \"compilers principles techniques and tools\" and/or \"modern compiler design\"? Can you recommend one them or another book about the subject? I am getting some experience building compilers "
+              },
+              {
+                "type": "text",
+                "text": "c"
+              },
+              {
+                "type": "text",
+                "text": "urrently and the last year or so, but I am still rather new to it and looking for some good reference to help me grow"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1675102505.951319",
+    "reply_count": 17,
+    "reply_users_count": 8,
+    "latest_reply": "1675268972.956809",
+    "reply_users": [
+      "UK3LH8CF5",
+      "UBN9AFS0N",
+      "U0123H7JRDM",
+      "U03R0B9U1GD",
+      "U015TBQ2091",
+      "U013ZLJARC7",
+      "UA14TGLTC",
+      "UM7034QUQ"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1675268972.956809",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "cf12a0a0-bc92-4254-8c7b-9244226cddf5",
+    "type": "message",
+    "text": "The link search tool is neat. I've now set up an A record for `<http://links.futureofcoding.org|links.futureofcoding.org>`, if you want it.",
+    "user": "UC2A2ARPT",
+    "ts": "1675105062.567219",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ardf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The link search tool is neat. I've now set up an A record for "
+              },
+              {
+                "type": "link",
+                "url": "http://links.futureofcoding.org",
+                "text": "links.futureofcoding.org",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", if you want it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1675101488.081879",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "99e254f9-d7eb-4f1e-923a-03c82ebe63ee",
+    "type": "message",
+    "text": "The dragon book is a classic that is often recommended. I personally haven't read it. I hear most people like it as a reference. A book I have read (a good chunk of) that I can highly recommend is crafting interpreters. While on the face it isn't about compilation, the second half of the book you compile to a bytecode vm that you build.\n\nMy advice is to look for books where most of the book is not spent in parsing. For some reason, there is an obsession in compiler books with parsing. It is usually not that important and is such a small part of the language.\n\nOne book I just ordered but haven't read yet that looks really nice is Engineering A Compiler.\n\nAlso happy to chat about compilers anytime. I'm relatively new to them as well, but now working on a JIT compiler in my day job, I'm learning a lot faster.",
+    "user": "UK3LH8CF5",
+    "ts": "1675105384.117289",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VNvoN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The dragon book is a classic that is often recommended. I personally haven't read it. I hear most people like it as a reference. A book I have read (a good chunk of) that I can highly recommend is crafting interpreters. While on the face it isn't about compilation, the second half of the book you compile to a bytecode vm that you build.\n\nMy advice is to look for books where most of the book is not spent in parsing. For some reason, there is an obsession in compiler books with parsing. It is usually not that important and is such a small part of the language.\n\nOne book I just ordered but haven't read yet that looks really nice is Engineering A Compiler.\n\nAlso happy to chat about compilers anytime. I'm relatively new to them as well, but now working on a JIT compiler in my day job, I'm learning a lot faster."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1675102505.951319",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "61104520-3626-44bc-aa21-8e8ff0763fe2",
+    "type": "message",
+    "text": "sure! :smile:",
+    "user": "UBN9AFS0N",
+    "ts": "1675106119.668909",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ra7wW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "sure! "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1675101488.081879",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "309cf82c-acb8-4fd0-b62f-40b0a8942cc8",
+    "type": "message",
+    "text": "some here may be useful: <https://lists.eatonphil.com/compilers-and-interpreters.html>",
+    "user": "UBN9AFS0N",
+    "ts": "1675106157.417779",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NAFh1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "some here may be useful: "
+              },
+              {
+                "type": "link",
+                "url": "https://lists.eatonphil.com/compilers-and-interpreters.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://lists.eatonphil.com/compilers-and-interpreters.html",
+        "id": 1,
+        "original_url": "https://lists.eatonphil.com/compilers-and-interpreters.html",
+        "fallback": "Favorite compiler and interpreter resources",
+        "text": "Favorite compiler and interpreter resources",
+        "title": "Favorite compiler and interpreter resources",
+        "title_link": "https://lists.eatonphil.com/compilers-and-interpreters.html",
+        "service_name": "lists.eatonphil.com"
+      }
+    ],
+    "thread_ts": "1675102505.951319",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "7A15DC50-B398-4072-8E4F-1BAF4B420360",
+    "type": "message",
+    "text": "Thanks, that sounds like a good book (crafting interpreters) and I've ordered it. I've also saw Engineering a Compiler and curious about your findings. For sure interesting to have a chat about compilers in a video call , where are you located? (I am a bit busy because we're moving through a new house this month here in the Netherlands). I only have a big chunk of friday and the saturday and sunday early mornings to work on my project .. so working on a jit compiler at work full-time is very nice I can imagine for sure!",
+    "user": "U0123H7JRDM",
+    "ts": "1675106344.812669",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DVP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks, that sounds like a good book "
+              },
+              {
+                "type": "text",
+                "text": "("
+              },
+              {
+                "type": "text",
+                "text": "crafting interpreters) and I've ordered it. I've also saw Engineering a Compiler and curious about your findings. For sure interesting to have a chat about compilers in a video call , where are you located? (I am a bit busy because we're moving through a new house this month here in the Netherlands). I only have a big chunk of friday and the saturday and sunday early mornings to work on my project .. so working on a jit compiler at work "
+              },
+              {
+                "type": "text",
+                "text": "f"
+              },
+              {
+                "type": "text",
+                "text": "ull-time is very nice I can imagine for sure!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1675102505.951319",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "8926bfdb-6c49-4ce0-9489-707113a02047",
+    "type": "message",
+    "text": "I've implemented Effect handlers in my language <https://vimeo.com/794219638>\nThis is now the whole feature set I wanted to version 2 of my language. Now all that's left is to actually use it",
+    "user": "U03LMRE6MQE",
+    "ts": "1675109516.195169",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dX7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've implemented Effect handlers in my language "
+              },
+              {
+                "type": "link",
+                "url": "https://vimeo.com/794219638"
+              },
+              {
+                "type": "text",
+                "text": "\nThis is now the whole feature set I wanted to version 2 of my language. Now all that's left is to actually use it"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://vimeo.com/794219638",
+        "video_html": "<iframe src=\"https://player.vimeo.com/video/794219638?h=61d39dcf1b&amp;autoplay=1&amp;app_id=122963\" width=\"400\" height=\"225\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen title=\"30/01/2023, Effect Handlers\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "thumb_url": "https://i.vimeocdn.com/video/1599338787-c2856cb7a02d3d82fec9caf234f9b3dda832ff93849d29b09ca293d24a252b66-d_295x166",
+        "thumb_width": 295,
+        "thumb_height": 166,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/vimeo.png",
+        "id": 1,
+        "original_url": "https://vimeo.com/794219638",
+        "fallback": "Vimeo Video: 30/01/2023, Effect Handlers",
+        "title": "30/01/2023, Effect Handlers",
+        "title_link": "https://vimeo.com/794219638",
+        "author_name": "crowdhailer",
+        "author_link": "https://vimeo.com/crowdhailer",
+        "service_name": "Vimeo",
+        "service_url": "https://vimeo.com/"
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]
