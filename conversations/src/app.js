@@ -4,7 +4,6 @@ import {
   getComponents,
   Message,
   Messages,
-  PlainViewer,
   User,
 } from "./components.js";
 import { nowDayOffset } from "./date.js";
@@ -20,7 +19,6 @@ function parseParams() {
   const showReactions = params.get("show-reactions") !== "false";
   const showAttachments = params.get("show-attachments") !== "false";
   const showChannel = params.get("show-channel") !== "false";
-  const isPlainMode = params.get("plain-mode") === "true";
   return {
     fromDate,
     toDate,
@@ -29,21 +27,12 @@ function parseParams() {
     showReactions,
     showAttachments,
     showChannel,
-    isPlainMode,
   };
 }
 
 async function main() {
-  const {
-    fromDate,
-    toDate,
-    selected,
-    showReplies,
-    showReactions,
-    showAttachments,
-    showChannel,
-    isPlainMode,
-  } = parseParams();
+  const { fromDate, toDate, selected, showReplies, showReactions, showAttachments, showChannel } =
+    parseParams();
 
   const fetcher = httpFetcher("../history");
   const users = await fetcher.fetchUsers();
@@ -111,9 +100,7 @@ async function main() {
   items.sort((a, b) => a.date - b.date);
   const messages = Messages.make({ items });
 
-  let rootState = isPlainMode
-    ? PlainViewer.make({ messages })
-    : ConversationsViewer.make({ messages, activeMessage });
+  let rootState = ConversationsViewer.make({ messages, activeMessage });
   if (!showReplies) {
     rootState = rootState.setShowReplies(false);
   }

@@ -39,35 +39,6 @@ export const Messages = component({
       </div>
     </div>
   </div>`,
-  views: {
-    plain: html`<div>
-      <x render-each=".items"></x>
-    </div>`,
-  },
-});
-
-export const PlainViewer = component({
-  name: "PlainViewer",
-  fields: {
-    messages: Messages.make(),
-  },
-  methods: {
-    setShowReplies(v) {
-      return this.updateMessages((m) => m.setShowReplies(v));
-    },
-    setShowReactions(v) {
-      return this.updateMessages((m) => m.setShowReactions(v));
-    },
-    setShowAttachments(v) {
-      return this.updateMessages((m) => m.setShowAttachments(v));
-    },
-    setShowChannel(v) {
-      return this.updateMessages((m) => m.setShowChannel(v));
-    },
-  },
-  view: html`<section @push-view="'plain'">
-    <x render=".messages"></x>
-  </section> `,
 });
 
 export const ConversationsViewer = component({
@@ -369,21 +340,6 @@ export const Message = component({
       <x render-each=".replies"></x>
     </div>
   </section>`,
-  views: {
-    plain: html`<section>
-      <h3><x render=".author"></x></h3>
-      <p>
-        <a :href=".formatMessagePermalink">
-          🧵️
-          <span @text=".repliesCountLabel" @hide=".repliesIsEmpty"></span>
-          <span @text=".reactionsCountLabel" @hide=".reactionsIsEmpty"></span>
-          <span @text=".filesCountLabel" @hide=".filesIsEmpty"></span>
-          @ <span @text=".formatDisplayDate"></span
-        ></a>
-      </p>
-      <x render=".body"></x>
-    </section>`,
-  },
 });
 
 export const User = component({
@@ -397,7 +353,6 @@ export const User = component({
   },
   view: html`<span class="font-bold" :title=".name" @text=".realName"></span>`,
   views: {
-    plain: html`<strong @text=".realName"></strong>`,
     handle: html`<span
       class="badge badge-primary before:content-['@']"
       @text=".realName"
@@ -416,7 +371,6 @@ export const Channel = component({
   },
   view: html`<span class="font-bold" @text=".name"></span>`,
   views: {
-    plain: html`<strong @text=".name"></strong>`,
     handle: html`<span
       class="badge badge-outline badge-primary before:content-['#']"
       @text=".name"
@@ -765,11 +719,6 @@ export const RichTextQuote = component({
   view: html`<div class="border-l-4 border-gray-500 pl-3 mb-2">
     <x render-each=".elements"></x>
   </div>`,
-  views: {
-    plain: html`<blockquote>
-      <x render-each=".elements"></x>
-    </blockquote>`,
-  },
 });
 
 export const RichTextPreformatted = component({
@@ -783,11 +732,6 @@ export const RichTextPreformatted = component({
   view: html`<div class="border-1 border-gray-500 p-3 my-3 font-mono text-sm">
     <x render-each=".elements"></x>
   </div>`,
-  views: {
-    plain: html`<pre>
-    <x render-each=".elements"></x>
-    </pre>`,
-  },
 });
 
 export const RichTextList = component({
@@ -814,14 +758,6 @@ export const RichTextList = component({
   view: html`<ul :class="$className">
     <li @each=".elements"><x render-it></x></li>
   </ul>`,
-  views: {
-    plain: html`<ul @show=".isBullet">
-        <li @each=".elements"><x render-it></x></li>
-      </ul>
-      <ol @hide=".isBullet">
-        <li @each=".elements"><x render-it></x></li>
-      </ol>`,
-  },
 });
 
 export const Link = component({
@@ -838,9 +774,6 @@ export const Link = component({
     :href=".url"
     @text=".text"
   ></a>`,
-  views: {
-    plain: html`<a :href=".url" @text=".text"></a>`,
-  },
 });
 
 export const NewLine = component({
@@ -916,14 +849,10 @@ export const Text = component({
     :class="whitespace-pre-wrap {$className}"
     @text=".text"
   ></span>`,
-  views: {
-    plain: html`<span :style="$inlineStyle" @text=".text"></span>`,
-  },
 });
 
 export function getComponents() {
   return [
-    PlainViewer,
     ConversationsViewer,
     Message,
     Messages,
