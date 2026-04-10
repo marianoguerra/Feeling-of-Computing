@@ -1,0 +1,321 @@
+[
+  {
+    "client_msg_id": "13D9ECAF-20B4-4601-8156-262DF9C55D6D",
+    "type": "message",
+    "text": "Just wanted to shout out that <#C5T9GPWFL|thinking-together> has been _excellent_ lately. Y'all are doing a wonderful job bringing deep discussion prompts and exploring the whole space in the replies.",
+    "user": "UC2A2ARPT",
+    "ts": "1689388800.898459",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QU/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just wanted to shout out that "
+              },
+              {
+                "type": "channel",
+                "channel_id": "C5T9GPWFL"
+              },
+              {
+                "type": "text",
+                "text": " has been "
+              },
+              {
+                "type": "text",
+                "text": "excellent ",
+                "style": {
+                  "bold": false,
+                  "italic": true,
+                  "strike": false
+                }
+              },
+              {
+                "type": "text",
+                "text": "lately"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Y'all are doing a wonderful job bringing deep discussion prompts and exploring the whole space in the replies"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMQ6LR9NZ",
+          "UCUSW7WVD",
+          "U03LJBR6THT",
+          "U05F1NMU93M"
+        ],
+        "count": 4
+      },
+      {
+        "name": "point_left",
+        "users": [
+          "U02B6FQKZK8"
+        ],
+        "count": 1
+      },
+      {
+        "name": "100",
+        "users": [
+          "U04E5QAD6DD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "32c0afa1-8c37-4570-81e4-6f2fe2acfb7c",
+    "type": "message",
+    "text": "Just for clarification - is the idea that the LLM can be used as a sort of router?",
+    "user": "U05FZS91DM2",
+    "ts": "1689389586.939669",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "E+M2O",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just for clarification - is the idea that the LLM can be used as a sort of router?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689369045.712599",
+    "parent_user_id": "U05GSC0B4A0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9874156b-b1b4-4d9e-8e05-ffbeef04b047",
+    "type": "message",
+    "text": "<@U013WBS1B1C> Making context explicit is indeed one way to handle this problem, and if Red is working towards that goal, that's a reason for me to take a closer look. There is some tradition of this kind in Lisp/Scheme, but it's a bit fringe.\n\nPrompt-based development is perhaps a solution at the IDE-level, but not at the language level. The IDE must store the developer's answers in some way that makes the code usable without prompts later and elsewhere. That some way would then have to be part of the language.",
+    "user": "UJBAJNFLK",
+    "ts": "1689427049.380399",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "17ZY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U013WBS1B1C"
+              },
+              {
+                "type": "text",
+                "text": " Making context explicit is indeed one way to handle this problem, and if Red is working towards that goal, that's a reason for me to take a closer look. There is some tradition of this kind in Lisp/Scheme, but it's a bit fringe.\n\nPrompt-based development is perhaps a solution at the IDE-level, but not at the language level. The IDE must store the developer's answers in some way that makes the code usable without prompts later and elsewhere. That some way would then have to be part of the language."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "060c8152-1624-4449-89fa-f81226483b00",
+    "type": "message",
+    "text": "Yeah, so they're using it as a natural language router which is super interesting in itself - that \"update my name\" could also be the output of another LLM (ex - as a result of a user action in a UI...user fills in a \"name\" field and clicks the \"save\" button, router POSTs that message to the API).\n\nYou can take that further on it's own - can you have an LLM route messages in a smalltalk/ruby/objective-c message-passing style language?\n\nBut where my head went is - given a specific context in a prompt, we can encode a bunch of information (in binary, hex?, emoji?) and enable new patterns that give us cost/speed benefits from LLMs while also not having to explicitly write as much code. I need to do a bigger experiment, but in my screenshots, I'm showing it actually being able to encode and decode the information, at least from a simple binary encoding.\n\nA while back I followed a tutorial for building a chess engine in C, and they used a similar technique but with U64s and a lot of bitwise operations, bit masks, etc and I'm thinking there's a way to take inspiration from those techniques and use it with an LLM...",
+    "user": "U05GSC0B4A0",
+    "ts": "1689428904.650439",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zW5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, so they're using it as a natural language router which is super interesting in itself - that \"update my name\" could also be the output of another LLM (ex - as a result of a user action in a UI...user fills in a \"name\" field and clicks the \"save\" button, router POSTs that message to the API).\n\nYou can take that further on it's own - can you have an LLM route messages in a smalltalk/ruby/objective-c message-passing style language?\n\nBut where my head went is - given a specific context in a prompt, we can encode a bunch of information (in binary, hex?, emoji?) and enable new patterns that give us cost/speed benefits from LLMs while also not having to explicitly write as much code. I need to do a bigger experiment, but in my screenshots, I'm showing it actually being able to encode and decode the information, at least from a simple binary encoding.\n\nA while back I followed a tutorial for building a chess engine in C, and they used a similar technique but with U64s and a lot of bitwise operations, bit masks, etc and I'm thinking there's a way to take inspiration from those techniques and use it with an LLM..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U05GSC0B4A0",
+      "ts": "1689428928.000000"
+    },
+    "thread_ts": "1689369045.712599",
+    "parent_user_id": "U05GSC0B4A0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1eddd47c-ef66-4c30-814a-c749fa93d0e9",
+    "type": "message",
+    "text": "OK, just me then! :grin:\n\nSorry, Rachel, perhaps we're over the AI hype curve in this community! :nerd_face:",
+    "user": "UE6EFEPTQ",
+    "ts": "1689438033.723869",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7Wll",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "OK, just me then! "
+              },
+              {
+                "type": "emoji",
+                "name": "grin",
+                "unicode": "1f601"
+              },
+              {
+                "type": "text",
+                "text": "\n\nSorry, Rachel, perhaps we're over the AI hype curve in this community! "
+              },
+              {
+                "type": "emoji",
+                "name": "nerd_face",
+                "unicode": "1f913"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689280926.077849",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3a9bbef5-ab28-4f19-9fdd-64b5aa32100d",
+    "type": "message",
+    "text": "<http://lambdafunk.com/2017-02-21-Interpolating-Polygons/>",
+    "user": "UMV4B97GT",
+    "ts": "1689447616.484759",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "m2u",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "http://lambdafunk.com/2017-02-21-Interpolating-Polygons/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689447616.484759",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1689466410.543799",
+    "reply_users": [
+      "UCUSW7WVD",
+      "UMV4B97GT"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "69631840-97a0-4200-b0af-520d74ea1d73",
+    "type": "message",
+    "text": "I don't see any animations. Do you?",
+    "user": "UCUSW7WVD",
+    "ts": "1689461494.281379",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "D0ii=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I don't see any animations. Do you?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689447616.484759",
+    "parent_user_id": "UMV4B97GT",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "2C175EFE-98B4-4A27-A0E3-323FC43DABFD",
+    "type": "message",
+    "text": "Yup, just slow to load (mobile and desktop Chrome)",
+    "user": "UMV4B97GT",
+    "ts": "1689465216.134099",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Gzr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yup, just slow to load (mobile and desktop Chrome)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689447616.484759",
+    "parent_user_id": "UMV4B97GT",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

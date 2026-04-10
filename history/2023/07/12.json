@@ -1,0 +1,1152 @@
+[
+  {
+    "client_msg_id": "73b4ea4b-dee2-44c7-89ff-4a1ff0a7c98b",
+    "type": "message",
+    "text": "*Exploring BlueSky's AT protocol in Glamorous Toolkit*\n\n<https://lepiter.io/feenk/gt4atproto--a-dedicated-environment-for-at-7kcp8pwy6dcnomlljmtvl3wx2/>",
+    "user": "UCUSW7WVD",
+    "ts": "1689127454.723829",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MUOz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Exploring BlueSky's AT protocol in Glamorous Toolkit",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://lepiter.io/feenk/gt4atproto--a-dedicated-environment-for-at-7kcp8pwy6dcnomlljmtvl3wx2/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://lepiter.io/feenk/7kcp8pwy6dcnomlljmtvl3wx2/preview/attachments/bgas2p4x0okn8b3v66lgfdogt/2023-05-25_23-41-13_BlElement-656953856.png",
+        "image_width": 1200,
+        "image_height": 800,
+        "image_bytes": 122344,
+        "from_url": "https://lepiter.io/feenk/gt4atproto--a-dedicated-environment-for-at-7kcp8pwy6dcnomlljmtvl3wx2/",
+        "id": 1,
+        "original_url": "https://lepiter.io/feenk/gt4atproto--a-dedicated-environment-for-at-7kcp8pwy6dcnomlljmtvl3wx2/",
+        "fallback": "feenk blog: gt4atproto: a dedicated environment for AT Protocol",
+        "text": "gt4atproto is an environment for AT Protocol built in Glamorous Toolkit (GT). It covers several things at different levels of abstraction such as:\n- Creating posts and threads from inside the knowledge management system.\n- Working with a server through AT Protocol.\n- Streaming and pagination support out of the box.\n- Inspecting and visualizing results.\n- Code generation from lexicons to Smalltalk code.\n- Dedicated styling and completion support for editing lexicon JSON files.",
+        "title": "gt4atproto: a dedicated environment for AT Protocol",
+        "title_link": "https://lepiter.io/feenk/gt4atproto--a-dedicated-environment-for-at-7kcp8pwy6dcnomlljmtvl3wx2/",
+        "service_name": "feenk blog"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJFN50C00",
+          "U055V4HCHU7"
+        ],
+        "count": 2
+      },
+      {
+        "name": "point_up_2",
+        "users": [
+          "UJFN50C00"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b7df254c-643d-4386-84e9-7427885f64a8",
+    "type": "message",
+    "text": "There's a risk I'll go on for a long time. :^)\n\nI work on Red (<http://red-lang.org|red-lang.org>), a descendant of Rebol, which was inspired by Lisp/Forth/Logo. A key point in Carl Sassenrath's design of Rebol was that it was first a messaging language; a data format. Secondarily, you could interpret it to make stuff happen.\n\nTo the first point, everything is data, so the number of lexical forms is very high compared to most langs. But the number of keywords is zero. Yes, in a standard environment there will be a lot of words you expect to be there, and work in a certain way. But you *can* break or enhance the system by altering them.\n\nAnother key feature in standard Red is the `parse` function, which makes it relatively easy to write BNF-like PEG grammars to build dialects (eDSLs). Not only at the string/char level, but at the value level, because everything is data once loaded from text.\n\nAll those lexical forms (and also standard types that don't have a literal syntax) can be used in your dialects. This makes for a very flexible and powerful \"language construction toolkit\", which is how I sometimes describe Red. And to bring it full meta-circle, `parse` and other features are dialects, as is the low level `Red/System` language, a C-level language that shares syntax, but not semantics, with Red and is used to write the runtime for performance reasons (it compiles to machine code). e.g. it's static and lacks most high level datatypes. Red also has a GUI dialect.\n\nNow, for how expressive this all is...I'm biased, but there *is* an aspect that *isn't* very flexible: lexical forms (literal syntax for values). You have to hack the lexer and add new types for that, which is by design. Why not make it easy? Back to Red being a messaging language. In the context of data exchange, you need to agree on the basic language elements.\n\nFormatting is another facet of expressivity. Consider poetry, free verse versus something like a pantoum or sestina, which are very rigid forms. This relates to both form and function for PLs. Whitespace, line breaks, statement-ending punctuation, all effect how you write for your readers, and perhaps how susceptible things are to (un)intentional corruption. e.g., you can't strip spaces and lines from a Python program. On the function side, we veer into static/dynamic aspects.\n\nThe less rules you have, the more expressive you can be. Consider art. What you gain in expressive freedom, you may give up in appreciation. Constraints are important, but also contextual. Can you have an effective fully expressive GPL? Or to get that (ASM) do you give up too much \"appreciation\", because we also *have to* share, communicate about, and understand these works we craft.\n\nPersonally, I think we have to balance things based on context. Be as flexible and expressive as possible, in the target domain, to the point where any more leads to less benefit and more cost for target users. Please some of the people, most of the time.",
+    "user": "U013WBS1B1C",
+    "ts": "1689127730.508099",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kaiV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's a risk I'll go on for a long time. :^)\n\nI work on Red ("
+              },
+              {
+                "type": "link",
+                "url": "http://red-lang.org",
+                "text": "red-lang.org"
+              },
+              {
+                "type": "text",
+                "text": "), a descendant of Rebol, which was inspired by Lisp/Forth/Logo. A key point in Carl Sassenrath's design of Rebol was that it was first a messaging language; a data format. Secondarily, you could interpret it to make stuff happen.\n\nTo the first point, everything is data, so the number of lexical forms is very high compared to most langs. But the number of keywords is zero. Yes, in a standard environment there will be a lot of words you expect to be there, and work in a certain way. But you "
+              },
+              {
+                "type": "text",
+                "text": "can",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " break or enhance the system by altering them.\n\nAnother key feature in standard Red is the "
+              },
+              {
+                "type": "text",
+                "text": "parse",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " function, which makes it relatively easy to write BNF-like PEG grammars to build dialects (eDSLs). Not only at the string/char level, but at the value level, because everything is data once loaded from text.\n\nAll those lexical forms (and also standard types that don't have a literal syntax) can be used in your dialects. This makes for a very flexible and powerful \"language construction toolkit\", which is how I sometimes describe Red. And to bring it full meta-circle, "
+              },
+              {
+                "type": "text",
+                "text": "parse",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and other features are dialects, as is the low level "
+              },
+              {
+                "type": "text",
+                "text": "Red/System",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " language, a C-level language that shares syntax, but not semantics, with Red and is used to write the runtime for performance reasons (it compiles to machine code). e.g. it's static and lacks most high level datatypes. Red also has a GUI dialect.\n\nNow, for how expressive this all is...I'm biased, but there "
+              },
+              {
+                "type": "text",
+                "text": "is",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " an aspect that "
+              },
+              {
+                "type": "text",
+                "text": "isn't",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " very flexible: lexical forms (literal syntax for values). You have to hack the lexer and add new types for that, which is by design. Why not make it easy? Back to Red being a messaging language. In the context of data exchange, you need to agree on the basic language elements.\n\nFormatting is another facet of expressivity. Consider poetry, free verse versus something like a pantoum or sestina, which are very rigid forms. This relates to both form and function for PLs. Whitespace, line breaks, statement-ending punctuation, all effect how you write for your readers, and perhaps how susceptible things are to (un)intentional corruption. e.g., you can't strip spaces and lines from a Python program. On the function side, we veer into static/dynamic aspects.\n\nThe less rules you have, the more expressive you can be. Consider art. What you gain in expressive freedom, you may give up in appreciation. Constraints are important, but also contextual. Can you have an effective fully expressive GPL? Or to get that (ASM) do you give up too much \"appreciation\", because we also "
+              },
+              {
+                "type": "text",
+                "text": "have to",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " share, communicate about, and understand these works we craft.\n\nPersonally, I think we have to balance things based on context. Be as flexible and expressive as possible, in the target domain, to the point where any more leads to less benefit and more cost for target users. Please some of the people, most of the time."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8aa4c62d-0e9b-417f-bbd9-686884cfd517",
+    "type": "message",
+    "text": "I warned you. :^)",
+    "user": "U013WBS1B1C",
+    "ts": "1689127787.195669",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5cDA8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I warned you. :^)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "reactions": [
+      {
+        "name": "boom",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e75f4505-9d25-4424-b632-e7a2da787550",
+    "type": "message",
+    "text": "<@U055V4HCHU7> I've been fortunate to work with may types of people, around the need/love of building software. Where my ego comment comes from leans heavily toward those (broad brush here) who are off-the-charts smart as engineers, but struggle on the social/empathy/human side. I *think* I'm somewhere in the middle. :^) People in this group are interested in constructive collaboration, learning together. That's why I feel safe posting things that may be flat-out wrong, or make me look ignorant.\n\nWe're all somewhere on this journey, via different paths. Some of my favorite memories are working with someone who was way smarter than me on the math/code side, but also able to meet me in the middle on the need to make things accessible to \"normal\" devs. Many times, though, working with people so much smarter than me on the machine side is tough, and even at my advanced age I can doubt the value of my experience and design values. I've also been on the other side, where maybe I wasn't so great at *being* mentored, because I thought I was right. :^)\n\nA direct analog for me is theatre. When I direct, it's very intuitive and comes from my passion for it, just like software. And, just like software, sometimes the most talented actor just won't take direction. Sometimes it still works out, but it can also make the whole show less than it could be, because the vision doesn't hang together when one or more pieces don't mesh (this is true for the tech aspects like lighting and set design as well).\n\nAs for how to mentor, I can only say I've had some great ones who probably taught me by example and osmosis. Don't try to mentor everyone. Find the right mentees, who have a spark, and just share your love for your craft with them. Be the student as much as the teacher. I probably learn more than I teach, because seeing through new eyes make you question and try to understand more.",
+    "user": "U013WBS1B1C",
+    "ts": "1689128941.763149",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "o0J",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U055V4HCHU7"
+              },
+              {
+                "type": "text",
+                "text": " I've been fortunate to work with may types of people, around the need/love of building software. Where my ego comment comes from leans heavily toward those (broad brush here) who are off-the-charts smart as engineers, but struggle on the social/empathy/human side. I *think* I'm somewhere in the middle. :^) People in this group are interested in constructive collaboration, learning together. That's why I feel safe posting things that may be flat-out wrong, or make me look ignorant.\n\nWe're all somewhere on this journey, via different paths. Some of my favorite memories are working with someone who was way smarter than me on the math/code side, but also able to meet me in the middle on the need to make things accessible to \"normal\" devs. Many times, though, working with people so much smarter than me on the machine side is tough, and even at my advanced age I can doubt the value of my experience and design values. I've also been on the other side, where maybe I wasn't so great at "
+              },
+              {
+                "type": "text",
+                "text": "being",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " mentored, because I thought I was right. :^)\n\nA direct analog for me is theatre. When I direct, it's very intuitive and comes from my passion for it, just like software. And, just like software, sometimes the most talented actor just won't take direction. Sometimes it still works out, but it can also make the whole show less than it could be, because the vision doesn't hang together when one or more pieces don't mesh (this is true for the tech aspects like lighting and set design as well).\n\nAs for how to mentor, I can only say I've had some great ones who probably taught me by example and osmosis. Don't try to mentor everyone. Find the right mentees, who have a spark, and just share your love for your craft with them. Be the student as much as the teacher. I probably learn more than I teach, because seeing through new eyes make you question and try to understand more."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689017004.403839",
+    "parent_user_id": "U055V4HCHU7",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e67e4a0c-d743-48ee-953e-4c8484f95271",
+    "type": "message",
+    "text": "There is something to be said here around the difference between  expressing \"intent\" and acting with \"intent\". I heard recently with respect to craft (not software specifically, but craft in general): _\"Craft is not just the intent but also the hand of the maker and the process, trial, and error all coming together to make something careful and intentional.\"_ Is the intention here shared between programmer and AI? Can we consider the AI to hold intent? Or are we moving into a world where some of that intention is lost?",
+    "user": "U04JY2BF24E",
+    "ts": "1689131165.241309",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Xdw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There is something to be said here around the difference between  expressing \"intent\" and acting with \"intent\". I heard recently with respect to craft (not software specifically, but craft in general): "
+              },
+              {
+                "type": "text",
+                "text": "\"Craft is not just the intent but also the hand of the maker and the process, trial, and error all coming together to make something careful and intentional.\" ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "Is the intention here shared between programmer and AI? Can we consider the AI to hold intent? Or are we moving into a world where some of that intention is lost?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689020107.746899",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "00df345a-6a65-4ba6-93d9-915f7f6fd354",
+    "type": "message",
+    "text": "I'll let everyone read both above long posts before adding my own take, but briefly, I'm a secret fan of Red/Rebol as my own lang shares much with it/them. I have type=grammar for both inline small types and whole objects.",
+    "user": "UE6EFEPTQ",
+    "ts": "1689148319.568939",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1LK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'll let everyone read both above long posts before adding my own take, but briefly, I'm a secret fan of Red/Rebol as my own lang shares much with it/them. I have type=grammar for both inline small types and whole objects."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2d86eadd-b607-45de-9af7-966155c570b3",
+    "type": "message",
+    "text": "Rebol and descendents are something I have been looking at as well every now and then. Red seems to be the most active project in this space right now. Another one that seems stuck in an early design phase is <https://altscript.com/>. But there is nothing I see as good enough for actually playing with at this time.",
+    "user": "UJBAJNFLK",
+    "ts": "1689151304.101499",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iZYC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Rebol and descendents are something I have been looking at as well every now and then. Red seems to be the most active project in this space right now. Another one that seems stuck in an early design phase is "
+              },
+              {
+                "type": "link",
+                "url": "https://altscript.com/"
+              },
+              {
+                "type": "text",
+                "text": ". But there is nothing I see as good enough for actually playing with at this time."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0d9ccad5-3851-4288-b40a-b60fbe58ff03",
+    "type": "message",
+    "text": "I made a poem in celebration of comments.\n<https://elk.zone/universeodon.com/@TodePond/110700164929966414|https://elk.zone/universeodon.com/@TodePond/110700164929966414>",
+    "user": "U03R0B9U1GD",
+    "ts": "1689157334.564849",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/RyF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I made a poem in celebration of comments.\n"
+              },
+              {
+                "type": "link",
+                "url": "https://elk.zone/universeodon.com/@TodePond/110700164929966414",
+                "text": "https://elk.zone/universeodon.com/@TodePond/110700164929966414"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U052DAH77UK",
+          "UMQ6LR9NZ",
+          "UCUSW7WVD",
+          "U04KZ8A9WCT",
+          "UBKNXPBAB",
+          "UA14TGLTC",
+          "U013WBS1B1C",
+          "U02B6FQKZK8",
+          "UC2A2ARPT",
+          "U04E5QAD6DD"
+        ],
+        "count": 10
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U052DAH77UK",
+          "U04717WKH5K",
+          "UE6EFEPTQ",
+          "U04KZ8A9WCT",
+          "U013ZLJARC7"
+        ],
+        "count": 5
+      },
+      {
+        "name": "cool",
+        "users": [
+          "U055QFU92JK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "6aee3473-4682-40ca-8ac2-6d325ff97894",
+    "type": "message",
+    "text": "FTR: I think that the phrase “..tell the computer what they want, not how to do it...” does not capture the difference between software-GUIs and AI-based interaction.\n\n<https://publish.obsidian.md/programmingsimplicity/2023-07-11-First+New+UI+Paradigm+In+60+Years%3F>",
+    "user": "UGWUJUZHT",
+    "ts": "1689165003.677719",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UEa7z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "FTR: I think that the phrase “..tell the computer what they want, not how to do it...” does not capture the difference between software-GUIs and AI-based interaction.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://publish.obsidian.md/programmingsimplicity/2023-07-11-First+New+UI+Paradigm+In+60+Years%3F"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://ogimage.obsidian.md/og-image.png?title=2023-07-11-First+New+UI+Paradigm+In+60+Years%3F&description=...+Reading+and+thinking+about%3A+https%3A%2F%2Fwww.nngroup.com%2Farticles%2Fai-paradigm%2F+The+above+article+claims+that+AI+is+the+first+New+GUI+paradigm+in+60+years.+I+think+that+the+phrase+%22..tell+the+computer+%E2%80%A6",
+        "image_width": 1200,
+        "image_height": 630,
+        "image_bytes": 59660,
+        "from_url": "https://publish.obsidian.md/programmingsimplicity/2023-07-11-First+New+UI+Paradigm+In+60+Years%3F",
+        "id": 1,
+        "original_url": "https://publish.obsidian.md/programmingsimplicity/2023-07-11-First+New+UI+Paradigm+In+60+Years%3F",
+        "fallback": "2023-07-11-First New UI Paradigm In 60 Years? - Obsidian Publish",
+        "text": "... Reading and thinking about: <https://www.nngroup.com/articles/ai-paradigm/> The above article claims that AI is the first New GUI paradigm in 60 years. I think that the phrase \"..tell the computer …",
+        "title": "2023-07-11-First New UI Paradigm In 60 Years? - Obsidian Publish",
+        "title_link": "https://publish.obsidian.md/programmingsimplicity/2023-07-11-First+New+UI+Paradigm+In+60+Years%3F",
+        "service_name": "publish.obsidian.md"
+      }
+    ],
+    "thread_ts": "1689020107.746899",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "47a8c827-f074-4198-a2ce-423165630d5a",
+    "type": "message",
+    "text": "I think very cool, but I must admit I can't work out how to try it out. Would you be able to do a video where you explain the keypresses you do to make edits",
+    "user": "U03LMRE6MQE",
+    "ts": "1689173272.597409",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8hp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think very cool, but I must admit I can't work out how to try it out. Would you be able to do a video where you explain the keypresses you do to make edits"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689083336.878249",
+    "parent_user_id": "U03LJBR6THT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Admittedly it might be too early for <#CCL5VVBAN|share-your-work> but here's an attempt to show.\n\nOne thing is, its rough on mobile, you can eval it but editing is hard.\n\nThere's also a handful of crucial features missing notably\n• ability to tack on an operator after a node -&gt; going from `a.b` to `a.b.c`\n• delete the upcoming node - going from `a[0]` to `a::first()` is hard/impossible right now\nAlso there's some awkwardness of dealing with the editor as ast nodes, you can only edit within a leaf node, to move on to the next part you must tab into.\n\nHere's a video, hope it helps.",
+    "files": [
+      {
+        "id": "F05GM5D3D9B",
+        "created": 1689173527,
+        "timestamp": 1689173527,
+        "name": "Screen Recording 2023-07-12 at 10.49.12 AM.mov",
+        "title": "Screen Recording 2023-07-12 at 10.49.12 AM.mov",
+        "mimetype": "video/quicktime",
+        "filetype": "mov",
+        "pretty_type": "QuickTime Movie",
+        "user": "U03LJBR6THT",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 23431757,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F05GM5D3D9B-60fb4bcf69/screen_recording_2023-07-12_at_10.49.12_am.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F05GM5D3D9B-60fb4bcf69/screen_recording_2023-07-12_at_10.49.12_am.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F05GM5D3D9B/download/screen_recording_2023-07-12_at_10.49.12_am.mov",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F05GM5D3D9B-60fb4bcf69/file.m3u8?_xcb=efafe",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9ODAwODMxLEFWRVJBR0UtQkFORFdJRFRIPTU1ODY1NSxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xOTIweDEwMzIsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOVWROTlVRelJEbENMVFl3Wm1JMFltTm1Oamt2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFZIVFRWRU0wUTVRaTAyTUdaaU5HSmpaalk1TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakExUjAwMVJETkVPVUl0TmpCbVlqUmlZMlkyT1M5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TlVkTk5VUXpSRGxDTFRZd1ptSTBZbU5tTmprdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURWSFRUVkVNMFE1UWkwMk1HWmlOR0pqWmpZNUwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREExTG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBMVIwMDFSRE5FT1VJdE5qQm1ZalJpWTJZMk9TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tmk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd05VZE5OVVF6UkRsQ0xUWXdabUkwWW1ObU5qa3ZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURjdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EVkhUVFZFTTBRNVFpMDJNR1ppTkdKalpqWTVMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBNExuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTFSMDAxUkRORU9VSXROakJtWWpSaVkyWTJPUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd09TNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOVWROTlVRelJEbENMVFl3Wm1JMFltTm1Oamt2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01UQXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFZIVFRWRU0wUTVRaTAyTUdaaU5HSmpaalk1TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01ERXhMblJ6Q2lORldGUkpUa1k2TUM0eE5qY3NDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakExUjAwMVJETkVPVUl0TmpCbVlqUmlZMlkyT1M5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhNaTUwY3dvalJWaFVMVmd0UlU1RVRFbFRWQW89CiNFWFQtWC1TVFJFQU0tSU5GOkJBTkRXSURUSD01MTc4NjAsQVZFUkFHRS1CQU5EV0lEVEg9MzkxNjUxLENPREVDUz0iYXZjMS42NDAwMWYsbXA0YS40MC41IixSRVNPTFVUSU9OPTEyODB4Njg4LEZSQU1FLVJBVEU9MjkuOTcwCmh0dHBzOi8vZmlsZXMuc2xhY2suY29tL2ZpbGVzLXRtYi9UNVRDQUZUQTktRjA1R001RDNEOUItNjBmYjRiY2Y2OS9maWxlX0hfMjY0XzEyODB4NzIwXzM1MDBLQlBTXzdRVkJSLm0zdTgK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F05GM5D3D9B-60fb4bcf69/screen_recording_2023-07-12_at_10.49.12_am_trans.mp4",
+        "duration_ms": 66232,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F05GM5D3D9B-60fb4bcf69/screen_recording_2023-07-12_at_10.49.12_am_thumb_video.jpeg",
+        "thumb_video_w": 3020,
+        "thumb_video_h": 1622,
+        "permalink": "https://futureofcoding.slack.com/files/U03LJBR6THT/F05GM5D3D9B/screen_recording_2023-07-12_at_10.49.12_am.mov",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F05GM5D3D9B-24b774f970",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U03LJBR6THT",
+    "display_as_bot": false,
+    "ts": "1689173720.524199",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "r4Jf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Admittedly it might be too early for "
+              },
+              {
+                "type": "channel",
+                "channel_id": "CCL5VVBAN"
+              },
+              {
+                "type": "text",
+                "text": " but here's an attempt to show.\n\nOne thing is, its rough on mobile, you can eval it but editing is hard.\n\nThere's also a handful of crucial features missing notably\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "ability to tack on an operator after a node -> going from "
+                  },
+                  {
+                    "type": "text",
+                    "text": "a.b",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " to "
+                  },
+                  {
+                    "type": "text",
+                    "text": "a.b.c",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "delete the upcoming node - going from "
+                  },
+                  {
+                    "type": "text",
+                    "text": "a[0]",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " to "
+                  },
+                  {
+                    "type": "text",
+                    "text": "a::first()",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " is hard/impossible right now"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nAlso there's some awkwardness of dealing with the editor as ast nodes, you can only edit within a leaf node, to move on to the next part you must tab into.\n\nHere's a video, hope it helps."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "dd1f2378-0ca3-46bc-b644-fbbe11e1381c",
+    "thread_ts": "1689083336.878249",
+    "parent_user_id": "U03LJBR6THT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "78454109-b582-48a2-9ee0-4e84b5e476e6",
+    "type": "message",
+    "text": "I believe those problems are solvable, but right now I'm just showcasing the simplicity of the model, and the benefits of storing AST as html.",
+    "user": "U03LJBR6THT",
+    "ts": "1689173788.144059",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kDPq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I believe those problems are solvable, but right now I'm just showcasing the simplicity of the model, and the benefits of storing AST as html."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689083336.878249",
+    "parent_user_id": "U03LJBR6THT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0057dddd-0d82-467b-917e-d13fde376e76",
+    "type": "message",
+    "text": "When you insert a new line, its temporarily a plain text editor for that line until you focus away &amp; it parses it",
+    "user": "U03LJBR6THT",
+    "ts": "1689173930.393469",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FePi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "When you insert a new line, its temporarily a plain text editor for that line until you focus away & it parses it"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U03LJBR6THT",
+      "ts": "1689173940.000000"
+    },
+    "thread_ts": "1689083336.878249",
+    "parent_user_id": "U03LJBR6THT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "c4c464ab-8262-4793-9729-6b4185e2fcb5",
+    "type": "message",
+    "text": "<@U05597GCDDK> Glad you enjoyed the discussion. I definitely think you've hit on some really important aspects of expressivity.  I do think it is a complicated subject and hard to pin down exactly what we want to say it is.\n\nOn one hand expressivity is how we say something, your \"Using my own words\" on the other hand it is also about what can be said. A DSL would then be more expressive in the \"Using my own words\" sense, but less expressive in what can be said.\n\nTo me an expressive language works on both of these aspects. It allows me to express things the way I might want them to, but also allows me to express more kinds of things. Depending on my interests and contexts those kinds of things might change. So I don't think we can make a total order out of expressivity in languages.\n\nFor example, if we compare Haskell and Idris, I can express types in Idris that I can't (without contortions) in Haskell. I am able to represent the type of printf in the language itself in a very clear and concise way.\n\nBut when we compare lisp and Idris things are a bit confusing. Lisp does not have the kind of type system does. So for example, I can't express things things like \"this function is total\" in the way I can in Idris, but I also can express complex macros and have fewer limits on the kinds of things I can express because I lack that type system.\n\nC feels less expressive than Java say, but I can express things about memory layout and allocation that I can't (easily) in Java.\n\nI think this is what make expressivity so hard. Gaining to the ability to express something can restrict some other aspects.",
+    "user": "UK3LH8CF5",
+    "ts": "1689178546.327129",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wFMYi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U05597GCDDK"
+              },
+              {
+                "type": "text",
+                "text": " Glad you enjoyed the discussion. I definitely think you've hit on some really important aspects of expressivity.  I do think it is a complicated subject and hard to pin down exactly what we want to say it is.\n\nOn one hand expressivity is how we say something, your \"Using my own words\" on the other hand it is also about what can be said. A DSL would then be more expressive in the \"Using my own words\" sense, but less expressive in what can be said.\n\nTo me an expressive language works on both of these aspects. It allows me to express things the way I might want them to, but also allows me to express more kinds of things. Depending on my interests and contexts those kinds of things might change. So I don't think we can make a total order out of expressivity in languages.\n\nFor example, if we compare Haskell and Idris, I can express types in Idris that I can't (without contortions) in Haskell. I am able to represent the type of printf in the language itself in a very clear and concise way.\n\nBut when we compare lisp and Idris things are a bit confusing. Lisp does not have the kind of type system does. So for example, I can't express things things like \"this function is total\" in the way I can in Idris, but I also can express complex macros and have fewer limits on the kinds of things I can express because I lack that type system.\n\nC feels less expressive than Java say, but I can express things about memory layout and allocation that I can't (easily) in Java.\n\nI think this is what make expressivity so hard. Gaining to the ability to express something can restrict some other aspects."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U016VUZGUUQ",
+          "U013WBS1B1C"
+        ],
+        "count": 2
+      },
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f2bc14d2-5d6b-4d16-9303-d57b95ef16b9",
+    "type": "message",
+    "text": "<@U013WBS1B1C> Super interested in Red/Rebol. Though I haven't written much/any. It's definitely a tradition that doesn't get much attention.Any good texts on it that we should read?",
+    "user": "UK3LH8CF5",
+    "ts": "1689178590.934669",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5cl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U013WBS1B1C"
+              },
+              {
+                "type": "text",
+                "text": " Super interested in Red/Rebol. Though I haven't written much/any. It's definitely a tradition that doesn't get much attention.Any good texts on it that we should read?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "90f13739-a24d-410b-a3cf-22c31eb2ea17",
+    "type": "message",
+    "text": "My best shot at defining expressivity is in terms of some abstract space of logical relations/structures. The elements to be related include types, machine details, phase distinctions, etc, as well as elements of your application domain.\n\nA more expressive language is one that can span more of this space. To the extent that languages cover (roughly) the same space, you can rank them by (roughly average) concision. We can recover notions like C being more expressive for machine details, or a DSL being more expressive for a given domain, by restricting the logical space we're considering.\n\nIt gets tricky, though, because you're probably talking about Turing complete languages that can all simulate each other, and just ranking by concision doesn't quite capture the notion that writing a simulator doesn't \"count\" as expressing it; even if you could write a logical inference engine in five lines of C, that doesn't change the intuitive notion that Prolog is more expressive for certain problems. You want a notion of \"direct expression\" that's not covered by concision. Maybe something to do with (cyclomatic?) complexity of the code to express a given thing?",
+    "user": "U016VUZGUUQ",
+    "ts": "1689181906.161099",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MK4V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My best shot at defining expressivity is in terms of some abstract space of logical relations/structures. The elements to be related include types, machine details, phase distinctions, etc, as well as elements of your application domain.\n\nA more expressive language is one that can span more of this space. To the extent that languages cover (roughly) the same space, you can rank them by (roughly average) concision. We can recover notions like C being more expressive for machine details, or a DSL being more expressive for a given domain, by restricting the logical space we're considering.\n\nIt gets tricky, though, because you're probably talking about Turing complete languages that can all simulate each other, and just ranking by concision doesn't quite capture the notion that writing a simulator doesn't \"count\" as expressing it; even if you could write a logical inference engine in five lines of C, that doesn't change the intuitive notion that Prolog is more expressive for certain problems. You want a notion of \"direct expression\" that's not covered by concision. Maybe something to do with (cyclomatic?) complexity of the code to express a given thing?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "06e21dea-63d3-4af7-b325-02d04442e691",
+    "type": "message",
+    "text": "The old Rebol core guide (<http://www.rebol.com/docs/core23/rebolcore.html>) is still a seminal reference for the language. <http://www.rebol.com/docs.html> links to some other primer bits. Red's reference docs are [here](<https://github.com/red/docs/tree/master/en>) but not in User Guide form for learning. A Red user has written <https://helpin.red/>. You can also scan the old blog entries at <https://www.red-lang.org/> for Red-specific features.\n\nThere are a few other langs out there with the same heritage, which we sometimes call Redbol as a \"genre\". :^)",
+    "user": "U013WBS1B1C",
+    "ts": "1689191089.737759",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "V4SP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The old Rebol core guide ("
+              },
+              {
+                "type": "link",
+                "url": "http://www.rebol.com/docs/core23/rebolcore.html"
+              },
+              {
+                "type": "text",
+                "text": ") is still a seminal reference for the language. "
+              },
+              {
+                "type": "link",
+                "url": "http://www.rebol.com/docs.html"
+              },
+              {
+                "type": "text",
+                "text": " links to some other primer bits. Red's reference docs are [here]("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/red/docs/tree/master/en"
+              },
+              {
+                "type": "text",
+                "text": ") but not in User Guide form for learning. A Red user has written "
+              },
+              {
+                "type": "link",
+                "url": "https://helpin.red/"
+              },
+              {
+                "type": "text",
+                "text": ". You can also scan the old blog entries at "
+              },
+              {
+                "type": "link",
+                "url": "https://www.red-lang.org/"
+              },
+              {
+                "type": "text",
+                "text": " for Red-specific features.\n\nThere are a few other langs out there with the same heritage, which we sometimes call Redbol as a \"genre\". :^)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "http://www.rebol.com/docs.html",
+        "service_icon": "http://www.rebol.com/favicon.ico",
+        "id": 1,
+        "original_url": "http://www.rebol.com/docs.html",
+        "fallback": "REBOL Documentation",
+        "text": "Links to all documentation, including tutorials, examples, manuals, and references.",
+        "title": "REBOL Documentation",
+        "title_link": "http://www.rebol.com/docs.html",
+        "service_name": "rebol.com"
+      }
+    ],
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U04E5QAD6DD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6d6849ad-c7c9-4434-ab25-110218e2b33d",
+    "type": "message",
+    "text": "Thanks definitely helpful. I'm mostly interesting in something a bit more meta/philosophical on the perspective. Like a paper giving the why of Rebol like languages.",
+    "user": "UK3LH8CF5",
+    "ts": "1689191258.868469",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YmAw=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks definitely helpful. I'm mostly interesting in something a bit more meta/philosophical on the perspective. Like a paper giving the why of Rebol like languages."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "17108742-9287-4f36-bb5e-dabf057bada3",
+    "type": "message",
+    "text": "<@UJBAJNFLK> we don't know if Carl will continue with AltScript or not. He tends to disappear into his cave for long stretches. :^) Rebol2 (R2) was closed source, but Rebol3 (R3) was done quickly by Carl and a few others to make a FOSS version. It's still alive as well. Where Rebol is written in C at the low level, Red was bootstrapped on R2 and is designed to be self-hosted, hence the need for Red/System.",
+    "user": "U013WBS1B1C",
+    "ts": "1689191376.962689",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "V=Ao",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " we don't know if Carl will continue with AltScript or not. He tends to disappear into his cave for long stretches. :^) Rebol2 (R2) was closed source, but Rebol3 (R3) was done quickly by Carl and a few others to make a FOSS version. It's still alive as well. Where Rebol is written in C at the low level, Red was bootstrapped on R2 and is designed to be self-hosted, hence the need for Red/System."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ee5d79fb-9956-4d08-b780-e07585eb85bd",
+    "type": "message",
+    "text": "If we go Rich Hickey on this: *expressive* - Effectively conveying thought or feeling.\n\nTo <@UK3LH8CF5>’s point, a language might be expressive in terms of type systems, but not at all able to express a GUI.\n\nWe also have limits, which tooling can help us overcome. For example, in a low level language, you may want/need to express multiple integer types by size and signing ability, but no strings. In an HLL, you just need `number` but have many types of strings (plain, filename, email address, url, tag, etc.). Maybe you justify a Cartesian coordinate type, but not UTM coordinates for mapping projections. How do we keep from being overwhelmed, while being able to express things (thinking text here) as we do with natural language?",
+    "user": "U013WBS1B1C",
+    "ts": "1689192276.153629",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=rl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If we go Rich Hickey on this: "
+              },
+              {
+                "type": "text",
+                "text": "expressive",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " - Effectively conveying thought or feeling.\n\nTo "
+              },
+              {
+                "type": "user",
+                "user_id": "UK3LH8CF5"
+              },
+              {
+                "type": "text",
+                "text": "’s point, a language might be expressive in terms of type systems, but not at all able to express a GUI.\n\nWe also have limits, which tooling can help us overcome. For example, in a low level language, you may want/need to express multiple integer types by size and signing ability, but no strings. In an HLL, you just need "
+              },
+              {
+                "type": "text",
+                "text": "number",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " but have many types of strings (plain, filename, email address, url, tag, etc.). Maybe you justify a Cartesian coordinate type, but not UTM coordinates for mapping projections. How do we keep from being overwhelmed, while being able to express things (thinking text here) as we do with natural language?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d307b878-a1cf-4317-b35d-26c59f59fb23",
+    "type": "message",
+    "text": "The why: Rebol was designed for the semantic exchange of information between people and machines.\n\nThat's why there are so many datatypes with literal forms. Because we need them to talk about things easily, both on the human and the machine side.\n\nOn the philosophy of Redbol, that's quite unfortunately strewn throughout time and space. I can say that Carl spent 20 years *designing* Rebol, after deep study of denotational semantics, before building and releasing it. The first version was done in Scheme, but was too slow. He had built things using many paradigms, and rejected OO as the answer after trying it. I can't speak for him, but his designs say he values simplicity and will give up other things for that. He also values the human side which is why while Rebol is a totally wacky language internally, when compared to how other langs work, there is this lovely, simple façade that lets you wade in comfortably for a while (or forever) before you fall off the edge and into the deep.\n\nFor this chat, Red is expressive in different ways to different people. To a high level user, it's a single EXE with a built-in GUI system, compiles standalone EXEs without any external tools, and is easy to learn. To a PL enthusiast, it's Logo (Lisp without parens) that uses definitional scoping, f-exprs, and free ranging evaluation. Each word is bound to a context and there is really no such thing as \"code\". There is only data that is evaluated. See: [this](<https://github.com/red/red/wiki/%5BDOC%5D-Why-you-have-to-copy-series-values#a-designers-view>)\n\nI could say it's a contradiction in terms, but it's probably just as accurate to say \"Old School\". :^)",
+    "user": "U013WBS1B1C",
+    "ts": "1689193594.843739",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lCmL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The why: Rebol was designed for the semantic exchange of information between people and machines.\n\nThat's why there are so many datatypes with literal forms. Because we need them to talk about things easily, both on the human and the machine side.\n\nOn the philosophy of Redbol, that's quite unfortunately strewn throughout time and space. I can say that Carl spent 20 years "
+              },
+              {
+                "type": "text",
+                "text": "designing",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " Rebol, after deep study of denotational semantics, before building and releasing it. The first version was done in Scheme, but was too slow. He had built things using many paradigms, and rejected OO as the answer after trying it. I can't speak for him, but his designs say he values simplicity and will give up other things for that. He also values the human side which is why while Rebol is a totally wacky language internally, when compared to how other langs work, there is this lovely, simple façade that lets you wade in comfortably for a while (or forever) before you fall off the edge and into the deep.\n\nFor this chat, Red is expressive in different ways to different people. To a high level user, it's a single EXE with a built-in GUI system, compiles standalone EXEs without any external tools, and is easy to learn. To a PL enthusiast, it's Logo (Lisp without parens) that uses definitional scoping, f-exprs, and free ranging evaluation. Each word is bound to a context and there is really no such thing as \"code\". There is only data that is evaluated. See: [this]("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/red/red/wiki/%5BDOC%5D-Why-you-have-to-copy-series-values#a-designers-view"
+              },
+              {
+                "type": "text",
+                "text": ")\n\nI could say it's a contradiction in terms, but it's probably just as accurate to say \"Old School\". :^)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1689118227.745139",
+    "parent_user_id": "U05597GCDDK",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U04E5QAD6DD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "beers",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

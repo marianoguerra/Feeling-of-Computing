@@ -1,0 +1,326 @@
+[
+  {
+    "client_msg_id": "cd56e08c-530f-4cd5-a19a-c44bcf8b0611",
+    "type": "message",
+    "text": "I implemented support for property paths in my native compiler.\n```scheme Hello \n{\n   /hi/:p1 {\n      get { \n\t'hello: ',p1.\n     }\n   }\n   -main:args\n   {\n        self waitOnPort: 8081 intValue.\n   }\n}```\nSo that little test program can now be fully compiler to an ARM64 binary.\n```]stc <http://SchemeDefHTTP.st|SchemeDefHTTP.st>\n]file SchemeDefHTTP\nSchemeDefHTTP: Mach-O 64-bit executable arm64\n]./SchemeDefHTTP \n2023-07-30 10:16:36.680 SchemeDefHTTP[51040:2409943] will listen on port: 8081```\nFrom another shell:\n```]curl  <http://localhost:8081/hi/Marcel>\nhello: Marcel%\n]wrk  <http://localhost:8081/hi/Marcel>\nRunning 10s test @ <http://localhost:8081/hi/Marcel>\n  2 threads and 10 connections\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\n    Latency    57.33us   15.35us   1.13ms   80.91%\n    Req/Sec    75.02k     3.81k   78.81k    95.54%\n  1507905 requests in 10.10s, 198.45MB read\nRequests/sec: 149295.29\nTransfer/sec:     19.65MB```\nSo more expressive than something like sinatra, but running at cool 140K requests/s.\n\nThe dichotomy between expressiveness/comfort and performance is a false one, a bit like the one we used to have between user-friendly but crashy client-operating systems and solid but unfriendly server operating systems.  Now my phone and my watch both run Unix.",
+    "user": "U017TE5R09M",
+    "ts": "1690705409.442629",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mSRm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I implemented support for property paths in my native compiler.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "scheme Hello \n{\n   /hi/:p1 {\n      get { \n\t'hello: ',p1.\n     }\n   }\n   -main:args\n   {\n        self waitOnPort: 8081 intValue.\n   }\n}"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So that little test program can now be fully compiler to an ARM64 binary.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "]stc SchemeDefHTTP.st\n]file SchemeDefHTTP\nSchemeDefHTTP: Mach-O 64-bit executable arm64\n]./SchemeDefHTTP \n2023-07-30 10:16:36.680 SchemeDefHTTP[51040:2409943] will listen on port: 8081"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "From another shell:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "]curl  "
+              },
+              {
+                "type": "link",
+                "url": "http://localhost:8081/hi/Marcel"
+              },
+              {
+                "type": "text",
+                "text": "\nhello: Marcel%\n]wrk  "
+              },
+              {
+                "type": "link",
+                "url": "http://localhost:8081/hi/Marcel"
+              },
+              {
+                "type": "text",
+                "text": "\nRunning 10s test @ "
+              },
+              {
+                "type": "link",
+                "url": "http://localhost:8081/hi/Marcel"
+              },
+              {
+                "type": "text",
+                "text": "\n  2 threads and 10 connections\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\n    Latency    57.33us   15.35us   1.13ms   80.91%\n    Req/Sec    75.02k     3.81k   78.81k    95.54%\n  1507905 requests in 10.10s, 198.45MB read\nRequests/sec: 149295.29\nTransfer/sec:     19.65MB"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So more expressive than something like sinatra, but running at cool 140K requests/s.\n\nThe dichotomy between expressiveness/comfort and performance is a false one, a bit like the one we used to have between user-friendly but crashy client-operating systems and solid but unfriendly server operating systems.  Now my phone and my watch both run Unix."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U017TE5R09M",
+      "ts": "1690705509.000000"
+    },
+    "thread_ts": "1690705409.442629",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1690743479.255319",
+    "reply_users": [
+      "UCUSW7WVD"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "client_msg_id": "ed70df09-4c6b-4f1e-ae8d-42ad9da4606d",
+    "type": "message",
+    "text": "&gt;  the lens it’s viewed through is too narrowly focused and Descartes set the aperture,\nI love this. :^)",
+    "user": "U013WBS1B1C",
+    "ts": "1690740785.869049",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tnrI",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " the lens it’s viewed through is too narrowly focused and Descartes set the aperture,"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I love this. :^)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1690578210.877559",
+    "parent_user_id": "U03LMRE6MQE",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ec4d365f-8d3c-4502-b06b-f70df4147035",
+    "type": "message",
+    "text": "showthedocs won't come up for me, but I hadn't seen explainshell. Very nice. I'm making note of them and may tinker a bit.",
+    "user": "U013WBS1B1C",
+    "ts": "1690741667.320949",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ghjKg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "showthedocs won't come up for me, but I hadn't seen explainshell. Very nice. I'm making note of them and may tinker a bit."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "7509e98f-7248-4659-9b78-59923b7c8852",
+    "type": "message",
+    "text": "Very interesting.\n\nAre your code samples in a shell? Hard to tell what you're typing and what's output.",
+    "user": "UCUSW7WVD",
+    "ts": "1690743479.255319",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "X6r",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Very interesting.\n\nAre your code samples in a shell? Hard to tell what you're typing and what's output."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1690705409.442629",
+    "parent_user_id": "U017TE5R09M",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "type": "message",
+    "text": "\"*Wikifunctions* is a Wikimedia project for everyone to collaboratively create and maintain a library of code functions to support the Wikimedia projects and beyond, in the world's natural and programming languages.\"\n\nIncludes an interesting sort-of-structured-editor in the playground too\n<https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page>",
+    "files": [
+      {
+        "id": "F05L4HG4V40",
+        "created": 1690756371,
+        "timestamp": 1690756371,
+        "name": "Screenshot 2023-07-31 at 8.32.20 am.png",
+        "title": "Screenshot 2023-07-31 at 8.32.20 am.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UMV4B97GT",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 34925,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F05L4HG4V40/screenshot_2023-07-31_at_8.32.20_am.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F05L4HG4V40/download/screenshot_2023-07-31_at_8.32.20_am.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F05L4HG4V40-2183820616/screenshot_2023-07-31_at_8.32.20_am_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F05L4HG4V40-2183820616/screenshot_2023-07-31_at_8.32.20_am_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F05L4HG4V40-2183820616/screenshot_2023-07-31_at_8.32.20_am_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 294,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F05L4HG4V40-2183820616/screenshot_2023-07-31_at_8.32.20_am_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 391,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F05L4HG4V40-2183820616/screenshot_2023-07-31_at_8.32.20_am_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F05L4HG4V40-2183820616/screenshot_2023-07-31_at_8.32.20_am_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 587,
+        "original_w": 786,
+        "original_h": 641,
+        "thumb_tiny": "AwAnADDQzhjzn6mn0hpaACiiigAooooAKYH7f0oMqKcF1BHXmnAf5zQABsmloooAKMc5oooAjIBJO1PxFSCmdmpy96AFooooAKKKKAP/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UMV4B97GT/F05L4HG4V40/screenshot_2023-07-31_at_8.32.20_am.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F05L4HG4V40-74343541fe",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UMV4B97GT",
+    "display_as_bot": false,
+    "ts": "1690756602.354589",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2hDEB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\""
+              },
+              {
+                "type": "text",
+                "text": "Wikifunctions",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is a Wikimedia project for everyone to collaboratively create and maintain a library of code functions to support the Wikimedia projects and beyond, in the world's natural and programming languages.\"\n\nIncludes an interesting sort-of-structured-editor in the playground too\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "c4b75679-e2cd-4eb3-afd5-594a6afee0b6",
+    "thread_ts": "1690756602.354589",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1690828444.410059",
+    "reply_users": [
+      "UDQBTJ211",
+      "U01AD80KMLK"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "exploding_head",
+        "users": [
+          "U03R0B9U1GD",
+          "U03LJBR6THT"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
