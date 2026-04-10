@@ -1,0 +1,213 @@
+[
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1763969167.980699",
+    "client_msg_id": "3e4c7b39-3ed7-4be6-9374-cefddb44038e",
+    "text": "<@U0768BNPTEY> I am a proponent of \"data visualization driven programming\" (which is a term I made up). Certain data are better visualised (e.g. a map, a ui) and so code should be augmented with visual views, and it should definitely support multiple views of the same thing.\nSpecifically visualizing code structure this demo page has 2 reactive code maps on opening\n<https://tomlarkworthy.github.io/lopecode/notebooks/@tomlarkworthy_lopecode-vision.html#view=R100(S50(@tomlarkworthy/lopecode-vision),C25(S50(@tomlarkworthy/module-selection),S50(@tomlarkworthy/module-map)),S25(@tomlarkworthy/cell-map))|https://tomlarkworthy.github.io/lopecode/notebooks/@tomlarkworthy_lopecode-vision.html#view=R100(S50(@tomlarkworthy/[…]S25(@tomlarkworthy/cell-map))>.\nThey are not static images, they are live projection of the runtime state. If you change the code they change too. Quite useful for refactoring.\nNote most coding focuses on the code, not the running program, but in a notebook environment those two things are unified in a single runtime so I feel that that is an important preparatory step.\n\nlooping back to <@UGWUJUZHT>, Are we interested in associating an image with a @dataclass *schema*, or are we interested in associating images of a live system. Operationally I think the 2nd is more useful. I think about code as the control plane, vs the running program as the data plane. For debugging, the dataplane is the real system we are usually interesting in understanding more of.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1763816446.807019",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vJXC8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0768BNPTEY"
+              },
+              {
+                "type": "text",
+                "text": " I am a proponent of \"data visualization driven programming\" (which is a term I made up). Certain data are better visualised (e.g. a map, a ui) and so code should be augmented with visual views, and it should definitely support multiple views of the same thing.\nSpecifically visualizing code structure this demo page has 2 reactive code maps on opening\n"
+              },
+              {
+                "type": "link",
+                "url": "https://tomlarkworthy.github.io/lopecode/notebooks/@tomlarkworthy_lopecode-vision.html#view=R100(S50(@tomlarkworthy/lopecode-vision),C25(S50(@tomlarkworthy/module-selection),S50(@tomlarkworthy/module-map)),S25(@tomlarkworthy/cell-map))",
+                "text": "https://tomlarkworthy.github.io/lopecode/notebooks/@tomlarkworthy_lopecode-vision.html#view=R100(S50(@tomlarkworthy/[…]S25(@tomlarkworthy/cell-map))"
+              },
+              {
+                "type": "text",
+                "text": ".\nThey are not static images, they are live projection of the runtime state. If you change the code they change too. Quite useful for refactoring.\nNote most coding focuses on the code, not the running program, but in a notebook environment those two things are unified in a single runtime so I feel that that is an important preparatory step.\n\nlooping back to "
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": ", Are we interested in associating an image with a @dataclass "
+              },
+              {
+                "type": "text",
+                "text": "schema",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", or are we interested in associating images of a live system. Operationally I think the 2nd is more useful. I think about code as the control plane, vs the running program as the data plane. For debugging, the dataplane is the real system we are usually interesting in understanding more of."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1763971666.766579",
+    "client_msg_id": "c1287efd-20ab-4375-adba-fd31b8d69c3b",
+    "text": "&gt; I think about code as the control plane, vs the running program as the data plane.\nThat's a nice image! I'd add narratives as the documentation plane. My main gripe with traditional notebooks is that they confound the control and the documentation plane, by forcing the two into a single linear structure. But I fully agree that computation in the data plane is what we ultimately care most about, and should be able to inspect, understand, and debug.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1763816446.807019",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kWcze",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think about code as the control plane, vs the running program as the data plane."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That's a nice image! I'd add narratives as the documentation plane. My main gripe with traditional notebooks is that they confound the control and the documentation plane, by forcing the two into a single linear structure. But I fully agree that computation in the data plane is what we ultimately care most about, and should be able to inspect, understand, and debug."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "text": "Been working on a different Agentic AI concept, but the Agent is under performing and coding and its not actually useful (unlike <https://observablehq.com/@tomlarkworthy/robocoop-2|robocoop-2> which is good).\n\nSwitched to getting a nice way to remember state. Using IndexDB to persist across page refreshes and mutable FileAttachments to carry state between exports (<https://observablehq.com/@tomlarkworthy/local-state|localState>).\nBrought in ProseMirror to make a notion-like directly editable markdown interface (<https://observablehq.com/@tomlarkworthy/markdowninput|markdownInput>), because its quite annoying to have to write markdown using a programming language and I want to write more in Lopecode.",
+    "files": [
+      {
+        "id": "F09UT4ZF751",
+        "created": 1764012653,
+        "timestamp": 1764012653,
+        "name": "markdownInput.mp4",
+        "title": "markdownInput.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U02E4DAQGSZ",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 4053366,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "is_transcription_region_supported": true,
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F09UT4ZF751-98374b7f00/markdowninput.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F09UT4ZF751-98374b7f00/markdowninput.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F09UT4ZF751/download/markdowninput.mp4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F09UT4ZF751-98374b7f00/file.m3u8?_xcb=9792e",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NzQzOTg2LEFWRVJBR0UtQkFORFdJRFRIPTY5OTU3OSxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xOTIweDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdPVlZVTkZwR056VXhMVGs0TXpjMFlqZG1NREF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGxWVkRSYVJqYzFNUzA1T0RNM05HSTNaakF3TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakE1VlZRMFdrWTNOVEV0T1Rnek56UmlOMll3TUM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pNdU16Y3dMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3T1ZWVU5GcEdOelV4TFRrNE16YzBZamRtTURBdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWQzFZTFVWT1JFeEpVMVFLCg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F09UT4ZF751-98374b7f00/markdowninput_trans.mp4",
+        "duration_ms": 21388,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F09UT4ZF751-98374b7f00/markdowninput_thumb_video.jpeg",
+        "thumb_video_w": 1920,
+        "thumb_video_h": 1080,
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F09UT4ZF751/markdowninput.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F09UT4ZF751-900b492f2e",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U02E4DAQGSZ",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xS3WV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Been working on a different Agentic AI concept, but the Agent is under performing and coding and its not actually useful (unlike "
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/robocoop-2",
+                "text": "robocoop-2"
+              },
+              {
+                "type": "text",
+                "text": " which is good).\n\nSwitched to getting a nice way to remember state. Using IndexDB to persist across page refreshes and mutable FileAttachments to carry state between exports ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/local-state",
+                "text": "localState"
+              },
+              {
+                "type": "text",
+                "text": ").\nBrought in ProseMirror to make a notion-like directly editable markdown interface ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/markdowninput",
+                "text": "markdownInput"
+              },
+              {
+                "type": "text",
+                "text": "), because its quite annoying to have to write markdown using a programming language and I want to write more in Lopecode."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1764012751.062029",
+    "edited": {
+      "user": "U02E4DAQGSZ",
+      "ts": "1764012848.000000"
+    },
+    "client_msg_id": "a820e89d-23e0-421f-9127-6ee983282509",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]
