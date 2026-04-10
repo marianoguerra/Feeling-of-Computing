@@ -1,0 +1,1540 @@
+[
+  {
+    "client_msg_id": "80c306f7-4a9b-4eeb-a440-45d1e5763d4b",
+    "type": "message",
+    "text": "Yes, the Graphical Linear Algebra blog is good fun, but the best ever, but a great idea.  If you read any one post try this one <https://graphicallinearalgebra.net/2016/06/22/29-inverting-matrices-and-dividing-by-zero/>.",
+    "user": "UA14TGLTC",
+    "ts": "1558836393.072300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Graphical Linear Algebra",
+        "service_url": "http://graphicallinearalgebra.net",
+        "title": "29. Dividing by zero to invert matrices",
+        "title_link": "https://graphicallinearalgebra.net/2016/06/22/29-inverting-matrices-and-dividing-by-zero/",
+        "author_name": "pawel",
+        "author_link": "https://graphicallinearalgebra.net/author/pawelsobocinski/",
+        "thumb_url": "https://graphicallinearalgebra.files.wordpress.com/2016/06/paris.jpg?fit=200%2C150",
+        "thumb_width": 113,
+        "thumb_height": 150,
+        "text": "I&rsquo;ve let the blog slide. At the end of this episode I&rsquo;ll write a bit about what I&rsquo;ve been doing in the last few months. For now, let&rsquo;s just jump straight back into graphical linear algebra.\nIn order to motivate myself to get back to&nbsp;writing, I brought forward an episode that I&rsquo;ve been excited about since late last year, when I first did&nbsp;the research.&nbsp;This material is closely linked to Episode 26&nbsp;on division by zero. If you haven&rsquo;t read it, or you have forgotten, it will be useful to take a look before continuing.\n&nbsp;\nEpisode 26 was quite popular &mdash; maybe the clickbait title helped. It did leave some people a bit skeptical: ok, so this guy has derived addition and multiplication tables that seem to say that dividing by zero makes sense. But can this weird idea of dividing by zero actually be useful, or is it merely a curiosity?\nThere are other number systems that, in principle &ldquo;allow&rdquo; you to divide by zero. Many of them work similarly to the IEEE&nbsp;standard for floating point arithmetic, which has an additional entity called NaN (not a number). Roughly speaking, it&rsquo;s the result of all of the calculations that shouldn&rsquo;t&nbsp;make sense, like dividing by zero. Next, if you add and multiply a NaN with anything else, you still have a NaN. So it&rsquo;s kind of like a black hole number: once you get it&nbsp;part way through your calculation you can be pretty sure that something has gone wrong and that the overall result will be a NaN &mdash; no matter what you do, you will never&nbsp;end up with an ordinary number again.\nThis is not the case for&nbsp;the number system from Episode 26. In fact, the three additional&nbsp;elements &infin;, &perp;, &#8868; do show up in calculations. The cool thing is that they are not a sinkhole like NaN: you don&rsquo;t need to panic if you get, say, a&nbsp;&perp; in one of your calculations. It&rsquo;s possible that things will finish well. This episode is entirely devoted to one example: inverting matrices.\n&nbsp;\nWe will need a few definitions.\nAn n&times;m matrix A is said to be invertible&nbsp;when there exists an m&times;n matrix B, such that when you compose in either direction, you get the identity. In diagrams:\nIf such a B exists, we sometimes write A-1 = B. Many matrices are not invertible. One property of those that are is that&nbsp;m=n, that is, invertible matrices are all square; the number of rows is equal to the number of columns.\nActually, it&rsquo;s like this in&nbsp;most PROPs &ndash; you can usually only invert things where the left and the right boundaries have the same size. A useful&nbsp;intuition to keep in mind is that something can only be invertible if it can be undone. And since wires carry information, we can&rsquo;t just throw one away or add a new one and expect to be able to undo it.\nBack to definitions. We will say that an n&times;m matrix A is injective, or mono, when the following is true.\n\nThe backwards facing A is none other than the mirror image symmetry&nbsp;&dagger; that we discussed in Episode 27.\nThe above definition probably&nbsp;seems a bit strange. In most ordinary linear algebra textbooks, the defining property of an injective n&times;m matrix is that it takes &nbsp;different m-vectors to different n-vectors: that is, it&nbsp;is&nbsp;injective as a function. This is actually an equivalent formulation, but we don&rsquo;t think about matrices as functions on this blog.\nOne interesting property of mono matrices is that they are left-cancellable: that is, given two equal-sized matrices B, C for which AB and AC is defined, if AB=AC then B=C. In fact, this is true when B and C are linear relations. Diagrammatically:\n\nimplies that\n\nHere B and C are linear relations, i.e. arbitrary diagrams in IH. This of course includes the case where B and C are matrices.\nActually injectivity and left-cancellability are also equivalent, i.e. assuming one, you can prove the other. I&rsquo;ll leave the proofs as an exercise but I&rsquo;ll give you a hint: it&rsquo;s handy to use the fact, stated in Episode 27, that for any linear relation A, A&dagger; is its weak inverse.\nThe bizarro of injective is&nbsp;surjective. We will also use the word epi. Thus, an n&times;m matrix is surjective when the following is true:\n\nJust as mono matrices are left-cancellable, epi matrices are right-cancellable; given B and C such that BA and CA make sense, if BA=CA then B=C. In terms of ordinary&nbsp;linear algebra, surjective matrices are those that are surjective as functions; for every n-vector b, there exists an m-vector a such that Aa=b.\nThere is one final&nbsp;observation&nbsp;that we will need later: any invertible matrix is both injective and surjective. To keep things moving along, I&rsquo;ll also leave the proof of this as an exercise.\n&nbsp;\nLet&rsquo;s now prove a classic result of linear algebra. It refers to kernels and images, which are linear subspaces that we discussed in the last episode.\nKernel and Image Lemma.&nbsp;Suppose that A is an m&times;n matrix. Then:\nA is injective exactly when it has a null kernel\nA is surjective exactly when it has a full image.\nProof.&nbsp;Properties 1 and 2 are mutually bizarro, so it&rsquo;s enough to prove just one. We will do 1.\nSuppose that A is injective. Then:\n\nWhich means that A has a null kernel.\nSuppose now that A has a null kernel; we want to show that it must be injective.\n\nThat&rsquo;s it, we&rsquo;re done, QED.\n&nbsp;\n&nbsp;\nThe following lemma is very useful because it gives us some useful&nbsp;graphical intuition&nbsp;about invertible matrices.\nInvertible Matrix&nbsp;Lemma\nSuppose that A is a square matrix of size m.&nbsp;Then the following are equivalent\nA has inverse B\nThere exists matrix B such\n\nProof. Let&rsquo;s first show that 1 implies 2. Assuming 1, Suppose that A has inverse B. Since A is invertible, we know that A is injective. So we have the following:\n\nWhich gives us&nbsp;2. In the first step, we used the assumption that B is the inverse of A, and in the second step we used the fact that A is injective.\nWe still need to show that&nbsp;2 implies 1. So, supposing that A is equal to some matrix B heading in the opposite direction, we need to show that B is the inverse of A. To do that, it&rsquo;s useful to show that A must be injective. Here we can use our Kernel and Image Lemma.\n\nSo, by the kernel lemma, A is injective. We can now use this to show that A followed by B is identity.\n\nTo show that B followed by A is also identity, we can do the bizarro thing, first showing that B is surjective.\n&nbsp;\nOur aim is to obtain a formula for the inverse of a matrix, if it exists. The&nbsp;starting point is an arbitrary 2&times;2 matrix, so something like this:\nIf an inverse exists, then we know it&rsquo;s also going to be a 2&times;2 matrix:\nThe tricky part is, how can we calculate&nbsp;a&rsquo;,&nbsp;b&rsquo;,&nbsp;c&rsquo; and d&rsquo;, knowing a,&nbsp;b, c and d? If you remember your linear algebra, maybe you&rsquo;re thinking determinants and adjugate matrices. We will bypass all that and draw some pictures instead.\n&nbsp;\nLet&rsquo;s start by using our Invertible Matrix Lemma. As diagrams in IH, we have:\n\nNow adding a matrix to -1 times itself gives us the zero matrix. Using this trivial observation,&nbsp;we get the following rather complicated looking equation:\n\nWe can extract the formula for each of a&rsquo;, b&rsquo;, c&rsquo; and d&rsquo;&nbsp;by plugging up some of the dangling wires in the above equation. Let&rsquo;s work through the procedure&nbsp;for a&rsquo;.\nThe first step is to plug a zero and a discard at the right places in both sides, like so:\n\nDoing that, we get the first equality below.\nThe second equality follows from the bone equation of bimonoids.\nSo far so good: but now we can drastically simplify the left hand side. Essentially, we&rsquo;ve plugged a white unit into a black comultiplication, and vice versa; usually when that happens, there is…",
+        "fallback": "Graphical Linear Algebra Link: 29. Dividing by zero to invert&nbsp;matrices",
+        "from_url": "https://graphicallinearalgebra.net/2016/06/22/29-inverting-matrices-and-dividing-by-zero/",
+        "service_icon": "https://s2.wp.com/i/webclip.png",
+        "id": 1,
+        "original_url": "https://graphicallinearalgebra.net/2016/06/22/29-inverting-matrices-and-dividing-by-zero/"
+      }
+    ],
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "80c306f7-4a9b-4eeb-a440-45d1e5763d4b",
+    "type": "message",
+    "text": "Yes, the Graphical Linear Algebra blog is good fun, but the best ever, but a great idea.  If you read any one post try this one <https://graphicallinearalgebra.net/2016/06/22/29-inverting-matrices-and-dividing-by-zero/>.",
+    "user": "UA14TGLTC",
+    "ts": "1558836393.072300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Graphical Linear Algebra",
+        "service_url": "http://graphicallinearalgebra.net",
+        "title": "29. Dividing by zero to invert matrices",
+        "title_link": "https://graphicallinearalgebra.net/2016/06/22/29-inverting-matrices-and-dividing-by-zero/",
+        "author_name": "pawel",
+        "author_link": "https://graphicallinearalgebra.net/author/pawelsobocinski/",
+        "thumb_url": "https://graphicallinearalgebra.files.wordpress.com/2016/06/paris.jpg?fit=200%2C150",
+        "thumb_width": 113,
+        "thumb_height": 150,
+        "text": "I&rsquo;ve let the blog slide. At the end of this episode I&rsquo;ll write a bit about what I&rsquo;ve been doing in the last few months. For now, let&rsquo;s just jump straight back into graphical linear algebra.\nIn order to motivate myself to get back to&nbsp;writing, I brought forward an episode that I&rsquo;ve been excited about since late last year, when I first did&nbsp;the research.&nbsp;This material is closely linked to Episode 26&nbsp;on division by zero. If you haven&rsquo;t read it, or you have forgotten, it will be useful to take a look before continuing.\n&nbsp;\nEpisode 26 was quite popular &mdash; maybe the clickbait title helped. It did leave some people a bit skeptical: ok, so this guy has derived addition and multiplication tables that seem to say that dividing by zero makes sense. But can this weird idea of dividing by zero actually be useful, or is it merely a curiosity?\nThere are other number systems that, in principle &ldquo;allow&rdquo; you to divide by zero. Many of them work similarly to the IEEE&nbsp;standard for floating point arithmetic, which has an additional entity called NaN (not a number). Roughly speaking, it&rsquo;s the result of all of the calculations that shouldn&rsquo;t&nbsp;make sense, like dividing by zero. Next, if you add and multiply a NaN with anything else, you still have a NaN. So it&rsquo;s kind of like a black hole number: once you get it&nbsp;part way through your calculation you can be pretty sure that something has gone wrong and that the overall result will be a NaN &mdash; no matter what you do, you will never&nbsp;end up with an ordinary number again.\nThis is not the case for&nbsp;the number system from Episode 26. In fact, the three additional&nbsp;elements &infin;, &perp;, &#8868; do show up in calculations. The cool thing is that they are not a sinkhole like NaN: you don&rsquo;t need to panic if you get, say, a&nbsp;&perp; in one of your calculations. It&rsquo;s possible that things will finish well. This episode is entirely devoted to one example: inverting matrices.\n&nbsp;\nWe will need a few definitions.\nAn n&times;m matrix A is said to be invertible&nbsp;when there exists an m&times;n matrix B, such that when you compose in either direction, you get the identity. In diagrams:\nIf such a B exists, we sometimes write A-1 = B. Many matrices are not invertible. One property of those that are is that&nbsp;m=n, that is, invertible matrices are all square; the number of rows is equal to the number of columns.\nActually, it&rsquo;s like this in&nbsp;most PROPs &ndash; you can usually only invert things where the left and the right boundaries have the same size. A useful&nbsp;intuition to keep in mind is that something can only be invertible if it can be undone. And since wires carry information, we can&rsquo;t just throw one away or add a new one and expect to be able to undo it.\nBack to definitions. We will say that an n&times;m matrix A is injective, or mono, when the following is true.\n\nThe backwards facing A is none other than the mirror image symmetry&nbsp;&dagger; that we discussed in Episode 27.\nThe above definition probably&nbsp;seems a bit strange. In most ordinary linear algebra textbooks, the defining property of an injective n&times;m matrix is that it takes &nbsp;different m-vectors to different n-vectors: that is, it&nbsp;is&nbsp;injective as a function. This is actually an equivalent formulation, but we don&rsquo;t think about matrices as functions on this blog.\nOne interesting property of mono matrices is that they are left-cancellable: that is, given two equal-sized matrices B, C for which AB and AC is defined, if AB=AC then B=C. In fact, this is true when B and C are linear relations. Diagrammatically:\n\nimplies that\n\nHere B and C are linear relations, i.e. arbitrary diagrams in IH. This of course includes the case where B and C are matrices.\nActually injectivity and left-cancellability are also equivalent, i.e. assuming one, you can prove the other. I&rsquo;ll leave the proofs as an exercise but I&rsquo;ll give you a hint: it&rsquo;s handy to use the fact, stated in Episode 27, that for any linear relation A, A&dagger; is its weak inverse.\nThe bizarro of injective is&nbsp;surjective. We will also use the word epi. Thus, an n&times;m matrix is surjective when the following is true:\n\nJust as mono matrices are left-cancellable, epi matrices are right-cancellable; given B and C such that BA and CA make sense, if BA=CA then B=C. In terms of ordinary&nbsp;linear algebra, surjective matrices are those that are surjective as functions; for every n-vector b, there exists an m-vector a such that Aa=b.\nThere is one final&nbsp;observation&nbsp;that we will need later: any invertible matrix is both injective and surjective. To keep things moving along, I&rsquo;ll also leave the proof of this as an exercise.\n&nbsp;\nLet&rsquo;s now prove a classic result of linear algebra. It refers to kernels and images, which are linear subspaces that we discussed in the last episode.\nKernel and Image Lemma.&nbsp;Suppose that A is an m&times;n matrix. Then:\nA is injective exactly when it has a null kernel\nA is surjective exactly when it has a full image.\nProof.&nbsp;Properties 1 and 2 are mutually bizarro, so it&rsquo;s enough to prove just one. We will do 1.\nSuppose that A is injective. Then:\n\nWhich means that A has a null kernel.\nSuppose now that A has a null kernel; we want to show that it must be injective.\n\nThat&rsquo;s it, we&rsquo;re done, QED.\n&nbsp;\n&nbsp;\nThe following lemma is very useful because it gives us some useful&nbsp;graphical intuition&nbsp;about invertible matrices.\nInvertible Matrix&nbsp;Lemma\nSuppose that A is a square matrix of size m.&nbsp;Then the following are equivalent\nA has inverse B\nThere exists matrix B such\n\nProof. Let&rsquo;s first show that 1 implies 2. Assuming 1, Suppose that A has inverse B. Since A is invertible, we know that A is injective. So we have the following:\n\nWhich gives us&nbsp;2. In the first step, we used the assumption that B is the inverse of A, and in the second step we used the fact that A is injective.\nWe still need to show that&nbsp;2 implies 1. So, supposing that A is equal to some matrix B heading in the opposite direction, we need to show that B is the inverse of A. To do that, it&rsquo;s useful to show that A must be injective. Here we can use our Kernel and Image Lemma.\n\nSo, by the kernel lemma, A is injective. We can now use this to show that A followed by B is identity.\n\nTo show that B followed by A is also identity, we can do the bizarro thing, first showing that B is surjective.\n&nbsp;\nOur aim is to obtain a formula for the inverse of a matrix, if it exists. The&nbsp;starting point is an arbitrary 2&times;2 matrix, so something like this:\nIf an inverse exists, then we know it&rsquo;s also going to be a 2&times;2 matrix:\nThe tricky part is, how can we calculate&nbsp;a&rsquo;,&nbsp;b&rsquo;,&nbsp;c&rsquo; and d&rsquo;, knowing a,&nbsp;b, c and d? If you remember your linear algebra, maybe you&rsquo;re thinking determinants and adjugate matrices. We will bypass all that and draw some pictures instead.\n&nbsp;\nLet&rsquo;s start by using our Invertible Matrix Lemma. As diagrams in IH, we have:\n\nNow adding a matrix to -1 times itself gives us the zero matrix. Using this trivial observation,&nbsp;we get the following rather complicated looking equation:\n\nWe can extract the formula for each of a&rsquo;, b&rsquo;, c&rsquo; and d&rsquo;&nbsp;by plugging up some of the dangling wires in the above equation. Let&rsquo;s work through the procedure&nbsp;for a&rsquo;.\nThe first step is to plug a zero and a discard at the right places in both sides, like so:\n\nDoing that, we get the first equality below.\nThe second equality follows from the bone equation of bimonoids.\nSo far so good: but now we can drastically simplify the left hand side. Essentially, we&rsquo;ve plugged a white unit into a black comultiplication, and vice versa; usually when that happens, there is…",
+        "fallback": "Graphical Linear Algebra Link: 29. Dividing by zero to invert&nbsp;matrices",
+        "from_url": "https://graphicallinearalgebra.net/2016/06/22/29-inverting-matrices-and-dividing-by-zero/",
+        "service_icon": "https://s2.wp.com/i/webclip.png",
+        "id": 1,
+        "original_url": "https://graphicallinearalgebra.net/2016/06/22/29-inverting-matrices-and-dividing-by-zero/"
+      }
+    ],
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6cfd75db-6b41-488d-9688-4f92bdf34a67",
+    "type": "message",
+    "text": "Seven Sketches is what I always recommend to people.",
+    "user": "UA14TGLTC",
+    "ts": "1558836482.072600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6cfd75db-6b41-488d-9688-4f92bdf34a67",
+    "type": "message",
+    "text": "Seven Sketches is what I always recommend to people.",
+    "user": "UA14TGLTC",
+    "ts": "1558836482.072600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0c59d0bd-630f-409a-88e3-8a96b8d39d0d",
+    "type": "message",
+    "text": "Back when I got started Conceptual Mathematics was the best <https://www.amazon.com/Conceptual-Mathematics-First-Introduction-Categories/dp/052171916X>.  It repeats ideas enough to give a person a good amount of practice with limits.",
+    "user": "UA14TGLTC",
+    "ts": "1558836603.072800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Conceptual Mathematics: A First Introduction to Categories",
+        "title_link": "https://www.amazon.com/Conceptual-Mathematics-First-Introduction-Categories/dp/052171916X",
+        "text": "In the last 60 years, the use of the notion of category has led to a remarkable unification and simplification of mathematics. Conceptual Mathematics, Second Edition, introduces the concept of 'category' for the learning, development, and use of mathematics, to both beginning students and general...",
+        "fallback": "Conceptual Mathematics: A First Introduction to Categories",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/41bGNcpncPL._SR600%2c315_PIWhiteStrip%2cBottomLeft%2c0%2c35_PIAmznPrime%2cBottomLeft%2c0%2c-5_PIStarRatingFOUR%2cBottomLeft%2c360%2c-6_SR600%2c315_ZA(30%20Reviews)%2c445%2c291%2c400%2c400%2carial%2c12%2c4%2c0%2c0%2c5_SCLZZZZZZZ_.jpg",
+        "from_url": "https://www.amazon.com/Conceptual-Mathematics-First-Introduction-Categories/dp/052171916X",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 12727,
+        "service_icon": "https://www.amazon.com/favicon.ico",
+        "service_name": "amazon.com",
+        "id": 1,
+        "original_url": "https://www.amazon.com/Conceptual-Mathematics-First-Introduction-Categories/dp/052171916X"
+      }
+    ],
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0c59d0bd-630f-409a-88e3-8a96b8d39d0d",
+    "type": "message",
+    "text": "Back when I got started Conceptual Mathematics was the best <https://www.amazon.com/Conceptual-Mathematics-First-Introduction-Categories/dp/052171916X>.  It repeats ideas enough to give a person a good amount of practice with limits.",
+    "user": "UA14TGLTC",
+    "ts": "1558836603.072800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Conceptual Mathematics: A First Introduction to Categories",
+        "title_link": "https://www.amazon.com/Conceptual-Mathematics-First-Introduction-Categories/dp/052171916X",
+        "text": "In the last 60 years, the use of the notion of category has led to a remarkable unification and simplification of mathematics. Conceptual Mathematics, Second Edition, introduces the concept of 'category' for the learning, development, and use of mathematics, to both beginning students and general...",
+        "fallback": "Conceptual Mathematics: A First Introduction to Categories",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/41bGNcpncPL._SR600%2c315_PIWhiteStrip%2cBottomLeft%2c0%2c35_PIAmznPrime%2cBottomLeft%2c0%2c-5_PIStarRatingFOUR%2cBottomLeft%2c360%2c-6_SR600%2c315_ZA(30%20Reviews)%2c445%2c291%2c400%2c400%2carial%2c12%2c4%2c0%2c0%2c5_SCLZZZZZZZ_.jpg",
+        "from_url": "https://www.amazon.com/Conceptual-Mathematics-First-Introduction-Categories/dp/052171916X",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 12727,
+        "service_icon": "https://www.amazon.com/favicon.ico",
+        "service_name": "amazon.com",
+        "id": 1,
+        "original_url": "https://www.amazon.com/Conceptual-Mathematics-First-Introduction-Categories/dp/052171916X"
+      }
+    ],
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ddeb8968-1056-404f-b360-59d273702bb3",
+    "type": "message",
+    "text": "I learned from Steve Awodey who approaches a category as what you get when you cross a poset with a monoid.",
+    "user": "UA14TGLTC",
+    "ts": "1558836795.073100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ddeb8968-1056-404f-b360-59d273702bb3",
+    "type": "message",
+    "text": "I learned from Steve Awodey who approaches a category as what you get when you cross a poset with a monoid.",
+    "user": "UA14TGLTC",
+    "ts": "1558836795.073100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "16ac1eaf-babc-4413-a125-2c1303a62c52",
+    "type": "message",
+    "text": "<https://www.amazon.com/Category-Theory-Oxford-Logic-Guides/dp/0199237182/ref=pd_bxgy_img_3/142-3084216-7251701?_encoding=UTF8&amp;pd_rd_i=0199237182&amp;pd_rd_r=1efab95c-7f5b-11e9-9c4a-ff62a9822dac&amp;pd_rd_w=gQDzK&amp;pd_rd_wg=HriuZ&amp;pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&amp;pf_rd_r=PP5Z84CESYKX9JPEG29R&amp;psc=1&amp;refRID=PP5Z84CESYKX9JPEG29R>",
+    "user": "UA14TGLTC",
+    "ts": "1558836796.073300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Category Theory (Oxford Logic Guides)",
+        "title_link": "https://www.amazon.com/Category-Theory-Oxford-Logic-Guides/dp/0199237182/ref=pd_bxgy_img_3/142-3084216-7251701?_encoding=UTF8&pd_rd_i=0199237182&pd_rd_r=1efab95c-7f5b-11e9-9c4a-ff62a9822dac&pd_rd_w=gQDzK&pd_rd_wg=HriuZ&pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&pf_rd_r=PP5Z84CESYKX9JPEG29R&psc=1&refRID=PP5Z84CESYKX9JPEG29R",
+        "text": "Category theory is a branch of abstract algebra with incredibly diverse applications. This text and reference book is aimed not only at mathematicians, but also researchers and students of computer science, logic, linguistics, cognitive science, philosophy, and any of the other fields in which th...",
+        "fallback": "Category Theory (Oxford Logic Guides)",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/41pAXg0Mh8L._SR600%2c315_PIWhiteStrip%2cBottomLeft%2c0%2c35_PIAmznPrime%2cBottomLeft%2c0%2c-5_PIStarRatingFOUR%2cBottomLeft%2c360%2c-6_SR600%2c315_ZA(9%20Reviews)%2c445%2c291%2c400%2c400%2carial%2c12%2c4%2c0%2c0%2c5_SCLZZZZZZZ_.jpg",
+        "from_url": "https://www.amazon.com/Category-Theory-Oxford-Logic-Guides/dp/0199237182/ref=pd_bxgy_img_3/142-3084216-7251701?_encoding=UTF8&pd_rd_i=0199237182&pd_rd_r=1efab95c-7f5b-11e9-9c4a-ff62a9822dac&pd_rd_w=gQDzK&pd_rd_wg=HriuZ&pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&pf_rd_r=PP5Z84CESYKX9JPEG29R&psc=1&refRID=PP5Z84CESYKX9JPEG29R",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 12670,
+        "service_icon": "https://www.amazon.com/favicon.ico",
+        "service_name": "amazon.com",
+        "id": 1,
+        "original_url": "https://www.amazon.com/Category-Theory-Oxford-Logic-Guides/dp/0199237182/ref=pd_bxgy_img_3/142-3084216-7251701?_encoding=UTF8&amp;pd_rd_i=0199237182&amp;pd_rd_r=1efab95c-7f5b-11e9-9c4a-ff62a9822dac&amp;pd_rd_w=gQDzK&amp;pd_rd_wg=HriuZ&amp;pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&amp;pf_rd_r=PP5Z84CESYKX9JPEG29R&amp;psc=1&amp;refRID=PP5Z84CESYKX9JPEG29R"
+      }
+    ],
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "16ac1eaf-babc-4413-a125-2c1303a62c52",
+    "type": "message",
+    "text": "<https://www.amazon.com/Category-Theory-Oxford-Logic-Guides/dp/0199237182/ref=pd_bxgy_img_3/142-3084216-7251701?_encoding=UTF8&amp;pd_rd_i=0199237182&amp;pd_rd_r=1efab95c-7f5b-11e9-9c4a-ff62a9822dac&amp;pd_rd_w=gQDzK&amp;pd_rd_wg=HriuZ&amp;pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&amp;pf_rd_r=PP5Z84CESYKX9JPEG29R&amp;psc=1&amp;refRID=PP5Z84CESYKX9JPEG29R>",
+    "user": "UA14TGLTC",
+    "ts": "1558836796.073300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Category Theory (Oxford Logic Guides)",
+        "title_link": "https://www.amazon.com/Category-Theory-Oxford-Logic-Guides/dp/0199237182/ref=pd_bxgy_img_3/142-3084216-7251701?_encoding=UTF8&pd_rd_i=0199237182&pd_rd_r=1efab95c-7f5b-11e9-9c4a-ff62a9822dac&pd_rd_w=gQDzK&pd_rd_wg=HriuZ&pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&pf_rd_r=PP5Z84CESYKX9JPEG29R&psc=1&refRID=PP5Z84CESYKX9JPEG29R",
+        "text": "Category theory is a branch of abstract algebra with incredibly diverse applications. This text and reference book is aimed not only at mathematicians, but also researchers and students of computer science, logic, linguistics, cognitive science, philosophy, and any of the other fields in which th...",
+        "fallback": "Category Theory (Oxford Logic Guides)",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/41pAXg0Mh8L._SR600%2c315_PIWhiteStrip%2cBottomLeft%2c0%2c35_PIAmznPrime%2cBottomLeft%2c0%2c-5_PIStarRatingFOUR%2cBottomLeft%2c360%2c-6_SR600%2c315_ZA(9%20Reviews)%2c445%2c291%2c400%2c400%2carial%2c12%2c4%2c0%2c0%2c5_SCLZZZZZZZ_.jpg",
+        "from_url": "https://www.amazon.com/Category-Theory-Oxford-Logic-Guides/dp/0199237182/ref=pd_bxgy_img_3/142-3084216-7251701?_encoding=UTF8&pd_rd_i=0199237182&pd_rd_r=1efab95c-7f5b-11e9-9c4a-ff62a9822dac&pd_rd_w=gQDzK&pd_rd_wg=HriuZ&pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&pf_rd_r=PP5Z84CESYKX9JPEG29R&psc=1&refRID=PP5Z84CESYKX9JPEG29R",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 12670,
+        "service_icon": "https://www.amazon.com/favicon.ico",
+        "service_name": "amazon.com",
+        "id": 1,
+        "original_url": "https://www.amazon.com/Category-Theory-Oxford-Logic-Guides/dp/0199237182/ref=pd_bxgy_img_3/142-3084216-7251701?_encoding=UTF8&amp;pd_rd_i=0199237182&amp;pd_rd_r=1efab95c-7f5b-11e9-9c4a-ff62a9822dac&amp;pd_rd_w=gQDzK&amp;pd_rd_wg=HriuZ&amp;pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&amp;pf_rd_r=PP5Z84CESYKX9JPEG29R&amp;psc=1&amp;refRID=PP5Z84CESYKX9JPEG29R"
+      }
+    ],
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9e90fb04-23ff-496e-8082-2d399ccddf59",
+    "type": "message",
+    "text": "It's a cute idea, but also typifies the problem that treatments of Categories are especially math jargony.",
+    "user": "UA14TGLTC",
+    "ts": "1558836890.073600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9e90fb04-23ff-496e-8082-2d399ccddf59",
+    "type": "message",
+    "text": "It's a cute idea, but also typifies the problem that treatments of Categories are especially math jargony.",
+    "user": "UA14TGLTC",
+    "ts": "1558836890.073600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f99e4aef-3cf6-4ef0-bdfa-67266b8fc9aa",
+    "type": "message",
+    "text": "The intrinsic challenge with Categories is the natural abstractness: instead of building a thing out of pieces, you ask how does it relate to all the other things of the same sort.  Then the specific pieces used don't matter allowing you to shift your attention to formal universal properties.",
+    "user": "UA14TGLTC",
+    "ts": "1558837138.073800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f99e4aef-3cf6-4ef0-bdfa-67266b8fc9aa",
+    "type": "message",
+    "text": "The intrinsic challenge with Categories is the natural abstractness: instead of building a thing out of pieces, you ask how does it relate to all the other things of the same sort.  Then the specific pieces used don't matter allowing you to shift your attention to formal universal properties.",
+    "user": "UA14TGLTC",
+    "ts": "1558837138.073800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1f3a550c-026b-4e97-8dff-d8aa114957a8",
+    "type": "message",
+    "text": "So then it's really good to ground things in the concrete.  Like, I don't know, anything remote controlled will be a functorish commutative square.  Or, like physical maps.  Pointing at the map, after composition, is like pointing at a place.",
+    "user": "UA14TGLTC",
+    "ts": "1558837364.074000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1f3a550c-026b-4e97-8dff-d8aa114957a8",
+    "type": "message",
+    "text": "So then it's really good to ground things in the concrete.  Like, I don't know, anything remote controlled will be a functorish commutative square.  Or, like physical maps.  Pointing at the map, after composition, is like pointing at a place.",
+    "user": "UA14TGLTC",
+    "ts": "1558837364.074000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "241312ab-734f-4ecf-921b-216c337593bb",
+    "type": "message",
+    "text": "Oh how I hate transition animations that make no sense!",
+    "user": "UA14TGLTC",
+    "ts": "1558837531.001500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558812112.000800",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "A5AB7643-8D98-4F88-8A27-89008413F39C",
+    "type": "message",
+    "text": "<@UA14TGLTC> I’d love for you to join our little group! If not to learn then to teach. And if you can’t make time, maybe you’d be willing to join us for a single call a little later on, where we can pester you with more specific questions?",
+    "user": "U5STGTB3J",
+    "ts": "1558858228.077500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "A5AB7643-8D98-4F88-8A27-89008413F39C",
+    "type": "message",
+    "text": "<@UA14TGLTC> I’d love for you to join our little group! If not to learn then to teach. And if you can’t make time, maybe you’d be willing to join us for a single call a little later on, where we can pester you with more specific questions?",
+    "user": "U5STGTB3J",
+    "ts": "1558858228.077500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "47cd2ecf-321d-40ec-b29f-5a04cdfe1b37",
+    "type": "message",
+    "text": "<@U5STGTB3J> I'd be more than happy to join in.",
+    "user": "UA14TGLTC",
+    "ts": "1558858968.077700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "47cd2ecf-321d-40ec-b29f-5a04cdfe1b37",
+    "type": "message",
+    "text": "<@U5STGTB3J> I'd be more than happy to join in.",
+    "user": "UA14TGLTC",
+    "ts": "1558858968.077700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558782017.061500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "B879311A-F2DD-4432-BCE9-393C329B601C",
+    "type": "message",
+    "text": "This came in today via hackernews, Von Neumann on automata theory on logic (critique): <https://www.yodaiken.com/2019/02/20/von-neumanns-critique-of-automata-theory-and-logic-in-computer-science/>",
+    "user": "UJFN50C00",
+    "ts": "1558866823.080000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "keeping simple",
+        "title": "Von Neumann’s critique of automata theory and logic in computer science",
+        "title_link": "https://www.yodaiken.com/2019/02/20/von-neumanns-critique-of-automata-theory-and-logic-in-computer-science/",
+        "text": "from “THE GENERAL AND LOGICAL THEORY OF AUTOMATA” 1947.     There exists today a very elaborate system of formal logic, and, specifically, of logic as applied to mathematics. …",
+        "fallback": "keeping simple: Von Neumann’s critique of automata theory and logic in computer science",
+        "thumb_url": "https://www.yodaiken.com/wp-content/uploads/2014/09/cropped-primary_SafetyLastStillClock-1.jpg",
+        "ts": 1550678531,
+        "from_url": "https://www.yodaiken.com/2019/02/20/von-neumanns-critique-of-automata-theory-and-logic-in-computer-science/",
+        "thumb_width": 512,
+        "thumb_height": 512,
+        "service_icon": "https://www.yodaiken.com/wp-content/uploads/2014/09/cropped-primary_SafetyLastStillClock-1-180x180.jpg",
+        "id": 1,
+        "original_url": "https://www.yodaiken.com/2019/02/20/von-neumanns-critique-of-automata-theory-and-logic-in-computer-science/"
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "B879311A-F2DD-4432-BCE9-393C329B601C",
+    "type": "message",
+    "text": "This came in today via hackernews, Von Neumann on automata theory on logic (critique): <https://www.yodaiken.com/2019/02/20/von-neumanns-critique-of-automata-theory-and-logic-in-computer-science/>",
+    "user": "UJFN50C00",
+    "ts": "1558866823.080000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "keeping simple",
+        "title": "Von Neumann’s critique of automata theory and logic in computer science",
+        "title_link": "https://www.yodaiken.com/2019/02/20/von-neumanns-critique-of-automata-theory-and-logic-in-computer-science/",
+        "text": "from “THE GENERAL AND LOGICAL THEORY OF AUTOMATA” 1947.     There exists today a very elaborate system of formal logic, and, specifically, of logic as applied to mathematics. …",
+        "fallback": "keeping simple: Von Neumann’s critique of automata theory and logic in computer science",
+        "thumb_url": "https://www.yodaiken.com/wp-content/uploads/2014/09/cropped-primary_SafetyLastStillClock-1.jpg",
+        "ts": 1550678531,
+        "from_url": "https://www.yodaiken.com/2019/02/20/von-neumanns-critique-of-automata-theory-and-logic-in-computer-science/",
+        "thumb_width": 512,
+        "thumb_height": 512,
+        "service_icon": "https://www.yodaiken.com/wp-content/uploads/2014/09/cropped-primary_SafetyLastStillClock-1-180x180.jpg",
+        "id": 1,
+        "original_url": "https://www.yodaiken.com/2019/02/20/von-neumanns-critique-of-automata-theory-and-logic-in-computer-science/"
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "A4EA54CF-F339-4447-A9B8-4539D53D584F",
+    "type": "message",
+    "text": "A few years ago I discovered the phrase: “how to think an impossible thought”, for myself. It’s a interesting view on perspectives :ok_hand:",
+    "user": "UJFN50C00",
+    "ts": "1558867014.084800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558808584.072000",
+    "parent_user_id": "UAVCC2X70",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "A4EA54CF-F339-4447-A9B8-4539D53D584F",
+    "type": "message",
+    "text": "A few years ago I discovered the phrase: “how to think an impossible thought”, for myself. It’s a interesting view on perspectives :ok_hand:",
+    "user": "UJFN50C00",
+    "ts": "1558867014.084800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558808584.072000",
+    "parent_user_id": "UAVCC2X70",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e43efca1-a2a2-40e4-8b92-97a12309d480",
+    "type": "message",
+    "text": "I'd like us to create something like a taxonomy of our different approaches here and elsewhere. For example:\n\n • Scratch-like\n • FRP-based\n • Dataflow, boxes and arrows\n • if this then that\n • spreadsheet-like\n • ...\n\nThis should inspire discussion of their merits and costs, which doesn't seem to happen much here.\n\nAnd also we could do the same for our common goals with our projects:\n\n • end user liberation, empowerment\n • better IDE UX\n • discover the pure essence of what programming is\n • ...",
+    "user": "UE6EFEPTQ",
+    "ts": "1558867267.089200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "reply_count": 18,
+    "reply_users_count": 7,
+    "latest_reply": "1559071789.153800",
+    "reply_users": [
+      "UJFN50C00",
+      "U85HCL7JP",
+      "UE6EFEPTQ",
+      "U6KQ2S410",
+      "UCGAK10LS",
+      "UJK8MKYAZ",
+      "UJKC8B0QN"
+    ],
+    "replies": [
+      {
+        "user": "UJFN50C00",
+        "ts": "1558867445.090500"
+      },
+      {
+        "user": "U85HCL7JP",
+        "ts": "1558881603.092400"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1558888661.092700"
+      },
+      {
+        "user": "U6KQ2S410",
+        "ts": "1558890854.093000"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1558911050.093400"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1558911149.093600"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1558934680.097400"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1558976637.114600"
+      },
+      {
+        "user": "U6KQ2S410",
+        "ts": "1558979310.114800"
+      },
+      {
+        "user": "U6KQ2S410",
+        "ts": "1558979432.115000"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1558979882.115200"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1558980242.115400"
+      },
+      {
+        "user": "UJKC8B0QN",
+        "ts": "1559057648.145400"
+      },
+      {
+        "user": "UJKC8B0QN",
+        "ts": "1559057917.145600"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1559061708.147400"
+      },
+      {
+        "user": "UJKC8B0QN",
+        "ts": "1559067965.152600"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1559071744.153600"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1559071789.153800"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJFN50C00",
+          "U79HM6726",
+          "UJ6LDMMN0",
+          "UAVCC2X70",
+          "UEQ7QL15F",
+          "UJVEPCVT6"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e43efca1-a2a2-40e4-8b92-97a12309d480",
+    "type": "message",
+    "text": "I'd like us to create something like a taxonomy of our different approaches here and elsewhere. For example:\n\n • Scratch-like\n • FRP-based\n • Dataflow, boxes and arrows\n • if this then that\n • spreadsheet-like\n • ...\n\nThis should inspire discussion of their merits and costs, which doesn't seem to happen much here.\n\nAnd also we could do the same for our common goals with our projects:\n\n • end user liberation, empowerment\n • better IDE UX\n • discover the pure essence of what programming is\n • ...",
+    "user": "UE6EFEPTQ",
+    "ts": "1558867267.089200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "reply_count": 18,
+    "reply_users_count": 7,
+    "latest_reply": "1559071789.153800",
+    "reply_users": [
+      "UJFN50C00",
+      "U85HCL7JP",
+      "UE6EFEPTQ",
+      "U6KQ2S410",
+      "UCGAK10LS",
+      "UJK8MKYAZ",
+      "UJKC8B0QN"
+    ],
+    "replies": [
+      {
+        "user": "UJFN50C00",
+        "ts": "1558867445.090500"
+      },
+      {
+        "user": "U85HCL7JP",
+        "ts": "1558881603.092400"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1558888661.092700"
+      },
+      {
+        "user": "U6KQ2S410",
+        "ts": "1558890854.093000"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1558911050.093400"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1558911149.093600"
+      },
+      {
+        "user": "UCGAK10LS",
+        "ts": "1558934680.097400"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1558976637.114600"
+      },
+      {
+        "user": "U6KQ2S410",
+        "ts": "1558979310.114800"
+      },
+      {
+        "user": "U6KQ2S410",
+        "ts": "1558979432.115000"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1558979882.115200"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1558980242.115400"
+      },
+      {
+        "user": "UJKC8B0QN",
+        "ts": "1559057648.145400"
+      },
+      {
+        "user": "UJKC8B0QN",
+        "ts": "1559057917.145600"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1559061708.147400"
+      },
+      {
+        "user": "UJKC8B0QN",
+        "ts": "1559067965.152600"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1559071744.153600"
+      },
+      {
+        "user": "UJK8MKYAZ",
+        "ts": "1559071789.153800"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJFN50C00",
+          "U79HM6726",
+          "UJ6LDMMN0",
+          "UAVCC2X70",
+          "UEQ7QL15F",
+          "UJVEPCVT6"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1E55B050-4E35-4739-810B-891C74218DE6",
+    "type": "message",
+    "text": "Creating metrics is incredible important. I would like to see that happen for a variety of complexities ",
+    "user": "UJFN50C00",
+    "ts": "1558867445.090500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1E55B050-4E35-4739-810B-891C74218DE6",
+    "type": "message",
+    "text": "Creating metrics is incredible important. I would like to see that happen for a variety of complexities ",
+    "user": "UJFN50C00",
+    "ts": "1558867445.090500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "20028D25-F5B3-4DE8-9591-968FF6B61613",
+    "type": "message",
+    "text": "I started categorizing some projects <@UE6EFEPTQ> in <https://github.com/pel-daniel/mind-bicycles>. It’s just a start I’m sure I’m missing many more",
+    "user": "U85HCL7JP",
+    "ts": "1558881603.092400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e6db0e9dd5fe",
+      "image_72": "https://avatars.slack-edge.com/2020-02-15/956131187863_e6db0e9dd5fe2e3b9df2_72.jpg",
+      "first_name": "",
+      "real_name": "Daniel Garcia",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "daniel.garcia.carmona",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "20028D25-F5B3-4DE8-9591-968FF6B61613",
+    "type": "message",
+    "text": "I started categorizing some projects <@UE6EFEPTQ> in <https://github.com/pel-daniel/mind-bicycles>. It’s just a start I’m sure I’m missing many more",
+    "user": "U85HCL7JP",
+    "ts": "1558881603.092400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c5d8f6a2266",
+      "image_72": "https://avatars.slack-edge.com/2020-07-25/1286770110448_0c5d8f6a2266551a36f2_72.jpg",
+      "first_name": "",
+      "real_name": "Daniel Garcia",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "daniel.garcia.carmona",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aa5d3c23-90f9-4c51-a6ad-c6047d461f62",
+    "type": "message",
+    "text": "Looks good. I'll dig into that later today :+1:",
+    "user": "UE6EFEPTQ",
+    "ts": "1558888661.092700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aa5d3c23-90f9-4c51-a6ad-c6047d461f62",
+    "type": "message",
+    "text": "Looks good. I'll dig into that later today :+1:",
+    "user": "UE6EFEPTQ",
+    "ts": "1558888661.092700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5fa6f7b9-c4c6-4cf0-b1d0-151d90d31a18",
+    "type": "message",
+    "text": "The most useful categorization is in terms of target: what kind of programming, and what kind of programmers?",
+    "user": "U6KQ2S410",
+    "ts": "1558890854.093000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e8f4c2151d2b",
+      "image_72": "https://avatars.slack-edge.com/2017-08-09/225308926294_e8f4c2151d2b70ebfae3_72.jpg",
+      "first_name": "Jonathan",
+      "real_name": "Jonathan Edwards",
+      "display_name": "jonathoda",
+      "team": "T5TCAFTA9",
+      "name": "jonathoda",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5fa6f7b9-c4c6-4cf0-b1d0-151d90d31a18",
+    "type": "message",
+    "text": "The most useful categorization is in terms of target: what kind of programming, and what kind of programmers?",
+    "user": "U6KQ2S410",
+    "ts": "1558890854.093000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e8f4c2151d2b",
+      "image_72": "https://avatars.slack-edge.com/2017-08-09/225308926294_e8f4c2151d2b70ebfae3_72.jpg",
+      "first_name": "Jonathan",
+      "real_name": "Jonathan Edwards",
+      "display_name": "jonathoda",
+      "team": "T5TCAFTA9",
+      "name": "jonathoda",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8ce24d2d-8cc6-42dc-af21-fa7c5e25b76c",
+    "type": "message",
+    "text": "\"Unicode exemplifies the tyranny of committees staffed with people who don't care how much damage they do as they erect their perfectly hypercomplex edifice.\"\n\nSounds like software development in general :/",
+    "user": "UAVCC2X70",
+    "ts": "1558904150.002300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558597512.086500",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "12005d62-22bc-4c8a-8d7e-6ae108226270",
+    "type": "message",
+    "text": "So many things in software have changed meaning or mean different things to different people. So it's kinda pointless to argue over what \"really\" means what.\n\nHOWEVER, the more serious problem is that things that have been claimed, proven, accepted, etc. regarding one definition, are then misapplied to the other. This is how TDD has somehow been \"proven\" successful and unsuccessful by different studies, etc.\n\nThat also makes it darn near impossible to communicate about the good and bad in software, because there are so many contradictory claims and attitudes, that it's easy to dismiss things as being opinionated or very wrong, or to accept things as \"proven\" or \"tried &amp; true\" that are actually not the thing that was proven.",
+    "user": "UAVCC2X70",
+    "ts": "1558908694.002500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1558978657.000000"
+    },
+    "thread_ts": "1558629635.107000",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8d99b800-19fd-4a88-8696-f1b888244d5d",
+    "type": "message",
+    "text": "So anyway, it's helpful to be aware of the different perspectives, and do your best to clarify what you (and others) mean by \"OO\" (or whatever else) when talking about it.\n\nI'd like to see *THAT* become a better practice in software ... But I'm not sure that most are aware of the extent of disconnect and the harm it does, and perhaps just think there's the common or \"right\" view, and then crazy people who argue for no reason.\n\nBut anyway, for OO, there's essentially classes &amp; inheritance, and there's message passing. My understanding is that Kay's OO was the latter, but then pulled in classes and perhaps (for a time) conflated it all as one approach himself. Perhaps even Byte magazine was incorrect about message passing coming from SIMULA (does SIMULA even have message passing?). It's all a confusing mess, so who's to say?\n\nSo all we have is that there's classes, and there's message passing, and we just need be clear.",
+    "user": "UAVCC2X70",
+    "ts": "1558909598.002700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1558978721.000000"
+    },
+    "thread_ts": "1558629635.107000",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "187944c1-9863-4302-884d-5533f0036d8f",
+    "type": "message",
+    "text": "Thanks for sharing this!",
+    "user": "UAVCC2X70",
+    "ts": "1558909657.002900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558629635.107000",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c4155eef-cc24-4ad0-984f-48a93da33042",
+    "type": "message",
+    "text": "Probably most significant sections:\n• <https://github.com/pel-daniel/mind-bicycles#datalog-inspired-environments>\n• <https://github.com/pel-daniel/mind-bicycles#other>\n• <https://github.com/pel-daniel/mind-bicycles#spreadsheets>\n• <https://github.com/pel-daniel/mind-bicycles#visual-programming-with-nodes>\n.. \"Other\"? Wondering if that's the sweet spot! :smile:",
+    "user": "UE6EFEPTQ",
+    "ts": "1558911050.093400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c4155eef-cc24-4ad0-984f-48a93da33042",
+    "type": "message",
+    "text": "Probably most significant sections:\n• <https://github.com/pel-daniel/mind-bicycles#datalog-inspired-environments>\n• <https://github.com/pel-daniel/mind-bicycles#other>\n• <https://github.com/pel-daniel/mind-bicycles#spreadsheets>\n• <https://github.com/pel-daniel/mind-bicycles#visual-programming-with-nodes>\n.. \"Other\"? Wondering if that's the sweet spot! :smile:",
+    "user": "UE6EFEPTQ",
+    "ts": "1558911050.093400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d90f018d-c089-4fb1-8afd-07ef7682f182",
+    "type": "message",
+    "text": "<@U6KQ2S410> - not sure I'm fully grasping your point .. could you give examples?",
+    "user": "UE6EFEPTQ",
+    "ts": "1558911149.093600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d90f018d-c089-4fb1-8afd-07ef7682f182",
+    "type": "message",
+    "text": "<@U6KQ2S410> - not sure I'm fully grasping your point .. could you give examples?",
+    "user": "UE6EFEPTQ",
+    "ts": "1558911149.093600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558867267.089200",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1bde76bd-aa95-4903-a1b5-1aefbbd5a72e",
+    "type": "message",
+    "text": "Can't say I haven't been tempted to do something similar",
+    "user": "UAVCC2X70",
+    "ts": "1558912016.094200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558741687.034900",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1bde76bd-aa95-4903-a1b5-1aefbbd5a72e",
+    "type": "message",
+    "text": "Can't say I haven't been tempted to do something similar",
+    "user": "UAVCC2X70",
+    "ts": "1558912016.094200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558741687.034900",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b8a7f193-17b1-4a10-9a4d-84295c93bf91",
+    "type": "message",
+    "text": "Sounds like LISP or SmallTalk lean in that direction",
+    "user": "UAVCC2X70",
+    "ts": "1558912485.094400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558777916.044800",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b8a7f193-17b1-4a10-9a4d-84295c93bf91",
+    "type": "message",
+    "text": "Sounds like LISP or SmallTalk lean in that direction",
+    "user": "UAVCC2X70",
+    "ts": "1558912485.094400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1558777916.044800",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
