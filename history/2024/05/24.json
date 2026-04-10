@@ -1,0 +1,907 @@
+[
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1716553324.326459",
+    "client_msg_id": "84cf82b5-4b0e-45e9-9fda-b62c0cac84d2",
+    "text": "<@U0123H7JRDM> Curious about the \"Fibonacci\" example in your demo... It seemed like there was an expression node (`list[-1] + list[-2]`) reading the `list` variable by name without reading the value via wires, am I understanding that correctly?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716484601.059139",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zISkU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0123H7JRDM"
+              },
+              {
+                "type": "text",
+                "text": " Curious about the \"Fibonacci\" example in your demo... It seemed like there was an expression node ("
+              },
+              {
+                "type": "text",
+                "text": "list[-1] + list[-2]",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ") reading the "
+              },
+              {
+                "type": "text",
+                "text": "list",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " variable by name without reading the value via wires, am I understanding that correctly?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02JQA5FY5C",
+    "type": "message",
+    "ts": "1716553383.680519",
+    "client_msg_id": "56b1f261-a1a9-44f7-9194-32b792e7fa85",
+    "text": "Does anyone know if there is somewhere a new implementation of something similar to GRAIL system from Rand corporation ? <https://www.youtube.com/watch?v=2Cq8S3jzJiQ>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716553383.680519",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1716750455.897719",
+    "reply_users": [
+      "U017GNJM021"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=2Cq8S3jzJiQ",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/2Cq8S3jzJiQ/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/2Cq8S3jzJiQ?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Grail Demo from CHM tape\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=2Cq8S3jzJiQ",
+        "fallback": "YouTube Video: Grail Demo from CHM tape",
+        "title": "Grail Demo from CHM tape",
+        "title_link": "https://www.youtube.com/watch?v=2Cq8S3jzJiQ",
+        "author_name": "Yoshiki Ohshima",
+        "author_link": "https://www.youtube.com/@yoshikiohshima",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "boRyt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Does anyone know if there is somewhere a new implementation of something similar to GRAIL system from Rand corporation ? "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=2Cq8S3jzJiQ"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "exploding_head",
+        "users": [
+          "U06MT7U6W84"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1716553844.161349",
+    "client_msg_id": "4911674d-2a54-492d-a24b-198f210a069e",
+    "text": "yes, thats correct, the flow-engine has the concept of variables (an array node has a variableName property, although I just noticed a bug that I can currently not edit that. There are also variable node-types which can have a data-type and which can be observed) and these variables are registered in the engine and can be referenced by other nodes like the expression-node. Variables can be setup as global or scoped. The scoped variables are used in the quicksort example, because that is implemented using recursion (flow's can also have functions which can be called recursively which get their own scope-context which is used for storing the variables that are scoped).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716484601.059139",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7yAdo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yes, thats correct, the flow-engine has the concept of variables (an array node has a variableName property, although I just noticed a bug that I can currently not edit that. There are also variable node-types which can have a data-type and which can be observed) and these variables are registered in the engine and can be referenced by other nodes like the expression-node. Variables can be setup as global or scoped. The scoped variables are used in the quicksort example, because that is implemented using recursion (flow's can also have functions which can be called recursively which get their own scope-context which is used for storing the variables that are scoped)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1716554095.712059",
+    "client_msg_id": "4e5d7fcb-fa1f-4f8b-8496-4648d27cfce6",
+    "text": "Interesting, I don't know if I've seen this kind of \"hybrid\" of wires as well as referencing by text before. It's maybe a nice affordance, allowing some \"implicit\" wires via referencing variables that don't need to be literally displayed on screen.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716484601.059139",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "d3D84",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting, I don't know if I've seen this kind of \"hybrid\" of wires as well as referencing by text before. It's maybe a nice affordance, allowing some \"implicit\" wires via referencing variables that don't need to be literally displayed on screen."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "These references can be shown by pressing the arrow button in the right side menu-bar (I havent found a better icon yet). The dark gray dotted line is the reference (\"list\" is read by the expression node)",
+    "files": [
+      {
+        "id": "F075NSECKA4",
+        "created": 1716554356,
+        "timestamp": 1716554356,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U0123H7JRDM",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 110534,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F075NSECKA4/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F075NSECKA4/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 104,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 138,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 208,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 231,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 277,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F075NSECKA4-649e6c0105/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 295,
+        "original_w": 2948,
+        "original_h": 850,
+        "thumb_tiny": "AwANADCv5abN3mrnHSnW8UUgPmSbce9QUUxDynzlUycGkKEHB4pFdkOVJB9qHdnOWYk+9ADzEQCcjimKMsB60lAOCCO1AH//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U0123H7JRDM/F075NSECKA4/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F075NSECKA4-9f5d88ca50",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U0123H7JRDM",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ga518",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "These references can be shown by pressing the arrow button in the right side menu-bar (I havent found a better icon yet). The dark gray dotted line is the reference (\"list\" is read by the expression node)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1716554526.839979",
+    "client_msg_id": "3d3df048-0783-4854-a890-461863d3c418",
+    "thread_ts": "1716484601.059139",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1716555222.496209",
+    "client_msg_id": "38c598c7-ebd2-43d6-9093-c0f86db6e030",
+    "text": "Ah okay, that's helpful! :slightly_smiling_face: I couldn't work out what any of the right side buttons did, perhaps consider adding simple tooltips to explain on hover via `title` attributes or something.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716484601.059139",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5bFfU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah okay, that's helpful! "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": " I couldn't work out what any of the right side buttons did, perhaps consider adding simple tooltips to explain on hover via "
+              },
+              {
+                "type": "text",
+                "text": "title",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " attributes or something."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1716555304.268269",
+    "client_msg_id": "abcc46bd-2adb-4185-9474-75f8531bffd4",
+    "text": "yes, for sure that's needed :slightly_smiling_face: . The UI/UX needs still needs a lot of work:blush:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716484601.059139",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "T3atG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yes, for sure that's needed "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": " . The UI/UX needs still needs a lot of work"
+              },
+              {
+                "type": "emoji",
+                "name": "blush",
+                "unicode": "1f60a"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1716555525.374399",
+    "edited": {
+      "user": "UML4ZEKDK",
+      "ts": "1716555598.000000"
+    },
+    "client_msg_id": "bc81592e-6c7e-4d86-99dd-1ea214051163",
+    "text": "Totally understandable and expected, it's at an early stage. :slightly_smiling_face:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716484601.059139",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "P5psO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Totally understandable and expected, it's at an early stage. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1716555941.726689",
+    "client_msg_id": "59e6bc89-20bc-4b82-b325-944749f8d0e1",
+    "text": "<@UC2A2ARPT>\n&gt; For instance, nodes are great in the small for _graphs_. Describing graphs in text, even for tiny graphs, kinda sucks.\n&gt; \n&gt; Math notation is another one. I'd love a rich GUI for building math equations, that leveraged the keyboard but not merely for ASCII input.\nThis is fair, but strikes me as orthogonal. Like, you could decompose \"future of software\" into two pieces:\n• Lots of little improvements to the UX, each doable in isolation in any context.\n• A radical piece that you'll never get to by business as usual in the present of software.\nWhen I normally think of visual programming I tend to associate it with the latter.\n\nA wysiwyg editor for math equations or graphs in the small belongs in the first category IMO. Easy to bolt on to any IDE today, just a \"small matter of programming.\" I'm not convinced it helps with the foundations. What is it about large codebases that causes lots of little improvements to gradually get more and more expensive until they're no longer economic?\n\nI suppose this is just a vanilla disagreement. We have a bunch of pain points today, and a blind men and elephants situation when it comes to prioritizing pain points.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716484601.059139",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UQ9Vn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For instance, nodes are great in the small for "
+              },
+              {
+                "type": "text",
+                "text": "graphs",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Describing graphs in text, even for tiny graphs, kinda sucks.\n\nMath notation is another one. I'd love a rich GUI for building math equations, that leveraged the keyboard but not merely for ASCII input."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThis is fair, but strikes me as orthogonal. Like, you could decompose \"future of software\" into two pieces:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Lots of little improvements to the UX, each doable in isolation in any context."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A radical piece that you'll never get to by business as usual in the present of software."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWhen I normally think of visual programming I tend to associate it with the latter.\n\nA wysiwyg editor for math equations or graphs in the small belongs in the first category IMO. Easy to bolt on to any IDE today, just a \"small matter of programming.\" I'm not convinced it helps with the foundations. What is it about large codebases that causes lots of little improvements to gradually get more and more expensive until they're no longer economic?\n\nI suppose this is just a vanilla disagreement. We have a bunch of pain points today, and a blind men and elephants situation when it comes to prioritizing pain points."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1716560467.906649",
+    "edited": {
+      "user": "U0123H7JRDM",
+      "ts": "1716560614.000000"
+    },
+    "client_msg_id": "6d34ff7f-703f-4d69-847c-0029388bca85",
+    "text": "In this video <https://youtu.be/Cxqlv8IoaH8> I show a PID-controller (see <https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller> for more details) build with my visual programming system <http://codeflowcanvas.io|codeflowcanvas.io> ... the PID-controller example can be found on <http://demo.codeflowcanvas.io|demo.codeflowcanvas.io>.\n\nIt uses expression nodes, global variables and flow-variables to handle the calculations and state. In a bar-chart the output of the mechanism can be seen. In this example the target value is 100 , and when moving the input value slider, that value is used as a measurement and the algorithm brings the measurement to the wanted value (100). This process is visualised in the bar-chart.\n\nWhen the speed of the flow is set to maximum (in the top left corner), the \"program-counter\"-animation is not shown and it runs as fast as it can in realtime. That helps for these kind of algorithms.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716560467.906649",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1716623630.967379",
+    "reply_users": [
+      "U0123H7JRDM"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "from_url": "https://youtu.be/Cxqlv8IoaH8",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/Cxqlv8IoaH8/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/Cxqlv8IoaH8?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"PID controller build with codeflowcanvas\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://youtu.be/Cxqlv8IoaH8",
+        "fallback": "YouTube Video: PID controller build with codeflowcanvas",
+        "title": "PID controller build with codeflowcanvas",
+        "title_link": "https://youtu.be/Cxqlv8IoaH8",
+        "author_name": "Maikel van de Lisdonk",
+        "author_link": "https://www.youtube.com/@maikelvandelisdonk7024",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KWPTW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In this video "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/Cxqlv8IoaH8"
+              },
+              {
+                "type": "text",
+                "text": " I show a PID-controller (see "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller"
+              },
+              {
+                "type": "text",
+                "text": " for more details) build with my visual programming system "
+              },
+              {
+                "type": "link",
+                "url": "http://codeflowcanvas.io",
+                "text": "codeflowcanvas.io"
+              },
+              {
+                "type": "text",
+                "text": " ... the PID-controller example can be found on "
+              },
+              {
+                "type": "link",
+                "url": "http://demo.codeflowcanvas.io",
+                "text": "demo.codeflowcanvas.io"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nIt uses expression nodes, global variables and flow-variables to handle the calculations and state. In a bar-chart the output of the mechanism can be seen. In this example the target value is 100 , and when moving the input value slider, that value is used as a measurement and the algorithm brings the measurement to the wanted value (100). This process is visualised in the bar-chart.\n\nWhen the speed of the flow is set to maximum (in the top left corner), the \"program-counter\"-animation is not shown and it runs as fast as it can in realtime. That helps for these kind of algorithms."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U85HCL7JP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1716565290.644989",
+    "client_msg_id": "b5c4a0d2-229e-45ee-b8b2-3c2035cc3504",
+    "text": "is there any open source project you know that uses a relational database and doesn't have a good UI or doesn't have enough ways to explore the data stored in it?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716565290.644989",
+    "reply_count": 3,
+    "reply_users_count": 1,
+    "latest_reply": "1716643240.464789",
+    "reply_users": [
+      "UFEQUBNNT"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1716643240.464789",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0dbcV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "is there any open source project you know that uses a relational database and doesn't have a good UI or doesn't have enough ways to explore the data stored in it?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1716572073.844859",
+    "client_msg_id": "7c926d85-a7e2-4a11-bbf1-40d479937d75",
+    "text": "Unrelated to this but related to <@UBN9AFS0N>’s demo yesterday: I saw someone mention <https://trytako.com/|Tako> today and at first sight it looks quite similar.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716488182.433669",
+    "parent_user_id": "UBN9AFS0N",
+    "attachments": [
+      {
+        "from_url": "https://trytako.com/",
+        "id": 1,
+        "original_url": "https://trytako.com/",
+        "fallback": "Tako",
+        "text": "Democratizing Data Access",
+        "title": "Tako",
+        "title_link": "https://trytako.com/",
+        "service_name": "trytako.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zx+xE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Unrelated to this but related to "
+              },
+              {
+                "type": "user",
+                "user_id": "UBN9AFS0N"
+              },
+              {
+                "type": "text",
+                "text": "’s demo yesterday: I saw someone mention "
+              },
+              {
+                "type": "link",
+                "url": "https://trytako.com/",
+                "text": "Tako"
+              },
+              {
+                "type": "text",
+                "text": " today and at first sight it looks quite similar."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UBN9AFS0N"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "Been having some fun experimenting with propagators reacting to time! Here’s my attempt at a network that continuously calculates the rolling average of a cell's contents over time:",
+    "files": [
+      {
+        "id": "F074WAQ05F0",
+        "created": 1716589947,
+        "timestamp": 1716589947,
+        "name": "IMG_2150.png",
+        "title": "IMG_2150",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U06131CATV3",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 243332,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F074WAQ05F0/img_2150.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F074WAQ05F0/download/img_2150.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_360.png",
+        "thumb_360_w": 327,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_480.png",
+        "thumb_480_w": 436,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_720.png",
+        "thumb_720_w": 654,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 881,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_960.png",
+        "thumb_960_w": 872,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F074WAQ05F0-0c65867d39/img_2150_1024.png",
+        "thumb_1024_w": 930,
+        "thumb_1024_h": 1024,
+        "original_w": 1072,
+        "original_h": 1180,
+        "thumb_tiny": "AwAwACvSoz2oNA5oAQUtIc0fnQAtFABooAD1pOnak3AnApR70AB9+KMUtFAB+FJS0UAIw4/wpASBwadQRQAg6Ud+tH4UUALRQDmigD//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U06131CATV3/F074WAQ05F0/img_2150.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F074WAQ05F0-188fb4e48c",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      },
+      {
+        "id": "F07502TTG5T",
+        "created": 1716590072,
+        "timestamp": 1716590072,
+        "name": "rolling-avg-propagator.svg",
+        "title": "rolling-avg-propagator.svg",
+        "mimetype": "image/svg+xml",
+        "filetype": "svg",
+        "pretty_type": "SVG",
+        "user": "U06131CATV3",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 452299,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07502TTG5T/rolling-avg-propagator.svg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07502TTG5T/download/rolling-avg-propagator.svg",
+        "media_display_type": "unknown",
+        "permalink": "https://futureofcoding.slack.com/files/U06131CATV3/F07502TTG5T/rolling-avg-propagator.svg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07502TTG5T-539dd34030",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U06131CATV3",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "j4Dqm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Been having some fun experimenting with propagators reacting to time! Here’s my attempt at a network that continuously calculates the rolling average of a cell's contents over time:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1716590125.145599",
+    "edited": {
+      "user": "U06131CATV3",
+      "ts": "1716590370.000000"
+    },
+    "client_msg_id": "d9e93c17-d220-4b97-b7af-d20febf53ced",
+    "thread_ts": "1716413598.853019",
+    "parent_user_id": "U06BUK2M2RH",
+    "reactions": [
+      {
+        "name": "open_mouth",
+        "users": [
+          "U05M5A8E0NT",
+          "U06BUK2M2RH"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06131CATV3",
+    "type": "message",
+    "ts": "1716590196.870119",
+    "client_msg_id": "170753d5-64cd-4829-ab61-bbc6c7039cdb",
+    "text": "(I shared the svg which might allow others to just open it in their browser and extend my implementation? Not sure)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716413598.853019",
+    "parent_user_id": "U06BUK2M2RH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PUBpy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(I shared the svg which might allow others to just open it in their browser and extend my implementation? Not sure)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06BUK2M2RH",
+    "type": "message",
+    "ts": "1716591937.187799",
+    "client_msg_id": "2f94201c-4a64-4ed4-9785-db4b80f29645",
+    "text": "Listen my mind can only be so blown. Unreal. haha. The SVG us just an image but if you export as JSON i believe that should do it! I can import that",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1716413598.853019",
+    "parent_user_id": "U06BUK2M2RH",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7wPX4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Listen my mind can only be so blown. Unreal. haha. The SVG us just an image but if you export as JSON i believe that should do it! I can import that"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U06131CATV3",
+          "U03R0B9U1GD"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

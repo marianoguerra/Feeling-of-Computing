@@ -1,0 +1,3297 @@
+[
+  {
+    "text": "For the last month I've been working on an arrow toolkit for the web, called Quiver :bow_and_arrow:. It's exploring 3 problems:\n\n• What if visual connection could be declaratively expressed in HTML? \n• What if there was a tiny toolkit that enabled all kinds of connection/arrows to be built? \n• How do we break arrows out from spatial canvases and enable them to used on any website?\nCurrently I'm prototyping some pre-built arrows/connection: curved arrows, orthogonal edges, Xanadu links and hyperedges. But the library is also explicitly designed to be extensible so you can use your own layout algorithms or designs. Part of the extensibility means the ability to easily animate objects along the arrow (for all of those dataflow VPLs out there :stuck_out_tongue_winking_eye:) or add arbitrary labels/annotations to arrows.\n\nGiven that connection is probably one of the most commonly used relationships in visual programming systems, I'm curious if there are any other types of arrows or functionality you would find useful in your own projects? Its not published to NPM yet, but the repo is <https://github.com/Little-Languages/quiver|here>.",
+    "files": [
+      {
+        "id": "F0718E6CQJ2",
+        "created": 1714520094,
+        "timestamp": 1714520094,
+        "name": "quiver.gif",
+        "title": "quiver.gif",
+        "mimetype": "image/gif",
+        "filetype": "gif",
+        "pretty_type": "GIF",
+        "user": "U0378MDUG1Y",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 2362508,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0718E6CQJ2/quiver.gif",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0718E6CQJ2/download/quiver.gif",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 188,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 251,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_160.png",
+        "thumb_360_gif": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_360.gif",
+        "thumb_480_gif": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_480.gif",
+        "original_w": 600,
+        "original_h": 314,
+        "deanimate": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_deanimate.png",
+        "deanimate_gif": "https://files.slack.com/files-tmb/T5TCAFTA9-F0718E6CQJ2-71640ab21c/quiver_deanimate_gif.png",
+        "thumb_tiny": "AwAZADDSFVtQP+iH6irNVtR/49D9RQBlEntSfN60ZNG40AHzUHcKNxpM0AdDVXUf+PQ/UVaqrqP/AB6H6igDIooooAKKKKAP/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/U0378MDUG1Y/F0718E6CQJ2/quiver.gif",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0718E6CQJ2-ba4e332501",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      },
+      {
+        "id": "F0710H1P9RD",
+        "created": 1714520643,
+        "timestamp": 1714520643,
+        "name": "Screen Recording 2024-04-30 at 4.43.32 PM.mov",
+        "title": "Screen Recording 2024-04-30 at 4.43.32 PM.mov",
+        "mimetype": "video/quicktime",
+        "filetype": "mov",
+        "pretty_type": "QuickTime Movie",
+        "user": "U0378MDUG1Y",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 377544,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F0710H1P9RD-45e4b9d651/screen_recording_2024-04-30_at_4.43.32___pm.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F0710H1P9RD-45e4b9d651/screen_recording_2024-04-30_at_4.43.32___pm.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0710H1P9RD/download/screen_recording_2024-04-30_at_4.43.32___pm.mov",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0710H1P9RD-45e4b9d651/file.m3u8?_xcb=25a71",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MzcwMzY1LEFWRVJBR0UtQkFORFdJRFRIPTM3MDM2NSxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMTQ2eDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd056RXdTREZRT1ZKRUxUUTFaVFJpT1dRMk5URXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TVM1MGN3b2pSVmhVU1U1R09qRXVPVEF5TEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd056RXdTREZRT1ZKRUxUUTFaVFJpT1dRMk5URXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TWk1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0710H1P9RD-45e4b9d651/screen_recording_2024-04-30_at_4.43.32___pm_trans.mp4",
+        "duration_ms": 7907,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0710H1P9RD-45e4b9d651/screen_recording_2024-04-30_at_4.43.32___pm_thumb_video.jpeg",
+        "thumb_video_w": 646,
+        "thumb_video_h": 406,
+        "permalink": "https://futureofcoding.slack.com/files/U0378MDUG1Y/F0710H1P9RD/screen_recording_2024-04-30_at_4.43.32___pm.mov",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0710H1P9RD-0d63263c3a",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "07f2G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For the last month I've been working on an arrow toolkit for the web, called Quiver "
+              },
+              {
+                "type": "emoji",
+                "name": "bow_and_arrow",
+                "unicode": "1f3f9"
+              },
+              {
+                "type": "text",
+                "text": ". It's exploring 3 problems:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "What if visual connection could be declaratively expressed in HTML? "
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "What if there was a tiny toolkit that enabled all kinds of connection/arrows to be built? "
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "How do we break arrows out from spatial canvases and enable them to used on any website?"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nCurrently I'm prototyping some pre-built arrows/connection: curved arrows, orthogonal edges, Xanadu links and hyperedges. But the library is also explicitly designed to be extensible so you can use your own layout algorithms or designs. Part of the extensibility means the ability to easily animate objects along the arrow (for all of those dataflow VPLs out there "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue_winking_eye",
+                "unicode": "1f61c"
+              },
+              {
+                "type": "text",
+                "text": ") or add arbitrary labels/annotations to arrows.\n\nGiven that connection is probably one of the most commonly used relationships in visual programming systems, I'm curious if there are any other types of arrows or functionality you would find useful in your own projects? Its not published to NPM yet, but the repo is "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/Little-Languages/quiver",
+                "text": "here"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1714522401.546399",
+    "edited": {
+      "user": "U0378MDUG1Y",
+      "ts": "1714523113.000000"
+    },
+    "client_msg_id": "63c44caf-624d-44eb-878a-58d4bef78c7b",
+    "thread_ts": "1714522401.546399",
+    "reply_count": 16,
+    "reply_users_count": 4,
+    "latest_reply": "1714797090.876879",
+    "reply_users": [
+      "U0378MDUG1Y",
+      "U0123H7JRDM",
+      "UGWUJUZHT",
+      "UFEQUBNNT"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U05597GCDDK",
+          "U06BUK2M2RH",
+          "U05M5A8E0NT",
+          "U023V63MF6V",
+          "U85HCL7JP",
+          "US370TRJA",
+          "U013ZLJARC7",
+          "UMV4B97GT",
+          "UFQ1ZEJ0G"
+        ],
+        "count": 9
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U0123H7JRDM",
+          "U06BUK2M2RH",
+          "UFEQUBNNT"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1714524509.120399",
+    "client_msg_id": "011D55DF-A5AC-466F-B86E-13028E8ED245",
+    "text": "Ink &amp; Switch are having a hack week, and I'm working on a generative sound project. You can check out the current version (likely to change as the week progresses) here: <https://tonedome.surge.sh|https://tonedome.surge.sh>\n\nIt sounds a little different every time you run it, but it's also synced to the system clock. So if you run it on, say, every device you own and scatter them around the room, it creates a rather neat immersive aural space.\n\nWould appreciate any bug reports, especially on Android!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714524509.120399",
+    "reply_count": 6,
+    "reply_users_count": 3,
+    "latest_reply": "1714568778.654999",
+    "reply_users": [
+      "U05M5A8E0NT",
+      "UC2A2ARPT",
+      "UMQ6LR9NZ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rg7Rq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ink & Switch are having a hack week, and I'm working on a generative sound project"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " You can check out the current version (likely to change as the week progresses) here: "
+              },
+              {
+                "type": "link",
+                "url": "https://tonedome.surge.sh",
+                "text": "https://tonedome.surge.sh"
+              },
+              {
+                "type": "text",
+                "text": "\n\nIt sounds a little different every time you run it, but it's also synced to the system clock"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " So if you run it on, say, every device you own and scatter them around the room, it creates a rather neat immersive aural space"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\nWould appreciate any bug reports, especially on Android!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "rainbow",
+        "users": [
+          "U023V63MF6V",
+          "U06BUK2M2RH"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heart",
+        "users": [
+          "U05M5A8E0NT",
+          "U06BUK2M2RH"
+        ],
+        "count": 2
+      },
+      {
+        "name": "musical_note",
+        "users": [
+          "U05M5A8E0NT",
+          "UMV4B97GT"
+        ],
+        "count": 2
+      },
+      {
+        "name": "ocean",
+        "users": [
+          "U05SU27S1M2",
+          "U06H4766K42"
+        ],
+        "count": 2
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U05M5A8E0NT",
+    "type": "message",
+    "ts": "1714524727.402949",
+    "edited": {
+      "user": "U05M5A8E0NT",
+      "ts": "1714525221.000000"
+    },
+    "client_msg_id": "4f392f79-43b6-4e59-9826-dc2d1dbe673d",
+    "text": "love the shimmeriness.\nedit: it reminds me of the first half of the machinarium OST.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714524509.120399",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KU5hq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "love the shimmeriness.\nedit: it reminds me of the first half of the machinarium OST."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U05M5A8E0NT",
+    "type": "message",
+    "ts": "1714524805.853689",
+    "edited": {
+      "user": "U05M5A8E0NT",
+      "ts": "1714524829.000000"
+    },
+    "client_msg_id": "c34e6444-4333-45d2-aeac-d827cc67a779",
+    "text": "Firefox on android, on page load: \"TypeError, navigator.wakeLock is undefined\". No sound or animation happens.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714524509.120399",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4V0vL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Firefox on android, on page load: \"TypeError, navigator.wakeLock is undefined\". No sound or animation happens."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U05M5A8E0NT",
+    "type": "message",
+    "ts": "1714524970.928839",
+    "client_msg_id": "98545ce2-7687-483b-9d9c-0b51879318d4",
+    "text": "Chrome on android, it is a bit poppy and laggy but still mostly satisfying and listenable.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714524509.120399",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iULiK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Chrome on android, it is a bit poppy and laggy but still mostly satisfying and listenable."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U05M5A8E0NT",
+    "type": "message",
+    "ts": "1714525028.095819",
+    "client_msg_id": "0755088f-157c-4ec1-acc2-d9fd06920a0f",
+    "text": "enjoyed having it on my phone behind me and my laptop in front of me like you suggested",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714524509.120399",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IGyBz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "enjoyed having it on my phone behind me and my laptop in front of me like you suggested"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U0378MDUG1Y",
+    "type": "message",
+    "ts": "1714526933.460569",
+    "edited": {
+      "user": "U0378MDUG1Y",
+      "ts": "1714542041.000000"
+    },
+    "client_msg_id": "3FCE9734-655E-43B6-9C1D-56DA72B92D0D",
+    "text": "One of the deeper explorations is how to use these boundaries to orchestrate a bundle of arrows to reduce crossing other arrows or shapes, arrows that route with even spacing, etc. its interesting given all the arrows and their state in in the DOM",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+bOvP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One of the deeper explorations is how to use these boundaries to orchestrate a bundle of arrows to reduce crossing other arrows or shapes, arrows that route with even spacing, etc. its interesting given all the arrows and their state in in the DOM"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1714527523.432569",
+    "client_msg_id": "3C484D45-5FE5-4AB6-B024-EB2F2A598D27",
+    "text": "Helpful feedback, thank you!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714524509.120399",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A4byM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Helpful feedback, thank you!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1714543280.040649",
+    "client_msg_id": "45E22F42-2459-4E25-AF20-CED4DE3C5B1A",
+    "text": "Really awesome! A nice addition would be data-ports on the boxes and cubic bezier curves between these ports instead of arcs. A hack to make line-crossings more clearly would be drawing double lines.. where one of the two lines would be slightly thicker and have the same color as the background (I use that trick myself).\n\nVery nice to see the use of web-components! I believe that we finally will see a bigger use of these once react-19 is released.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2wahN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Really awesome! A nice addition would be data-ports on the boxes and cubic bezier curves between these ports instead of arcs. A hack to make line-crossings more clearly would be drawing double lines.. where one of the two lines would be slightly thicker and have the same color as the background (I use that trick myself).\n\nVery nice to see the use of web-components! I believe that we finally will see a bigger use of these once react-19 is released."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06K0MA31T9",
+    "type": "message",
+    "ts": "1714544838.011969",
+    "client_msg_id": "5485dde1-694c-4a97-b734-abc8e84387ae",
+    "text": "Another day, another module. Learning some things about web components this time. <https://github.com/bicycle-codes/progress-indicator>",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FNcX0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Another day, another module. Learning some things about web components this time. "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/bicycle-codes/progress-indicator"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "<@U0123H7JRDM> Thanks!\n\n>  A nice addition would be data-ports on the boxes and cubic bezier curves between these ports instead of arcs.\nYa the  \"data-port\" edge with a cubic bezier curve is a type of arrow I've yet to dive into, thanks for confirming!\n\n>  A hack to make line-crossings more clearly would be drawing double lines.. where one of the two lines would be slightly thicker and have the same color as the background (I use that trick myself).\nDo you have an example to share? would be curious to learn more!",
+    "files": [
+      {
+        "id": "F0711M01C0P",
+        "mode": "tombstone"
+      },
+      {
+        "id": "F071G844XBL",
+        "mode": "tombstone"
+      }
+    ],
+    "upload": false,
+    "user": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QJbnE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0123H7JRDM"
+              },
+              {
+                "type": "text",
+                "text": " Thanks!\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " A nice addition would be data-ports on the boxes and cubic bezier curves between these ports instead of arcs."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ya the  \"data-port\" edge with a cubic bezier curve is a type of arrow I've yet to dive into, thanks for confirming!\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " A hack to make line-crossings more clearly would be drawing double lines.. where one of the two lines would be slightly thicker and have the same color as the background (I use that trick myself)."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Do you have an example to share? would be curious to learn more!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1714547456.000569",
+    "edited": {
+      "user": "U0378MDUG1Y",
+      "ts": "1714547764.000000"
+    },
+    "client_msg_id": "3533faca-69b6-46e1-a5c3-2101a97f4084",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1714548624.218809",
+    "client_msg_id": "13E1079D-13CE-4CED-9718-36F177C12189",
+    "text": "You can check my project here : <http://demo.codeflowcanvas.io|demo.codeflowcanvas.io> .. you can load one of the examples via the top menubar (on desktop)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l0+i6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You can check my project here : "
+              },
+              {
+                "type": "link",
+                "url": "http://demo.codeflowcanvas.io",
+                "text": "demo.codeflowcanvas.io"
+              },
+              {
+                "type": "text",
+                "text": " .. you can load one of the examples via the top menubar (on desktop)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1714548660.378639",
+    "client_msg_id": "D9B01ABE-DF47-4B2E-ACAE-C37D6CD2E272",
+    "text": "It also has moving data points when you run a flow but this works via javascript :blush: ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VwRNk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It also has moving data points when you run a flow but this works via javascript "
+              },
+              {
+                "type": "emoji",
+                "name": "blush",
+                "unicode": "1f60a"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1714549747.103569",
+    "client_msg_id": "f8e1e8d4-36f0-4e59-b787-048f20bd5607",
+    "text": "<@U5STGTB3J> <@U06BUK2M2RH> Thanks a lot for your feedback! Gibson's affordances are definitely a concept I should refer to. There's a difference, however, which matters to me: my notion of comprehensibility includes not only \"what can this tool do for me\" but also \"does this tool do anything behind my back that I am not aware of\".  Spyware would be the obvious case but I have also seen many well-meant small automatisations in computational science that turned out to be in contradiction to the expectations of some users.\n\nThe relationality of the concept is very much intended. It may well be interesting as well to judge the amount of information that a system makes accessible independently of what the observer can make of it, but for now I prefer to concentrate on the human-computer interaction aspect.\n\n<@U5STGTB3J> I just re-read the essays you referred to. Good observations, there's definitely a \"sweet spot\" in complexity, rather than \"the less the better\". On the other hand, for the specific case of symbolic reasoning (mathematics, software), I can't come up with an example for \"too boring because not complex enough\". Elegance in mathematics has always been about minimalism, even though different people value different aspects of it differently (e.g. size of a symbolic expression vs. number/complexity of the definitions and theorems required to support it).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714490368.887299",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wnbVR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "U06BUK2M2RH"
+              },
+              {
+                "type": "text",
+                "text": " Thanks a lot for your feedback! Gibson's affordances are definitely a concept I should refer to. There's a difference, however, which matters to me: my notion of comprehensibility includes not only \"what can this tool do for me\" but also \"does this tool do anything behind my back that I am not aware of\".  Spyware would be the obvious case but I have also seen many well-meant small automatisations in computational science that turned out to be in contradiction to the expectations of some users.\n\nThe relationality of the concept is very much intended. It may well be interesting as well to judge the amount of information that a system makes accessible independently of what the observer can make of it, but for now I prefer to concentrate on the human-computer interaction aspect.\n\n"
+              },
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": " I just re-read the essays you referred to. Good observations, there's definitely a \"sweet spot\" in complexity, rather than \"the less the better\". On the other hand, for the specific case of symbolic reasoning (mathematics, software), I can't come up with an example for \"too boring because not complex enough\". Elegance in mathematics has always been about minimalism, even though different people value different aspects of it differently (e.g. size of a symbolic expression vs. number/complexity of the definitions and theorems required to support it)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "text": "<@U0123H7JRDM> Thanks, I see what you mean! Definitely has much better contrast! (Also it looks like you're in the canvas working group, maybe we've bumped into each other there?)\n\n<@UGWUJUZHT> (I'm assuming you meant to respond in this thread!)\n\n1. Totally agree!  A current tension in this project is that these arrows operate independently of any specific layout algorithm. You can use it with browser layout algorithms (e.g. document flow, flexbox, grid, etc.) or your own absolutely positioned layout algorithm. This is because each arrow operates independent of each other, they look at their source and target elements and use some arrow algorithm to render and arrow in between. So it currently doesn't handle collision with other elements or intersections between arrows. Good in some cases, not desirable in others... some future work I want to explore is extending this approach to orchestrated element/arrow layouts!\n2. Orthogonal edges are WIP (see video attached)\n3. Edge bundling is another area of exploration I'd love to get to. I'm starting by implementing hyperedges. Maybe a naive edge bundler converts a set of independent arrows into a hyper edge, not sure yet? I'd also love to explore how interaction could aid in \"busy diagrams\",,, Things like hovering over a node to highlight associated arrows. Some times I think we focus too much on layout and not enough on progressive disclosure as diagrams grow.",
+    "files": [
+      {
+        "id": "F07255FSE3S",
+        "created": 1714550102,
+        "timestamp": 1714550102,
+        "name": "Screen Recording 2024-05-01 at 12.54.31 AM.mov",
+        "title": "Screen Recording 2024-05-01 at 12.54.31 AM.mov",
+        "mimetype": "video/quicktime",
+        "filetype": "mov",
+        "pretty_type": "QuickTime Movie",
+        "user": "U0378MDUG1Y",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 321622,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F07255FSE3S-b219ff9f87/screen_recording_2024-05-01_at_12.54.31___am.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F07255FSE3S-b219ff9f87/screen_recording_2024-05-01_at_12.54.31___am.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07255FSE3S/download/screen_recording_2024-05-01_at_12.54.31___am.mov",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F07255FSE3S-b219ff9f87/file.m3u8?_xcb=636bb",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MjgzNzIxLEFWRVJBR0UtQkFORFdJRFRIPTI4MzcyMSxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMDc4eDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd056STFOVVpUUlROVExXSXlNVGxtWmpsbU9EY3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TVM1MGN3b2pSVmhVU1U1R09qQXVOekF4TEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd056STFOVVpUUlROVExXSXlNVGxtWmpsbU9EY3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TWk1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F07255FSE3S-b219ff9f87/screen_recording_2024-05-01_at_12.54.31___am_trans.mp4",
+        "duration_ms": 6706,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F07255FSE3S-b219ff9f87/screen_recording_2024-05-01_at_12.54.31___am_thumb_video.jpeg",
+        "thumb_video_w": 966,
+        "thumb_video_h": 646,
+        "permalink": "https://futureofcoding.slack.com/files/U0378MDUG1Y/F07255FSE3S/screen_recording_2024-05-01_at_12.54.31___am.mov",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07255FSE3S-f5c7a4e577",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U0378MDUG1Y",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SRca0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0123H7JRDM"
+              },
+              {
+                "type": "text",
+                "text": " Thanks, I see what you mean! Definitely has much better contrast! (Also it looks like you're in the canvas working group, maybe we've bumped into each other there?)\n\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " (I'm assuming you meant to respond in this thread!)\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Totally agree!  A current tension in this project is that these arrows operate independently of any specific layout algorithm. You can use it with browser layout algorithms (e.g. document flow, flexbox, grid, etc.) or your own absolutely positioned layout algorithm. This is because each arrow operates independent of each other, they look at their source and target elements and use some arrow algorithm to render and arrow in between. So it currently doesn't handle collision with other elements or intersections between arrows. Good in some cases, not desirable in others... some future work I want to explore is extending this approach to orchestrated element/arrow layouts!"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Orthogonal edges are WIP (see video attached)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Edge bundling is another area of exploration I'd love to get to. I'm starting by implementing hyperedges. Maybe a naive edge bundler converts a set of independent arrows into a hyper edge, not sure yet? I'd also love to explore how interaction could aid in \"busy diagrams\",,, Things like hovering over a node to highlight associated arrows. Some times I think we focus too much on layout and not enough on progressive disclosure as diagrams grow."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1714550964.795759",
+    "edited": {
+      "user": "U0378MDUG1Y",
+      "ts": "1714551090.000000"
+    },
+    "client_msg_id": "76b4b1c3-15e7-4bb2-afa4-650bebdd3008",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1714551573.798729",
+    "client_msg_id": "d6a41513-b451-4daa-8753-2652bc365fdc",
+    "text": "<https://www.youtube.com/watch?v=zLd1RUDmX6w>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714551573.798729",
+    "reply_count": 12,
+    "reply_users_count": 4,
+    "latest_reply": "1714638894.760909",
+    "reply_users": [
+      "U03R0B9U1GD",
+      "U013ZLJARC7",
+      "UMQ6LR9NZ",
+      "U05SU27S1M2"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=zLd1RUDmX6w",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/zLd1RUDmX6w/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/zLd1RUDmX6w?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Laurie Spiegel - Waveshaper TV Ep.6 (Part 1 of 3: Bell Labs)\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=zLd1RUDmX6w",
+        "fallback": "YouTube Video: Laurie Spiegel - Waveshaper TV Ep.6 (Part 1 of 3: Bell Labs)",
+        "title": "Laurie Spiegel - Waveshaper TV Ep.6 (Part 1 of 3: Bell Labs)",
+        "title_link": "https://www.youtube.com/watch?v=zLd1RUDmX6w",
+        "author_name": "Waveshaper Media",
+        "author_link": "https://www.youtube.com/@WaveshaperMedia",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8CUcP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=zLd1RUDmX6w"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U05SU27S1M2",
+          "U05BRNRAC4V",
+          "U06131CATV3"
+        ],
+        "count": 3
+      },
+      {
+        "name": "heart",
+        "users": [
+          "U013ZLJARC7",
+          "U04717WKH5K",
+          "U01QDH7EKL7",
+          "U5STGTB3J",
+          "U02U0AS3J49"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1714552977.106549",
+    "client_msg_id": "8301BFDF-151D-4F2D-977C-8A1E0A32B791",
+    "text": "<@U0378MDUG1Y> yes I am in the OCWG and attended meetings 2 and 3",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lsIKx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0378MDUG1Y"
+              },
+              {
+                "type": "text",
+                "text": " yes I am in the OCWG and attended meetings 2 and 3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1714553522.252599",
+    "client_msg_id": "337e0e7a-44ec-4e7e-b420-f451637dc4f5",
+    "text": "if you want to continue down the rabbit hole\n<https://www.youtube.com/watch?v=TzOJtZYsGSA>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714551573.798729",
+    "parent_user_id": "U03R0B9U1GD",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=TzOJtZYsGSA",
+        "thumb_url": "https://i.ytimg.com/vi/TzOJtZYsGSA/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/TzOJtZYsGSA?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Part 1: Laurie Spiegel Bell Labs Interview 1984\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 300,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=TzOJtZYsGSA",
+        "fallback": "YouTube Video: Part 1: Laurie Spiegel Bell Labs Interview 1984",
+        "title": "Part 1: Laurie Spiegel Bell Labs Interview 1984",
+        "title_link": "https://www.youtube.com/watch?v=TzOJtZYsGSA",
+        "author_name": "Laurie Spiegel",
+        "author_link": "https://www.youtube.com/@MusicMouse",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pV8tI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "if you want to continue down the rabbit hole\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=TzOJtZYsGSA"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1714554681.814499",
+    "client_msg_id": "f63fbab2-667c-44c1-b41a-66f6cb32328e",
+    "text": "As a data point, here's a live diagram that I'm using to generate usable code. I drew this with <http://draw.io|draw.io> (which sorely needs to be better when it comes to being a code editor):\nobservations:\nThe human gets the last say, auto-layout is a great tool as long as the human gets to say \"nope, I want this to be displayed here\" or something like that\n90-degree connection lines (rounded corners, in this case)\nIn some cases, too many lines make the diagram look \"too busy\" (\"rule of 7\"), in some cases it makes sense to bundle them together. In this case, I moved the boxes to where I wanted them, then painstakingly tweaked each arrow manually. In some cases, I reduced the diagram complexity by overlaying arrows on top of each other (poor man's \"bundling\").",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "M6jB7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As a data point, here's a live diagram that I'm using to generate usable code. I drew this with "
+              },
+              {
+                "type": "link",
+                "url": "http://draw.io",
+                "text": "draw.io"
+              },
+              {
+                "type": "text",
+                "text": " (which sorely needs to be better when it comes to being a code editor):\nobservations:\nThe human gets the last say, auto-layout is a great tool as long as the human gets to say \"nope, I want this to be displayed here\" or something like that\n90-degree connection lines (rounded corners, in this case)\nIn some cases, too many lines make the diagram look \"too busy\" (\"rule of 7\"), in some cases it makes sense to bundle them together. In this case, I moved the boxes to where I wanted them, then painstakingly tweaked each arrow manually. In some cases, I reduced the diagram complexity by overlaying arrows on top of each other (poor man's \"bundling\")."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "",
+    "files": [
+      {
+        "id": "F07122MLCAK",
+        "created": 1714554726,
+        "timestamp": 1714554726,
+        "name": "Screenshot 2024-04-30 at 9.03.01 PM.png",
+        "title": "Screenshot 2024-04-30 at 9.03.01 PM.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UGWUJUZHT",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 288491,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07122MLCAK/screenshot_2024-04-30_at_9.03.01___pm.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07122MLCAK/download/screenshot_2024-04-30_at_9.03.01___pm.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 210,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 281,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 421,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 468,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 561,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F07122MLCAK-e5788cbe0b/screenshot_2024-04-30_at_9.03.01___pm_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 599,
+        "original_w": 1712,
+        "original_h": 1001,
+        "thumb_tiny": "AwAcADCa0t4mtI2aNSSOflqb7NAOsSf98iksv+PKL6U6aNJRsYkc54poBPssH/PJP++aX7LB/wA8U/75pDKElSLb14BzUxoaAi+ywf8APJP++RUF5bxJayMsaAgdQKsJMHlZACCvNMvv+POX6UrWALL/AI8ovpT3hDyq5JG3sKxUvJ40CJIQo6DApft9z/z1P5CmnYDWk2/ak/dsT/ezwKkIl80YI8vv61i/b7n/AJ6n8hR9vuf+ev6Ci4rG0kKpIzjOW65qO9x9ilx6Vlfb7n/nqfyFNe8uJEKPJlT1GBSuM//Z",
+        "permalink": "https://futureofcoding.slack.com/files/UGWUJUZHT/F07122MLCAK/screenshot_2024-04-30_at_9.03.01___pm.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07122MLCAK-def05af26b",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UGWUJUZHT",
+    "display_as_bot": false,
+    "type": "message",
+    "ts": "1714554731.699959",
+    "client_msg_id": "ff22d841-6806-4eb6-9e4e-2db215c0e0ae",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1714554759.520009",
+    "client_msg_id": "f5e79a3a-3c5b-43d8-9277-342e79a23395",
+    "text": "FYI - the arrows remind me a lot of Kinopio connectors.  Here's a ref to a page of Kinopio boxes with real data on it <https://kinopio.club/torlisp-april-2024-htNg92yseaP2Z9wrndg0k>. Can you see it? Can you move boxes around on it?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "attachments": [
+      {
+        "from_url": "https://kinopio.club/torlisp-april-2024-htNg92yseaP2Z9wrndg0k",
+        "service_icon": "https://kinopio.club/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://kinopio.club/torlisp-april-2024-htNg92yseaP2Z9wrndg0k",
+        "fallback": "Kinopio: Torlisp April 2024 – Kinopio",
+        "text": "A space to whiteboard, moodboard, brainstorm, and take notes",
+        "title": "Torlisp April 2024 – Kinopio",
+        "title_link": "https://kinopio.club/torlisp-april-2024-htNg92yseaP2Z9wrndg0k",
+        "service_name": "Kinopio"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oY+Xq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "FYI - the arrows remind me a lot of Kinopio connectors.  Here's a ref to a page of Kinopio boxes with real data on it "
+              },
+              {
+                "type": "link",
+                "url": "https://kinopio.club/torlisp-april-2024-htNg92yseaP2Z9wrndg0k"
+              },
+              {
+                "type": "text",
+                "text": ". Can you see it? Can you move boxes around on it?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U013ZLJARC7",
+    "type": "message",
+    "ts": "1714556830.601339",
+    "client_msg_id": "856106DD-24E8-4468-BC2C-6C4BF3601D15",
+    "text": "She’s always great ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714551573.798729",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3N2H9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "She’s"
+              },
+              {
+                "type": "text",
+                "text": " always great "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U03R0B9U1GD",
+          "UC2A2ARPT"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1714557285.994529",
+    "client_msg_id": "5dcf7936-eab0-4070-9da7-1deb286f082a",
+    "text": "never looked into any of her work before and i cant believe how much I've been missing. Discovered her from <@U05SU27S1M2> naming her as an influence in an interview!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714551573.798729",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VAWEs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "never looked into any of her work before and i cant believe how much I've been missing. Discovered her from "
+              },
+              {
+                "type": "user",
+                "user_id": "U05SU27S1M2"
+              },
+              {
+                "type": "text",
+                "text": " naming her as an influence in an interview!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U03R0B9U1GD",
+    "type": "message",
+    "ts": "1714557318.786179",
+    "client_msg_id": "c942843e-011c-4452-b2f0-944ff5230dc1",
+    "text": "(I'm trying to do a write up of my music-generation project, arroost)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714551573.798729",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FMplx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(I'm trying to do a write up of my music-generation project, arroost)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1714561982.276649",
+    "client_msg_id": "f85b73e2-8555-416f-ae82-7f5fc111b928",
+    "text": "[yeah, I did mean to reply in this thread - I moved the above stuff out of the main backbone]",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NIYBI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "[yeah, I did mean to reply in this thread - I moved the above stuff out of the main backbone]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1714562028.880659",
+    "client_msg_id": "254bd7dd-3204-48f7-ba96-c6d7694d17c2",
+    "text": "In case this is helpful: \"bundling\" is a purely-visual thing (a macro?), whereas point-to-point connection is a semantically interesting thing [I haven't figured out what this means, since I found a kludgy workaround for my purposes when using <http://draw.io|draw.io>. Yet, I sense that keeping the two concepts separated will produce new insights on how to deal with them]. [In fact, as I write this I am wondering whether the solution is to provide a way to specify visual constraints while stripping such visual detail out when boiling the info down for semantic analysis]",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714522401.546399",
+    "parent_user_id": "U0378MDUG1Y",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3AlMF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In case this is helpful: \"bundling\" is a purely-visual thing (a macro?), whereas point-to-point connection is a semantically interesting thing [I haven't figured out what this means, since I found a kludgy workaround for my purposes when using "
+              },
+              {
+                "type": "link",
+                "url": "http://draw.io",
+                "text": "draw.io"
+              },
+              {
+                "type": "text",
+                "text": ". Yet, I sense that keeping the two concepts separated will produce new insights on how to deal with them]. [In fact, as I write this I am wondering whether the solution is to provide a way to specify visual constraints while stripping such visual detail out when boiling the info down for semantic analysis]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U0378MDUG1Y"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1714568614.189109",
+    "client_msg_id": "f5a7462c-9ffc-4af3-aeb9-954dd52b57a5",
+    "text": "<https://www.youtube.com/watch?v=KD8hkveKmYQ|Don’t miss her music, too!>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714551573.798729",
+    "parent_user_id": "U03R0B9U1GD",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=KD8hkveKmYQ",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/KD8hkveKmYQ/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/KD8hkveKmYQ?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Laurie Spiegel ‎- The Expanding Universe (1980) FULL ALBUM\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=KD8hkveKmYQ",
+        "fallback": "YouTube Video: Laurie Spiegel ‎- The Expanding Universe (1980) FULL ALBUM",
+        "title": "Laurie Spiegel ‎- The Expanding Universe (1980) FULL ALBUM",
+        "title_link": "https://www.youtube.com/watch?v=KD8hkveKmYQ",
+        "author_name": "The Saturn Archives",
+        "author_link": "https://www.youtube.com/@SaturnArchives",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7aDkb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=KD8hkveKmYQ",
+                "text": "Don’t miss her music, too!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1714568634.636749",
+    "client_msg_id": "b98ff94d-c3f4-462e-8c07-79838d96d2bd",
+    "text": "I listen to this whenever I’m really sad about computers",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714551573.798729",
+    "parent_user_id": "U03R0B9U1GD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GVwaO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I listen to this whenever I’m really sad about computers"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UC2A2ARPT",
+          "U03R0B9U1GD",
+          "U013ZLJARC7"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1714568778.654999",
+    "client_msg_id": "c1639d50-d9b2-4f36-8804-943a9561fc9a",
+    "text": "this is really beautiful thanks so much for sharing it with us",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714524509.120399",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bvH+p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this is really beautiful thanks so much for sharing it with us"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714577079.904439",
+    "client_msg_id": "f3a25429-65fa-4d13-9add-41165a535817",
+    "text": "I am looking around for tools / frameworks / UI patterns that are roughly of the shape \"spreadsheet with editable computation pipeline\". What do people know of that's in that category?\n\nTo clarify, I realise spreadsheets alone can achieve computation... but I am thinking more of projects where the computation is a bit more \"visual\" than just formulas in cells, perhaps like a nodes or blocks environment that then feeds into a table / spreadsheet to display data. <@U019PRL1BNU>'s Natto is one such example of the kind of thing I am thinking of. There might be other ways to do this beyond just a series of nodes that feed into a table... I'm curious to see what else might be out there already. I wonder if there are projects in the data analysis / computational science spaces that might fit...?\n\nApologies if my question is too vague, I'm still trying to work out what I'm even looking for. :slightly_smiling_face:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "reply_count": 36,
+    "reply_users_count": 3,
+    "latest_reply": "1714686486.420829",
+    "reply_users": [
+      "UBN9AFS0N",
+      "UML4ZEKDK",
+      "U04JY2BF24E"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1714686486.420829",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0VDw8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I am looking around for tools / frameworks / UI patterns that are roughly of the shape \"spreadsheet with editable computation pipeline\". What do people know of that's in that category?\n\nTo clarify, I realise spreadsheets alone can achieve computation... but I am thinking more of projects where the computation is a bit more \"visual\" than just formulas in cells, perhaps like a nodes or blocks environment that then feeds into a table / spreadsheet to display data. "
+              },
+              {
+                "type": "user",
+                "user_id": "U019PRL1BNU"
+              },
+              {
+                "type": "text",
+                "text": "'s Natto is one such example of the kind of thing I am thinking of. There might be other ways to do this beyond just a series of nodes that feed into a table... I'm curious to see what else might be out there already. I wonder if there are projects in the data analysis / computational science spaces that might fit...?\n\nApologies if my question is too vague, I'm still trying to work out what I'm even looking for. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714577380.144219",
+    "client_msg_id": "5eb3c11e-a8f9-459e-a4d8-0cb8dbe35ac2",
+    "text": "maybe you know this one or it doesn't fit, just in case: <https://www.youtube.com/watch?v=mTEkYqnGICE>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=mTEkYqnGICE",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/mTEkYqnGICE/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/mTEkYqnGICE?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Instadeq Live 2021\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=mTEkYqnGICE",
+        "fallback": "YouTube Video: Instadeq Live 2021",
+        "title": "Instadeq Live 2021",
+        "title_link": "https://www.youtube.com/watch?v=mTEkYqnGICE",
+        "author_name": "Mariano Guerra",
+        "author_link": "https://www.youtube.com/@MarianoGuerra",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RXlvS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "maybe you know this one or it doesn't fit, just in case: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=mTEkYqnGICE"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714577429.686759",
+    "client_msg_id": "e2e38988-46c4-449b-8456-321fed464656",
+    "text": "here's a step by step demo: <https://www.youtube.com/watch?v=4260hoxkaro>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=4260hoxkaro",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/4260hoxkaro/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/4260hoxkaro?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"No-code Interactive Dashboard from CSV Step by Step Guide\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=4260hoxkaro",
+        "fallback": "YouTube Video: No-code Interactive Dashboard from CSV Step by Step Guide",
+        "title": "No-code Interactive Dashboard from CSV Step by Step Guide",
+        "title_link": "https://www.youtube.com/watch?v=4260hoxkaro",
+        "author_name": "Instadeq",
+        "author_link": "https://www.youtube.com/@Instadeq",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UCizb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "here's a step by step demo: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=4260hoxkaro"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714578106.842049",
+    "client_msg_id": "2bf63c88-76fe-4d41-bcde-8d9c8eb06596",
+    "text": "Ah yes, Instadeq seems like it should be included in the list. I'll have to check it out in more detail, thanks!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+1qsC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah yes, Instadeq seems like it should be included in the list. I'll have to check it out in more detail, thanks!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714578365.769889",
+    "client_msg_id": "5638501f-c467-465f-9f5a-a9bde375075f",
+    "text": "There's probably more matches to be found in this kind of \"analytics dashboard\" space... I've tried searching of course, but I often end up finding things that just load from a database without containing / visualising any computation themselves.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mXtC8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's probably more matches to be found in this kind of \"analytics dashboard\" space... I've tried searching of course, but I often end up finding things that just load from a database without containing / visualising any computation themselves."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579100.628189",
+    "client_msg_id": "e990f2c0-4f25-48f6-a145-82e641c4c841",
+    "text": "the \"old\" observablehq and maybe the new one (<https://observablehq.com/framework/>) may fit too?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cSQVs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the \"old\" observablehq and maybe the new one ("
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/framework/"
+              },
+              {
+                "type": "text",
+                "text": ") may fit too?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579157.631629",
+    "client_msg_id": "fd1dd703-f5cc-4ce0-a75b-4667fb3358a5",
+    "text": "also <https://www.causal.app/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "image_url": "https://assets-global.website-files.com/61e8494b1e8e024a7113bd50/65d4c7d8c4971d677e03c68a_OG%20Image.png",
+        "image_width": 2400,
+        "image_height": 1260,
+        "image_bytes": 101993,
+        "from_url": "https://www.causal.app/",
+        "id": 1,
+        "original_url": "https://www.causal.app/",
+        "fallback": "Causal: Modern Business Planning",
+        "text": "Causal replaces your spreadsheets with a better way to build models, connect to data (accounting, CRM), and share dashboards with your team. Sign up for free.",
+        "title": "Causal: Modern Business Planning",
+        "title_link": "https://www.causal.app/",
+        "service_name": "causal.app"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jPvk/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "also "
+              },
+              {
+                "type": "link",
+                "url": "https://www.causal.app/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579205.225759",
+    "client_msg_id": "432b5dec-70d6-465d-be6b-f3f6a3abdabc",
+    "text": "<https://hex.tech/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://hex.tech/",
+        "image_url": "https://images.ctfassets.net/mmgv7yhaaeds/4pgXgGu1d3Cm6OQdCX5OYL/fb27d41d9479315ec0cbff18c9196fdc/social-sharing-homepage.jpg",
+        "image_width": 1200,
+        "image_height": 630,
+        "image_bytes": 106349,
+        "service_icon": "https://hex.tech/icons/icon-48x48.png?v=d9d4353076e8102bcd1692b08fd0d103",
+        "id": 1,
+        "original_url": "https://hex.tech/",
+        "fallback": "Hex - Magical tools for working with data together",
+        "text": "Hex is a modern data platform for data science and analytics. Collaborative data notebooks, stunning data apps, magical AI-assist, and enterprise-grade security.",
+        "title": "Hex - Magical tools for working with data together",
+        "title_link": "https://hex.tech/",
+        "service_name": "hex.tech"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8KBKS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://hex.tech/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579229.055049",
+    "client_msg_id": "a997de32-4be5-4de0-b917-24bcee2b1f2a",
+    "text": "<https://www.rilldata.com/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://www.rilldata.com/",
+        "image_url": "https://assets-global.website-files.com/659ddac460dbacbdc813b204/65bad0233db92db596c29c34_social1.jpg",
+        "image_width": 2400,
+        "image_height": 1200,
+        "image_bytes": 146433,
+        "id": 1,
+        "original_url": "https://www.rilldata.com/",
+        "fallback": "Rill | Fast operational dashboards you'll actually use",
+        "text": "Rill is an operational BI tool that helps data teams build fewer, more flexible dashboards, and helps business users make faster decisions with fewer ad hoc requests.",
+        "title": "Rill | Fast operational dashboards you'll actually use",
+        "title_link": "https://www.rilldata.com/",
+        "service_name": "rilldata.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vYk1B",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.rilldata.com/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714579398.185209",
+    "client_msg_id": "40d8de67-abdd-4bd3-8284-b8ef83146b2a",
+    "text": "Thanks, yeah, Observable (and similar notebook environments) seem worth exploring as well. Haven't seen the others you mentioned before, I'll have to check those out in more detail! :slightly_smiling_face:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vNivo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks, yeah, Observable (and similar notebook environments) seem worth exploring as well. Haven't seen the others you mentioned before, I'll have to check those out in more detail! "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579460.477399",
+    "client_msg_id": "599ada86-4e81-407c-8ee6-56d127a0fafc",
+    "text": "<https://medium.com/nerd-for-tech/the-wrangler-user-interface-of-cloud-data-fusion-21e96cfe1b2d>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://medium.com/nerd-for-tech/the-wrangler-user-interface-of-cloud-data-fusion-21e96cfe1b2d",
+        "ts": 1668403186,
+        "image_url": "https://miro.medium.com/v2/da:true/resize:fit:1200/0*Ewq7TamyPHZRIqdf",
+        "image_width": 1200,
+        "image_height": 800,
+        "image_bytes": 96454,
+        "service_icon": "https://miro.medium.com/v2/resize:fill:152:152/1*sHhtYhaCe2Uc3IU0IgKwIQ.png",
+        "id": 1,
+        "original_url": "https://medium.com/nerd-for-tech/the-wrangler-user-interface-of-cloud-data-fusion-21e96cfe1b2d",
+        "fallback": "Medium: The Wrangler User Interface of Cloud Data Fusion",
+        "text": "An in-depth explanation of the Wrangler User Interface of Cloud Data Fusion. By Alan Kohler",
+        "title": "The Wrangler User Interface of Cloud Data Fusion",
+        "title_link": "https://medium.com/nerd-for-tech/the-wrangler-user-interface-of-cloud-data-fusion-21e96cfe1b2d",
+        "service_name": "Medium",
+        "fields": [
+          {
+            "value": "5 min read",
+            "title": "Reading time",
+            "short": true
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aOJ+G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://medium.com/nerd-for-tech/the-wrangler-user-interface-of-cloud-data-fusion-21e96cfe1b2d"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714579663.623409",
+    "client_msg_id": "fb367ddd-0982-4061-83a1-afd26d64a50f",
+    "text": "<https://enso.org/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "image_url": "https://enso.org/img/banner.png",
+        "image_width": 2400,
+        "image_height": 1260,
+        "image_bytes": 160465,
+        "from_url": "https://enso.org/",
+        "service_icon": "https://enso.org/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://enso.org/",
+        "fallback": "Enso | Get insights you can rely on. In real time.",
+        "text": "Enso is an award-winning interactive programming language with dual visual and textual representations. It is a tool that spans the entire stack, going from high-level visualisation and communication to the nitty-gritty of backend services, all in a single language.",
+        "title": "Enso | Get insights you can rely on. In real time.",
+        "title_link": "https://enso.org/",
+        "service_name": "enso.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yIYf2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://enso.org/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579664.820439",
+    "client_msg_id": "3b2e8364-145d-45dd-862f-56c5117b170a",
+    "text": "this ones may not fit but just in case <https://www.getdbt.com/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "image_url": "https://www.getdbt.com/ui/img/social/facebook.png",
+        "image_width": 1200,
+        "image_height": 630,
+        "image_bytes": 40612,
+        "from_url": "https://www.getdbt.com/",
+        "service_icon": "https://www.getdbt.com/ui/img/social/apple-touch-icon-95x95.png",
+        "id": 1,
+        "original_url": "https://www.getdbt.com/",
+        "fallback": "dbt Labs: dbt Labs | Transform Data in Your Warehouse",
+        "text": "Use dbt to build reliable data models quickly and collaboratively—featuring version control, automated documentation, and integrated testing.",
+        "title": "dbt Labs | Transform Data in Your Warehouse",
+        "title_link": "https://www.getdbt.com/",
+        "service_name": "dbt Labs"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YqEiG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this ones may not fit but just in case "
+              },
+              {
+                "type": "link",
+                "url": "https://www.getdbt.com/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714579681.526989",
+    "client_msg_id": "e19196d1-80eb-45a8-9180-925162067855",
+    "text": "<https://www.quadratichq.com/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://www.quadratichq.com/",
+        "image_url": "https://quadratic-website-bkhhr8k7z.vercel.quadratic-preview.com/images/og-image.png",
+        "image_width": 1200,
+        "image_height": 630,
+        "image_bytes": 3975,
+        "service_icon": "https://www.quadratichq.com/favicon.ico",
+        "id": 1,
+        "original_url": "https://www.quadratichq.com/",
+        "fallback": "Quadratic - Technical spreadsheet with Python, SQL, and AI.",
+        "text": "Quadratic is a modern technical spreadsheet with Python, SQL, and AI - all running in your web browser.",
+        "title": "Quadratic - Technical spreadsheet with Python, SQL, and AI.",
+        "title_link": "https://www.quadratichq.com/",
+        "service_name": "quadratichq.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iJGmq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.quadratichq.com/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1714579801.713009",
+    "client_msg_id": "9590d70c-af42-4523-9f80-f4cdddc5ac63",
+    "text": "<@UJBAJNFLK> This is super interesting to me, sorry if I take this somewhere weird or not that interesting from your perspective:\n\nWhen I think of intuition in mathematics, I imagine things like understanding the term rewriting steps of the proof of say Pythagoras’ Theorem through symbol manipulation as an analytical/mechanical understanding. Whereas I’d say understanding a geometric proof of the same theorem is at least utilizing some of our intuitive/experiential understanding.\n\nWhile I’m at it, let me add another example from another domain I know little about. :slightly_smiling_face: The way I understand moldable development I would assume that you relatively quickly notice that the same data structure with the same data in it in different visualizations has a vast range of how easy/difficult the data and its structure can be interpreted and understood. So in your words, if I understand correctly, some of those representations have a larger _cognitive surface_ than others.\n\nI just wonder, and would love to hear your thoughts on this: In mathematics, is it really the nature of mathematics, or more specifically the nature of formal systems and reasoning, that it is just about mechanical/analytical complexity, or have we just settled on a default representation that primarily _affords_ mechanical/analytical reasoning and understanding? And as a consequence we (are led to) ignore (overlook?) intuitive aspects of it?\n\nAsking for a tech philosopher who is worried that in software development we are doing exactly the same…",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714490368.887299",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sr41V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " This is super interesting to me, sorry if I take this somewhere weird or not that interesting from your perspective:\n\nWhen I think of intuition in mathematics, I imagine things like understanding the term rewriting steps of the proof of say Pythagoras’ Theorem through symbol manipulation as an analytical/mechanical understanding. Whereas I’d say understanding a geometric proof of the same theorem is at least utilizing some of our intuitive/experiential understanding.\n\nWhile I’m at it, let me add another example from another domain I know little about. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": " The way I understand moldable development I would assume that you relatively quickly notice that the same data structure with the same data in it in different visualizations has a vast range of how easy/difficult the data and its structure can be interpreted and understood. So in your words, if I understand correctly, some of those representations have a larger "
+              },
+              {
+                "type": "text",
+                "text": "cognitive surface",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " than others.\n\nI just wonder, and would love to hear your thoughts on this: In mathematics, is it really the nature of mathematics, or more specifically the nature of formal systems and reasoning, that it is just about mechanical/analytical complexity, or have we just settled on a default representation that primarily "
+              },
+              {
+                "type": "text",
+                "text": "affords",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " mechanical/analytical reasoning and understanding? And as a consequence we (are led to) ignore (overlook?) intuitive aspects of it?\n\nAsking for a tech philosopher who is worried that in software development we are doing exactly the same…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579812.375189",
+    "client_msg_id": "4d455fe2-f2c5-4208-ab3c-b5096d97114b",
+    "text": "<https://www.ultorg.com/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "image_url": "https://www.ultorg.com/images/og_image_white.png",
+        "image_width": 1200,
+        "image_height": 630,
+        "image_bytes": 19257,
+        "from_url": "https://www.ultorg.com/",
+        "service_icon": "https://www.ultorg.com/images/ultorg_icon_illum_180.png",
+        "id": 1,
+        "original_url": "https://www.ultorg.com/",
+        "fallback": "Ultorg: Ultorg: General-Purpose, User-Friendly Database Software",
+        "text": "Ultorg is a general-purpose database app that connects to your existing data. Work quickly across tables, queries, and relationships, without manual coding or page design.",
+        "title": "Ultorg: General-Purpose, User-Friendly Database Software",
+        "title_link": "https://www.ultorg.com/",
+        "service_name": "Ultorg"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cpLot",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.ultorg.com/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714579826.186979",
+    "client_msg_id": "245e33f0-611a-4545-bbb5-55608d24e810",
+    "text": "There do seem be a lot of startups in this space... I'm slightly wary of depending on a SaaS tool that might disappear at any moment, but I know that's often the \"default\" way of building things these days... They are still useful for visual inspiration though.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fqE2j",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There do seem be a lot of startups in this space... I'm slightly wary of depending on a SaaS tool that might disappear at any moment, but I know that's often the \"default\" way of building things these days... They are still useful for visual inspiration though."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579866.557269",
+    "client_msg_id": "86cf1a74-d46b-42ec-aca0-3bdd0b262685",
+    "text": "I thought you were looking for inspiration, do you have a use case in mind?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bNW1X",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I thought you were looking for inspiration, do you have a use case in mind?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714579880.375099",
+    "client_msg_id": "71a4acd5-4a2a-41d4-a6e4-15b1eac12171",
+    "text": "<https://airflow.apache.org/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "image_url": "https://airflow.apache.org/images/feature-image.png",
+        "image_width": 1260,
+        "image_height": 533,
+        "image_bytes": 63044,
+        "from_url": "https://airflow.apache.org/",
+        "service_icon": "https://airflow.apache.org/favicons/apple-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://airflow.apache.org/",
+        "fallback": "Apache Airflow: Home",
+        "text": "Platform created by the community to programmatically author, schedule and monitor workflows.",
+        "title": "Home",
+        "title_link": "https://airflow.apache.org/",
+        "service_name": "Apache Airflow"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Cexjo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://airflow.apache.org/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714580039.563909",
+    "client_msg_id": "53ec9191-8f3a-4dd7-b585-7c872af66e7c",
+    "text": "Ah yeah, for the moment, just getting some visual inspiration of what's out there. I do have a lurking use case bubbling away, but I'll save that for a separate thread. :nerd_face:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OBb4T",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah yeah, for the moment, just getting some visual inspiration of what's out there. I do have a lurking use case bubbling away, but I'll save that for a separate thread. "
+              },
+              {
+                "type": "emoji",
+                "name": "nerd_face",
+                "unicode": "1f913"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714580140.839289",
+    "client_msg_id": "31d3a416-342c-4ed1-b835-64cee2940f4a",
+    "text": "Apache Airflow was one I did encounter, but I am not sure I really \"get it\"... Is it mainly just querying databases...? I guess I find the ocean of Apache projects generally a bit hard to navigate... :sweat_smile:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "c7/mS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Apache Airflow was one I did encounter, but I am not sure I really \"get it\"... Is it mainly just querying databases...? I guess I find the ocean of Apache projects generally a bit hard to navigate... "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile",
+                "unicode": "1f605"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714580506.399339",
+    "client_msg_id": "8bfccbdb-753e-4228-aebb-3bd1f75f7942",
+    "text": "some nodes and wires: <https://nifi.apache.org/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://nifi.apache.org/",
+        "image_url": "https://nifi.apache.org/images/project-brand.jpg?version=1",
+        "image_width": 800,
+        "image_height": 449,
+        "image_bytes": 13960,
+        "service_icon": "https://nifi.apache.org/favicon.ico",
+        "id": 1,
+        "original_url": "https://nifi.apache.org/",
+        "fallback": "Apache NiFi",
+        "text": "Apache NiFi is an easy to use, powerful, and reliable system to process and distribute data",
+        "title": "Apache NiFi",
+        "title_link": "https://nifi.apache.org/",
+        "service_name": "nifi.apache.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/eMv+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "some nodes and wires: "
+              },
+              {
+                "type": "link",
+                "url": "https://nifi.apache.org/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714580512.413889",
+    "client_msg_id": "14cb6eaa-f4f2-49b8-9166-afd39d02a3fa",
+    "text": "<https://streamsets.com/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "image_url": "https://streamsets.b-cdn.net/wp-content/uploads/eliminate-data-integration-friction.png",
+        "image_width": 1200,
+        "image_height": 630,
+        "image_bytes": 288485,
+        "from_url": "https://streamsets.com/",
+        "service_icon": "https://streamsets.com/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://streamsets.com/",
+        "fallback": "StreamSets: Homepage",
+        "text": "StreamSets data integration platform is a single interface for creating, reusing and sharing data pipelines to unlock your data without ceding control.",
+        "title": "Homepage",
+        "title_link": "https://streamsets.com/",
+        "service_name": "StreamSets"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BHHkW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://streamsets.com/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581082.457239",
+    "client_msg_id": "944b3c5c-4fbc-410b-a35d-7733be132a79",
+    "text": "<@UML4ZEKDK> many of those are for ETL/ELT pipelines or data integration jobs",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fWD1B",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UML4ZEKDK"
+              },
+              {
+                "type": "text",
+                "text": " many of those are for ETL/ELT pipelines or data integration jobs"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714581147.901529",
+    "edited": {
+      "user": "UML4ZEKDK",
+      "ts": "1714581167.000000"
+    },
+    "client_msg_id": "9c4b329a-d2c2-4689-b2f8-7be1a46e0768",
+    "text": "Dataflow tracking / pipeline visualisation in the style of NiFi seems interesting, perhaps I need to keep searching for things like this...",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cSLPc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Dataflow tracking / pipeline visualisation in the style of NiFi seems interesting, perhaps I need to keep searching for things like this..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581189.462219",
+    "client_msg_id": "f0271481-6a36-4c8e-9b1e-db5629f97ab3",
+    "text": "a more low level thing that is \"so hot right now\" <https://github.com/tc39/proposal-signals>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2j1Iw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "a more low level thing that is \"so hot right now\" "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/tc39/proposal-signals"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "U06BUK2M2RH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714581222.299979",
+    "client_msg_id": "1f5cc29c-8903-4896-a264-722a11680aa0",
+    "text": "Thanks for all the entries, you've found far more candidates than I managed to on my own...! :slightly_smiling_face:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8qcGB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for all the entries, you've found far more candidates than I managed to on my own...! "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581239.314839",
+    "client_msg_id": "ee41d2ca-0b57-47a7-99c6-caf07a6132fd",
+    "text": "I've been following the space for a while :smile:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qd1yo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been following the space for a while "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581395.927439",
+    "client_msg_id": "f83a62c2-33f9-4c35-9d99-518890a82715",
+    "text": "<https://count.co/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://count.co/",
+        "image_url": "https://storage.googleapis.com/count-static/count-card-image-2022.png",
+        "image_width": 1200,
+        "image_height": 630,
+        "image_bytes": 15177,
+        "id": 1,
+        "original_url": "https://count.co/",
+        "fallback": "Count - Collaborative analytics platform",
+        "text": "Collaborative analytics platform where modern data teams solve complex problems.",
+        "title": "Count - Collaborative analytics platform",
+        "title_link": "https://count.co/",
+        "service_name": "count.co"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sG3be",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://count.co/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714581411.051599",
+    "client_msg_id": "5245415a-43a4-42da-957e-d3e257350be5",
+    "text": "Signals proposal is an interesting bit of news to follow indeed, wouldn't have initially imagined adding such a thing at the language level, but I see where it comes from in terms have single definition of the concept instead of every reactive framework doing their own thing.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NlDt6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Signals proposal is an interesting bit of news to follow indeed, wouldn't have initially imagined adding such a thing at the language level, but I see where it comes from in terms have single definition of the concept instead of every reactive framework doing their own thing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581418.650189",
+    "client_msg_id": "f56ceff5-fc23-4b1c-8af9-1db8721e37f0",
+    "text": "there are others with less \"formula capabilities\" but interesting in other aspects",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pRxHE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "there are others with less \"formula capabilities\" but interesting in other aspects"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581424.380119",
+    "client_msg_id": "c8266049-3f4b-4c78-9404-01423009b82a",
+    "text": "<https://flourish.studio/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://flourish.studio/",
+        "image_url": "https://flourish.studio/images/share_image.jpg",
+        "image_width": 1653,
+        "image_height": 940,
+        "image_bytes": 1051344,
+        "service_icon": "https://flourish.studio/favicon.ico",
+        "id": 1,
+        "original_url": "https://flourish.studio/",
+        "fallback": "Flourish: Flourish | Data Visualization &amp; Storytelling",
+        "text": "Beautiful, easy data visualization and storytelling",
+        "title": "Flourish | Data Visualization &amp; Storytelling",
+        "title_link": "https://flourish.studio/",
+        "service_name": "Flourish"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BSek9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://flourish.studio/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581429.655759",
+    "client_msg_id": "b74b1890-6b77-40bc-9cd6-60a215dc4721",
+    "text": "<https://www.datawrapper.de/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://www.datawrapper.de/",
+        "image_url": "https://www.datawrapper.de/wp-content/uploads/2021/08/sharepic.png",
+        "image_width": 1024,
+        "image_height": 512,
+        "image_bytes": 171121,
+        "service_icon": "https://www.datawrapper.de/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://www.datawrapper.de/",
+        "fallback": "Datawrapper: Datawrapper: Create charts, maps, and tables",
+        "text": "Create interactive, responsive &amp; beautiful data visualizations with the online tool Datawrapper — no code required.",
+        "title": "Datawrapper: Create charts, maps, and tables",
+        "title_link": "https://www.datawrapper.de/",
+        "service_name": "Datawrapper"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oxUuN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.datawrapper.de/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581507.285529",
+    "edited": {
+      "user": "UBN9AFS0N",
+      "ts": "1714581517.000000"
+    },
+    "client_msg_id": "4c126ea2-fa61-4cf6-a0d9-2ffc03b5419f",
+    "text": "a failed take from me: <https://www.youtube.com/watch?v=eqfmDztQv6I>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=eqfmDztQv6I",
+        "thumb_url": "https://i.ytimg.com/vi/eqfmDztQv6I/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/eqfmDztQv6I?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"GlooData AI &amp; UX Demo\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=eqfmDztQv6I",
+        "fallback": "YouTube Video: GlooData AI & UX Demo",
+        "title": "GlooData AI &amp; UX Demo",
+        "title_link": "https://www.youtube.com/watch?v=eqfmDztQv6I",
+        "author_name": "GlooData",
+        "author_link": "https://www.youtube.com/@gloodata",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gH49M",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "a failed take from me: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=eqfmDztQv6I"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1714581550.749539",
+    "client_msg_id": "12221996-28a9-4169-ad8c-4a537a1d2fac",
+    "text": "Ah right, I guess for this purpose, I'm wanting to see some style of \"computation\" that's visually present and editable, so those last few probably don't match, but still good to know about in terms of general charting ideas.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kBda4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah right, I guess for this purpose, I'm wanting to see some style of \"computation\" that's visually present and editable, so those last few probably don't match, but still good to know about in terms of general charting ideas."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1714581649.371429",
+    "client_msg_id": "2c9683fe-b34c-4e8f-8212-cb1750b2e687",
+    "text": "everybody stops at formulas or switches to text for that, here's an interesting take <https://www.youtube.com/watch?v=davUawk9Cqc>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714577079.904439",
+    "parent_user_id": "UML4ZEKDK",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=davUawk9Cqc",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/davUawk9Cqc/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/davUawk9Cqc?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"An Overview of Notion Formulas 2.0\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=davUawk9Cqc",
+        "fallback": "YouTube Video: An Overview of Notion Formulas 2.0",
+        "title": "An Overview of Notion Formulas 2.0",
+        "title_link": "https://www.youtube.com/watch?v=davUawk9Cqc",
+        "author_name": "Ben Borowski — Certified Notion Consultant",
+        "author_link": "https://www.youtube.com/@benjaminborowski",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "W1j39",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "everybody stops at formulas or switches to text for that, here's an interesting take "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=davUawk9Cqc"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U018S42NMMM",
+    "type": "message",
+    "ts": "1714583631.566549",
+    "client_msg_id": "c6400a6c-c2ea-4109-97a2-eea0ccb66380",
+    "text": "Really good Automata and formal language visualizer: <https://vyaakaran.vercel.app/>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://vyaakaran.vercel.app/site-preview.jpg",
+        "image_width": 1200,
+        "image_height": 628,
+        "image_bytes": 30322,
+        "from_url": "https://vyaakaran.vercel.app/",
+        "service_icon": "https://vyaakaran.vercel.app/favicon.png",
+        "id": 1,
+        "original_url": "https://vyaakaran.vercel.app/",
+        "fallback": "Vyaakaran - Visualize automata, parsers, grammars for free",
+        "text": "Visualize automata, parsers and formal languages right on the browser in an easy to use interface with Vyaakaran.",
+        "title": "Vyaakaran - Visualize automata, parsers, grammars for free",
+        "title_link": "https://vyaakaran.vercel.app/",
+        "service_name": "vyaakaran.vercel.app"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "27qt1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Really good Automata and formal language visualizer: "
+              },
+              {
+                "type": "link",
+                "url": "https://vyaakaran.vercel.app/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1714589783.753059",
+    "client_msg_id": "fd344043-e2d6-4746-8b71-c819d755b80f",
+    "text": "<@U5STGTB3J> Lots of good questions...\n\nEasy one first: yes, I do believe that different visualizations of the same data structure have different cognitive surfaces, but this depends on the application context and not just on the data structure.\n\nIf you talk to professional mathematicians, they regularly point out the importance of intuition in their work. In particular the discovery of interesting relations is mostly a matter of intuition. Formal systems have two roles: (1) supporting intuition for filling in the details, and (2) constructing proofs. Proofs are extremely important because they allow to convert the intuition of individuals into collectively accepted knowledge. That's also why the mathematical literature heavily emphasizes formal approaches.\n\nComputing has inherited this tradition, via Church, Turing, and others. It's not just a matter of symbolic representation affording this type of reasoning, I'd say it's baked even into our hardware. There are lots of different ways to process information. Biological organisms process information contextually, meaning informally. With AI we are making first steps into technological information processing that is contextual rather then formal. I guess we will see more of that. But I also believe that symbolic reasoning in the tradition of mathematics is here to stay. It's just too useful.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714490368.887299",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f7hNB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": " Lots of good questions...\n\nEasy one first: yes, I do believe that different visualizations of the same data structure have different cognitive surfaces, but this depends on the application context and not just on the data structure.\n\nIf you talk to professional mathematicians, they regularly point out the importance of intuition in their work. In particular the discovery of interesting relations is mostly a matter of intuition. Formal systems have two roles: (1) supporting intuition for filling in the details, and (2) constructing proofs. Proofs are extremely important because they allow to convert the intuition of individuals into collectively accepted knowledge. That's also why the mathematical literature heavily emphasizes formal approaches.\n\nComputing has inherited this tradition, via Church, Turing, and others. It's not just a matter of symbolic representation affording this type of reasoning, I'd say it's baked even into our hardware. There are lots of different ways to process information. Biological organisms process information contextually, meaning informally. With AI we are making first steps into technological information processing that is contextual rather then formal. I guess we will see more of that. But I also believe that symbolic reasoning in the tradition of mathematics is here to stay. It's just too useful."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1714592465.902259",
+    "client_msg_id": "6840b21b-f875-4d57-890e-3890a2e9c26c",
+    "text": "Oh, yes, it’s not either-or. Symbolic reasoning isn’t bad or wrong, it is obviously useful. It’s more like a “too much of a good thing…” situation, as we neglect other important things.\n\nPolarization also comes primarily from analytic thinking: If there are two polar opposites, it must mean either or, as if we can pick only one. But (1) in complex systems polar opposites are just a model, an oversimplified approximation of what’s really going on, and (2) it’s about… well… some people would use the word balance, you used the term “sweet spot”, but that’s still too static. It’s a dynamic context-dependent balance that can be different based on context, so we need more than just intelligence to know what we’re talking about, but also the wisdom to decide how much of each is needed in which situation.\n\nContext, however, is what we usually try to avoid; in science in favor of discovering context-independent _universal_ rules, and in programming in favor of reuse and scale. I’m optimistic though, as it seems that we slowly wake up to the limitations of trying to brute-force everything with pure logical reasoning and as little context as we get away with. Maybe that’s just because I’m reading <https://mitpress.mit.edu/author/alicia-juarrero-3467/|this> at the moment…",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714490368.887299",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eZO/1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh, yes, it’s not either-or. Symbolic reasoning isn’t bad or wrong, it is obviously useful. It’s more like a “too much of a good thing…” situation, as we neglect other important things.\n\nPolarization also comes primarily from analytic thinking: If there are two polar opposites, it must mean either or, as if we can pick only one. But (1) in complex systems polar opposites are just a model, an oversimplified approximation of what’s really going on, and (2) it’s about… well… some people would use the word balance, you used the term “sweet spot”, but that’s still too static. It’s a dynamic context-dependent balance that can be different based on context, so we need more than just intelligence to know what we’re talking about, but also the wisdom to decide how much of each is needed in which situation.\n\nContext, however, is what we usually try to avoid; in science in favor of discovering context-independent "
+              },
+              {
+                "type": "text",
+                "text": "universal",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " rules, and in programming in favor of reuse and scale. I’m optimistic though, as it seems that we slowly wake up to the limitations of trying to brute-force everything with pure logical reasoning and as little context as we get away with. Maybe that’s just because I’m reading "
+              },
+              {
+                "type": "link",
+                "url": "https://mitpress.mit.edu/author/alicia-juarrero-3467/",
+                "text": "this"
+              },
+              {
+                "type": "text",
+                "text": " at the moment…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1714593949.269889",
+    "edited": {
+      "user": "U5STGTB3J",
+      "ts": "1714593979.000000"
+    },
+    "client_msg_id": "47ddc60e-5dcf-452e-aed7-c3f2b7ca7c36",
+    "text": "Oh, and if that wasn’t clear, I’m also optimistic because I read your post pointing out the importance of context, the relational nature of comprehensibility, and potential issues with epistemic opacity. _Did you just add that? Miraculously, I hadn’t heard this term before, otherwise I probably would’ve used it in half of my writing._",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714490368.887299",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1YAaK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh, and if that wasn’t clear, I’m also optimistic because I read your post pointing out the importance of context, the relational nature of comprehensibility, and potential issues with epistemic opacity. "
+              },
+              {
+                "type": "text",
+                "text": "Did you just add that? Miraculously, I hadn’t heard this term before, otherwise I probably would’ve used it in half of my writing.",
+                "style": {
+                  "italic": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1714595484.467759",
+    "client_msg_id": "9865a449-e1c0-48c6-8f3c-81fadc256743",
+    "text": "Fascinating! The segregation between scientifically so closely related domains is mind-boggling. Turns out there is a subset of computer science that reinvents a subset of cognitive science. And judging from the list of references they have never heard of each other, which explains the different terms used. Also explains why I never came across any of these interesting sounding papers. This is wild! I now believe in parallel universes.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1714490368.887299",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/AVKD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Fascinating! The segregation between scientifically so closely related domains is mind-boggling. Turns out there is a subset of computer science that reinvents a subset of cognitive science. And judging from the list of references they have never heard of each other, which explains the different terms used. Also explains why I never came across any of these interesting sounding papers. This is wild! I now believe in parallel universes."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
