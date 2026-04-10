@@ -1,0 +1,1447 @@
+[
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1750982630.174539",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1750982641.000000"
+    },
+    "client_msg_id": "45a414d4-f718-410e-bd07-77cdf1bf46d6",
+    "text": "I think one difference with my experience may have been that I had to look up the most recent version id for rows. If you always know the precise model id that you need to look up, that may work well and my experience may not be relevant.\n\nIf you're looking up by a fixed model id, does that mean that any time one creates a new fork they need to copy all the rows from the past into the new model id? That would be a slow operation, right?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750958020.669509",
+    "parent_user_id": "U05PY5AQCA2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EJ3/I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think one difference with my experience may have been that I had to look up the most recent version id for rows. If you always know the precise model id that you need to look up, that may work well and my experience may not be relevant.\n\nIf you're looking up by a fixed model id, does that mean that any time one creates a new fork they need to copy all the rows from the past into the new model id? That would be a slow operation, right?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1750982832.626319",
+    "client_msg_id": "4397e942-b3a7-4f91-8a5d-8174e75e942d",
+    "text": "If you do it a hundred times, the database would grow by a factor of a hundred.\n\nI suppose we could do something like what git does, let you check out multiple models. Checked out models would be fast to query but occupy linear space. Models that aren't checked out could be compressed to occupy sub-linear space.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750958020.669509",
+    "parent_user_id": "U05PY5AQCA2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ydtDN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you do it a hundred times, the database would grow by a factor of a hundred.\n\nI suppose we could do something like what git does, let you check out multiple models. Checked out models would be fast to query but occupy linear space. Models that aren't checked out could be compressed to occupy sub-linear space."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1750983862.112519",
+    "client_msg_id": "13156243-AB2D-45AD-B26C-C8E47B4EBD02",
+    "text": "You would probably want some forks to be copying, but I imagine mostly they would be lazy. So when you look for person with id 1, in model A, we would look for something like:\n\nSELECT * FROM person WHERE (id, model) = (1, A).\n\nIf A was branched from another model, you would need to extend that with either a recursive CTE or you query for something like:\n\nSELECT * FROM person WHERE id = 1 AND model_id IN (A, B, C)\n\nassuming B, C are the antecedents of A in the branching hierarchy, and then you choose which model’s version of the record you should have based on the branch mode or whatever you call it.\n\nTo be clear: you could automatically add that logic behind the scenes. A developer using a Frest system would do the moral equivalent of:\n\nSET model = A;\nSELECT * FROM person WHERE id = 1;\n\n(“moral equivalent” here because I’m very keen on making Datalog the query language of such systems…)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750958020.669509",
+    "parent_user_id": "U05PY5AQCA2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "25OXq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You would probably want some forks to be copying, but I imagine mostly they would be lazy. So when you look for person with id 1, in model A, we would look for something like"
+              },
+              {
+                "type": "text",
+                "text": ":\n\nSELECT * FROM person WHERE (id, model) = (1, A).\n\nIf A was branched from another model, you would need to extend that with either a recursive CTE or you query for something like:\n\nSELECT * FROM person WHERE id = 1 AND model_id IN (A, B, C)\n\nassuming B, C are the antecedents of A in the branching hierarchy, and then you choose which model’s version of the record you should have based on the branch mode or whatever you call it.\n\nTo be clear: you could automatically add that logic behind the scenes. A developer using a Frest system would do the moral equivalent of:\n\nSET model = A;\nSELECT * FROM person WHERE id = 1;\n\n(“moral equivalent” here because I’m very keen on making Datalog the query language of such systems…)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1750984086.421349",
+    "client_msg_id": "99f5fba3-75cf-4bcb-9e7a-ca6430175aab",
+    "text": "Yeah. That's the kind of thing that introduces some risk it'll get slow. So there's a trade-off here. You can complicate the query so performance becomes harder to reason about, or you can create a UX where people have to check out, and it'll make sense to people that those operations are slow. I think I'd lean towards the latter approach. I'd rather provide predictable performance and transparently expose slow operations to people.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750958020.669509",
+    "parent_user_id": "U05PY5AQCA2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5b23N",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah. That's the kind of thing that introduces some risk it'll get slow. So there's a trade-off here. You can complicate the query so performance becomes harder to reason about, or you can create a UX where people have to check out, and it'll make sense to people that those operations are slow. I think I'd lean towards the latter approach. I'd rather provide predictable performance and transparently expose slow operations to people."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1750984297.146729",
+    "edited": {
+      "user": "U05PY5AQCA2",
+      "ts": "1750986842.000000"
+    },
+    "client_msg_id": "1CEBDE4D-8F5B-4602-B93B-924C150D27D7",
+    "text": "Excel is also much slower than doing the same calculations in assembly language.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750958020.669509",
+    "parent_user_id": "U05PY5AQCA2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nHD1g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Excel is "
+              },
+              {
+                "type": "text",
+                "text": "also much "
+              },
+              {
+                "type": "text",
+                "text": "slower than doing the same calculations in assembly language."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1751005050.167249",
+    "client_msg_id": "5f26793c-4806-4fe4-b1b5-7e3e87d83921",
+    "text": "Common Lisp software installation comes in three layers:\n• The language itself has (load ...) for reading in a file. And nothing else (well, there's defsystem, but it's basically useless today).\n• ASDF is the de-facto code management layer that nowadays is shipped with all CL implementations. Its unit of software is the 'system', defined in terms of code files and dependencies in a system definition file (extension .asd). That's how all Lisp code is packaged nowadays. If you manage to track down the repositories of all dependencies, recursively, you can clone them into $HOME/common-lisp and you are ready to go: `(require 'asdf)` and then `(asdf:load-system \"hyperdoc-demo\")` .\n• Software catalogs and package managers take care of downloading dependencies from the right places. There are the system-wide ones (Debian, Guix, ...), but also a few Lisp-specific ones, out of which <https://www.quicklisp.org/beta/|Quicklisp> is by far the most popular. It's very easy to install, and mostly just works. But its default software catalog is updated only about twice per year. If you want bleeding-edge code (such as mine), you have to add a second catalog, <https://ultralisp.org/|Ultralisp>, which is easy to add as well. If you have those two, and followed their advice of activating Quicklisp on startup (in $HOME/.sbclrc for SBCL), then `(ql:quickload \"hyperdoc-demo\")` will download and load everything you need.\nI provide instructions for Quicklisp (which I use on my old Mac) and for Guix (which I used under Linux). I have tested my system with SBCL and ECL, the two Lisp implementations well supported by Guix.\n\nPhilosophical note: Common Lisp is fortunate to have ASDF separate from Quicklisp and other package managers. The fusion of their Python or JS equivalents makes it a pain to assemble polyglot software. With Lisp, any package manager can delegate the Lisp-specific stuff to ASDF. And Lisp developers don't have to know about anything else than ASDF.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750915144.806939",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mJHPG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Common Lisp software installation comes in three layers:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The language itself has (load ...) for reading in a file. And nothing else (well, there's defsystem, but it's basically useless today)."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "ASDF is the de-facto code management layer that nowadays is shipped with all CL implementations. Its unit of software is the 'system', defined in terms of code files and dependencies in a system definition file (extension .asd). That's how all Lisp code is packaged nowadays. If you manage to track down the repositories of all dependencies, recursively, you can clone them into $HOME/common-lisp and you are ready to go: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "(require 'asdf)",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and then "
+                  },
+                  {
+                    "type": "text",
+                    "text": "(asdf:load-system \"hyperdoc-demo\")",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " ."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Software catalogs and package managers take care of downloading dependencies from the right places. There are the system-wide ones (Debian, Guix, ...), but also a few Lisp-specific ones, out of which "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.quicklisp.org/beta/",
+                    "text": "Quicklisp"
+                  },
+                  {
+                    "type": "text",
+                    "text": " is by far the most popular. It's very easy to install, and mostly just works. But its default software catalog is updated only about twice per year. If you want bleeding-edge code (such as mine), you have to add a second catalog, "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://ultralisp.org/",
+                    "text": "Ultralisp"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", which is easy to add as well. If you have those two, and followed their advice of activating Quicklisp on startup (in $HOME/.sbclrc for SBCL), then "
+                  },
+                  {
+                    "type": "text",
+                    "text": "(ql:quickload \"hyperdoc-demo\")",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " will download and load everything you need."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI provide instructions for Quicklisp (which I use on my old Mac) and for Guix (which I used under Linux). I have tested my system with SBCL and ECL, the two Lisp implementations well supported by Guix.\n\nPhilosophical note: Common Lisp is fortunate to have ASDF separate from Quicklisp and other package managers. The fusion of their Python or JS equivalents makes it a pain to assemble polyglot software. With Lisp, any package manager can delegate the Lisp-specific stuff to ASDF. And Lisp developers don't have to know about anything else than ASDF."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UA14TGLTC",
+    "type": "message",
+    "ts": "1751005434.496549",
+    "client_msg_id": "3de7b162-4484-4c43-b0e8-52f2edf6ec95",
+    "text": "Tom Larkworthy nonchalantly drops one \"insane\" idea after the other.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750965548.013389",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HJUDe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Tom Larkworthy nonchalantly drops one \"insane\" idea after the other."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "beer",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751007479.501899",
+    "client_msg_id": "2c385780-4915-4f3a-9325-b19f34c0553d",
+    "text": "&gt; I provide instructions for Quicklisp\nOh did I miss this? I don't see where you do.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750915144.806939",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2sQWN",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I provide instructions for Quicklisp"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nOh did I miss this? I don't see where you do."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751007691.092879",
+    "client_msg_id": "23654858-ac90-4623-b60a-d449ffedb3f7",
+    "text": "(I do have QuickLisp setup. I can be dangerous with it even though I have no understanding of it.)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750915144.806939",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BODUo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(I do have QuickLisp setup. I can be dangerous with it even though I have no understanding of it.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1751014108.187689",
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1751014135.000000"
+    },
+    "client_msg_id": "f75b2d01-e1af-4751-8c0a-a9cb58d7e5d9",
+    "text": "<https://codeberg.org/khinsen/hyperdoc-demo>\n\nThe HyperDoc demo and all its dependencies are on <https://ultralisp.org/|Ultralisp>. If you use Quicklisp and Ultralisp, you can run the Web server using:\n```sbcl --disable-debugger \\\n     --eval '(require :asdf)' \\\n     --eval '(asdf:load-system \"hyperdoc-demo\")' \\\n     --eval '(hyperdoc-demo:serve :port 9000)' \\\n     --eval '(sleep most-positive-fixnum)'```\n",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750915144.806939",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7o3Pi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://codeberg.org/khinsen/hyperdoc-demo"
+              },
+              {
+                "type": "text",
+                "text": "\n\nThe HyperDoc demo and all its dependencies are on "
+              },
+              {
+                "type": "link",
+                "url": "https://ultralisp.org/",
+                "text": "Ultralisp"
+              },
+              {
+                "type": "text",
+                "text": ". If you use Quicklisp and Ultralisp, you can run the Web server using:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "sbcl --disable-debugger \\\n     --eval '(require :asdf)' \\\n     --eval '(asdf:load-system \"hyperdoc-demo\")' \\\n     --eval '(hyperdoc-demo:serve :port 9000)' \\\n     --eval '(sleep most-positive-fixnum)'"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751015029.506969",
+    "client_msg_id": "f1650c20-8fbb-4228-af6a-fe24c02de5ef",
+    "text": "Ah thanks. I was looking at <https://codeberg.org/khinsen/hyperdoc>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750915144.806939",
+    "parent_user_id": "UJBAJNFLK",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XZ33i",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah thanks. I was looking at "
+              },
+              {
+                "type": "link",
+                "url": "https://codeberg.org/khinsen/hyperdoc"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751016399.281449",
+    "client_msg_id": "7e902d8e-80e2-424a-b81f-7a20cb6da3fb",
+    "text": "It seemed worth doing: <https://archive.org/details/boyd-white|I just recorded a video> reading out every word of the 1985 paper \"Law as Rhetoric, Rhetoric as Law\".\n\n(<https://futureofcoding.slack.com/archives/C5U3SEW6A/p1750125487897689|previously>)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751016399.281449",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1751047810.896789",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UCUSW7WVD"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "image_url": "https://archive.org/download/boyd-white/boyd-white.thumbs/BoydWhite_000115.jpg",
+        "image_width": 720,
+        "image_height": 406,
+        "image_bytes": 44157,
+        "from_url": "https://archive.org/details/boyd-white",
+        "service_icon": "https://archive.org/favicon.ico",
+        "thumb_url": "https://archive.org/download/boyd-white/boyd-white.thumbs/BoydWhite_000115.jpg",
+        "thumb_width": 720,
+        "thumb_height": 406,
+        "id": 1,
+        "original_url": "https://archive.org/details/boyd-white",
+        "fallback": "Internet Archive: James Boyd White, \"Law as Rhetoric, Rhetoric as Law\" : Kartik Agaram : Free Download, Borrow, and Streaming : Internet Archive",
+        "text": "In which I read out every word of James Boyd White's 1985 paper, Law as Rhetoric, Rhetoric as Law: The Arts of Cultural and Communal Life which spawned the...",
+        "title": "James Boyd White, \"Law as Rhetoric, Rhetoric as Law\" : Kartik Agaram : Free Download, Borrow, and Streaming : Internet Archive",
+        "title_link": "https://archive.org/details/boyd-white",
+        "service_name": "Internet Archive"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fHDSG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It seemed worth doing: "
+              },
+              {
+                "type": "link",
+                "url": "https://archive.org/details/boyd-white",
+                "text": "I just recorded a video"
+              },
+              {
+                "type": "text",
+                "text": " reading out every word of the 1985 paper \"Law as Rhetoric, Rhetoric as Law\".\n\n("
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1750125487897689",
+                "text": "previously"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UMQ6LR9NZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1751025396.555809",
+    "edited": {
+      "user": "U02E4DAQGSZ",
+      "ts": "1751026182.000000"
+    },
+    "client_msg_id": "84041fdc-b9f0-4651-a7f8-5e424515026f",
+    "text": "Thinking about <https://bsky.app/profile/interjectedfuture.com/post/3lsjxqmfoxa2l> implying node-and-wires are mutally exclusive with ASCII code and also thinking about <@UGWUJUZHT> dislike of functions. Also connecting it with my own ideas that a good notebook should offer \"multiple views of the same thing\".\n\nMade me think: why is everyone stuck on the idea that there is one one possible representation? And I think <@UGWUJUZHT> has a point, it may be the function calling paradigm. In my work, I don't have this problem because cells subscribe to other cells in dataflow, so multiple consumers of a computation is not a problem. cells _pull_ their dependancies. Whereas function calling is \"pushing\" values. The problem with pushing is you can only have one target. But with pulling you can have multiple consumers from one source. functions is building out of 1-to-1 links, but pulling is 1-to-many inherently.\n\nI don't think that argument is water tight coz, of course, its all Turing computable, but I do think there is something in there that function calling ends up naturally reducing computational reusability so that trying to do pub-sub communication patterns ends up way harder and buggier than it should so you shouldn't bother unless absolutely necessary. But if you build out of pub-sub exclusively then you don't see multiple views of the same thing as an unusual concept.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "reply_count": 14,
+    "reply_users_count": 7,
+    "latest_reply": "1751221032.525779",
+    "reply_users": [
+      "UJBAJNFLK",
+      "U07PYD02V2S",
+      "U02E4DAQGSZ",
+      "U013ZLJARC7",
+      "UH85W1ML1",
+      "UCUSW7WVD",
+      "UGWUJUZHT"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "from_url": "https://bsky.app/profile/interjectedfuture.com/post/3lsjxqmfoxa2l",
+        "service_icon": "https://web-cdn.bsky.app/static/apple-touch-icon.png",
+        "ts": 1750969803,
+        "id": 1,
+        "original_url": "https://bsky.app/profile/interjectedfuture.com/post/3lsjxqmfoxa2l",
+        "fallback": "<https://bsky.app/profile/interjectedfuture.com|@interjectedfuture.com>: Nodes and wires are so attractive because it's legible in a certain context. The context is when you're a beginner and you want to see the in-between results.\n\nBreaks down when you know syntax, when you can imagine the intermediates in your head, and when the program gets large.",
+        "text": "Nodes and wires are so attractive because it's legible in a certain context. The context is when you're a beginner and you want to see the in-between results.\n\nBreaks down when you know syntax, when you can imagine the intermediates in your head, and when the program gets large.",
+        "author_name": "iamwil",
+        "author_link": "https://bsky.app/profile/interjectedfuture.com",
+        "author_icon": "https://cdn.bsky.app/img/avatar/plain/did:plc:4yf2dz4a5hvjmui5gbgxclzx/bafkreib5gr3clyzaufwqeosk7s336y4vvzhe5ogkki5uo46rxlzesvaliq@jpeg",
+        "author_subname": "@interjectedfuture.com",
+        "service_name": "bluesky",
+        "service_url": "https://bsky.app/",
+        "footer": "Bluesky"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BrCxM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thinking about "
+              },
+              {
+                "type": "link",
+                "url": "https://bsky.app/profile/interjectedfuture.com/post/3lsjxqmfoxa2l"
+              },
+              {
+                "type": "text",
+                "text": " implying node-and-wires are mutally exclusive with ASCII code and also thinking about "
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " dislike of functions. Also connecting it with my own ideas that a good notebook should offer \"multiple views of the same thing\".\n\nMade me think: why is everyone stuck on the idea that there is one one possible representation? And I think "
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " has a point, it may be the function calling paradigm. In my work, I don't have this problem because cells subscribe to other cells in dataflow, so multiple consumers of a computation is not a problem. cells "
+              },
+              {
+                "type": "text",
+                "text": "pull",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " their dependancies. Whereas function calling is \"pushing\" values. The problem with pushing is you can only have one target. But with pulling you can have multiple consumers from one source. functions is building out of 1-to-1 links, but pulling is 1-to-many inherently.\n\nI don't think that argument is water tight coz, of course, its all Turing computable, but I do think there is something in there that function calling ends up naturally reducing computational reusability so that trying to do pub-sub communication patterns ends up way harder and buggier than it should so you shouldn't bother unless absolutely necessary. But if you build out of pub-sub exclusively then you don't see multiple views of the same thing as an unusual concept."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U07PYD02V2S"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1751027518.028149",
+    "client_msg_id": "c443c66e-ddf9-4f09-a289-e747399489fe",
+    "text": "Another difference is that your unit of code is the cell, whereas the unit of code in PLs is the function (plus a few others). Combinations of cells can be represented by nodes and wires. Combinations of functions are a lot more diverse, e.g. using higher-order functions.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2AyiB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Another difference is that your unit of code is the cell, whereas the unit of code in PLs is the function (plus a few others). Combinations of cells can be represented by nodes and wires. Combinations of functions are a lot more diverse, e.g. using higher-order functions."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U07PYD02V2S"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1751030590.182809",
+    "client_msg_id": "996C947C-1F0D-40F5-B263-BD5844E3AF79",
+    "text": "Whoa. Didn't have this on my bingo card. I'm not familiar with this paper. Does it have some personal meaning for you?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751016399.281449",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qFB8Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Whoa. Didn't have this on my bingo card. I'm not familiar with "
+              },
+              {
+                "type": "text",
+                "text": "this paper"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Does it have some personal meaning for you?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U07PYD02V2S",
+    "type": "message",
+    "ts": "1751032680.407089",
+    "client_msg_id": "9A8790F4-0C4A-47E9-B195-9AFF6589836A",
+    "text": "Are there any examples of programming interfaces or apps that use a pub/sub-first paradigm?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mUjhS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Are there any examples of programming interfaces or apps that use a pub/sub-first paradigm?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1751032731.982049",
+    "client_msg_id": "ff870c16-0e07-49e3-8438-d33acd891ee8",
+    "text": "spreadsheets, reactive programming.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QdU1c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "spreadsheets, reactive programming."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "fire",
+        "users": [
+          "U07PYD02V2S"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1751032834.687119",
+    "edited": {
+      "user": "U02E4DAQGSZ",
+      "ts": "1751032850.000000"
+    },
+    "client_msg_id": "a7be60b0-d2f5-44da-b73c-fb3506b8e72e",
+    "text": "the event listener pattern is pub sub, its not like you can't do it in PL, but if  you chain a ton of event listeners together synchronously you get weird cyclical bugs so its kinda harder than it looks to be a good pub-sub system.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YxRvP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the event listener pattern is pub sub, its not like you can't do it in PL, but if  you chain a ton of event listeners together synchronously you get weird cyclical bugs so its kinda harder than it looks to be a good pub-sub system."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "U07PYD02V2S"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U02M6PM725T",
+    "type": "message",
+    "ts": "1751032935.574509",
+    "client_msg_id": "B456BA29-0A85-4BF7-BA16-B3499A797459",
+    "text": "End-user programming in-the-wild ;-)\n\n<https://www.reddit.com/r/BeAmazed/comments/1llcbbf/teen_hacker_fined_after_making_local_traffic/|https://www.reddit.com/r/BeAmazed/comments/1llcbbf/teen_hacker_fined_after_making_local_traffic/>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://i.redd.it/o0h58lzmax6a1.png",
+        "image_width": 1200,
+        "image_height": 630,
+        "image_bytes": 102879,
+        "from_url": "https://www.reddit.com/r/BeAmazed/comments/1llcbbf/teen_hacker_fined_after_making_local_traffic/",
+        "service_icon": "https://www.reddit.com/favicon.ico",
+        "id": 1,
+        "original_url": "https://www.reddit.com/r/BeAmazed/comments/1llcbbf/teen_hacker_fined_after_making_local_traffic/",
+        "fallback": "Reddit: From the BeAmazed community on Reddit: Teen Hacker Fined After Making Local Traffic Lights Sync Properly",
+        "text": "Posted by Intelligent_Tub - 246 votes and 50 comments",
+        "title": "From the BeAmazed community on Reddit: Teen Hacker Fined After Making Local Traffic Lights Sync Properly",
+        "title_link": "https://www.reddit.com/r/BeAmazed/comments/1llcbbf/teen_hacker_fined_after_making_local_traffic/",
+        "service_name": "Reddit"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IdDdV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "End-user "
+              },
+              {
+                "type": "text",
+                "text": "programming in-the-wild"
+              },
+              {
+                "type": "text",
+                "text": " ;-)"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.reddit.com/r/BeAmazed/comments/1llcbbf/teen_hacker_fined_after_making_local_traffic/",
+                "text": "https://www.reddit.com/r/BeAmazed/comments/1llcbbf/teen_hacker_fined_after_making_local_traffic/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      },
+      {
+        "name": "rolling_on_the_floor_laughing",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "exploding_head",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "user": "U013ZLJARC7",
+    "type": "message",
+    "ts": "1751038496.914659",
+    "client_msg_id": "0DE7C36D-A2E0-4E28-BDA6-62B6475B6B9C",
+    "text": "Dataflow is definitely more natural for many situations :100:  ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "d10Id",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Dataflow is definitely more natural for many situations "
+              },
+              {
+                "type": "emoji",
+                "name": "100",
+                "unicode": "1f4af"
+              },
+              {
+                "type": "text",
+                "text": "  "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U02E4DAQGSZ",
+          "UJBAJNFLK"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1751041938.148909",
+    "client_msg_id": "7cc7b485-764b-4347-bb37-3f04906034ba",
+    "text": "Branching and merging models is a frequent requirement in scientific computing. Most people still do it by hand, meaning badly. The only management solution I am aware of is git. You put all your code and all your data into git, if necessary using git-annex for big files, and then you have branching and merging. The UX is often a pain, in particular when your data is not in some text format.\n\nSo I agree that doing this properly promises to be a huge productivity gain. I just don't see how Frest is the solution. Sure, all data can be mapped onto a relational model. But to turn that into good UX, the mapping has to make sense to a user. For much of the data I deal with, that's not obviously possible. Though I agree that for my _personal_ data it should be OK.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750958020.669509",
+    "parent_user_id": "U05PY5AQCA2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7BEyY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Branching and merging models is a frequent requirement in scientific computing. Most people still do it by hand, meaning badly. The only management solution I am aware of is git. You put all your code and all your data into git, if necessary using git-annex for big files, and then you have branching and merging. The UX is often a pain, in particular when your data is not in some text format.\n\nSo I agree that doing this properly promises to be a huge productivity gain. I just don't see how Frest is the solution. Sure, all data can be mapped onto a relational model. But to turn that into good UX, the mapping has to make sense to a user. For much of the data I deal with, that's not obviously possible. Though I agree that for my "
+              },
+              {
+                "type": "text",
+                "text": "personal",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " data it should be OK."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1751042935.714229",
+    "client_msg_id": "65FC1FD3-385E-46F4-8C00-1818625EA061",
+    "text": "It remains to do it to find out. Excel and Access are the data manipulation models most amenable to understanding by non-programmers. I am fairly convinced that functional and relational models are the best for non-programmers to follow.\n\nI believe that if you give the user tools to see the provenance of what they’re looking at — and this is an append-only first model, where most things have a complete history — then you can make this work.\n\nIt will certainly work for *some* folks, such as yourself. But I think the owner of the carpet laying business can make simple and effective use of this feature without having to do anything too confusing.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750958020.669509",
+    "parent_user_id": "U05PY5AQCA2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ThKjl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It remains to do it to find out. Excel and Access are the data manipulation models most amenable to understanding by non-programmers. I am fairly convinced that functional and relational models are the best for non-programmers to follow.\n\nI believe that if you give the user tools to see the provenance of what they’re looking at — and this is an append-only first model, where most things have a complete history — then you can make this work.\n\nIt will certainly work for "
+              },
+              {
+                "type": "text",
+                "text": "some",
+                "style": {
+                  "bold": true,
+                  "italic": false
+                }
+              },
+              {
+                "type": "text",
+                "text": " folks, such as yourself. But I think the owner of the carpet laying business can make simple and effective use of this feature without having to do anything too confusing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1751043079.942169",
+    "client_msg_id": "5872ECB2-58CB-451D-9FB5-F854FE788AAC",
+    "text": "I am currently trying to sort out enough income that I can dedicate myself to building an app that will demonstrate these ideas. It would be a FileMaker/Access kind of app that integrates not just local tables, but remote information sources — a single Datalog query interface where you can join your email to the content of local files to your calendar to any and all online data sources.\n\nKnow an Angel investor who wants to back the idea? This would be a phenomenal application within which to deploy an AI…",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1750958020.669509",
+    "parent_user_id": "U05PY5AQCA2",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mnScr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I am currently trying to sort out enough income that I can dedicate myself to building an app that will demonstrate these ideas. It would be a FileMaker/Access kind of app that integrates not just local tables, but remote information sources"
+              },
+              {
+                "type": "text",
+                "text": " — a single Datalog query interface where you can join your email to the content of local files to your calendar to any and all online data sources.\n\nKnow an Angel investor who wants to back the idea? This would be a phenomenal application within which to deploy an AI…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751047455.467269",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1751047608.000000"
+    },
+    "client_msg_id": "17958bba-d86c-45d4-8178-e252f73141fb",
+    "text": "I'm sure seeing you record a bunch of 4-letter words planted the seed :smile:\n\nI came across this paper <https://merveilles.town/@akkartik/114696437439972256|just 2 weeks ago>! But reading it felt like universes colliding. It feels relevant to both my technical interests and the current state of the world.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751016399.281449",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZLyyq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm sure seeing you record a bunch of 4-letter words planted the seed "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              },
+              {
+                "type": "text",
+                "text": "\n\nI came across this paper "
+              },
+              {
+                "type": "link",
+                "url": "https://merveilles.town/@akkartik/114696437439972256",
+                "text": "just 2 weeks ago"
+              },
+              {
+                "type": "text",
+                "text": "! But reading it felt like universes colliding. It feels relevant to both my technical interests and the current state of the world."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751047810.896789",
+    "client_msg_id": "21f7ce8c-e3ee-468d-9ccd-4916897e2f0c",
+    "text": "And of course I was trying to make use of everything I learned from you about creating clear audio. This is 50 minutes but also umpteen takes. I basically spent all day yesterday on it. Let me know how the audio quality came out! I did have kids intervene a couple of times and I figured that would still make for a good take (again your influence). But hopefully the baseline noise level is ok.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751016399.281449",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eVfcC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And of course I was trying to make use of everything I learned from you about creating clear audio. This is 50 minutes but also umpteen takes. I basically spent all day yesterday on it. Let me know how the audio quality came out! I did have kids intervene a couple of times and I figured that would still make for a good take (again your influence). But hopefully the baseline noise level is ok."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UH85W1ML1",
+    "type": "message",
+    "ts": "1751048735.758959",
+    "client_msg_id": "59c9c1d1-2502-41de-bcac-36cd764da684",
+    "text": "And dataflow was originally represented in text, not visually!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NVS/Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And dataflow was originally represented in text, not visually!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751050303.351819",
+    "client_msg_id": "6d58d1c0-29c8-4fab-9f28-cdc2ba1b1158",
+    "text": "One aspect of functions I haven't seen mentioned yet here is the lack of a locus. You can call a pure function from any number of places, and they'll never conflict. Each call occurs in a private universe thanks to stack frames. Whereas replacing them with nodes and wires gives them a place and so introduces the possibility of lots of new failure modes. Can multiple wires start from the same port, end in the same port? What happens if 2 inputs come in at the same time on this wire? Did input A mix with input B that had accidentally been sitting around for a long time?\n\nPersonally I consider pure functions to be dataflow constructs. I also think of them as pull constructs, though I understand how they're more push than FRP and so on.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Bo51t",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One aspect of functions I haven't seen mentioned yet here is the lack of a locus. You can call a pure function from any number of places, and they'll never conflict. Each call occurs in a private universe thanks to stack frames. Whereas replacing them with nodes and wires gives them a place and so introduces the possibility of lots of new failure modes. Can multiple wires start from the same port, end in the same port? What happens if 2 inputs come in at the same time on this wire? Did input A mix with input B that had accidentally been sitting around for a long time?\n\nPersonally I consider pure functions to be dataflow constructs. I also think of them as pull constructs, though I understand how they're more push than FRP and so on."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U07PYD02V2S",
+          "U02E4DAQGSZ",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751050517.644389",
+    "client_msg_id": "f4933e9b-10a2-4291-aa69-ab3b0fec5f3d",
+    "text": "Does Excel seem like pull? It's often storing a function call in a cell. The data flow nature comes from binding the _output_ of a call to a cell/place, and the function call doesn't itself inherently seem to interfere with doing so?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+0tUp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Does Excel seem like pull? It's often storing a function call in a cell. The data flow nature comes from binding the "
+              },
+              {
+                "type": "text",
+                "text": "output",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of a call to a cell/place, and the function call doesn't itself inherently seem to interfere with doing so?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1751050718.714639",
+    "client_msg_id": "f34a4894-c16f-4e22-a581-0297b4e3a0cf",
+    "text": "Yes excel is pull because once a cell has a value. Any other cell can depend on it. It's all in an easily accessible global scope.\nWhen a normal function returns, that result it private to the caller. You have to call that function again in many places and it's not the same calculation each time.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aJeZH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes excel is pull because once a cell has a value. Any other cell can depend on it. It's all in an easily accessible global scope.\nWhen a normal function returns, that result it private to the caller. You have to call that function again in many places and it's not the same calculation each time."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751051215.420049",
+    "client_msg_id": "add52e8e-e531-4f77-b4f4-468c53953a2d",
+    "text": "In Excel too it's not the same calculation each time, depending on the args you hardcode into the call.\n\nExcel does provide a structured space for global variables, it's true :smile: In a conventional programming language you have to deliberately assign the result to a global.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "F2acB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In Excel too it's not the same calculation each time, depending on the args you hardcode into the call.\n\nExcel does provide a structured space for global variables, it's true "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              },
+              {
+                "type": "text",
+                "text": " In a conventional programming language you have to deliberately assign the result to a global."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1751051797.588749",
+    "client_msg_id": "3b62078c-8b4a-4fbc-803e-4ea712ba937c",
+    "text": "It's is, every value is essentially memoization in excel. The cells remember their result. If you are talking about a function call inside an excel formula, then yes, that's a traditional function call, I am not talking about that.\n\n Even variable assignment to a global scope in trad PL, you still need to decide when to pull for the latest state. It's not enough to make a variable global for a push system. To make PL push you have to register a callback.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Dse9+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's is, every value is essentially memoization in excel. The cells remember their result. If you are talking about a function call inside an excel formula, then yes, that's a traditional function call, I am not talking about that.\n\n Even variable assignment to a global scope in trad PL, you still need to decide when to pull for the latest state. It's not enough to make a variable global for a push system. To make PL push you have to register a callback."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1751052032.596949",
+    "client_msg_id": "a3b69222-cca4-4514-8bee-82292ef207df",
+    "text": "Yeah, I was talking about the function call inside a formula. So I think we understand each other.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1751025396.555809",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/pr40",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, I was talking about the function call inside a formula. So I think we understand each other."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  }
+]
