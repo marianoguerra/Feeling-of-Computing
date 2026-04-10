@@ -504,7 +504,6 @@ export const File = component({
       if (mimetype.startsWith("image/")) {
         return Image.make({ id, filetype, text });
       } else if (mimetype.startsWith("video/")) {
-        console.log("video", { id, filetype, text });
         return Video.make({ id, filetype, text });
       }
       //const url = permalink_public ?? permalink;
