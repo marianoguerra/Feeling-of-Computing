@@ -1,0 +1,1472 @@
+[
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1729484360.958359",
+    "client_msg_id": "cb7b0f42-05da-4eb3-9920-2bb5bad2e8e3",
+    "text": "I don't quite get what I'm looking at. Is this not running at <http://observablehq.com|observablehq.com>?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729454226.172819",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lTCvm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I don't quite get what I'm looking at. Is this not running at "
+              },
+              {
+                "type": "link",
+                "url": "http://observablehq.com",
+                "text": "observablehq.com"
+              },
+              {
+                "type": "text",
+                "text": "?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1729493664.292859",
+    "client_msg_id": "c55eb22e-f519-4993-90b0-4bd2de1d0884",
+    "text": "It is an observable cell running inside observable that can edit other cells in the notebook *without* going through Observable's editing interface. ie.. if I export the enclosing notebook, it retains this editor.\n\nIts like Obseservable, but implemented in userspace. Sorta pointless if all you want to do is use Observbalehq notebooks in the expected workflow, but quite powerful if you want to edit off platform (if there was a method to persist the results), or do program synthesis (its scriptable). Thats the plan anyway, still a WIP (hence only a devlog entry)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729454226.172819",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "h3OI6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It is an observable cell running inside observable that can edit other cells in the notebook "
+              },
+              {
+                "type": "text",
+                "text": "without",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " going through Observable's editing interface. ie.. if I export the enclosing notebook, it retains this editor.\n\nIts like Obseservable, but implemented in userspace. Sorta pointless if all you want to do is use Observbalehq notebooks in the expected workflow, but quite powerful if you want to edit off platform (if there was a method to persist the results), or do program synthesis (its scriptable). Thats the plan anyway, still a WIP (hence only a devlog entry)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "text": "Emacs-style ranges on a text buffer that I can now hang attributes like color, decorations and click handlers on to.\n\nThe final complexity cost was 200 lines but it was a non-linear path getting there. I went up to 500 lines before starting from scratch with a new approach.\n\nEarlier this year I threw out an implementation after suffering with it for 2+ years. It feels like I'm getting the hang of this programming thing that I threw out an implementation after 2 days.",
+    "files": [
+      {
+        "id": "F07SRJMBJ6N",
+        "created": 1729496350,
+        "timestamp": 1729496350,
+        "name": "attributes.webm",
+        "title": "attributes.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 2675635,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07SRJMBJ6N/attributes.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07SRJMBJ6N/download/attributes.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SRJMBJ6N-c92a495d3b/file.m3u8?_xcb=de1de",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NTA3MzQzLEFWRVJBR0UtQkFORFdJRFRIPTQ1MDM1NSxDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMjgweDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlNTazFDU2paT0xXTTVNbUUwT1RWa00ySXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TVM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlNTazFDU2paT0xXTTVNbUUwT1RWa00ySXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TWk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlNTazFDU2paT0xXTTVNbUUwT1RWa00ySXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlNTazFDU2paT0xXTTVNbUUwT1RWa00ySXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TkM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlNTazFDU2paT0xXTTVNbUUwT1RWa00ySXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TlM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlNTazFDU2paT0xXTTVNbUUwT1RWa00ySXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tmk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlNTazFDU2paT0xXTTVNbUUwT1RWa00ySXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tnk1MGN3b2pSVmhVU1U1R09qUXVNVEEwTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlNTazFDU2paT0xXTTVNbUUwT1RWa00ySXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3T0M1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SRJMBJ6N-c92a495d3b/file_trans.mp4",
+        "duration_ms": 46146,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SRJMBJ6N-c92a495d3b/attributes_thumb_video.jpeg",
+        "thumb_video_w": 1280,
+        "thumb_video_h": 720,
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F07SRJMBJ6N/attributes.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07SRJMBJ6N-21075860d4",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Xc2bG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Emacs-style ranges on a text buffer that I can now hang attributes like color, decorations and click handlers on to.\n\nThe final complexity cost was 200 lines but it was a non-linear path getting there. I went up to 500 lines before starting from scratch with a new approach.\n\nEarlier this year I threw out an implementation after suffering with it for 2+ years. It feels like I'm getting the hang of this programming thing that I threw out an implementation after 2 days."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1729496359.204019",
+    "client_msg_id": "ec02b091-c0a1-4d95-951f-7a2c2e1ca826",
+    "thread_ts": "1729496359.204019",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1729573171.738219",
+    "reply_users": [
+      "UE1JQM9HQ",
+      "UCUSW7WVD"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UBN9AFS0N",
+    "type": "message",
+    "ts": "1729498399.422549",
+    "edited": {
+      "user": "UBN9AFS0N",
+      "ts": "1729498629.000000"
+    },
+    "client_msg_id": "1c2a5b35-c696-4fa5-b9dd-e936769d28f2",
+    "text": "Should we <https://2025.programming-conference.org/track/prog25-workshops|co-locate a workshop> at Programming 2025?\n\nHere are some questions and some ideas for answers:\n\n• Name? I propose \"Futures of Computing\"\n• Scope? From the name I think it should bring together this and adjacent communities like causal islands, ink & switch, local first, <https://x.com/dubroy/status/1844723902066422242|Homebrew Systems Club>, whatever <@U03R0B9U1GD>'s :frog: cult is about\n• Format? Short hands on demos plus unconference",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729498399.422549",
+    "reply_count": 6,
+    "reply_users_count": 4,
+    "latest_reply": "1729678888.074969",
+    "reply_users": [
+      "U02E4DAQGSZ",
+      "U01AD80KMLK",
+      "UBN9AFS0N",
+      "U05SU27S1M2"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1729678888.074969",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "G+z90",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Should we "
+              },
+              {
+                "type": "link",
+                "url": "https://2025.programming-conference.org/track/prog25-workshops",
+                "text": "co-locate a workshop"
+              },
+              {
+                "type": "text",
+                "text": " at Programming 2025?\n\nHere are some questions and some ideas for answers:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Name? I propose \"Futures of Computing\""
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Scope? From the name I think it should bring together this and adjacent communities like causal islands, ink & switch, local first, "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://x.com/dubroy/status/1844723902066422242",
+                    "text": "Homebrew Systems Club"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", whatever "
+                  },
+                  {
+                    "type": "user",
+                    "user_id": "U03R0B9U1GD"
+                  },
+                  {
+                    "type": "text",
+                    "text": "'s "
+                  },
+                  {
+                    "type": "emoji",
+                    "name": "frog",
+                    "unicode": "1f438"
+                  },
+                  {
+                    "type": "text",
+                    "text": " cult is about"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Format? Short hands on demos plus unconference"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7",
+          "U02E4DAQGSZ",
+          "U07KR4BMKNW",
+          "ULM3U6275"
+        ],
+        "count": 4
+      },
+      {
+        "name": "fire",
+        "users": [
+          "U023V63MF6V",
+          "U07KR4BMKNW",
+          "UDCLA1HU4",
+          "U02E4DAQGSZ"
+        ],
+        "count": 4
+      },
+      {
+        "name": "clap",
+        "users": [
+          "U06E81J3U59"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1729507149.268759",
+    "client_msg_id": "8251cb3c-6f83-403c-8656-86b03b19225c",
+    "text": "yes I think that would be awesome",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729498399.422549",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "s+yI/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yes I think that would be awesome"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U01AD80KMLK",
+    "type": "message",
+    "ts": "1729518650.427189",
+    "client_msg_id": "8b0473a4-6b4b-41d4-bc97-402621998e03",
+    "text": "Why not \"Future of Coding\"? Computing seems ... different.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729498399.422549",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bw4fS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Why not \"Future of Coding\"? Computing seems ... different."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "text": "it's <@U0584S0ULF8>",
+    "files": [
+      {
+        "id": "F07SME3HYT0",
+        "created": 1729524205,
+        "timestamp": 1729524205,
+        "name": "PXL_20241021_150217245.jpg",
+        "title": "PXL_20241021_150217245.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "U03R0B9U1GD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 509858,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07SME3HYT0/pxl_20241021_150217245.jpg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07SME3HYT0/download/pxl_20241021_150217245.jpg",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_64.jpg",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_80.jpg",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_360.jpg",
+        "thumb_360_w": 343,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_480.jpg",
+        "thumb_480_w": 457,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_160.jpg",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_720.jpg",
+        "thumb_720_w": 685,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_800.jpg",
+        "thumb_800_w": 800,
+        "thumb_800_h": 841,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_960.jpg",
+        "thumb_960_w": 914,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_1024.jpg",
+        "thumb_1024_w": 975,
+        "thumb_1024_h": 1024,
+        "original_w": 2720,
+        "original_h": 2858,
+        "thumb_tiny": "AwAwAC28aouPnb61dJqBoHY7lIGTmkBCnIB9amQHcMfjTBE8SZbBAA6UsDls7lxj34NAyZxnP0qkVySferUjYBqAEY60AWyT64+lR5U4zKBwMjPpTmPNZs5JkcHsDTEXsoAf3oYkYx61DHJskcBsjNVlcqEw2P6Ukcrg5wuB6igZef8AeR5GQO+e9Vto7U9pN6g7iwI70zNIC6eSaz5l/fyY9asSz5+VOnrVUg5J9TQIYRlRzxSEY+lP2cYoIzimA5T0p9NUYpwGaQz/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U03R0B9U1GD/F07SME3HYT0/pxl_20241021_150217245.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07SME3HYT0-fb9f1fa449",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U03R0B9U1GD",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pJvb4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "it's "
+              },
+              {
+                "type": "user",
+                "user_id": "U0584S0ULF8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1729524215.337469",
+    "client_msg_id": "7322e605-2325-4fac-a034-62ccb48e0f81",
+    "thread_ts": "1729524215.337469",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1729600142.128289",
+    "reply_users": [
+      "U0584S0ULF8",
+      "U03R0B9U1GD"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UCUSW7WVD",
+          "U013ZLJARC7",
+          "U04Q53X6P7W"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "text": "it's <@U03R0B9U1GD>",
+    "files": [
+      {
+        "id": "F07SDGVJWQP",
+        "created": 1729524342,
+        "timestamp": 1729524342,
+        "name": "E1D1B631-527B-4051-8C6E-E9ACAFEACD90_4_5005_c.jpeg",
+        "title": "E1D1B631-527B-4051-8C6E-E9ACAFEACD90_4_5005_c.jpeg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "U0584S0ULF8",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 41279,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07SDGVJWQP/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c.jpeg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07SDGVJWQP/download/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c.jpeg",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_64.jpg",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_80.jpg",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_360.jpg",
+        "thumb_360_w": 270,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_480.jpg",
+        "thumb_480_w": 360,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_160.jpg",
+        "original_w": 360,
+        "original_h": 480,
+        "thumb_tiny": "AwAwACSzP/qW+lU8Vdl/1TfSqnAxuI596goZjn60vSTbnPuKQyICfmxz+lSBG37yBjHBFAD1X5RS7akjOV6dKdQAkp+Q/Ss+ZtgyBlj61oYBf5wMAZ5pd8IUNlAG6H1ppAY55655Aq1agqgyetXQ8AUZdSDyCe9RzbCFaPGMnkU2CHqcClzUecdwKM+4/OpAWMfMwHUr3oSGQCIFkIjII4NRyFlG5Dg1W+3TA9e9UgZc+zEI6hhyflz2Gc4onzHEm/B57VSa9mwTkUnnSSj5mzQxIe7hnJpuRSUZpAf/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U0584S0ULF8/F07SDGVJWQP/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c.jpeg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07SDGVJWQP-7e66330883",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U0584S0ULF8",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XW71p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "it's "
+              },
+              {
+                "type": "user",
+                "user_id": "U03R0B9U1GD"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "subtype": "thread_broadcast",
+    "root": {
+      "text": "it's <@U0584S0ULF8>",
+      "files": [
+        {
+          "id": "F07SME3HYT0",
+          "created": 1729524205,
+          "timestamp": 1729524205,
+          "name": "PXL_20241021_150217245.jpg",
+          "title": "PXL_20241021_150217245.jpg",
+          "mimetype": "image/jpeg",
+          "filetype": "jpg",
+          "pretty_type": "JPEG",
+          "user": "U03R0B9U1GD",
+          "user_team": "T5TCAFTA9",
+          "editable": false,
+          "size": 509858,
+          "mode": "hosted",
+          "is_external": false,
+          "external_type": "",
+          "is_public": true,
+          "public_url_shared": false,
+          "display_as_bot": false,
+          "username": "",
+          "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07SME3HYT0/pxl_20241021_150217245.jpg",
+          "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07SME3HYT0/download/pxl_20241021_150217245.jpg",
+          "media_display_type": "unknown",
+          "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_64.jpg",
+          "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_80.jpg",
+          "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_360.jpg",
+          "thumb_360_w": 343,
+          "thumb_360_h": 360,
+          "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_480.jpg",
+          "thumb_480_w": 457,
+          "thumb_480_h": 480,
+          "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_160.jpg",
+          "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_720.jpg",
+          "thumb_720_w": 685,
+          "thumb_720_h": 720,
+          "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_800.jpg",
+          "thumb_800_w": 800,
+          "thumb_800_h": 841,
+          "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_960.jpg",
+          "thumb_960_w": 914,
+          "thumb_960_h": 960,
+          "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_1024.jpg",
+          "thumb_1024_w": 975,
+          "thumb_1024_h": 1024,
+          "original_w": 2720,
+          "original_h": 2858,
+          "thumb_tiny": "AwAwAC28aouPnb61dJqBoHY7lIGTmkBCnIB9amQHcMfjTBE8SZbBAA6UsDls7lxj34NAyZxnP0qkVySferUjYBqAEY60AWyT64+lR5U4zKBwMjPpTmPNZs5JkcHsDTEXsoAf3oYkYx61DHJskcBsjNVlcqEw2P6Ukcrg5wuB6igZef8AeR5GQO+e9Vto7U9pN6g7iwI70zNIC6eSaz5l/fyY9asSz5+VOnrVUg5J9TQIYRlRzxSEY+lP2cYoIzimA5T0p9NUYpwGaQz/2Q==",
+          "permalink": "https://futureofcoding.slack.com/files/U03R0B9U1GD/F07SME3HYT0/pxl_20241021_150217245.jpg",
+          "permalink_public": "https://slack-files.com/T5TCAFTA9-F07SME3HYT0-fb9f1fa449",
+          "is_starred": false,
+          "has_rich_preview": false,
+          "file_access": "visible"
+        }
+      ],
+      "upload": false,
+      "user": "U03R0B9U1GD",
+      "display_as_bot": false,
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "pJvb4",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "it's "
+                },
+                {
+                  "type": "user",
+                  "user_id": "U0584S0ULF8"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "message",
+      "ts": "1729524215.337469",
+      "client_msg_id": "7322e605-2325-4fac-a034-62ccb48e0f81",
+      "thread_ts": "1729524215.337469",
+      "reply_count": 2,
+      "reply_users_count": 2,
+      "latest_reply": "1729600142.128289",
+      "reply_users": [
+        "U0584S0ULF8",
+        "U03R0B9U1GD"
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "type": "message",
+    "ts": "1729524378.017809",
+    "client_msg_id": "d33677a0-fd60-41c4-b896-f01cdd39971a",
+    "thread_ts": "1729524215.337469",
+    "parent_user_id": "U03R0B9U1GD",
+    "reactions": [
+      {
+        "name": "frog",
+        "users": [
+          "U04Q53X6P7W"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "text": "it's <@U03R0B9U1GD>",
+    "files": [
+      {
+        "id": "F07SDGVJWQP",
+        "created": 1729524342,
+        "timestamp": 1729524342,
+        "name": "E1D1B631-527B-4051-8C6E-E9ACAFEACD90_4_5005_c.jpeg",
+        "title": "E1D1B631-527B-4051-8C6E-E9ACAFEACD90_4_5005_c.jpeg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "U0584S0ULF8",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 41279,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07SDGVJWQP/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c.jpeg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07SDGVJWQP/download/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c.jpeg",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_64.jpg",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_80.jpg",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_360.jpg",
+        "thumb_360_w": 270,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_480.jpg",
+        "thumb_480_w": 360,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SDGVJWQP-4522463b88/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c_160.jpg",
+        "original_w": 360,
+        "original_h": 480,
+        "thumb_tiny": "AwAwACSzP/qW+lU8Vdl/1TfSqnAxuI596goZjn60vSTbnPuKQyICfmxz+lSBG37yBjHBFAD1X5RS7akjOV6dKdQAkp+Q/Ss+ZtgyBlj61oYBf5wMAZ5pd8IUNlAG6H1ppAY55655Aq1agqgyetXQ8AUZdSDyCe9RzbCFaPGMnkU2CHqcClzUecdwKM+4/OpAWMfMwHUr3oSGQCIFkIjII4NRyFlG5Dg1W+3TA9e9UgZc+zEI6hhyflz2Gc4onzHEm/B57VSa9mwTkUnnSSj5mzQxIe7hnJpuRSUZpAf/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U0584S0ULF8/F07SDGVJWQP/e1d1b631-527b-4051-8c6e-e9acafeacd90_4_5005_c.jpeg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07SDGVJWQP-7e66330883",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U0584S0ULF8",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XW71p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "it's "
+              },
+              {
+                "type": "user",
+                "user_id": "U03R0B9U1GD"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "subtype": "thread_broadcast",
+    "root": {
+      "text": "it's <@U0584S0ULF8>",
+      "files": [
+        {
+          "id": "F07SME3HYT0",
+          "created": 1729524205,
+          "timestamp": 1729524205,
+          "name": "PXL_20241021_150217245.jpg",
+          "title": "PXL_20241021_150217245.jpg",
+          "mimetype": "image/jpeg",
+          "filetype": "jpg",
+          "pretty_type": "JPEG",
+          "user": "U03R0B9U1GD",
+          "user_team": "T5TCAFTA9",
+          "editable": false,
+          "size": 509858,
+          "mode": "hosted",
+          "is_external": false,
+          "external_type": "",
+          "is_public": true,
+          "public_url_shared": false,
+          "display_as_bot": false,
+          "username": "",
+          "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07SME3HYT0/pxl_20241021_150217245.jpg",
+          "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07SME3HYT0/download/pxl_20241021_150217245.jpg",
+          "media_display_type": "unknown",
+          "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_64.jpg",
+          "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_80.jpg",
+          "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_360.jpg",
+          "thumb_360_w": 343,
+          "thumb_360_h": 360,
+          "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_480.jpg",
+          "thumb_480_w": 457,
+          "thumb_480_h": 480,
+          "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_160.jpg",
+          "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_720.jpg",
+          "thumb_720_w": 685,
+          "thumb_720_h": 720,
+          "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_800.jpg",
+          "thumb_800_w": 800,
+          "thumb_800_h": 841,
+          "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_960.jpg",
+          "thumb_960_w": 914,
+          "thumb_960_h": 960,
+          "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SME3HYT0-7591c9c5fd/pxl_20241021_150217245_1024.jpg",
+          "thumb_1024_w": 975,
+          "thumb_1024_h": 1024,
+          "original_w": 2720,
+          "original_h": 2858,
+          "thumb_tiny": "AwAwAC28aouPnb61dJqBoHY7lIGTmkBCnIB9amQHcMfjTBE8SZbBAA6UsDls7lxj34NAyZxnP0qkVySferUjYBqAEY60AWyT64+lR5U4zKBwMjPpTmPNZs5JkcHsDTEXsoAf3oYkYx61DHJskcBsjNVlcqEw2P6Ukcrg5wuB6igZef8AeR5GQO+e9Vto7U9pN6g7iwI70zNIC6eSaz5l/fyY9asSz5+VOnrVUg5J9TQIYRlRzxSEY+lP2cYoIzimA5T0p9NUYpwGaQz/2Q==",
+          "permalink": "https://futureofcoding.slack.com/files/U03R0B9U1GD/F07SME3HYT0/pxl_20241021_150217245.jpg",
+          "permalink_public": "https://slack-files.com/T5TCAFTA9-F07SME3HYT0-fb9f1fa449",
+          "is_starred": false,
+          "has_rich_preview": false,
+          "file_access": "visible"
+        }
+      ],
+      "upload": false,
+      "user": "U03R0B9U1GD",
+      "display_as_bot": false,
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "pJvb4",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "it's "
+                },
+                {
+                  "type": "user",
+                  "user_id": "U0584S0ULF8"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "message",
+      "ts": "1729524215.337469",
+      "client_msg_id": "7322e605-2325-4fac-a034-62ccb48e0f81",
+      "thread_ts": "1729524215.337469",
+      "reply_count": 2,
+      "reply_users_count": 2,
+      "latest_reply": "1729600142.128289",
+      "reply_users": [
+        "U0584S0ULF8",
+        "U03R0B9U1GD"
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "type": "message",
+    "ts": "1729524378.017809",
+    "client_msg_id": "d33677a0-fd60-41c4-b896-f01cdd39971a",
+    "thread_ts": "1729524215.337469",
+    "parent_user_id": "U03R0B9U1GD",
+    "reactions": [
+      {
+        "name": "frog",
+        "users": [
+          "U04Q53X6P7W"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "user": "U055V4HCHU7",
+    "type": "message",
+    "ts": "1729527253.637669",
+    "client_msg_id": "aa48034b-7a85-41a3-91c0-63da679c16f8",
+    "text": "I'm stewing on the idea of a \"literate codec\" -- <https://qoiformat.org/|the \"quite OK\" ecosystem >feels like a good place to start. Can anyone recommend modern alternatives to CWEB?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "reply_count": 19,
+    "reply_users_count": 6,
+    "latest_reply": "1730047983.110509",
+    "reply_users": [
+      "UCUSW7WVD",
+      "U055V4HCHU7",
+      "UJBAJNFLK",
+      "U013ZLJARC7",
+      "U05SU27S1M2",
+      "U02QC0PPER3"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3AsqQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm stewing on the idea of a \"literate codec\" -- "
+              },
+              {
+                "type": "link",
+                "url": "https://qoiformat.org/",
+                "text": "the \"quite OK\" ecosystem "
+              },
+              {
+                "type": "text",
+                "text": "feels like a good place to start. Can anyone recommend modern alternatives to CWEB?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1729530544.554029",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1729531079.000000"
+    },
+    "client_msg_id": "90fb8b5d-a49f-462b-a322-79ac9ff5fb57",
+    "text": "Two comments on opposite extremes:\n\n1. I quite like <https://phoboslab.org/log/2021/11/qoi-fast-lossless-image-compression|the blog post about QOI>. Perhaps it doesn't matter that it's not literate?\n2. After starting out enamored with LP, lately I think the most important thing is that a program is easy to run. If the iteration loop is right it's enough to just throw small programs at someone. They can use it if they care about the domain. If it doesn't seem like people read it, it's because descriptions like this are akin to rooms of requirement. People will come to it when they're ready, months or years later. Just make sure it runs then. The how to run instructions need to be rock solid. Everything else is gravy and nice to have -- if you meet the preconditions of receptive reader and easy to run. So I think classic dead-fish LP emphasizes the wrong things.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "parent_user_id": "U055V4HCHU7",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eLBYG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Two comments on opposite extremes:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "I quite like "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://phoboslab.org/log/2021/11/qoi-fast-lossless-image-compression",
+                    "text": "the blog post about QOI"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Perhaps it doesn't matter that it's not literate?"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "After starting out enamored with LP, lately I think the most important thing is that a program is easy to run. If the iteration loop is right it's enough to just throw small programs at someone. They can use it if they care about the domain. If it doesn't seem like people read it, it's because descriptions like this are akin to rooms of requirement. People will come to it when they're ready, months or years later. Just make sure it runs then. The how to run instructions need to be rock solid. Everything else is gravy and nice to have -- if you meet the preconditions of receptive reader and easy to run. So I think classic dead-fish LP emphasizes the wrong things."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1729531738.088629",
+    "client_msg_id": "e41436ff-8089-4597-9b09-65d6e791def1",
+    "text": "Are you familiar with the QOI eco-system? This is the first I'm hearing about it, and I'm immediately suspicious of the airy \"20% better compression\" claim in <https://github.com/phoboslab/qoi#tools|the repo>. Have other people validated this claim, do you know? It feels more believable if they claimed \"20x faster encode/decode, 20x shorter implementation, 20% worse compression.\"",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "parent_user_id": "U055V4HCHU7",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yA6lK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Are you familiar with the QOI eco-system? This is the first I'm hearing about it, and I'm immediately suspicious of the airy \"20% better compression\" claim in "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/phoboslab/qoi#tools",
+                "text": "the repo"
+              },
+              {
+                "type": "text",
+                "text": ". Have other people validated this claim, do you know? It feels more believable if they claimed \"20x faster encode/decode, 20x shorter implementation, 20% worse compression.\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0584S0ULF8",
+    "type": "message",
+    "ts": "1729532517.141819",
+    "client_msg_id": "d9b66451-531f-4ac4-ba9f-662b15668169",
+    "text": "<https://www.youtube.com/watch?v=4GOeYylCMJI>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729532517.141819",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1729577303.855549",
+    "reply_users": [
+      "U02U0AS3J49",
+      "UJBAJNFLK"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=4GOeYylCMJI",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/4GOeYylCMJI/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/4GOeYylCMJI?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"[SPLASH&#39;24] Pacific A - LIVE (Oct 21th)\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 300,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=4GOeYylCMJI",
+        "fallback": "YouTube Video: [SPLASH'24] Pacific A - LIVE (Oct 21th)",
+        "title": "[SPLASH'24] Pacific A - LIVE (Oct 21th)",
+        "title_link": "https://www.youtube.com/watch?v=4GOeYylCMJI",
+        "author_name": "ACM SIGPLAN",
+        "author_link": "https://www.youtube.com/@acmsigplan",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WDWVP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=4GOeYylCMJI"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U02AWE3JWAD",
+          "U02E4DAQGSZ",
+          "U02U0AS3J49",
+          "U013ZLJARC7",
+          "UA14TGLTC",
+          "U03U0SCU5LH"
+        ],
+        "count": 6
+      },
+      {
+        "name": "eyes",
+        "users": [
+          "U023V63MF6V"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U055V4HCHU7",
+    "type": "message",
+    "ts": "1729548493.602819",
+    "client_msg_id": "cb6089f6-2700-45e3-a40f-8f31b9cd6024",
+    "text": "No one really uses qoi or qoa in production, from what I can tell",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "parent_user_id": "U055V4HCHU7",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mhUX2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "No one really uses qoi or qoa in production, from what I can tell"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U055V4HCHU7",
+    "type": "message",
+    "ts": "1729548605.934039",
+    "client_msg_id": "935f446f-62ef-4b0b-9238-7e495f3787a4",
+    "text": "I think the project stems from the desire to make as simple of a codec / format as possible while still being somewhat performant. I do also have a hard time believing the \"20x blah blah\" .. I don't think that was evaluated with much rigor. Or at least, it's cherry picking favorable stats",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "parent_user_id": "U055V4HCHU7",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "49T4Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think the project stems from the desire to make as simple of a codec / format as possible while still being somewhat performant. I do also have a hard time believing the \"20x blah blah\" .. I don't think that was evaluated with much rigor. Or at least, it's cherry picking favorable stats"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U055V4HCHU7",
+    "type": "message",
+    "ts": "1729548679.667899",
+    "client_msg_id": "05e7cbbb-6f26-4210-8a19-71e54056b625",
+    "text": "as far as the LP part of the Q, I'm actually less concerned with it being easy to run and more concerned with it being easy to read. This all stemmed from a number of conversations I had at a conference this week about \"how do we teach people how codecs work\" etc.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "parent_user_id": "U055V4HCHU7",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kCbWJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "as far as the LP part of the Q, I'm actually less concerned with it being easy to run and more concerned with it being easy to read. This all stemmed from a number of conversations I had at a conference this week about \"how do we teach people how codecs work\" etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U055V4HCHU7",
+    "type": "message",
+    "ts": "1729548713.978539",
+    "client_msg_id": "7ef3e132-1825-4423-b5b5-f33f830debf0",
+    "text": "My favorite example of this is: <https://www.amazon.com/Introduction-Video-Compression-Fore-June/dp/1451522274?ref_=ast_author_dp>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "parent_user_id": "U055V4HCHU7",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0CMB2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My favorite example of this is: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.amazon.com/Introduction-Video-Compression-Fore-June/dp/1451522274?ref_=ast_author_dp"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "text": "<http://feelingisreality.com|FEELING IS REALITY>",
+    "files": [
+      {
+        "id": "F07SYPYHLPN",
+        "created": 1729549911,
+        "timestamp": 1729549911,
+        "name": "Feeling is Reality.mp4",
+        "title": "Feeling is Reality.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "UC2A2ARPT",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 622707,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "processing"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SYPYHLPN-1fd988b8bc/feeling_is_reality.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SYPYHLPN-1fd988b8bc/feeling_is_reality.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07SYPYHLPN/download/feeling_is_reality.mp4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SYPYHLPN-1fd988b8bc/file.m3u8?_xcb=b1631",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NDQ1MjQwLEFWRVJBR0UtQkFORFdJRFRIPTQ0NTI0MCxDT0RFQ1M9ImF2YzEuNjQwMDIwLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xOTIweDU3MixGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd04xTlpVRmxJVEZCT0xURm1aRGs0T0dJNFltTXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURFdWRITUtJMFZZVkVsT1JqbzBMakV3TkN3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EZFRXVkJaU0V4UVRpMHhabVE1T0RoaU9HSmpMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBeUxuUnpDaU5GV0ZRdFdDMUZUa1JNU1ZOVUNnPT0KI0VYVC1YLVNUUkVBTS1JTkY6QkFORFdJRFRIPTMyMjI4NSxBVkVSQUdFLUJBTkRXSURUSD0zMjIyODUsQ09ERUNTPSJhdmMxLjY0MDAxZixtcDRhLjQwLjUiLFJFU09MVVRJT049MTI4MHgzODIsRlJBTUUtUkFURT0yOS45NzAKaHR0cHM6Ly9maWxlcy5zbGFjay5jb20vZmlsZXMtdG1iL1Q1VENBRlRBOS1GMDdTWVBZSExQTi0xZmQ5ODhiOGJjL2ZpbGVfSF8yNjRfMTI4MHg3MjBfMzUwMEtCUFNfN1FWQlIubTN1OAo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SYPYHLPN-1fd988b8bc/feeling_is_reality_trans.mp4",
+        "duration_ms": 10110,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F07SYPYHLPN-1fd988b8bc/feeling_is_reality_thumb_video.jpeg",
+        "thumb_video_w": 2254,
+        "thumb_video_h": 672,
+        "permalink": "https://futureofcoding.slack.com/files/UC2A2ARPT/F07SYPYHLPN/feeling_is_reality.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07SYPYHLPN-5c27ae094c",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible",
+        "media_progress": {
+          "offset_ms": 4950,
+          "max_offset_ms": 5284,
+          "duration_ms": 10179,
+          "media_watched": false
+        }
+      }
+    ],
+    "upload": false,
+    "user": "UC2A2ARPT",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OwD8s",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "http://feelingisreality.com",
+                "text": "FEELING IS REALITY"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1729549918.845699",
+    "client_msg_id": "483d9d38-ef3d-4e6d-a4b0-6425760fb610",
+    "thread_ts": "1729549918.845699",
+    "reply_count": 6,
+    "reply_users_count": 4,
+    "latest_reply": "1729614348.961549",
+    "reply_users": [
+      "UBN9AFS0N",
+      "UP00ZLX6G",
+      "UC2A2ARPT",
+      "U04Q53X6P7W"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1729614348.961549",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U06131CATV3",
+          "U01H6M7BVGD"
+        ],
+        "count": 2
+      },
+      {
+        "name": "circus_tent",
+        "users": [
+          "U023V63MF6V"
+        ],
+        "count": 1
+      },
+      {
+        "name": "sunglasses",
+        "users": [
+          "U0123H7JRDM",
+          "UP00ZLX6G",
+          "U01H6M7BVGD"
+        ],
+        "count": 3
+      },
+      {
+        "name": "cake",
+        "users": [
+          "UP00ZLX6G",
+          "U01H6M7BVGD"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1729550149.702889",
+    "client_msg_id": "2d297e33-34ff-4c89-b9c0-d666365875e5",
+    "text": "&gt; I'm actually less concerned with it being easy to run and more concerned with it being easy to read.\nYeah, my claim is that this is a false dichotomy. Reading and running are both contributors to helping build a mental model of a program in someone's head. Reading without running runs into all the Bret Victor criticisms we know and love here.\n\nThere are a few different LP systems out there. I've built one myself and know of several more by just people in my circle. <https://paulbatchelor.github.io/wiki/literate_programming/|This page is one list.> But they haven't caught on much, and I think it's because conflating code with books pulls in considerations from the publishing industry that don't actually help build mental models in people's heads. Literate programs look like blog posts, and reading them doesn't actually get people to engage actively with them.\n\nIf you separate them from the publishing angle with its irrelevant constraints, other form factors seem more promising:\n• Textbooks in the context of some formal class, with exercises. (Your link above seems to be in this category.)\n• Documentation in the context of a specific program.\nThese kinds of circumstances are why in the past year I've started to care more about running first before I even start reading. If you can run it, the reading experience can be more fault tolerant, and it can be more economic to provide.\n\nI get the sense I might be talking past you, so definitely let me know if I'm misunderstanding your question.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "parent_user_id": "U055V4HCHU7",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2nQV1",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm actually less concerned with it being easy to run and more concerned with it being easy to read."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nYeah, my claim is that this is a false dichotomy. Reading and running are both contributors to helping build a mental model of a program in someone's head. Reading without running runs into all the Bret Victor criticisms we know and love here.\n\nThere are a few different LP systems out there. I've built one myself and know of several more by just people in my circle. "
+              },
+              {
+                "type": "link",
+                "url": "https://paulbatchelor.github.io/wiki/literate_programming/",
+                "text": "This page is one list."
+              },
+              {
+                "type": "text",
+                "text": " But they haven't caught on much, and I think it's because conflating code with books pulls in considerations from the publishing industry that don't actually help build mental models in people's heads. Literate programs look like blog posts, and reading them doesn't actually get people to engage actively with them.\n\nIf you separate them from the publishing angle with its irrelevant constraints, other form factors seem more promising:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Textbooks in the context of some formal class, with exercises. (Your link above seems to be in this category.)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Documentation in the context of a specific program."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThese kinds of circumstances are why in the past year I've started to care more about running first before I even start reading. If you can run it, the reading experience can be more fault tolerant, and it can be more economic to provide.\n\nI get the sense I might be talking past you, so definitely let me know if I'm misunderstanding your question."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1729550339.685249",
+    "client_msg_id": "1f32716c-097e-44b3-8e1a-7f98f47ebc79",
+    "text": "I've been trying not to plug my own stuff, but a couple of links might help triangulate where I'm coming from:\n• <https://akkartik.name/post/wart-layers|My literate programming approach.> I used this for several years.\n• <https://akkartik.name/post/comprehension|A post on why people don't read programs.>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1729527253.637669",
+    "parent_user_id": "U055V4HCHU7",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6+C5O",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been trying not to plug my own stuff, but a couple of links might help triangulate where I'm coming from:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://akkartik.name/post/wart-layers",
+                    "text": "My literate programming approach."
+                  },
+                  {
+                    "type": "text",
+                    "text": " I used this for several years."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://akkartik.name/post/comprehension",
+                    "text": "A post on why people don't read programs."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

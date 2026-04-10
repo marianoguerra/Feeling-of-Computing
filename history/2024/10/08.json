@@ -1,0 +1,747 @@
+[
+  {
+    "text": "A text editor that supports doodling.\n\nSome previous ways to have text coexist with a canvas:\n• <https://smallandnearlysilent.com/inknswitch/|A fixed background that is disconnected from text.>\n• <https://merveilles.town/@neauoire/112536829727198624|Fixed page boundaries.>\nHere I'm instead attaching doodles to a _pivot_ character that they move with in the presence of edits. When you start drawing you're presented with a set of pivot options, one grey square per character on screen. After you pick one, it turns pink and the other options disappear. Now you can start drawing.\n\nDisplacements to the pivot are preserved in font-derived units, so it looks \"reasonable\" as you resize the font.\n\nDeleting a character deletes all drawings pivoted on it. (But there's undo.)\n\nThis took 200 lines, so not too much though it was more than I'd initially expected.\n\nInspired by <https://mastodon.social/@spiralganglion/113261836923161125|this thread>.",
+    "files": [
+      {
+        "id": "F07RGJT03CY",
+        "created": 1728347488,
+        "timestamp": 1728347488,
+        "name": "doodle.webm",
+        "title": "doodle.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 751572,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07RGJT03CY/doodle.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07RGJT03CY/download/doodle.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F07RGJT03CY-600f01e179/file.m3u8?_xcb=2e064",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9OTM2NTU2LEFWRVJBR0UtQkFORFdJRFRIPTc4ODM3MixDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj05NjB4NzIwLEZSQU1FLVJBVEU9MjkuOTcwCmRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzNDaU5GV0ZRdFdDMU5SVVJKUVMxVFJWRlZSVTVEUlRveENpTkZXRlF0V0MxUVRFRlpURWxUVkMxVVdWQkZPbFpQUkFvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjFKSFNsUXdNME5aTFRZd01HWXdNV1V4TnprdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjFKSFNsUXdNME5aTFRZd01HWXdNV1V4TnprdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjFKSFNsUXdNME5aTFRZd01HWXdNV1V4TnprdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjFKSFNsUXdNME5aTFRZd01HWXdNV1V4TnprdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOQzUwY3dvalJWaFVTVTVHT2pFdU9UWTVMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjFKSFNsUXdNME5aTFRZd01HWXdNV1V4TnprdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOUzUwY3dvalJWaFVMVmd0UlU1RVRFbFRWQW89Cg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F07RGJT03CY-600f01e179/file_trans.mp4",
+        "duration_ms": 25992,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F07RGJT03CY-600f01e179/doodle_thumb_video.jpeg",
+        "thumb_video_w": 640,
+        "thumb_video_h": 480,
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F07RGJT03CY/doodle.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07RGJT03CY-8c329c6ea4",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      },
+      {
+        "id": "F07QD8UVDGX",
+        "created": 1728347491,
+        "timestamp": 1728347491,
+        "name": "doodle2.webm",
+        "title": "doodle2.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 1813259,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07QD8UVDGX/doodle2.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07QD8UVDGX/download/doodle2.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F07QD8UVDGX-26dfd1b025/file.m3u8?_xcb=3b111",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NDU2MTgzMyxBVkVSQUdFLUJBTkRXSURUSD00NTYxODMzLENPREVDUz0iYXZjMS42NDAwMjgsbXA0YS40MC41IixSRVNPTFVUSU9OPTE5MjB4OTkwLEZSQU1FLVJBVEU9MjkuOTcwCmRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzNDaU5GV0ZRdFdDMU5SVVJKUVMxVFJWRlZSVTVEUlRveENpTkZXRlF0V0MxUVRFRlpURWxUVkMxVVdWQkZPbFpQUkFvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3TjFGRU9GVldSRWRZTFRJMlpHWmtNV0l3TWpVdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNREV1ZEhNS0kwVllWRWxPUmpveUxqQXdNaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURkUlJEaFZWa1JIV0MweU5tUm1aREZpTURJMUwyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREF5TG5SekNpTkZXRlF0V0MxRlRrUk1TVk5VQ2c9PQojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MjUzODQ2OSxBVkVSQUdFLUJBTkRXSURUSD0yNTM4NDY5LENPREVDUz0iYXZjMS42NDAwMWYsbXA0YS40MC41IixSRVNPTFVUSU9OPTEyODB4NjYwLEZSQU1FLVJBVEU9MjkuOTcwCmh0dHBzOi8vZmlsZXMuc2xhY2suY29tL2ZpbGVzLXRtYi9UNVRDQUZUQTktRjA3UUQ4VVZER1gtMjZkZmQxYjAyNS9maWxlX0hfMjY0XzEyODB4NzIwXzM1MDBLQlBTXzdRVkJSLm0zdTgK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F07QD8UVDGX-26dfd1b025/file_trans.mp4",
+        "duration_ms": 8008,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F07QD8UVDGX-26dfd1b025/doodle2_thumb_video.jpeg",
+        "thumb_video_w": 1536,
+        "thumb_video_h": 792,
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F07QD8UVDGX/doodle2.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07QD8UVDGX-2a3806b533",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HenVE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A text editor that supports doodling.\n\nSome previous ways to have text coexist with a canvas:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://smallandnearlysilent.com/inknswitch/",
+                    "text": "A fixed background that is disconnected from text."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://merveilles.town/@neauoire/112536829727198624",
+                    "text": "Fixed page boundaries."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nHere I'm instead attaching doodles to a "
+              },
+              {
+                "type": "text",
+                "text": "pivot",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " character that they move with in the presence of edits. When you start drawing you're presented with a set of pivot options, one grey square per character on screen. After you pick one, it turns pink and the other options disappear. Now you can start drawing.\n\nDisplacements to the pivot are preserved in font-derived units, so it looks \"reasonable\" as you resize the font.\n\nDeleting a character deletes all drawings pivoted on it. (But there's undo.)\n\nThis took 200 lines, so not too much though it was more than I'd initially expected.\n\nInspired by "
+              },
+              {
+                "type": "link",
+                "url": "https://mastodon.social/@spiralganglion/113261836923161125",
+                "text": "this thread"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1728347619.903889",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1728347771.000000"
+    },
+    "client_msg_id": "8903d5fd-0eab-41d5-a323-6fecb97c1887",
+    "thread_ts": "1728347619.903889",
+    "reply_count": 4,
+    "reply_users_count": 3,
+    "latest_reply": "1728364914.262099",
+    "reply_users": [
+      "UBKNXPBAB",
+      "UCUSW7WVD",
+      "UJBAJNFLK"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "guitar",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "saxophone",
+        "users": [
+          "UC2A2ARPT",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UJBAJNFLK",
+          "U04BZ21V2NQ",
+          "U06LQ54LB1R"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UBKNXPBAB",
+    "type": "message",
+    "ts": "1728359261.643019",
+    "client_msg_id": "6cd57e19-383b-4d74-9938-619b1aa7a865",
+    "text": "Neat. Less radically, have you considered sketches in the margins, linked to characters? Or sketches that appear in boxes, with text wrapping around them? I ask cuz “sketch directly on top of text” doesn’t seem as useful as those. Aside from, say, editing marks. Maybe increasing line spacing would make sketches literally anchored to characters more useful?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728347619.903889",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4LJ/X",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Neat. Less radically, have you considered sketches in the margins, linked to characters? Or sketches that appear in boxes, with text wrapping around them? I ask cuz “sketch directly on top of text” doesn’t seem as useful as those. Aside from, say, editing marks. Maybe increasing line spacing would make sketches literally anchored to characters more useful?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UBKNXPBAB",
+    "type": "message",
+    "ts": "1728359295.838019",
+    "client_msg_id": "4c62a3e2-dbb8-40ee-bf4f-0d8b8c71badf",
+    "text": "(Or if you do think sketches directly on top of text could be useful or fun, I’d love to see some examples like that.)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728347619.903889",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "q2VCv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Or if you do think sketches directly on top of text could be useful or fun, I’d love to see some examples like that.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1728361308.577989",
+    "client_msg_id": "f2c7f24c-4234-4082-b591-64aa40d3c274",
+    "text": "It's a good question. This particular configuration came up in conversation, I think, as something that looks and feels like paper. I'm not sure either that it's useful as is.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728347619.903889",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/wW7I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's a good question. This particular configuration came up in conversation, I think, as something that looks and feels like paper. I'm not sure either that it's useful as is."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UBKNXPBAB"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1728364914.262099",
+    "client_msg_id": "41733b12-e0de-4af7-9cf6-50aaf136c8ac",
+    "text": "As a heavy user of pencil-on-tablet annotations of scientific papers, my vote is for annotations attached to a place in the text but shown/drawn on the margins. Plus manual text markup: highlight/underline, strike through.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728347619.903889",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t2w6P",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As a heavy user of pencil-on-tablet annotations of scientific papers, my vote is for annotations attached to a place in the text but shown/drawn on the margins. Plus manual text markup: highlight/underline, strike through."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UA14TGLTC",
+    "type": "message",
+    "ts": "1728365952.130059",
+    "client_msg_id": "d256e132-1f97-4a07-be5e-38e5b1e1a804",
+    "text": "I've had Cursor's website open in a tab for quite a while now and an hour into this conversation, I'm feeling more motivated to try it for their attention to human factors.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728317156.170009",
+    "parent_user_id": "U0296ACR13M",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iCi2v",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've had Cursor's website open in a tab for quite a while now and an hour into this conversation, I'm feeling more motivated to try it for their attention to human factors."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U013ZLJARC7",
+    "type": "message",
+    "ts": "1728395795.446469",
+    "client_msg_id": "89fe66dc-4612-4331-a837-4ff2b2599e0f",
+    "text": "So many nice ideas in this demo :slightly_smiling_face:\n<https://www.youtube.com/watch?v=ehR-KIgw7T8>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728395795.446469",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1728539414.637589",
+    "reply_users": [
+      "U01T2PC8LBA"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=ehR-KIgw7T8",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/ehR-KIgw7T8/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/ehR-KIgw7T8?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Run, Build and Grow Small Systems Without Leaving Your Text Editor | LIVE 2024\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=ehR-KIgw7T8",
+        "fallback": "YouTube Video: Run, Build and Grow Small Systems Without Leaving Your Text Editor | LIVE 2024",
+        "title": "Run, Build and Grow Small Systems Without Leaving Your Text Editor | LIVE 2024",
+        "title_link": "https://www.youtube.com/watch?v=ehR-KIgw7T8",
+        "author_name": "Albert Zak",
+        "author_link": "https://www.youtube.com/@albertzak8578",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f6hmf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So many nice ideas in this demo "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=ehR-KIgw7T8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "exploding_head",
+        "users": [
+          "U05UF5P8PT8",
+          "U01T2PC8LBA",
+          "U06131CATV3"
+        ],
+        "count": 3
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UQZ0SRA7N",
+          "UMQ6LR9NZ",
+          "U01JNTE35QS",
+          "UJBAJNFLK",
+          "U01T2PC8LBA"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U6KQ2S410",
+    "type": "message",
+    "ts": "1728399011.374519",
+    "client_msg_id": "f4b2042c-a01c-467c-b812-754d1ac3a091",
+    "text": "“My simple answer is that we need better programming languages and less AI.” - Alan Blackwell\n<https://moralcodes.pubpub.org>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728399011.374519",
+    "reply_count": 18,
+    "reply_users_count": 4,
+    "latest_reply": "1728552876.634679",
+    "reply_users": [
+      "UBN9AFS0N",
+      "U03U0SCU5LH",
+      "UJBAJNFLK",
+      "UJFN50C00"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1728552876.634679",
+    "attachments": [
+      {
+        "image_url": "https://assets.pubpub.org/pgts2b3e/51663925325401.png",
+        "image_width": 640,
+        "image_height": 590,
+        "image_bytes": 908835,
+        "from_url": "https://moralcodes.pubpub.org/",
+        "service_icon": "https://moralcodes.pubpub.org/favicon.ico",
+        "id": 1,
+        "original_url": "https://moralcodes.pubpub.org",
+        "fallback": "Moral Codes",
+        "title": "Moral Codes",
+        "title_link": "https://moralcodes.pubpub.org/",
+        "service_name": "moralcodes.pubpub.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cB/WX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "“My simple answer is that we need better programming languages and less AI.” - Alan Blackwell\n"
+              },
+              {
+                "type": "link",
+                "url": "https://moralcodes.pubpub.org"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U075Q2WP3UK",
+          "U07PYD02V2S",
+          "UML4ZEKDK",
+          "UJBAJNFLK",
+          "UA14TGLTC"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U6KQ2S410",
+    "type": "message",
+    "ts": "1728399055.757499",
+    "text": "",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728399055.757499",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1728491417.421349",
+    "reply_users": [
+      "U02U0AS3J49",
+      "U02E4DAQGSZ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "ts": "1728399011.374519",
+        "author_id": "U6KQ2S410",
+        "channel_id": "C5U3SEW6A",
+        "channel_team": "T5TCAFTA9",
+        "is_msg_unfurl": true,
+        "message_blocks": [
+          {
+            "team": "T5TCAFTA9",
+            "channel": "C5U3SEW6A",
+            "ts": "1728399011.374519",
+            "message": {
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "cB/WX",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "“My simple answer is that we need better programming languages and less AI.” - Alan Blackwell\n"
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://moralcodes.pubpub.org"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "color": "D0D0D0",
+        "from_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1728399011374519",
+        "is_share": true,
+        "fallback": "[October 8th, 2024 10:50 AM] jonathoda: “My simple answer is that we need better programming languages and less AI.” - Alan Blackwell\n<https://moralcodes.pubpub.org>",
+        "text": "“My simple answer is that we need better programming languages and less AI.” - Alan Blackwell\n<https://moralcodes.pubpub.org>",
+        "author_name": "Jonathan Edwards",
+        "author_link": "https://futureofcoding.slack.com/team/U6KQ2S410",
+        "author_icon": "https://avatars.slack-edge.com/2017-08-09/225308926294_e8f4c2151d2b70ebfae3_48.jpg",
+        "author_subname": "Jonathan Edwards",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "footer": "Slack Conversation"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U013ZLJARC7",
+          "UGWUJUZHT",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "user": "U02U0AS3J49",
+    "type": "message",
+    "ts": "1728402879.335609",
+    "client_msg_id": "ce2c6772-d968-4a71-83b7-83c5bca86d9e",
+    "text": "With him on the better programming languages part. :sweat_smile:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728399055.757499",
+    "parent_user_id": "U6KQ2S410",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nlyA2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "With him on the better programming languages part. "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile",
+                "unicode": "1f605"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U03HC3XHZGW",
+          "UE6EFEPTQ"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1728424908.187449",
+    "client_msg_id": "B48A82B0-447F-475F-A8F6-A5E6C7409217",
+    "text": "<https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1362658/full|Naturalizing relevance realization: why agency and cognition are fundamentally not computational>\nThis is a psychology paper, so perhaps not what you usually consume, but I want to encourage you to give this a go. I think it’s super useful to leave our bubble from time to time and learn about what other disciplines’ perspectives on computation are. I’ll quote the summary at the end, but there is so much more building up to that that you don’t want to miss, certainly not before commenting on it. :)\n\n&gt; The view that intelligence equals some kind of computational optimization is no longer tenable. It does not help us make sense of a large world. Therefore, claims that the study of intelligence is converging onto computational rationality as its ultimate foundation are not only premature, but outright misguided. Quite the opposite: we have shown here that the basic foundation of natural agency and cognition, and therefore of anything we could reasonably call “intelligence,” cannot be computational at all because it cannot be completely formalized. The dream of generating purely algorithmic systems able to think and act like human beings is and remains a pipe dream, because purely symbolic machines exist in small worlds, in which there is no problem of relevance to be solved.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1728424908.187449",
+    "reply_count": 15,
+    "reply_users_count": 5,
+    "latest_reply": "1728674235.425399",
+    "reply_users": [
+      "U013ZLJARC7",
+      "U5STGTB3J",
+      "UGWUJUZHT",
+      "UJBAJNFLK",
+      "U059ED7QSVB"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ciRoR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1362658/full",
+                "text": "Naturalizing relevance realization: why agency and cognition are fundamentally not computational"
+              },
+              {
+                "type": "text",
+                "text": "\nThis is a psychology paper, so perhaps not what you usually consume, but I want to encourage you to give this a go. I think it’s super useful to leave our bubble from time to time and learn about what other disciplines’ perspective"
+              },
+              {
+                "type": "text",
+                "text": "s"
+              },
+              {
+                "type": "text",
+                "text": " on computation are. I’ll quote the summary at the end, but there is so much more building up to that that you don’t want to miss"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "certainly not before commenting on it."
+              },
+              {
+                "type": "text",
+                "text": " :)"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The view that intelligence equals some kind of computational optimization is no longer tenable. It does not help us make sense of a large world. Therefore, claims that the study of intelligence is converging onto computational rationality as its ultimate foundation are not only premature, but outright misguided. Quite the opposite: we have shown here that the basic foundation of natural agency and cognition, and therefore of anything we could reasonably call “intelligence,” cannot be computational at all because it cannot be completely formalized. The dream of generating purely algorithmic systems able to think and act like human beings is and remains a pipe dream, because purely symbolic machines exist in small worlds, in which there is no problem of relevance to be solved."
+              }
+            ],
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
