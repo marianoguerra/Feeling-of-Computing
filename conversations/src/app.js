@@ -15,6 +15,7 @@ function parseParams() {
   const params = new URLSearchParams(window.location.search);
   const toDate = new Date(params.get("to-date") ?? nowDayOffset(1));
   const fromDate = new Date(params.get("from-date") ?? nowDayOffset(-7));
+  const selected = params.get("selected") ?? null;
   const showReplies = params.get("show-replies") !== "false";
   const showReactions = params.get("show-reactions") !== "false";
   const showAttachments = params.get("show-attachments") !== "false";
@@ -23,6 +24,7 @@ function parseParams() {
   return {
     fromDate,
     toDate,
+    selected,
     showReplies,
     showReactions,
     showAttachments,
@@ -35,6 +37,7 @@ async function main() {
   const {
     fromDate,
     toDate,
+    selected,
     showReplies,
     showReactions,
     showAttachments,
@@ -95,15 +98,22 @@ async function main() {
     }
   }
   await walk(fetcher, fromDate, toDate, onDayData);
+  let activeMessage = null;
+  if (selected !== null && topMsgsByTs[selected]) {
+    activeMessage = Message.Class.fromData(topMsgsByTs[selected], ctx);
+  }
+
   for (const ts in topMsgsByTs) {
     items.push(Message.Class.fromData(topMsgsByTs[ts], ctx));
   }
+  console.log(topMsgsByTs);
+
   items.sort((a, b) => a.date - b.date);
   const messages = Messages.make({ items });
 
   let rootState = isPlainMode
     ? PlainViewer.make({ messages })
-    : ConversationsViewer.make({ messages });
+    : ConversationsViewer.make({ messages, activeMessage });
   if (!showReplies) {
     rootState = rootState.setShowReplies(false);
   }

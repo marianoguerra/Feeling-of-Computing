@@ -77,20 +77,32 @@ export const ConversationsViewer = component({
     showReactions: true,
     showAttachments: true,
     showChannel: true,
+    activeMessage: null,
     messages: Messages.make(),
   },
   methods: {
+    updateActiveMessageIfSet(fn) {
+      return this.updateActiveMessage((m) => (m ? fn(m) : null));
+    },
     setShowReplies(v) {
-      return this.set("showReplies", v).updateMessages((m) => m.setShowReplies(v));
+      return this.set("showReplies", v)
+        .updateMessages((m) => m.setShowReplies(v))
+        .updateActiveMessageIfSet((m) => m.setShowReplies(v));
     },
     setShowReactions(v) {
-      return this.set("showReactions", v).updateMessages((m) => m.setShowReactions(v));
+      return this.set("showReactions", v)
+        .updateMessages((m) => m.setShowReactions(v))
+        .updateActiveMessageIfSet((m) => m.setShowReactions(v));
     },
     setShowAttachments(v) {
-      return this.set("showAttachments", v).updateMessages((m) => m.setShowAttachments(v));
+      return this.set("showAttachments", v)
+        .updateMessages((m) => m.setShowAttachments(v))
+        .updateActiveMessageIfSet((m) => m.setShowAttachments(v));
     },
     setShowChannel(v) {
-      return this.set("showChannel", v).updateMessages((m) => m.setShowChannel(v));
+      return this.set("showChannel", v)
+        .updateMessages((m) => m.setShowChannel(v))
+        .updateActiveMessageIfSet((m) => m.setShowChannel(v));
     },
   },
   view: html`<section class="flex flex-col gap-3">
@@ -134,7 +146,30 @@ export const ConversationsViewer = component({
         Channels
       </label>
     </div>
-    <x render=".messages"></x>
+    <div class="flex gap-3">
+      <div class="flex-1">
+        <x render=".messages"></x>
+      </div>
+      <div class="flex-1 flex flex-col gap-3" @show=".isActiveMessageSet">
+        <div class="flex bg-base-300 justify-between items-center gap-3 p-2">
+          <span class="font-bold text-lg">Thread</span>
+          <button
+            class="btn btn-sm btn-ghost btn-error font-mono"
+            @on.click=".resetActiveMessage"
+          >
+            X
+          </button>
+        </div>
+
+        <div class="card card-border bg-base-200 shadow-sm">
+          <div
+            class="card-body p-0 outline-0 outline-solid outline-base-400 hover:outline-1"
+          >
+            <x render=".activeMessage"></x>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>`,
 });
 
@@ -181,7 +216,7 @@ export const Message = component({
       if (rawReplies.length > 0) {
         for (let i = 1; i < rawReplies.length; i++) {
           const reply = rawReplies[i];
-          replies[i - 1] = this.fromData(reply, ctx);
+          replies[i - 1] = this.fromData(reply, ctx).setShowChannel(false);
         }
       }
       // TODO: optimize
