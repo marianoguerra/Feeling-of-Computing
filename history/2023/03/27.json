@@ -1,0 +1,2217 @@
+[
+  {
+    "client_msg_id": "1f843895-e507-44c1-a2a7-fba816d5cecf",
+    "type": "message",
+    "text": "I'm really enjoying <@UCDBW1H26>'s writings since he started writing about LLMs. The latest one in particular is a great fit for this channel: <https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming.html>",
+    "user": "UCUSW7WVD",
+    "ts": "1679890315.424299",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xaNv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm really enjoying "
+              },
+              {
+                "type": "user",
+                "user_id": "UCDBW1H26"
+              },
+              {
+                "type": "text",
+                "text": "'s writings since he started writing about LLMs. The latest one in particular is a great fit for this channel: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming.html",
+        "id": 1,
+        "original_url": "https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming.html",
+        "fallback": "Malleable software in the age of LLMs",
+        "text": "All computer users may soon have the ability to author small bits of code. What structural changes does this imply for the production and distribution of software?",
+        "title": "Malleable software in the age of LLMs",
+        "title_link": "https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming.html",
+        "service_name": "geoffreylitt.com"
+      }
+    ],
+    "thread_ts": "1679890315.424299",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1679894662.930889",
+    "reply_users": [
+      "UA14TGLTC"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "UA14TGLTC",
+          "UMV4B97GT",
+          "UJBAJNFLK",
+          "U023V63MF6V"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "19bb4848-6926-483e-be1c-46bc8806a27e",
+    "type": "message",
+    "text": "Oh nice <@U6KQ2S410>, looks like I just shared the blog version of that Twitter thread.",
+    "user": "UCUSW7WVD",
+    "ts": "1679890479.039439",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "E5Guf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh nice "
+              },
+              {
+                "type": "user",
+                "user_id": "U6KQ2S410"
+              },
+              {
+                "type": "text",
+                "text": ", looks like I just shared the blog version of that Twitter thread."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679833469.621219",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "3772f106-494c-4bcd-b030-e590e9e75186",
+    "type": "message",
+    "text": "I'll comment there then...",
+    "user": "UA14TGLTC",
+    "ts": "1679891458.738229",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+sW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'll comment there then..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679833469.621219",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "f6c5c68b-63a7-4b04-b17f-07a4542bd0fa",
+    "type": "message",
+    "text": "Here's my perspective on LLMs and the future of programming.\n\nI don't believe that the introduction of LLMs that can write code is going to obviate programming. And I don't believe that it is now pointless to develop new programming languages. Instead, I think LLMs are going to make programming and FoC research _better_, by automating one of the least interesting parts of programming: fiddling with the minutiae of syntax, language constructs, and libraries.\n\nI think programmers will still have plenty of work to do. The profession is not doomed. But to justify this, we have to take a step back and consider all of the activities involved in programming.\n\nFirstly, what is a \"program\"? A program is nothing more than:\n• _A formal specification_ of the behaviour of an interactive system\n• ...that computer hardware can execute (after translating it into machine code).\nTo emphasise this, I will use the term \"formal spec\" in place of \"program\" for the remainder of this discussion.\n\nGPT-4 can understand formal specs, and also everyday English. Thus, if we can describe the functionality of a system in everyday English, GPT-4 can (attempt to) translate it into a formal spec. But writing the formal spec is just _one_ activity of programming.\n\nAltogether, programming (or perhaps \"software development\") involves several activities:\n1. Determining what functionality the system being developed \"should\" have. This is done either by talking with relevant stakeholders (e.g. the future users), or by directly observing deficiencies with their current practices.\n2. Expressing that functionality as a formal specification, i.e. \"coding\".\n3. Verifying that the specification correctly implements all of the functionality of step 1. This includes practices such as reading and reviewing the specification, as well as testing the software.\n4. Validating that the implemented functionality addresses the stakeholder's problems.\n5. Repeating the first 4 steps until the stakeholders are satisfied with what has been developed.\nHere's my hypothesis: *In the next 10 years, LLMs might radically reduce the amount of work required for step 2, but _only_ step 2.*\n\nSteps 1 and 4 are very human-centered, and thus can't be automated away — at least until we are at the point where we have an omnipresent AGI that observes all human practices and automatically develops solutions to improve them.\n\nSimilarly, step 3 will not be automated any time soon, because:\n• The plain English descriptions that we give to LLMs will often be ambiguous, underspecified, and maybe even inconsistent. Thus the LLMs will have to make educated _guesses_ at what we mean. (Even if they are able to ask clarifying questions, there will always be _some_ choices that are automatically made for us.)\n• LLMs will occasionally get confused or misinterpret what we say, even if we are clear and careful. We will not have _infallible_ AIs any time soon.\nSo let's assume that LLMs can automate most of step 2. What does this mean for those of us developing tools and technologies to improve programming? Is our work obsolete now? Will the AI researchers and AI startups be taking the reigns?\n\nI don't think so! There is still a huge opportunity to develop tools that address step 3, at the very least. (Steps 1 and 4 are harder to address with technology.)\n\nIn particular, *step 3 involves the task of _reading_ source code*. When an LLM spits out 1000 lines of JavaScript, how do you know that the code implements the functionality that you wanted? You have to _verify_ that it does, and for large programs, that will be an enormous amount of work!\n\nAs we all know, no amount of testing can prove that a program is correct. Thus, we cannot verify AI-generated programs just by _using_ them. Maybe the program has a subtle bug, such as a buffer overflow, that might only be triggered 5 years after the program is deployed. Or less insidiously: maybe the program just doesn't handle certain edge-cases in the way you would like it to. Either way, a human should probably read through the entire program with a keen eye, to check that all of the logic _makes sense_.\n\nThere's clearly an opportunity for FoC researchers here: we can make languages and tools that make _reading_ and _verifying_ the behaviour of programs easier! Some examples:\n• We can design programming languages that are vastly easier to _read_ than traditional languages. How might we do that? Well, \"higher-level\" languages are likely easier to read, since they are likely to be more concise and focus on the end-user functionality. So work on higher-level programming models will continue to be valuable. To complement this, we can (and IMO, we should) invent new syntaxes that are closer to plain English, such that the specifications that LLMs produce are accessible to a wider audience.\n• We can design programming languages where it is harder to write erroneous programs. For example, we can design programming languages that cannot crash or hang (i.e. Turing-incomplete languages), but which are still general-purpose. This reduces the kinds of errors that a human needs to consider as they verify a program.\n• We can design better tools for reading and interrogating source code. (For example, better IDE support for navigating and understanding the structure of large codebases.)\n• We can design better tools for exploring the space of behaviours of a running program. (Perhaps similar to the tools discussed in Bret Victor's <http://worrydream.com/#!2/LadderOfAbstraction|\"Ladder of Abstraction\"> essay.)\nOverall, I think the future is bright! I'm going to continue my own PL research project (a very high-level language) with as much vigor as ever.",
+    "user": "UCGAK10LS",
+    "ts": "1679892669.316079",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HQR0r",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here's my perspective on LLMs and the future of programming.\n\nI don't believe that the introduction of LLMs that can write code is going to obviate programming. And I don't believe that it is now pointless to develop new programming languages. Instead, I think LLMs are going to make programming and FoC research "
+              },
+              {
+                "type": "text",
+                "text": "better",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", by automating one of the least interesting parts of programming: fiddling with the minutiae of syntax, language constructs, and libraries.\n\nI think programmers will still have plenty of work to do. The profession is not doomed. But to justify this, we have to take a step back and consider all of the activities involved in programming.\n\nFirstly, what is a \"program\"? A program is nothing more than:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A formal specification",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " of the behaviour of an interactive system"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "...that computer hardware can execute (after translating it into machine code)."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nTo emphasise this, I will use the term \"formal spec\" in place of \"program\" for the remainder of this discussion.\n\nGPT-4 can understand formal specs, and also everyday English. Thus, if we can describe the functionality of a system in everyday English, GPT-4 can (attempt to) translate it into a formal spec. But writing the formal spec is just "
+              },
+              {
+                "type": "text",
+                "text": "one",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " activity of programming.\n\nAltogether, programming (or perhaps \"software development\") involves several activities:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Determining what functionality the system being developed \"should\" have. This is done either by talking with relevant stakeholders (e.g. the future users), or by directly observing deficiencies with their current practices."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Expressing that functionality as a formal specification, i.e. \"coding\"."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Verifying that the specification correctly implements all of the functionality of step 1. This includes practices such as reading and reviewing the specification, as well as testing the software."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Validating that the implemented functionality addresses the stakeholder's problems."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Repeating the first 4 steps until the stakeholders are satisfied with what has been developed."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nHere's my hypothesis: "
+              },
+              {
+                "type": "text",
+                "text": "In the next 10 years, LLMs might radically reduce the amount of work required for step 2, but ",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "only",
+                "style": {
+                  "bold": true,
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " step 2.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\nSteps 1 and 4 are very human-centered, and thus can't be automated away — at least until we are at the point where we have an omnipresent AGI that observes all human practices and automatically develops solutions to improve them.\n\nSimilarly, step 3 will not be automated any time soon, because:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The plain English descriptions that we give to LLMs will often be ambiguous, underspecified, and maybe even inconsistent. Thus the LLMs will have to make educated "
+                  },
+                  {
+                    "type": "text",
+                    "text": "guesses",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " at what we mean. (Even if they are able to ask clarifying questions, there will always be "
+                  },
+                  {
+                    "type": "text",
+                    "text": "some",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " choices that are automatically made for us.)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "LLMs will occasionally get confused or misinterpret what we say, even if we are clear and careful. We will not have "
+                  },
+                  {
+                    "type": "text",
+                    "text": "infallible",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " AIs any time soon."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nSo let's assume that LLMs can automate most of step 2. What does this mean for those of us developing tools and technologies to improve programming? Is our work obsolete now? Will the AI researchers and AI startups be taking the reigns?\n\nI don't think so! There is still a huge opportunity to develop tools that address step 3, at the very least. (Steps 1 and 4 are harder to address with technology.)\n\nIn particular, "
+              },
+              {
+                "type": "text",
+                "text": "step 3 involves the task of ",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "reading",
+                "style": {
+                  "bold": true,
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " source code",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". When an LLM spits out 1000 lines of JavaScript, how do you know that the code implements the functionality that you wanted? You have to "
+              },
+              {
+                "type": "text",
+                "text": "verify",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " that it does, and for large programs, that will be an enormous amount of work!\n\nAs we all know, no amount of testing can prove that a program is correct. Thus, we cannot verify AI-generated programs just by "
+              },
+              {
+                "type": "text",
+                "text": "using",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " them. Maybe the program has a subtle bug, such as a buffer overflow, that might only be triggered 5 years after the program is deployed. Or less insidiously: maybe the program just doesn't handle certain edge-cases in the way you would like it to. Either way, a human should probably read through the entire program with a keen eye, to check that all of the logic "
+              },
+              {
+                "type": "text",
+                "text": "makes sense",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n\nThere's clearly an opportunity for FoC researchers here: we can make languages and tools that make "
+              },
+              {
+                "type": "text",
+                "text": "reading",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "verifying",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the behaviour of programs easier! Some examples:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "We can design programming languages that are vastly easier to "
+                  },
+                  {
+                    "type": "text",
+                    "text": "read",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " than traditional languages. How might we do that? Well, \"higher-level\" languages are likely easier to read, since they are likely to be more concise and focus on the end-user functionality. So work on higher-level programming models will continue to be valuable. To complement this, we can (and IMO, we should) invent new syntaxes that are closer to plain English, such that the specifications that LLMs produce are accessible to a wider audience."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "We can design programming languages where it is harder to write erroneous programs. For example, we can design programming languages that cannot crash or hang (i.e. Turing-incomplete languages), but which are still general-purpose. This reduces the kinds of errors that a human needs to consider as they verify a program."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "We can design better tools for reading and interrogating source code. (For example, better IDE support for navigating and understanding the structure of large codebases.)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "We can design better tools for exploring the space of behaviours of a running program. (Perhaps similar to the tools discussed in Bret Victor's "
+                  },
+                  {
+                    "type": "link",
+                    "url": "http://worrydream.com/#!2/LadderOfAbstraction",
+                    "text": "\"Ladder of Abstraction\""
+                  },
+                  {
+                    "type": "text",
+                    "text": " essay.)"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nOverall, I think the future is bright! I'm going to continue my own PL research project (a very high-level language) with as much vigor as ever."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1679895554.000000"
+    },
+    "thread_ts": "1679892669.316079",
+    "reply_count": 17,
+    "reply_users_count": 7,
+    "latest_reply": "1680218359.116989",
+    "reply_users": [
+      "UA14TGLTC",
+      "UCGAK10LS",
+      "U0296ACR13M",
+      "U0112C10V4Y",
+      "UNCP67JSK",
+      "U04MTMF6Y4W",
+      "UE6EFEPTQ"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UA14TGLTC",
+          "U0245E9RB2B",
+          "U0296ACR13M",
+          "U04E5QAD6DD",
+          "UC2A2ARPT"
+        ],
+        "count": 5
+      },
+      {
+        "name": "sparkle",
+        "users": [
+          "U04MTMF6Y4W"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "328c9f84-e528-499b-ad4e-d42e9af04da2",
+    "type": "message",
+    "text": "In short, with a much lower bar to end-user programming, people actually doing it more.  Two thoughts, one immediate one longer term — perhaps even next week.\n\n1. With Chat available, I've automated a few small workflows that just weren't worth bothering with before e.g. \"How do I ___ using the macOS Services menu?\"  I did have to know that I wanted a \"Service\", just asking for some way to automate ___ wasn't specific enough.  Keep in mind the  steps produced were not correct, merely close enough.\n2. A lot of automation is hard because UIs don't really allow it, but in as much as these systems can parse images and simulate clicks for us, we won't need any help to script existing software.  At the OS level. some sandboxing might be nice.",
+    "user": "UA14TGLTC",
+    "ts": "1679894662.930889",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "x0V/b",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In short, with a much lower bar to end-user programming, people actually doing it more.  Two thoughts, one immediate one longer term — perhaps even next week.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "With Chat available, I've automated a few small workflows that just weren't worth bothering with before e.g. \"How do I ___ using the macOS Services menu?\"  I did have to know that I wanted a \"Service\", just asking for some way to automate ___ wasn't specific enough.  Keep in mind the  steps produced were not correct, merely close enough."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A lot of automation is hard because UIs don't really allow it, but in as much as these systems can parse images and simulate clicks for us, we won't need any help to script existing software.  At the OS level. some sandboxing might be nice."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679890315.424299",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "8f0f8fe3-036c-468a-8b9e-01a49c1ae845",
+    "type": "message",
+    "text": "Arguably with \"coding\" (2) assisted/automated, we can get on to the future part!  Certainly people are playing with (3), getting Chat to output Agda code for example.  But the simple fact is that if \"getting it working\" becomes easier, then we actually give attention to \"get it right.\"   I can also see AI potentially helping with the communication challenges of (4).",
+    "user": "UA14TGLTC",
+    "ts": "1679896298.612939",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Q8cY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Arguably with \"coding\" (2) assisted/automated, we can get on to the future part!  Certainly people are playing with (3), getting Chat to output Agda code for example.  But the simple fact is that if \"getting it working\" becomes easier, then we actually give attention to \"get it right.\"   I can also see AI potentially helping with the communication challenges of (4)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCGAK10LS",
+          "U03JUAWDVSR"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "093293c2-033e-4429-a799-29b5f4a72aee",
+    "type": "message",
+    "text": "Your mention of Agda has me wanting to define the notion of \"verification\" a little more carefully. (I'm just thinking aloud here.)\n\nAgda and friends are often described as languages for writing \"verified programs\", but that term makes me uncomfortable, because it's prone to be misunderstood. (At the very least, it confused younger me.) No programming language can verify that the functionality a programmer desires has been implemented correctly. No programming language can _ever_ do that. The programmer can always specify a valid program that is different to the one they had _intended_ to specify, and the computer will happily accept it.\n\nThe best you can do is to ask the computer to verify that your program has a _particular_ property, e.g. \"this variable is never null\" or \"this program doesn't crash\". That's a merit of static typing in general.\n\nBut back to your comment: Yes I agree, Agda makes it easier for humans to verify LLM-generated code by reducing the kinds of errors that a program can have. It achieves this by having an expressive type system that can reject a lot of invalid programs. :slightly_smiling_face:\n\n(IMO, Agda's type system is too complicated for the average programmer. But I wholeheartedly believe that developing languages with expressive type systems is a worthy goal.)",
+    "user": "UCGAK10LS",
+    "ts": "1679896811.824169",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RjFkO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Your mention of Agda has me wanting to define the notion of \"verification\" a little more carefully. (I'm just thinking aloud here.)\n\nAgda and friends are often described as languages for writing \"verified programs\", but that term makes me uncomfortable, because it's prone to be misunderstood. (At the very least, it confused younger me.) No programming language can verify that the functionality a programmer desires has been implemented correctly. No programming language can "
+              },
+              {
+                "type": "text",
+                "text": "ever",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " do that. The programmer can always specify a valid program that is different to the one they had "
+              },
+              {
+                "type": "text",
+                "text": "intended",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " to specify, and the computer will happily accept it.\n\nThe best you can do is to ask the computer to verify that your program has a "
+              },
+              {
+                "type": "text",
+                "text": "particular",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " property, e.g. \"this variable is never null\" or \"this program doesn't crash\". That's a merit of static typing in general.\n\nBut back to your comment: Yes I agree, Agda makes it easier for humans to verify LLM-generated code by reducing the kinds of errors that a program can have. It achieves this by having an expressive type system that can reject a lot of invalid programs. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": "\n\n(IMO, Agda's type system is too complicated for the average programmer. But I wholeheartedly believe that developing languages with expressive type systems is a worthy goal.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1679899023.000000"
+    },
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6a34bf5e-303f-4ff0-a86d-119ba55831ef",
+    "type": "message",
+    "text": "Most of the software development work is maintaining large codebases and I'd say it's still largely unproven that LLMs can offer much help in these settings. Currently the limiting factors are at least the allowed input sizes and the cost and speed of the queries. It seems that iterating on large codebases would be very slow and difficult. Overtime, it's of course very likely that these issues will be solved, but hard to say if it will take two years or twenty years.\n\nI think LLMs will certainly increase the productivity of software development and therefore make it cheaper. This will lead into software becoming economical in more use cases, so the demand for software will increase. Hard to say how this will balance out with the increase in the supply from the productivity increase. But it could also be that LLMs increase the demand for software developers, which could in turn increase the market opportunity for FoC tools.\n\nAnd as discussed, generating traditional code with LLMs still, at the very least, requires professional programming skills to verify the output. A (good) low/no-code tool would not.",
+    "user": "U0296ACR13M",
+    "ts": "1679897153.979009",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "b1C",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Most of the software development work is maintaining large codebases and I'd say it's still largely unproven that LLMs can offer much help in these settings. Currently the limiting factors are at least the allowed input sizes and the cost and speed of the queries. It seems that iterating on large codebases would be very slow and difficult. Overtime, it's of course very likely that these issues will be solved, but hard to say if it will take two years or twenty years.\n\nI think LLMs will certainly increase the productivity of software development and therefore make it cheaper. This will lead into software becoming economical in more use cases, so the demand for software will increase. Hard to say how this will balance out with the increase in the supply from the productivity increase. But it could also be that LLMs increase the demand for software developers, which could in turn increase the market opportunity for FoC tools.\n\nAnd as discussed, generating traditional code with LLMs still, at the very least, requires professional programming skills to verify the output. A (good) low/no-code tool would not."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U0296ACR13M",
+      "ts": "1679897885.000000"
+    },
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCGAK10LS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "700ef05e-3cb4-44f0-9b4b-0e4ee65e64ac",
+    "type": "message",
+    "text": "But of course, if a LLM already performs better in the use case, and for the audience of your foc tool, it's probably a good idea to pivot.. You could still try to compete with price, but it's difficult to say what will the price of LLM queries be in a year.",
+    "user": "U0296ACR13M",
+    "ts": "1679898374.858229",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zAa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But of course, if a LLM already performs better in the use case, and for the audience of your foc tool, it's probably a good idea to pivot.. You could still try to compete with price, but it's difficult to say what will the price of LLM queries be in a year."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f4e09a8c-b02f-4cf5-aec4-31e39b1361c4",
+    "type": "message",
+    "text": "On the heels of the \"LLMs and the future of programming\" discussion (<https://futureofcoding.slack.com/archives/C5T9GPWFL/p1679642239661619>, <https://futureofcoding.slack.com/archives/C5T9GPWFL/p1679892669316079>), I'd like to start a more concentrated discussion around their effect on Future of Coding projects. There was already some sentiment that LLMs are going to kill FoC projects. Some yes, but certainly not all. So what kind of FoC projects LLMs will not kill?",
+    "user": "U0296ACR13M",
+    "ts": "1679902227.016569",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Vvnq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On the heels of the \"LLMs and the future of programming\" discussion ("
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1679642239661619"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1679892669316079"
+              },
+              {
+                "type": "text",
+                "text": "), I'd like to start a more concentrated discussion around their effect on Future of Coding projects. There was already some sentiment that LLMs are going to kill FoC projects. Some yes, but certainly not all. So what kind of FoC projects LLMs will not kill?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U0296ACR13M",
+      "ts": "1679904038.000000"
+    },
+    "thread_ts": "1679902227.016569",
+    "reply_count": 4,
+    "reply_users_count": 2,
+    "latest_reply": "1679982547.990119",
+    "reply_users": [
+      "U0296ACR13M",
+      "UCGAK10LS"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9e75b372-2579-40f1-872b-c6a7eb7d9ba0",
+    "type": "message",
+    "text": "To kick off the discussion I did the only logical thing and asked ChatGPT.\n\n_what are the strengths of low-code and no-code tools against programming with the help of an LLM?_:\n\n`Low-code and no-code tools, as well as Language Models (LLMs) like GPT-4, each have their own strengths in software development. Here, we will focus on the strengths of low-code and no-code tools when compared to programming with the help of an LLM.`\n1. `Accessibility: Low-code and no-code platforms are designed to be accessible to non-technical users, enabling more people to create software applications without needing extensive programming knowledge. LLMs, while powerful, still require a basic understanding of programming concepts to be used effectively.`\n2. `Visual Interface: Low-code and no-code tools often provide a visual, drag-and-drop interface, making it easy to design applications and see the structure of the application. This can be more intuitive than using an LLM, which generally requires text-based communication and code editing.`\n3. `Standardization: Low-code and no-code platforms typically enforce standardized coding practices and patterns, which can result in more maintainable and organized code. On the other hand, LLMs might generate code with different styles and conventions depending on the input.`\n4. `Integration: Low-code and no-code platforms often provide pre-built integrations with popular services, databases, and APIs. While LLMs can also help generate code to interact with various services, they might require more manual work to integrate and configure the connections.`\n5. `Speed of Development: Low-code and no-code tools can significantly speed up the development process, as they automate repetitive tasks and allow users to focus on the overall application design. LLMs can also speed up development, but the improvement might not be as dramatic, especially for simpler applications.`\n6. `Collaboration: Low-code and no-code platforms often have built-in collaboration features, allowing multiple team members to work on the same project simultaneously. While it's possible to collaborate using LLMs, it might not be as streamlined as using dedicated low-code/no-code tools.`\n7. `Predictability: Low-code and no-code platforms provide a more predictable development environment, as they consist of predefined components and actions. LLMs can sometimes generate unexpected or inconsistent code, depending on the input and training data.`\n`While low-code and no-code tools have these strengths, it's important to remember that they also have limitations, such as less flexibility in terms of customization, and potential issues with scaling or performance. The choice between using low-code/no-code tools and an LLM depends on the specific project requirements, the technical expertise of the team, and the desired level of customization.`\n\n_How about if we expand the scope to the whole process of software development_\n\n`Expanding the scope to the entire software development process allows us to compare low-code/no-code tools and LLMs across various aspects of the development lifecycle. The following comparison highlights the strengths of low-code/no-code tools in the broader context of software development.`\n1. `Requirement gathering and prototyping: Low-code/no-code platforms excel at quickly creating prototypes and mockups, which can help in gathering and refining requirements. LLMs can be used for generating code snippets, but they might not provide a complete solution for creating interactive prototypes.`\n2. `Development and implementation: Low-code/no-code tools can speed up the development process by automating repetitive tasks and providing pre-built components. However, they may lack the flexibility needed for highly customized or complex applications. LLMs can help generate code, but developers still need to manage the overall application structure and logic.`\n3. `Testing: Low-code/no-code platforms often include built-in testing tools or features, making it easy to validate the application's functionality. While LLMs can help generate test cases or test code, they are not a complete solution for software testing.`\n4. `Deployment and maintenance: Low-code/no-code platforms usually have straightforward deployment and maintenance processes, often with built-in support for continuous integration and delivery. LLMs can help automate parts of the deployment process, but developers still need to manage the overall infrastructure and maintenance.`\n5. `Documentation: Low-code/no-code tools often automatically generate documentation based on the application's structure and components. LLMs can be used to generate code comments or external documentation, but they might require more manual effort to ensure that the documentation is accurate and comprehensive.`\n6. `Collaboration and project management: Low-code/no-code platforms often include collaboration and project management features, allowing teams to work together more efficiently. While LLMs can be used in a collaborative context, they may not provide the same level of support for project management.`\n7. `Training and onboarding: Low-code/no-code tools generally have a lower learning curve, enabling new team members to become productive more quickly. LLMs can be helpful for generating code samples or answering programming-related questions, but they might not be as effective for onboarding new developers who are not familiar with programming concepts.`\n`While low-code and no-code tools have these strengths in the software development process, they also have limitations. For example, they might not be suitable for highly customized applications or for situations where performance is critical. Moreover, they might result in vendor lock-in, which can limit flexibility and long-term scalability.`\n`Ultimately, the choice between using low-code/no-code tools and an LLM depends on the specific project requirements, the technical expertise of the team, and the desired level of customization and flexibility. In some cases, a combination of low-code/no-code tools and LLMs might be the most effective approach to software development.`\n\n_so, if I'm working on a low-code/no-code tool and I'm worried that LLMs will make the tool obsolete or significantly decrease it's market potential, what should I concentrate on?_\n\n`If you're working on a low-code/no-code tool and concerned about the impact of LLMs on your market potential, you should focus on several aspects that can help differentiate your product and provide value to users beyond what an LLM can offer:`\n1. `User Experience: Create a user-friendly, intuitive, and visually appealing interface that makes it easy for users to build applications without prior programming knowledge. This will help your tool stand out from LLM-based solutions, which often require more programming expertise to use effectively.`\n2. `Integrations and Ecosystem: Offer seamless integrations with popular third-party services, databases, and APIs. By providing a rich ecosystem of pre-built connectors and integrations, you can save users time and effort, making your tool more attractive than working with LLMs alone.`\n3. `Collaboration Features: Build in features that facilitate collaboration and communication among team members, making it easier for them to work together on projects. This can provide a significant advantage over LLMs, which may not inherently support collaborative development.`\n4. `Customization and Extensibility: While low-code/no-code tools are often associated with less flexibility, you can differentiate your product by offering customization options and extensibility features that cater to various use cases and industries. This could include allowing users to create custom components, use scripting languages, or integrate with external code.`\n5. `Education and Support: Provide comprehensive documentation, tutorials, and support to help users get the most out of your tool. By offering exceptional customer service and resources, you can create a loyal user base and distinguish your product from LLM-based solutions.`\n6. `Performance and Scalability: Focus on optimizing your platform for performance and scalability, ensuring that it can handle the demands of larger and more complex applications. This will help attract users who require high-performance solutions that might not be achievable with LLM-generated code.`\n7. `Security and Compliance: Address security and compliance concerns by incorporating features that ensure data privacy, secure user authentication, and adherence to industry-specific regulations. This can be an essential differentiator for customers in regulated industries.`\n8. `Target Niche Markets: Identify specific industries or use cases where your low-code/no-code tool can provide unique value, and tailor your features and marketing efforts towards those niches. By becoming a specialized solution, you can carve out a market segment less affected by LLMs.`\n9. `Community Building: Foster a community around your low-code/no-code tool, encouraging users to share their experiences, tips, and best practices. A strong community can help drive user adoption and increase your product's visibility.`\n`By focusing on these aspects, you can create a competitive low-code/no-code tool that offers value beyond what an LLM can provide, ensuring that your product remains relevant and successful in the market.`\n\nI would like to add that programming using LLMs still suffers from all of the possible pain points of the chosen programming language, beyond the act of writing code. Such as debugging experience and compilation or deployment times. This is where live programming tools excel for example.\n\nOf course, some of the LLM weaknesses will be fixed. Which ones will be fixed first? Which ones last or never? Are there niches (user groups, industries or domains) in which the strengths of LLMs don't apply or are decreased? Are there domains in which LLMs can't/will not be utilized for some (political, financial, social, security, emotional, ..) reason?",
+    "user": "U0296ACR13M",
+    "ts": "1679903697.650859",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "McmA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "To kick off the discussion I did the only logical thing and asked ChatGPT.\n\n"
+              },
+              {
+                "type": "text",
+                "text": "what are the strengths of low-code and no-code tools against programming with the help of an LLM?",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ":\n\n"
+              },
+              {
+                "type": "text",
+                "text": "Low-code and no-code tools, as well as Language Models (LLMs) like GPT-4, each have their own strengths in software development. Here, we will focus on the strengths of low-code and no-code tools when compared to programming with the help of an LLM.",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Accessibility: Low-code and no-code platforms are designed to be accessible to non-technical users, enabling more people to create software applications without needing extensive programming knowledge. LLMs, while powerful, still require a basic understanding of programming concepts to be used effectively.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Visual Interface: Low-code and no-code tools often provide a visual, drag-and-drop interface, making it easy to design applications and see the structure of the application. This can be more intuitive than using an LLM, which generally requires text-based communication and code editing.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Standardization: Low-code and no-code platforms typically enforce standardized coding practices and patterns, which can result in more maintainable and organized code. On the other hand, LLMs might generate code with different styles and conventions depending on the input.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Integration: Low-code and no-code platforms often provide pre-built integrations with popular services, databases, and APIs. While LLMs can also help generate code to interact with various services, they might require more manual work to integrate and configure the connections.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Speed of Development: Low-code and no-code tools can significantly speed up the development process, as they automate repetitive tasks and allow users to focus on the overall application design. LLMs can also speed up development, but the improvement might not be as dramatic, especially for simpler applications.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Collaboration: Low-code and no-code platforms often have built-in collaboration features, allowing multiple team members to work on the same project simultaneously. While it's possible to collaborate using LLMs, it might not be as streamlined as using dedicated low-code/no-code tools.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Predictability: Low-code and no-code platforms provide a more predictable development environment, as they consist of predefined components and actions. LLMs can sometimes generate unexpected or inconsistent code, depending on the input and training data.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "While low-code and no-code tools have these strengths, it's important to remember that they also have limitations, such as less flexibility in terms of customization, and potential issues with scaling or performance. The choice between using low-code/no-code tools and an LLM depends on the specific project requirements, the technical expertise of the team, and the desired level of customization.",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "How about if we expand the scope to the whole process of software development",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "Expanding the scope to the entire software development process allows us to compare low-code/no-code tools and LLMs across various aspects of the development lifecycle. The following comparison highlights the strengths of low-code/no-code tools in the broader context of software development.",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Requirement gathering and prototyping: Low-code/no-code platforms excel at quickly creating prototypes and mockups, which can help in gathering and refining requirements. LLMs can be used for generating code snippets, but they might not provide a complete solution for creating interactive prototypes.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Development and implementation: Low-code/no-code tools can speed up the development process by automating repetitive tasks and providing pre-built components. However, they may lack the flexibility needed for highly customized or complex applications. LLMs can help generate code, but developers still need to manage the overall application structure and logic.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Testing: Low-code/no-code platforms often include built-in testing tools or features, making it easy to validate the application's functionality. While LLMs can help generate test cases or test code, they are not a complete solution for software testing.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Deployment and maintenance: Low-code/no-code platforms usually have straightforward deployment and maintenance processes, often with built-in support for continuous integration and delivery. LLMs can help automate parts of the deployment process, but developers still need to manage the overall infrastructure and maintenance.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Documentation: Low-code/no-code tools often automatically generate documentation based on the application's structure and components. LLMs can be used to generate code comments or external documentation, but they might require more manual effort to ensure that the documentation is accurate and comprehensive.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Collaboration and project management: Low-code/no-code platforms often include collaboration and project management features, allowing teams to work together more efficiently. While LLMs can be used in a collaborative context, they may not provide the same level of support for project management.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Training and onboarding: Low-code/no-code tools generally have a lower learning curve, enabling new team members to become productive more quickly. LLMs can be helpful for generating code samples or answering programming-related questions, but they might not be as effective for onboarding new developers who are not familiar with programming concepts.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "While low-code and no-code tools have these strengths in the software development process, they also have limitations. For example, they might not be suitable for highly customized applications or for situations where performance is critical. Moreover, they might result in vendor lock-in, which can limit flexibility and long-term scalability.",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Ultimately, the choice between using low-code/no-code tools and an LLM depends on the specific project requirements, the technical expertise of the team, and the desired level of customization and flexibility. In some cases, a combination of low-code/no-code tools and LLMs might be the most effective approach to software development.",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "so, if I'm working on a low-code/no-code tool and I'm worried that LLMs will make the tool obsolete or significantly decrease it's market potential, what should I concentrate on?",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "If you're working on a low-code/no-code tool and concerned about the impact of LLMs on your market potential, you should focus on several aspects that can help differentiate your product and provide value to users beyond what an LLM can offer:",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "User Experience: Create a user-friendly, intuitive, and visually appealing interface that makes it easy for users to build applications without prior programming knowledge. This will help your tool stand out from LLM-based solutions, which often require more programming expertise to use effectively.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Integrations and Ecosystem: Offer seamless integrations with popular third-party services, databases, and APIs. By providing a rich ecosystem of pre-built connectors and integrations, you can save users time and effort, making your tool more attractive than working with LLMs alone.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Collaboration Features: Build in features that facilitate collaboration and communication among team members, making it easier for them to work together on projects. This can provide a significant advantage over LLMs, which may not inherently support collaborative development.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Customization and Extensibility: While low-code/no-code tools are often associated with less flexibility, you can differentiate your product by offering customization options and extensibility features that cater to various use cases and industries. This could include allowing users to create custom components, use scripting languages, or integrate with external code.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Education and Support: Provide comprehensive documentation, tutorials, and support to help users get the most out of your tool. By offering exceptional customer service and resources, you can create a loyal user base and distinguish your product from LLM-based solutions.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Performance and Scalability: Focus on optimizing your platform for performance and scalability, ensuring that it can handle the demands of larger and more complex applications. This will help attract users who require high-performance solutions that might not be achievable with LLM-generated code.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Security and Compliance: Address security and compliance concerns by incorporating features that ensure data privacy, secure user authentication, and adherence to industry-specific regulations. This can be an essential differentiator for customers in regulated industries.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Target Niche Markets: Identify specific industries or use cases where your low-code/no-code tool can provide unique value, and tailor your features and marketing efforts towards those niches. By becoming a specialized solution, you can carve out a market segment less affected by LLMs.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Community Building: Foster a community around your low-code/no-code tool, encouraging users to share their experiences, tips, and best practices. A strong community can help drive user adoption and increase your product's visibility.",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "By focusing on these aspects, you can create a competitive low-code/no-code tool that offers value beyond what an LLM can provide, ensuring that your product remains relevant and successful in the market.",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\nI would like to add that programming using LLMs still suffers from all of the possible pain points of the chosen programming language, beyond the act of writing code. Such as debugging experience and compilation or deployment times. This is where live programming tools excel for example.\n\nOf course, some of the LLM weaknesses will be fixed. Which ones will be fixed first? Which ones last or never? Are there niches (user groups, industries or domains) in which the strengths of LLMs don't apply or are decreased? Are there domains in which LLMs can't/will not be utilized for some (political, financial, social, security, emotional, ..) reason?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679902227.016569",
+    "parent_user_id": "U0296ACR13M",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fa8b0521-5c16-4c5d-ac50-54e5c12aa9c0",
+    "type": "message",
+    "text": "Lex Fridman interviewing Sam Altman, CEO of OpenAI. Interesting bits about GPT's capabilities and OpenAI's goals.\n\n<https://www.youtube.com/watch?v=L_Guz73e6fw>",
+    "user": "U0296ACR13M",
+    "ts": "1679908312.091679",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "x6OP0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Lex Fridman interviewing Sam Altman, CEO of OpenAI. Interesting bits about GPT's capabilities and OpenAI's goals.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=L_Guz73e6fw"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=L_Guz73e6fw",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/L_Guz73e6fw/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/L_Guz73e6fw?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI | Lex Fridman Podcast #367\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=L_Guz73e6fw",
+        "fallback": "YouTube Video: Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI | Lex Fridman Podcast #367",
+        "title": "Sam Altman: OpenAI CEO on GPT-4, ChatGPT, and the Future of AI | Lex Fridman Podcast #367",
+        "title_link": "https://www.youtube.com/watch?v=L_Guz73e6fw",
+        "author_name": "Lex Fridman",
+        "author_link": "https://www.youtube.com/@lexfridman",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "fc84240a-e6a1-4c76-ada0-413eb4945894",
+    "type": "message",
+    "text": "A Retrospective on Paradigms of AI Programming - <http://norvig.com/Lisp-retro.html> (Peter Norvig)",
+    "user": "UPVBV34EL",
+    "ts": "1679910608.845749",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aSMQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A Retrospective on Paradigms of AI Programming - "
+              },
+              {
+                "type": "link",
+                "url": "http://norvig.com/Lisp-retro.html"
+              },
+              {
+                "type": "text",
+                "text": " (Peter Norvig)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9A64F82D-6ED4-4E29-B293-5E891ED552A6",
+    "type": "message",
+    "text": "Has anyone tried to square “computing is a metamedium” (able to simulate all other mediums) with “medium is the message” school? I can think of a number of places where existing mediums can’t be emulated by a computer. But curious where people might say that’s an inherent limit vs a stage of expression computers have not yet reached (I think probably a mix of both). Is thinking there’s a limit “bad” if you are interested in the Future of Coding or does it help in some way with maximizing on strengths?",
+    "user": "U04MTMF6Y4W",
+    "ts": "1679927549.898479",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+jT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Has anyone tried to square “computing is a metamedium” (able to simulate all other mediums) with “medium is the message” school? I can think of a number of places where existing mediums "
+              },
+              {
+                "type": "text",
+                "text": "can’t"
+              },
+              {
+                "type": "text",
+                "text": " be emulated by a computer. But curious where people might say "
+              },
+              {
+                "type": "text",
+                "text": "that’s"
+              },
+              {
+                "type": "text",
+                "text": " an inherent limit vs a stage of expression computers have not yet reached (I think probably a mix of both). Is thinking "
+              },
+              {
+                "type": "text",
+                "text": "there’s"
+              },
+              {
+                "type": "text",
+                "text": " a limit “bad” if you are interested in the Future of Coding or does it help in some way with maximizing on strengths?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679927549.898479",
+    "reply_count": 10,
+    "reply_users_count": 2,
+    "latest_reply": "1680196155.914259",
+    "reply_users": [
+      "UE6EFEPTQ",
+      "U04MTMF6Y4W"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "U03JUAWDVSR"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d0443f66-897d-4ce0-8402-0ce6f70750c5",
+    "type": "message",
+    "text": "Why can't an AI skip the intermediate step and just output direct machine code? After all, do you verify what your compiler is spitting out?",
+    "user": "U0112C10V4Y",
+    "ts": "1679929542.004789",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "30S",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Why can't an AI skip the intermediate step and just output direct machine code? After all, do you verify what your compiler is spitting out?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ed808f00-7d46-45f8-af6f-9b8bf6faa722",
+    "type": "message",
+    "text": "People are still thinking in terms of the old paradigm of write, compile, run program. But a computer system where you can interact with an AI that is able to directly access input and output pretty much removes the need for any sort of programming. Programming is in the end a roundabout way of getting a computer to perform some action/compute some result.",
+    "user": "U0112C10V4Y",
+    "ts": "1679929692.502719",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kExBR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "People are still thinking in terms of the old paradigm of write, compile, run program. But a computer system where you can interact with an AI that is able to directly access input and output pretty much removes the need for any sort of programming. Programming is in the end a roundabout way of getting a computer to perform some action/compute some result."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4e127a40-7c13-444d-9413-ae36a757697e",
+    "type": "message",
+    "text": "I'd say there are two aspects that need to be addressed in translating a plain-language description of a program/app into an implementation:\n1. Formalization, i.e. adding precision and dealing with corner cases.\n2. Mapping it on the capacities of an existing machine.\nIt's easy to image full automation of 2., although we don't quite have it. Will LLM's help with that, in a sufficiently reliable way to be useful? Time will tell.\n\nIt's 1. that is really interesting. It requires adding information to the initial informal description. For common problems with known solutions, LLMs could fill that in. But will they be sufficiently aware of their own limits to say \"I can't do this\"? Time will tell.",
+    "user": "UJBAJNFLK",
+    "ts": "1679935462.089709",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "X1G",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'd say there are two aspects that need to be addressed in translating a plain-language description of a program/app into an implementation:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Formalization, i.e. adding precision and dealing with corner cases."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Mapping it on the capacities of an existing machine."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nIt's easy to image full automation of 2., although we don't quite have it. Will LLM's help with that, in a sufficiently reliable way to be useful? Time will tell.\n\nIt's 1. that is really interesting. It requires adding information to the initial informal description. For common problems with known solutions, LLMs could fill that in. But will they be sufficiently aware of their own limits to say \"I can't do this\"? Time will tell."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679833469.621219",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "28E4201F-A908-4B68-812A-E8C2A3BC9362",
+    "type": "message",
+    "text": "gpt4 excerpt:\n&gt;&gt; LLMs for bridging the gap between domain experts and developers: LLMs can help facilitate communication between domain experts and developers by translating domain-specific requirements into programming constructs or even generating code prototypes. This can reduce miscommunications and speed up the development process, especially for interdisciplinary projects.",
+    "user": "UNCP67JSK",
+    "ts": "1679936905.902369",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oeRyZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "gpt4 excerpt:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "LLMs for bridging the gap between domain experts and developers: LLMs can help facilitate communication between domain experts and developers by translating domain-specific requirements into programming constructs or even generating code prototypes. This can reduce miscommunications and speed up the development process, especially for interdisciplinary projects."
+              }
+            ],
+            "border": 1
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7AA6A812-5700-4D5E-9600-5BEE061E4497",
+    "type": "message",
+    "text": "<@UCGAK10LS> LLM's is now an essential component in most tools for thoughts; the interface and information organization/representation (eg. higher order language, pkm/graph, etc) to facilitate both the LLM-tft side and the tft-human side is still up for a huuuge improvement. Feeling pretty good about working just in that zone :)) ",
+    "user": "UNCP67JSK",
+    "ts": "1679937330.895309",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RsP8P",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCGAK10LS"
+              },
+              {
+                "type": "text",
+                "text": " LLM's is now an essential component in most tools for thoughts; the interface and information organization/representation (eg. higher order language, pkm/graph, etc) to facilitate both the LLM-tft side and the tft-human side is still up for a huuuge improvement. Feeling pretty good about working just in that zone :)) "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCGAK10LS"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "F2850C2A-B770-4BEB-BFF0-F835FD6DF125",
+    "type": "message",
+    "text": "Porting my reply from <@U0296ACR13M> ‘s question to build of what was already said here. I think there’s broadly two categories of software “consumer”, adapters and users. Users want it to just work and adapters are interested in how. Maybe we could even map it to wanting the right thing vs worse is better. For users LLMs could be a more natural interface to existing tools, APIs, automation. There the question might be, “Is this a better interface than what you get from other methods of interaction?” Sometimes?\n\nFor adapters, visibility and clarity are as important as the end product. As far as I’ve seen, using prompts to program a system builds a different skill from doing it manually . Similar to using an existing library or hiring a developer you abstract the process by outsourcing to a third-party. If that’s valuable depends on what the task is. But good abstraction, comes from being able to peel that back if needed. With current AI tools the person writing is also responsible for defining those layers. So speed could improve, but required skill would still be similar.\n\nPessimist take: Tooling tailored to AI programming seems more likely than them using existing ones. Historically that means a split, probably with more mainstream effort on the AI language side. But people tend to do this a lot: cities rebuilt for cars, modern assembly areas are too dangerous to walk around, optimized javascript limits view source’s benefits. Billion dollar SaaS black box as the best option for improving usability of existing tools software seems like digging deeper into present coding’s problems.",
+    "user": "U04MTMF6Y4W",
+    "ts": "1679941681.352839",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Vk7A7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Porting my reply from "
+              },
+              {
+                "type": "user",
+                "user_id": "U0296ACR13M"
+              },
+              {
+                "type": "text",
+                "text": " ‘s question to build of what was already said here. I think there’s broadly two categories of software “consumer”, adapters and users. Users want it to just work and adapters are interested in how. Maybe we could even map it to wanting the right thing vs worse is better. For users LLMs could be a more natural interface to existing tools, APIs, automation. There the question might be, “Is this a better interface than what you get from other methods of interaction?” Sometimes?\n\nFor adapters, visibility and clarity are as important as the end product. "
+              },
+              {
+                "type": "text",
+                "text": "As far as I’ve seen, using prompts to program a system builds a different skill from doing it"
+              },
+              {
+                "type": "text",
+                "text": " manually "
+              },
+              {
+                "type": "text",
+                "text": ". Similar to using an "
+              },
+              {
+                "type": "text",
+                "text": "existing"
+              },
+              {
+                "type": "text",
+                "text": " library or "
+              },
+              {
+                "type": "text",
+                "text": "hiring"
+              },
+              {
+                "type": "text",
+                "text": " a developer you abstract the process by outsourcing to a third-party. If that’s valuable depends on what the task is. "
+              },
+              {
+                "type": "text",
+                "text": "But good abstraction, comes from being able to peel that back if needed. With current AI tools the person writing is also responsible for defining those layers. So speed could improve, but required skill would still be similar.\n\nPessimist take: Tooling tailored to AI programming seems more likely than them using existing ones. Historically that means a split, probably with more mainstream effort on the AI language side. But people tend to do this a lot: cities rebuilt for cars, modern assembly areas are too dangerous to walk around, optimized javascript limits view source’s benefits. Billion dollar SaaS black box as the best option for improving usability of existing tools software seems like digging deeper into present coding’s problems."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "737b0417-ceff-4ff5-b2cb-82e8c2cd61db",
+    "type": "message",
+    "text": "<@U5TCAFTD3> I'm curious what you think today of <https://blog.val.town/end-programmer-programming> after recent cataclysms. We all need to revisit assumptions, and I'm looking to crib ideas :smile:",
+    "user": "UCUSW7WVD",
+    "ts": "1679949636.443929",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7=Pka",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U5TCAFTD3"
+              },
+              {
+                "type": "text",
+                "text": " I'm curious what you think today of "
+              },
+              {
+                "type": "link",
+                "url": "https://blog.val.town/end-programmer-programming"
+              },
+              {
+                "type": "text",
+                "text": " after recent cataclysms. We all need to revisit assumptions, and I'm looking to crib ideas "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://blog.val.town/end-programmer-programming",
+        "service_icon": "https://super-static-assets.s3.amazonaws.com/a99b6474-1b7b-4976-ac21-caefd21342e9/uploads/favicon/fdb4f156-bae9-43db-9745-f0ed00d2dc9d.png",
+        "id": 1,
+        "original_url": "https://blog.val.town/end-programmer-programming",
+        "fallback": "End-programmer Programming",
+        "text": "The dream of “end-user programming” is still too far away. Let’s set our sights on “end-programmer programming” first.",
+        "title": "End-programmer Programming",
+        "title_link": "https://blog.val.town/end-programmer-programming",
+        "service_name": "blog.val.town"
+      }
+    ],
+    "thread_ts": "1679949636.443929",
+    "reply_count": 18,
+    "reply_users_count": 7,
+    "latest_reply": "1680074637.569719",
+    "reply_users": [
+      "U5TCAFTD3",
+      "USH01JEDQ",
+      "UA14TGLTC",
+      "UCUSW7WVD",
+      "UJBAJNFLK",
+      "U6KQ2S410",
+      "U6BRN7A0Y"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "b3258bd6-fde4-43d1-bde7-d561a0bedb40",
+    "type": "message",
+    "text": "Appreciate the prompt. Just reread it to answer... The short answer is that EUP is still super far away, even with gpt4. No non programmers are using it in any serious way to make things as far as I've seen. If someone, maybe Geoff or someone from this community, can build that (a tool that makes gpt4 a eup programming environment), that would be awesome. It just hasnt been done yet. I'm also skeptical it is possible. Text isn't the right interface for end users to computation",
+    "user": "U5TCAFTD3",
+    "ts": "1679950313.348759",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9Za3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Appreciate the prompt. Just reread it to answer... The short answer is that EUP is still super far away, even with gpt4. No non programmers are using it in any serious way to make things as far as I've seen. If someone, maybe Geoff or someone from this community, can build that (a tool that makes gpt4 a eup programming environment), that would be awesome. It just hasnt been done yet. I'm also skeptical it is possible. Text isn't the right interface for end users to computation"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679949636.443929",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "423471f7-5965-482d-8c48-47b23ed17717",
+    "type": "message",
+    "text": "Call me old fashioned but I still think coding is the right notation for thinking about computation, so learning it is still a bottleneck",
+    "user": "U5TCAFTD3",
+    "ts": "1679950395.101859",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Y+5m",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Call me old fashioned but I still think coding is the right notation for thinking about computation, so learning it is still a bottleneck"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679949636.443929",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UAJKEBGP8",
+          "UA14TGLTC",
+          "UMV4B97GT"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "89d0f671-6030-4de3-8d8d-8e953dd0002d",
+    "type": "message",
+    "text": "<@UCUSW7WVD> Who wrote the above post, and when was it published? (Presuming it's Steve)",
+    "user": "USH01JEDQ",
+    "ts": "1679952408.269249",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iG=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " Who wrote the above post, and when was it published? (Presuming it's Steve)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679949636.443929",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "1583fcbb-5d57-46df-9449-4f90e931ac77",
+    "type": "message",
+    "text": "Lol yeah it was me. My bad for no clear author name",
+    "user": "U5TCAFTD3",
+    "ts": "1679952829.809489",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pPM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Lol yeah it was me. My bad for no clear author name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679949636.443929",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "35444e32-7343-4824-ba2b-e53d82c2819b",
+    "type": "message",
+    "text": "It was published nov 8, 2022",
+    "user": "U5TCAFTD3",
+    "ts": "1679952849.258689",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GOB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It was published nov 8, 2022"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679949636.443929",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "0adb6b06-9067-4b07-9881-afae4be146c4",
+    "type": "message",
+    "text": "The points that ChatGPT produced above are quite reasonable. However, the comparison being made is between:\n• Low-code/no-code tools\n• LLMs that generate code in traditional programming languages (e.g. Python code)\nMany of the listed benefits of no-code tools can be hypothetically be achieved through conventional language design as well. For example, the \"opportunities for FoC researchers\" that I listed in my previous <#C5T9GPWFL|thinking-together> post focus on how to make LLM-generated code easier to understand, accessible to a wider audience, and less error-prone. Those qualities (amongst others) are major selling points of low-code/no-code tools. My contention is that we — as FoC researchers — can develop new general-purpose programming languages that continue to close the gap between *no-code* and *code* while _embracing_ LLMs as a valuable tool in our tool belt.",
+    "user": "UCGAK10LS",
+    "ts": "1679958556.634899",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "czL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The points that ChatGPT produced above are quite reasonable. However, the comparison being made is between:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Low-code/no-code tools"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "LLMs that generate code in traditional programming languages (e.g. Python code)"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nMany of the listed benefits of no-code tools can be hypothetically be achieved through conventional language design as well. For example, the \"opportunities for FoC researchers\" that I listed in my previous "
+              },
+              {
+                "type": "channel",
+                "channel_id": "C5T9GPWFL"
+              },
+              {
+                "type": "text",
+                "text": " post focus on how to make LLM-generated code easier to understand, accessible to a wider audience, and less error-prone. Those qualities (amongst others) are major selling points of low-code/no-code tools. My contention is that we — as FoC researchers — can develop new general-purpose programming languages that continue to close the gap between "
+              },
+              {
+                "type": "text",
+                "text": "no-code",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "code",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " while "
+              },
+              {
+                "type": "text",
+                "text": "embracing",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " LLMs as a valuable tool in our tool belt."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679902227.016569",
+    "parent_user_id": "U0296ACR13M",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fcc4b513-4088-4454-a5d1-81cfc70f40bf",
+    "type": "message",
+    "text": "<@U0112C10V4Y> You're asking \"what is the value of reading a program that somebody else has written?\", i.e. what is the value of code review. The answer is well-known, and the second half of my post addresses it in detail.",
+    "user": "UCGAK10LS",
+    "ts": "1679959060.869239",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "h1M",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0112C10V4Y"
+              },
+              {
+                "type": "text",
+                "text": " You're asking \"what is the value of reading a program that somebody else has written?\", i.e. what is the value of code review. The answer is well-known, and the second half of my post addresses it in detail."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679892669.316079",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "67572827-45ea-48ea-91a9-bcb5e80dd01d",
+    "type": "message",
+    "text": "Nov. 8 seems like a long time ago now.\n\nWithout external validation, a non-expert can't vet GPT-4 (especially) responses because seem pretty much right.  A friend just shared a Chat GPT-4 dialog he had full of both Wikipedia accurate details mingled with reasonable inventions that Chat had no problem justifying (with convincing, though false) evidence.\n\nWhen it comes to facts, yes, this number one problem facing these systems is being addressed.\n\nWhen it comes to models/programs, we have the exciting FoC challenge of having systems present/explain/represent their inventions so that end-users can tell whether they are fit-for-purpose.",
+    "user": "UA14TGLTC",
+    "ts": "1679959954.250449",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dFKxX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Nov. 8 seems like a long time ago now.\n\nWithout external validation, a non-expert can't vet GPT-4 (especially) responses because seem pretty much right.  A friend just shared a Chat GPT-4 dialog he had full of both Wikipedia accurate details mingled with reasonable inventions that Chat had no problem justifying (with convincing, though false) evidence.\n\nWhen it comes to facts, yes, this number one problem facing these systems is being addressed.\n\nWhen it comes to models/programs, we have the exciting FoC challenge of having systems present/explain/represent their inventions so that end-users can tell whether they are fit-for-purpose."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1679949636.443929",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "7212a1c4-bc5f-4981-ad69-7b9a33fd730f",
+    "type": "message",
+    "text": "In his latest <https://www.youtube.com/watch?v=zeJD6dqJ5lo>, it looks to me like Grant Sanderson has brushed up his Manim (animation engine), maybe just that this video features a lot of Bret Victorish sliding.",
+    "user": "UA14TGLTC",
+    "ts": "1679960486.356349",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pURWJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In his latest "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=zeJD6dqJ5lo"
+              },
+              {
+                "type": "text",
+                "text": ", it looks to me like Grant Sanderson has brushed up his Manim (animation engine), maybe just that this video features a lot of Bret Victorish sliding."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=zeJD6dqJ5lo",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/zeJD6dqJ5lo/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/zeJD6dqJ5lo?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"But what is the Central Limit Theorem?\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=zeJD6dqJ5lo",
+        "fallback": "YouTube Video: But what is the Central Limit Theorem?",
+        "title": "But what is the Central Limit Theorem?",
+        "title_link": "https://www.youtube.com/watch?v=zeJD6dqJ5lo",
+        "author_name": "3Blue1Brown",
+        "author_link": "https://www.youtube.com/@3blue1brown",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
