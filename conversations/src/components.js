@@ -1,6 +1,6 @@
 import { addDays, dateToDateString } from "./date.js";
 import { getNameToCode, textFromCode } from "./emoji.js";
-import { component, html } from "./ui.js";
+import { component, css, html } from "./ui.js";
 
 const NAME_TO_CODE = getNameToCode();
 const MSG_PERMALINK_BASE_URL =
@@ -80,6 +80,11 @@ export const ConversationsViewer = component({
     activeMessage: null,
     messages: Messages.make(),
   },
+  computed: {
+    gridClass() {
+      return this.activeMessage ? "conversations-grid grid gap-3 has-thread" : "conversations-grid grid gap-3";
+    },
+  },
   methods: {
     updateActiveMessageIfSet(fn) {
       return this.updateActiveMessage((m) => (m ? fn(m) : null));
@@ -105,9 +110,35 @@ export const ConversationsViewer = component({
         .updateActiveMessageIfSet((m) => m.setShowChannel(v));
     },
   },
-  view: html`<section class="flex flex-col gap-3">
-    <div
-      class="flex flex-wrap p-3 gap-3 justify-evenly bg-base-300 sticky top-0 z-2"
+  globalStyle: css`
+    .conversations-grid {
+      grid-template-areas:
+        "nav"
+        "thread"
+        "messages";
+    }
+    .conversations-grid > .area-nav { grid-area: nav; }
+    .conversations-grid > .area-messages { grid-area: messages; }
+    .conversations-grid > .area-thread { grid-area: thread; }
+
+    @media (min-width: 768px) {
+      .conversations-grid.has-thread {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+          "nav nav"
+          "messages thread";
+        height: 100vh;
+      }
+      .conversations-grid.has-thread > .area-messages,
+      .conversations-grid.has-thread > .area-thread {
+        overflow-y: auto;
+      }
+    }
+  `,
+  view: html`<section :class="$gridClass">
+    <nav
+      class="area-nav flex flex-wrap p-3 gap-3 justify-evenly bg-base-300 z-2 sticky top-0"
     >
       <label class="label text-xs">
         <input
@@ -145,28 +176,28 @@ export const ConversationsViewer = component({
         />
         Channels
       </label>
+    </nav>
+    <div class="area-messages">
+      <x render=".messages"></x>
     </div>
-    <div class="flex gap-3">
-      <div class="flex-1">
-        <x render=".messages"></x>
+    <div class="area-thread flex flex-col gap-3" @show=".isActiveMessageSet">
+      <div
+        class="flex bg-base-300 justify-between items-center gap-3 p-2 sticky top-0 z-1"
+      >
+        <span class="font-bold text-lg">Thread</span>
+        <button
+          class="btn btn-sm btn-ghost btn-error font-mono"
+          @on.click=".resetActiveMessage"
+        >
+          X
+        </button>
       </div>
-      <div class="flex-1 flex flex-col gap-3" @show=".isActiveMessageSet">
-        <div class="flex bg-base-300 justify-between items-center gap-3 p-2">
-          <span class="font-bold text-lg">Thread</span>
-          <button
-            class="btn btn-sm btn-ghost btn-error font-mono"
-            @on.click=".resetActiveMessage"
-          >
-            X
-          </button>
-        </div>
 
-        <div class="card card-border bg-base-200 shadow-sm">
-          <div
-            class="card-body p-0 outline-0 outline-solid outline-base-400 hover:outline-1"
-          >
-            <x render=".activeMessage"></x>
-          </div>
+      <div class="card card-border bg-base-200 shadow-sm">
+        <div
+          class="card-body p-0 outline-0 outline-solid outline-base-400 hover:outline-1"
+        >
+          <x render=".activeMessage"></x>
         </div>
       </div>
     </div>

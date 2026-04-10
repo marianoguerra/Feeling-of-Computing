@@ -771,8 +771,8 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .bottom-0 {
-    bottom: calc(var(--spacing) * 0);
+  .z-1 {
+    z-index: 1;
   }
   .z-2 {
     z-index: 2;
@@ -878,14 +878,14 @@
   .flex {
     display: flex;
   }
+  .grid {
+    display: grid;
+  }
   .h-full {
     height: 100%;
   }
   .w-full {
     width: 100%;
-  }
-  .flex-1 {
-    flex: 1;
   }
   .link {
     @layer daisyui.l1.l2.l3 {
@@ -923,14 +923,8 @@
   .items-center {
     align-items: center;
   }
-  .justify-around {
-    justify-content: space-around;
-  }
   .justify-between {
     justify-content: space-between;
-  }
-  .justify-center {
-    justify-content: center;
   }
   .justify-evenly {
     justify-content: space-evenly;
@@ -940,15 +934,6 @@
   }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
-  }
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
-  }
-  .gap-x-6 {
-    column-gap: calc(var(--spacing) * 6);
-  }
-  .gap-y-2 {
-    row-gap: calc(var(--spacing) * 2);
   }
   .border-1 {
     border-style: var(--tw-border-style);
@@ -1084,54 +1069,6 @@
       }
     }
   }
-  .btn-soft {
-    @layer daisyui.l1 {
-      &:not( .btn-active, :hover, :active:focus, :focus-visible, input:checked:not(.filter .btn), :disabled, [disabled], .btn-disabled ) {
-        --btn-shadow: "";
-        --btn-fg: var(--btn-color, var(--color-base-content));
-        --btn-bg: var(--btn-color, var(--color-base-content));
-        @supports (color: color-mix(in lab, red, red)) {
-          --btn-bg: color-mix(
-        in oklab,
-        var(--btn-color, var(--color-base-content)) 8%,
-        var(--color-base-100)
-      );
-        }
-        --btn-border: var(--btn-color, var(--color-base-content));
-        @supports (color: color-mix(in lab, red, red)) {
-          --btn-border: color-mix(
-        in oklab,
-        var(--btn-color, var(--color-base-content)) 10%,
-        var(--color-base-100)
-      );
-        }
-        --btn-noise: none;
-      }
-      @media (hover: none) {
-        &:not(.btn-active, :active, :focus-visible, input:checked:not(.filter .btn)):hover {
-          --btn-shadow: "";
-          --btn-fg: var(--btn-color, var(--color-base-content));
-          --btn-bg: var(--btn-color, var(--color-base-content));
-          @supports (color: color-mix(in lab, red, red)) {
-            --btn-bg: color-mix(
-          in oklab,
-          var(--btn-color, var(--color-base-content)) 8%,
-          var(--color-base-100)
-        );
-          }
-          --btn-border: var(--btn-color, var(--color-base-content));
-          @supports (color: color-mix(in lab, red, red)) {
-            --btn-border: color-mix(
-          in oklab,
-          var(--btn-color, var(--color-base-content)) 10%,
-          var(--color-base-100)
-        );
-          }
-          --btn-noise: none;
-        }
-      }
-    }
-  }
   .btn-sm {
     @layer daisyui.l1.l2 {
       --fontsize: 0.75rem;
@@ -1145,22 +1082,10 @@
       --badge-fg: var(--color-info-content);
     }
   }
-  .badge-neutral {
-    @layer daisyui.l1.l2 {
-      --badge-color: var(--color-neutral);
-      --badge-fg: var(--color-neutral-content);
-    }
-  }
   .badge-primary {
     @layer daisyui.l1.l2 {
       --badge-color: var(--color-primary);
       --badge-fg: var(--color-primary-content);
-    }
-  }
-  .badge-secondary {
-    @layer daisyui.l1.l2 {
-      --badge-color: var(--color-secondary);
-      --badge-fg: var(--color-secondary-content);
     }
   }
   .btn-error {
