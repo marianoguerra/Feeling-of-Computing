@@ -1,0 +1,1361 @@
+[
+  {
+    "text": "wow, that's a sweet edge bundling! sources (runtime SDK), sinks (roboco-op), and other high-degree nodes with 'long-range' dependencies are popping out nicely.",
+    "files": [
+      {
+        "id": "F0A80047L7Q",
+        "created": 1768152753,
+        "timestamp": 1768152753,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U05UK5T7LPP",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 260944,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0A80047L7Q/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0A80047L7Q/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A80047L7Q-1746b6308a/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A80047L7Q-1746b6308a/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A80047L7Q-1746b6308a/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 344,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A80047L7Q-1746b6308a/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 458,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A80047L7Q-1746b6308a/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A80047L7Q-1746b6308a/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 687,
+        "original_w": 788,
+        "original_h": 752,
+        "thumb_tiny": "AwAuADDRoAx0oNJnI5pDFBzSCkJwc4pQe/brmgBevQ0Unf3paADrTd2Dgnk0pz2oPXjr0oAQdhnrSbcYOO9O96RumOtIYoz+tLSZ96WmIKT8KXNFACd6On1paSgA6DJ49aWjNGaAP//Z",
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0A80047L7Q/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0A80047L7Q-4113022e59",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U05UK5T7LPP",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t/0Tc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "wow, that's a sweet edge bundling! sources (runtime SDK), sinks (roboco-op), and other high-degree nodes with 'long-range' dependencies are popping out nicely."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1768153137.430959",
+    "client_msg_id": "c1aba047-f1fa-4356-aea5-5ddc7456c9ba",
+    "thread_ts": "1768049007.158959",
+    "parent_user_id": "U02E4DAQGSZ",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UBKNXPBAB",
+    "type": "message",
+    "ts": "1768156246.679759",
+    "client_msg_id": "e0c10010-305e-4166-82bc-0f2a6941f0b3",
+    "text": "Looks like this is a dependency graph. Have you considered more traditional DAG layout systems (GraphViz)?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1768049007.158959",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iBSYJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Looks like this is a dependency graph. Have you considered more traditional DAG layout systems (GraphViz)?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1768159069.936829",
+    "edited": {
+      "user": "U02E4DAQGSZ",
+      "ts": "1768159214.000000"
+    },
+    "client_msg_id": "7badc31f-60e8-4b84-afd4-883138f0f488",
+    "text": "yeah, I think GraphViz gives mediocre results\n1. 2D planar doesn't make dimensional sense.\n2. kinda slow\n3. nodes are unaligned\n4. hard work to make pretty \nMike Bostock did a GraphViz one: <https://observablehq.com/@observablehq/notebook-visualizer>. Its not very dense.\n\nI think the 2D planar layout is not actually correct for an edge graph. I have gone polar because it symmetrical. In runtime that supports cyclical imports, there is no clear meaning to the 2D plane: top, bottom, left or right. Polar gives everybody the same positional status and there is no boundary. You can cut the circle and unwrap to give a line, if you wanted to vertical layout.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1768049007.158959",
+    "parent_user_id": "U02E4DAQGSZ",
+    "attachments": [
+      {
+        "image_url": "https://static.observableusercontent.com/thumbnail/a52c896fdd56f0e0ebb70f407ec6817dfa6834b09cf391b037077843f43ea14b.jpg",
+        "image_width": 640,
+        "image_height": 400,
+        "image_bytes": 42561,
+        "from_url": "https://observablehq.com/@observablehq/notebook-visualizer",
+        "service_icon": "https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png",
+        "ts": 1675122910,
+        "id": 1,
+        "original_url": "https://observablehq.com/@observablehq/notebook-visualizer",
+        "fallback": "Observable: Notebook visualizer",
+        "title": "Notebook visualizer",
+        "title_link": "https://observablehq.com/@observablehq/notebook-visualizer",
+        "service_name": "Observable"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZxkVp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yeah, I think GraphViz gives mediocre results\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "2D planar doesn't make dimensional sense."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "kinda slow"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "nodes are unaligned"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "hard work to make pretty "
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Mike Bostock did a GraphViz one: "
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@observablehq/notebook-visualizer"
+              },
+              {
+                "type": "text",
+                "text": ". Its not very dense.\n\nI think the 2D planar layout is not actually correct for an edge graph. I have gone polar because it symmetrical. In runtime that supports cyclical imports, there is no clear meaning to the 2D plane: top, bottom, left or right. Polar gives everybody the same positional status and there is no boundary. You can cut the circle and unwrap to give a line, if you wanted to vertical layout."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1768161657.064209",
+    "client_msg_id": "905c79e0-5fe9-42e0-9a0a-e4645f916142",
+    "text": "Is Anthropic's MCP an instance of the object protocol that Alan Kay talked about in his '97 OOPSLA <https://youtu.be/oKg1hTOQXoY?t=3190|keynote> which <@U05GSC0B4A0> mentions in <https://feelingofcomputing.slack.com/archives/C5T9GPWFL/p1767636991559059>?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1768161657.064209",
+    "reply_count": 3,
+    "reply_users_count": 3,
+    "latest_reply": "1768169797.112049",
+    "reply_users": [
+      "UGWUJUZHT",
+      "UE1JQM9HQ",
+      "U05GSC0B4A0"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "attachments": [
+      {
+        "from_url": "https://youtu.be/oKg1hTOQXoY?t=3190",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/oKg1hTOQXoY/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/oKg1hTOQXoY?start=3190&feature=oembed&start=3190&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Alan Kay at OOPSLA 1997 - The computer revolution hasnt happened yet\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 300,
+        "id": 1,
+        "original_url": "https://youtu.be/oKg1hTOQXoY?t=3190",
+        "fallback": "YouTube Video: Alan Kay at OOPSLA 1997 - The computer revolution hasnt happened yet",
+        "title": "Alan Kay at OOPSLA 1997 - The computer revolution hasnt happened yet",
+        "title_link": "https://youtu.be/oKg1hTOQXoY?t=3190",
+        "author_name": "Jeff Gonis",
+        "author_link": "https://www.youtube.com/@jeffgonis8975",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      },
+      {
+        "from_url": "https://feelingofcomputing.slack.com/archives/C5T9GPWFL/p1767636991559059",
+        "ts": "1767636991.559059",
+        "author_id": "U05GSC0B4A0",
+        "channel_id": "C5T9GPWFL",
+        "channel_team": "T5TCAFTA9",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "message_blocks": [
+          {
+            "team": "T5TCAFTA9",
+            "channel": "C5T9GPWFL",
+            "ts": "1767636991.559059",
+            "message": {
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "Lb4dc",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": "It's been really interesting to me that we still haven't seen multi-agent systems take off, even with how powerful a single agent system like Claude Code is, and it's got me thinking that we might be dealing with something different and need a new programming/computing environment to explore it...\n\nSo...I've been playing around with this idea of taking some of the core original ideas of OO/Smalltalk (Objects as self contained computers that pass messages with binding at late as possible) and seeing what we could do if we added an LLM in there...and have landed on this concept of \"Prompt-Objects\" that are self-contained computers (essentially what people call agents) that have plaintext instructions, have access to tools as primitives, and run in a loop with an LLM, can pass messages to each other (or to humans) in natural language, and basically no binding (or essentially semantic late binding(?)).\n\nSo far I've got a simple environment set up where you can interact with these prompt objects, create new ones, and trace their communication with each other...but I'm curious if anyone else has gone down this line or thinking or gives you any ideas? I recently rewatched Kay's \""
+                        },
+                        {
+                          "type": "link",
+                          "url": "https://www.youtube.com/watch?v=oKg1hTOQXoY",
+                          "text": "The Computer Revolution Hasn't Happened Yet"
+                        },
+                        {
+                          "type": "text",
+                          "text": "\" and have been toying around with other biological inspired ideas like environmental/pheromone-style signaling...but that's down the line\n\nI played around with it a bit this weekend and it might just be me, but it's actually been kind of easier to think of different \"agentic\" flows by not really thinking of them as \"agents\" and thinking of them as \"prompt objects\" that you build a program with..."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "files": [
+          {
+            "id": "F0A6Q834TQT",
+            "created": 1767636834,
+            "timestamp": 1767636834,
+            "name": "image.png",
+            "title": "image.png",
+            "mimetype": "image/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U05GSC0B4A0",
+            "user_team": "T5TCAFTA9",
+            "editable": false,
+            "size": 133105,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0A6Q834TQT/image.png",
+            "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0A6Q834TQT/download/image.png",
+            "media_display_type": "unknown",
+            "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_64.png",
+            "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_80.png",
+            "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_360.png",
+            "thumb_360_w": 360,
+            "thumb_360_h": 254,
+            "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_480.png",
+            "thumb_480_w": 480,
+            "thumb_480_h": 338,
+            "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_160.png",
+            "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_720.png",
+            "thumb_720_w": 720,
+            "thumb_720_h": 507,
+            "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_800.png",
+            "thumb_800_w": 800,
+            "thumb_800_h": 563,
+            "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_960.png",
+            "thumb_960_w": 960,
+            "thumb_960_h": 676,
+            "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A6Q834TQT-bc9caad604/image_1024.png",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 721,
+            "original_w": 1758,
+            "original_h": 1238,
+            "thumb_tiny": "AwAiADCpuPUsc0jdec/jSjGOcUhpgAPXjP8ASkoooAKKKKACilpKACiiigAooooAuRIhkIKrjHp7mniNPn+ReD6ewpIv9af93+pp4/5afX+grIaI4UQwKSqk+uPepfKj/uL+VMg/491/z3qWkxDfKj/uL+VMljQROQi5we1S0yX/AFT/AO6aAP/Z",
+            "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0A6Q834TQT/image.png",
+            "permalink_public": "https://slack-files.com/T5TCAFTA9-F0A6Q834TQT-85434e0ab6",
+            "comments_count": 0,
+            "is_starred": false,
+            "skipped_shares": true,
+            "has_rich_preview": false,
+            "file_access": "visible"
+          }
+        ],
+        "id": 2,
+        "original_url": "https://feelingofcomputing.slack.com/archives/C5T9GPWFL/p1767636991559059",
+        "fallback": "[January 5th, 2026 10:16 AM] scott099: It's been really interesting to me that we still haven't seen multi-agent systems take off, even with how powerful a single agent system like Claude Code is, and it's got me thinking that we might be dealing with something different and need a new programming/computing environment to explore it...\n\nSo...I've been playing around with this idea of taking some of the core original ideas of OO/Smalltalk (Objects as self contained computers that pass messages with binding at late as possible) and seeing what we could do if we added an LLM in there...and have landed on this concept of \"Prompt-Objects\" that are self-contained computers (essentially what people call agents) that have plaintext instructions, have access to tools as primitives, and run in a loop with an LLM, can pass messages to each other (or to humans) in natural language, and basically no binding (or essentially semantic late binding(?)).\n\nSo far I've got a simple environment set up where you can interact with these prompt objects, create new ones, and trace their communication with each other...but I'm curious if anyone else has gone down this line or thinking or gives you any ideas? I recently rewatched Kay's \"<https://www.youtube.com/watch?v=oKg1hTOQXoY|The Computer Revolution Hasn't Happened Yet>\" and have been toying around with other biological inspired ideas like environmental/pheromone-style signaling...but that's down the line\n\nI played around with it a bit this weekend and it might just be me, but it's actually been kind of easier to think of different \"agentic\" flows by not really thinking of them as \"agents\" and thinking of them as \"prompt objects\" that you build a program with...",
+        "text": "It's been really interesting to me that we still haven't seen multi-agent systems take off, even with how powerful a single agent system like Claude Code is, and it's got me thinking that we might be dealing with something different and need a new programming/computing environment to explore it...\n\nSo...I've been playing around with this idea of taking some of the core original ideas of OO/Smalltalk (Objects as self contained computers that pass messages with binding at late as possible) and seeing what we could do if we added an LLM in there...and have landed on this concept of \"Prompt-Objects\" that are self-contained computers (essentially what people call agents) that have plaintext instructions, have access to tools as primitives, and run in a loop with an LLM, can pass messages to each other (or to humans) in natural language, and basically no binding (or essentially semantic late binding(?)).\n\nSo far I've got a simple environment set up where you can interact with these prompt objects, create new ones, and trace their communication with each other...but I'm curious if anyone else has gone down this line or thinking or gives you any ideas? I recently rewatched Kay's \"<https://www.youtube.com/watch?v=oKg1hTOQXoY|The Computer Revolution Hasn't Happened Yet>\" and have been toying around with other biological inspired ideas like environmental/pheromone-style signaling...but that's down the line\n\nI played around with it a bit this weekend and it might just be me, but it's actually been kind of easier to think of different \"agentic\" flows by not really thinking of them as \"agents\" and thinking of them as \"prompt objects\" that you build a program with...",
+        "author_name": "Scott",
+        "author_link": "https://feelingofcomputing.slack.com/team/U05GSC0B4A0",
+        "author_icon": "https://secure.gravatar.com/avatar/6366d8630c4e2394142efb0a9358fcc6.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0016-48.png",
+        "author_subname": "Scott",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "footer": "Thread in Slack Conversation"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HWAnH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Is Anthropic's MCP an instance of the object protocol that Alan Kay talked about in his '97 OOPSLA "
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/oKg1hTOQXoY?t=3190",
+                "text": "keynote"
+              },
+              {
+                "type": "text",
+                "text": " which "
+              },
+              {
+                "type": "user",
+                "user_id": "U05GSC0B4A0"
+              },
+              {
+                "type": "text",
+                "text": " mentions in "
+              },
+              {
+                "type": "link",
+                "url": "https://feelingofcomputing.slack.com/archives/C5T9GPWFL/p1767636991559059"
+              },
+              {
+                "type": "text",
+                "text": "?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1768161669.077729",
+    "edited": {
+      "user": "UGWUJUZHT",
+      "ts": "1768161870.000000"
+    },
+    "client_msg_id": "236c5283-840c-4fd3-a09a-39d29bba6926",
+    "text": "Ironically, I'm exploring <https://www.youtube.com/watch?v=rmphqjsc4Po|MCP> in an effort to format a post using Obsidian about Alan Kay's '97 OOPSLA keynote.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1768161657.064209",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=rmphqjsc4Po",
+        "thumb_url": "https://i.ytimg.com/vi/rmphqjsc4Po/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/rmphqjsc4Po?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Model Context Protocol (MCP) Explained: The New Standard for AI Tools?\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=rmphqjsc4Po",
+        "fallback": "YouTube Video: Model Context Protocol (MCP) Explained: The New Standard for AI Tools?",
+        "title": "Model Context Protocol (MCP) Explained: The New Standard for AI Tools?",
+        "title_link": "https://www.youtube.com/watch?v=rmphqjsc4Po",
+        "author_name": "Prompt Engineering",
+        "author_link": "https://www.youtube.com/@engineerprompt",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cFmjq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ironically, I'm exploring "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=rmphqjsc4Po",
+                "text": "MCP"
+              },
+              {
+                "type": "text",
+                "text": " in an effort to format a post using Obsidian about Alan Kay's '97 OOPSLA keynote."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "text": "I've been creating a 2d stack-based programming game for kids (4+) called Stacky Bird. Inspired by the game 2048 and my old RPN HP calculator. <https://game.stackybird.com/>\n\nFinishing levels unlock instructions and after a while you can go back and solve old levels in new ways with those instructions. Let me know what you think :slightly_smiling_face:",
+    "files": [
+      {
+        "id": "F0A7LSUPS1M",
+        "created": 1768161524,
+        "timestamp": 1768161524,
+        "name": "stacky-bird-demo.mp4",
+        "title": "stacky-bird-demo.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U04BQN4K3AP",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 1255476,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "is_transcription_region_supported": true,
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LSUPS1M-75b097907d/stacky-bird-demo.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LSUPS1M-75b097907d/stacky-bird-demo.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0A7LSUPS1M/download/stacky-bird-demo.mp4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LSUPS1M-75b097907d/file.m3u8?_xcb=3c167",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NzAzMTY4LEFWRVJBR0UtQkFORFdJRFRIPTU4NjIyNCxDT0RFQ1M9ImF2YzEuNjQwMDIwLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMDc4eDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdRVGRNVTFWUVV6Rk5MVGMxWWpBNU56a3dOMlF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRUUzVEZOVlVGTXhUUzAzTldJd09UYzVNRGRrTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakJCTjB4VFZWQlRNVTB0TnpWaU1EazNPVEEzWkM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pBdU1UTXpMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3UVRkTVUxVlFVekZOTFRjMVlqQTVOemt3TjJRdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWQzFZTFVWT1JFeEpVMVFLCg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LSUPS1M-75b097907d/stacky-bird-demo_trans.mp4",
+        "duration_ms": 18151,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LSUPS1M-75b097907d/stacky-bird-demo_thumb_video.jpeg",
+        "thumb_video_w": 1002,
+        "thumb_video_h": 1004,
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0A7LSUPS1M/stacky-bird-demo.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0A7LSUPS1M-9f79f34845",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U04BQN4K3AP",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uUGj1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been creating a 2d stack-based programming game for kids (4+) called Stacky Bird. Inspired by the game 2048 and my old RPN HP calculator. "
+              },
+              {
+                "type": "link",
+                "url": "https://game.stackybird.com/"
+              },
+              {
+                "type": "text",
+                "text": "\n\nFinishing levels unlock instructions and after a while you can go back and solve old levels in new ways with those instructions. Let me know what you think "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1768161690.642199",
+    "client_msg_id": "481e630b-d370-49a2-b340-858a3e4a1e78",
+    "thread_ts": "1768161690.642199",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1768164050.584119",
+    "reply_users": [
+      "UMQ6LR9NZ",
+      "U04BQN4K3AP"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart_eyes",
+        "users": [
+          "UMQ6LR9NZ",
+          "U037FDKD6E4"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U06MCTWJKSR"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "sneak peak of the next version that uses the spectral layout but on a vertical layout. Now were talking! Also generated by AI.",
+    "files": [
+      {
+        "id": "F0A7LTF4PHV",
+        "created": 1768162034,
+        "timestamp": 1768162034,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U02E4DAQGSZ",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 474043,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0A7LTF4PHV/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0A7LTF4PHV/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 314,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 419,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 628,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 698,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 838,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A7LTF4PHV-dadb5ff5db/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 894,
+        "original_w": 2232,
+        "original_h": 1948,
+        "thumb_tiny": "AwAqADDTNNCYJwzc+ppxqPcS2P3nX+6Mcf5/woAcAQTnJ5p1IDnPBFLQAUUUUABqP+LO+Tr02/p0qQ1GyKW5L59mYCgBRIC2B1HUU+kB+YjmloAKKKKAA0UGigBADuOenbmlpqn5n9j/AEFOoAKQsAQDnn0BNLRQB//Z",
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0A7LTF4PHV/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0A7LTF4PHV-1e7f24484f",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U02E4DAQGSZ",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iG1rA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "sneak peak of the next version that uses the spectral layout but on a vertical layout. Now were talking! Also generated by AI."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1768162075.487029",
+    "client_msg_id": "dea7aa6b-31e6-4c5e-bb10-70b1a2df12ae",
+    "thread_ts": "1768049007.158959",
+    "parent_user_id": "U02E4DAQGSZ",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "text": "My notebook AI <https://observablehq.com/@tomlarkworthy/robocoop-2|Robocoop> is able to 1-shot whole notebooks now. By importing other notebooks you can add them to the context and then it has good examples of how to achieve something. I used to use it one cell at a time but now it seems to be able to do a crazy amount now without making a mistake (GPT 5.2). I think literate notebooks are a better medium for AI because of the prose and that it can see runtime values as well as the code.",
+    "files": [
+      {
+        "id": "F0A8F9AU4BT",
+        "created": 1768162892,
+        "timestamp": 1768162892,
+        "name": "WholeNotebook1 1.mp4",
+        "title": "WholeNotebook1 1.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U02E4DAQGSZ",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 72293885,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "is_transcription_region_supported": true,
+        "transcription": {
+          "status": "complete",
+          "locale": "en-US",
+          "preview": {
+            "content": "Today I'd like to show you a new technique that you can do with robo co op, generating entire observable notebooks in one shot. Include additional",
+            "has_more": true
+          }
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A8F9AU4BT-9ee9364c88/wholenotebook1_1.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A8F9AU4BT-9ee9364c88/wholenotebook1_1.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0A8F9AU4BT/download/wholenotebook1_1.mp4",
+        "vtt": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A8F9AU4BT-9ee9364c88/file.vtt?_xcb=677f8",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A8F9AU4BT-9ee9364c88/file.m3u8?_xcb=677f8",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MjU2NDI2MixBVkVSQUdFLUJBTkRXSURUSD03NzkxNzUsQ09ERUNTPSJhdmMxLjY0MDAxZixtcDRhLjQwLjUiLFJFU09MVVRJT049MTI4MHg3MjAsRlJBTUUtUkFURT0yOS45NzAsU1VCVElUTEVTPSJzdWJzIgpkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TVM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TWk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TkM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TlM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tmk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tnk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3T0M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3T1M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TUM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TVM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TWk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TkM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TlM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4Tmk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4Tnk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4T0M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4T1M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF5TUM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF5TVM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF5TWk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF5TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF5TkM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF5TlM1MGN3b2pSVmhVU1U1R09qTXVPVEEwTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd1FUaEdPVUZWTkVKVUxUbGxaVGt6TmpSak9EZ3ZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF5Tmk1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQojRVhULVgtTUVESUE6VFlQRT1TVUJUSVRMRVMsR1JPVVAtSUQ9InN1YnMiLE5BTUU9IkVuZ2xpc2giLERFRkFVTFQ9WUVTLEFVVE9TRUxFQ1Q9WUVTLEZPUkNFRD1OTyxMQU5HVUFHRT0iZW5nIixVUkk9ImRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzJNREFLSTBWWVZDMVlMVTFGUkVsQkxWTkZVVlZGVGtORk9qRUtJMFZZVkMxWUxWQk1RVmxNU1ZOVUxWUlpVRVU2Vms5RUNpTkZXRlJKVGtZNk1UVTBMakExTXl3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01FRTRSamxCVlRSQ1ZDMDVaV1U1TXpZMFl6ZzRMMlpwYkdVdWRuUjBDaU5GV0ZRdFdDMUZUa1JNU1ZOVSIK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A8F9AU4BT-9ee9364c88/wholenotebook1_1_trans.mp4",
+        "duration_ms": 154053,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0A8F9AU4BT-9ee9364c88/wholenotebook1_1_thumb_video.jpeg",
+        "thumb_video_w": 1280,
+        "thumb_video_h": 720,
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0A8F9AU4BT/wholenotebook1_1.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0A8F9AU4BT-bd1d42cf52",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U02E4DAQGSZ",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vQ/QN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My notebook AI "
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/robocoop-2",
+                "text": "Robocoop"
+              },
+              {
+                "type": "text",
+                "text": " is able to 1-shot whole notebooks now. By importing other notebooks you can add them to the context and then it has good examples of how to achieve something. I used to use it one cell at a time but now it seems to be able to do a crazy amount now without making a mistake (GPT 5.2). I think literate notebooks are a better medium for AI because of the prose and that it can see runtime values as well as the code."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1768163204.521319",
+    "client_msg_id": "9f96e937-ab0e-4455-84de-6119a5953019",
+    "reactions": [
+      {
+        "name": "robot_face",
+        "users": [
+          "U06SS0DHZD1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UE1JQM9HQ",
+    "type": "message",
+    "ts": "1768163630.857889",
+    "client_msg_id": "6a427093-6a5a-4155-8b77-1aa89377652f",
+    "text": "No, it’s not",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1768161657.064209",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VqykH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "No, it’s not"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "subtype": "thread_broadcast",
+    "user": "UMQ6LR9NZ",
+    "thread_ts": "1765480231.437269",
+    "root": {
+      "user": "UMQ6LR9NZ",
+      "type": "message",
+      "ts": "1765480231.437269",
+      "client_msg_id": "9492a2bd-8ee6-4d89-86a0-79d4acbe01f4",
+      "text": "Implemented 2 mostly the same versions of <https://en.wikipedia.org/wiki/Picross|picross> using a functional programming thing I've been building\n\n• <https://smallandnearlysilent.com/bicross/>\n• <https://smallandnearlysilent.com/bicross/rpg/>",
+      "team": "T5TCAFTA9",
+      "thread_ts": "1765480231.437269",
+      "reply_count": 3,
+      "reply_users_count": 2,
+      "latest_reply": "1768163731.892029",
+      "reply_users": [
+        "U06SS0DHZD1",
+        "UMQ6LR9NZ"
+      ],
+      "is_locked": false,
+      "subscribed": false,
+      "attachments": [
+        {
+          "from_url": "https://smallandnearlysilent.com/bicross/",
+          "id": 1,
+          "original_url": "https://smallandnearlysilent.com/bicross/",
+          "fallback": "Bicross",
+          "text": "Picross, but implemented with b.js so it is bicross, nothing to do with bifrost...tries to be cozy.",
+          "title": "Bicross",
+          "title_link": "https://smallandnearlysilent.com/bicross/",
+          "service_name": "smallandnearlysilent.com"
+        },
+        {
+          "from_url": "https://smallandnearlysilent.com/bicross/rpg/",
+          "id": 2,
+          "original_url": "https://smallandnearlysilent.com/bicross/rpg/",
+          "fallback": "Bicross",
+          "text": "RPG Picross, but implemented with b.js so it is bicross, nothing to do with bifrost...tries to be cozy.",
+          "title": "Bicross",
+          "title_link": "https://smallandnearlysilent.com/bicross/rpg/",
+          "service_name": "smallandnearlysilent.com"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "2Irmg",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "Implemented 2 mostly the same versions of "
+                },
+                {
+                  "type": "link",
+                  "url": "https://en.wikipedia.org/wiki/Picross",
+                  "text": "picross"
+                },
+                {
+                  "type": "text",
+                  "text": " using a functional programming thing I've been building\n\n"
+                }
+              ]
+            },
+            {
+              "type": "rich_text_list",
+              "elements": [
+                {
+                  "type": "rich_text_section",
+                  "elements": [
+                    {
+                      "type": "link",
+                      "url": "https://smallandnearlysilent.com/bicross/"
+                    }
+                  ]
+                },
+                {
+                  "type": "rich_text_section",
+                  "elements": [
+                    {
+                      "type": "link",
+                      "url": "https://smallandnearlysilent.com/bicross/rpg/"
+                    }
+                  ]
+                }
+              ],
+              "style": "bullet",
+              "indent": 0,
+              "border": 0
+            }
+          ]
+        }
+      ]
+    },
+    "type": "message",
+    "ts": "1768163731.892029",
+    "client_msg_id": "e0dd7684-0221-4234-af3f-288ebe092e5a",
+    "text": "I...can’t stop working on my procedurally generated picross puzzle game. I think I’m getting to the point where I’m willing to call it “done” though, now that I have 3 distinct versions:\n\n• <https://smallandnearlysilent.com/bicross/> is the base sketch where I figured it all out, and have been experimenting with layout and puzzle generation\n• <https://smallandnearlysilent.com/bicross/rpg/> is a more “fun” version of the puzzle because it has some nuance to it\n• and <https://smallandnearlysilent.com/bicross/daily/> is really really actually me capitalizing on how easy it is to ensure that everyone plays the same puzzle because I have seeded level generation\nI still haven’t written up or recorded a “how to play” thing :joy:",
+    "attachments": [
+      {
+        "from_url": "https://smallandnearlysilent.com/bicross/",
+        "id": 1,
+        "original_url": "https://smallandnearlysilent.com/bicross/",
+        "fallback": "Bicross",
+        "text": "Picross, but implemented with b.js so it is bicross, nothing to do with bifrost...tries to be cozy.",
+        "title": "Bicross",
+        "title_link": "https://smallandnearlysilent.com/bicross/",
+        "service_name": "smallandnearlysilent.com"
+      },
+      {
+        "from_url": "https://smallandnearlysilent.com/bicross/rpg/",
+        "id": 2,
+        "original_url": "https://smallandnearlysilent.com/bicross/rpg/",
+        "fallback": "Bicross RPG",
+        "text": "RPG Picross, but implemented with b.js so it is bicross, nothing to do with bifrost...tries to be a cozy adventure.",
+        "title": "Bicross RPG",
+        "title_link": "https://smallandnearlysilent.com/bicross/rpg/",
+        "service_name": "smallandnearlysilent.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "L6rsa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I...can’t stop working on my procedurally generated picross puzzle game. I think I’m getting to the point where I’m willing to call it “done” though, now that I have 3 distinct versions:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://smallandnearlysilent.com/bicross/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " is the base sketch where I figured it all out, and have been experimenting with layout and puzzle generation"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://smallandnearlysilent.com/bicross/rpg/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " is a more “fun” version of the puzzle because it has some nuance to it"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "and "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://smallandnearlysilent.com/bicross/daily/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " is really really actually me capitalizing on how easy it is to ensure that everyone plays the same puzzle because I have seeded level generation"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI still haven’t written up or recorded a “how to play” thing "
+              },
+              {
+                "type": "emoji",
+                "name": "joy",
+                "unicode": "1f602"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1768163804.704839",
+    "client_msg_id": "45fe6546-2643-4dd3-86ea-f575d10cd27f",
+    "text": "this looks like a lot of fun! I have a MUCH less polished version of something similar “<https://smallandnearlysilent.com/puzzle-dungeon/|puzzle dungeon>” that I made a wee long time ago",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1768161690.642199",
+    "parent_user_id": "U04BQN4K3AP",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9rsML",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this looks like a lot of fun! I have a MUCH less polished version of something similar “"
+              },
+              {
+                "type": "link",
+                "url": "https://smallandnearlysilent.com/puzzle-dungeon/",
+                "text": "puzzle dungeon"
+              },
+              {
+                "type": "text",
+                "text": "” that I made a wee long time ago"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "U04BQN4K3AP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U04BQN4K3AP",
+    "type": "message",
+    "ts": "1768164050.584119",
+    "client_msg_id": "aaac65a9-83f4-4f0a-b24d-6a8f47bb9a51",
+    "text": "Hahaha, I created the first version of this in 2013 I believe, and have been getting back to it for a day or two every 4 years. It's ancient !\n\nBut what's super cool now is that I could upgrade to Vue 3 and typescript and add a bunch of features with Cursor within a day.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1768161690.642199",
+    "parent_user_id": "U04BQN4K3AP",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IYvmT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hahaha, I created the first version of this in 2013 I believe, and have been getting back to it for a day or two every 4 years. It's ancient !\n\nBut what's super cool now is that I could upgrade to Vue 3 and typescript and add a bunch of features with Cursor within a day."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05GSC0B4A0",
+    "type": "message",
+    "ts": "1768169797.112049",
+    "client_msg_id": "5cfc9ed1-15aa-4088-bdb9-312ffb8a5133",
+    "text": "That's a really interesting thought <@UGWUJUZHT>! Going to noodle on it a bit. I've thought MCP was really interesting even outside an LLM context as a communication protocol. I wrote this silly post back in June when it hit me... <https://worksonmymachine.ai/p/mcp-an-accidentally-universal-plugin> but I was more thinking about how nice it is to be able to integrate with all these applications that had previously been pretty locked down. It's not doing anything that was really impossible before LLMs, but a standardized way of doing jsonrpc over stdio has been really fun for me to think about since then...\n\n <@UE1JQM9HQ> any chance you could expand on your answer?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1768161657.064209",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "image_url": "https://substackcdn.com/image/fetch/$s_!kwfs!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F01350f9f-9ecd-4cb2-a28d-103a9ccc9027_1024x1024.png",
+        "image_width": 1024,
+        "image_height": 675,
+        "image_bytes": 120490,
+        "from_url": "https://worksonmymachine.ai/p/mcp-an-accidentally-universal-plugin",
+        "service_icon": "https://substackcdn.com/image/fetch/%24s_!9zQE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F79a62e06-4f9d-4616-a89d-2464f6fa19f4%2Fapple-touch-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://worksonmymachine.ai/p/mcp-an-accidentally-universal-plugin",
+        "fallback": "MCP: An (Accidentally) Universal Plugin System",
+        "text": "Or: The Day My Toaster Started Taking Phone Calls",
+        "title": "MCP: An (Accidentally) Universal Plugin System",
+        "title_link": "https://worksonmymachine.ai/p/mcp-an-accidentally-universal-plugin",
+        "service_name": "worksonmymachine.ai"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "L1gXg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That's a really interesting thought "
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": "! Going to noodle on it a bit. I've thought MCP was really interesting even outside an LLM context as a communication protocol. I wrote this silly post back in June when it hit me... "
+              },
+              {
+                "type": "link",
+                "url": "https://worksonmymachine.ai/p/mcp-an-accidentally-universal-plugin"
+              },
+              {
+                "type": "text",
+                "text": " but I was more thinking about how nice it is to be able to integrate with all these applications that had previously been pretty locked down. It's not doing anything that was really impossible before LLMs, but a standardized way of doing jsonrpc over stdio has been really fun for me to think about since then...\n\n "
+              },
+              {
+                "type": "user",
+                "user_id": "UE1JQM9HQ"
+              },
+              {
+                "type": "text",
+                "text": " any chance you could expand on your answer?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0A85GRJEG4",
+    "type": "message",
+    "ts": "1768171032.931489",
+    "client_msg_id": "4f2458e8-e69c-4463-a638-62d464c66bc5",
+    "text": "Hey all!\nA friend and I have been working on a side project for a while, and even though there are still rough edges, I thought it might resonate with folks here.\nIt's called *Tailrmade* - <https://tailrmade.app/> - a visual app builder that runs entirely in your browser. Think of it as a way to prototype and build interactive web apps without starting from scratch every time.\n*How it works:*\n• Node-based system for logic (connect data sources, APIs, transformations, etc.)\n• Visual UI layer on top where you build dashboards and interfaces\n• For every app you create, you can \"look under the hood/UI\" at the logic and see/tweak everything\n• Basic AI assistance (requires signup) that uses the same building blocks instead of being a black box\n*Fair warning, it's still a work in progress:*\n• Mobile version needs work (best on desktop for now)\n• No auto-save yet\n• Some workflows aren't as intuitive as we'd like\n• And there are still bugs around\nWhile *Tailrmade* itself isn't open source (yet), we're trying to keep the spirit of transparency. Every app you build shows its full logic, can be remixed by others, and you're never locked into a black box. We're still figuring out the right model as we grow and get more feedback. Speaking of :-)\nIf anyone has 10-15 minutes on desktop to poke around, we'd love feedback! There's some help at <https://tailrmade.app/help>, but feel free to reply or DM with questions.",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://tailrmade.app/",
+        "service_icon": "https://tailrmade.app/favicon-32.png",
+        "thumb_url": "https://tailrmade.app/assets/PlugAndPlayground-Drawing-a-chart.jpg",
+        "thumb_width": 1200,
+        "thumb_height": 630,
+        "id": 1,
+        "original_url": "https://tailrmade.app/",
+        "fallback": "Tailrmade - Your Visual App Builder",
+        "text": "Create web apps visually with drag-and-drop components. See changes instantly, work with a variety of data types, and share your tailrmade apps - all in your browser. No signup required.",
+        "title": "Tailrmade - Your Visual App Builder",
+        "title_link": "https://tailrmade.app/",
+        "service_name": "tailrmade.app"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mSpsX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hey all!\nA friend and I have been working on a side project for a while, and even though there are still rough edges, I thought it might resonate with folks here.\nIt's called "
+              },
+              {
+                "type": "text",
+                "text": "Tailrmade",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " - "
+              },
+              {
+                "type": "link",
+                "url": "https://tailrmade.app/"
+              },
+              {
+                "type": "text",
+                "text": " - a visual app builder that runs entirely in your browser. Think of it as a way to prototype and build interactive web apps without starting from scratch every time.\n"
+              },
+              {
+                "type": "text",
+                "text": "How it works:",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Node-based system for logic (connect data sources, APIs, transformations, etc.)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Visual UI layer on top where you build dashboards and interfaces"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "For every app you create, you can \"look under the hood/UI\" at the logic and see/tweak everything"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Basic AI assistance (requires signup) that uses the same building blocks instead of being a black box"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Fair warning, it's still a work in progress:",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Mobile version needs work (best on desktop for now)"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "No auto-save yet"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Some workflows aren't as intuitive as we'd like"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "And there are still bugs around"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "While "
+              },
+              {
+                "type": "text",
+                "text": "Tailrmade",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " itself isn't open source (yet), we're trying to keep the spirit of transparency. Every app you build shows its full logic, can be remixed by others, and you're never locked into a black box. We're still figuring out the right model as we grow and get more feedback. Speaking of :-)\nIf anyone has 10-15 minutes on desktop to poke around, we'd love feedback! There's some help at "
+              },
+              {
+                "type": "link",
+                "url": "https://tailrmade.app/help"
+              },
+              {
+                "type": "text",
+                "text": ", but feel free to reply or DM with questions."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1769827986.014479",
+    "client_msg_id": "db1c71aa-4460-4af1-84bc-5c823326613d",
+    "text": "<@U01QUBNJSEQ> Thanks! I will look into it some more. aside: Actors are not like PBP diagrams, but, maybe bigraphs are. The issue is: when implementing fan-out, where is the routing information stored? In Actors, you have to hard-wire knowledge of the destinations into the sender's code, whereas with PBP the routing information is notationally lifted into the parents' code. Bigraphs seem to get this more right. Technically this appears to be just a small issue, but it results in a major DX issue. Hard-wiring prevents LEGO-like plugability.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769194388.893279",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cOCHK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01QUBNJSEQ"
+              },
+              {
+                "type": "text",
+                "text": " Thanks! I will look into it some more. aside: Actors are not like PBP diagrams, but, maybe bigraphs are. The issue is: when implementing fan-out, where is the routing information stored? In Actors, you have to hard-wire knowledge of the destinations into the sender's code, whereas with PBP the routing information is notationally lifted into the parents' code. Bigraphs seem to get this more right. Technically this appears to be just a small issue, but it results in a major DX issue. Hard-wiring prevents LEGO-like plugability."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769840784.709659",
+    "client_msg_id": "1DAB52F7-C4C7-45E2-91C0-81D6AB9A4B7D",
+    "text": "&gt; Not sure I follow how this relates to the eval-tool roast request — can you connect it back to the runtime/tooling angle?\nHahah.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769815201.616299",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gHbYT",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Not sure I follow how this relates to the eval-tool roast request — can you connect it back to the runtime/tooling angle?"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nHahah."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1769890101.354869",
+    "edited": {
+      "user": "U02E4DAQGSZ",
+      "ts": "1769890617.000000"
+    },
+    "client_msg_id": "339fa21c-14d9-47b7-8bfd-225b4dbc7d9b",
+    "text": "Quite excited by this. I have put the agentic loop inside a generator function, which allows all kinds of strange programming experiments. It wrote its own integration with moltbook and was posting around. It works different to robocoop-2 that attempts to write high level observable notebook syntax. This new agent doesn't know Observable syntax and instead works on the underlying runtime representation (reactively scheduled Javascript functions). Its so fricken fast though. I built it by getting Claude code to run Lopebook via Playright and asked Claude to port the OpenCode codebase into a Lopebook. I then opened the Lopebook with my browser, and copy and pasted the code into Observable, and *tada* robocoop-3 was born!\n\nrobocoop3 is FAST. It does streaming LLM and parallel tool calls like OpenCode/Claude. But unlike those things, its a programmable function that lives inside the runtime directly, so its context is much richer (it can see both code and values and errors).\n\nIt supports OpenAI/Anthropic and Ollama (local model!). All features I wanted to do but did not have the time for with Robocoop-2.\n\n<https://observablehq.com/@tomlarkworthy/robocoop-3>",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "image_url": "https://static.observableusercontent.com/thumbnail/287296b7fd4845d2d4f6a5fdf683cd6241ae4098d736c3ff3bb27e8481f5e5d2.jpg",
+        "image_width": 640,
+        "image_height": 400,
+        "image_bytes": 22368,
+        "from_url": "https://observablehq.com/@tomlarkworthy/robocoop-3",
+        "service_icon": "https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png",
+        "ts": 1769106173,
+        "id": 1,
+        "original_url": "https://observablehq.com/@tomlarkworthy/robocoop-3",
+        "fallback": "Observable: robocoop3: agents-as-functions",
+        "text": "Calling `viewof agent = robocoop3({...})` creates a prompting UI and an in-notebook agent whose responses are streamed to the value of `agent`. You can create many such agents at-once. The function is essentially the agentic loop expressed as a generator. Features Multiple providers: OpenAI, Anthropic and Ollama (for local operation). There is a demo provider that will run `gpt5-mini` so you can try it out. Parallel tool calling Multi-turn dialogue. Test driven development. Operates on Observable's low leve",
+        "title": "robocoop3: agents-as-functions",
+        "title_link": "https://observablehq.com/@tomlarkworthy/robocoop-3",
+        "service_name": "Observable"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZKhWk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Quite excited by this. I have put the agentic loop inside a generator function, which allows all kinds of strange programming experiments. It wrote its own integration with moltbook and was posting around. It works different to robocoop-2 that attempts to write high level observable notebook syntax. This new agent doesn't know Observable syntax and instead works on the underlying runtime representation (reactively scheduled Javascript functions). Its so fricken fast though. I built it by getting Claude code to run Lopebook via Playright and asked Claude to port the OpenCode codebase into a Lopebook. I then opened the Lopebook with my browser, and copy and pasted the code into Observable, and *tada* robocoop-3 was born!\n\nrobocoop3 is FAST. It does streaming LLM and parallel tool calls like OpenCode/Claude. But unlike those things, its a programmable function that lives inside the runtime directly, so its context is much richer (it can see both code and values and errors).\n\nIt supports OpenAI/Anthropic and Ollama (local model!). All features I wanted to do but did not have the time for with Robocoop-2.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/robocoop-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "guitar",
+        "users": [
+          "UGWUJUZHT",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  }
+]
