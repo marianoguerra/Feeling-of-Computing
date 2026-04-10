@@ -1,0 +1,4856 @@
+[
+  {
+    "type": "message",
+    "text": ".....sigh.",
+    "files": [
+      {
+        "id": "F01636066AC",
+        "created": 1592179363,
+        "timestamp": 1592179363,
+        "name": "Screen Shot 2020-06-14 at 6.02.15 PM.png",
+        "title": "Screen Shot 2020-06-14 at 6.02.15 PM.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UC2A2ARPT",
+        "editable": false,
+        "size": 38330,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01636066AC/screen_shot_2020-06-14_at_6.02.15_pm.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01636066AC/download/screen_shot_2020-06-14_at_6.02.15_pm.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01636066AC-fe7278fdf1/screen_shot_2020-06-14_at_6.02.15_pm_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01636066AC-fe7278fdf1/screen_shot_2020-06-14_at_6.02.15_pm_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01636066AC-fe7278fdf1/screen_shot_2020-06-14_at_6.02.15_pm_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 316,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01636066AC-fe7278fdf1/screen_shot_2020-06-14_at_6.02.15_pm_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 421,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01636066AC-fe7278fdf1/screen_shot_2020-06-14_at_6.02.15_pm_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "original_w": 465,
+        "original_h": 530,
+        "thumb_tiny": "AwAwACpw5OBQQQcEUKcMD6U4N8p+XntjtQcSsNpKeG+cNjPtSFyQAegoDQbRTnYMQQMHHNNoAlgi8xjnoKJP3ZZB7U1JGjJ2nrTwodvmO52oLVmrLchoqZgFKAjbxyDSFUDKAc9M80E8pFRT5AFbAplAnoTtAoGVfd7AZokURAMrksP0psMvlZyMg0yR97lsYzQW3G11uPnySGJzmowSDkdaVmLHJptBLd3cXrSUUUEn/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UC2A2ARPT/F01636066AC/screen_shot_2020-06-14_at_6.02.15_pm.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01636066AC-65f238b684",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UC2A2ARPT",
+    "display_as_bot": false,
+    "ts": "1592179372.318100",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4Biv7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": ".....sigh."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U01554W5BS5",
+          "UA14TGLTC",
+          "UCXR52MU2",
+          "UJ6LDMMN0",
+          "UHWC9PXBL"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "f1b1a600-d256-4bc1-927f-ed70a3f1960e",
+    "type": "message",
+    "text": "Yeah, Mu doesn't have namespaces, anything dynamic like `method_missing` (did I understand \"error handling\" right?) or open types. It's fairly unambitious as a language; all the attention has gone to bootstrapping the implementation out of machine code.\n\nBut your concrete question is quite acute. \"What happens if you've used a field that doesn't appear in the type definition?\" I hadn't thought of it yet when I made the video. It only occurred to me in the past week. I now raise an error if a type definition failed to reconcile some field from earlier. But it's a fairly klunky error message; it just says, \"you used field `x` but it doesn't exist.\" It can't give the line or even function that used `x`. Providing such errors is going to complicate the implementation quite a bit, needing to attach source info to uses of fields in types. But I _did_ stake out a position in my paper as being all about the quality of error messages. This whole thing is now making me quite unhappy. Perhaps I'll toss out this flexibility after all.\n\nFunny story: the previous prototype of Mu (a tree-walking interpreter) _did_ have support for literate programming. (And function overloading, and generics, none of which are in the current prototype.) I hadn't connected the dots to think of this as a particularly Literate feature. That might be a good justification to take it out. Thanks!\n\n_The reason Mu doesn't have LP anymore_: I was fine encouraging hunks to refer to local variables that were in the same scope but far away in some other part of the description. However, the way Mu now exposes and requires using registers, hunks can now _destroy_ local variables far away in the same scope (that happen to share the same register). That feels too mind-bending.\n\nThen again, maybe I should allow _shadowing_. So you can't insert naked statements using Literate directives, only blocks. Hmm, that could work. (If I can get the error messages good enough.) Thanks!",
+    "user": "UCUSW7WVD",
+    "ts": "1592179372.491500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tCz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, Mu doesn't have namespaces, anything dynamic like "
+              },
+              {
+                "type": "text",
+                "text": "method_missing",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (did I understand \"error handling\" right?) or open types. It's fairly unambitious as a language; all the attention has gone to bootstrapping the implementation out of machine code.\n\nBut your concrete question is quite acute. \"What happens if you've used a field that doesn't appear in the type definition?\" I hadn't thought of it yet when I made the video. It only occurred to me in the past week. I now raise an error if a type definition failed to reconcile some field from earlier. But it's a fairly klunky error message; it just says, \"you used field "
+              },
+              {
+                "type": "text",
+                "text": "x",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " but it doesn't exist.\" It can't give the line or even function that used "
+              },
+              {
+                "type": "text",
+                "text": "x",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Providing such errors is going to complicate the implementation quite a bit, needing to attach source info to uses of fields in types. But I "
+              },
+              {
+                "type": "text",
+                "text": "did",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " stake out a position in my paper as being all about the quality of error messages. This whole thing is now making me quite unhappy. Perhaps I'll toss out this flexibility after all.\n\nFunny story: the previous prototype of Mu (a tree-walking interpreter) "
+              },
+              {
+                "type": "text",
+                "text": "did",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " have support for literate programming. (And function overloading, and generics, none of which are in the current prototype.) I hadn't connected the dots to think of this as a particularly Literate feature. That might be a good justification to take it out. Thanks!\n\n"
+              },
+              {
+                "type": "text",
+                "text": "The reason Mu doesn't have LP anymore",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ": I was fine encouraging hunks to refer to local variables that were in the same scope but far away in some other part of the description. However, the way Mu now exposes and requires using registers, hunks can now "
+              },
+              {
+                "type": "text",
+                "text": "destroy",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " local variables far away in the same scope (that happen to share the same register). That feels too mind-bending.\n\nThen again, maybe I should allow "
+              },
+              {
+                "type": "text",
+                "text": "shadowing",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". So you can't insert naked statements using Literate directives, only blocks. Hmm, that could work. (If I can get the error messages good enough.) Thanks!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591570004.468100",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "4882a9d7-84ab-48ac-913f-428c86949dec",
+    "type": "message",
+    "text": "On second thought... this _totally natural consequence of trying to use a computer_ might actually make a good poster.",
+    "user": "UC2A2ARPT",
+    "ts": "1592179437.319400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uSJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On second thought... this "
+              },
+              {
+                "type": "text",
+                "text": "totally natural consequence of trying to use a computer ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "might actually make a good poster."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592179437.319400",
+    "reply_count": 4,
+    "reply_users_count": 4,
+    "latest_reply": "1592194174.321500",
+    "reply_users": [
+      "UEBG0NPDK",
+      "UETJZ9V0T",
+      "UC2A2ARPT",
+      "UFLN9JFRT"
+    ],
+    "replies": [
+      {
+        "user": "UEBG0NPDK",
+        "ts": "1592179767.319600"
+      },
+      {
+        "user": "UETJZ9V0T",
+        "ts": "1592180549.319900"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592186475.320200"
+      },
+      {
+        "user": "UFLN9JFRT",
+        "ts": "1592194174.321500"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UCUSW7WVD",
+          "UETJZ9V0T",
+          "UETFVV24Q",
+          "UFLN9JFRT",
+          "U01554W5BS5",
+          "UA14TGLTC",
+          "U015902ESJC",
+          "UE0ETTCG7",
+          "UCXR52MU2",
+          "UHWC9PXBL",
+          "U013ZLJARC7",
+          "U9C92716C"
+        ],
+        "count": 12
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e4331553-2774-431f-80a4-308ac8e58dd9",
+    "type": "message",
+    "text": "yeah, my response before you followed up was going to be \"seems right.\" :stuck_out_tongue:",
+    "user": "UEBG0NPDK",
+    "ts": "1592179767.319600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Gq4a",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yeah, my response before you followed up was going to be \"seems right.\" "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592179437.319400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "d7eb14c8-c703-4c8b-8c93-dcd60df2a3dc",
+    "type": "message",
+    "text": "such strong <https://twitter.com/GlitchLogos> vibes!",
+    "user": "UETJZ9V0T",
+    "ts": "1592180549.319900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c07ca0b2f01a",
+      "image_72": "https://avatars.slack-edge.com/2020-02-26/960723935025_c07ca0b2f01a007b5ce8_72.png",
+      "first_name": "Max",
+      "real_name": "Max Kreminski",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "maxkreminski",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Glitch Logos (@GlitchLogos) | Twitter",
+        "title_link": "https://twitter.com/GlitchLogos",
+        "text": "The latest Tweets from Glitch Logos (@GlitchLogos). A bot by @tinysubversions",
+        "fallback": "Glitch Logos (@GlitchLogos) | Twitter",
+        "from_url": "https://twitter.com/GlitchLogos",
+        "service_icon": "https://abs.twimg.com/icons/apple-touch-icon-192x192.png",
+        "service_name": "twitter.com",
+        "id": 1,
+        "original_url": "https://twitter.com/GlitchLogos"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xJTm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "such strong "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/GlitchLogos"
+              },
+              {
+                "type": "text",
+                "text": " vibes!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592179437.319400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "515318c7-985f-4c61-b46b-23aff2b79e9a",
+    "type": "message",
+    "text": "I'm growing aware of a major inconsistency in my belief system. On the one hand I'm constantly pushing for programs in a system to be aware of their dependencies. However, I also dislike modules and namespaces and the need in general to micromanage dependencies in the small within a single program, to manually provide information that a compiler could just deduce.\n\nPerhaps this is a contradiction, and I need to give up opinions that made sense in the context of a highly dynamic, high-level, expressive Lisp dialect. Perhaps a low-level language built in machine code should throw up its hands and require the programmer to do a little more work.\n\nOn the other hand, perhaps this is a _paradox_, and what the two positions share is a desire for parsimonious dependencies. Tools to specify dependencies within a project tend to encourage larger projects with more code. Mu lacks modules for the same reason Mu lacks packages and will never have a package manager.\n\nReader, please let the author know what you think of this precious-snowflake navel-gazing.",
+    "user": "UCUSW7WVD",
+    "ts": "1592180740.491700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kTS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm growing aware of a major inconsistency in my belief system. On the one hand I'm constantly pushing for programs in a system to be aware of their dependencies. However, I also dislike modules and namespaces and the need in general to micromanage dependencies in the small within a single program, to manually provide information that a compiler could just deduce.\n\nPerhaps this is a contradiction, and I need to give up opinions that made sense in the context of a highly dynamic, high-level, expressive Lisp dialect. Perhaps a low-level language built in machine code should throw up its hands and require the programmer to do a little more work.\n\nOn the other hand, perhaps this is a "
+              },
+              {
+                "type": "text",
+                "text": "paradox",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", and what the two positions share is a desire for parsimonious dependencies. Tools to specify dependencies within a project tend to encourage larger projects with more code. Mu lacks modules for the same reason Mu lacks packages and will never have a package manager.\n\nReader, please let the author know what you think of this precious-snowflake navel-gazing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591570004.468100",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "4d826d0a-439c-4279-a233-29da1e5c7738",
+    "type": "message",
+    "text": "What a good idea for a bot!",
+    "user": "UC2A2ARPT",
+    "ts": "1592186475.320200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=KF2V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What a good idea for a bot!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592179437.319400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "5aad861c-cab7-4e9c-82a5-3dec50bb5bc7",
+    "type": "message",
+    "text": "&gt; I hadn't connected the dots to think of this as a particularly Literate feature. That might be a good justification to take it out. Thanks!\nYou troll!\n\n&gt; Reader, please let the author know what you think of this precious-snowflake navel-gazing.\nI think you have some tough decisions ahead of you.\n\n&gt; Then again, maybe I should allow _shadowing_.\nIs Mu aimed at beginners? If so, be careful about shadowing. In my experience every new programmer steps on that nail, and I've known some who were then scared away from taking advantage of it for evermore. (Example of the nail: top-level variables can be shadowed, struct members can't, but you often assign to both in the same way.)\n\n&gt; Perhaps a low-level language built in machine code should throw up its hands and require the programmer to do a little more work.\nThat could be a worthwhile bunt for the time being, and you could come back to this in the future.",
+    "user": "UC2A2ARPT",
+    "ts": "1592188455.491900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BMy5D",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I hadn't connected the dots to think of this as a particularly Literate feature. That might be a good justification to take it out. Thanks!"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nYou troll!\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Reader, please let the author know what you think of this precious-snowflake navel-gazing."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI think you have some tough decisions ahead of you.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Then again, maybe I should allow "
+              },
+              {
+                "type": "text",
+                "text": "shadowing",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nIs Mu aimed at beginners? If so, be careful about shadowing. In my experience every new programmer steps on that nail, and I've known some who were then scared away from taking advantage of it for evermore. (Example of the nail: top-level variables can be shadowed, struct members can't, but you often assign to both in the same way.)\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Perhaps a low-level language built in machine code should throw up its hands and require the programmer to do a little more work."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThat could be a worthwhile bunt for the time being, and you could come back to this in the future."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591570004.468100",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "6b7fa9fc-272c-4088-be17-535ccde24d35",
+    "type": "message",
+    "text": "I'd _almost_ made up my mind in the same direction. Then I remembered that I plan a type-checking pass anyway. It'll be some redundant work then, but not more complex. Best of both worlds.\n\nAll problems can be solved with an extra pass.",
+    "user": "UCUSW7WVD",
+    "ts": "1592192558.492200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1592192807.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l=Y+Q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'd "
+              },
+              {
+                "type": "text",
+                "text": "almost",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " made up my mind in the same direction. Then I remembered that I plan a type-checking pass anyway. It'll be some redundant work then, but not more complex. Best of both worlds.\n\nAll problems can be solved with an extra pass."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591570004.468100",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "type": "message",
+    "text": "one month ago some people claimed Sweden was showing everyone else is wrong. Do we still believe that?",
+    "files": [
+      {
+        "id": "F014YP59PDM",
+        "created": 1592192656,
+        "timestamp": 1592192656,
+        "name": "chrome_iMQMIee9cm.png",
+        "title": "chrome_iMQMIee9cm.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UC6997THT",
+        "editable": false,
+        "size": 32337,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F014YP59PDM/chrome_imqmiee9cm.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F014YP59PDM/download/chrome_imqmiee9cm.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F014YP59PDM-bb88966b8b/chrome_imqmiee9cm_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F014YP59PDM-bb88966b8b/chrome_imqmiee9cm_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F014YP59PDM-bb88966b8b/chrome_imqmiee9cm_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 223,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F014YP59PDM-bb88966b8b/chrome_imqmiee9cm_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 297,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F014YP59PDM-bb88966b8b/chrome_imqmiee9cm_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F014YP59PDM-bb88966b8b/chrome_imqmiee9cm_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 445,
+        "original_w": 797,
+        "original_h": 493,
+        "thumb_tiny": "AwAdADC8U6nJoGzHJyfrTiAQQQDxUOxP7q/kKB6Ev7v/AC1Hyf5aotif3V/IUbE/ur+QoDQl+T/LU5dgPBH51D5I/wCeY/IVKIoxjCLke1AaAe/0qOpfwFJgeg/KgRHT4xzmlwPQflS5x0oAdRRz60fjQB//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UC6997THT/F014YP59PDM/chrome_imqmiee9cm.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F014YP59PDM-6060565cdd",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UC6997THT",
+    "display_as_bot": false,
+    "ts": "1592192665.320500",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nYb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "one month ago some people claimed Sweden was showing everyone else is wrong. Do we still believe that?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1588433913.149100",
+    "parent_user_id": "UJ6LDMMN0",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "f4124041-b66a-496f-a679-a9fd06e129b4",
+    "type": "message",
+    "text": "Still no Literate Programming :+1: Mu _does_ have shadowing, though. Your example of struct members is interesting :thinking_face:",
+    "user": "UCUSW7WVD",
+    "ts": "1592192786.492500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1592192820.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dI8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Still no Literate Programming "
+              },
+              {
+                "type": "emoji",
+                "name": "+1"
+              },
+              {
+                "type": "text",
+                "text": " Mu "
+              },
+              {
+                "type": "text",
+                "text": "does",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " have shadowing, though. Your example of struct members is interesting "
+              },
+              {
+                "type": "emoji",
+                "name": "thinking_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591570004.468100",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "95befdc2-98c5-4c54-983d-724362e38a65",
+    "type": "message",
+    "text": "I haven't watched it yet, but the 5-minute Para demo is :exploding_head:\n\n<https://youtu.be/Tdvj8XMrqXc>",
+    "user": "UCUSW7WVD",
+    "ts": "1592193278.298000",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Adobe MAX 2014 Sneaks: #ProjectPara  | Adobe Creative Cloud",
+        "title_link": "https://youtu.be/Tdvj8XMrqXc",
+        "author_name": "Adobe Creative Cloud",
+        "author_link": "https://www.youtube.com/user/AdobeCreativeCloud",
+        "thumb_url": "https://i.ytimg.com/vi/Tdvj8XMrqXc/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Adobe MAX 2014 Sneaks: #ProjectPara  | Adobe Creative Cloud",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/Tdvj8XMrqXc?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/Tdvj8XMrqXc",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/Tdvj8XMrqXc"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DHhA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I haven't watched it yet, but the 5-minute Para demo is "
+              },
+              {
+                "type": "emoji",
+                "name": "exploding_head"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/Tdvj8XMrqXc"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592169728.296900",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "95befdc2-98c5-4c54-983d-724362e38a65",
+    "type": "message",
+    "text": "I haven't watched it yet, but the 5-minute Para demo is :exploding_head:\n\n<https://youtu.be/Tdvj8XMrqXc>",
+    "user": "UCUSW7WVD",
+    "ts": "1592193278.298000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Adobe MAX 2014 Sneaks: #ProjectPara  | Adobe Creative Cloud",
+        "title_link": "https://youtu.be/Tdvj8XMrqXc",
+        "author_name": "Adobe Creative Cloud",
+        "author_link": "https://www.youtube.com/user/AdobeCreativeCloud",
+        "thumb_url": "https://i.ytimg.com/vi/Tdvj8XMrqXc/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Adobe MAX 2014 Sneaks: #ProjectPara  | Adobe Creative Cloud",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/Tdvj8XMrqXc?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://youtu.be/Tdvj8XMrqXc",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/Tdvj8XMrqXc"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DHhA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I haven't watched it yet, but the 5-minute Para demo is "
+              },
+              {
+                "type": "emoji",
+                "name": "exploding_head"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/Tdvj8XMrqXc"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592169728.296900",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a9540d22-e0ab-4d89-b71d-691fdb0a0a9a",
+    "type": "message",
+    "text": "That shadow-nail example just another incarnation of references vs values.\n\n```top level\na = 5\nb = a\na = 6\nwtf is b?\n\nstruct\na = {x: 5}\nb = a\na.x = 6\nwft is b?\n\nshadowing\na = 5\n{\n  a = 6\n}\nwtf is a?```\n",
+    "user": "UC2A2ARPT",
+    "ts": "1592193843.493300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1592193923.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Kj=9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That shadow-nail example just another incarnation of references vs values.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "top level\na = 5\nb = a\na = 6\nwtf is b?\n\nstruct\na = {x: 5}\nb = a\na.x = 6\nwft is b?\n\nshadowing\na = 5\n{\n  a = 6\n}\nwtf is a?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591570004.468100",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "5c2ba63b-ff65-48cf-a187-850c51c810c6",
+    "type": "message",
+    "text": "It's very experimental and it's not clear from that picture what is special about the tiny 3d editor but for example there is <http://threejs.org/editor> as an experiment. You can put a function on any object. If you're used to JavaScript `this` is the object the function is on and `event` contains `time` and `deltaTime`\n\nI know it's far from complete. Just that it's fairly trivial to throw together a live coding editor at least to start. A hard part becomes handling all the loading and unloading of resources and null pointers etc.\n\nFor example you make a script for player and it has a reference to a gun model in the scene graph and then a user selects the gun model and presses delete. You can build a system that handles that but it's not the default. A game engine without tools would generally just have some direct pointer to the gun model in the code controlling the gun. Yes, you can build up a system to handle that but suddenly your easy pointers because some kind of heavy handle. Or you can use a language that can hopefully handle it for you. AFAIK C/C++ is not one of them though.\n\nYou've also probably seen <https://playcanvas.com/> which could basically be generously called Unity Editor online.",
+    "user": "UC6997THT",
+    "ts": "1592194028.157800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "f3eb3ca69d86",
+      "image_72": "https://avatars.slack-edge.com/2018-08-13/414472553296_f3eb3ca69d86feb77929_72.png",
+      "first_name": "Gregg",
+      "real_name": "Gregg Tavares",
+      "display_name": "gman",
+      "team": "T5TCAFTA9",
+      "name": "slack1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "PlayCanvas.com",
+        "title": "PlayCanvas - The Web-First Game Engine",
+        "title_link": "https://playcanvas.com/",
+        "text": "Collaboratively build stunning HTML5 visualizations and games",
+        "fallback": "PlayCanvas.com: PlayCanvas - The Web-First Game Engine",
+        "image_url": "https://playcanvas.com/assets/images/PlayCanvas-OG-Image.png",
+        "from_url": "https://playcanvas.com/",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 501327,
+        "service_icon": "http://s3-eu-west-1.amazonaws.com/static.playcanvas.com/images/icons/favicon.png",
+        "id": 1,
+        "original_url": "https://playcanvas.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "avKV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's very experimental and it's not clear from that picture what is special about the tiny 3d editor but for example there is "
+              },
+              {
+                "type": "link",
+                "url": "http://threejs.org/editor"
+              },
+              {
+                "type": "text",
+                "text": " as an experiment. You can put a function on any object. If you're used to JavaScript "
+              },
+              {
+                "type": "text",
+                "text": "this",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is the object the function is on and "
+              },
+              {
+                "type": "text",
+                "text": "event",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " contains "
+              },
+              {
+                "type": "text",
+                "text": "time",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "deltaTime",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\nI know it's far from complete. Just that it's fairly trivial to throw together a live coding editor at least to start. A hard part becomes handling all the loading and unloading of resources and null pointers etc.\n\nFor example you make a script for player and it has a reference to a gun model in the scene graph and then a user selects the gun model and presses delete. You can build a system that handles that but it's not the default. A game engine without tools would generally just have some direct pointer to the gun model in the code controlling the gun. Yes, you can build up a system to handle that but suddenly your easy pointers because some kind of heavy handle. Or you can use a language that can hopefully handle it for you. AFAIK C/C++ is not one of them though.\n\nYou've also probably seen "
+              },
+              {
+                "type": "link",
+                "url": "https://playcanvas.com/"
+              },
+              {
+                "type": "text",
+                "text": " which could basically be generously called Unity Editor online."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589869658.149400",
+    "parent_user_id": "UBSMEUXAA",
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "3B9039CA-894E-4F4B-A3E9-B1865CC0FE33",
+    "type": "message",
+    "text": "Yeah this would be a great poster for FoC :)",
+    "user": "UFLN9JFRT",
+    "ts": "1592194174.321500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g7ec98818d7f",
+      "image_72": "https://secure.gravatar.com/avatar/67ec98818d7fb6395d9a327081cd5472.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "Zubair",
+      "real_name": "Zubair Quraishi",
+      "display_name": "Zubairq",
+      "team": "T5TCAFTA9",
+      "name": "zubairq",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nE/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah this would be a great poster for FoC :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592179437.319400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ed4066cc-6aa0-499a-8a95-3e4cc93555f5",
+    "type": "message",
+    "text": "Maybe I'll disallow reusing the same variable name. Really I only need shadowing for reusing _registers_.",
+    "user": "UCUSW7WVD",
+    "ts": "1592195545.493600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xbW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Maybe I'll disallow reusing the same variable name. Really I only need shadowing for reusing _registers_."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591570004.468100",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "52fd31be-03bd-40d9-b42e-274b2659204b",
+    "type": "message",
+    "text": "PR sent! Feel free to DM me if you want to discuss the direction I've taken things.",
+    "user": "UC2A2ARPT",
+    "ts": "1592201244.298800",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gc==t",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "PR sent! Feel free to DM me if you want to discuss the direction I've taken things."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591605576.049500",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "52fd31be-03bd-40d9-b42e-274b2659204b",
+    "type": "message",
+    "text": "PR sent! Feel free to DM me if you want to discuss the direction I've taken things.",
+    "user": "UC2A2ARPT",
+    "ts": "1592201244.298800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gc==t",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "PR sent! Feel free to DM me if you want to discuss the direction I've taken things."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591605576.049500",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bc9e47d6-bb48-4355-9dc6-71541ca3176a",
+    "type": "message",
+    "text": "Going with the Scatch example.  You can make costumes for your sprites.  You can program sprites to change costumes.  But you can't program sprites to make costumes.",
+    "user": "UA14TGLTC",
+    "ts": "1592202932.299100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EZd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Going with the Scatch example.  You can make costumes for your sprites.  You can program sprites to change costumes.  But you can't program sprites to make costumes."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591041589.315800",
+    "parent_user_id": "ULM3U6275",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bc9e47d6-bb48-4355-9dc6-71541ca3176a",
+    "type": "message",
+    "text": "Going with the Scatch example.  You can make costumes for your sprites.  You can program sprites to change costumes.  But you can't program sprites to make costumes.",
+    "user": "UA14TGLTC",
+    "ts": "1592202932.299100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EZd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Going with the Scatch example.  You can make costumes for your sprites.  You can program sprites to change costumes.  But you can't program sprites to make costumes."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591041589.315800",
+    "parent_user_id": "ULM3U6275",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "876c6a8c-5f70-49f8-aa79-76c15a4856aa",
+    "type": "message",
+    "text": "I'm looking for papers / projects / programming languages in which the presentation / editing representation is text and the storage representation is decoupled from presentation / editing. In typical programming languages these representations are the same (code is edited as text and stored 1:1). In structured / projectional editing environments the editing representation is often non-textual. Even though these environments separate presentation from storage, it seems like a by-product while the focus lies on the editing experience. I'd like to see studies of the implications of separating presentation and storage representations for programming languages. I can imagine that this could help backwards-compatible language evolution, end a lot of syntax bike-shedding discussions and probably even let different programming languages share common concepts. I'm not the first one to think about this for sure, but I didn't manage to find useful resources.",
+    "user": "UAL7940NM",
+    "ts": "1592206702.310100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VqPRa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm looking for papers / projects / programming languages in which the presentation / editing representation is text and the storage representation is decoupled from presentation / editing. In typical programming languages these representations are the same (code is edited as text and stored 1:1). In structured / projectional editing environments the editing representation is often non-textual. Even though these environments separate presentation from storage, it seems like a by-product while the focus lies on the editing experience. I'd like to see studies of the implications of separating presentation and storage representations for programming languages. I can imagine that this could help backwards-compatible language evolution, end a lot of syntax bike-shedding discussions and probably even let different programming languages share common concepts. I'm not the first one to think about this for sure, but I didn't manage to find useful resources."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "reply_count": 11,
+    "reply_users_count": 5,
+    "latest_reply": "1592430326.367100",
+    "reply_users": [
+      "UAL7940NM",
+      "UJN1TAYEQ",
+      "UFPPABQ7P",
+      "UPMFG2571",
+      "UEDDR6L5Q"
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "876c6a8c-5f70-49f8-aa79-76c15a4856aa",
+    "type": "message",
+    "text": "I'm looking for papers / projects / programming languages in which the presentation / editing representation is text and the storage representation is decoupled from presentation / editing. In typical programming languages these representations are the same (code is edited as text and stored 1:1). In structured / projectional editing environments the editing representation is often non-textual. Even though these environments separate presentation from storage, it seems like a by-product while the focus lies on the editing experience. I'd like to see studies of the implications of separating presentation and storage representations for programming languages. I can imagine that this could help backwards-compatible language evolution, end a lot of syntax bike-shedding discussions and probably even let different programming languages share common concepts. I'm not the first one to think about this for sure, but I didn't manage to find useful resources.",
+    "user": "UAL7940NM",
+    "ts": "1592206702.310100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "43873346f949",
+      "image_72": "https://avatars.slack-edge.com/2018-07-13/399377633206_43873346f949174e340e_72.jpg",
+      "first_name": "Felix",
+      "real_name": "Felix Kohlgrüber",
+      "display_name": "Felix Kohlgrüber",
+      "team": "T5TCAFTA9",
+      "name": "felix.kohlgrueber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VqPRa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm looking for papers / projects / programming languages in which the presentation / editing representation is text and the storage representation is decoupled from presentation / editing. In typical programming languages these representations are the same (code is edited as text and stored 1:1). In structured / projectional editing environments the editing representation is often non-textual. Even though these environments separate presentation from storage, it seems like a by-product while the focus lies on the editing experience. I'd like to see studies of the implications of separating presentation and storage representations for programming languages. I can imagine that this could help backwards-compatible language evolution, end a lot of syntax bike-shedding discussions and probably even let different programming languages share common concepts. I'm not the first one to think about this for sure, but I didn't manage to find useful resources."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "reply_count": 11,
+    "reply_users_count": 5,
+    "latest_reply": "1592430326.367100",
+    "reply_users": [
+      "UAL7940NM",
+      "UJN1TAYEQ",
+      "UFPPABQ7P",
+      "UPMFG2571",
+      "UEDDR6L5Q"
+    ],
+    "replies": [
+      {
+        "user": "UAL7940NM",
+        "ts": "1592206794.310200"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1592221693.311000"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1592237524.311700"
+      },
+      {
+        "user": "UFPPABQ7P",
+        "ts": "1592240266.311900"
+      },
+      {
+        "user": "UAL7940NM",
+        "ts": "1592248589.314700"
+      },
+      {
+        "user": "UPMFG2571",
+        "ts": "1592311767.334200"
+      },
+      {
+        "user": "UEDDR6L5Q",
+        "ts": "1592329640.341000"
+      },
+      {
+        "user": "UEDDR6L5Q",
+        "ts": "1592329685.341300"
+      },
+      {
+        "user": "UAL7940NM",
+        "ts": "1592379799.360400"
+      },
+      {
+        "user": "UAL7940NM",
+        "ts": "1592380171.361200"
+      },
+      {
+        "user": "UEDDR6L5Q",
+        "ts": "1592430326.367100"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "63bbffdb-b495-446e-8133-ff2282335840",
+    "type": "message",
+    "text": "Do you know related research or have some thoughts on this? Please post below and thanks in advance :wink:",
+    "user": "UAL7940NM",
+    "ts": "1592206794.310200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ys2hE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Do you know related research or have some thoughts on this? Please post below and thanks in advance "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "63bbffdb-b495-446e-8133-ff2282335840",
+    "type": "message",
+    "text": "Do you know related research or have some thoughts on this? Please post below and thanks in advance :wink:",
+    "user": "UAL7940NM",
+    "ts": "1592206794.310200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "43873346f949",
+      "image_72": "https://avatars.slack-edge.com/2018-07-13/399377633206_43873346f949174e340e_72.jpg",
+      "first_name": "Felix",
+      "real_name": "Felix Kohlgrüber",
+      "display_name": "Felix Kohlgrüber",
+      "team": "T5TCAFTA9",
+      "name": "felix.kohlgrueber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ys2hE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Do you know related research or have some thoughts on this? Please post below and thanks in advance "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "eec1d127-daa9-4dc1-9a51-072b09380252",
+    "type": "message",
+    "text": "recording a video saying the two paragraph didn't added a lot of value, that's why I just wrote them.",
+    "user": "UBN9AFS0N",
+    "ts": "1592211154.494000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xoH0p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "recording a video saying the two paragraph didn't added a lot of value, that's why I just wrote them."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592141182.488000",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "2ab107c5-3443-4ee7-bd6c-2ee9d0dfbe0b",
+    "type": "message",
+    "text": "Timely!",
+    "user": "UA14TGLTC",
+    "ts": "1592213080.310400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bBa+j",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Timely!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592169728.296900",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2ab107c5-3443-4ee7-bd6c-2ee9d0dfbe0b",
+    "type": "message",
+    "text": "Timely!",
+    "user": "UA14TGLTC",
+    "ts": "1592213080.310400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bBa+j",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Timely!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592169728.296900",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "efb20c44-452d-4091-bb42-983ed3366655",
+    "type": "message",
+    "text": "Hey! I’m Ollie, a language and text editor nerd writing Clojure for fun and profit! Currently at Viasat hacking on parens.\n\nI’ve been working on interactive programming tools for Vim for the last few years, my pride and joy so far is Conjure (<https://github.com/Olical/conjure>), interactive lisp evaluation for Neovim. The primary language is Clojure but it also supports Fennel and Janet with Common Lisp potentially being the first contributed client! <https://asciinema.org/a/325517>\n\nThis work got me interested in the general concept of having a conversation with your program so I wrote that up here: <https://oli.me.uk/conversational-software-development/>\n\nAnd now I have an itch to develop a 3D spatial non-text programming environment with stepping / time travel through the execution of the program based on ClojureScript in the browser. Another goal of this is full VR support where you’re exploring the program in space. The program itself would eventually be exportable and runnable wherever you wanted. This is an experimental concept that I don’t intend to be used in anger, but I want it to be good enough to solve Advent of Code problems, for example.\n\nAfter ranting about this on twitter I was directed here and I’m so glad to have discovered you! :smile:",
+    "user": "U015LBHHNDS",
+    "ts": "1592221647.292400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0333addcda92",
+      "image_72": "https://avatars.slack-edge.com/2020-06-15/1208066648512_0333addcda92b705a0c2_72.jpg",
+      "first_name": "",
+      "real_name": "Oliver Caldwell",
+      "display_name": "Oliver Caldwell",
+      "team": "T5TCAFTA9",
+      "name": "olliec87",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "Olical/conjure",
+        "text": "Interactive evaluation for Neovim (Clojure, Fennel, Janet)",
+        "title": "Olical/conjure",
+        "footer": "<https://github.com/Olical/conjure|Olical/conjure>",
+        "id": 1,
+        "footer_icon": "https://github.githubassets.com/favicon.ico",
+        "ts": 1538306253,
+        "color": "24292f",
+        "fields": [
+          {
+            "title": "Stars",
+            "value": "290",
+            "short": true
+          },
+          {
+            "title": "Language",
+            "value": "Clojure",
+            "short": true
+          }
+        ],
+        "mrkdwn_in": [
+          "text",
+          "fields"
+        ],
+        "bot_id": "B011KHY4N3Y",
+        "app_unfurl_url": "https://github.com/Olical/conjure",
+        "is_app_unfurl": true
+      },
+      {
+        "service_name": "asciinema.org",
+        "title": "Conjure demo 30/04/2020",
+        "title_link": "https://asciinema.org/a/325517",
+        "text": "<https://github.com/Olical/conjure>",
+        "fallback": "asciinema.org: Conjure demo 30/04/2020",
+        "image_url": "https://asciinema.org/a/325517.png",
+        "from_url": "https://asciinema.org/a/325517",
+        "image_width": 423,
+        "image_height": 250,
+        "image_bytes": 38429,
+        "service_icon": "https://asciinema.org/images/favicon-2d62dafa447cf018340b7121007568e3.png?vsn=d",
+        "id": 2,
+        "original_url": "https://asciinema.org/a/325517"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kjlBr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hey! I’m Ollie, a language and text editor nerd writing Clojure for fun and profit! Currently at Viasat hacking on parens.\n\nI’ve been working on interactive programming tools for Vim for the last few years, my pride and joy so far is Conjure ("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/Olical/conjure"
+              },
+              {
+                "type": "text",
+                "text": "), interactive lisp evaluation for Neovim. The primary language is Clojure but it also supports Fennel and Janet with Common Lisp potentially being the first contributed client! "
+              },
+              {
+                "type": "link",
+                "url": "https://asciinema.org/a/325517"
+              },
+              {
+                "type": "text",
+                "text": "\n\nThis work got me interested in the general concept of having a conversation with your program so I wrote that up here: "
+              },
+              {
+                "type": "link",
+                "url": "https://oli.me.uk/conversational-software-development/"
+              },
+              {
+                "type": "text",
+                "text": "\n\nAnd now I have an itch to develop a 3D spatial non-text programming environment with stepping / time travel through the execution of the program based on ClojureScript in the browser. Another goal of this is full VR support where you’re exploring the program in space. The program itself would eventually be exportable and runnable wherever you wanted. This is an experimental concept that I don’t intend to be used in anger, but I want it to be good enough to solve Advent of Code problems, for example.\n\nAfter ranting about this on twitter I was directed here and I’m so glad to have discovered you! "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "reply_count": 34,
+    "reply_users_count": 5,
+    "latest_reply": "1592405894.327500",
+    "reply_users": [
+      "U015LBHHNDS",
+      "UC2A2ARPT",
+      "UUQ2EQW21",
+      "U014BMRB170",
+      "UJN1TAYEQ"
+    ],
+    "replies": [
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592222469.292700"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592230317.293400"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1592230494.293600"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592230587.293800"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1592236383.294000"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592236639.294200"
+      },
+      {
+        "user": "U014BMRB170",
+        "ts": "1592244866.294500"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1592260740.294800"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592301109.295700"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592301183.295900"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592301211.296100"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592301515.296300"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592301519.296500"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592323888.303300"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592324573.303700"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592324600.303900"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592326127.304300"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592326164.304500"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592326193.304700"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592330379.305000"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592336772.305200"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592336805.305400"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592338528.306200"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592338764.306400"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592342675.308300"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592386095.323500"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1592389769.323900"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592389977.324100"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592390061.324300"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592391959.324600"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1592403380.324800"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592404548.325200"
+      },
+      {
+        "user": "U015LBHHNDS",
+        "ts": "1592404557.325400"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1592405894.327500"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heavy_check_mark",
+        "users": [
+          "UUQ2EQW21",
+          "UUB7RA7PF",
+          "UGX9MS77V"
+        ],
+        "count": 3
+      },
+      {
+        "name": "wave",
+        "users": [
+          "UC2A2ARPT",
+          "U014BMRB170",
+          "UJBAJNFLK",
+          "UJ6LDMMN0",
+          "U012XRK1371",
+          "UKP3B2J5D"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "4514a5d4-70c9-47f9-90ba-9da4d78ae731",
+    "type": "message",
+    "text": "You might look at the Intentional Programming project. <https://en.wikipedia.org/wiki/Intentional_programming>",
+    "user": "UJN1TAYEQ",
+    "ts": "1592221693.311000",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "title": "Intentional programming",
+        "title_link": "https://en.wikipedia.org/wiki/Intentional_programming",
+        "from_url": "https://en.wikipedia.org/wiki/Intentional_programming",
+        "author_name": "Wikipedia",
+        "author_link": "https://en.wikipedia.org/",
+        "text": "In computer programming, Intentional Programming is a programming paradigm developed by Charles Simonyi that encodes in software source code the precise intention which programmers (or users) have in mind when conceiving their work. By using the appropriate level of abstraction at which the programmer is thinking, creating and maintaining computer programs become easier. By separating the concerns for intentions and how they are being operated upon, the software becomes more modular and allows for more reusable software code.\nIntentional Programming was developed by former Microsoft chief architect Charles Simonyi, who led a team in Microsoft Research, which developed the paradigm and built an integrated development environment (IDE) called IP (for Intentional Programming) that demonstrated the paradigm. Microsoft decided not to productize the Intentional Programming paradigm, as in the early 2000s Microsoft was rolling out C# and .NET to counter Java adoption. Charles Simonyi decided, with approval of Microsoft, to take his idea out from Microsoft and commercialize it himself. He founded the company Intentional Software to pursue this. Microsoft licensed the Intentional Programming patents Simonyi had acquired while at Microsoft, but no source code, to Intentional Software.\nAn overview of Intentional Programming as it was developed at Microsoft Research is given in Chapter 11 of the book Generative Programming: Methods, Tools, and Applications.",
+        "fallback": "wikipedia: Intentional programming",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/wikipedia.png",
+        "id": 1,
+        "original_url": "https://en.wikipedia.org/wiki/Intentional_programming"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "z1b",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You might look at the Intentional Programming project. "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Intentional_programming"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4514a5d4-70c9-47f9-90ba-9da4d78ae731",
+    "type": "message",
+    "text": "You might look at the Intentional Programming project. <https://en.wikipedia.org/wiki/Intentional_programming>",
+    "user": "UJN1TAYEQ",
+    "ts": "1592221693.311000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Intentional programming",
+        "title_link": "https://en.wikipedia.org/wiki/Intentional_programming",
+        "from_url": "https://en.wikipedia.org/wiki/Intentional_programming",
+        "author_name": "Wikipedia",
+        "author_link": "https://en.wikipedia.org/",
+        "text": "In computer programming, Intentional Programming is a programming paradigm developed by Charles Simonyi that encodes in software source code the precise intention which programmers (or users) have in mind when conceiving their work. By using the appropriate level of abstraction at which the programmer is thinking, creating and maintaining computer programs become easier. By separating the concerns for intentions and how they are being operated upon, the software becomes more modular and allows for more reusable software code.\nIntentional Programming was developed by former Microsoft chief architect Charles Simonyi, who led a team in Microsoft Research, which developed the paradigm and built an integrated development environment (IDE) called IP (for Intentional Programming) that demonstrated the paradigm. Microsoft decided not to productize the Intentional Programming paradigm, as in the early 2000s Microsoft was rolling out C# and .NET to counter Java adoption. Charles Simonyi decided, with approval of Microsoft, to take his idea out from Microsoft and commercialize it himself. He founded the company Intentional Software to pursue this. Microsoft licensed the Intentional Programming patents Simonyi had acquired while at Microsoft, but no source code, to Intentional Software.\nAn overview of Intentional Programming as it was developed at Microsoft Research is given in Chapter 11 of the book Generative Programming: Methods, Tools, and Applications.",
+        "fallback": "wikipedia: Intentional programming",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/wikipedia.png",
+        "id": 1,
+        "original_url": "https://en.wikipedia.org/wiki/Intentional_programming"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "z1b",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You might look at the Intentional Programming project. "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Intentional_programming"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "757f5501-ff1d-4850-a4d2-10ec73222255",
+    "type": "message",
+    "text": "Also it feels like there’s a disproportionate amount of Clojure-y people in here. I think that’s really interesting and I wonder why, I guess interactive REPL workflows?…",
+    "user": "U015LBHHNDS",
+    "ts": "1592222469.292700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0333addcda92",
+      "image_72": "https://avatars.slack-edge.com/2020-06-15/1208066648512_0333addcda92b705a0c2_72.jpg",
+      "first_name": "",
+      "real_name": "Oliver Caldwell",
+      "display_name": "Oliver Caldwell",
+      "team": "T5TCAFTA9",
+      "name": "olliec87",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OEJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also it feels like there’s a disproportionate amount of Clojure-y people in here. I think that’s really interesting and I wonder why, I guess interactive REPL workflows?…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "parent_user_id": "U015LBHHNDS",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "4c5300e6-54ad-4b78-a419-d6268d0b386e",
+    "type": "message",
+    "text": "&gt; And now I have an itch to develop a 3D spatial non-text programming environment with stepping / time travel through the execution of the program based on ClojureScript in the browser. Another goal of this is full VR support where you’re exploring the program in space.\nYou've come to the right place!\n\nAnd yeah, lots of Clojure-y people here. Lots of Haskell-y people too. Not as many Scala-y people, so I'm not sure exactly what the determining factor is but there's certainly something.",
+    "user": "UC2A2ARPT",
+    "ts": "1592230317.293400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "toK7",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And now I have an itch to develop a 3D spatial non-text programming environment with stepping / time travel through the execution of the program based on ClojureScript in the browser. Another goal of this is full VR support where you’re exploring the program in space."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nYou've come to the right place!\n\nAnd yeah, lots of Clojure-y people here. Lots of Haskell-y people too. Not as many Scala-y people, so I'm not sure exactly what the determining factor is but there's certainly something."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "parent_user_id": "U015LBHHNDS",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "7f4a1f07-2ca1-4be6-8e91-01935a7d7d45",
+    "type": "message",
+    "text": "Works in a pinch.",
+    "user": "UC2A2ARPT",
+    "ts": "1592230350.494700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iatI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Works in a pinch."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592141182.488000",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "252ca552-fe34-457b-a28f-ee9763011455",
+    "type": "message",
+    "text": "I'm currently working on my Scheme Repl.  So yes, I'm in that group too; not that I'm an experienced lisper. I think it is just barrier to entry; so much easier than writing a parser.",
+    "user": "UUQ2EQW21",
+    "ts": "1592230494.293600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2266cacc8f3",
+      "image_72": "https://secure.gravatar.com/avatar/2266cacc8f3c9964e7bfb1c357bf6873.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Chris",
+      "real_name": "Chris Maughan",
+      "display_name": "Chris Maughan",
+      "team": "T5TCAFTA9",
+      "name": "mornymorny",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7acKe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm currently working on my Scheme Repl.  So yes, I'm in that group too; not that I'm an experienced lisper. I think it is just barrier to entry; so much easier than writing a parser."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "parent_user_id": "U015LBHHNDS",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "2b57c780-a068-455b-9d57-2b78c03a4ff4",
+    "type": "message",
+    "text": "Racket / Scheme is on my “to support” list for Conjure too, as an aside :smile:",
+    "user": "U015LBHHNDS",
+    "ts": "1592230587.293800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0333addcda92",
+      "image_72": "https://avatars.slack-edge.com/2020-06-15/1208066648512_0333addcda92b705a0c2_72.jpg",
+      "first_name": "",
+      "real_name": "Oliver Caldwell",
+      "display_name": "Oliver Caldwell",
+      "team": "T5TCAFTA9",
+      "name": "olliec87",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "naT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Racket / Scheme is on my “to support” list for Conjure too, as an aside "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "parent_user_id": "U015LBHHNDS",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "b4fbe4c3-da55-4eb9-8d49-c10f44be0b86",
+    "type": "message",
+    "text": "That would be great; I'm a neovim user....",
+    "user": "UUQ2EQW21",
+    "ts": "1592236383.294000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2266cacc8f3",
+      "image_72": "https://secure.gravatar.com/avatar/2266cacc8f3c9964e7bfb1c357bf6873.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Chris",
+      "real_name": "Chris Maughan",
+      "display_name": "Chris Maughan",
+      "team": "T5TCAFTA9",
+      "name": "mornymorny",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jncwO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That would be great; I'm a neovim user...."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "parent_user_id": "U015LBHHNDS",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "5050eb94-0486-4115-8766-e1c0c5b522fe",
+    "type": "message",
+    "text": "Target audience! :tada:",
+    "user": "U015LBHHNDS",
+    "ts": "1592236639.294200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0333addcda92",
+      "image_72": "https://avatars.slack-edge.com/2020-06-15/1208066648512_0333addcda92b705a0c2_72.jpg",
+      "first_name": "",
+      "real_name": "Oliver Caldwell",
+      "display_name": "Oliver Caldwell",
+      "team": "T5TCAFTA9",
+      "name": "olliec87",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Vd8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Target audience! "
+              },
+              {
+                "type": "emoji",
+                "name": "tada"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "parent_user_id": "U015LBHHNDS",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "6ff05429-e0c3-4a77-ad59-be957ee36e52",
+    "type": "message",
+    "text": "As for implications...\nIf the storage representation is quite different from the text presentation (eg, XML vs C-like syntax), then you'll be using a tree as an intermediate representation. Even though \"the presentation / editing representation is text\", there is a challenge if you want to provide a convention text editing interface, because maybe not all texts can be backward mapped into your tree representation (eg, what about mismatched parentheses)? So what happens? If there is a syntax error, you can't save your file until the syntax error is fixed? Or you provide a \"structured editing\" interface that doesn't allow you to make syntax errors? What I've read about structure editors is that there's a learning curve, and you run into the problem that a lot of common idioms that programmers learn for editing code using a conventional text editor don't work in a structure editor, creating frustration.",
+    "user": "UJN1TAYEQ",
+    "ts": "1592237524.311700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nKp0g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As for implications...\nIf the storage representation is quite different from the text presentation (eg, XML vs C-like syntax), then you'll be using a tree as an intermediate representation. Even though \"the presentation / editing representation is text\", there is a challenge if you want to provide a convention text editing interface, because maybe not all texts can be backward mapped into your tree representation (eg, what about mismatched parentheses)? So what happens? If there is a syntax error, you can't save your file until the syntax error is fixed? Or you provide a \"structured editing\" interface that doesn't allow you to make syntax errors? What I've read about structure editors is that there's a learning curve, and you run into the problem that a lot of common idioms that programmers learn for editing code using a conventional text editor don't work in a structure editor, creating frustration."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6ff05429-e0c3-4a77-ad59-be957ee36e52",
+    "type": "message",
+    "text": "As for implications...\nIf the storage representation is quite different from the text presentation (eg, XML vs C-like syntax), then you'll be using a tree as an intermediate representation. Even though \"the presentation / editing representation is text\", there is a challenge if you want to provide a convention text editing interface, because maybe not all texts can be backward mapped into your tree representation (eg, what about mismatched parentheses)? So what happens? If there is a syntax error, you can't save your file until the syntax error is fixed? Or you provide a \"structured editing\" interface that doesn't allow you to make syntax errors? What I've read about structure editors is that there's a learning curve, and you run into the problem that a lot of common idioms that programmers learn for editing code using a conventional text editor don't work in a structure editor, creating frustration.",
+    "user": "UJN1TAYEQ",
+    "ts": "1592237524.311700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nKp0g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As for implications...\nIf the storage representation is quite different from the text presentation (eg, XML vs C-like syntax), then you'll be using a tree as an intermediate representation. Even though \"the presentation / editing representation is text\", there is a challenge if you want to provide a convention text editing interface, because maybe not all texts can be backward mapped into your tree representation (eg, what about mismatched parentheses)? So what happens? If there is a syntax error, you can't save your file until the syntax error is fixed? Or you provide a \"structured editing\" interface that doesn't allow you to make syntax errors? What I've read about structure editors is that there's a learning curve, and you run into the problem that a lot of common idioms that programmers learn for editing code using a conventional text editor don't work in a structure editor, creating frustration."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f0c5a7e2-d7db-4104-956e-ab05058e137a",
+    "type": "message",
+    "text": "<@UAL7940NM> I hope you're doing well!\nAt Storyscript we have a projectional editor which doesn't show syntax errors per se, it only says when code is correct and \"runnable\". We couple that with \"grammar suggestions\" like in MS Word / Grammarly to help show you how to make corrections. In this way, any syntax that isn't \"valid\" is simply stored as stylable text. It took a lot of trial-and-error to figure out how strict our exportable/saveable representation would be to an AST, but we struck a pretty good balance IMO (leaning more towards flexibility / error tolerant than what we started with).\nA part of our approach was made more complex, because we threw the whole \"compilation pipeline concept\" out the window, and went with managing our authoring tool using an ECS data model (like in game development)",
+    "user": "UFPPABQ7P",
+    "ts": "1592240266.311900",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1592240287.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f=gO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UAL7940NM"
+              },
+              {
+                "type": "text",
+                "text": " I hope you're doing well!\nAt Storyscript we have a projectional editor which doesn't show syntax errors per se, it only says when code is correct and \"runnable\". We couple that with \"grammar suggestions\" like in MS Word / Grammarly to help show you how to make corrections. In this way, any syntax that isn't \"valid\" is simply stored as stylable text. It took a lot of trial-and-error to figure out how strict our exportable/saveable representation would be to an AST, but we struck a pretty good balance IMO (leaning more towards flexibility / error tolerant than what we started with).\nA part of our approach was made more complex, because we threw the whole \"compilation pipeline concept\" out the window, and went with managing our authoring tool using an ECS data model (like in game development)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f0c5a7e2-d7db-4104-956e-ab05058e137a",
+    "type": "message",
+    "text": "<@UAL7940NM> I hope you're doing well!\nAt Storyscript we have a projectional editor which doesn't show syntax errors per se, it only says when code is correct and \"runnable\". We couple that with \"grammar suggestions\" like in MS Word / Grammarly to help show you how to make corrections. In this way, any syntax that isn't \"valid\" is simply stored as stylable text. It took a lot of trial-and-error to figure out how strict our exportable/saveable representation would be to an AST, but we struck a pretty good balance IMO (leaning more towards flexibility / error tolerant than what we started with).\nA part of our approach was made more complex, because we threw the whole \"compilation pipeline concept\" out the window, and went with managing our authoring tool using an ECS data model (like in game development)",
+    "user": "UFPPABQ7P",
+    "ts": "1592240266.311900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1592240287.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f=gO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UAL7940NM"
+              },
+              {
+                "type": "text",
+                "text": " I hope you're doing well!\nAt Storyscript we have a projectional editor which doesn't show syntax errors per se, it only says when code is correct and \"runnable\". We couple that with \"grammar suggestions\" like in MS Word / Grammarly to help show you how to make corrections. In this way, any syntax that isn't \"valid\" is simply stored as stylable text. It took a lot of trial-and-error to figure out how strict our exportable/saveable representation would be to an AST, but we struck a pretty good balance IMO (leaning more towards flexibility / error tolerant than what we started with).\nA part of our approach was made more complex, because we threw the whole \"compilation pipeline concept\" out the window, and went with managing our authoring tool using an ECS data model (like in game development)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8fe2e0e0-3361-4876-92e2-c132508bfb47",
+    "type": "message",
+    "text": "Why do you guys think COM interop in Windows has fallen out of vogue? At the surface, it seems like an awesome way to get apps working together, but I haven't seen it used in a very long time.",
+    "user": "UJK8MKYAZ",
+    "ts": "1592242443.312300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Rj7w",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Why do you guys think COM interop in Windows has fallen out of vogue? At the surface, it seems like an awesome way to get apps working together, but I haven't seen it used in a very long time."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592242443.312300",
+    "reply_count": 2,
+    "reply_users_count": 1,
+    "latest_reply": "1592341222.346600",
+    "reply_users": [
+      "UD6EXQVM0"
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8fe2e0e0-3361-4876-92e2-c132508bfb47",
+    "type": "message",
+    "text": "Why do you guys think COM interop in Windows has fallen out of vogue? At the surface, it seems like an awesome way to get apps working together, but I haven't seen it used in a very long time.",
+    "user": "UJK8MKYAZ",
+    "ts": "1592242443.312300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Rj7w",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Why do you guys think COM interop in Windows has fallen out of vogue? At the surface, it seems like an awesome way to get apps working together, but I haven't seen it used in a very long time."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592242443.312300",
+    "reply_count": 2,
+    "reply_users_count": 1,
+    "latest_reply": "1592341222.346600",
+    "reply_users": [
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1592340671.346000"
+      },
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1592341222.346600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c590daa8-66ca-44f2-841e-2e3b58f123d0",
+    "type": "message",
+    "text": "TIL Deutsch Limit: <https://en.wikipedia.org/wiki/Deutsch_limit>\nEtymology from this quip: “Well, this is all fine and well, but the problem with visual programming languages is that you can’t have more than 50 visual primitives on the screen at the same time. How are you going to write an operating system?”",
+    "user": "UDKTZSD6H",
+    "ts": "1592244482.313000",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1592244601.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MfCBw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "TIL Deutsch Limit: "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Deutsch_limit"
+              },
+              {
+                "type": "text",
+                "text": "\nEtymology from this quip: “Well, this is all fine and well, but the problem with visual programming languages is that you can’t have more than 50 visual primitives on the screen at the same time. How are you going to write an operating system?”"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "reply_count": 8,
+    "reply_users_count": 4,
+    "latest_reply": "1592359006.353800",
+    "reply_users": [
+      "UC2A2ARPT",
+      "U6FKVSVCK",
+      "UDKTZSD6H",
+      "UHWC9PXBL"
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "upside_down_face",
+        "users": [
+          "UC2A2ARPT",
+          "UEBG0NPDK",
+          "U6FKVSVCK",
+          "UUB7RA7PF"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c590daa8-66ca-44f2-841e-2e3b58f123d0",
+    "type": "message",
+    "text": "TIL Deutsch Limit: <https://en.wikipedia.org/wiki/Deutsch_limit>\nEtymology from this quip: “Well, this is all fine and well, but the problem with visual programming languages is that you can’t have more than 50 visual primitives on the screen at the same time. How are you going to write an operating system?”",
+    "user": "UDKTZSD6H",
+    "ts": "1592244482.313000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1592244601.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MfCBw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "TIL Deutsch Limit: "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Deutsch_limit"
+              },
+              {
+                "type": "text",
+                "text": "\nEtymology from this quip: “Well, this is all fine and well, but the problem with visual programming languages is that you can’t have more than 50 visual primitives on the screen at the same time. How are you going to write an operating system?”"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "reply_count": 8,
+    "reply_users_count": 4,
+    "latest_reply": "1592359006.353800",
+    "reply_users": [
+      "UC2A2ARPT",
+      "U6FKVSVCK",
+      "UDKTZSD6H",
+      "UHWC9PXBL"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592244650.313300"
+      },
+      {
+        "user": "U6FKVSVCK",
+        "ts": "1592246120.314100"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592249237.314900"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592249331.315700"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1592249637.316000"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1592358962.352600"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1592358987.353100"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1592359006.353800"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "upside_down_face",
+        "users": [
+          "UC2A2ARPT",
+          "UEBG0NPDK",
+          "U6FKVSVCK",
+          "UUB7RA7PF"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e37253f4-7a85-49ae-9383-7d169dba277b",
+    "type": "message",
+    "text": "That and other _totally bogus_ objections collected here: <https://github.com/ivanreese/visual-programming-codex/blob/master/criticisms.md>",
+    "user": "UC2A2ARPT",
+    "ts": "1592244650.313300",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1592244655.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CWQLT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That and other "
+              },
+              {
+                "type": "text",
+                "text": "totally bogus",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " objections collected here: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/ivanreese/visual-programming-codex/blob/master/criticisms.md"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UDKTZSD6H",
+          "UJ6LDMMN0",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e37253f4-7a85-49ae-9383-7d169dba277b",
+    "type": "message",
+    "text": "That and other _totally bogus_ objections collected here: <https://github.com/ivanreese/visual-programming-codex/blob/master/criticisms.md>",
+    "user": "UC2A2ARPT",
+    "ts": "1592244650.313300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1592244655.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CWQLT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That and other "
+              },
+              {
+                "type": "text",
+                "text": "totally bogus",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " objections collected here: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/ivanreese/visual-programming-codex/blob/master/criticisms.md"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UDKTZSD6H",
+          "UJ6LDMMN0",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "554b2344-082d-4583-ac7d-0d1c57b17f3a",
+    "type": "message",
+    "text": "Yess this is awesome, neovim crew unite",
+    "user": "U014BMRB170",
+    "ts": "1592244866.294500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "aa987a15dfe3",
+      "image_72": "https://avatars.slack-edge.com/2020-05-29/1167097708305_aa987a15dfe3dcccd363_72.jpg",
+      "first_name": "",
+      "real_name": "Tom MacWright",
+      "display_name": "Tom MacWright",
+      "team": "T5TCAFTA9",
+      "name": "tom041",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Y5Ej",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yess this is awesome, neovim crew unite"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "parent_user_id": "U015LBHHNDS",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "fa5dc750-a7b7-4af2-b5f9-c2bee193da32",
+    "type": "message",
+    "text": "That's the daily average from what I can see; I think total deaths are comparable to the UK if I recall correctly?",
+    "user": "UE6EFEPTQ",
+    "ts": "1592245089.322900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8xFI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That's the daily average from what I can see; I think total deaths are comparable to the UK if I recall correctly?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1588433913.149100",
+    "parent_user_id": "UJ6LDMMN0",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8d77b16e-8867-4498-8d45-276ada744363",
+    "type": "message",
+    "text": "I find it at least a little amusing that the text editor I have open is currently displaying just over 60 lines of code.",
+    "user": "U6FKVSVCK",
+    "ts": "1592246120.314100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l1c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I find it at least a little amusing that the text editor I have open is currently displaying just over 60 lines of code."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8d77b16e-8867-4498-8d45-276ada744363",
+    "type": "message",
+    "text": "I find it at least a little amusing that the text editor I have open is currently displaying just over 60 lines of code.",
+    "user": "U6FKVSVCK",
+    "ts": "1592246120.314100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cad501b70b26",
+      "image_72": "https://avatars.slack-edge.com/2019-10-07/786673147216_cad501b70b26e7666ed0_72.png",
+      "first_name": "Tim",
+      "real_name": "Tim Babb",
+      "display_name": "tbabb",
+      "team": "T5TCAFTA9",
+      "name": "tbabb",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l1c",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I find it at least a little amusing that the text editor I have open is currently displaying just over 60 lines of code."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e24ec01e-9f6b-47be-811b-76bb651183be",
+    "type": "message",
+    "text": "<@UEQ6M68H0> there are unwritten requirements for getting papers published, handed down verbally from advisor to student. It's almost impossible if you haven't been on the inside. Nevertheless, once you learn the code, getting published may be more likely to have a long-term impact than having your product become popular.",
+    "user": "U6KQ2S410",
+    "ts": "1592246317.314300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=vYc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UEQ6M68H0"
+              },
+              {
+                "type": "text",
+                "text": " there are unwritten requirements for getting papers published, handed down verbally from advisor to student. It's almost impossible if you haven't been on the inside. Nevertheless, once you learn the code, getting published may be more likely to have a long-term impact than having your product become popular."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592007162.213400",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e24ec01e-9f6b-47be-811b-76bb651183be",
+    "type": "message",
+    "text": "<@UEQ6M68H0> there are unwritten requirements for getting papers published, handed down verbally from advisor to student. It's almost impossible if you haven't been on the inside. Nevertheless, once you learn the code, getting published may be more likely to have a long-term impact than having your product become popular.",
+    "user": "U6KQ2S410",
+    "ts": "1592246317.314300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e8f4c2151d2b",
+      "image_72": "https://avatars.slack-edge.com/2017-08-09/225308926294_e8f4c2151d2b70ebfae3_72.jpg",
+      "first_name": "Jonathan",
+      "real_name": "Jonathan Edwards",
+      "display_name": "jonathoda",
+      "team": "T5TCAFTA9",
+      "name": "jonathoda",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=vYc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UEQ6M68H0"
+              },
+              {
+                "type": "text",
+                "text": " there are unwritten requirements for getting papers published, handed down verbally from advisor to student. It's almost impossible if you haven't been on the inside. Nevertheless, once you learn the code, getting published may be more likely to have a long-term impact than having your product become popular."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592007162.213400",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a3e82aca-5034-4381-86af-ce0f16e1a29c",
+    "type": "message",
+    "text": "<@U6KQ2S410> how true.  Getting published is almost as mysterious as getting a grant. I tried a few times to get a grant but was unsuccessful. One time i bid on a USAID project on Tanzania, where i was going to ship container loads of paper and HP LaserJets with satellite internet to a small set of towns outside the capital, so they could print textbooks on demand that were created by a small staff in the capital, with bilingual versions for the regional languages. With a net price of about $3 per 100 page book, it was the most cost effective textbook delivery system imaginable, and the state dept liked the project and we were in the final contention, but the big textbook company that was planning to sell the typical books for $80 a book got them to delay the offering and kills us because we couldn't keep hanging onto a project that never starts at a predictable time. You can't hold a staff without already having projects. Knowing how to navigate the grant system is a truly dark art, and the people who know how to wrangle grants on a consistent basis earn a lot of money and have ultimate job security. One of the groups i bumped into called their Washington office \"proposal island\", because it becomes a continuous process.",
+    "user": "UEQ6M68H0",
+    "ts": "1592247347.314500",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TMRrE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U6KQ2S410"
+              },
+              {
+                "type": "text",
+                "text": " how true.  Getting published is almost as mysterious as getting a grant. I tried a few times to get a grant but was unsuccessful. One time i bid on a USAID project on Tanzania, where i was going to ship container loads of paper and HP LaserJets with satellite internet to a small set of towns outside the capital, so they could print textbooks on demand that were created by a small staff in the capital, with bilingual versions for the regional languages. With a net price of about $3 per 100 page book, it was the most cost effective textbook delivery system imaginable, and the state dept liked the project and we were in the final contention, but the big textbook company that was planning to sell the typical books for $80 a book got them to delay the offering and kills us because we couldn't keep hanging onto a project that never starts at a predictable time. You can't hold a staff without already having projects. Knowing how to navigate the grant system is a truly dark art, and the people who know how to wrangle grants on a consistent basis earn a lot of money and have ultimate job security. One of the groups i bumped into called their Washington office \"proposal island\", because it becomes a continuous process."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592007162.213400",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a3e82aca-5034-4381-86af-ce0f16e1a29c",
+    "type": "message",
+    "text": "<@U6KQ2S410> how true.  Getting published is almost as mysterious as getting a grant. I tried a few times to get a grant but was unsuccessful. One time i bid on a USAID project on Tanzania, where i was going to ship container loads of paper and HP LaserJets with satellite internet to a small set of towns outside the capital, so they could print textbooks on demand that were created by a small staff in the capital, with bilingual versions for the regional languages. With a net price of about $3 per 100 page book, it was the most cost effective textbook delivery system imaginable, and the state dept liked the project and we were in the final contention, but the big textbook company that was planning to sell the typical books for $80 a book got them to delay the offering and kills us because we couldn't keep hanging onto a project that never starts at a predictable time. You can't hold a staff without already having projects. Knowing how to navigate the grant system is a truly dark art, and the people who know how to wrangle grants on a consistent basis earn a lot of money and have ultimate job security. One of the groups i bumped into called their Washington office \"proposal island\", because it becomes a continuous process.",
+    "user": "UEQ6M68H0",
+    "ts": "1592247347.314500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TMRrE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U6KQ2S410"
+              },
+              {
+                "type": "text",
+                "text": " how true.  Getting published is almost as mysterious as getting a grant. I tried a few times to get a grant but was unsuccessful. One time i bid on a USAID project on Tanzania, where i was going to ship container loads of paper and HP LaserJets with satellite internet to a small set of towns outside the capital, so they could print textbooks on demand that were created by a small staff in the capital, with bilingual versions for the regional languages. With a net price of about $3 per 100 page book, it was the most cost effective textbook delivery system imaginable, and the state dept liked the project and we were in the final contention, but the big textbook company that was planning to sell the typical books for $80 a book got them to delay the offering and kills us because we couldn't keep hanging onto a project that never starts at a predictable time. You can't hold a staff without already having projects. Knowing how to navigate the grant system is a truly dark art, and the people who know how to wrangle grants on a consistent basis earn a lot of money and have ultimate job security. One of the groups i bumped into called their Washington office \"proposal island\", because it becomes a continuous process."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592007162.213400",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d9393a89-f0ac-4180-bd54-a3903bb51c03",
+    "type": "message",
+    "text": "<@UC6997THT> the graph that you are showing is highly misleading. 1) it will be some time, probably not until 2021, until the dust settles and we see the actual changes in the total death rates so we can determine how much extra death covid cost. Keep in mind there are no agreed upon standards for reporting cause of death. Did someone die with covid? or did they die of covid? Or did they die of 10 things, and covid was one of them?  So these charts are useless. There is a talk recently from a top statistician in UK, and so far it looks like 80% of people in the UK appear to be immune to the disease for unknown reasons. They are cranking the numbers going backwards from effect to cause, and discovering that Vitamin D, spicy foods, all sorts of things seem to offer significant protections. Even in the USA totally different regimens have been followed; South Dakota vs. California for example. Belarus' plan from their president was to gargle with vodka and take saunas. So in 2022 we will be able to look back dispassionately at the numbers and see what worked. People want Sweden to fail in Norther Europe because they bucked the crowd. See this talk by Karl Friston for some very interesting mathematical talk <https://www.youtube.com/watch?v=dUOFeVIrOPg>\n\nThe problem with using poorly designed mathematical models which don't even have a parameter for susceptibility, is that you can generate such alarming results that it frightens people. The truth is that the virus is so small and untrackable that the underlying mechanisms cannot be directly observed, and thus working backwards from results to causal factors becomes the best way. And you can't do that while it is happening, this is all rear-view mirror processes.\n\nI predict they will be arguing about which way was better for years, everyone trying to justify the decisions they made.",
+    "user": "UEQ6M68H0",
+    "ts": "1592248142.323100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Karl Friston: up to 80% not even susceptible to Covid-19",
+        "title_link": "https://www.youtube.com/watch?v=dUOFeVIrOPg",
+        "author_name": "UnHerd",
+        "author_link": "https://www.youtube.com/channel/UCMxiv15iK_MFayY_3fU9loQ",
+        "thumb_url": "https://i.ytimg.com/vi/dUOFeVIrOPg/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Karl Friston: up to 80% not even susceptible to Covid-19",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/dUOFeVIrOPg?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=dUOFeVIrOPg",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=dUOFeVIrOPg"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LzuVg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UC6997THT"
+              },
+              {
+                "type": "text",
+                "text": " the graph that you are showing is highly misleading. 1) it will be some time, probably not until 2021, until the dust settles and we see the actual changes in the total death rates so we can determine how much extra death covid cost. Keep in mind there are no agreed upon standards for reporting cause of death. Did someone die with covid? or did they die of covid? Or did they die of 10 things, and covid was one of them?  So these charts are useless. There is a talk recently from a top statistician in UK, and so far it looks like 80% of people in the UK appear to be immune to the disease for unknown reasons. They are cranking the numbers going backwards from effect to cause, and discovering that Vitamin D, spicy foods, all sorts of things seem to offer significant protections. Even in the USA totally different regimens have been followed; South Dakota vs. California for example. Belarus' plan from their president was to gargle with vodka and take saunas. So in 2022 we will be able to look back dispassionately at the numbers and see what worked. People want Sweden to fail in Norther Europe because they bucked the crowd. See this talk by Karl Friston for some very interesting mathematical talk "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=dUOFeVIrOPg"
+              },
+              {
+                "type": "text",
+                "text": "\n\nThe problem with using poorly designed mathematical models which don't even have a parameter for susceptibility, is that you can generate such alarming results that it frightens people. The truth is that the virus is so small and untrackable that the underlying mechanisms cannot be directly observed, and thus working backwards from results to causal factors becomes the best way. And you can't do that while it is happening, this is all rear-view mirror processes.\n\nI predict they will be arguing about which way was better for years, everyone trying to justify the decisions they made."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1588433913.149100",
+    "parent_user_id": "UJ6LDMMN0",
+    "reactions": [
+      {
+        "name": "+1::skin-tone-3",
+        "users": [
+          "UE6EFEPTQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b2e176d0-f792-4706-8bea-8cc8eb57daa8",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> Thanks for bringing Intentional Programming up. I heard of it but never really took a deeper look. It's time for that I guess. Regarding mapping into the storage representation: I would be ok with not allowing to save code that contains syntax errors. It shouldn't be too hard to bring code into a form that parses, and on the other hand this forces you to deal with these kinds of errors early. Committed code and input to compilers would be guaranteed to be well formed to some extend, which I think is a good thing.\nStructured editing doesn't work IMO when requiring each edit to map from one valid AST to another valid one. There's just to many operations needed for this to be practical. Text editing allows composing a few simple edit operations into larger transformations, kinda unix-philosophy style.",
+    "user": "UAL7940NM",
+    "ts": "1592248589.314700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "J=5U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for bringing Intentional Programming up. I heard of it but never really took a deeper look. It's time for that I guess. Regarding mapping into the storage representation: I would be ok with not allowing to save code that contains syntax errors. It shouldn't be too hard to bring code into a form that parses, and on the other hand this forces you to deal with these kinds of errors early. Committed code and input to compilers would be guaranteed to be well formed to some extend, which I think is a good thing.\nStructured editing doesn't work IMO when requiring each edit to map from one valid AST to another valid one. There's just to many operations needed for this to be practical. Text editing allows composing a few simple edit operations into larger transformations, kinda unix-philosophy style."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b2e176d0-f792-4706-8bea-8cc8eb57daa8",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> Thanks for bringing Intentional Programming up. I heard of it but never really took a deeper look. It's time for that I guess. Regarding mapping into the storage representation: I would be ok with not allowing to save code that contains syntax errors. It shouldn't be too hard to bring code into a form that parses, and on the other hand this forces you to deal with these kinds of errors early. Committed code and input to compilers would be guaranteed to be well formed to some extend, which I think is a good thing.\nStructured editing doesn't work IMO when requiring each edit to map from one valid AST to another valid one. There's just to many operations needed for this to be practical. Text editing allows composing a few simple edit operations into larger transformations, kinda unix-philosophy style.",
+    "user": "UAL7940NM",
+    "ts": "1592248589.314700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "43873346f949",
+      "image_72": "https://avatars.slack-edge.com/2018-07-13/399377633206_43873346f949174e340e_72.jpg",
+      "first_name": "Felix",
+      "real_name": "Felix Kohlgrüber",
+      "display_name": "Felix Kohlgrüber",
+      "team": "T5TCAFTA9",
+      "name": "felix.kohlgrueber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "J=5U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for bringing Intentional Programming up. I heard of it but never really took a deeper look. It's time for that I guess. Regarding mapping into the storage representation: I would be ok with not allowing to save code that contains syntax errors. It shouldn't be too hard to bring code into a form that parses, and on the other hand this forces you to deal with these kinds of errors early. Committed code and input to compilers would be guaranteed to be well formed to some extend, which I think is a good thing.\nStructured editing doesn't work IMO when requiring each edit to map from one valid AST to another valid one. There's just to many operations needed for this to be practical. Text editing allows composing a few simple edit operations into larger transformations, kinda unix-philosophy style."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592206702.310100",
+    "parent_user_id": "UAL7940NM",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "Also, my background is in 3d animation. Don't come at me with that \"50 visual primitives\" nonsense, Fred.",
+    "files": [
+      {
+        "id": "F015FGFSWLB",
+        "created": 1592249199,
+        "timestamp": 1592249199,
+        "name": "atlas.jpg",
+        "title": "atlas.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UC2A2ARPT",
+        "editable": false,
+        "size": 131906,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F015FGFSWLB/atlas.jpg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F015FGFSWLB/download/atlas.jpg",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_64.jpg",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_80.jpg",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_360.jpg",
+        "thumb_360_w": 360,
+        "thumb_360_h": 228,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_480.jpg",
+        "thumb_480_w": 480,
+        "thumb_480_h": 304,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_160.jpg",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_720.jpg",
+        "thumb_720_w": 720,
+        "thumb_720_h": 455,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_800.jpg",
+        "thumb_800_w": 800,
+        "thumb_800_h": 506,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_960.jpg",
+        "thumb_960_w": 960,
+        "thumb_960_h": 607,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_1024.jpg",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 647,
+        "original_w": 1281,
+        "original_h": 810,
+        "thumb_tiny": "AwAeADCtRRRQAUvGDn04pKcMDBPrQAY5PtSfSpppTIdqjAA54qEjjtQAUlFLQAUdsd80hz2pVJVgeOKADByRnp1ozxin7wHJxkGo6AP/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UC2A2ARPT/F015FGFSWLB/atlas.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F015FGFSWLB-56ad146328",
+        "is_starred": false,
+        "has_rich_preview": false
+      },
+      {
+        "id": "F015MFMDWKE",
+        "created": 1592249206,
+        "timestamp": 1592249206,
+        "name": "mathilda.jpg",
+        "title": "mathilda.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UC2A2ARPT",
+        "editable": false,
+        "size": 46181,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F015MFMDWKE/mathilda.jpg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F015MFMDWKE/download/mathilda.jpg",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_64.jpg",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_80.jpg",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_360.jpg",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_480.jpg",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_160.jpg",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_720.jpg",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_800.jpg",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_960.jpg",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "original_w": 960,
+        "original_h": 540,
+        "thumb_tiny": "AwAbADBNx7emaaJCc9DgZpgyxwCOlJyQSe1AiQyAjAPNKJAOCeajPzcYyaB8vGMUAS7qN1RbqN1MBqYOc0vy4b5h04oKLszjtVehqwJ3JVbBoLZNRUUhkm6jdUY61I4AXgCnYR//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UC2A2ARPT/F015MFMDWKE/mathilda.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F015MFMDWKE-e3901ce51b",
+        "is_starred": false,
+        "has_rich_preview": false
+      },
+      {
+        "id": "F0150HX5ARM",
+        "created": 1592249207,
+        "timestamp": 1592249207,
+        "name": "muscle.jpg",
+        "title": "muscle.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UC2A2ARPT",
+        "editable": false,
+        "size": 81325,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0150HX5ARM/muscle.jpg",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0150HX5ARM/download/muscle.jpg",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_64.jpg",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_80.jpg",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_360.jpg",
+        "thumb_360_w": 360,
+        "thumb_360_h": 316,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_480.jpg",
+        "thumb_480_w": 480,
+        "thumb_480_h": 421,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_160.jpg",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_720.jpg",
+        "thumb_720_w": 720,
+        "thumb_720_h": 632,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_800.jpg",
+        "thumb_800_w": 800,
+        "thumb_800_h": 702,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_960.jpg",
+        "thumb_960_w": 960,
+        "thumb_960_h": 843,
+        "original_w": 967,
+        "original_h": 849,
+        "thumb_tiny": "AwAqADCpRRRQAoGaSnoVHXrQ4XAK9OhoAZRRRQAU5QD1ptFAD1wTk0u3BZc0z+HHenMSGz6ikAyiiimAUUUUAOI2jk8kUEYUZ/AU2nOcsc0ANooooA//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UC2A2ARPT/F0150HX5ARM/muscle.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0150HX5ARM-cc550d4279",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jE3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also, my background is in 3d animation. Don't come at me with that \"50 visual primitives\" nonsense, Fred."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "user": "UC2A2ARPT",
+    "ts": "1592249237.314900",
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "Also, my background is in 3d animation. Don't come at me with that \"50 visual primitives\" nonsense, Fred.",
+    "files": [
+      {
+        "id": "F015FGFSWLB",
+        "created": 1592249199,
+        "timestamp": 1592249199,
+        "name": "atlas.jpg",
+        "title": "atlas.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UC2A2ARPT",
+        "editable": false,
+        "size": 131906,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F015FGFSWLB/atlas.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F015FGFSWLB/download/atlas.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_64.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_80.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_360.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 228,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_480.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 304,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_160.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_720.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 455,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_800.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 506,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_960.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 607,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F015FGFSWLB-ebee270594/atlas_1024.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 647,
+        "original_w": 1281,
+        "original_h": 810,
+        "thumb_tiny": "AwAeADCtRRRQAUvGDn04pKcMDBPrQAY5PtSfSpppTIdqjAA54qEjjtQAUlFLQAUdsd80hz2pVJVgeOKADByRnp1ozxin7wHJxkGo6AP/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UC2A2ARPT/F015FGFSWLB/atlas.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F015FGFSWLB-56ad146328",
+        "is_starred": false,
+        "has_rich_preview": false
+      },
+      {
+        "id": "F015MFMDWKE",
+        "created": 1592249206,
+        "timestamp": 1592249206,
+        "name": "mathilda.jpg",
+        "title": "mathilda.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UC2A2ARPT",
+        "editable": false,
+        "size": 46181,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F015MFMDWKE/mathilda.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F015MFMDWKE/download/mathilda.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_64.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_80.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_360.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 203,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_480.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_160.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_720.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 405,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_800.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 450,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F015MFMDWKE-31536c3dd9/mathilda_960.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 540,
+        "original_w": 960,
+        "original_h": 540,
+        "thumb_tiny": "AwAbADBNx7emaaJCc9DgZpgyxwCOlJyQSe1AiQyAjAPNKJAOCeajPzcYyaB8vGMUAS7qN1RbqN1MBqYOc0vy4b5h04oKLszjtVehqwJ3JVbBoLZNRUUhkm6jdUY61I4AXgCnYR//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UC2A2ARPT/F015MFMDWKE/mathilda.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F015MFMDWKE-e3901ce51b",
+        "is_starred": false,
+        "has_rich_preview": false
+      },
+      {
+        "id": "F0150HX5ARM",
+        "created": 1592249207,
+        "timestamp": 1592249207,
+        "name": "muscle.jpg",
+        "title": "muscle.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UC2A2ARPT",
+        "editable": false,
+        "size": 81325,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F0150HX5ARM/muscle.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0150HX5ARM/download/muscle.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_64.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_80.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_360.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 316,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_480.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 421,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_160.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_720.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 632,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_800.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 702,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F0150HX5ARM-41b82e3762/muscle_960.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 843,
+        "original_w": 967,
+        "original_h": 849,
+        "thumb_tiny": "AwAqADCpRRRQAoGaSnoVHXrQ4XAK9OhoAZRRRQAU5QD1ptFAD1wTk0u3BZc0z+HHenMSGz6ikAyiiimAUUUUAOI2jk8kUEYUZ/AU2nOcsc0ANooooA//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UC2A2ARPT/F0150HX5ARM/muscle.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0150HX5ARM-cc550d4279",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UC2A2ARPT",
+    "ts": "1592249237.314900",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jE3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also, my background is in 3d animation. Don't come at me with that \"50 visual primitives\" nonsense, Fred."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "43870f24-2acd-4c66-8ce3-401d61e30b5b",
+    "type": "message",
+    "text": "(No shade directed at you, <@UDKTZSD6H> — I just _love_ dumping mud on the Deutsch Limit)",
+    "user": "UC2A2ARPT",
+    "ts": "1592249331.315700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1Ef",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(No shade directed at you, "
+              },
+              {
+                "type": "user",
+                "user_id": "UDKTZSD6H"
+              },
+              {
+                "type": "text",
+                "text": " — I just "
+              },
+              {
+                "type": "text",
+                "text": "love",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " dumping mud on the Deutsch Limit)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "43870f24-2acd-4c66-8ce3-401d61e30b5b",
+    "type": "message",
+    "text": "(No shade directed at you, <@UDKTZSD6H> — I just _love_ dumping mud on the Deutsch Limit)",
+    "user": "UC2A2ARPT",
+    "ts": "1592249331.315700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1Ef",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(No shade directed at you, "
+              },
+              {
+                "type": "user",
+                "user_id": "UDKTZSD6H"
+              },
+              {
+                "type": "text",
+                "text": " — I just "
+              },
+              {
+                "type": "text",
+                "text": "love",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " dumping mud on the Deutsch Limit)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8703da9a-1898-4e50-bb98-5d0ba5a35424",
+    "type": "message",
+    "text": "Oh nope, I am pretty programming is barely just symbolic manipulation guy. I just found it amusing that quasi-science (like most of UX anyway) has ideas like that. Also, sweet move in compiling the criticisms in a repo.",
+    "user": "UDKTZSD6H",
+    "ts": "1592249637.316000",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1592249738.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "B=pK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh nope, I am pretty programming is barely just symbolic manipulation guy. I just found it amusing that quasi-science (like most of UX anyway) has ideas like that. Also, sweet move in compiling the criticisms in a repo."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8703da9a-1898-4e50-bb98-5d0ba5a35424",
+    "type": "message",
+    "text": "Oh nope, I am pretty programming is barely just symbolic manipulation guy. I just found it amusing that quasi-science (like most of UX anyway) has ideas like that. Also, sweet move in compiling the criticisms in a repo.",
+    "user": "UDKTZSD6H",
+    "ts": "1592249637.316000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1592249738.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "B=pK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh nope, I am pretty programming is barely just symbolic manipulation guy. I just found it amusing that quasi-science (like most of UX anyway) has ideas like that. Also, sweet move in compiling the criticisms in a repo."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592244482.313000",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f1d408c8-7348-41ac-b3f7-fe644d6ca2c0",
+    "type": "message",
+    "text": "No Code on Hacker News <https://news.ycombinator.com/item?id=23520185>",
+    "user": "ULM3U6275",
+    "ts": "1592250420.316700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kDB/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "No Code on Hacker News "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=23520185"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592250420.316700",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1592288232.326300",
+    "reply_users": [
+      "ULM3U6275",
+      "UDQKHNP51"
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f1d408c8-7348-41ac-b3f7-fe644d6ca2c0",
+    "type": "message",
+    "text": "No Code on Hacker News <https://news.ycombinator.com/item?id=23520185>",
+    "user": "ULM3U6275",
+    "ts": "1592250420.316700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kDB/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "No Code on Hacker News "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=23520185"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592250420.316700",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1592288232.326300",
+    "reply_users": [
+      "ULM3U6275",
+      "UDQKHNP51"
+    ],
+    "replies": [
+      {
+        "user": "ULM3U6275",
+        "ts": "1592250636.316800"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1592288232.326300"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aa1ab3f2-9403-48a2-a3d3-09bbe24239e2",
+    "type": "message",
+    "text": "I enjoyed this comment: “Little story: I did a lot of work with Army grunts trying to avoid getting blown up. The main tool was excel. Software shops kept delivering junk that nobody used. The acquisitions guys loved a slick demo and that’s pretty much all it did. They’d come in and install a new server cluster, which means a bigger server room, which means more cooling, which means a bigger generator, which means more diesel trucks, which means more convoys on the road, which means more getting blown up. New grunts would tool around on it for a month and then get a novel task they had to use excel for, and never go back. The acq guys had such disdain for the ‘users’ that they couldn’t imagine that they actually knew WTF they were doing. The slick demo went on to win the DCGS contract, and now they’re stuck with ‘easy’ where they need flexible, customizable, fast, simple (all the way down the stack).”",
+    "user": "ULM3U6275",
+    "ts": "1592250636.316800",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jnn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I enjoyed this comment: “Little story: I did a lot of work with Army grunts trying to avoid getting blown up. The main tool was excel. Software shops kept delivering junk that nobody used. The acquisitions guys loved a slick demo and that’s pretty much all it did. They’d come in and install a new server cluster, which means a bigger server room, which means more cooling, which means a bigger generator, which means more diesel trucks, which means more convoys on the road, which means more getting blown up. New grunts would tool around on it for a month and then get a novel task they had to use excel for, and never go back. The acq guys had such disdain for the ‘users’ that they couldn’t imagine that they actually knew WTF they were doing. The slick demo went on to win the DCGS contract, and now they’re stuck with ‘easy’ where they need flexible, customizable, fast, simple (all the way down the stack).”"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592250420.316700",
+    "parent_user_id": "ULM3U6275",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEBG0NPDK",
+          "UFLN9JFRT",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aa1ab3f2-9403-48a2-a3d3-09bbe24239e2",
+    "type": "message",
+    "text": "I enjoyed this comment: “Little story: I did a lot of work with Army grunts trying to avoid getting blown up. The main tool was excel. Software shops kept delivering junk that nobody used. The acquisitions guys loved a slick demo and that’s pretty much all it did. They’d come in and install a new server cluster, which means a bigger server room, which means more cooling, which means a bigger generator, which means more diesel trucks, which means more convoys on the road, which means more getting blown up. New grunts would tool around on it for a month and then get a novel task they had to use excel for, and never go back. The acq guys had such disdain for the ‘users’ that they couldn’t imagine that they actually knew WTF they were doing. The slick demo went on to win the DCGS contract, and now they’re stuck with ‘easy’ where they need flexible, customizable, fast, simple (all the way down the stack).”",
+    "user": "ULM3U6275",
+    "ts": "1592250636.316800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jnn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I enjoyed this comment: “Little story: I did a lot of work with Army grunts trying to avoid getting blown up. The main tool was excel. Software shops kept delivering junk that nobody used. The acquisitions guys loved a slick demo and that’s pretty much all it did. They’d come in and install a new server cluster, which means a bigger server room, which means more cooling, which means a bigger generator, which means more diesel trucks, which means more convoys on the road, which means more getting blown up. New grunts would tool around on it for a month and then get a novel task they had to use excel for, and never go back. The acq guys had such disdain for the ‘users’ that they couldn’t imagine that they actually knew WTF they were doing. The slick demo went on to win the DCGS contract, and now they’re stuck with ‘easy’ where they need flexible, customizable, fast, simple (all the way down the stack).”"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592250420.316700",
+    "parent_user_id": "ULM3U6275",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UEBG0NPDK",
+          "UFLN9JFRT",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "53c465d1-93d4-436c-bdf3-1d53bd9ae4cc",
+    "type": "message",
+    "text": "Basically all documentation tools I’m aware of are aimed at communicating things others. Is anyone aware of tools that are instead focused on personal documentation? Tools that are tied into the source/source control in some way, but that are for personal use and not shared with others? Obviously people can make their own little conventions and things in stuff like org mode. But I’m curious if anyone is aware of purpose built tools for this.",
+    "user": "UK3LH8CF5",
+    "ts": "1592252831.319600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Kf2U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Basically all documentation tools I’m aware of are aimed at communicating things others. Is anyone aware of tools that are instead focused on personal documentation? Tools that are tied into the source/source control in some way, but that are for personal use and not shared with others? Obviously people can make their own little conventions and things in stuff like org mode. But I’m curious if anyone is aware of purpose built tools for this."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "reply_count": 14,
+    "reply_users_count": 9,
+    "latest_reply": "1592475025.371200",
+    "reply_users": [
+      "U010SQSJGLS",
+      "UE1JQM9HQ",
+      "UETFVV24Q",
+      "UK3LH8CF5",
+      "UDQKHNP51",
+      "UCUSW7WVD",
+      "UJBAJNFLK",
+      "UMWF81HTP",
+      "UE0ETTCG7"
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "53c465d1-93d4-436c-bdf3-1d53bd9ae4cc",
+    "type": "message",
+    "text": "Basically all documentation tools I’m aware of are aimed at communicating things others. Is anyone aware of tools that are instead focused on personal documentation? Tools that are tied into the source/source control in some way, but that are for personal use and not shared with others? Obviously people can make their own little conventions and things in stuff like org mode. But I’m curious if anyone is aware of purpose built tools for this.",
+    "user": "UK3LH8CF5",
+    "ts": "1592252831.319600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4377ee2417eb",
+      "image_72": "https://avatars.slack-edge.com/2019-12-25/886144219253_4377ee2417eb9eaacd4b_72.jpg",
+      "first_name": "Jimmy",
+      "real_name": "Jimmy Miller",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jimmyhmiller",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Kf2U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Basically all documentation tools I’m aware of are aimed at communicating things others. Is anyone aware of tools that are instead focused on personal documentation? Tools that are tied into the source/source control in some way, but that are for personal use and not shared with others? Obviously people can make their own little conventions and things in stuff like org mode. But I’m curious if anyone is aware of purpose built tools for this."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "reply_count": 14,
+    "reply_users_count": 9,
+    "latest_reply": "1592475025.371200",
+    "reply_users": [
+      "U010SQSJGLS",
+      "UE1JQM9HQ",
+      "UETFVV24Q",
+      "UK3LH8CF5",
+      "UDQKHNP51",
+      "UCUSW7WVD",
+      "UJBAJNFLK",
+      "UMWF81HTP",
+      "UE0ETTCG7"
+    ],
+    "replies": [
+      {
+        "user": "U010SQSJGLS",
+        "ts": "1592253829.319900"
+      },
+      {
+        "user": "U010SQSJGLS",
+        "ts": "1592253842.320100"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1592257223.320500"
+      },
+      {
+        "user": "UETFVV24Q",
+        "ts": "1592259870.320800"
+      },
+      {
+        "user": "UK3LH8CF5",
+        "ts": "1592266851.321100"
+      },
+      {
+        "user": "UK3LH8CF5",
+        "ts": "1592266879.321300"
+      },
+      {
+        "user": "UDQKHNP51",
+        "ts": "1592283687.323400"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1592285060.323600"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1592294237.329700"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1592294417.330100"
+      },
+      {
+        "user": "UMWF81HTP",
+        "ts": "1592306851.333100"
+      },
+      {
+        "user": "UE0ETTCG7",
+        "ts": "1592430424.367400"
+      },
+      {
+        "user": "UE0ETTCG7",
+        "ts": "1592430472.367600"
+      },
+      {
+        "user": "UJBAJNFLK",
+        "ts": "1592475025.371200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e83c2d8c-20d0-4224-9be4-8a001b527462",
+    "type": "message",
+    "text": "I guess my experience is that communicating with my future self is a lot like communicating with other people.",
+    "user": "U010SQSJGLS",
+    "ts": "1592253829.319900",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rUKS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I guess my experience is that communicating with my future self is a lot like communicating with other people."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UDQKHNP51",
+          "UMWF81HTP",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e83c2d8c-20d0-4224-9be4-8a001b527462",
+    "type": "message",
+    "text": "I guess my experience is that communicating with my future self is a lot like communicating with other people.",
+    "user": "U010SQSJGLS",
+    "ts": "1592253829.319900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge900b2beeb5",
+      "image_72": "https://secure.gravatar.com/avatar/e900b2beeb5a6877d191b8d15623671b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Michael Coblenz",
+      "display_name": "Michael Coblenz",
+      "team": "T5TCAFTA9",
+      "name": "mcoblenz",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rUKS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I guess my experience is that communicating with my future self is a lot like communicating with other people."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UDQKHNP51",
+          "UMWF81HTP",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cc07f644-74de-47b8-99c3-99e6aee6db92",
+    "type": "message",
+    "text": "I’ve pulled up notes I wrote to myself long ago and thought “I have no idea what I was talking about…“.",
+    "user": "U010SQSJGLS",
+    "ts": "1592253842.320100",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U010SQSJGLS",
+      "ts": "1592253852.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gXcAS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’ve pulled up notes I wrote to myself long ago and thought “I have no idea what I was talking about…“."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cc07f644-74de-47b8-99c3-99e6aee6db92",
+    "type": "message",
+    "text": "I’ve pulled up notes I wrote to myself long ago and thought “I have no idea what I was talking about…“.",
+    "user": "U010SQSJGLS",
+    "ts": "1592253842.320100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge900b2beeb5",
+      "image_72": "https://secure.gravatar.com/avatar/e900b2beeb5a6877d191b8d15623671b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0011-72.png",
+      "first_name": "",
+      "real_name": "Michael Coblenz",
+      "display_name": "Michael Coblenz",
+      "team": "T5TCAFTA9",
+      "name": "mcoblenz",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U010SQSJGLS",
+      "ts": "1592253852.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gXcAS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’ve pulled up notes I wrote to myself long ago and thought “I have no idea what I was talking about…“."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e17c92c7-d658-445c-8198-e86300c828ef",
+    "type": "message",
+    "text": "Interesting question, <@UK3LH8CF5>. Could you detail what type of documentation do you have in mind? Is it documentation of code, or something else?",
+    "user": "UE1JQM9HQ",
+    "ts": "1592257223.320500",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UE1JQM9HQ",
+      "ts": "1592257240.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GVPl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting question, "
+              },
+              {
+                "type": "user",
+                "user_id": "UK3LH8CF5"
+              },
+              {
+                "type": "text",
+                "text": ". Could you detail what type of documentation do you have in mind? Is it documentation of code, or something else?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e17c92c7-d658-445c-8198-e86300c828ef",
+    "type": "message",
+    "text": "Interesting question, <@UK3LH8CF5>. Could you detail what type of documentation do you have in mind? Is it documentation of code, or something else?",
+    "user": "UE1JQM9HQ",
+    "ts": "1592257223.320500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UE1JQM9HQ",
+      "ts": "1592257240.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GVPl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting question, "
+              },
+              {
+                "type": "user",
+                "user_id": "UK3LH8CF5"
+              },
+              {
+                "type": "text",
+                "text": ". Could you detail what type of documentation do you have in mind? Is it documentation of code, or something else?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "98b89e42-6201-4bb6-8a8b-3c4912bc0143",
+    "type": "message",
+    "text": "<https://roamresearch.com/> is the hip startup in this area",
+    "user": "UETFVV24Q",
+    "ts": "1592259870.320800",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "service_name": "Roam Research",
+        "title": "Roam Research – A note taking tool for networked thought.",
+        "title_link": "https://roamresearch.com/",
+        "text": "As easy to use as a word document or bulleted list, and as powerful for finding, collecting, and connecting related ideas as a graph database. Collaborate with others in real time, or store all your data locally.",
+        "fallback": "Roam Research: Roam Research – A note taking tool for networked thought.",
+        "image_url": "https://roamresearch.com/assets/astro.png",
+        "from_url": "https://roamresearch.com/",
+        "image_width": 250,
+        "image_height": 250,
+        "image_bytes": 32439,
+        "service_icon": "https://roamresearch.com/favicon.ico",
+        "id": 1,
+        "original_url": "https://roamresearch.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dT7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://roamresearch.com/"
+              },
+              {
+                "type": "text",
+                "text": " is the hip startup in this area"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UE1JQM9HQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "98b89e42-6201-4bb6-8a8b-3c4912bc0143",
+    "type": "message",
+    "text": "<https://roamresearch.com/> is the hip startup in this area",
+    "user": "UETFVV24Q",
+    "ts": "1592259870.320800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3e6a851923d2",
+      "image_72": "https://avatars.slack-edge.com/2020-04-20/1067569014342_3e6a851923d262ea9e74_72.png",
+      "first_name": "",
+      "real_name": "Andy F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andy.fischer",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Roam Research",
+        "title": "Roam Research – A note taking tool for networked thought.",
+        "title_link": "https://roamresearch.com/",
+        "text": "As easy to use as a word document or bulleted list, and as powerful for finding, collecting, and connecting related ideas as a graph database. Collaborate with others in real time, or store all your data locally.",
+        "fallback": "Roam Research: Roam Research – A note taking tool for networked thought.",
+        "image_url": "https://roamresearch.com/assets/astro.png",
+        "from_url": "https://roamresearch.com/",
+        "image_width": 250,
+        "image_height": 250,
+        "image_bytes": 32439,
+        "service_icon": "https://roamresearch.com/favicon.ico",
+        "id": 1,
+        "original_url": "https://roamresearch.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dT7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://roamresearch.com/"
+              },
+              {
+                "type": "text",
+                "text": " is the hip startup in this area"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UE1JQM9HQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f4dd6f18-1a1d-43f4-9141-802ceb1355f5",
+    "type": "message",
+    "text": "I'm curious about 3D spatial non-text programming. The source code is a 3D graphical object that you can explore? Or is it more like 2D node+wire embedded in a VR environment?",
+    "user": "UJN1TAYEQ",
+    "ts": "1592260740.294800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Wn0GD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm curious about 3D spatial non-text programming. The source code is a 3D graphical object that you can explore? Or is it more like 2D node+wire embedded in a VR environment?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592221647.292400",
+    "parent_user_id": "U015LBHHNDS",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  }
+]

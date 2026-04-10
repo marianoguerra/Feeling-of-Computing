@@ -1,0 +1,4175 @@
+[
+  {
+    "type": "message",
+    "text": "Thanks for the feedback, Edward. My sense is that `break if` is easier to _read_ even if `bif` is easier to type. But that's very much a hypothesis. Certainly my hands would suffer less RSI if I switched over. I'd appreciate feedback from others.\n\n> 99% of the time you are breaking out of only one level, so make it the default unless you override it with an explicit label.\nYup, that is already the case. Are you seeing the innermost level redundantly specified somewhere? Notice that there's an intervening '{' between `break-if-= $term:loop` and the `$term:loop` label definition (screenshot attached).\n\nI would love to rename registers, but then a reader consulting the Intel manuals has to constantly translate in their minds. I consulted the Intel manuals intensely when I built the lower layers, so it's hard to be sure I've eliminated the need for consulting them by now. I try not to impose unnecessary labor on the reader. Labor I didn't have to perform feels particularly egregious.\n\nThere will likely be a RISC-V or ARM rethinking of Mu at some point, particularly in light of recent news. That will certainly fix the register names.\n\nIn general, I care a lot about minimizing how much a reader has to learn to start reading Mu code. It might sound funny to anyone who's actually tried to read Mu code, but it's very much true. I care more about the reading experience than minimizing characters; I think dropping letters has historically made code less approachable to non-programmers. As I said, I'll keep your feedback in mind, and I'll look for confirming feedback from others.",
+    "files": [
+      {
+        "id": "F015M2MBBAN",
+        "created": 1592442135,
+        "timestamp": 1592442135,
+        "name": "Screen Shot 2020-06-17 at 5.40.48 PM.png",
+        "title": "Screen Shot 2020-06-17 at 5.40.48 PM.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "editable": false,
+        "size": 113852,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F015M2MBBAN/screen_shot_2020-06-17_at_5.40.48_pm.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F015M2MBBAN/download/screen_shot_2020-06-17_at_5.40.48_pm.png",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 174,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 232,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 348,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 386,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 464,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 495,
+        "original_w": 1035,
+        "original_h": 500,
+        "thumb_tiny": "AwAXADCww+b+tJ0zjFObHQ03jHTigA6D+EU7IxnNICoHWnUAJuHqKXIPelooAawpvUnB/Ont0qNfvH60AOz8uS36U4dOuajP+rp6/dFADqKKKAP/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F015M2MBBAN/screen_shot_2020-06-17_at_5.40.48_pm.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F015M2MBBAN-0e2c083af2",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SP5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the feedback, Edward. My sense is that "
+              },
+              {
+                "type": "text",
+                "text": "break if",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is easier to "
+              },
+              {
+                "type": "text",
+                "text": "read",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " even if "
+              },
+              {
+                "type": "text",
+                "text": "bif",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is easier to type. But that's very much a hypothesis. Certainly my hands would suffer less RSI if I switched over. I'd appreciate feedback from others.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "99% of the time you are breaking out of only one level, so make it the default unless you override it with an explicit label."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yup, that is already the case. Are you seeing the innermost level redundantly specified somewhere? Notice that there's an intervening '{' between "
+              },
+              {
+                "type": "text",
+                "text": "break-if-= $term:loop",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and the "
+              },
+              {
+                "type": "text",
+                "text": "$term:loop",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " label definition (screenshot attached).\n\nI would love to rename registers, but then a reader consulting the Intel manuals has to constantly translate in their minds. I consulted the Intel manuals intensely when I built the lower layers, so it's hard to be sure I've eliminated the need for consulting them by now. I try not to impose unnecessary labor on the reader. Labor I didn't have to perform feels particularly egregious.\n\nThere will likely be a RISC-V or ARM rethinking of Mu at some point, particularly in light of recent news. That will certainly fix the register names.\n\nIn general, I care a lot about minimizing how much a reader has to learn to start reading Mu code. It might sound funny to anyone who's actually tried to read Mu code, but it's very much true. I care more about the reading experience than minimizing characters; I think dropping letters has historically made code less approachable to non-programmers. As I said, I'll keep your feedback in mind, and I'll look for confirming feedback from others."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "ts": "1592442141.331300",
+    "thread_ts": "1592293608.328500",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Thanks for the feedback, Edward. My sense is that `break if` is easier to _read_ even if `bif` is easier to type. But that's very much a hypothesis. Certainly my hands would suffer less RSI if I switched over. I'd appreciate feedback from others.\n\n> 99% of the time you are breaking out of only one level, so make it the default unless you override it with an explicit label.\nYup, that is already the case. Are you seeing the innermost level redundantly specified somewhere? Notice that there's an intervening '{' between `break-if-= $term:loop` and the `$term:loop` label definition (screenshot attached).\n\nI would love to rename registers, but then a reader consulting the Intel manuals has to constantly translate in their minds. I consulted the Intel manuals intensely when I built the lower layers, so it's hard to be sure I've eliminated the need for consulting them by now. I try not to impose unnecessary labor on the reader. Labor I didn't have to perform feels particularly egregious.\n\nThere will likely be a RISC-V or ARM rethinking of Mu at some point, particularly in light of recent news. That will certainly fix the register names.\n\nIn general, I care a lot about minimizing how much a reader has to learn to start reading Mu code. It might sound funny to anyone who's actually tried to read Mu code, but it's very much true. I care more about the reading experience than minimizing characters; I think dropping letters has historically made code less approachable to non-programmers. As I said, I'll keep your feedback in mind, and I'll look for confirming feedback from others.",
+    "files": [
+      {
+        "id": "F015M2MBBAN",
+        "created": 1592442135,
+        "timestamp": 1592442135,
+        "name": "Screen Shot 2020-06-17 at 5.40.48 PM.png",
+        "title": "Screen Shot 2020-06-17 at 5.40.48 PM.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "editable": false,
+        "size": 113852,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F015M2MBBAN/screen_shot_2020-06-17_at_5.40.48_pm.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F015M2MBBAN/download/screen_shot_2020-06-17_at_5.40.48_pm.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 174,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 232,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 348,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 386,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 464,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F015M2MBBAN-4cb5a6fee5/screen_shot_2020-06-17_at_5.40.48_pm_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 495,
+        "original_w": 1035,
+        "original_h": 500,
+        "thumb_tiny": "AwAXADCww+b+tJ0zjFObHQ03jHTigA6D+EU7IxnNICoHWnUAJuHqKXIPelooAawpvUnB/Ont0qNfvH60AOz8uS36U4dOuajP+rp6/dFADqKKKAP/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F015M2MBBAN/screen_shot_2020-06-17_at_5.40.48_pm.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F015M2MBBAN-0e2c083af2",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "ts": "1592442141.331300",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SP5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the feedback, Edward. My sense is that "
+              },
+              {
+                "type": "text",
+                "text": "break if",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is easier to "
+              },
+              {
+                "type": "text",
+                "text": "read",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " even if "
+              },
+              {
+                "type": "text",
+                "text": "bif",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is easier to type. But that's very much a hypothesis. Certainly my hands would suffer less RSI if I switched over. I'd appreciate feedback from others.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "99% of the time you are breaking out of only one level, so make it the default unless you override it with an explicit label."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yup, that is already the case. Are you seeing the innermost level redundantly specified somewhere? Notice that there's an intervening '{' between "
+              },
+              {
+                "type": "text",
+                "text": "break-if-= $term:loop",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and the "
+              },
+              {
+                "type": "text",
+                "text": "$term:loop",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " label definition (screenshot attached).\n\nI would love to rename registers, but then a reader consulting the Intel manuals has to constantly translate in their minds. I consulted the Intel manuals intensely when I built the lower layers, so it's hard to be sure I've eliminated the need for consulting them by now. I try not to impose unnecessary labor on the reader. Labor I didn't have to perform feels particularly egregious.\n\nThere will likely be a RISC-V or ARM rethinking of Mu at some point, particularly in light of recent news. That will certainly fix the register names.\n\nIn general, I care a lot about minimizing how much a reader has to learn to start reading Mu code. It might sound funny to anyone who's actually tried to read Mu code, but it's very much true. I care more about the reading experience than minimizing characters; I think dropping letters has historically made code less approachable to non-programmers. As I said, I'll keep your feedback in mind, and I'll look for confirming feedback from others."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592293608.328500",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0fc0a2fd-e1f3-4e1f-bb81-0dd24d5cc64c",
+    "type": "message",
+    "text": "Also: Worth mentioning that what is considered \"text\" is culturally mediated and as a definition is pretty blurry. (some)UNIX people talk like it's some kind of fundamental force of nature which I think muddies the water of these discussions a lot.",
+    "user": "UMWF81HTP",
+    "ts": "1592447166.370200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4022671f3400",
+      "image_72": "https://avatars.slack-edge.com/2019-10-03/775814402657_4022671f340032b9eb75_72.jpg",
+      "first_name": "yoshiki",
+      "real_name": "yoshiki",
+      "display_name": "yoshiki",
+      "team": "T5TCAFTA9",
+      "name": "yoshikischmitz",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UMWF81HTP",
+      "ts": "1592447174.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3max",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also: Worth mentioning that what is considered \"text\" is culturally mediated and as a definition is pretty blurry. (some)UNIX people talk like it's some kind of fundamental force of nature which I think muddies the water of these discussions a lot."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U8A5MS6R1",
+          "UDKTZSD6H"
+        ],
+        "count": 3
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UAHHWT22U",
+          "UML4ZEKDK"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "43ef64b8-a8d3-421e-ada0-7f36204289b9",
+    "type": "message",
+    "text": "I think it's illuminating to carefully look at old manuscripts, esp. from before typewriters, and see how rich people's conception of writing was, before it was mechanized.",
+    "user": "UMWF81HTP",
+    "ts": "1592447269.370500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4022671f3400",
+      "image_72": "https://avatars.slack-edge.com/2019-10-03/775814402657_4022671f340032b9eb75_72.jpg",
+      "first_name": "yoshiki",
+      "real_name": "yoshiki",
+      "display_name": "yoshiki",
+      "team": "T5TCAFTA9",
+      "name": "yoshikischmitz",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nwXO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think it's illuminating to carefully look at old manuscripts, esp. from before typewriters, and see how rich people's conception of writing was, before it was mechanized."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "type": "message",
+    "text": "For example, consider Galileo's notes. Which parts are text and which parts are pictures?",
+    "files": [
+      {
+        "id": "F015ED38K1U",
+        "created": 1592447420,
+        "timestamp": 1592447420,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UMWF81HTP",
+        "editable": false,
+        "size": 605419,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F015ED38K1U/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F015ED38K1U/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F015ED38K1U-4ca0e45d92/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F015ED38K1U-4ca0e45d92/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F015ED38K1U-4ca0e45d92/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 257,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F015ED38K1U-4ca0e45d92/image_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 343,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F015ED38K1U-4ca0e45d92/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "image_exif_rotation": 1,
+        "original_w": 464,
+        "original_h": 650,
+        "thumb_tiny": "AwAwACKVVGakGMYpAORTwPYUxAPXtSEUpHPSjmgBu2jbT8UuKAG45pwpKcMY6UhhwewpDx2/SnZpCRigAooopgNpwHtTAM9qfjigBTn0ppozmmt+NIB3NHNN3f5xRu/zimB//9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UMWF81HTP/F015ED38K1U/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F015ED38K1U-0621c8fcd3",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UMWF81HTP",
+    "display_as_bot": false,
+    "ts": "1592447438.370900",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qtwqe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For example, consider Galileo's notes. Which parts are text and which parts are pictures?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U8A5MS6R1",
+          "UDKTZSD6H",
+          "UFPPABQ7P"
+        ],
+        "count": 3
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "73f1f612-f100-43e3-bd6b-016da2c14897",
+    "type": "message",
+    "text": "(To anyone curious about expanding their perspective on this topic I recommend reading Unflattening by Nick Sousanis and Understanding Comics by Scott McCloud, and maybe throw in some Edward Tufte.)",
+    "user": "UMWF81HTP",
+    "ts": "1592447603.371300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4022671f3400",
+      "image_72": "https://avatars.slack-edge.com/2019-10-03/775814402657_4022671f340032b9eb75_72.jpg",
+      "first_name": "yoshiki",
+      "real_name": "yoshiki",
+      "display_name": "yoshiki",
+      "team": "T5TCAFTA9",
+      "name": "yoshikischmitz",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2+Q5p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(To anyone curious about expanding their perspective on this topic I recommend reading Unflattening by Nick Sousanis and Understanding Comics by Scott McCloud, and maybe throw in some Edward Tufte.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "U01362XBSNA",
+          "UHWC9PXBL",
+          "UJ6LDMMN0",
+          "UFPPABQ7P",
+          "UBSMEUXAA",
+          "UAHHWT22U",
+          "UML4ZEKDK"
+        ],
+        "count": 8
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e8bd546c-26e9-4ed8-8186-b09ffb7053f7",
+    "type": "message",
+    "text": "<@U5STGTB3J> Pure speculation but I think the algorithm shows you more content from people you recently followed, and it decays with time. I muted Visa for a while and then unmuted him- that seemed to do the trick.",
+    "user": "UMWF81HTP",
+    "ts": "1592447828.371500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4022671f3400",
+      "image_72": "https://avatars.slack-edge.com/2019-10-03/775814402657_4022671f340032b9eb75_72.jpg",
+      "first_name": "yoshiki",
+      "real_name": "yoshiki",
+      "display_name": "yoshiki",
+      "team": "T5TCAFTA9",
+      "name": "yoshikischmitz",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "v4/tK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": " Pure speculation but I think the algorithm shows you more content from people you recently followed, and it decays with time. I muted Visa for a while and then unmuted him- that seemed to do the trick."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592387702.340500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "a7f93448-d4c2-445c-8d09-a742d35465c5",
+    "type": "message",
+    "text": "Also if you want to follow individuals who post more slowly, I recommend:\n<https://fraidyc.at/>",
+    "user": "UMWF81HTP",
+    "ts": "1592447891.371700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4022671f3400",
+      "image_72": "https://avatars.slack-edge.com/2019-10-03/775814402657_4022671f340032b9eb75_72.jpg",
+      "first_name": "yoshiki",
+      "real_name": "yoshiki",
+      "display_name": "yoshiki",
+      "team": "T5TCAFTA9",
+      "name": "yoshikischmitz",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Fraidycat",
+        "title_link": "https://fraidyc.at/",
+        "text": "Follow blogs, wikis, YouTube channels, as well as accounts on Twitter, Instagram, etc. from a single page.",
+        "fallback": "Fraidycat",
+        "from_url": "https://fraidyc.at/",
+        "service_name": "fraidyc.at",
+        "id": 1,
+        "original_url": "https://fraidyc.at/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "e=P",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Also if you want to follow individuals who post more slowly, I recommend:\n"
+              },
+              {
+                "type": "link",
+                "url": "https://fraidyc.at/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592387702.340500",
+    "parent_user_id": "U5STGTB3J",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b58d7ef1-44e7-4ab6-83ed-68636da4c36b",
+    "type": "message",
+    "text": "So glad to see people doing the interviews.",
+    "user": "UA14TGLTC",
+    "ts": "1592448482.368100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QmbJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So glad to see people doing the interviews."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592403580.362100",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b58d7ef1-44e7-4ab6-83ed-68636da4c36b",
+    "type": "message",
+    "text": "So glad to see people doing the interviews.",
+    "user": "UA14TGLTC",
+    "ts": "1592448482.368100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QmbJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So glad to see people doing the interviews."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592403580.362100",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "800210ad-a136-4612-a7e8-c6074ba1111e",
+    "type": "message",
+    "text": "\"Prodirect Manipulation\"?",
+    "user": "UA14TGLTC",
+    "ts": "1592449787.368300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3sQm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"Prodirect Manipulation\"?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592403580.362100",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "800210ad-a136-4612-a7e8-c6074ba1111e",
+    "type": "message",
+    "text": "\"Prodirect Manipulation\"?",
+    "user": "UA14TGLTC",
+    "ts": "1592449787.368300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3sQm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"Prodirect Manipulation\"?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592403580.362100",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "78340670-fbc5-4a16-94e0-36689aa8111a",
+    "type": "message",
+    "text": "<@UETFVV24Q> I like your sentiment.  To generalize: when proposing something different, best to keep in mind what same-old same-old good.  Do any of those good qualities translate?  Are they replaced with contrasting goods?  Or is the something different just better at different things?",
+    "user": "UA14TGLTC",
+    "ts": "1592450114.372300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "udZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UETFVV24Q"
+              },
+              {
+                "type": "text",
+                "text": " I like your sentiment.  To generalize: when proposing something different, best to keep in mind what same-old same-old good.  Do any of those good qualities translate?  Are they replaced with contrasting goods?  Or is the something different just better at different things?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "0C5E5995-004C-4680-B471-2DB381087377",
+    "type": "message",
+    "text": "What do you think, <@UJKKBAMLL>?",
+    "user": "UC2A2ARPT",
+    "ts": "1592463044.375400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Bxq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What do you think, "
+              },
+              {
+                "type": "user",
+                "user_id": "UJKKBAMLL"
+              },
+              {
+                "type": "text",
+                "text": "?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c004e4bd-ce40-427a-8047-0ac5381d8191",
+    "type": "message",
+    "text": "&gt; Text can convey _ideas_ with a precisely controlled level of ambiguity and precision, implied context and elaborated content, unmatched by anything else.\nFor programming, it's important to distinguish between presentation and storage. In the presentation, you want a personalized experience, taking into account the user's context (e.g. which syntax sugar, libraries or PL features a user knows). For storage, you want an unambiguous representation including all relevant context.\nPLs typically use the exact same representation for presentation and storage, which requires compromises. It's neither personalized (e.g. displaying `HashMap` instead of `std::collections::HashMap` in my editor) nor unambiguous (e.g. a python script that doesn't specify compatible versions of the interpreter or any of its imports).\nText is a great communication medium in a lot of cases. In others, pictures, formulas, etc. are better suited. Providing different presentations is probably better than any single presentation (which is projectional editing, after all).\nDue to their conflicting requirements, it's necessary to separate presentation from storage! I don't care whether the storage presentation is textual, binary, or png-pics as long as it's well-defined, complete and easy to work with.",
+    "user": "UAL7940NM",
+    "ts": "1592466064.375600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "43873346f949",
+      "image_72": "https://avatars.slack-edge.com/2018-07-13/399377633206_43873346f949174e340e_72.jpg",
+      "first_name": "Felix",
+      "real_name": "Felix Kohlgrüber",
+      "display_name": "Felix Kohlgrüber",
+      "team": "T5TCAFTA9",
+      "name": "felix.kohlgrueber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ca1",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Text can convey "
+              },
+              {
+                "type": "text",
+                "text": "ideas",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " with a precisely controlled level of ambiguity and precision, implied context and elaborated content, unmatched by anything else."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For programming, it's important to distinguish between presentation and storage. In the presentation, you want a personalized experience, taking into account the user's context (e.g. which syntax sugar, libraries or PL features a user knows). For storage, you want an unambiguous representation including all relevant context.\nPLs typically use the exact same representation for presentation and storage, which requires compromises. It's neither personalized (e.g. displaying "
+              },
+              {
+                "type": "text",
+                "text": "HashMap",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " instead of "
+              },
+              {
+                "type": "text",
+                "text": "std::collections::HashMap",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " in my editor) nor unambiguous (e.g. a python script that doesn't specify compatible versions of the interpreter or any of its imports).\nText is a great communication medium in a lot of cases. In others, pictures, formulas, etc. are better suited. Providing different presentations is probably better than any single presentation (which is projectional editing, after all).\nDue to their conflicting requirements, it's necessary to separate presentation from storage! I don't care whether the storage presentation is textual, binary, or png-pics as long as it's well-defined, complete and easy to work with."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U6FKVSVCK",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "F94DAB05-21E9-4825-9F41-0ECE2FC80683",
+    "type": "message",
+    "text": "Thanks for the share. It is still highly WIP. Lots of research needs to be done on medieval and modern notation symbols. Would welcome if you guys can recall any cool stuff I should add here. I will be updating that twitter thread as I unearth new ones.",
+    "user": "UDKTZSD6H",
+    "ts": "1592471172.371000",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1592408912.362700",
+    "parent_user_id": "USH01JEDQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "F94DAB05-21E9-4825-9F41-0ECE2FC80683",
+    "type": "message",
+    "text": "Thanks for the share. It is still highly WIP. Lots of research needs to be done on medieval and modern notation symbols. Would welcome if you guys can recall any cool stuff I should add here. I will be updating that twitter thread as I unearth new ones.",
+    "user": "UDKTZSD6H",
+    "ts": "1592471172.371000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1592408912.362700",
+    "parent_user_id": "USH01JEDQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7892c263-c853-42db-b58c-9be09df8e478",
+    "type": "message",
+    "text": "&gt; I think the thesis behind a lot of graphical / visual programming languages is: there are things we want to be able to do in programming that we simply can't do with text.\n&gt; \nThere's also the fact that blog posts, documentation, lectures, personal notes etc, all optimised purely around understanding programming as easily as possible, tend to be packed with diagrams",
+    "user": "UDQBTJ211",
+    "ts": "1592472126.375800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wrFHz",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think the thesis behind a lot of graphical / visual programming languages is: there are things we want to be able to do in programming that we simply can't do with text.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThere's also the fact that blog posts, documentation, lectures, personal notes etc, all optimised purely around understanding programming as easily as possible, tend to be packed with diagrams"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8b0d6fa4-d03d-4df1-a551-b7c11d2f6d90",
+    "type": "message",
+    "text": "<@UMWF81HTP> Thanks for this reference, the user interface of Stamper looks very interesting for exploratory work, which is something I am particularly interested in.\nNow what I'd really like to have is \"Meta-Stamper\": the user interface in a form that I could adapt to use something else than p5.js, for explorations in domains different from graphics.",
+    "user": "UJBAJNFLK",
+    "ts": "1592475025.371200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rtH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UMWF81HTP"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for this reference, the user interface of Stamper looks very interesting for exploratory work, which is something I am particularly interested in.\nNow what I'd really like to have is \"Meta-Stamper\": the user interface in a form that I could adapt to use something else than p5.js, for explorations in domains different from graphics."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8b0d6fa4-d03d-4df1-a551-b7c11d2f6d90",
+    "type": "message",
+    "text": "<@UMWF81HTP> Thanks for this reference, the user interface of Stamper looks very interesting for exploratory work, which is something I am particularly interested in.\nNow what I'd really like to have is \"Meta-Stamper\": the user interface in a form that I could adapt to use something else than p5.js, for explorations in domains different from graphics.",
+    "user": "UJBAJNFLK",
+    "ts": "1592475025.371200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rtH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UMWF81HTP"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for this reference, the user interface of Stamper looks very interesting for exploratory work, which is something I am particularly interested in.\nNow what I'd really like to have is \"Meta-Stamper\": the user interface in a form that I could adapt to use something else than p5.js, for explorations in domains different from graphics."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592252831.319600",
+    "parent_user_id": "UK3LH8CF5",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c72b7884-2808-4dcc-9ab2-50fe7e1a2d02",
+    "type": "message",
+    "text": "There a another slack community called \"no code founders\" that this would be a great fit for feedback from. Several platforms have tried similar approaches.",
+    "user": "UN57U8V53",
+    "ts": "1592481290.331800",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8Pk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There a another slack community called \"no code founders\" that this would be a great fit for feedback from. Several platforms have tried similar approaches."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591918996.315500",
+    "parent_user_id": "UP7N4QVK2",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "c72b7884-2808-4dcc-9ab2-50fe7e1a2d02",
+    "type": "message",
+    "text": "There a another slack community called \"no code founders\" that this would be a great fit for feedback from. Several platforms have tried similar approaches.",
+    "user": "UN57U8V53",
+    "ts": "1592481290.331800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3447742b735b",
+      "image_72": "https://avatars.slack-edge.com/2019-09-09/753296041488_3447742b735b104a7ff2_72.png",
+      "first_name": "",
+      "real_name": "Don Abrams",
+      "display_name": "Don Abrams",
+      "team": "T5TCAFTA9",
+      "name": "donabrams",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8Pk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There a another slack community called \"no code founders\" that this would be a great fit for feedback from. Several platforms have tried similar approaches."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591918996.315500",
+    "parent_user_id": "UP7N4QVK2",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9b8006d7-8583-4938-a416-2bc53af517ab",
+    "type": "message",
+    "text": "I've done similar POC work to this, and seen it become equivalent to imperative coding but with one extra layer of indirection",
+    "user": "UN57U8V53",
+    "ts": "1592481386.332000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Kn0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've done similar POC work to this, and seen it become equivalent to imperative coding but with one extra layer of indirection"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591918996.315500",
+    "parent_user_id": "UP7N4QVK2",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9b8006d7-8583-4938-a416-2bc53af517ab",
+    "type": "message",
+    "text": "I've done similar POC work to this, and seen it become equivalent to imperative coding but with one extra layer of indirection",
+    "user": "UN57U8V53",
+    "ts": "1592481386.332000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3447742b735b",
+      "image_72": "https://avatars.slack-edge.com/2019-09-09/753296041488_3447742b735b104a7ff2_72.png",
+      "first_name": "",
+      "real_name": "Don Abrams",
+      "display_name": "Don Abrams",
+      "team": "T5TCAFTA9",
+      "name": "donabrams",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Kn0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've done similar POC work to this, and seen it become equivalent to imperative coding but with one extra layer of indirection"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591918996.315500",
+    "parent_user_id": "UP7N4QVK2",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "7c225d81-8a75-43f0-8b89-4592d2df98f4",
+    "type": "message",
+    "text": "Makes sense, I guess we could say there are two main benefits: 1. no lock-in effect, allowing platform to grow and 2. duality of the codebase, in the way that it can be worked upon by both devs and non-devs.\n\nWe are both achieving second point by restricting and organizing the code in such way that it allows us to build additional tools on top of it that utilize this structure to offer simpler interaction with the code (visual editor).\nHowever, we are doing it via DSL that has interoop with JS, while you are doing it by restricting JS.\n\nWell this is all so exciting, I wish I had more to share but we also don't know yet exactly how will DSL perform -&gt; but you are on our subscription list so we will notify you in couple of months when we release the first MVP! Looking forward to seeing how your solution develops :slightly_smiling_face:.",
+    "user": "UUB7RA7PF",
+    "ts": "1592486136.330200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2fdcf29b225b",
+      "image_72": "https://avatars.slack-edge.com/2020-02-26/971836171367_2fdcf29b225b02e66825_72.png",
+      "first_name": "Martin",
+      "real_name": "Martin Sosic",
+      "display_name": "Martin",
+      "team": "T5TCAFTA9",
+      "name": "sosic.martin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/dGae",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Makes sense, I guess we could say there are two main benefits: 1. no lock-in effect, allowing platform to grow and 2. duality of the codebase, in the way that it can be worked upon by both devs and non-devs.\n\nWe are both achieving second point by restricting and organizing the code in such way that it allows us to build additional tools on top of it that utilize this structure to offer simpler interaction with the code (visual editor).\nHowever, we are doing it via DSL that has interoop with JS, while you are doing it by restricting JS.\n\nWell this is all so exciting, I wish I had more to share but we also don't know yet exactly how will DSL perform -> but you are on our subscription list so we will notify you in couple of months when we release the first MVP! Looking forward to seeing how your solution develops "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592308834.300100",
+    "parent_user_id": "U0136G8R8KG",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U0136G8R8KG"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "0999c897-ab3c-4e57-85d7-e4a6803f9138",
+    "type": "message",
+    "text": "<@UJBAJNFLK> you're right. I'm increasingly avoiding slacks for that reason. At least on twitter you meet more people.",
+    "user": "U6KQ2S410",
+    "ts": "1592491004.371400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HAh1S",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " you're right. I'm increasingly avoiding slacks for that reason. At least on twitter you meet more people."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591463789.003800",
+    "parent_user_id": "U71PMQ1V0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0999c897-ab3c-4e57-85d7-e4a6803f9138",
+    "type": "message",
+    "text": "<@UJBAJNFLK> you're right. I'm increasingly avoiding slacks for that reason. At least on twitter you meet more people.",
+    "user": "U6KQ2S410",
+    "ts": "1592491004.371400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e8f4c2151d2b",
+      "image_72": "https://avatars.slack-edge.com/2017-08-09/225308926294_e8f4c2151d2b70ebfae3_72.jpg",
+      "first_name": "Jonathan",
+      "real_name": "Jonathan Edwards",
+      "display_name": "jonathoda",
+      "team": "T5TCAFTA9",
+      "name": "jonathoda",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HAh1S",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " you're right. I'm increasingly avoiding slacks for that reason. At least on twitter you meet more people."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1591463789.003800",
+    "parent_user_id": "U71PMQ1V0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8c14b0e0-e19a-4667-bf65-4327f303c2db",
+    "type": "message",
+    "text": "<@U8A5MS6R1> — Your bridge example is interesting. What does the image convey to you? Because to me, I see no structural definitions, no measurements, no equations, hard-to-see use-case (i.e. I’m assuming it’s a bridge for cars?). I think the image says a lot, but perhaps more emotional and art than logic and mathematics.",
+    "user": "UJKKBAMLL",
+    "ts": "1592492917.376500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6QkS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U8A5MS6R1"
+              },
+              {
+                "type": "text",
+                "text": " — Your bridge example is interesting. What does the image convey to you? Because to me, I see no structural definitions, no measurements, no equations, hard-to-see use-case (i.e. I’m assuming it’s a bridge for cars?). I think the image says a lot, but perhaps more emotional and art than logic and mathematics."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UKP3B2J5D"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "7e2e30f3-fbb0-493f-bf81-7bbe76ed328e",
+    "type": "message",
+    "text": "Generally speaking, I’m in high agreement with the Graydon Hoare’s post, specifically around the use of text in logical and mathematical representations of complexity. I did a study on this ~7 years ago and the results confirmed that text was most optimal for expressing, sharing, understanding, writing, and reading complex logic. I did this study outside of academia during my own younger years as a professional so the records of this are all but lost on some hard-drive in a landfill, but the memory is still very much alive. I do want to run this study again…",
+    "user": "UJKKBAMLL",
+    "ts": "1592493342.376700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJKKBAMLL",
+      "ts": "1592493348.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tE2xd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Generally speaking, I’m in high agreement with the Graydon Hoare’s post, specifically around the use of text in logical and mathematical representations of complexity. I did a study on this ~7 years ago and the results confirmed that text was most optimal for expressing, sharing, understanding, writing, and reading complex logic. I did this study outside of academia during my own younger years as a professional so the records of this are all but lost on some hard-drive in a landfill, but the memory is still very much alive. I do want to run this study again…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "010f4cfa-b07b-46d4-b85a-fb1892735944",
+    "type": "message",
+    "text": "However, it’s really all about perspective of application here — UX. Nodes, images and other forms of HCI are powerful, text may be best, but that does not make it exclusive. I would however argue that text is best for many domains, but not all.",
+    "user": "UJKKBAMLL",
+    "ts": "1592493465.377000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "raYA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "However, it’s really all about perspective of application here — UX. Nodes, images and other forms of HCI are powerful, text may be best, but that does not make it exclusive. I would however argue that text is best for many domains, but not all."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UKP3B2J5D",
+          "UJRDRMWQN"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "db85bf89-aa3f-407a-836b-b134f9821cb5",
+    "type": "message",
+    "text": "What if instead of a shared cell sensitive formula box, each cell showed its formula and its value?",
+    "user": "UA14TGLTC",
+    "ts": "1592494336.371600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/dn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What if instead of a shared cell sensitive formula box, each cell showed its formula and its value?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592347969.348200",
+    "parent_user_id": "USH01JEDQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "db85bf89-aa3f-407a-836b-b134f9821cb5",
+    "type": "message",
+    "text": "What if instead of a shared cell sensitive formula box, each cell showed its formula and its value?",
+    "user": "UA14TGLTC",
+    "ts": "1592494336.371600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/dn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What if instead of a shared cell sensitive formula box, each cell showed its formula and its value?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592347969.348200",
+    "parent_user_id": "USH01JEDQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "674b4b94-62a9-411e-bf37-1158c115f859",
+    "type": "message",
+    "text": "This is probably obvious at this point, but it's worth re-iterating that visual programming languages are extremely popular anytime \"programming\" is used outside of traditional software development. Here's a quick list of a few examples that I personally use: Max/MSP, Reaktor, Blender, Houdini, and VCV Rack. I would even go as far as to say visual programming languages are actually the default approach outside of traditional software development. This leads me to believe that visual programming languages, in a vacuum, are actually better, outside of one absolutely gigantic feature: Collaboration. Version control is the canonical example of a powerful collaboration feature powered by plain text, but even Stackoverflow, Slack, and any other place you cut and paste code are examples of leveraging plain text for collaboration. Using visual programming languages so much in various non-software development pursuits has convinced me that outside of these collaboration features, they're probably better. But if you are building complex systems that need collaboration between many different individuals, they're much worse.",
+    "user": "UE0ETTCG7",
+    "ts": "1592494638.377800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8d5fa305f272",
+      "image_72": "https://avatars.slack-edge.com/2020-09-24/1392332871012_8d5fa305f272f9d0c9e3_72.jpg",
+      "first_name": "Roben",
+      "real_name": "Roben Kleene",
+      "display_name": "robenkleene",
+      "team": "T5TCAFTA9",
+      "name": "services",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/I4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is probably obvious at this point, but it's worth re-iterating that visual programming languages are extremely popular anytime \"programming\" is used outside of traditional software development. Here's a quick list of a few examples that I personally use: Max/MSP, Reaktor, Blender, Houdini, and VCV Rack. I would even go as far as to say visual programming languages are actually the default approach outside of traditional software development. This leads me to believe that visual programming languages, in a vacuum, are actually better, outside of one absolutely gigantic feature: Collaboration. Version control is the canonical example of a powerful collaboration feature powered by plain text, but even Stackoverflow, Slack, and any other place you cut and paste code are examples of leveraging plain text for collaboration. Using visual programming languages so much in various non-software development pursuits has convinced me that outside of these collaboration features, they're probably better. But if you are building complex systems that need collaboration between many different individuals, they're much worse."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "d58147e0-f087-4c9a-a148-229812db61a0",
+    "type": "message",
+    "text": "Wow, what a great video, thanks for sharing! One hypothesis I'm mulling over that contradicts the video: I actually think direct manipulation tools have a higher learning curve than programming languages. For example, once you know one programming language, it's fairly easy to jump into another. Whereas I'm expert level in Photoshop (worked as a designer primarily using Photoshop for almost a decade), but I still find Illustrator extraordinarily difficult. I'd have a far easier time leveraging a programming language I barely know like Python, than trying to accomplish something in Illustrator.",
+    "user": "UE0ETTCG7",
+    "ts": "1592497043.371900",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BQiaD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Wow, what a great video, thanks for sharing! One hypothesis I'm mulling over that contradicts the video: I actually think direct manipulation tools have a higher learning curve than programming languages. For example, once you know one programming language, it's fairly easy to jump into another. Whereas I'm expert level in Photoshop (worked as a designer primarily using Photoshop for almost a decade), but I still find Illustrator extraordinarily difficult. I'd have a far easier time leveraging a programming language I barely know like Python, than trying to accomplish something in Illustrator."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592403580.362100",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d58147e0-f087-4c9a-a148-229812db61a0",
+    "type": "message",
+    "text": "Wow, what a great video, thanks for sharing! One hypothesis I'm mulling over that contradicts the video: I actually think direct manipulation tools have a higher learning curve than programming languages. For example, once you know one programming language, it's fairly easy to jump into another. Whereas I'm expert level in Photoshop (worked as a designer primarily using Photoshop for almost a decade), but I still find Illustrator extraordinarily difficult. I'd have a far easier time leveraging a programming language I barely know like Python, than trying to accomplish something in Illustrator.",
+    "user": "UE0ETTCG7",
+    "ts": "1592497043.371900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8d5fa305f272",
+      "image_72": "https://avatars.slack-edge.com/2020-09-24/1392332871012_8d5fa305f272f9d0c9e3_72.jpg",
+      "first_name": "Roben",
+      "real_name": "Roben Kleene",
+      "display_name": "robenkleene",
+      "team": "T5TCAFTA9",
+      "name": "services",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BQiaD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Wow, what a great video, thanks for sharing! One hypothesis I'm mulling over that contradicts the video: I actually think direct manipulation tools have a higher learning curve than programming languages. For example, once you know one programming language, it's fairly easy to jump into another. Whereas I'm expert level in Photoshop (worked as a designer primarily using Photoshop for almost a decade), but I still find Illustrator extraordinarily difficult. I'd have a far easier time leveraging a programming language I barely know like Python, than trying to accomplish something in Illustrator."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592403580.362100",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "D1DB7A81-D926-42C0-BC7C-A20A7C72B8D5",
+    "type": "message",
+    "text": "i can’t get over the fact that text-adherents deny all the visual affordances in everyday programming: if all we need is ascii, why indent? why syntax color? why use symbols to represent operators instead of words? what about things like decorators in javascript or python, which are positional? why do we use arrow notation for functions in a lot of cases? what’s the textual semantics of separating keys and values with a colon? what do we think parentheses are? ",
+    "user": "UHWC9PXBL",
+    "ts": "1592497725.381600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Lnb+R",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i can’t get over the fact that text-adherents deny all the visual affordances in everyday programming: if all we need is ascii, why indent? why syntax color? why use symbols to represent operators instead of words? what about things like decorators in javascript or python, which are positional? why do we use arrow notation for functions in a lot of cases? what’s the textual semantics of separating keys and values with a colon? what do we think parentheses are? "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0",
+          "UBSMEUXAA"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "043B1538-9562-4BDE-A015-6A3F8EF159EA",
+    "type": "message",
+    "text": "<https://hash.ai/about/mission|https://hash.ai/about/mission> advanced simulations in the browser?",
+    "user": "UHWC9PXBL",
+    "ts": "1592497749.372500",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "title": "Mission - HASH",
+        "title_link": "https://hash.ai/about/mission",
+        "text": "Build simulations in minutes not days. HASH is an open-source platform backed and built by the founders of Kaggle, Stack Overflow, Trello and Glitch.",
+        "fallback": "Mission - HASH",
+        "image_url": "https://cdn-us1.hash.ai/assets/hash-card.png",
+        "from_url": "https://hash.ai/about/mission",
+        "image_width": 478,
+        "image_height": 250,
+        "image_bytes": 642523,
+        "service_icon": "https://hash.ai/assets/img/brand/favicon-57.png",
+        "service_name": "hash.ai",
+        "id": 1,
+        "original_url": "https://hash.ai/about/mission"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Clp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://hash.ai/about/mission",
+                "text": "https://hash.ai/about/mission"
+              },
+              {
+                "type": "text",
+                "text": " advanced simulations in the browser?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592497749.372500",
+    "reply_count": 5,
+    "reply_users_count": 3,
+    "latest_reply": "1592530721.374600",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UGLSY9X3J",
+      "UA14TGLTC"
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "043B1538-9562-4BDE-A015-6A3F8EF159EA",
+    "type": "message",
+    "text": "<https://hash.ai/about/mission|https://hash.ai/about/mission> advanced simulations in the browser?",
+    "user": "UHWC9PXBL",
+    "ts": "1592497749.372500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Mission - HASH",
+        "title_link": "https://hash.ai/about/mission",
+        "text": "Build simulations in minutes not days. HASH is an open-source platform backed and built by the founders of Kaggle, Stack Overflow, Trello and Glitch.",
+        "fallback": "Mission - HASH",
+        "image_url": "https://cdn-us1.hash.ai/assets/hash-card.png",
+        "from_url": "https://hash.ai/about/mission",
+        "image_width": 478,
+        "image_height": 250,
+        "image_bytes": 642523,
+        "service_icon": "https://hash.ai/assets/img/brand/favicon-57.png",
+        "service_name": "hash.ai",
+        "id": 1,
+        "original_url": "https://hash.ai/about/mission"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Clp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://hash.ai/about/mission",
+                "text": "https://hash.ai/about/mission"
+              },
+              {
+                "type": "text",
+                "text": " advanced simulations in the browser?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592497749.372500",
+    "reply_count": 5,
+    "reply_users_count": 3,
+    "latest_reply": "1592530721.374600",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UGLSY9X3J",
+      "UA14TGLTC"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592518302.372900"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1592518316.373100"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1592524947.373800"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1592524951.374100"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1592530721.374600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "86f90dca-4438-415c-8f5d-80d921640eed",
+    "type": "message",
+    "text": "<@UHWC9PXBL> Indeed I agree some overlook or discount the topics you present — however, they are topics not universal required in textual representation of logic. For example: “when the door bell rings, text me” this statement does not need any syntax sugar to have meaning yet it conveys a respectable depth of complexity, would you agree?\n\nThe reason indent, color, etc. is applied to increase depth of meaning. If we apply colors, indentation and symbols to our door bell workflow than it (at least I hope) is only added to improve reading/writing/understanding of the logic, but by no means is it required at this depth of complexity.",
+    "user": "UJKKBAMLL",
+    "ts": "1592498253.381800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tCgT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              },
+              {
+                "type": "text",
+                "text": " Indeed I agree some overlook or discount the topics you present — however, they are topics not universal required in textual representation of logic. For example: “when the door bell rings, text me” this statement does not need any syntax sugar to have meaning yet it conveys a respectable depth of complexity, would you agree?\n\nThe reason indent, color, etc. is applied to increase depth of meaning. If we apply colors, indentation and symbols to our door bell workflow than it (at least I hope) is only added to improve reading/writing/understanding of the logic, but by no means is it required at this depth of complexity."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UKP3B2J5D"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "db3acb1b-a6c6-4b10-800c-6630f8508091",
+    "type": "message",
+    "text": "In this particular example (and I have thousands more), text is best. Drawing a picture of the doorbell ringing and a text message sending is less effective at conveying the required complexities of our intended behavior — in fact it would include a terrible amount of unnecessary complexity if represented in a drawing that may include unnecessary emotion or a diagram which includes unnecessary shapes/lines/structures/visual-space.",
+    "user": "UJKKBAMLL",
+    "ts": "1592498391.382900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fcx1U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In this particular example (and I have thousands more), text is best. Drawing a picture of the doorbell ringing and a text message sending is less effective at conveying the required complexities of our intended behavior — in fact it would include a terrible amount of unnecessary complexity if represented in a drawing that may include unnecessary emotion or a diagram which includes unnecessary shapes/lines/structures/visual-space."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9af008ed-5e08-4ab5-812f-44b95923f145",
+    "type": "message",
+    "text": "<@U015H1K64G1> this conversation and topic is very relevant to our recent conversation.",
+    "user": "UJKKBAMLL",
+    "ts": "1592498437.383100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zoQAy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U015H1K64G1"
+              },
+              {
+                "type": "text",
+                "text": " this conversation and topic is very relevant to our recent conversation."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "50d1a952-1a62-4e9f-b90d-569dbc68338e",
+    "type": "message",
+    "text": "If I may continue: though text may be best in places, it does not need to be exclusively text. Why choose one? Why not choose text when appropriate and visual when appropriate? I would argue the latter here is most optimal for UX.",
+    "user": "UJKKBAMLL",
+    "ts": "1592498512.383300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RNe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If I may continue: though text may be best in places, it does not need to be exclusively text. Why choose one? Why not choose text when appropriate and visual when appropriate? I would argue the latter here is most optimal for UX."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UKP3B2J5D"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "4DC99551-E7F9-45E9-A8BC-DF5166817402",
+    "type": "message",
+    "text": "<@UBZ91GWJW> you’re working at a different level of text, so i’m not sure the argument applies here. storyscript (as i understand it) aims to have the user communicate in natural language, then conversationally hone in on a mapping of that language to the formal, underlying system, right? i wouldn’t describe that as fundamentally textual (at least for the purpose of this discussion) since “displayed code” gets evolved over the course of the interaction—does that make sense?",
+    "user": "UHWC9PXBL",
+    "ts": "1592500557.387100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Pqi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UBZ91GWJW"
+              },
+              {
+                "type": "text",
+                "text": " you’re working at a different level of text, so i’m not sure the argument applies here. storyscript (as i understand it) aims to have the user communicate in natural language, then conversationally hone in on a mapping of that language to the formal, underlying system, right? i wouldn’t describe that as fundamentally textual (at least for the purpose of this discussion) since “displayed code” gets evolved over the course of the interaction—does that make sense?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "913355b0-4681-4c7b-a7a0-3b04e1ad5f88",
+    "type": "message",
+    "text": "<@UHWC9PXBL> I intentionally left Storyscript of out my argument :wink:  but yes, it has influenced my argument, no question about that. But my intention and argument was more about generalized logic which has vastly different weights of complexity ranging from simple Alexa commands to something much closer to what traditional programming supports. I rather not bring Storyscript into this conversation an focus on different levels of necessary complexity. Generally speaking, I’m arguing that text is best for the majority of complex domains, but not exclusively.",
+    "user": "UJKKBAMLL",
+    "ts": "1592500845.389400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SiU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              },
+              {
+                "type": "text",
+                "text": " I intentionally left Storyscript of out my argument "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              },
+              {
+                "type": "text",
+                "text": "  but yes, it has influenced my argument, no question about that. But my intention and argument was more about generalized logic which has vastly different weights of complexity ranging from simple Alexa commands to something much closer to what traditional programming supports. I rather not bring Storyscript into this conversation an focus on different levels of necessary complexity. Generally speaking, I’m arguing that text is best for the majority of complex domains, but not exclusively."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "5f7b5733-c550-4931-bdad-178ff8811205",
+    "type": "message",
+    "text": "One example where I don't think that text is better is in logic gate circuits. The way text is laid out it's not obvious what the inputs and what the overall output is.\n\ne.g. A or B and C or D and E\n\nThis is very simple example but it would already need brackets and even then isn't clear. When you see highly structured text (like law) they tend to essentially lay it out diagrammatically (with indents) and it's still not very clear",
+    "user": "UDQBTJ211",
+    "ts": "1592500984.390500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yE6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One example where I don't think that text is better is in logic gate circuits. The way text is laid out it's not obvious what the inputs and what the overall output is.\n\ne.g. A or B and C or D and E\n\nThis is very simple example but it would already need brackets and even then isn't clear. When you see highly structured text (like law) they tend to essentially lay it out diagrammatically (with indents) and it's still not very clear"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      },
+      {
+        "name": "mag",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "10f5be97-4443-4b55-bfd3-ab4576bf8b09",
+    "type": "message",
+    "text": "Text shines when you have a large vocabulary",
+    "user": "UDQBTJ211",
+    "ts": "1592501062.390700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2QV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Text shines when you have a large vocabulary"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UAHHWT22U"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8deb6517-b0cc-4011-a381-0da15d48be99",
+    "type": "message",
+    "text": "&gt; <@U8A5MS6R1> — Your bridge example is interesting. What does the image convey to you?\n<@UJKKBAMLL> - it's about the arrangement of beams and trusses - how do you convey that in text? \"There are two large trusses. The left truss has N beams. The first beam starts at coordinates (0,0) at an angle of 15%.. this is connected to two other beams\". Then how do you describe _all_ the connections? You could even make a table with the list of beams with coordinates and connections, but a reader wouln't get it until they reconstruct the diagram from the table and look at it.",
+    "user": "U8A5MS6R1",
+    "ts": "1592501977.391300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DR=f6",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U8A5MS6R1"
+              },
+              {
+                "type": "text",
+                "text": " — Your bridge example is interesting. What does the image convey to you?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJKKBAMLL"
+              },
+              {
+                "type": "text",
+                "text": " - it's about the arrangement of beams and trusses - how do you convey that in text? \"There are two large trusses. The left truss has N beams. The first beam starts at coordinates (0,0) at an angle of 15%.. this is connected to two other beams\". Then how do you describe "
+              },
+              {
+                "type": "text",
+                "text": "all",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the connections? You could even make a table with the list of beams with coordinates and connections, but a reader wouln't get it until they reconstruct the diagram from the table and look at it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UMWF81HTP"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "bb6d93e3-e081-4ec4-adba-fc1273abeab3",
+    "type": "message",
+    "text": "I think Lisp in Small Pieces or Appel's Compiling with Continuations might have some good basic optimisation techniques but I would also love to know a good resource for this!",
+    "user": "U012QKESJF6",
+    "ts": "1592502105.031300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d11c25a0fa",
+      "image_72": "https://secure.gravatar.com/avatar/0d11c25a0fa037a73c22c65361fb142a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+      "first_name": "",
+      "real_name": "Boarders",
+      "display_name": "Boarders",
+      "team": "T5TCAFTA9",
+      "name": "callan.mcgill",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "01Q=I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think Lisp in Small Pieces or Appel's Compiling with Continuations might have some good basic optimisation techniques but I would also love to know a good resource for this!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589940714.024800",
+    "parent_user_id": "UT60XSVCN",
+    "channel_name": "of-functional-programming",
+    "channel_id": "C0133ED5811"
+  },
+  {
+    "client_msg_id": "92748344-19b8-4941-910a-7b173633c6ba",
+    "type": "message",
+    "text": "Ok—I think I might have a better way of putting this. Articles about the primacy of “text” as a medium frustrate me because they move the goalposts on what they mean by text, and often are used to justify a world where we continue to edit programs character-by-character in order to produce a single array of characters that pass lexing, parsing, and compilation or interpretation checks.\n\nThis is frustrating. Here’s one of the example quotes from the article:\n\n&gt; _“Human rights are moral principles or norms that describe certain standards of human behaviour, and are regularly protected as legal rights in national and international law.”_\nI’m not sure how to convey that graphically, but I’m also not sure how to define even _a process to find an appropriate semantic model_ for that sentence. Some quick bullet points:\n• The social context for this sentence matters. You could be reading it at a filibuster, an open mic night, or during a debate around a constitutional amendment. All of those wildly change the intention that the audience (or the “compiler”) should intuit from the text\n• The vast majority of the meaning of this sentence is buried in definitions, assumptions, behaviors, cultures, etc—there are a million “why?” questions a naive alien could ask about this sentence—to say nothing of the non-precise definition of every single word used in it—reminding me of a long-lost old tweet: “Words are a scam. If you look them up, they just mean other words. That’s how they get you”\n• Even *humans*, who designed the damn language thing, can’t agree on definitions or reasonable inference. That’s why lawyers and judges and polticians write and argue about what laws mean all the time.\nAll this is to say that the _advantages_ that authors of these types of articles often cite as belonging to text tend to actually belong to _human language_, not arrays of ascii or unicode. Sorry—I’m bringing up storyscript again because it’s cool and a good example: I find the most appealing part of being able to write the sentence “text me when the doorbell rings” and have it work is the idea that there is a tool or process set up that\n1. knows who i am\n2. understands that “text me” means “text me `the doorbell has rung`”\n3. knows which doorbell I mean when I say `the doorbell`",
+    "user": "UHWC9PXBL",
+    "ts": "1592502188.391500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UHWC9PXBL",
+      "ts": "1592502249.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "O/hvs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ok—I think I might have a better way of putting this. Articles about the primacy of “text” as a medium frustrate me because they move the goalposts on what they mean by text, and often are used to justify a world where we continue to edit programs character-by-character in order to produce a single array of characters that pass lexing, parsing, and compilation or interpretation checks.\n\nThis is frustrating. Here’s one of the example quotes from the article:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "“Human rights are moral principles or norms that describe certain standards of human behaviour, and are regularly protected as legal rights in national and international law.”",
+                "style": {
+                  "italic": true
+                }
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI’m not sure how to convey that graphically, but I’m also not sure how to define even "
+              },
+              {
+                "type": "text",
+                "text": "a process to find an appropriate semantic model",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " for that sentence. Some quick bullet points:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The social context for this sentence matters. You could be reading it at a filibuster, an open mic night, or during a debate around a constitutional amendment. All of those wildly change the intention that the audience (or the “compiler”) should intuit from the text"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The vast majority of the meaning of this sentence is buried in definitions, assumptions, behaviors, cultures, etc—there are a million “why?” questions a naive alien could ask about this sentence—to say nothing of the non-precise definition of every single word used in it—reminding me of a long-lost old tweet: “Words are a scam. If you look them up, they just mean other words. That’s how they get you”"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Even "
+                  },
+                  {
+                    "type": "text",
+                    "text": "humans",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ", who designed the damn language thing, can’t agree on definitions or reasonable inference. That’s why lawyers and judges and polticians write and argue about what laws mean all the time."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "All this is to say that the "
+              },
+              {
+                "type": "text",
+                "text": "advantages",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " that authors of these types of articles often cite as belonging to text tend to actually belong to "
+              },
+              {
+                "type": "text",
+                "text": "human language",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", not arrays of ascii or unicode. Sorry—I’m bringing up storyscript again because it’s cool and a good example: I find the most appealing part of being able to write the sentence “text me when the doorbell rings” and have it work is the idea that there is a tool or process set up that\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "knows who i am"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "understands that “text me” means “text me "
+                  },
+                  {
+                    "type": "text",
+                    "text": "the doorbell has rung",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "”"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "knows which doorbell I mean when I say "
+                  },
+                  {
+                    "type": "text",
+                    "text": "the doorbell",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UMWF81HTP",
+          "U010328JA1E",
+          "UCGAK10LS"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "91d382fd-41f0-49be-8a5a-7221ebd8216c",
+    "type": "message",
+    "text": "this is the second time ive accidentally sent the message before finishing it so I’m just plowing ahead",
+    "user": "UHWC9PXBL",
+    "ts": "1592502208.391700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xAg+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this is the second time ive accidentally sent the message before finishing it so I’m just plowing ahead"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "3fe97dd5-f48c-4fcd-8a98-c92431b655aa",
+    "type": "message",
+    "text": "<@U8A5MS6R1> <https://blokdots.com/> blends this very well IMO",
+    "user": "UJKKBAMLL",
+    "ts": "1592502741.392000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "blokdots",
+        "title_link": "https://blokdots.com/",
+        "text": "blokdots is a simple to use software to build interactive hardware prototypes without a line of code.",
+        "fallback": "blokdots",
+        "image_url": "https://blokdots.com/richPreview.jpg",
+        "image_width": 476,
+        "image_height": 250,
+        "from_url": "https://blokdots.com/",
+        "image_bytes": 162566,
+        "service_icon": "https://blokdots.com/touch-icon.png",
+        "service_name": "blokdots.com",
+        "id": 1,
+        "original_url": "https://blokdots.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Fh0O",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U8A5MS6R1"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://blokdots.com/"
+              },
+              {
+                "type": "text",
+                "text": " blends this very well IMO"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UHWC9PXBL",
+          "U8A5MS6R1",
+          "UML4ZEKDK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "da458d75-fd6e-4406-b22c-281c746b3a73",
+    "type": "message",
+    "text": "Beautiful blend of visual and textual representation of complexity.",
+    "user": "UJKKBAMLL",
+    "ts": "1592502801.392300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "91ptj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Beautiful blend of visual and textual representation of complexity."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c7329257-35f9-4db0-9b9d-72b9a380efcf",
+    "type": "message",
+    "text": "<@UHWC9PXBL> I will return to comment soon, have meetings for a while now :smile: — Also DM so we can schedule time to chat and show demos.",
+    "user": "UJKKBAMLL",
+    "ts": "1592502982.392500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "b2S",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              },
+              {
+                "type": "text",
+                "text": " I will return to comment soon, have meetings for a while now "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": " — Also DM so we can schedule time to chat and show demos."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "22cacb15-c340-4edc-a5b5-7ee9ed147f9e",
+    "type": "message",
+    "text": "Those three numbered points are all examples of embedding context in the environment interpreting a set of commands. I think the more useful way of looking at the bare reality of how computers get used is that we send them instructions. The tradition is to batch them up in code files and pass them somewhere, then run them by clicking or invoking them on the command line.\n\nOne major frustration I have is that the input for these commands tends to be constrained to appending, concatenating, inserting, and deleting either characters or regular expressions over characters on arrays (really ropes if you want to nerd out about probable data structures—but the user is experience is indistinguishable from arrays) of text that will eventually get parsed. That sucks:\n• There’s clearly a level of direct inefficiency here: we edit text files, so that they can be parsed to data structures (ASTs)—and then attempt to edit those data structures by editing our text files—and we maintain a relationship between those two pieces of state by maintaining a model in our brains, and spot-checking it repeatedly against a parser, typechecker, and manual and automated tests. I’d argue that storyscript *is actually* a conversational interface over a structural editor, that uses a lot of NLP and some clever UX to make the experience very pleasant. Plus all the stuff about connections to services and everything else it’s doing.\n• there are demonstrably more efficient or ergonomic ways of entering many types of data (interactively or not): dropping pins on a map, using a color picker or eyedropper, drawing a box for a screencap or crop, clicking an element on the screen rather than specifying its exact position or some sort of structural selector, etc. \n• In fact, some of these may be more useful for data types that have direct analogues in code and ASTs: do you think there are more tables or maps in all the excel documents in the world or all the code in the world? How many cars are there whose speed is controlled by the user typing in a percentage delineating the openness of a throttle?",
+    "user": "UHWC9PXBL",
+    "ts": "1592504752.392700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Q7yo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Those three numbered points are all examples of embedding context in the environment interpreting a set of commands. I think the more useful way of looking at the bare reality of how computers get used is that we send them instructions. The tradition is to batch them up in code files and pass them somewhere, then run them by clicking or invoking them on the command line.\n\nOne major frustration I have is that the input for these commands tends to be constrained to appending, concatenating, inserting, and deleting either characters or regular expressions over characters on arrays (really ropes if you want to nerd out about probable data structures—but the user is experience is indistinguishable from arrays) of text that will eventually get parsed. That sucks:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "There’s clearly a level of direct inefficiency here: we edit text files, so that they can be parsed to data structures (ASTs)—and then attempt to edit those data structures by editing our text files—and we maintain a relationship between those two pieces of state by maintaining a model in our brains, and spot-checking it repeatedly against a parser, typechecker, and manual and automated tests. I’d argue that storyscript "
+                  },
+                  {
+                    "type": "text",
+                    "text": "is actually",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " a conversational interface over a structural editor, that uses a lot of NLP and some clever UX to make the experience very pleasant. Plus all the stuff about connections to services and everything else it’s doing."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "there are demonstrably more efficient or ergonomic ways of entering many types of data (interactively or not): dropping pins on a map, using a color picker or eyedropper, drawing a box for a screencap or crop, clicking an element on the screen rather than specifying its exact position or some sort of structural selector, etc. "
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "In fact, some of these may be more useful for data types that have direct analogues in code and ASTs: do you think there are more tables or maps in all the excel documents in the world or all the code in the world? How many cars are there whose speed is controlled by the user typing in a percentage delineating the openness of a throttle?"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "22cacb15-c340-4edc-a5b5-7ee9ed147f9e",
+    "type": "message",
+    "text": "What do all these specialized tools for data entry actually give you? Context, live feedback, and constrained input. And most of them _don’t feel like using a language_—the thing about flow states is that they deal with feeling _embodied_. So a fencer considers their sword an extension of _their arm_, a driver considers a car the extension of _their body_, and a musician often considers their instruments an extension of _their hands, voice, or speech_. There’s a reason we put frets on guitars, even though a rational being with an infinite time horizon would be perfectly fine with labeled fretless guitars, or simply perfect pitch.\n\nThe thing about all these affordances is that they quickly move from conscious to subconscious attention as people become more familiar with them through use. That’s (part of) what generates flow states. So most of what *good* visual or gestural interfaces provide quickly become invisible. The use of carets for editing, highlighting for selection, clicking for activating or selecting, etc, eliminate reams and reams of parameters we’d have to add to functions if we were doing everything with text-based languages—but we don’t talk about this when we talk about text and programming languages. That’s the power I see in phrases like `the doorbell`. It’s an implicit selection or context that doesn’t require you to hop out of your subconscious way of thinking “*that* doorbell, which is close at hand, or in my mind” and into machine language “what’s the UUID of that doorbell? what’s the order at the call site of the function? did I import the right module? is it objectName.data or objectName.value?” and pointing—whether with your eyes, explicit context from associating things with your username, using a mouse, or using the history of a conversation—makes this much, much more ergonomic. And none of those options have to do with the array of characters that you hope defines a parseable program. They all have to do with directions to the interpreter or whatever about *how to look up and interpret symbols.*",
+    "user": "UHWC9PXBL",
+    "ts": "1592504752.392900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UHWC9PXBL",
+      "ts": "1592504820.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3lTK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What do all these specialized tools for data entry actually give you? Context, live feedback, and constrained input. And most of them "
+              },
+              {
+                "type": "text",
+                "text": "don’t feel like using a language",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "—the thing about flow states is that they deal with feeling "
+              },
+              {
+                "type": "text",
+                "text": "embodied",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". So a fencer considers their sword an extension of "
+              },
+              {
+                "type": "text",
+                "text": "their arm",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", a driver considers a car the extension of "
+              },
+              {
+                "type": "text",
+                "text": "their body",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", and a musician often considers their instruments an extension of "
+              },
+              {
+                "type": "text",
+                "text": "their hands, voice, or speech",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". There’s a reason we put frets on guitars, even though a rational being with an infinite time horizon would be perfectly fine with labeled fretless guitars, or simply perfect pitch.\n\nThe thing about all these affordances is that they quickly move from conscious to subconscious attention as people become more familiar with them through use. That’s (part of) what generates flow states. So most of what "
+              },
+              {
+                "type": "text",
+                "text": "good",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " visual or gestural interfaces provide quickly become invisible. The use of carets for editing, highlighting for selection, clicking for activating or selecting, etc, eliminate reams and reams of parameters we’d have to add to functions if we were doing everything with text-based languages—but we don’t talk about this when we talk about text and programming languages. That’s the power I see in phrases like "
+              },
+              {
+                "type": "text",
+                "text": "the doorbell",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". It’s an implicit selection or context that doesn’t require you to hop out of your subconscious way of thinking “"
+              },
+              {
+                "type": "text",
+                "text": "that",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " doorbell, which is close at hand, or in my mind” and into machine language “what’s the UUID of that doorbell? what’s the order at the call site of the function? did I import the right module? is it objectName.data or objectName.value?” and pointing—whether with your eyes, explicit context from associating things with your username, using a mouse, or using the history of a conversation—makes this much, much more ergonomic. And none of those options have to do with the array of characters that you hope defines a parseable program. They all have to do with directions to the interpreter or whatever about "
+              },
+              {
+                "type": "text",
+                "text": "how to look up and interpret symbols.",
+                "style": {
+                  "bold": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "16f0a530-259d-4f23-be7f-d25d6c87f4fe",
+    "type": "message",
+    "text": "Sorry, COVID isolation + unemployment = my high pressure programming rant chamber required venting",
+    "user": "UHWC9PXBL",
+    "ts": "1592504785.393200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hvQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sorry, COVID isolation + unemployment = my high pressure programming rant chamber required venting"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "beers",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "37e43714-a9cd-44ca-ac36-8c37ef85a705",
+    "type": "message",
+    "text": "That’s an interesting point about how most good interfaces fade into the background. I find text does not do that to the same extent. Perhaps part of what is interesting about being a programmer is the novelty of how much can be accomplished by learning to edit text files. Maybe text isn’t good; it’s just conspicuous. Even if you’re doing more, better, you don’t feel like you’re programming when you’re using a spreadsheet (or I don’t).",
+    "user": "UKDM3GLAJ",
+    "ts": "1592507517.393500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "34e7a55348e8",
+      "image_72": "https://avatars.slack-edge.com/2020-01-04/893378739792_34e7a55348e8c86c1901_72.jpg",
+      "first_name": "",
+      "real_name": "Jared Windover",
+      "display_name": "Jared Windover",
+      "team": "T5TCAFTA9",
+      "name": "jaredwindover",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Hey",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That’s an interesting point about how most good interfaces fade into the background. I find text does not do that to the same extent. Perhaps part of what is interesting about being a programmer is the novelty of how much can be accomplished by learning to edit text files. Maybe text isn’t good; it’s just conspicuous. Even if you’re doing more, better, you don’t feel like you’re programming when you’re using a spreadsheet (or I don’t)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "ok_hand",
+        "users": [
+          "UHWC9PXBL",
+          "UFLN9JFRT"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "38519018-778e-49ef-851b-611d49413975",
+    "type": "message",
+    "text": "Programming is just conspicuous computing.",
+    "user": "UKDM3GLAJ",
+    "ts": "1592507536.393700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "34e7a55348e8",
+      "image_72": "https://avatars.slack-edge.com/2020-01-04/893378739792_34e7a55348e8c86c1901_72.jpg",
+      "first_name": "",
+      "real_name": "Jared Windover",
+      "display_name": "Jared Windover",
+      "team": "T5TCAFTA9",
+      "name": "jaredwindover",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xUL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Programming is just conspicuous computing."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1e95e993-aa62-404f-bb82-586da1138167",
+    "type": "message",
+    "text": "<@UHWC9PXBL> There is a lot to digest in your statements, I’m honestly not sure where to start…",
+    "user": "UJKKBAMLL",
+    "ts": "1592510495.395100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJKKBAMLL",
+      "ts": "1592510507.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "w4m",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              },
+              {
+                "type": "text",
+                "text": " There is a lot to digest in your statements, I’m honestly not sure where to start…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "860f6e5e-3e7b-4c1e-82c6-5fda4eb3947d",
+    "type": "message",
+    "text": "<@UJKKBAMLL> no worries! I apologized because I realized it had evolved into more of a blog post haha",
+    "user": "UHWC9PXBL",
+    "ts": "1592511040.395400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WcHYZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJKKBAMLL"
+              },
+              {
+                "type": "text",
+                "text": " no worries! I apologized because I realized it had evolved into more of a blog post haha"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "rolling_on_the_floor_laughing",
+        "users": [
+          "UJKKBAMLL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9d92b486-e5d6-46e7-9be6-703a01266062",
+    "type": "message",
+    "text": "&gt; If I may continue: though text may be best in places, it does not need to be exclusively text. Why choose one? Why not choose text when appropriate and visual when appropriate? I would argue the latter here is most optimal for UX.\nI agree with this.\n\nIf we think of 'information' as an artifact, text is a UI. The same information can have other UIs too, other text or visual representations, or mixtures of course. I think storing the text as the essential representation of information is where the trouble starts (which is what I think Garth is referring to). First, you have an incredibly denormalized representation where you have to normalize the links every time you load it (e.g. repetitive use of the same word/variable name). Second, you've embedded display and style information (80 columns?) into your information. Third, you often embed text delimiters to represent structure, and now parsing is a whole giant subject. This can go on..\n\nReally I think we should be moving off this pattern to a more hybrid and layered approach: the innermost representation only stores the essential elements of the information (kinda closer to a graph with nodes having ids?). The the outer layers map this into various forms, adding text, graphics, style etc. This is what I mean by 'universal hypermedia'. Imagine a view that shows \"when the doorbell rings, ...\", what does 'doorbell' refer to? What does 'ring' refer to? If I hover over the words, I should see highlights on all currently visible UI represensations of the same _entity_, e.g. an icon in a different pane. If I click I should be able to navigate to other entities connected to the 'doorbell' - provenance, other rules, etc. The entities are part of the information model here, which is more unified than fragmented, and we have these kinds of 'lenses' to look at the information. Yes, various expressions in the UI may use text, but I think 'always bet on text' misses the potential power of an information/hypermedia system. You should be able to switch to other views of the _same_ information, even multiple text views in fact.",
+    "user": "U8A5MS6R1",
+    "ts": "1592516663.396400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tlek3",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If I may continue: though text may be best in places, it does not need to be exclusively text. Why choose one? Why not choose text when appropriate and visual when appropriate? I would argue the latter here is most optimal for UX."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I agree with this.\n\nIf we think of 'information' as an artifact, text is a UI. The same information can have other UIs too, other text or visual representations, or mixtures of course. I think storing the text as the essential representation of information is where the trouble starts (which is what I think Garth is referring to). First, you have an incredibly denormalized representation where you have to normalize the links every time you load it (e.g. repetitive use of the same word/variable name). Second, you've embedded display and style information (80 columns?) into your information. Third, you often embed text delimiters to represent structure, and now parsing is a whole giant subject. This can go on..\n\nReally I think we should be moving off this pattern to a more hybrid and layered approach: the innermost representation only stores the essential elements of the information (kinda closer to a graph with nodes having ids?). The the outer layers map this into various forms, adding text, graphics, style etc. This is what I mean by 'universal hypermedia'. Imagine a view that shows \"when the doorbell rings, ...\", what does 'doorbell' refer to? What does 'ring' refer to? If I hover over the words, I should see highlights on all currently visible UI represensations of the same "
+              },
+              {
+                "type": "text",
+                "text": "entity",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", e.g. an icon in a different pane. If I click I should be able to navigate to other entities connected to the 'doorbell' - provenance, other rules, etc. The entities are part of the information model here, which is more unified than fragmented, and we have these kinds of 'lenses' to look at the information. Yes, various expressions in the UI may use text, but I think 'always bet on text' misses the potential power of an information/hypermedia system. You should be able to switch to other views of the "
+              },
+              {
+                "type": "text",
+                "text": "same",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " information, even multiple text views in fact."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UHWC9PXBL",
+          "UAL7940NM",
+          "UMWF81HTP",
+          "UJBAJNFLK"
+        ],
+        "count": 5
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      },
+      {
+        "name": "white_check_mark",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "75f1cbb5-1f99-4dee-be17-ad6e6a38a427",
+    "type": "message",
+    "text": "The fact that you need an account to view any simulation is.. hostile.",
+    "user": "UC2A2ARPT",
+    "ts": "1592518302.372900",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1592518329.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "J2H7o",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The fact that you need an account to view any simulation is.. hostile."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592497749.372500",
+    "parent_user_id": "UHWC9PXBL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC",
+          "UJBAJNFLK",
+          "UFLN9JFRT",
+          "U013ZLJARC7"
+        ],
+        "count": 4
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "75f1cbb5-1f99-4dee-be17-ad6e6a38a427",
+    "type": "message",
+    "text": "The fact that you need an account to view any simulation is.. hostile.",
+    "user": "UC2A2ARPT",
+    "ts": "1592518302.372900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1592518329.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "J2H7o",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The fact that you need an account to view any simulation is.. hostile."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592497749.372500",
+    "parent_user_id": "UHWC9PXBL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC",
+          "UJBAJNFLK",
+          "UFLN9JFRT",
+          "U013ZLJARC7"
+        ],
+        "count": 4
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8d4b2c00-048b-41cf-b9a1-da9b3bc59099",
+    "type": "message",
+    "text": "These look cool, but I'm not going to sign up for something just to see what it's like.",
+    "user": "UC2A2ARPT",
+    "ts": "1592518316.373100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XtBea",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "These look cool, but I'm not going to sign up for something just to see what it's like."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592497749.372500",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8d4b2c00-048b-41cf-b9a1-da9b3bc59099",
+    "type": "message",
+    "text": "These look cool, but I'm not going to sign up for something just to see what it's like.",
+    "user": "UC2A2ARPT",
+    "ts": "1592518316.373100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XtBea",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "These look cool, but I'm not going to sign up for something just to see what it's like."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592497749.372500",
+    "parent_user_id": "UHWC9PXBL",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ba73da58-83b6-4d78-80fd-e9c966b35728",
+    "type": "message",
+    "text": "&gt; the innermost representation only stores the essential elements of the information\nI've never seen a case — including formal mathematics — where this can be taken to a perfect, full realization. You always have to draw a \"good enough\" line somewhere.\n\nEg: 2+2 is not a minimal encoding of that operation. There is no one true minimal encoding. Things get even worse when you start looking at (eg) Clifford algebras. Or you could just draw a \"good enough\" line at the cross product, since that (comparatively) minimizes the number of CPU operations you need to burn in order to do your workaday 3d vector algebra.\n\nSo if leaking some aspect or another of inessential complexity is inescapable, I argue that you (the designer of some innermost representation) should choose a healthy number of inessential elements you want to have handy and insist that all viewers understand, and not feel the pressure to scrub away as much as possible. For textual source code, we've chosen that indentation is worth storing, but highlighting is not. I think most of us can agree that these are bad choices — but that doesn't mean that the best choice is as little choice as possible.\n\n(Solidly agree with everything else you say, though!)",
+    "user": "UC2A2ARPT",
+    "ts": "1592518457.396600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1592519231.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uNsj",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "the innermost representation only stores the essential elements of the information"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've never seen a case — including formal mathematics — where this can be taken to a perfect, full realization. You always have to draw a \"good enough\" line somewhere.\n\nEg: 2+2 is not a minimal encoding of that operation. There is no one true minimal encoding. Things get even worse when you start looking at (eg) Clifford algebras. Or you could just draw a \"good enough\" line at the cross product, since that (comparatively) minimizes the number of CPU operations you need to burn in order to do your workaday 3d vector algebra.\n\nSo if leaking some aspect or another of inessential complexity is inescapable, I argue that you (the designer of some innermost representation) should choose a healthy number of inessential elements you want to have handy and insist that all viewers understand, and not feel the pressure to scrub away as much as possible. For textual source code, we've chosen that indentation is worth storing, but highlighting is not. I think most of us can agree that these are bad choices — but that doesn't mean that the best choice is as little choice as possible.\n\n(Solidly agree with everything else you say, though!)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U8A5MS6R1",
+          "UJBAJNFLK"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "fd50cca9-ddaa-4676-94b7-ed0a42480406",
+    "type": "message",
+    "text": "Yeah I've struggled in rabbit holes looking for minimal schemas models :smile:. It's kind of like finding the minimal repr of the rectangle - is it center and half-widths, or four corners, or ..?\n\nIt appears we can never really share information, we can only share _views_ of information. So whatever the _medium of the view_ is - it will introduce artifacts into our representations (~indentation). The thrust of my argument kinda missed what I really wanted to emphasize, which is that with computers we now have the ability to store deeply interlinked views of the same things, and we should engage more in this direction. Rather than trying to think in terms of the non-computer ideas (dead text), we should think more in terms of computer-ish ideas (many views of the same intertwingled things). I'll see if I can phrase this better at some point.",
+    "user": "U8A5MS6R1",
+    "ts": "1592520791.398600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zu/sx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah I've struggled in rabbit holes looking for minimal schemas models "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              },
+              {
+                "type": "text",
+                "text": ". It's kind of like finding the minimal repr of the rectangle - is it center and half-widths, or four corners, or ..?\n\nIt appears we can never really share information, we can only share "
+              },
+              {
+                "type": "text",
+                "text": "views",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of information. So whatever the "
+              },
+              {
+                "type": "text",
+                "text": "medium of the view",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is - it will introduce artifacts into our representations (~indentation). The thrust of my argument kinda missed what I really wanted to emphasize, which is that with computers we now have the ability to store deeply interlinked views of the same things, and we should engage more in this direction. Rather than trying to think in terms of the non-computer ideas (dead text), we should think more in terms of computer-ish ideas (many views of the same intertwingled things). I'll see if I can phrase this better at some point."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UHWC9PXBL",
+          "UMWF81HTP",
+          "UJBAJNFLK",
+          "U5STGTB3J"
+        ],
+        "count": 4
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "3cffed41-2e93-4e53-a752-80a366df5a1c",
+    "type": "message",
+    "text": "<@UA14TGLTC> Yeah, that was basically what I was exploring in my screencast further down this channel (<https://futureofcoding.slack.com/archives/C5T9GPWFL/p1592379958360900>). But my working hypothesis is that my attempts to do so are misguided and almost certain to kill what makes spreadsheets special.",
+    "user": "UCUSW7WVD",
+    "ts": "1592520808.373400",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1592379958360900",
+        "fallback": "[June 17th, 2020 12:45 AM] ak: Some thoughts riffing on LoGlo (2 posts above): <https://archive.org/details/akkartik-2020-06-17-LoGlo>. 5.5 minutes.",
+        "ts": "1592379958.360900",
+        "author_id": "UCUSW7WVD",
+        "author_subname": "Kartik Agaram",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "text": "Some thoughts riffing on LoGlo (2 posts above): <https://archive.org/details/akkartik-2020-06-17-LoGlo>. 5.5 minutes.",
+        "author_name": "Kartik Agaram",
+        "author_link": "https://futureofcoding.slack.com/team/UCUSW7WVD",
+        "author_icon": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1592379958360900",
+        "footer": "Thread in #general"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "F9Hvx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " Yeah, that was basically what I was exploring in my screencast further down this channel ("
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1592379958360900"
+              },
+              {
+                "type": "text",
+                "text": "). But my working hypothesis is that my attempts to do so are misguided and almost certain to kill what makes spreadsheets special."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592347969.348200",
+    "parent_user_id": "USH01JEDQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3cffed41-2e93-4e53-a752-80a366df5a1c",
+    "type": "message",
+    "text": "<@UA14TGLTC> Yeah, that was basically what I was exploring in my screencast further down this channel (<https://futureofcoding.slack.com/archives/C5T9GPWFL/p1592379958360900>). But my working hypothesis is that my attempts to do so are misguided and almost certain to kill what makes spreadsheets special.",
+    "user": "UCUSW7WVD",
+    "ts": "1592520808.373400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1592379958360900",
+        "fallback": "[June 17th, 2020 12:45 AM] ak: Some thoughts riffing on LoGlo (2 posts above): <https://archive.org/details/akkartik-2020-06-17-LoGlo>. 5.5 minutes.",
+        "ts": "1592379958.360900",
+        "author_id": "UCUSW7WVD",
+        "author_subname": "Kartik Agaram",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "text": "Some thoughts riffing on LoGlo (2 posts above): <https://archive.org/details/akkartik-2020-06-17-LoGlo>. 5.5 minutes.",
+        "author_name": "Kartik Agaram",
+        "author_link": "https://futureofcoding.slack.com/team/UCUSW7WVD",
+        "author_icon": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1592379958360900",
+        "footer": "Thread in #general"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "F9Hvx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " Yeah, that was basically what I was exploring in my screencast further down this channel ("
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1592379958360900"
+              },
+              {
+                "type": "text",
+                "text": "). But my working hypothesis is that my attempts to do so are misguided and almost certain to kill what makes spreadsheets special."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592347969.348200",
+    "parent_user_id": "USH01JEDQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b980f925-0fa7-4abd-8c70-ae765bbbdb7f",
+    "type": "message",
+    "text": "One of the open problems down the road of hyperlink-it-all is how you make all the views computable. I have that drawing of the bridge - how does that turn into useful information for me to work with without losing the semantics the drawing is actually providing me? There are lots of deep holes to fall into along the path: notions of identity, the dream of semantically preserving transforms, conceptual implicitness with execution stability, and so on.\n\nIn the end I think you run up against the curse of dimensionality no matter what you do and at some point you have to accept there will always be representations that you can't preserve. Our best efforts remain lossy (computers aside, we still have no idea how to convey information losslessly across formats between people). But that's _ok_. I'm firmly in the camp that when it comes to basically anything related to thought, the answer is always somewhere in the intersection of an effectively uncountable number of axes. To suggest that any one way is superior is to forget the simple question \"in what context?\" And trying to answer that question is an exercise in attempting, and failing, to capture all the external forces that apply. As Ivan said, at some point we have to stop claiming X is better and instead start saying \"this is useful in some context that we potentially share.\" If a system captures enough of those useful cases, it eventually overcomes all the ways in which it is inadequate and we get the thing we complain about but we use anyway because it's \"good enough.\"\n\nI've always found looking at the extremes useful - what if everything was text? what if nothing was text? what if everything was the most domain-relevant representation for itself? There's a lot to learn from each of them and they're all awful in their own ways - even the last. But I think there's something great waiting for us in the middle ground :slightly_smiling_face:",
+    "user": "UEBG0NPDK",
+    "ts": "1592522794.398900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Oi5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One of the open problems down the road of hyperlink-it-all is how you make all the views computable. I have that drawing of the bridge - how does that turn into useful information for me to work with without losing the semantics the drawing is actually providing me? There are lots of deep holes to fall into along the path: notions of identity, the dream of semantically preserving transforms, conceptual implicitness with execution stability, and so on.\n\nIn the end I think you run up against the curse of dimensionality no matter what you do and at some point you have to accept there will always be representations that you can't preserve. Our best efforts remain lossy (computers aside, we still have no idea how to convey information losslessly across formats between people). But that's "
+              },
+              {
+                "type": "text",
+                "text": "ok",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". I'm firmly in the camp that when it comes to basically anything related to thought, the answer is always somewhere in the intersection of an effectively uncountable number of axes. To suggest that any one way is superior is to forget the simple question \"in what context?\" And trying to answer that question is an exercise in attempting, and failing, to capture all the external forces that apply. As Ivan said, at some point we have to stop claiming X is better and instead start saying \"this is useful in some context that we potentially share.\" If a system captures enough of those useful cases, it eventually overcomes all the ways in which it is inadequate and we get the thing we complain about but we use anyway because it's \"good enough.\"\n\nI've always found looking at the extremes useful - what if everything was text? what if nothing was text? what if everything was the most domain-relevant representation for itself? There's a lot to learn from each of them and they're all awful in their own ways - even the last. But I think there's something great waiting for us in the middle ground "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1592430013.363800",
+    "parent_user_id": "UJKKBAMLL",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UHWC9PXBL",
+          "UFLN9JFRT"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UMWF81HTP",
+          "U8A5MS6R1",
+          "UKP3B2J5D"
+        ],
+        "count": 3
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70",
+          "UJBAJNFLK",
+          "UFLN9JFRT",
+          "UE6EFEPTQ",
+          "UJ6LDMMN0",
+          "UAHHWT22U",
+          "UML4ZEKDK"
+        ],
+        "count": 7
+      },
+      {
+        "name": "white_check_mark",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
