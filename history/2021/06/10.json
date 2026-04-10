@@ -1,0 +1,923 @@
+[
+  {
+    "client_msg_id": "7b73ffad-32ce-4248-8905-7a4551b74ecf",
+    "type": "message",
+    "text": "The memory models that underlie programming languages (2016) - <http://canonical.org/~kragen/memory-models/|http://canonical.org/~kragen/memory-models/>",
+    "user": "UPVBV34EL",
+    "ts": "1623293771.066700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "259a1e56ad2e",
+      "image_72": "https://avatars.slack-edge.com/2019-10-28/811814014976_259a1e56ad2e11fe3d56_72.jpg",
+      "first_name": "",
+      "real_name": "Shubhadeep Roychowdhury",
+      "display_name": "Shubhadeep Roychowdhury",
+      "team": "T5TCAFTA9",
+      "name": "shubhadeeproychowdhur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7RB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The memory models that underlie programming languages (2016) - "
+              },
+              {
+                "type": "link",
+                "url": "http://canonical.org/~kragen/memory-models/",
+                "text": "http://canonical.org/~kragen/memory-models/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMHG81CBH",
+          "UAJ9DV971",
+          "UN57U8V53",
+          "UHWC9PXBL"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9bc72400-974c-452b-a326-6f0268db88c9",
+    "type": "message",
+    "text": "In my (not yet prototyped) designs for various potential approaches to abstraction, there would be the ability to create an abstraction that has distinct \"ports\" for multiple inputs, like what you'd find in a traditional node-and-wire / patcher visual programming system. I'm not sure that I'd want this to be part of the core language model, but I'd like to be able to build abstractions that can do this out of whatever the core model allows.\n\nIn the current prototypes, yes, you can attach multiple edges to a node. I wrote a blog post about how that makes the time-rewinding behaviour a little thorny: <http://ivanish.ca/hest-time-travel|ivanish.ca/hest-time-travel>",
+    "user": "UC2A2ARPT",
+    "ts": "1623302187.094800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1623302220.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rOl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In my (not yet prototyped) designs for various potential approaches to abstraction, there would be the ability to create an abstraction that has distinct \"ports\" for multiple inputs, like what you'd find in a traditional node-and-wire / patcher visual programming system. I'm not sure that I'd want this to be part of the core language model, but I'd like to be able to build abstractions that can do this out of whatever the core model allows.\n\nIn the current prototypes, yes, you can attach multiple edges to a node. I wrote a blog post about how that makes the time-rewinding behaviour a little thorny: "
+              },
+              {
+                "type": "link",
+                "url": "http://ivanish.ca/hest-time-travel",
+                "text": "ivanish.ca/hest-time-travel"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623018113.065400",
+    "parent_user_id": "U0242H3GHHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a068e4f0-4d3b-475f-8fd5-8045d6df1e80",
+    "type": "message",
+    "text": "As for how this is different than a sync node — that's the entire point of this inquiry into coordination mechanisms.\n\nRight now, if you have two lines that come in to a single point (function), then that function will be invoked whenever _any_ data arrives at it. Up until now, I've been regarding this as.. akin to having a function that is called from more than one place. Each incoming edge represents a different caller of the function. But this doesn't offer a nice way to build systems that need to call a function with more than one argument. So that's what I'm trying to.. figure out.",
+    "user": "UC2A2ARPT",
+    "ts": "1623302384.095100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VK7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As for how this is different than a sync node — that's the entire point of this inquiry into coordination mechanisms.\n\nRight now, if you have two lines that come in to a single point (function), then that function will be invoked whenever "
+              },
+              {
+                "type": "text",
+                "text": "any",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " data arrives at it. Up until now, I've been regarding this as.. akin to having a function that is called from more than one place. Each incoming edge represents a different caller of the function. But this doesn't offer a nice way to build systems that need to call a function with more than one argument. So that's what I'm trying to.. figure out."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623018113.065400",
+    "parent_user_id": "U0242H3GHHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "I recently added the ability to edit functions in my prototyping environment. It's inspired by Tiddlywiki, with the screen at any moment containing the most recently edited functions. Here's a short live-coding session of everyone's favorite programming problem -- with a small twist.\n\n<https://archive.org/details/akkartik-mu-2021-06-09> (video; 6 minutes)\n\nMain project page: <https://github.com/akkartik/mu>",
+    "files": [
+      {
+        "id": "F024Z5B1PUZ",
+        "created": 1623303716,
+        "timestamp": 1623303716,
+        "name": "mu-fizzbuzz.png",
+        "title": "mu-fizzbuzz.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "editable": false,
+        "size": 2304067,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F024Z5B1PUZ/mu-fizzbuzz.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F024Z5B1PUZ/download/mu-fizzbuzz.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 225,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 300,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 450,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 500,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 960,
+        "thumb_960_h": 600,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F024Z5B1PUZ-3fbfc8f4c4/mu-fizzbuzz_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 640,
+        "original_w": 3360,
+        "original_h": 2100,
+        "thumb_tiny": "AwAeADCTB4xUE0jxuAD29KsDpVW6/wBYPpQJjftEn94fkKX7RL/e/QVFRTEPa4m7MPyFPinkeQKzcH2FQE4PFOg/1y0AXx0qtcjMg+lWR0qOWLewOcUiiniirH2b/ao+zf7VMViqetPg/wBctTG1JPDfpSx25Rw24HHtQFj/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F024Z5B1PUZ/mu-fizzbuzz.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F024Z5B1PUZ-6c2c6df64e",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "ts": "1623303727.066300",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wouGm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I recently added the ability to edit functions in my prototyping environment. It's inspired by Tiddlywiki, with the screen at any moment containing the most recently edited functions. Here's a short live-coding session of everyone's favorite programming problem -- with a small twist.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://archive.org/details/akkartik-mu-2021-06-09"
+              },
+              {
+                "type": "text",
+                "text": " (video; 6 minutes)\n\nMain project page: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/akkartik/mu"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623303727.066300",
+    "reply_count": 72,
+    "reply_users_count": 4,
+    "latest_reply": "1627282760.199500",
+    "reply_users": [
+      "UUQ2EQW21",
+      "UCUSW7WVD",
+      "U01661S9F34",
+      "U013ZLJARC7"
+    ],
+    "replies": [
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1623312651.066400"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1623328593.066600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1623328802.066800"
+      },
+      {
+        "user": "U01661S9F34",
+        "ts": "1623344085.067100"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1623935395.086500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1623937101.087000"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1623956026.087500"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624181528.088500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624184040.088800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624205415.089100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624205511.089300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624205818.089600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624206491.089900"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624207567.090300"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624207588.090500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624208498.090800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624208543.091000"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624208586.091300"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624208618.091500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624208950.091700"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624208976.091900"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624209093.092200"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624209182.092500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624209244.092700"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624209774.093100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624209860.093300"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624263384.093500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624282535.093800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624284472.094100"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624285307.094300"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624285542.094600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624285678.094900"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624286820.095100"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624286836.095300"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624286934.095500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624287016.095700"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624287050.095900"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624287092.096100"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624287235.096300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624287380.096500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624287382.096700"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624287517.096900"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624287957.097100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624289129.097400"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624289339.097700"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624289348.097900"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624289357.098100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624289367.098300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624289465.098600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624324127.098900"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624331923.099100"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624369432.099600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624372416.099900"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624378795.100100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626753553.173100"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1626766527.173900"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626870897.183000"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626872044.183800"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626872530.184000"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626892160.193500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626950443.195400"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1626965934.196700"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626966297.196900"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1626967243.197100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626967323.197300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626970579.197500"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1626975325.197900"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1626975953.198100"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1627046468.198300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1627046667.198600"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1627165543.199000"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1627282760.199500"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "exploding_head",
+        "users": [
+          "U01661S9F34"
+        ],
+        "count": 1
+      },
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U0123H7JRDM",
+          "UJBAJNFLK",
+          "U85HCL7JP",
+          "UHWC9PXBL"
+        ],
+        "count": 5
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UJFN50C00"
+        ],
+        "count": 2
+      },
+      {
+        "name": "sunglasses",
+        "users": [
+          "U0123H7JRDM"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e896b4e6-3824-4710-bf91-828712981f03",
+    "type": "message",
+    "text": "The aesthetics nail what it's going for.",
+    "user": "UA14TGLTC",
+    "ts": "1623312055.066900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PEdE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The aesthetics nail what it's going for."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623243271.062100",
+    "parent_user_id": "U01ULEWACPP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b2c0ed40-a908-47b8-9f28-378e44ece6dc",
+    "type": "message",
+    "text": "You've built an IDE :slightly_smiling_face: Nice.",
+    "user": "UUQ2EQW21",
+    "ts": "1623312651.066400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g2266cacc8f3",
+      "image_72": "https://secure.gravatar.com/avatar/2266cacc8f3c9964e7bfb1c357bf6873.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Chris",
+      "real_name": "Chris Maughan",
+      "display_name": "Chris Maughan",
+      "team": "T5TCAFTA9",
+      "name": "mornymorny",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Pqc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You've built an IDE "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " Nice."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623303727.066300",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "a4d805d0-2d40-4293-9f73-78d42b003a16",
+    "type": "message",
+    "text": "Thanks for the link, that made things much more clear!\n\nLooks like you're allowing the \"function points\" (like `*=`) to have internal state too, which makes rewinding manually-inserted points even more tricky. \nIt's a fascinating design space, and my initial instinct is to go very functional on it, but that would perhaps make the entire system less accessible (I've struggled with a similar tradeoff at work, actually)",
+    "user": "U0242H3GHHT",
+    "ts": "1623319433.095300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd6d3825871f",
+      "image_72": "https://secure.gravatar.com/avatar/d6d3825871fcd174c36fe3eada6d5fce.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0005-72.png",
+      "first_name": "",
+      "real_name": "Nils Berg",
+      "display_name": "Nils Berg",
+      "team": "T5TCAFTA9",
+      "name": "berg.nils",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dLB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the link, that made things much more clear!\n\nLooks like you're allowing the \"function points\" (like "
+              },
+              {
+                "type": "text",
+                "text": "*=",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ") to have internal state too, which makes rewinding manually-inserted points even more tricky. \nIt's a fascinating design space, and my initial instinct is to go very functional on it, but that would perhaps make the entire system less accessible (I've struggled with a similar tradeoff at work, actually)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623018113.065400",
+    "parent_user_id": "U0242H3GHHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7be687ac-66a8-48f9-a77b-2130b5a14e23",
+    "type": "message",
+    "text": "And a file system!",
+    "user": "UCUSW7WVD",
+    "ts": "1623328593.066600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iQT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And a file system!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623303727.066300",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UUQ2EQW21"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "35870175-fb79-4ee9-8fbc-44d450514eee",
+    "type": "message",
+    "text": "And a janky, janky desktop system. That modal dialog..",
+    "user": "UCUSW7WVD",
+    "ts": "1623328802.066800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mffzn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And a janky, janky desktop system. That modal dialog.."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623303727.066300",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "524efaa6-397a-4e9a-ad5c-3d58b91adb2a",
+    "type": "message",
+    "text": "Yeah, state is something I'm forcing myself to wrestle with, at least for now. I think it'd be much easier to design this if there was no state beyond the moving data points. But I think there are a lot of playful things I can do if state is allowed to go anywhere, even if it makes things harder to reason about, harder to design, harder to implement.\n\nIf it turns out to be just too difficult to work with, I can always simplify by removing state.",
+    "user": "UC2A2ARPT",
+    "ts": "1623343888.095500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "n=+p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, state is something I'm forcing myself to wrestle with, at least for now. I think it'd be much easier to design this if there was no state beyond the moving data points. But I think there are a lot of playful things I can do if state is allowed to go anywhere, even if it makes things harder to reason about, harder to design, harder to implement.\n\nIf it turns out to be just too difficult to work with, I can always simplify by removing state."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623018113.065400",
+    "parent_user_id": "U0242H3GHHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "81752499-0cc7-4b9b-81b4-54d6f7eeea8e",
+    "type": "message",
+    "text": "Kartik, you continue to outdo yourself! Your system is becoming exponentially more featureful and useful every time you post a demo.",
+    "user": "U01661S9F34",
+    "ts": "1623344085.067100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "19925410efa8",
+      "image_72": "https://avatars.slack-edge.com/2020-06-28/1196019819111_19925410efa8da86ae13_72.jpg",
+      "first_name": "",
+      "real_name": "Ray Imber",
+      "display_name": "Ray Imber",
+      "team": "T5TCAFTA9",
+      "name": "rayimber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vrBL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Kartik, you continue to outdo yourself! Your system is becoming exponentially more featureful and useful every time you post a demo."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623303727.066300",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

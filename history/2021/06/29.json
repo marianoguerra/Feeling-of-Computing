@@ -1,0 +1,674 @@
+[
+  {
+    "client_msg_id": "dea298a0-683c-4ea3-8858-fdc23f36f817",
+    "type": "message",
+    "text": "I'd expect Wikilambda to fare better than Wolfram Alpha because it's open. Wolfram Alpha is basically a showcase or a demo. It's something that Wolfram makes public to show off their technology. But you can't build anything on top of Wolfram Alpha. And therefore the people who do use Wolfram Alpha productively cannot integrate it into a publicly visible tool.\nOpen tools don't have that problem. Python acquired a reputation because its early users made their Python-based work open as well. It is not difficult to find answers to the question \"what can I do with Python?\"",
+    "user": "UJBAJNFLK",
+    "ts": "1624951412.031800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "V+PM=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'd expect Wikilambda to fare better than Wolfram Alpha because it's open. Wolfram Alpha is basically a showcase or a demo. It's something that Wolfram makes public to show off their technology. But you can't build anything on top of Wolfram Alpha. And therefore the people who do use Wolfram Alpha productively cannot integrate it into a publicly visible tool.\nOpen tools don't have that problem. Python acquired a reputation because its early users made their Python-based work open as well. It is not difficult to find answers to the question \"what can I do with Python?\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623773950.006800",
+    "parent_user_id": "U01AD80KMLK",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      },
+      {
+        "name": "blue_heart",
+        "users": [
+          "U01AD80KMLK",
+          "U8A5MS6R1"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "9b24cfa1-82ba-4aea-a680-66232e120fe6",
+    "type": "message",
+    "text": "<https://pypi.org/project/viztracer/|https://pypi.org/project/viztracer/>",
+    "user": "UKFNXF0F9",
+    "ts": "1624971716.181300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5651704a60f",
+      "image_72": "https://secure.gravatar.com/avatar/15651704a60f7ef1539f9b1fa2506188.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "taowen",
+      "display_name": "taowen",
+      "team": "T5TCAFTA9",
+      "name": "taowen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "PyPI",
+        "title": "viztracer",
+        "title_link": "https://pypi.org/project/viztracer/",
+        "text": "A debugging and profiling tool that can trace and visualize python code execution",
+        "fallback": "PyPI: viztracer",
+        "image_url": "https://pypi.org/static/images/twitter.90915068.jpg",
+        "from_url": "https://pypi.org/project/viztracer/",
+        "image_width": 250,
+        "image_height": 250,
+        "image_bytes": 13245,
+        "service_icon": "https://pypi.org/static/images/favicon.6a76275d.ico",
+        "id": 1,
+        "original_url": "https://pypi.org/project/viztracer/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FdUw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://pypi.org/project/viztracer/",
+                "text": "https://pypi.org/project/viztracer/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624894061.177100",
+    "parent_user_id": "UAJKEBGP8",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "365e6a33-4e0c-4c95-9570-9b1cff5eaecb",
+    "type": "message",
+    "text": "I feel you.  Every now and then I do a janky one-off in Ruby using its TracePoint API, which never becomes more than a one-off mainly because you cannot easily trace object modifications.\n\nFor code understanding, step debuggers would be more useful if you could step backwards.  Stepping forward often has the problem of `setup_a_thing.do_a_thing` where `setup_a_thing` is long, convoluted, uninteresting, and `do_a_thing` mostly only looks up something obscure that comes at the end of `setup_a_thing`.\n\nSo it would be best to jump into `setup_a_thing` then cross jump back to where `@that_store` gets setup.\n\nA few years (years, yikes!) we prototyped a nifty way to deal with traces in VR.  Basically, the trace was a super long ribbon of events, and then you had automatic layout that would fold bits to be next to each other.  For example, every time an object is referenced.  This actually actually allows you to see the object graph where edges represent communication patterns.",
+    "user": "UA14TGLTC",
+    "ts": "1624972859.181600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xUJqt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I feel you.  Every now and then I do a janky one-off in Ruby using its TracePoint API, which never becomes more than a one-off mainly because you cannot easily trace object modifications.\n\nFor code understanding, step debuggers would be more useful if you could step backwards.  Stepping forward often has the problem of "
+              },
+              {
+                "type": "text",
+                "text": "setup_a_thing.do_a_thing",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " where "
+              },
+              {
+                "type": "text",
+                "text": "setup_a_thing",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is long, convoluted, uninteresting, and "
+              },
+              {
+                "type": "text",
+                "text": "do_a_thing",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " mostly only looks up something obscure that comes at the end of "
+              },
+              {
+                "type": "text",
+                "text": "setup_a_thing",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n\nSo it would be best to jump into "
+              },
+              {
+                "type": "text",
+                "text": "setup_a_thing",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " then cross jump back to where "
+              },
+              {
+                "type": "text",
+                "text": "@that_store",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " gets setup.\n\nA few years (years, yikes!) we prototyped a nifty way to deal with traces in VR.  Basically, the trace was a super long ribbon of events, and then you had automatic layout that would fold bits to be next to each other.  For example, every time an object is referenced.  This actually actually allows you to see the object graph where edges represent communication patterns."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624894061.177100",
+    "parent_user_id": "UAJKEBGP8",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cfb8c566-e5b1-40c5-8d2e-bd36a27e1ec4",
+    "type": "message",
+    "text": "This classic paper by William Wulf enumerates some principles of computer architecture design that might be interesting for anybody building their own machine <https://neilklingensmith.com/assets/papers/classicpapers/wulf-compilers-and-architecture.pdf>",
+    "user": "U025PBD75TM",
+    "ts": "1624975074.035300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d0f48a5cbd36",
+      "image_72": "https://avatars.slack-edge.com/2021-06-21/2186437719222_d0f48a5cbd367fc3a50b_72.jpg",
+      "first_name": "dnmfarrell",
+      "real_name": "dnmfarrell",
+      "display_name": "dnmfarrell",
+      "team": "T5TCAFTA9",
+      "name": "davidnmfarrell",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aYUJu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This classic paper by William Wulf enumerates some principles of computer architecture design that might be interesting for anybody building their own machine "
+              },
+              {
+                "type": "link",
+                "url": "https://neilklingensmith.com/assets/papers/classicpapers/wulf-compilers-and-architecture.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "28af10a7-5359-4f09-a62a-2285610ab1f0",
+    "type": "message",
+    "text": "<http://pythontutor.com/|Python Tutor> is an interesting tool and could be a source of inspiration for those who are working on similar tools.\n\n<http://pythontutor.com/visualize.html#code=def%20listSum%28numbers%29%3A%0A%20%20if%20not%20numbers%3A%0A%20%20%20%20return%200%0A%20%20else%3A%0A%20%20%20%20%28f,%20rest%29%20%3D%20numbers%0A%20%20%20%20return%20f%20%2B%20listSum%28rest%29%0A%0AmyList%20%3D%20%281,%20%282,%20%283,%20None%29%29%29%0Atotal%20%3D%20listSum%28myList%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false|Example program>",
+    "user": "U0139HUPMQ9",
+    "ts": "1624977284.182100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g3dec956efe5",
+      "image_72": "https://secure.gravatar.com/avatar/3dec956efe594149cbf027145d37aa47.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "Sverrir",
+      "real_name": "Sverrir Thorgeirsson",
+      "display_name": "Sverrir Thorgeirsson",
+      "team": "T5TCAFTA9",
+      "name": "sverrir.thorgeirsson",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sRV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "http://pythontutor.com/",
+                "text": "Python Tutor"
+              },
+              {
+                "type": "text",
+                "text": " is an interesting tool and could be a source of inspiration for those who are working on similar tools.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "http://pythontutor.com/visualize.html#code=def%20listSum%28numbers%29%3A%0A%20%20if%20not%20numbers%3A%0A%20%20%20%20return%200%0A%20%20else%3A%0A%20%20%20%20%28f,%20rest%29%20%3D%20numbers%0A%20%20%20%20return%20f%20%2B%20listSum%28rest%29%0A%0AmyList%20%3D%20%281,%20%282,%20%283,%20None%29%29%29%0Atotal%20%3D%20listSum%28myList%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false",
+                "text": "Example program"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624894061.177100",
+    "parent_user_id": "UAJKEBGP8",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c256424b-1b47-41fa-89de-e0e8d64368da",
+    "type": "message",
+    "text": "It was only a matter of time that all the code from Github would be paired with OpenAI: <https://copilot.github.com>",
+    "user": "U01ULEWACPP",
+    "ts": "1624978847.035900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4d4f0ee36615",
+      "image_72": "https://avatars.slack-edge.com/2021-05-26/2104531310403_4d4f0ee36615313d19e3_72.jpg",
+      "first_name": "Florian",
+      "real_name": "Florian Schulz",
+      "display_name": "Florian Schulz",
+      "team": "T5TCAFTA9",
+      "name": "mail213",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "krcV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It was only a matter of time that all the code from Github would be paired with OpenAI: "
+              },
+              {
+                "type": "link",
+                "url": "https://copilot.github.com"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624978847.035900",
+    "reply_count": 4,
+    "reply_users_count": 3,
+    "latest_reply": "1625366276.061000",
+    "reply_users": [
+      "URMEM88JG",
+      "U01SUK9M8R2",
+      "U0245E9RB2B"
+    ],
+    "replies": [
+      {
+        "user": "URMEM88JG",
+        "ts": "1625002499.036400"
+      },
+      {
+        "user": "U01SUK9M8R2",
+        "ts": "1625277222.040300"
+      },
+      {
+        "user": "U0245E9RB2B",
+        "ts": "1625328056.059700"
+      },
+      {
+        "user": "U01SUK9M8R2",
+        "ts": "1625366276.061000"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U025PBD75TM",
+          "U01NRKCAHN2"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U0245E9RB2B"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "fa7f6432-f12e-4238-b7e4-43947073ff5a",
+    "type": "message",
+    "text": "<@UA14TGLTC> that VR project sounds awesome haha – Was it ever made public / do you have a link to it?",
+    "user": "U01P8U8FZPH",
+    "ts": "1624978910.182500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6a6936d557a2",
+      "image_72": "https://avatars.slack-edge.com/2021-03-01/1811900522324_6a6936d557a25e2969f2_72.png",
+      "first_name": "Wilhelm",
+      "real_name": "Wilhelm Klopp",
+      "display_name": "Wilhelm Klopp",
+      "team": "T5TCAFTA9",
+      "name": "wil.klopp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RiP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " that VR project sounds awesome haha – Was it ever made public / do you have a link to it?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624894061.177100",
+    "parent_user_id": "UAJKEBGP8",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f5f5b843-4c57-4172-9b45-bb346a24984f",
+    "type": "message",
+    "text": "TIL and it feels like a good place. I make a podcast about Clojure (defn) and have a panel based YouTube channel about coding in Clojure (apropos clojure). My hope for the future was rekindled after I first saw Brett Victor's talk Inventing on Principle. I am in the midst of a project (repl-repl) to perform collaborative live coding in Clojure ... it had stalled for a while but various things have pushed me back into action, including the work that NextJournal have done with CodeMirror v6. I am interested in the mechanics of programming as you can tell but also the effect of programming on the society at large. I don't know if this is the right place to have these conversations but I'm here for it if it is.",
+    "user": "U0263P2NQKH",
+    "ts": "1624979656.065000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gc12a85da3cf",
+      "image_72": "https://secure.gravatar.com/avatar/c12a85da3cf8950c35493e81df4ef281.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "",
+      "real_name": "Ray McDermott",
+      "display_name": "Ray McDermott",
+      "team": "T5TCAFTA9",
+      "name": "ray817",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rRhko",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "TIL and it feels like a good place. I make a podcast about Clojure (defn) and have a panel based YouTube channel about coding in Clojure (apropos clojure). My hope for the future was rekindled after I first saw Brett Victor's talk Inventing on Principle. I am in the midst of a project (repl-repl) to perform collaborative live coding in Clojure ... it had stalled for a while but various things have pushed me back into action, including the work that NextJournal have done with CodeMirror v6. I am interested in the mechanics of programming as you can tell but also the effect of programming on the society at large. I don't know if this is the right place to have these conversations but I'm here for it if it is."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624979656.065000",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1624995351.065900",
+    "reply_users": [
+      "UK3LH8CF5",
+      "U0263P2NQKH"
+    ],
+    "replies": [
+      {
+        "user": "UK3LH8CF5",
+        "ts": "1624985670.065500"
+      },
+      {
+        "user": "U0263P2NQKH",
+        "ts": "1624995351.065900"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "wave",
+        "users": [
+          "U013ZLJARC7",
+          "UJBAJNFLK",
+          "UDQBTJ211",
+          "UCUSW7WVD",
+          "UC2A2ARPT",
+          "UN9SCH5RD",
+          "UJ6LDMMN0",
+          "UR53USVKM",
+          "UDRQ4V0CT",
+          "UMVFWPZ36",
+          "UJ8E8LMB4"
+        ],
+        "count": 11
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "3706edbf-8180-4e30-8d1c-6d03629d1b07",
+    "type": "message",
+    "text": "repl-repl sounds super interesting. I am also playing with NextJournals CodeMirror v6 stuff. If you are ever looking for someone to bounce ideas off of or test something out, let me know.",
+    "user": "UK3LH8CF5",
+    "ts": "1624985670.065500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4377ee2417eb",
+      "image_72": "https://avatars.slack-edge.com/2019-12-25/886144219253_4377ee2417eb9eaacd4b_72.jpg",
+      "first_name": "Jimmy",
+      "real_name": "Jimmy Miller",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jimmyhmiller",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3qyj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "repl-repl sounds super interesting. I am also playing with NextJournals CodeMirror v6 stuff. If you are ever looking for someone to bounce ideas off of or test something out, let me know."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624979656.065000",
+    "parent_user_id": "U0263P2NQKH",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "b9b58f2d-6aaa-4bdd-b9c2-ee88e4ee9841",
+    "type": "message",
+    "text": "thanks <@UK3LH8CF5> will do",
+    "user": "U0263P2NQKH",
+    "ts": "1624995351.065900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gc12a85da3cf",
+      "image_72": "https://secure.gravatar.com/avatar/c12a85da3cf8950c35493e81df4ef281.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "",
+      "real_name": "Ray McDermott",
+      "display_name": "Ray McDermott",
+      "team": "T5TCAFTA9",
+      "name": "ray817",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "o3=+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "UK3LH8CF5"
+              },
+              {
+                "type": "text",
+                "text": " will do"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624979656.065000",
+    "parent_user_id": "U0263P2NQKH",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "dca0dc0e-dfca-4d82-b54e-b904efc9bd85",
+    "type": "message",
+    "text": "Anyone here have preview access yet? This looks fascinating!",
+    "user": "URMEM88JG",
+    "ts": "1625002499.036400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbbb3b58f2be",
+      "image_72": "https://secure.gravatar.com/avatar/bbb3b58f2befe131d216498bd8fad307.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Nick",
+      "real_name": "Nick Winter",
+      "display_name": "nick",
+      "team": "T5TCAFTA9",
+      "name": "nick542",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "V+Iy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Anyone here have preview access yet? This looks fascinating!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624978847.035900",
+    "parent_user_id": "U01ULEWACPP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

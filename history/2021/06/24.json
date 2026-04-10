@@ -1,0 +1,1448 @@
+[
+  {
+    "client_msg_id": "6afed70d-0eb4-4443-b5b8-60b81261d33a",
+    "type": "message",
+    "text": "<https://scroll.pub/> my new static site generator is now mildly interesting. The key idea is instead of markdown it uses Scrolldown, which is a simpler language that is easily extensible Here's a simple sample site with a grammar extension : <https://treebase.treenotation.org/treedb/index.html>",
+    "user": "UMVFWPZ36",
+    "ts": "1624494997.101600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": ":scroll: Scroll: Build your own public domain newspaper.",
+        "title_link": "https://scroll.pub/",
+        "text": "Build your own public domain newspaper",
+        "fallback": "📜 Scroll: Build your own public domain newspaper.",
+        "image_url": "https://scroll.pub/screenshot.png",
+        "from_url": "https://scroll.pub/",
+        "image_width": 300,
+        "image_height": 211,
+        "image_bytes": 105162,
+        "service_icon": "https://scroll.pub/favicon.ico",
+        "service_name": "scroll.pub",
+        "id": 1,
+        "original_url": "https://scroll.pub/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2pcFT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://scroll.pub/"
+              },
+              {
+                "type": "text",
+                "text": " my new static site generator is now mildly interesting. The key idea is instead of markdown it uses Scrolldown, which is a simpler language that is easily extensible Here's a simple sample site with a grammar extension : "
+              },
+              {
+                "type": "link",
+                "url": "https://treebase.treenotation.org/treedb/index.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624494997.101600",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1624496965.102900",
+    "reply_users": [
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1624496965.102900"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U01SUK9M8R2",
+          "UJBAJNFLK",
+          "UEUTBH4V7",
+          "URZ8WQUHL"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "60d964d4-a6e9-4cc1-8843-867410203f67",
+    "type": "message",
+    "text": "<@UT60XSVCN> That's a solution if your programming model is the actor model. By \"transparent distribution\" I mean something more implicit: your programming language doesn't have a means to talk about \"nodes\" and \"messages\", so there are no clear boundaries for a garbage collector.\n\nNote that in Erlang, you essentially have automatic memory management (GC) _within_ an actor, and manual memory management _between_ actors. If you have an actor that is holding data that will later be queried by other actors, you need to know when it is safe to delete the data (or even the entire actor), i.e. you need to know when other actors are no longer holding \"references\" to it (of some kind).\n\nIt seems like Pony has an approach for inter-actor memory management. Thanks <@UBN9AFS0N> for the link. Though as I said before, the distribution model is still not quite as implicit as I had in mind :slightly_smiling_face:. I don't think you want to program a 1000-core AI chip with the actor model. ML models don't want to be written as actor systems, and general-purpose programs even less-so.\n\nI'm bringing up AI chips because some of them will be capable of running general-purpose programs. Think of them as the next step beyond GPGPU. <https://www.tenstorrent.com/|Tenstorrent> is an example. From their FAQ:\n• \"Our computers are optimized for neural network inference and training. They can also execute other types of parallel computation.\"\n• \"Network communication hardware is present in each processor, and they talk with one another directly over (on-chip) networks, instead of through DRAM.\"\n• [Compared to GPUs] \"Our computers are easier to program, scale better, and are excellent at handling run-time sparsity and conditional computation.\"\nHopefully that answers your question <@U5STGTB3J>: the programming model is very different to that of GPUs.\n\nNote the irony that Tenstorrent's chips are an actor model at the hardware level, yet you're unlikely to want to program them using the actor model because of the sheer number of cores. What is our programming model for these machines? As stated in my original post, I think memory management needs to be explicit in the language (Rust-style), because you don't want all 1000+ cores to be running a distributed garbage collection scheme alongside the primary computation. It becomes less and less feasible the more cores you add. Tenstorrent is planning to have their chips plug directly together using high-bandwidth &amp; low-latency interconnects so that you can have 100,000 cores or more. Imagine running a garbage collector on that. Seems very much the wrong direction to go in.",
+    "user": "UCGAK10LS",
+    "ts": "1624496233.149800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mBLM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UT60XSVCN"
+              },
+              {
+                "type": "text",
+                "text": " That's a solution if your programming model is the actor model. By \"transparent distribution\" I mean something more implicit: your programming language doesn't have a means to talk about \"nodes\" and \"messages\", so there are no clear boundaries for a garbage collector.\n\nNote that in Erlang, you essentially have automatic memory management (GC) "
+              },
+              {
+                "type": "text",
+                "text": "within",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " an actor, and manual memory management "
+              },
+              {
+                "type": "text",
+                "text": "between",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " actors. If you have an actor that is holding data that will later be queried by other actors, you need to know when it is safe to delete the data (or even the entire actor), i.e. you need to know when other actors are no longer holding \"references\" to it (of some kind).\n\nIt seems like Pony has an approach for inter-actor memory management. Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "UBN9AFS0N"
+              },
+              {
+                "type": "text",
+                "text": " for the link. Though as I said before, the distribution model is still not quite as implicit as I had in mind "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ". I don't think you want to program a 1000-core AI chip with the actor model. ML models don't want to be written as actor systems, and general-purpose programs even less-so.\n\nI'm bringing up AI chips because some of them will be capable of running general-purpose programs. Think of them as the next step beyond GPGPU. "
+              },
+              {
+                "type": "link",
+                "url": "https://www.tenstorrent.com/",
+                "text": "Tenstorrent"
+              },
+              {
+                "type": "text",
+                "text": " is an example. From their FAQ:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "\"Our computers are optimized for neural network inference and training. They can also execute other types of parallel computation.\""
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "\"Network communication hardware is present in each processor, and they talk with one another directly over (on-chip) networks, instead of through DRAM.\""
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "[Compared to GPUs] \"Our computers are easier to program, scale better, and are excellent at handling run-time sparsity and conditional computation.\""
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nHopefully that answers your question "
+              },
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": ": the programming model is very different to that of GPUs.\n\nNote the irony that Tenstorrent's chips are an actor model at the hardware level, yet you're unlikely to want to program them using the actor model because of the sheer number of cores. What is our programming model for these machines? As stated in my original post, I think memory management needs to be explicit in the language (Rust-style), because you don't want all 1000+ cores to be running a distributed garbage collection scheme alongside the primary computation. It becomes less and less feasible the more cores you add. Tenstorrent is planning to have their chips plug directly together using high-bandwidth & low-latency interconnects so that you can have 100,000 cores or more. Imagine running a garbage collector on that. Seems very much the wrong direction to go in."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624437161.147900",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d7fa30ac-f487-4e93-9b05-812c4444cb02",
+    "type": "message",
+    "text": "[moved from top level, original post by <@UMVFWPZ36>]\n\nI am not sure if I will just use it to start my own domain specific newspapers or if I will focus more on the software and help other people do that. Or move onto something else entirely. Any feedback welcome!",
+    "user": "UC2A2ARPT",
+    "ts": "1624496965.102900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RnLbF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "[moved from top level, original post by "
+              },
+              {
+                "type": "user",
+                "user_id": "UMVFWPZ36"
+              },
+              {
+                "type": "text",
+                "text": "]\n\nI am not sure if I will just use it to start my own domain specific newspapers or if I will focus more on the software and help other people do that. Or move onto something else entirely. Any feedback welcome!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624494997.101600",
+    "parent_user_id": "UMVFWPZ36",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "Another video that's too long for <#C0120A3L30R|two-minute-week>: giving the Lisp-based Mu shell just _a little smidge_ of syntax.\n\n<https://archive.org/details/akkartik-mu-2021-06-23> (8 minutes)\n\nWith this I think I'm done with the high-level language or indeed any language design. 3 notations is all this computer will come with:\n• verbose, fast, unsafe\n• verbose, fast, safe\n• terse, slow, safe\n(Others are welcome to add more, of course. Part of the goal is to leave some \"complexity headroom\" for that sort of fun activity.)\n\nWhat's next: anything but new notations (in this fork)\n• Low-level capabilities. Mouse, timer (Mu still has no clock!), maybe a network driver or six\n• Interesting programs. I might try to build an offline reader for <http://internet-in-a-box.org>. Or maybe for FoC archives?!\n• Flesh out the prototyping environment a bit more based on experiences actually using it in anger.\nMain project page: <https://github.com/akkartik/mu>",
+    "files": [
+      {
+        "id": "F026E0SMRUH",
+        "created": 1624510179,
+        "timestamp": 1624510179,
+        "name": "mu-shell-syntax.png",
+        "title": "mu-shell-syntax.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UCUSW7WVD",
+        "editable": false,
+        "size": 126137,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F026E0SMRUH/mu-shell-syntax.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F026E0SMRUH/download/mu-shell-syntax.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F026E0SMRUH-11b64b670d/mu-shell-syntax_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F026E0SMRUH-11b64b670d/mu-shell-syntax_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F026E0SMRUH-11b64b670d/mu-shell-syntax_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 320,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F026E0SMRUH-11b64b670d/mu-shell-syntax_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 426,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F026E0SMRUH-11b64b670d/mu-shell-syntax_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "image_exif_rotation": 1,
+        "original_w": 644,
+        "original_h": 572,
+        "thumb_tiny": "AwAqADCnmik70o6YqiRfwoo96KQBRRRQA09ad2pp60vamAo6UnailpAHejvRRQA09aXtS0UAFJS0UAFFFFAH/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UCUSW7WVD/F026E0SMRUH/mu-shell-syntax.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F026E0SMRUH-d2c95704ad",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "ts": "1624510206.110200",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DxwUa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Another video that's too long for "
+              },
+              {
+                "type": "channel",
+                "channel_id": "C0120A3L30R"
+              },
+              {
+                "type": "text",
+                "text": ": giving the Lisp-based Mu shell just "
+              },
+              {
+                "type": "text",
+                "text": "a little smidge",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of syntax.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://archive.org/details/akkartik-mu-2021-06-23"
+              },
+              {
+                "type": "text",
+                "text": " (8 minutes)\n\nWith this I think I'm done with the high-level language or indeed any language design. 3 notations is all this computer will come with:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "verbose, fast, unsafe"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "verbose, fast, safe"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "terse, slow, safe"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Others are welcome to add more, of course. Part of the goal is to leave some \"complexity headroom\" for that sort of fun activity.)\n\nWhat's next: anything but new notations (in this fork)\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Low-level capabilities. Mouse, timer (Mu still has no clock!), maybe a network driver or six"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Interesting programs. I might try to build an offline reader for "
+                  },
+                  {
+                    "type": "link",
+                    "url": "http://internet-in-a-box.org"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Or maybe for FoC archives?!"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Flesh out the prototyping environment a bit more based on experiences actually using it in anger."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nMain project page: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/akkartik/mu"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624510206.110200",
+    "reply_count": 4,
+    "reply_users_count": 2,
+    "latest_reply": "1624860401.134300",
+    "reply_users": [
+      "UA14TGLTC",
+      "UCUSW7WVD"
+    ],
+    "replies": [
+      {
+        "user": "UA14TGLTC",
+        "ts": "1624630016.119300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624637341.119800"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1624859930.134000"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624860401.134300"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7",
+          "UMVFWPZ36"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "babe9664-5078-4fb7-911e-767b237d12b1",
+    "type": "message",
+    "text": "Sounds like Wikilambda :wink:\nThe reason I mentioned Wolfram Alpha is because it is (1) very powerful, (2) unknown to most people who could benefit from it, and (3) even those who are aware of its existence don't immediately see its power. So you shouldn't be surprised that nobody is asking for an open equivalent. It's worth building nevertheless in my opinion.",
+    "user": "UJBAJNFLK",
+    "ts": "1624516262.030300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Mc+k=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sounds like Wikilambda "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              },
+              {
+                "type": "text",
+                "text": "\nThe reason I mentioned Wolfram Alpha is because it is (1) very powerful, (2) unknown to most people who could benefit from it, and (3) even those who are aware of its existence don't immediately see its power. So you shouldn't be surprised that nobody is asking for an open equivalent. It's worth building nevertheless in my opinion."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623773950.006800",
+    "parent_user_id": "U01AD80KMLK",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "26D275A7-4AAA-45BB-915C-E34CBF7FE112",
+    "type": "message",
+    "text": "<@UCGAK10LS> Oh, interesting! Do you have any other pointers to more technical resources from them or about other “AI chips”? Their FAQ isn’t going very deep and the website strikes me as very marketing/VC oriented.\n\nI don’t get the sense that their programming model is “very different” to that of GPUs, more like they’re building on top of that model, but maybe that’s what you mean? And they clearly know about what makes GPU programming complicated and try to differentiate themselves from it — I’m vary of their marketing lingo…\n\nAs they mention PyTorch one way to leverage multiple independent units could be <https://pytorch.org/docs/stable/notes/ddp.html|https://pytorch.org/docs/stable/notes/ddp.html>.\n\nThis also points towards things like <https://mlir.llvm.org/|https://mlir.llvm.org/>. In other words, more power to the compiler (and yes, fancy type systems)! :) ",
+    "user": "U5STGTB3J",
+    "ts": "1624518279.165800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "MLIR",
+        "title_link": "https://mlir.llvm.org/",
+        "text": "Multi-Level IR Compiler Framework",
+        "fallback": "MLIR",
+        "from_url": "https://mlir.llvm.org/",
+        "service_icon": "https://mlir.llvm.org/favicon.ico",
+        "service_name": "mlir.llvm.org",
+        "id": 1,
+        "original_url": "https://mlir.llvm.org/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MYG3g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCGAK10LS"
+              },
+              {
+                "type": "text",
+                "text": " Oh, interesting! Do you have any other pointers to more technical resources from them or about other “AI chips”? Their FAQ isn’t going very deep and the website strikes me as very marketing/VC oriented.\n\nI don’t get the sense that their programming model is “very different” to that of GPUs, more like they’re building on top of that model, but maybe that’s what you mean? And they clearly know about what makes GPU programming complicated and try to differentiate themselves from it — I’m vary of their marketing lingo…\n\nAs they mention PyTorch one way to leverage multiple independent units could be "
+              },
+              {
+                "type": "link",
+                "url": "https://pytorch.org/docs/stable/notes/ddp.html",
+                "text": "https://pytorch.org/docs/stable/notes/ddp.html"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nThis also points towards things like "
+              },
+              {
+                "type": "link",
+                "url": "https://mlir.llvm.org/",
+                "text": "https://mlir.llvm.org/"
+              },
+              {
+                "type": "text",
+                "text": ". In other words, more power to the compiler (and yes, fancy type systems)! :) "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624437161.147900",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6c9971e0-6f70-4f0e-8d4c-ba49d36f67ca",
+    "type": "message",
+    "text": "One of two talks from this year's ClojureD (German Clojure conference) about work with which I've been helping the team at <https://nextjournal.com/|Nextjournal>. This <https://www.youtube.com/watch?v=A0TafHXszgM|talk focuses on a UI/UX redesign> that updates context-driven, keyboard-friendly ideas from older environments (especially Lisp Machines!) with modern niceties. One thing we don't talk about here is that in the future the command subsystem will also be expandable and scriptable by end users. There's more Lisp Machine-related goodness coming in the next talk video, which should be released in the coming days. :slightly_smiling_face:",
+    "user": "U013ZLJARC7",
+    "ts": "1624520177.117600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "clojureD 2021: \"Command &amp; Conquer: Learnings from Decades of Code Editing\" by Philippa Markovics",
+        "title_link": "https://www.youtube.com/watch?v=A0TafHXszgM",
+        "author_name": ":clojureD",
+        "author_link": "https://www.youtube.com/c/ClojuredDexposed",
+        "thumb_url": "https://i.ytimg.com/vi/A0TafHXszgM/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: clojureD 2021: \"Command & Conquer: Learnings from Decades of Code Editing\" by Philippa Markovics",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/A0TafHXszgM?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=A0TafHXszgM",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 2,
+        "original_url": "https://www.youtube.com/watch?v=A0TafHXszgM"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2Jh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One of two talks from this year's ClojureD (German Clojure conference) about work with which I've been helping the team at "
+              },
+              {
+                "type": "link",
+                "url": "https://nextjournal.com/",
+                "text": "Nextjournal"
+              },
+              {
+                "type": "text",
+                "text": ". This "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=A0TafHXszgM",
+                "text": "talk focuses on a UI/UX redesign"
+              },
+              {
+                "type": "text",
+                "text": " that updates context-driven, keyboard-friendly ideas from older environments (especially Lisp Machines!) with modern niceties. One thing we don't talk about here is that in the future the command subsystem will also be expandable and scriptable by end users. There's more Lisp Machine-related goodness coming in the next talk video, which should be released in the coming days. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624520177.117600",
+    "reply_count": 4,
+    "reply_users_count": 4,
+    "latest_reply": "1624630102.119600",
+    "reply_users": [
+      "UCUSW7WVD",
+      "UAJKEBGP8",
+      "U013ZLJARC7",
+      "UA14TGLTC"
+    ],
+    "replies": [
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1624568360.118500"
+      },
+      {
+        "user": "UAJKEBGP8",
+        "ts": "1624574922.118800"
+      },
+      {
+        "user": "U013ZLJARC7",
+        "ts": "1624599784.119100"
+      },
+      {
+        "user": "UA14TGLTC",
+        "ts": "1624630102.119600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UJBAJNFLK",
+          "UC2A2ARPT",
+          "UCUSW7WVD",
+          "U01T2PC8LBA",
+          "UA14TGLTC"
+        ],
+        "count": 5
+      },
+      {
+        "name": "dart",
+        "users": [
+          "U01ULEWACPP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "AA5F579E-4016-4CEB-8EC3-C429A658C35D",
+    "type": "message",
+    "text": "I keep hearing about how Common Lisp has insanely cool tooling but struggling to find examples. Anyone have any links?",
+    "user": "U01R76LELBT",
+    "ts": "1624541467.166400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9751078823a2",
+      "image_72": "https://avatars.slack-edge.com/2021-03-10/1846261486882_9751078823a2ecfe91c4_72.jpg",
+      "first_name": "Rob",
+      "real_name": "Rob Haisfield",
+      "display_name": "Rob Haisfield",
+      "team": "T5TCAFTA9",
+      "name": "rob969",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2/JhA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I keep hearing about how Common Lisp has insanely cool tooling but struggling to find examples. Anyone have any links?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624541467.166400",
+    "reply_count": 6,
+    "reply_users_count": 5,
+    "latest_reply": "1624857650.173400",
+    "reply_users": [
+      "U01362XBSNA",
+      "UGWUJUZHT",
+      "UUQ2EQW21",
+      "UT60XSVCN",
+      "USH01JEDQ"
+    ],
+    "replies": [
+      {
+        "user": "U01362XBSNA",
+        "ts": "1624543332.167000"
+      },
+      {
+        "user": "UGWUJUZHT",
+        "ts": "1624590750.168700"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1624632804.169400"
+      },
+      {
+        "user": "UUQ2EQW21",
+        "ts": "1624632817.169700"
+      },
+      {
+        "user": "UT60XSVCN",
+        "ts": "1624717227.170700"
+      },
+      {
+        "user": "USH01JEDQ",
+        "ts": "1624857650.173400"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a4732edf-0d46-4ded-bc62-f0c4482c418d",
+    "type": "message",
+    "text": "Do you have an example application in mind? For instance if you want a generally responsive language, memory use efficiency, perhaps some convenience routines for objects going out of scope (e.g. automatic closing of file descriptors, sockets), predictable runtime and memory use, then reference counting seems like a better fit. OTOH:: scope exit becomes slower, and is potentially unbounded (imagine reclaiming a giant graph of data), overall runtime is higher because of all the accounting busywork and cpu cache disruption (can be as much as ~30% slower but it's complicated), and concurrency becomes harder: child processes will trigger copy on write (you can minimize the impact by storing the refcount in a small object header and storing all headers in a contiguous memory block), refcounts are also a contention issue for POSIX threads.",
+    "user": "U025PBD75TM",
+    "ts": "1624541626.166500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d0f48a5cbd36",
+      "image_72": "https://avatars.slack-edge.com/2021-06-21/2186437719222_d0f48a5cbd367fc3a50b_72.jpg",
+      "first_name": "dnmfarrell",
+      "real_name": "dnmfarrell",
+      "display_name": "dnmfarrell",
+      "team": "T5TCAFTA9",
+      "name": "davidnmfarrell",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U025PBD75TM",
+      "ts": "1624541793.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A1n",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Do you have an example application in mind? For instance if you want a generally responsive language, memory use efficiency, perhaps some convenience routines for objects going out of scope (e.g. automatic closing of file descriptors, sockets), predictable runtime and memory use, then reference counting seems like a better fit. OTOH:: scope exit becomes slower, and is potentially unbounded (imagine reclaiming a giant graph of data), overall runtime is higher because of all the accounting busywork and cpu cache disruption (can be as much as ~30% slower but it's complicated), and concurrency becomes harder: child processes will trigger copy on write (you can minimize the impact by storing the refcount in a small object header and storing all headers in a contiguous memory block), refcounts are also a contention issue for POSIX threads."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624437161.147900",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d8a11850-f29b-46dd-a31e-f1eff7ef133e",
+    "type": "message",
+    "text": "SLY (<https://github.com/joaotavora/sly>) and SLIME is a good place to start. I played around a bit with SLY last year and it has some pretty cool features such as stickers",
+    "user": "U01362XBSNA",
+    "ts": "1624543332.167000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd8f441f024b",
+      "image_72": "https://secure.gravatar.com/avatar/d8f441f024bb5bd813214b368cfc1f97.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Haakon HR",
+      "display_name": "Haakon HR",
+      "team": "T5TCAFTA9",
+      "name": "haakonhr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "joaotavora/sly",
+        "title_link": "https://github.com/joaotavora/sly",
+        "text": "Sylvester the Cat's Common Lisp IDE. Contribute to joaotavora/sly development by creating an account on GitHub.",
+        "fallback": "GitHub: joaotavora/sly",
+        "image_url": "https://opengraph.githubassets.com/b0ef10f8183ef0d9a3ed2a5a85b9d648b6cc339294146ef61fc90f08e6f7593a/joaotavora/sly",
+        "image_width": 500,
+        "image_height": 250,
+        "from_url": "https://github.com/joaotavora/sly",
+        "image_bytes": 126771,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/joaotavora/sly"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PJPn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "SLY ("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/joaotavora/sly"
+              },
+              {
+                "type": "text",
+                "text": ") and SLIME is a good place to start. I played around a bit with SLY last year and it has some pretty cool features such as stickers"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624541467.166400",
+    "parent_user_id": "U01R76LELBT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7c3a9a60-025a-4bd7-816e-bd7cd51017f5",
+    "type": "message",
+    "text": "You might want to read up on the various languages designed for the <https://en.wikipedia.org/wiki/Thinking_Machines_Corporation|Thinking Machines> CM series, including *Lisp and CM Lisp. I worked on one of these with 768 cores, but the top models had 65,000+ cores running in a parallel machine with perfectly pleasant high level language support.",
+    "user": "U013ZLJARC7",
+    "ts": "1624545723.167300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lNO2N",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You might want to read up on the various languages designed for the "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Thinking_Machines_Corporation",
+                "text": "Thinking Machines"
+              },
+              {
+                "type": "text",
+                "text": " CM series, including *Lisp and CM Lisp. I worked on one of these with 768 cores, but the top models had 65,000+ cores running in a parallel machine with perfectly pleasant high level language support."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624437161.147900",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "U025PBD75TM"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "112BBD5A-145B-4E80-9DB6-12FA69E60F5C",
+    "type": "message",
+    "text": "I don’t know about one for apply, but I also did one for map &amp; reduce: <https://lambdabricks.github.io/animating-hofs/|https://lambdabricks.github.io/animating-hofs/>",
+    "user": "U85HCL7JP",
+    "ts": "1624566728.014100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c5d8f6a2266",
+      "image_72": "https://avatars.slack-edge.com/2020-07-25/1286770110448_0c5d8f6a2266551a36f2_72.jpg",
+      "first_name": "",
+      "real_name": "Daniel Garcia",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "daniel.garcia.carmona",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0sny",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I don’t know about one for apply, but I also did one for map & reduce: "
+              },
+              {
+                "type": "link",
+                "url": "https://lambdabricks.github.io/animating-hofs/",
+                "text": "https://lambdabricks.github.io/animating-hofs/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1623101062.011000",
+    "parent_user_id": "U01R76LELBT",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U0263P2NQKH"
+        ],
+        "count": 1
+      },
+      {
+        "name": "raised_hands",
+        "users": [
+          "U0263P2NQKH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-functional-programming",
+    "channel_id": "C0133ED5811"
+  },
+  {
+    "client_msg_id": "28877e7c-7981-41d2-9b01-acd030cf5d15",
+    "type": "message",
+    "text": "This was awesome.",
+    "user": "UCUSW7WVD",
+    "ts": "1624568360.118500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1OYy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This was awesome."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624520177.117600",
+    "parent_user_id": "U013ZLJARC7",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "7152f2ca-cdac-4298-ab44-1f2f7ebee608",
+    "type": "message",
+    "text": "this is neat, love the work NextJournal is doing in general. I’m a huge computational notebooks user",
+    "user": "UAJKEBGP8",
+    "ts": "1624574922.118800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "72578ab3b4f8",
+      "image_72": "https://avatars.slack-edge.com/2021-10-09/2610495978720_72578ab3b4f8ab9ef250_72.jpg",
+      "first_name": "Srini",
+      "real_name": "Srini K",
+      "display_name": "Srini K",
+      "team": "T5TCAFTA9",
+      "name": "skadamat",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RNQT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this is neat, love the work NextJournal is doing in general. I’m a huge computational notebooks user"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624520177.117600",
+    "parent_user_id": "U013ZLJARC7",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "53163e44-2380-4037-bd39-55e4cecb73cf",
+    "type": "message",
+    "text": "<@U5STGTB3J> There are some interviews and videos of Tenstorrent online. Here's a recent one <https://www.anandtech.com/show/16709/an-interview-with-tenstorrent-ceo-ljubisa-bajic-and-cto-jim-keller|with Anandtech>. Here's a long <https://www.youtube.com/watch?v=G4hL5Om4IJ4|podcast episode with the CTO> where he talks about a bunch of computing-related stuff, including hardware architectures for AI. Here's <https://www.youtube.com/watch?v=Uls3-UWm-sY|a short technical presentation> on how their chips work.",
+    "user": "UCGAK10LS",
+    "ts": "1624575554.167800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "An Interview with Tenstorrent: CEO Ljubisa Bajic and CTO Jim Keller",
+        "title_link": "https://www.anandtech.com/show/16709/an-interview-with-tenstorrent-ceo-ljubisa-bajic-and-cto-jim-keller",
+        "fallback": "An Interview with Tenstorrent: CEO Ljubisa Bajic and CTO Jim Keller",
+        "image_url": "https://images.anandtech.com/doci/16709/a3_678x452.png",
+        "from_url": "https://www.anandtech.com/show/16709/an-interview-with-tenstorrent-ceo-ljubisa-bajic-and-cto-jim-keller",
+        "image_width": 569,
+        "image_height": 250,
+        "image_bytes": 176867,
+        "service_icon": "https://www.anandtech.com/content/images/podcast_a_huge.png",
+        "service_name": "AnandTech",
+        "id": 1,
+        "original_url": "https://www.anandtech.com/show/16709/an-interview-with-tenstorrent-ceo-ljubisa-bajic-and-cto-jim-keller"
+      },
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Jim Keller: The Future of Computing, AI, Life, and Consciousness | Lex Fridman Podcast #162",
+        "title_link": "https://www.youtube.com/watch?v=G4hL5Om4IJ4",
+        "author_name": "Lex Fridman",
+        "author_link": "https://www.youtube.com/c/lexfridman",
+        "thumb_url": "https://i.ytimg.com/vi/G4hL5Om4IJ4/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Jim Keller: The Future of Computing, AI, Life, and Consciousness | Lex Fridman Podcast #162",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/G4hL5Om4IJ4?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=G4hL5Om4IJ4",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 2,
+        "original_url": "https://www.youtube.com/watch?v=G4hL5Om4IJ4"
+      },
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Tenstorrent: Relegating the Important Stuff to the Compiler",
+        "title_link": "https://www.youtube.com/watch?v=Uls3-UWm-sY",
+        "author_name": "The Linley Group",
+        "author_link": "https://www.youtube.com/c/LinleygroupVideos",
+        "thumb_url": "https://i.ytimg.com/vi/Uls3-UWm-sY/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Tenstorrent: Relegating the Important Stuff to the Compiler",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/Uls3-UWm-sY?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=Uls3-UWm-sY",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 3,
+        "original_url": "https://www.youtube.com/watch?v=Uls3-UWm-sY"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3TBl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": " There are some interviews and videos of Tenstorrent online. Here's a recent one "
+              },
+              {
+                "type": "link",
+                "url": "https://www.anandtech.com/show/16709/an-interview-with-tenstorrent-ceo-ljubisa-bajic-and-cto-jim-keller",
+                "text": "with Anandtech"
+              },
+              {
+                "type": "text",
+                "text": ". Here's a long "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=G4hL5Om4IJ4",
+                "text": "podcast episode with the CTO"
+              },
+              {
+                "type": "text",
+                "text": " where he talks about a bunch of computing-related stuff, including hardware architectures for AI. Here's "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=Uls3-UWm-sY",
+                "text": "a short technical presentation"
+              },
+              {
+                "type": "text",
+                "text": " on how their chips work."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624437161.147900",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4dd70ed7-a2cf-4acc-8fe0-a65bf6275a64",
+    "type": "message",
+    "text": "<@U025PBD75TM> You're mentioning a lot of issues on conventional hardware architectures (cache and thread contention) and sure, there are some trade-offs when choosing between reference counting and tracing GCs in that context. But I'm focusing more on massively-parallel architectures, which I think changes the rules a bit. For example, Tenstorrent's chips have no shared memory, no caches, and no threads. Instead they have a grid of compute units, each with a dedicated SRAM (not a cache) and capable of doing parallel matrix/tensor operations. This is my \"application\" if you like: writing programs that can run on this type of machine. Why? Because they're going to offer up 100x the compute power of CPUs and are more suited to heterogeneous workloads than GPUs. From what I can see, they have a chance at obsoleting the whole idea of a CPU, as long as we can program them. There is insane amounts of money pouring into these companies (for their applications to AI), and some of these chips are going to become widely-deployed in data centers and (eventually) consumer devices.",
+    "user": "UCGAK10LS",
+    "ts": "1624576469.168200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2lZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U025PBD75TM"
+              },
+              {
+                "type": "text",
+                "text": " You're mentioning a lot of issues on conventional hardware architectures (cache and thread contention) and sure, there are some trade-offs when choosing between reference counting and tracing GCs in that context. But I'm focusing more on massively-parallel architectures, which I think changes the rules a bit. For example, Tenstorrent's chips have no shared memory, no caches, and no threads. Instead they have a grid of compute units, each with a dedicated SRAM (not a cache) and capable of doing parallel matrix/tensor operations. This is my \"application\" if you like: writing programs that can run on this type of machine. Why? Because they're going to offer up 100x the compute power of CPUs and are more suited to heterogeneous workloads than GPUs. From what I can see, they have a chance at obsoleting the whole idea of a CPU, as long as we can program them. There is insane amounts of money pouring into these companies (for their applications to AI), and some of these chips are going to become widely-deployed in data centers and (eventually) consumer devices."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624437161.147900",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U025PBD75TM",
+          "U019CPED6T1"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "de445f3f-273f-487e-8125-148077ec0905",
+    "type": "message",
+    "text": "<@U013ZLJARC7> I'll look them up, thank you :slightly_smiling_face:",
+    "user": "UCGAK10LS",
+    "ts": "1624576618.168400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bqm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": " I'll look them up, thank you "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1624437161.147900",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
