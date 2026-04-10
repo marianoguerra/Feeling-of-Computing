@@ -30,15 +30,15 @@ export function dateDayOffset(offset) {
 }
 
 function padZero(n) {
-  const s = "" + n;
-  return s.length === 1 ? "0" + s : s;
+  const s = `${n}`;
+  return s.length === 1 ? `0${s}` : s;
 }
 
 export function dateParts(d) {
   return [d.getUTCFullYear(), d.getUTCMonth() + 1, d.getUTCDate()];
 }
 
-function dateToDateString(d) {
+export function dateToDateString(d) {
   const [year, month, day] = dateParts(d);
   return `${year}-${padZero(month)}-${padZero(day)}`;
 }

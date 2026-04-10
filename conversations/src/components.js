@@ -1,7 +1,10 @@
+import { addDays, dateToDateString } from "./date.js";
+import { getNameToCode, textFromCode } from "./emoji.js";
 import { component, html } from "./ui.js";
-import { textFromCode, getNameToCode } from "./emoji.js";
 
 const NAME_TO_CODE = getNameToCode();
+const MSG_PERMALINK_BASE_URL =
+  "https://marianoguerra.github.io/Feeling-of-Computing/conversations/";
 
 function formatFileUrl(id, filetype) {
   return `https://history.futureofcoding.org/history/msg_files/${id.slice(0, 3)}/${id}.${filetype}`;
@@ -33,6 +36,32 @@ export const Messages = component({
       </div>
     </div>
   </div>`,
+  views: {
+    plain: html`<div>
+      <x render-each=".items"></x>
+    </div>`,
+  },
+});
+
+export const PlainViewer = component({
+  name: "PlainViewer",
+  fields: {
+    messages: Messages.make(),
+  },
+  methods: {
+    setShowReplies(v) {
+      return this.updateMessages((m) => m.setShowReplies(v));
+    },
+    setShowReactions(v) {
+      return this.updateMessages((m) => m.setShowReactions(v));
+    },
+    setShowAttachments(v) {
+      return this.updateMessages((m) => m.setShowAttachments(v));
+    },
+  },
+  view: html`<section @push-view="'plain'">
+    <x render=".messages"></x>
+  </section> `,
 });
 
 export const ConversationsViewer = component({
@@ -45,19 +74,13 @@ export const ConversationsViewer = component({
   },
   methods: {
     setShowReplies(v) {
-      return this.set("showReplies", v).updateMessages((m) =>
-        m.setShowReplies(v),
-      );
+      return this.set("showReplies", v).updateMessages((m) => m.setShowReplies(v));
     },
     setShowReactions(v) {
-      return this.set("showReactions", v).updateMessages((m) =>
-        m.setShowReactions(v),
-      );
+      return this.set("showReactions", v).updateMessages((m) => m.setShowReactions(v));
     },
     setShowAttachments(v) {
-      return this.set("showAttachments", v).updateMessages((m) =>
-        m.setShowAttachments(v),
-      );
+      return this.set("showAttachments", v).updateMessages((m) => m.setShowAttachments(v));
     },
   },
   view: html`<section class="flex flex-col gap-3">
@@ -94,6 +117,12 @@ export const ConversationsViewer = component({
   </section>`,
 });
 
+const pr = new Intl.PluralRules("en");
+
+function pluralize(count, singular, plural) {
+  return `${count} ${pr.select(count) === "one" ? singular : plural}`;
+}
+
 export const Message = component({
   name: "Message",
   fields: {
@@ -122,8 +151,7 @@ export const Message = component({
       } = d;
       const date = new Date(+ts * 1000);
       const author =
-        usersById[userId] ??
-        User.make({ id: userId, name: userId, realName: `@${userId}` });
+        usersById[userId] ?? User.make({ id: userId, name: userId, realName: `@${userId}` });
       const body = Blocks.Class.fromData(blocks, ctx);
       const replies = new Array(Math.max(0, rawReplies.length - 1));
       if (rawReplies.length > 0) {
@@ -165,8 +193,16 @@ export const Message = component({
         timeStyle: "short",
       });
     },
+    formatDateTime() {
+      return this.date.toISOString();
+    },
     formatMessageAnchor() {
       return `#${this.date.toISOString()}`;
+    },
+    formatMessagePermalink() {
+      const from = dateToDateString(addDays(this.date, -1));
+      const to = dateToDateString(addDays(this.date, 1));
+      return `${MSG_PERMALINK_BASE_URL}?from-date=${from}&to-date=${to}#${this.date.toISOString()}`;
     },
     areAttachmentsVisible() {
       return this.showAttachments && !this.attachmentsIsEmpty();
@@ -187,14 +223,19 @@ export const Message = component({
       return this.set("showReplies", v).mapReplies((m) => m.setShowReplies(v));
     },
     setShowReactions(v) {
-      return this.set("showReactions", v).mapReplies((m) =>
-        m.setShowReactions(v),
-      );
+      return this.set("showReactions", v).mapReplies((m) => m.setShowReactions(v));
     },
     setShowAttachments(v) {
-      return this.set("showAttachments", v).mapReplies((m) =>
-        m.setShowAttachments(v),
-      );
+      return this.set("showAttachments", v).mapReplies((m) => m.setShowAttachments(v));
+    },
+    repliesCountLabel() {
+      return pluralize(this.replies.size, "Reply", "Replies");
+    },
+    reactionsCountLabel() {
+      return pluralize(this.reactions.size, "Reaction", "Reactions");
+    },
+    filesCountLabel() {
+      return pluralize(this.files.size, "File", "Files");
     },
   },
   view: html`<section class="flex flex-col gap-3">
@@ -225,6 +266,21 @@ export const Message = component({
       <x render-each=".replies"></x>
     </div>
   </section>`,
+  views: {
+    plain: html`<section>
+      <h3><x render=".author"></x></h3>
+      <p>
+        <a :href=".formatMessagePermalink">
+          🧵️
+          <span @text=".repliesCountLabel" @hide=".repliesIsEmpty"></span>
+          <span @text=".reactionsCountLabel" @hide=".reactionsIsEmpty"></span>
+          <span @text=".filesCountLabel" @hide=".filesIsEmpty"></span>
+          @ <span @text=".formatDisplayDate"></span
+        ></a>
+      </p>
+      <x render=".body"></x>
+    </section>`,
+  },
 });
 
 export const User = component({
@@ -233,12 +289,13 @@ export const User = component({
   statics: {
     fromData(d, ctx) {
       const { user_id: id } = d ?? {};
-      return (
-        ctx.usersById[id] ?? this.make({ id, name: id, realName: `@${id}` })
-      );
+      return ctx.usersById[id] ?? this.make({ id, name: id, realName: `@${id}` });
     },
   },
   view: html`<span class="font-bold" :title=".name" @text=".realName"></span>`,
+  views: {
+    plain: html`<strong @text=".realName"></strong>`,
+  },
 });
 
 export const Channel = component({
@@ -251,6 +308,9 @@ export const Channel = component({
     },
   },
   view: html`<span class="font-bold" @text=".name"></span>`,
+  views: {
+    plain: html`<strong @text=".name"></strong>`,
+  },
 });
 
 export const Emoji = component({
@@ -321,7 +381,7 @@ export const Attachment = component({
           items.push(Blocks.Class.fromData(item.message.blocks, ctx));
         }
         // TODO: attachment subtype and better
-        return RichTextQuote.make({ elements: items });
+        return RichTextQuote.make({ elements: items }, ctx);
       }
       const thumbnail = thumb_url
         ? Thumbnail.make({
@@ -535,9 +595,21 @@ function parseRichTextSectionElements(elements = [], ctx) {
   const r = [];
   for (const item of elements) {
     switch (item.type) {
-      case "text":
-        r.push(Text.Class.fromData(item));
+      case "text": {
+        const lines = item.text.split("\n");
+        if (lines.length === 1) {
+          r.push(Text.Class.fromData(item));
+        } else {
+          for (let i = 0; i < lines.length; i++) {
+            const text = lines[i];
+            if (i > 0) {
+              r.push(NEW_LINE);
+            }
+            r.push(Text.Class.fromData({ ...item, text }));
+          }
+        }
         break;
+      }
       case "link":
         r.push(Link.Class.fromData(item));
         break;
@@ -567,20 +639,27 @@ export const RichTextSection = component({
       });
     },
   },
-  view: html`<div><x render-each=".elements"></x></div>`,
+  view: html`<x render-each=".elements"></x>`,
 });
 
 export const RichTextQuote = component({
   name: "RichTextQuote",
   fields: { elements: [] },
   statics: {
-    fromData(d) {
-      return this.make({ elements: parseRichTextSectionElements(d?.elements) });
+    fromData(d, ctx) {
+      return this.make({
+        elements: parseRichTextSectionElements(d?.elements, ctx),
+      });
     },
   },
   view: html`<div class="border-l-4 border-gray-500 pl-3 mb-2">
     <x render-each=".elements"></x>
   </div>`,
+  views: {
+    plain: html`<blockquote>
+      <x render-each=".elements"></x>
+    </blockquote>`,
+  },
 });
 
 export const RichTextPreformatted = component({
@@ -594,24 +673,45 @@ export const RichTextPreformatted = component({
   view: html`<div class="border-1 border-gray-500 p-3 my-3 font-mono text-sm">
     <x render-each=".elements"></x>
   </div>`,
+  views: {
+    plain: html`<pre>
+    <x render-each=".elements"></x>
+    </pre>`,
+  },
 });
 
 export const RichTextList = component({
   name: "RichTextList",
-  fields: { className: "list-disc", elements: [] },
+  fields: { style: "bullet", elements: [] },
+  methods: {
+    isBullet() {
+      return this.style === "bullet";
+    },
+  },
+  computed: {
+    className() {
+      return this.isBullet() ? "list-disc ml-5" : "list-decimal ml-5";
+    },
+  },
   statics: {
     fromData(d, ctx) {
-      const className =
-        d.style === "bullet" ? "list-disc ml-5" : "list-decimal ml-5";
       return this.make({
-        className,
+        style: d.style ?? "bullet",
         elements: parseRichTextElements(d?.elements, ctx),
       });
     },
   },
-  view: html`<ul :class=".className">
+  view: html`<ul :class="$className">
     <li @each=".elements"><x render-it></x></li>
   </ul>`,
+  views: {
+    plain: html`<ul @show=".isBullet">
+        <li @each=".elements"><x render-it></x></li>
+      </ul>
+      <ol @hide=".isBullet">
+        <li @each=".elements"><x render-it></x></li>
+      </ol>`,
+  },
 });
 
 export const Link = component({
@@ -628,15 +728,30 @@ export const Link = component({
     :href=".url"
     @text=".text"
   ></a>`,
+  views: {
+    plain: html`<a :href=".url" @text=".text"></a>`,
+  },
 });
+
+export const NewLine = component({
+  name: "NewLine",
+  view: html`<br />`,
+});
+
+const NEW_LINE = NewLine.make();
 
 export const Text = component({
   name: "Text",
-  fields: { text: "", className: "" },
-  statics: {
-    fromData(d) {
-      const { text, style = {} } = d ?? {};
-      const { bold, italic, strike, code } = style;
+  fields: {
+    text: "",
+    bold: false,
+    italic: false,
+    strike: false,
+    code: false,
+  },
+  computed: {
+    className() {
+      const { bold, italic, strike, code } = this;
       let className = "";
       if (bold || italic || strike || code) {
         const parts = [];
@@ -654,17 +769,51 @@ export const Text = component({
         }
         className = parts.join(" ");
       }
-      return this.make({ text, className });
+      return className;
+    },
+    inlineStyle() {
+      const { bold, italic, strike, code } = this;
+      let inlineStyle = "white-space: pre-wrap";
+      if (bold || italic || strike || code) {
+        const parts = [];
+        if (bold) {
+          parts.push("font-weight: bold");
+        }
+        if (italic) {
+          parts.push("font-style: italic");
+        }
+        if (strike) {
+          parts.push("text-decoration-line: line-through");
+        }
+        if (code) {
+          parts.push(
+            'font-family:  ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+          );
+        }
+        inlineStyle = parts.join(";");
+      }
+      return inlineStyle;
+    },
+  },
+  statics: {
+    fromData(d) {
+      const { text, style = {} } = d ?? {};
+      const { bold, italic, strike, code } = style;
+      return this.make({ text, bold, italic, strike, code });
     },
   },
   view: html`<span
-    :class="whitespace-pre-wrap {.className}"
+    :class="whitespace-pre-wrap {$className}"
     @text=".text"
   ></span>`,
+  views: {
+    plain: html`<span :style="$inlineStyle" @text=".text"></span>`,
+  },
 });
 
 export function getComponents() {
   return [
+    PlainViewer,
     ConversationsViewer,
     Message,
     Messages,
@@ -681,6 +830,7 @@ export function getComponents() {
     RichTextList,
     Link,
     Text,
+    NewLine,
     Emoji,
     Thumbnail,
     Image,
