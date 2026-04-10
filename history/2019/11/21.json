@@ -1,0 +1,2376 @@
+[
+  {
+    "client_msg_id": "f2545e3c-e205-4050-8457-9b3e3d054af1",
+    "type": "message",
+    "text": "<https://blog.acolyer.org/2019/11/20/local-first-software/> (on HN right now)",
+    "user": "U8A5MS6R1",
+    "ts": "1574295815.087400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "the morning paper",
+        "service_url": "http://blog.acolyer.org",
+        "title": "Local-first software: you own your data, in spite of the cloud",
+        "title_link": "https://blog.acolyer.org/2019/11/20/local-first-software/",
+        "author_name": "adriancolyer",
+        "author_link": "https://blog.acolyer.org/author/adriancolyer/",
+        "thumb_url": "https://adriancolyer.files.wordpress.com/2019/11/localfirst-table-1.jpeg?w=640&fit=200%2C150",
+        "thumb_width": 200,
+        "thumb_height": 117,
+        "text": "Local-first software: you own your data, in spite of the cloud Kleppmann et al., Onward! &rsquo;19\nWatch out! If you start reading this paper you could be lost for hours following all the interesting links and ideas, and end up even more dissatisfied than you already are with the state of software today. You might also be inspired to help work towards a better future. I&rsquo;m all in :).\nThe rock or the hard place?\nOn the one-hand we have &lsquo;cloud apps&rsquo; which make it easy to access our work from multiple devices and to collaborate online with others (e.g. Google Docs, Trello, &hellip;). On the other hand we have good old-fashioned native apps that you install on your operating system (a dying breed? See e.g. Brendan Burns&rsquo; recent tweet). Somewhere in the middle, but not-quite perfect, are online (browser-based) apps with offline support.\nThe primary issue with cloud apps (the SaaS model) is ownership of the data.\nUnfortunately, cloud apps are problematic in this regard. Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don&rsquo;t have full ownership of that data&mdash; the cloud provider does.\nServices do get shut down1, or pricing may change to your disadvantage, or the features evolve in a way you don&rsquo;t like and there&rsquo;s no way to keep using an older version.\nWith a traditional OS app2 you have much more control over the data (the files on your file system at least, which if you&rsquo;re lucky might even be in an open format). But you have other problems, such as easy access across all of your devices, and the ability to collaborate with others.\nLocal-first software ideals\nThe authors coin the phrase &ldquo;local-first software&rdquo; to describe software that retains the ownership properties of old-fashioned applications, with the sharing and collaboration properties of cloud applications.\nIn local-first applications&hellip; we treat the copy of the data on your local device &mdash; your laptop, tablet, or phone &mdash; as the primary copy. Servers still exist, but they hold secondary copies of your data in order to assist with access from multiple devices. As we shall see, this change in perspective has profound implications&hellip;\nGreat local-first software should have seven key properties.\nIt should be fast. We don&rsquo;t want to make round-trips to a server to interact with the application. Operations can be handled by reading and writing to the local file system, with data synchronisation happening in the background.\nIt should work across multiple devices. Local-first apps keep their data in local storage on each device, but the data is also synchronised across all the devices on which a user works.\nIt should work without a network. This follows from reading and writing to the local file system, with data synchronisation happening in the background when a connection is available. That connection could be peer-to-peer across devices, and doesn&rsquo;t have to be over the Internet.\nIt should support collaboration. &ldquo;In local-first apps, our ideal is to support real-time collaboration that is on par with the best cloud apps today, or better. Achieving this goal is one of the biggest challenges in realizing local-first software, but we believe it is possible.&ldquo;\nIt should support data access for all time. On one level you get this if you retain a copy of the original application (and an environment capable of executing it). Even better is if the local app using open / long lasting file formats. See e.g. the Library of Congress recommended archival formats.\nIt should be secure and private by default. &ldquo;Local-first apps can use end-to-end encryption so that any servers that store a copy of your files only hold encrypted data they cannot read.&rdquo;\nIt should give the user full ownership and control of their data. &ldquo;&hellip;we mean ownership in the sense of user agency, autonomy, and control over data. You should be able to copy and modify data in any way, write down any thought, and no company should restrict what you are allowed to do.&ldquo;\nHow close can we get today?\nSection 3 in the paper shows how a variety of different apps/technologies stack up against the local-first ideals.\n\nThe combination of Git and GitHub gets closest, but nothing meets the bar across the board.\n&hellip; we speculate that web apps will never be able to provide all the local-first properties we are looking for, due to the fundamental thin-client nature of the platform. By choosing to build a web app, you are choosing the path of data belonging to you and your company, not to your users.\nMobile apps that use local storage combined with a backend service such as Firebase and its Cloud Firestore take us closer to the local-first ideal, depending on the way the local data is treated by the application. CouchDB also gets an honourable mention in this part of the paper, only being let down by the difficulty of getting application-level conflict resolution right.\nCRDTs to the rescue?\nWe have found some technologies that appear to be promising foundations for local-first ideals. Most notably the family of distributed systems algorithms called Conflict-free Replicated Data Types (CRDTs)&hellip; the special thing about them is that they are multi-user from the ground up&hellip; CRDTs have some similarity to version control systems like Git, except that they operate on richer data types than text files.\nWhile most industrial usage of CRDTs has been in server-centric computing, the Ink &amp; Switch research lab have been exploring how to build collaborative local-first client applications built on top of CRDTs. One of the fruits of this work is an open-source JavaScript CDRT implementation called Automerge which brings CRDT-style merge operations to JSON documents. Used in conjunction with the dat:// networking stack the result is Hypermerge.\nJust as packet switching was an enabling technology for the Internet and the web, or as capacitive touchscreens were an enabling technology for smart phones, so we think CRDTs may be the foundation for collaborative software that gives users full ownership of their data.\nThe brave new world\nThe authors built three (fairly advanced) prototypes using this CRDT stack: a Trello clone called Trellis, a collaborative drawing program, and a &lsquo;mixed-media workspace&rsquo; called PushPin (Evernote meets Pinterest&hellip;).\nIf you have 2 minutes and 10 seconds available, it&rsquo;s well worth watching this short video showing Trellis in action. It really brings the vision to life.\nIn section 4.2.4 of the paper the authors share a number of their learnings from building these systems:\nCRDT technology works &ndash; the Automerge library did a great job and was easy to use.\nThe user experience with offline work is splendid.\nCRDTs combine well with reactive programming to give a good developer experience. &ldquo;The result of [this combination] was that all of our prototypes realized real-time collaboration and full offline capability with little effort from the application developer.&rdquo;\nIn practice, conflicts are not as significant a problem as we feared. Conflicts are mitigated on two levels: first, Automerge tracks changes at a fine-grained level, and second, &ldquo;users have an intuitive sense of human collaboration and avoid creating conflicts with their collaborators.&rdquo;\nVisualising document history is important (see the Trellis video!).\nURLs are a good mechanism for sharing\nCloud servers still have their place for discovery, backup, and burst compute.\nSome challenges:\nIt can be hard to reason about how data moves between peers.\nCRDTs accumulate a large change history, which creates performance problems. (This is an issue with state-based CRDTs, as opposed to operation-based CRDTs).\nPerformance and memory/disk usage quickly became a problem because CRDTs store all hist…",
+        "fallback": "the morning paper Link: Local-first software: you own your data, in spite of the&nbsp;cloud",
+        "from_url": "https://blog.acolyer.org/2019/11/20/local-first-software/",
+        "service_icon": "https://secure.gravatar.com/blavatar/09326a066a08237015d6b84f026d36ae?s=114",
+        "id": 1,
+        "original_url": "https://blog.acolyer.org/2019/11/20/local-first-software/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "D5mX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://blog.acolyer.org/2019/11/20/local-first-software/"
+              },
+              {
+                "type": "text",
+                "text": " (on HN right now)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574295815.087400",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1576732055.000800",
+    "reply_users": [
+      "UKQT95T1V"
+    ],
+    "replies": [
+      {
+        "user": "UKQT95T1V",
+        "ts": "1576732055.000800"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36",
+          "UA14TGLTC",
+          "UJVEPCVT6",
+          "UE1JQM9HQ",
+          "UPVBV34EL",
+          "UJ6LDMMN0",
+          "UJBAJNFLK",
+          "UHWC9PXBL",
+          "UPHDH2F0C",
+          "UML4ZEKDK"
+        ],
+        "count": 10
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f2545e3c-e205-4050-8457-9b3e3d054af1",
+    "type": "message",
+    "text": "<https://blog.acolyer.org/2019/11/20/local-first-software/> (on HN right now)",
+    "user": "U8A5MS6R1",
+    "ts": "1574295815.087400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "the morning paper",
+        "service_url": "http://blog.acolyer.org",
+        "title": "Local-first software: you own your data, in spite of the cloud",
+        "title_link": "https://blog.acolyer.org/2019/11/20/local-first-software/",
+        "author_name": "adriancolyer",
+        "author_link": "https://blog.acolyer.org/author/adriancolyer/",
+        "thumb_url": "https://adriancolyer.files.wordpress.com/2019/11/localfirst-table-1.jpeg?w=640&fit=200%2C150",
+        "thumb_width": 200,
+        "thumb_height": 117,
+        "text": "Local-first software: you own your data, in spite of the cloud Kleppmann et al., Onward! &rsquo;19\nWatch out! If you start reading this paper you could be lost for hours following all the interesting links and ideas, and end up even more dissatisfied than you already are with the state of software today. You might also be inspired to help work towards a better future. I&rsquo;m all in :).\nThe rock or the hard place?\nOn the one-hand we have &lsquo;cloud apps&rsquo; which make it easy to access our work from multiple devices and to collaborate online with others (e.g. Google Docs, Trello, &hellip;). On the other hand we have good old-fashioned native apps that you install on your operating system (a dying breed? See e.g. Brendan Burns&rsquo; recent tweet). Somewhere in the middle, but not-quite perfect, are online (browser-based) apps with offline support.\nThe primary issue with cloud apps (the SaaS model) is ownership of the data.\nUnfortunately, cloud apps are problematic in this regard. Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don&rsquo;t have full ownership of that data&mdash; the cloud provider does.\nServices do get shut down1, or pricing may change to your disadvantage, or the features evolve in a way you don&rsquo;t like and there&rsquo;s no way to keep using an older version.\nWith a traditional OS app2 you have much more control over the data (the files on your file system at least, which if you&rsquo;re lucky might even be in an open format). But you have other problems, such as easy access across all of your devices, and the ability to collaborate with others.\nLocal-first software ideals\nThe authors coin the phrase &ldquo;local-first software&rdquo; to describe software that retains the ownership properties of old-fashioned applications, with the sharing and collaboration properties of cloud applications.\nIn local-first applications&hellip; we treat the copy of the data on your local device &mdash; your laptop, tablet, or phone &mdash; as the primary copy. Servers still exist, but they hold secondary copies of your data in order to assist with access from multiple devices. As we shall see, this change in perspective has profound implications&hellip;\nGreat local-first software should have seven key properties.\nIt should be fast. We don&rsquo;t want to make round-trips to a server to interact with the application. Operations can be handled by reading and writing to the local file system, with data synchronisation happening in the background.\nIt should work across multiple devices. Local-first apps keep their data in local storage on each device, but the data is also synchronised across all the devices on which a user works.\nIt should work without a network. This follows from reading and writing to the local file system, with data synchronisation happening in the background when a connection is available. That connection could be peer-to-peer across devices, and doesn&rsquo;t have to be over the Internet.\nIt should support collaboration. &ldquo;In local-first apps, our ideal is to support real-time collaboration that is on par with the best cloud apps today, or better. Achieving this goal is one of the biggest challenges in realizing local-first software, but we believe it is possible.&ldquo;\nIt should support data access for all time. On one level you get this if you retain a copy of the original application (and an environment capable of executing it). Even better is if the local app using open / long lasting file formats. See e.g. the Library of Congress recommended archival formats.\nIt should be secure and private by default. &ldquo;Local-first apps can use end-to-end encryption so that any servers that store a copy of your files only hold encrypted data they cannot read.&rdquo;\nIt should give the user full ownership and control of their data. &ldquo;&hellip;we mean ownership in the sense of user agency, autonomy, and control over data. You should be able to copy and modify data in any way, write down any thought, and no company should restrict what you are allowed to do.&ldquo;\nHow close can we get today?\nSection 3 in the paper shows how a variety of different apps/technologies stack up against the local-first ideals.\n\nThe combination of Git and GitHub gets closest, but nothing meets the bar across the board.\n&hellip; we speculate that web apps will never be able to provide all the local-first properties we are looking for, due to the fundamental thin-client nature of the platform. By choosing to build a web app, you are choosing the path of data belonging to you and your company, not to your users.\nMobile apps that use local storage combined with a backend service such as Firebase and its Cloud Firestore take us closer to the local-first ideal, depending on the way the local data is treated by the application. CouchDB also gets an honourable mention in this part of the paper, only being let down by the difficulty of getting application-level conflict resolution right.\nCRDTs to the rescue?\nWe have found some technologies that appear to be promising foundations for local-first ideals. Most notably the family of distributed systems algorithms called Conflict-free Replicated Data Types (CRDTs)&hellip; the special thing about them is that they are multi-user from the ground up&hellip; CRDTs have some similarity to version control systems like Git, except that they operate on richer data types than text files.\nWhile most industrial usage of CRDTs has been in server-centric computing, the Ink &amp; Switch research lab have been exploring how to build collaborative local-first client applications built on top of CRDTs. One of the fruits of this work is an open-source JavaScript CDRT implementation called Automerge which brings CRDT-style merge operations to JSON documents. Used in conjunction with the dat:// networking stack the result is Hypermerge.\nJust as packet switching was an enabling technology for the Internet and the web, or as capacitive touchscreens were an enabling technology for smart phones, so we think CRDTs may be the foundation for collaborative software that gives users full ownership of their data.\nThe brave new world\nThe authors built three (fairly advanced) prototypes using this CRDT stack: a Trello clone called Trellis, a collaborative drawing program, and a &lsquo;mixed-media workspace&rsquo; called PushPin (Evernote meets Pinterest&hellip;).\nIf you have 2 minutes and 10 seconds available, it&rsquo;s well worth watching this short video showing Trellis in action. It really brings the vision to life.\nIn section 4.2.4 of the paper the authors share a number of their learnings from building these systems:\nCRDT technology works &ndash; the Automerge library did a great job and was easy to use.\nThe user experience with offline work is splendid.\nCRDTs combine well with reactive programming to give a good developer experience. &ldquo;The result of [this combination] was that all of our prototypes realized real-time collaboration and full offline capability with little effort from the application developer.&rdquo;\nIn practice, conflicts are not as significant a problem as we feared. Conflicts are mitigated on two levels: first, Automerge tracks changes at a fine-grained level, and second, &ldquo;users have an intuitive sense of human collaboration and avoid creating conflicts with their collaborators.&rdquo;\nVisualising document history is important (see the Trellis video!).\nURLs are a good mechanism for sharing\nCloud servers still have their place for discovery, backup, and burst compute.\nSome challenges:\nIt can be hard to reason about how data moves between peers.\nCRDTs accumulate a large change history, which creates performance problems. (This is an issue with state-based CRDTs, as opposed to operation-based CRDTs).\nPerformance and memory/disk usage quickly became a problem because CRDTs store all hist…",
+        "fallback": "the morning paper Link: Local-first software: you own your data, in spite of the&nbsp;cloud",
+        "from_url": "https://blog.acolyer.org/2019/11/20/local-first-software/",
+        "service_icon": "https://secure.gravatar.com/blavatar/09326a066a08237015d6b84f026d36ae?s=114",
+        "id": 1,
+        "original_url": "https://blog.acolyer.org/2019/11/20/local-first-software/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "D5mX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://blog.acolyer.org/2019/11/20/local-first-software/"
+              },
+              {
+                "type": "text",
+                "text": " (on HN right now)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574295815.087400",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1576732055.000800",
+    "reply_users": [
+      "UKQT95T1V"
+    ],
+    "replies": [
+      {
+        "user": "UKQT95T1V",
+        "ts": "1576732055.000800"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36",
+          "UA14TGLTC",
+          "UJVEPCVT6",
+          "UE1JQM9HQ",
+          "UPVBV34EL",
+          "UJ6LDMMN0",
+          "UJBAJNFLK",
+          "UHWC9PXBL",
+          "UPHDH2F0C",
+          "UML4ZEKDK"
+        ],
+        "count": 10
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fa7bd1fa-6a50-41d8-8035-a55d0629bc45",
+    "type": "message",
+    "text": "Hi! I'm Jonas, a creative developer in NYC. I make art websites, with a background in fine art and CS. I currently work at <http://frame.io|frame.io> where I build their marketing site. Someday I hope to be free from the prison that is HTML and CSS. I've been really interested lately in how to make graphics programming more powerful and accessible, and in building out abstractions for the extremely niche type of web development work I do.",
+    "user": "UQ3QA3ZAR",
+    "ts": "1574310531.229400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2825557305c2",
+      "image_72": "https://avatars.slack-edge.com/2019-11-20/845138028391_2825557305c27a8f158e_72.png",
+      "first_name": "Jonas",
+      "real_name": "Jonas Luebbers",
+      "display_name": "jonas",
+      "team": "T5TCAFTA9",
+      "name": "jonaskluebbers",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UQ3QA3ZAR",
+      "ts": "1574310671.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JBfRR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi! I'm Jonas, a creative developer in NYC. I make art websites, with a background in fine art and CS. I currently work at "
+              },
+              {
+                "type": "link",
+                "url": "http://frame.io",
+                "text": "frame.io"
+              },
+              {
+                "type": "text",
+                "text": " where I build their marketing site. Someday I hope to be free from the prison that is HTML and CSS. I've been really interested lately in how to make graphics programming more powerful and accessible, and in building out abstractions for the extremely niche type of web development work I do."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "350ca7e7-6538-40ed-a00a-00be82497ef8",
+    "type": "message",
+    "text": "<https://www.jonasluebbers.com>",
+    "user": "UQ3QA3ZAR",
+    "ts": "1574310641.229600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2825557305c2",
+      "image_72": "https://avatars.slack-edge.com/2019-11-20/845138028391_2825557305c27a8f158e_72.png",
+      "first_name": "Jonas",
+      "real_name": "Jonas Luebbers",
+      "display_name": "jonas",
+      "team": "T5TCAFTA9",
+      "name": "jonaskluebbers",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iKoQb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://www.jonasluebbers.com"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574310641.229600",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1574355898.232400",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UQ3QA3ZAR"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1574311308.230000"
+      },
+      {
+        "user": "UQ3QA3ZAR",
+        "ts": "1574355898.232400"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "wave",
+        "users": [
+          "UC2A2ARPT",
+          "ULM3U6275",
+          "UCUSW7WVD",
+          "UA14TGLTC",
+          "UCXR52MU2",
+          "UJVEPCVT6",
+          "UPVBV34EL",
+          "UJ6LDMMN0",
+          "UHWC9PXBL",
+          "UP658E1GB",
+          "U8A5MS6R1",
+          "UJBAJNFLK",
+          "UHP08C1DK",
+          "UC21F8Q48",
+          "U85HCL7JP",
+          "U5TCAFTD3"
+        ],
+        "count": 16
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "e332f6a1-5cac-4a1e-815e-7e485569491d",
+    "type": "message",
+    "text": "Your website is very _brutalist_. I like it!",
+    "user": "UC2A2ARPT",
+    "ts": "1574311308.230000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MyvN0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Your website is very "
+              },
+              {
+                "type": "text",
+                "text": "brutalist",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". I like it!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574310641.229600",
+    "parent_user_id": "UQ3QA3ZAR",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "5b06e604-6f6a-49be-8210-a6712cd64c0b",
+    "type": "message",
+    "text": "hmm i still develop on it :slightly_smiling_face:",
+    "user": "UQRFN7S9W",
+    "ts": "1574316485.230600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g1384ac18f30",
+      "image_72": "https://secure.gravatar.com/avatar/1384ac18f3098c7590b0a56bfb1ae4b6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "",
+      "real_name": "Vergie Ericson T",
+      "display_name": "Vergie Ericson T",
+      "team": "T5TCAFTA9",
+      "name": "vergieericsont",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zkT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "hmm i still develop on it "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574221267.222700",
+    "parent_user_id": "UQRFN7S9W",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "BF1138E5-8E9B-48A8-B9DC-71D7BB473BEF",
+    "type": "message",
+    "text": "<@UCUSW7WVD> I read your _A new way of testing_ and I think you’re onto something that I can make a connection to in a totally different context but it feels like the same pattern to me.\n\nWhat you see in “white-box testing” is what I see in declarative frameworks like SwiftUI or React, or in the application of monads (as in Haskell’s IO), or in effect systems: I think it’s also what you call “obvious architecture” above. It’s not obvious at all, but I think I know what you mean. :-)\n\nI see a subtle trend in programming uncovering distinct layers, I would call them _layers of scale_ in the Alexander sense, and designing more and more systems around those, by increasing the expressiveness within each of these layers with algebraic composition.\n\nWhen you declaratively specify a UI with SwiftUI, you don’t tell the system what to do directly (that’s the declarative part, but that’s not quite my point here), but you create a data structure that will be “parsed” and transformed into the view hierarchy at runtime. You’re kind of programming within programming, but not just in an eDSL sense, but more in an Inception sense. There are two distinct scales here, although you don’t really see them if you don’t look for them.\n\nWhen you use the IO monad in Haskell, you don’t cause the side effects to happen directly, but you assemble a data structure that will eventually become the “real program” and then reduce down to calculating all the side effects. Again, two separate scales.\n\nBoth concepts look very similar to me. As does what you do with your “trace-based tests”. You’re separating levels of scale, slicing the system into different domains, but not in an elaborate manual way, designing each layer individually, but by exploiting a structure that already exists.\n\nI find it hard to describe, even though the pattern makes total sense in my head… we look for something like a pivot point to rotate the whole system around and at certain angles everything aligns neatly and we can see different aspects of the same thing clearly. It’s like splitting your system into distinct layers, but simpler — a lot less effort than designing the layers explicitly — and yet more powerful. These are the tree approximations derived from a lattice structure. They are not designed, but derived. They are already there and therefore don’t have to be designed, just discovered. And if we could understand better how to discover them, we could cope with much more complex systems.\n\nI find as we tumble down our rabbit holes and get quite deep into them, it becomes harder and harder to convey what we learn as what makes sense to us is just totally incomprehensible to others who have not been down the same rabbit hole as far as we have. Words with meanings obvious to us lead others down a completely wrong path. I felt like this when trying to decipher your Fourier transform analogy, and I wouldn’t be surprised if you will feel like this with what I just wrote.",
+    "user": "U5STGTB3J",
+    "ts": "1574323870.283300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1574069038.213900",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "98A967F9-3AFB-494A-A687-041F29989D97",
+    "type": "message",
+    "text": "<https://www.lesswrong.com/posts/tMhEv28KJYWsu6Wdo/kensh>\n\nThis is pretty much how I feel about Christopher Alexander — he’s telling me to “look up”, and I do but I still can’t quite see what he means because there’s nothing above the menu bar on my screen… :-)",
+    "user": "U5STGTB3J",
+    "ts": "1574323999.285500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Kenshō - LessWrong 2.0",
+        "title_link": "https://www.lesswrong.com/posts/tMhEv28KJYWsu6Wdo/kensh",
+        "text": "Follow-up to: Gears in Understanding [<http://lesswrong.com/lw/ozz/gears_in_understanding/>], Fake Frameworks [<http://lesswrong.com/lw/p80/in_praise_of_fake_frameworks/>] This last September, I experienced enlightenment. I mean to share this as a simple fact to set context. I don’t claim I am enlightened, as though I have some amazing property that makes me better than people who don’t have it. I mean simply that there’s something vaguely like a state that our culture calls “enlightenment” that I’ve been in and have returned to a few times over the last four months. In Rinzai Zen [<https://en.wikipedia.org/wiki/Rinzai_school>] one would say that I had a kenshō [<https://en.wikipedia.org/wiki/Kensh%C5%8D>]: a moment of understanding that makes the path clear but is not yet full attainment. Over the last several months I’ve tried to share what I now see so clearly. And this has mostly just failed. People who’ve had a kenshō follow what I’m saying just fine, but most people just get really confused. It feels a bit like being one of the only people around who understand scientific thinking: most people can see that the behavior of a gyroscope [<https://www.youtube.com/watch?v=8H98BgRzpOM>] is weird [<http://lesswrong.com/lw/hs/think_like_reality/>] when you show them, but most can’t really see its behavior through the lens of scientific epistemology. They just keep translating what you’re saying into e.g. isolated facts [<http://lesswrong.com/lw/iq/guessing_the_teachers_password/>]. This is particularly vexing in the case of kenshō because enlightenment isn’t an insight. I claim it’s not a matter of inferential distance [<https://wiki.lesswrong.com/wiki/Inferential_distance>]. It’s more like bothering to notice what you already know. When the moment of seeing struck me, I fell over laughing and basically didn’t stop laughing for two days, because it was so incredibly stunningly obvious. There isn’t something to learn: it’s already always here. And what is “it”, you might ask? W",
+        "fallback": "Kenshō - LessWrong 2.0",
+        "thumb_url": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1503704344/sequencesgrid/h6vrwdypijqgsop7xwa0.jpg",
+        "from_url": "https://www.lesswrong.com/posts/tMhEv28KJYWsu6Wdo/kensh",
+        "thumb_width": 696,
+        "thumb_height": 274,
+        "service_icon": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
+        "service_name": "lesswrong.com",
+        "id": 1,
+        "original_url": "https://www.lesswrong.com/posts/tMhEv28KJYWsu6Wdo/kensh"
+      }
+    ],
+    "thread_ts": "1574069038.213900",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "267e2c61-0942-4c82-8d76-d9a4abb8232c",
+    "type": "message",
+    "text": "Yeah, that's indeed my reaction. I'll try to reflect more on your comment.",
+    "user": "UCUSW7WVD",
+    "ts": "1574324589.285800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1574069038.213900",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1490fe3f-5503-4742-b75e-bded28863fe9",
+    "type": "message",
+    "text": "I hope some new kids get to use it and it inspires them like it did me, but I kinda figure kids nowadays are born as Unity expert game devs :joy:",
+    "user": "UNBPP291C",
+    "ts": "1574334567.286000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gcf29e340a09",
+      "image_72": "https://secure.gravatar.com/avatar/cf29e340a09ac08ae262632ef9101046.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Ian Rumac",
+      "display_name": "Ian Rumac",
+      "team": "T5TCAFTA9",
+      "name": "ian.rumac",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/NY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I hope some new kids get to use it and it inspires them like it did me, but I kinda figure kids nowadays are born as Unity expert game devs "
+              },
+              {
+                "type": "emoji",
+                "name": "joy"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574195594.223400",
+    "parent_user_id": "UPVBV34EL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "fbdb6e94-6339-4acf-88d4-e85d496ebeb7",
+    "type": "message",
+    "text": "Well said <@UNBPP291C> :smile:",
+    "user": "UPVBV34EL",
+    "ts": "1574337101.286200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "259a1e56ad2e",
+      "image_72": "https://avatars.slack-edge.com/2019-10-28/811814014976_259a1e56ad2e11fe3d56_72.jpg",
+      "first_name": "",
+      "real_name": "Shubhadeep Roychowdhury",
+      "display_name": "Shubhadeep Roychowdhury",
+      "team": "T5TCAFTA9",
+      "name": "shubhadeeproychowdhur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "b8pb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Well said "
+              },
+              {
+                "type": "user",
+                "user_id": "UNBPP291C"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574195594.223400",
+    "parent_user_id": "UPVBV34EL",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "28cf5b6e-e7f3-4586-9abf-251fe6813f66",
+    "type": "message",
+    "text": "This article speaks to the idea that it should not look or feel like the tools the pros use because they will reject it\n\n<https://mkremins.github.io/blog/creative-tools-non-creators/>",
+    "user": "UHZNB3HRP",
+    "ts": "1574345801.089100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g1e605c7d8c8",
+      "image_72": "https://secure.gravatar.com/avatar/91e605c7d8c807d1a07fb13a73ff8e06.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Jarmiolowski",
+      "display_name": "Greg Jarmiolowski",
+      "team": "T5TCAFTA9",
+      "name": "greg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Creative tools for non-creators",
+        "title_link": "https://mkremins.github.io/blog/creative-tools-non-creators/",
+        "text": "I keep coming back to the idea of tools that unlock creativity in people who don’t ordinarily think of themselves as creative. Yesterday, some of my scattered thoughts on the subject spontaneously crystallized into something resembling a coherent ...",
+        "fallback": "Creative tools for non-creators",
+        "from_url": "https://mkremins.github.io/blog/creative-tools-non-creators/",
+        "service_name": "mkremins.github.io",
+        "id": 1,
+        "original_url": "https://mkremins.github.io/blog/creative-tools-non-creators/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DqWzl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This article speaks to the idea that it should not look or feel like the tools the pros use because they will reject it\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://mkremins.github.io/blog/creative-tools-non-creators/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1573757437.378000",
+    "parent_user_id": "UEP7RL0HX",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "28cf5b6e-e7f3-4586-9abf-251fe6813f66",
+    "type": "message",
+    "text": "This article speaks to the idea that it should not look or feel like the tools the pros use because they will reject it\n\n<https://mkremins.github.io/blog/creative-tools-non-creators/>",
+    "user": "UHZNB3HRP",
+    "ts": "1574345801.089100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g1e605c7d8c8",
+      "image_72": "https://secure.gravatar.com/avatar/91e605c7d8c807d1a07fb13a73ff8e06.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Jarmiolowski",
+      "display_name": "Greg Jarmiolowski",
+      "team": "T5TCAFTA9",
+      "name": "greg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Creative tools for non-creators",
+        "title_link": "https://mkremins.github.io/blog/creative-tools-non-creators/",
+        "text": "I keep coming back to the idea of tools that unlock creativity in people who don’t ordinarily think of themselves as creative. Yesterday, some of my scattered thoughts on the subject spontaneously crystallized into something resembling a coherent ...",
+        "fallback": "Creative tools for non-creators",
+        "from_url": "https://mkremins.github.io/blog/creative-tools-non-creators/",
+        "service_name": "mkremins.github.io",
+        "id": 1,
+        "original_url": "https://mkremins.github.io/blog/creative-tools-non-creators/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DqWzl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This article speaks to the idea that it should not look or feel like the tools the pros use because they will reject it\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://mkremins.github.io/blog/creative-tools-non-creators/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1573757437.378000",
+    "parent_user_id": "UEP7RL0HX",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3f141cc2-9f63-4c0e-a436-453dcbfa0879",
+    "type": "message",
+    "text": "Just yesterday I was looking up structured editors. A part of this feels like what I was searching for. I like how you cannot directly type in a literal value, you have to sort of declare it before you can use it. It might seem cumbersome as you create but as you edit and maintain this discipline shines.",
+    "user": "UHZNB3HRP",
+    "ts": "1574346305.152300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g1e605c7d8c8",
+      "image_72": "https://secure.gravatar.com/avatar/91e605c7d8c807d1a07fb13a73ff8e06.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Jarmiolowski",
+      "display_name": "Greg Jarmiolowski",
+      "team": "T5TCAFTA9",
+      "name": "greg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UHZNB3HRP",
+      "ts": "1574347350.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uStw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just yesterday I was looking up structured editors. A part of this feels like what I was searching for. I like how you cannot directly type in a literal value, you have to sort of declare it before you can use it. It might seem cumbersome as you create but as you edit and maintain this discipline shines."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1568037884.000800",
+    "parent_user_id": "U6KQ2S410",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "fc1ac1e2-705b-4118-9131-b9d2c0b34670",
+    "type": "message",
+    "text": "The thought I am noodling around this is that you have some way of expressing programs at various levels of abstraction. So as I gain experience and knowledge I start to dig into the lower levels. Maybe this starts with something like boxes and arrows or cells in a spreadsheet but then I can dig deeper, eventually getting to the details of how a sort algorithm works, for example.",
+    "user": "UHZNB3HRP",
+    "ts": "1574350573.152700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g1e605c7d8c8",
+      "image_72": "https://secure.gravatar.com/avatar/91e605c7d8c807d1a07fb13a73ff8e06.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Jarmiolowski",
+      "display_name": "Greg Jarmiolowski",
+      "team": "T5TCAFTA9",
+      "name": "greg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l+kkH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The thought I am noodling around this is that you have some way of expressing programs at various levels of abstraction. So as I gain experience and knowledge I start to dig into the lower levels. Maybe this starts with something like boxes and arrows or cells in a spreadsheet but then I can dig deeper, eventually getting to the details of how a sort algorithm works, for example."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1570469769.009800",
+    "parent_user_id": "UG0EL18H3",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "e6aa5992-a882-4794-baa6-e9b161ca0418",
+    "type": "message",
+    "text": "For anyone who was just in the symposium, <@UHWC9PXBL> asked for a beta invite to Dark. If you're interested in a beta invite, right now we're focused on onboarding slackbot projects.\n\nIf you have a Slackbot - please just fill out: <https://darklang.com/beta> and leave a note that you came from FoC (this is just to make my life easier - they go to me + Victoria + Jessica to organize and schedule). If you do that, I'll commit that you'll get an onboarding next Tues, Wed, or Fri :)\n\nWe've also just released a new version of the editor that feels more fluid vs. structural, so you'll get to give feedback on that. :star2:",
+    "user": "U6LBL2CJ1",
+    "ts": "1574351339.215500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g946a44bd483",
+      "image_72": "https://secure.gravatar.com/avatar/f946a44bd483b3ab88faffa87656940a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0018-72.png",
+      "first_name": "Ellen",
+      "real_name": "Ellen Chisa",
+      "display_name": "ellenchisa",
+      "team": "T5TCAFTA9",
+      "name": "ellenchisa",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Uw7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For anyone who was just in the symposium, "
+              },
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              },
+              {
+                "type": "text",
+                "text": " asked for a beta invite to Dark. If you're interested in a beta invite, right now we're focused on onboarding slackbot projects.\n\nIf you have a Slackbot - please just fill out: "
+              },
+              {
+                "type": "link",
+                "url": "https://darklang.com/beta"
+              },
+              {
+                "type": "text",
+                "text": " and leave a note that you came from FoC (this is just to make my life easier - they go to me + Victoria + Jessica to organize and schedule). If you do that, I'll commit that you'll get an onboarding next Tues, Wed, or Fri :)\n\nWe've also just released a new version of the editor that feels more fluid vs. structural, so you'll get to give feedback on that. "
+              },
+              {
+                "type": "emoji",
+                "name": "star2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UHWC9PXBL",
+          "UERTM1JPR"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36",
+          "UQ98SQK1Q"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e6aa5992-a882-4794-baa6-e9b161ca0418",
+    "type": "message",
+    "text": "For anyone who was just in the symposium, <@UHWC9PXBL> asked for a beta invite to Dark. If you're interested in a beta invite, right now we're focused on onboarding slackbot projects.\n\nIf you have a Slackbot - please just fill out: <https://darklang.com/beta> and leave a note that you came from FoC (this is just to make my life easier - they go to me + Victoria + Jessica to organize and schedule). If you do that, I'll commit that you'll get an onboarding next Tues, Wed, or Fri :)\n\nWe've also just released a new version of the editor that feels more fluid vs. structural, so you'll get to give feedback on that. :star2:",
+    "user": "U6LBL2CJ1",
+    "ts": "1574351339.215500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g946a44bd483",
+      "image_72": "https://secure.gravatar.com/avatar/f946a44bd483b3ab88faffa87656940a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0018-72.png",
+      "first_name": "Ellen",
+      "real_name": "Ellen Chisa",
+      "display_name": "ellenchisa",
+      "team": "T5TCAFTA9",
+      "name": "ellenchisa",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Uw7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For anyone who was just in the symposium, "
+              },
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              },
+              {
+                "type": "text",
+                "text": " asked for a beta invite to Dark. If you're interested in a beta invite, right now we're focused on onboarding slackbot projects.\n\nIf you have a Slackbot - please just fill out: "
+              },
+              {
+                "type": "link",
+                "url": "https://darklang.com/beta"
+              },
+              {
+                "type": "text",
+                "text": " and leave a note that you came from FoC (this is just to make my life easier - they go to me + Victoria + Jessica to organize and schedule). If you do that, I'll commit that you'll get an onboarding next Tues, Wed, or Fri :)\n\nWe've also just released a new version of the editor that feels more fluid vs. structural, so you'll get to give feedback on that. "
+              },
+              {
+                "type": "emoji",
+                "name": "star2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UHWC9PXBL",
+          "UERTM1JPR"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36",
+          "UQ98SQK1Q"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "E29EF3C5-DFF4-47D9-9D53-12D2F91C930D",
+    "type": "message",
+    "text": "Have been researching the history of CS and the more I look into it, the more I feel it is deeply intertwined through the lives of people involved. For example Scott and Strachey worked together resulting in Denotational Semantics. Same Strachey used to be a classmate of Alan Turing, who was the student of Alonzo Church who made Lambda Calculus, who worked with Kleene resulting in Recursive Function Theory. Both of these mathematical models were used in the creation of Lisp by McCarthy. Peter Landin who used to work with Strachey creates the SECD machine which becomes an operational substrate for Lambda Calculus which is used along with Denotational Semantics to give a formal footing for today’s FP languages. To give a structure to this braided nature of CS history, I created a visualization here: <https://twitter.com/prathyvsh/status/1197525794245009408?s=21>\n\nWould love to get any opinion on how I can improve this visualization!",
+    "user": "UDKTZSD6H",
+    "ts": "1574351989.294800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/prathyvsh|@prathyvsh>: Created this timeline/timebraid on how Alan Turing and peers collaborated to create Computer Science as we know it today! <https://pbs.twimg.com/media/EJ53WlXXYAALweH.jpg>",
+        "ts": 1574347372,
+        "author_name": "Prathyush",
+        "author_link": "https://twitter.com/prathyvsh/status/1197525794245009408",
+        "author_icon": "https://pbs.twimg.com/profile_images/1157092207075061760/v_xB---l_normal.jpg",
+        "author_subname": "@prathyvsh",
+        "text": "Created this timeline/timebraid on how Alan Turing and peers collaborated to create Computer Science as we know it today! <https://pbs.twimg.com/media/EJ53WlXXYAALweH.jpg>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/prathyvsh/status/1197525794245009408?s=21",
+        "image_url": "https://pbs.twimg.com/media/EJ53WlXXYAALweH.jpg",
+        "image_width": 1200,
+        "image_height": 675,
+        "image_bytes": 77483,
+        "id": 1,
+        "original_url": "https://twitter.com/prathyvsh/status/1197525794245009408?s=21",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1574351989.294800",
+    "reply_count": 10,
+    "reply_users_count": 4,
+    "latest_reply": "1574474924.313200",
+    "reply_users": [
+      "U5STGTB3J",
+      "UJN1TAYEQ",
+      "UDKTZSD6H",
+      "UJUQESQ1Z"
+    ],
+    "replies": [
+      {
+        "user": "U5STGTB3J",
+        "ts": "1574353346.302600"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1574355063.302900"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1574362919.303300"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1574363006.303500"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1574366215.303800"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1574367186.306600"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1574377834.306800"
+      },
+      {
+        "user": "UJUQESQ1Z",
+        "ts": "1574394034.307300"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1574474861.313000"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1574474924.313200"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UFEQUBNNT",
+          "U85HCL7JP",
+          "UA14TGLTC",
+          "UBN9AFS0N",
+          "UML4ZEKDK"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "16830f7e-26fc-49d5-89cd-d50da74ced73",
+    "type": "message",
+    "text": "My demo is at <https://nextjournal.com/mk/foc-demo>. Please let me know if you have any feedback or would like to talk about presenting your research with it!",
+    "user": "UGS8TUVK6",
+    "ts": "1574352326.219900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b2204b9c98e",
+      "image_72": "https://avatars.slack-edge.com/2019-07-10/691633887223_2b2204b9c98e11f0ad1f_72.jpg",
+      "first_name": "Martin",
+      "real_name": "Martin Kavalar",
+      "display_name": "mk",
+      "team": "T5TCAFTA9",
+      "name": "martin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Nextjournal",
+        "title_link": "https://nextjournal.com/mk/foc-demo",
+        "text": "A better way to write, share, remix and collaborate on your research.",
+        "fallback": "Nextjournal",
+        "from_url": "https://nextjournal.com/mk/foc-demo",
+        "service_name": "nextjournal.com",
+        "id": 1,
+        "original_url": "https://nextjournal.com/mk/foc-demo"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FTob",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My demo is at "
+              },
+              {
+                "type": "link",
+                "url": "https://nextjournal.com/mk/foc-demo"
+              },
+              {
+                "type": "text",
+                "text": ". Please let me know if you have any feedback or would like to talk about presenting your research with it!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "crystal_ball",
+        "users": [
+          "UNTRC48LC",
+          "UERTM1JPR",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UBM0S2AN4"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "16830f7e-26fc-49d5-89cd-d50da74ced73",
+    "type": "message",
+    "text": "My demo is at <https://nextjournal.com/mk/foc-demo>. Please let me know if you have any feedback or would like to talk about presenting your research with it!",
+    "user": "UGS8TUVK6",
+    "ts": "1574352326.219900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b2204b9c98e",
+      "image_72": "https://avatars.slack-edge.com/2019-07-10/691633887223_2b2204b9c98e11f0ad1f_72.jpg",
+      "first_name": "Martin",
+      "real_name": "Martin Kavalar",
+      "display_name": "mk",
+      "team": "T5TCAFTA9",
+      "name": "martin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Nextjournal",
+        "title_link": "https://nextjournal.com/mk/foc-demo",
+        "text": "A better way to write, share, remix and collaborate on your research.",
+        "fallback": "Nextjournal",
+        "from_url": "https://nextjournal.com/mk/foc-demo",
+        "service_name": "nextjournal.com",
+        "id": 1,
+        "original_url": "https://nextjournal.com/mk/foc-demo"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FTob",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My demo is at "
+              },
+              {
+                "type": "link",
+                "url": "https://nextjournal.com/mk/foc-demo"
+              },
+              {
+                "type": "text",
+                "text": ". Please let me know if you have any feedback or would like to talk about presenting your research with it!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "crystal_ball",
+        "users": [
+          "UNTRC48LC",
+          "UERTM1JPR",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UBM0S2AN4"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9F2C5305-7029-4F08-96BC-36C3246FE953",
+    "type": "message",
+    "text": "This is powerful! Using people and timelines as an approachable overview of this field is super useful and I’m happy you put a lot of thought into this. The often invisible connections between people and how they influence each other add an additional dimension to how we can interpret their research and more often than not it’s these connections that give us the clues for deeper understanding.\n\nThere was a Flash-based _Ishkur’s Guide to Electronic Music_ that did something similar in a different domain, which I’d recommend looking at for inspiration (you’ll have to search for it and install a Flash plug-in, but it’s worth it). I’d love to see something like that as an interactive explorer through the history and the people of our field, with links to important presentations and papers sprinkled in.",
+    "user": "U5STGTB3J",
+    "ts": "1574353346.302600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1574351989.294800",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1::skin-tone-3",
+        "users": [
+          "UFEQUBNNT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b6c30eba-f7f0-4a22-8574-771bf967167b",
+    "type": "message",
+    "text": "Landin's 1965 paper \"The Next 700 Programming Languages\" was the original manifesto for functional programming, and Landin was pushing the idea, even as Strachey thought it was impractical. The paper introduced ISWIM. Some of the core ISWIM syntax (let, where, indentation as syntax) lives on in Haskell. I see \"ISWIM\" in the diagram, but not \"Functional Programming\".",
+    "user": "UJN1TAYEQ",
+    "ts": "1574355063.302900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OKoQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Landin's 1965 paper \"The Next 700 Programming Languages\" was the original manifesto for functional programming, and Landin was pushing the idea, even as Strachey thought it was impractical. The paper introduced ISWIM. Some of the core ISWIM syntax (let, where, indentation as syntax) lives on in Haskell. I see \"ISWIM\" in the diagram, but not \"Functional Programming\"."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574351989.294800",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "54a86659-2d67-4877-b88b-1df683f05c9c",
+    "type": "message",
+    "text": "Thank you!",
+    "user": "UQ3QA3ZAR",
+    "ts": "1574355898.232400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2825557305c2",
+      "image_72": "https://avatars.slack-edge.com/2019-11-20/845138028391_2825557305c27a8f158e_72.png",
+      "first_name": "Jonas",
+      "real_name": "Jonas Luebbers",
+      "display_name": "jonas",
+      "team": "T5TCAFTA9",
+      "name": "jonaskluebbers",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TNFP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thank you!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574310641.229600",
+    "parent_user_id": "UQ3QA3ZAR",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "c7f208af-1bae-4ba7-8e81-79f1aa267a0f",
+    "type": "message",
+    "text": "What guides your choice of FoC project direction? For example, are you scratching an itch, or trying to maximize global creator productivity? I’m guessing those result in very different (at least initial) directions, though we tend to assume the former will result in the later.\n\nFor example, I’m a big fan of structured code editors and it was one of the first things I worked on, but in retrospect I’d put them low on the list of things that could significantly increase creator productivity. I chose it because it was new and neat, not because it was particularly helpful.",
+    "user": "ULM3U6275",
+    "ts": "1574358709.093500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1574369845.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HTFU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What guides your choice of FoC project direction? For example, are you scratching an itch, or trying to maximize global creator productivity? I’m guessing those result in very different (at least initial) directions, though we tend to assume the former will result in the later.\n\nFor example, I’m a big fan of structured code editors and it was one of the first things I worked on, but in retrospect I’d put them low on the list of things that could significantly increase creator productivity. I chose it because it was new and neat, not because it was particularly helpful."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574358709.093500",
+    "reply_count": 15,
+    "reply_users_count": 8,
+    "latest_reply": "1574531934.113100",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UJN1TAYEQ",
+      "UNBPP291C",
+      "UCUSW7WVD",
+      "ULM3U6275",
+      "UEQ6M68H0",
+      "U5STGTB3J",
+      "UJ6LDMMN0"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1574359504.094500"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1574367273.095100"
+      },
+      {
+        "user": "UNBPP291C",
+        "ts": "1574367648.095300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1574375253.096800"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1574382019.097000"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1574382585.097200"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1574384560.097600"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1574389443.103400"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1574390086.103800"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1574396682.104100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1574396863.104400"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1574431707.106500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1574443844.108000"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1574447642.108500"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1574531934.113100"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36",
+          "UA14TGLTC",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c7f208af-1bae-4ba7-8e81-79f1aa267a0f",
+    "type": "message",
+    "text": "What guides your choice of FoC project direction? For example, are you scratching an itch, or trying to maximize global creator productivity? I’m guessing those result in very different (at least initial) directions, though we tend to assume the former will result in the later.\n\nFor example, I’m a big fan of structured code editors and it was one of the first things I worked on, but in retrospect I’d put them low on the list of things that could significantly increase creator productivity. I chose it because it was new and neat, not because it was particularly helpful.",
+    "user": "ULM3U6275",
+    "ts": "1574358709.093500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g588e3d3aa94",
+      "image_72": "https://secure.gravatar.com/avatar/7588e3d3aa94ba40f57f495ec8c3206b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "Steve",
+      "real_name": "Steve Dekorte",
+      "display_name": "Steve Dekorte",
+      "team": "T5TCAFTA9",
+      "name": "steve447",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "ULM3U6275",
+      "ts": "1574369845.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HTFU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What guides your choice of FoC project direction? For example, are you scratching an itch, or trying to maximize global creator productivity? I’m guessing those result in very different (at least initial) directions, though we tend to assume the former will result in the later.\n\nFor example, I’m a big fan of structured code editors and it was one of the first things I worked on, but in retrospect I’d put them low on the list of things that could significantly increase creator productivity. I chose it because it was new and neat, not because it was particularly helpful."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574358709.093500",
+    "reply_count": 15,
+    "reply_users_count": 8,
+    "latest_reply": "1574531934.113100",
+    "reply_users": [
+      "UC2A2ARPT",
+      "UJN1TAYEQ",
+      "UNBPP291C",
+      "UCUSW7WVD",
+      "ULM3U6275",
+      "UEQ6M68H0",
+      "U5STGTB3J",
+      "UJ6LDMMN0"
+    ],
+    "replies": [
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1574359504.094500"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1574367273.095100"
+      },
+      {
+        "user": "UNBPP291C",
+        "ts": "1574367648.095300"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1574375253.096800"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1574382019.097000"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1574382585.097200"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1574384560.097600"
+      },
+      {
+        "user": "UJN1TAYEQ",
+        "ts": "1574389443.103400"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1574390086.103800"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1574396682.104100"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1574396863.104400"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1574431707.106500"
+      },
+      {
+        "user": "UCUSW7WVD",
+        "ts": "1574443844.108000"
+      },
+      {
+        "user": "UJ6LDMMN0",
+        "ts": "1574447642.108500"
+      },
+      {
+        "user": "ULM3U6275",
+        "ts": "1574531934.113100"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36",
+          "UA14TGLTC",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bd0efd3c-dcc3-4665-815c-f319fdc6c4ec",
+    "type": "message",
+    "text": "For me (making Hest), it's 1/3rd \"This is what my company needs to solve a business problem\", 1/3rd \"I see an obvious shortcoming in existing tools\", 1/3rd \"Making the tool I wish I already had\".",
+    "user": "UC2A2ARPT",
+    "ts": "1574359504.094500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Vo5d",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For me (making Hest), it's 1/3rd \"This is what my company needs to solve a business problem\", 1/3rd \"I see an obvious shortcoming in existing tools\", 1/3rd \"Making the tool I wish I already had\"."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574358709.093500",
+    "parent_user_id": "ULM3U6275",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "ULM3U6275",
+          "U6FKVSVCK",
+          "UMVFWPZ36",
+          "UA14TGLTC",
+          "UHWC9PXBL"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bd0efd3c-dcc3-4665-815c-f319fdc6c4ec",
+    "type": "message",
+    "text": "For me (making Hest), it's 1/3rd \"This is what my company needs to solve a business problem\", 1/3rd \"I see an obvious shortcoming in existing tools\", 1/3rd \"Making the tool I wish I already had\".",
+    "user": "UC2A2ARPT",
+    "ts": "1574359504.094500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Vo5d",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For me (making Hest), it's 1/3rd \"This is what my company needs to solve a business problem\", 1/3rd \"I see an obvious shortcoming in existing tools\", 1/3rd \"Making the tool I wish I already had\"."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574358709.093500",
+    "parent_user_id": "ULM3U6275",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "ULM3U6275",
+          "U6FKVSVCK",
+          "UMVFWPZ36",
+          "UA14TGLTC",
+          "UHWC9PXBL"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "695868c4-b039-465c-b6f5-2376758ac09a",
+    "type": "message",
+    "text": "<@U5STGTB3J> Thank you for the comments! I think may be adding a geographical aspect as an extra dimension might be really helpful.\n\nI was aware of Ishkur's guide, but hadn't looked into it as a material for inspiration. Thanks for making the connection!\n\nAbout using papers and presentations mixed in, that's exactly where I want to take this. I would like to get this big picture of how we got to where we are with this map.",
+    "user": "UDKTZSD6H",
+    "ts": "1574362919.303300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sUdR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": " Thank you for the comments! I think may be adding a geographical aspect as an extra dimension might be really helpful.\n\nI was aware of Ishkur's guide, but hadn't looked into it as a material for inspiration. Thanks for making the connection!\n\nAbout using papers and presentations mixed in, that's exactly where I want to take this. I would like to get this big picture of how we got to where we are with this map."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574351989.294800",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "49ec5e00-2b6c-4aa8-87d9-4a29fee14180",
+    "type": "message",
+    "text": "<@UJN1TAYEQ> This is only a partial sampling and obviously I have left out quite a few events in there. I will add categories like FP/Denotational Semantics as a first class category and try to link how it is linked with these luminaries. If you have any input tracing the history of FP, it would be a great help. Cheers!",
+    "user": "UDKTZSD6H",
+    "ts": "1574363006.303500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "COf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJN1TAYEQ"
+              },
+              {
+                "type": "text",
+                "text": " This is only a partial sampling and obviously I have left out quite a few events in there. I will add categories like FP/Denotational Semantics as a first class category and try to link how it is linked with these luminaries. If you have any input tracing the history of FP, it would be a great help. Cheers!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574351989.294800",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "2B49A0F8-6ED4-4603-831B-A5083415ADC8",
+    "type": "message",
+    "text": "Looom, an upcoming new animation tool:\n\n<https://iorama.studio/looom>\n\n“Taking inspiration from music creation tools, using Looom feels more like playing an instrument than operating software - exploring lines, shapes and colors through loopable time and rhythm.”",
+    "user": "UKASUGYL8",
+    "ts": "1574363581.019200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "1be0ff30a27c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-06/656896537269_1be0ff30a27c1f309eb6_72.png",
+      "first_name": "Achraf",
+      "real_name": "Achraf Kassioui",
+      "display_name": "Achraf Kassioui",
+      "team": "T5TCAFTA9",
+      "name": "achrafkassioui",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "iorama.studio",
+        "title_link": "https://iorama.studio/looom",
+        "text": "Stockholm/Tel Aviv",
+        "fallback": "iorama.studio",
+        "image_url": "https://freight.cargo.site/i/dab0094485ff9d3b54e013675f650a2c50525c946d36af81b6f697e81a124655/Screenshot-2019-11-21-16.44.39.png",
+        "from_url": "https://iorama.studio/looom",
+        "image_width": 420,
+        "image_height": 250,
+        "image_bytes": 445612,
+        "service_icon": "https://iorama.studio/favicon.ico",
+        "service_name": "iorama.studio",
+        "id": 1,
+        "original_url": "https://iorama.studio/looom"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UJN1TAYEQ",
+          "UC2A2ARPT",
+          "UP00ZLX6G",
+          "U5STGTB3J",
+          "UBSMEUXAA",
+          "UN57U8V53",
+          "UHWC9PXBL",
+          "UJ6LDMMN0",
+          "UA14TGLTC",
+          "US370TRJA"
+        ],
+        "count": 10
+      },
+      {
+        "name": "cool",
+        "users": [
+          "UN57U8V53",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-graphics",
+    "channel_id": "CE1R695T7"
+  },
+  {
+    "client_msg_id": "9fef723c-8424-4d95-b99c-aae09f042375",
+    "type": "message",
+    "text": "In 1952, Alick Glennie invented Mark I Autocode, the first practical compiler for a text based high level language. It was influential: an ancestor of Fortran and all the other high level languages used today.\n\nIf you like this kind of history, please read Donald Knuth's \"Early development of programming languages\". <http://bitsavers.trailing-edge.com/pdf/stanford/cs_techReports/STAN-CS-76-562_EarlyDevelPgmgLang_Aug76.pdf>\n\nIn 1944, Konrad Zuse invented Plankalcul (Program Calculus in German). This was the first high level computer programming language, full of features decades ahead of its time, including nested data structures, and a 32 bit binary floating point format with Infinity and NaN.\n\nIn 1946, John von Neuman invented the first node-and-wire programming language. It was highly influential in its day, but today the kids think they invented this idea.",
+    "user": "UJN1TAYEQ",
+    "ts": "1574366215.303800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eGCh9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In 1952, Alick Glennie invented Mark I Autocode, the first practical compiler for a text based high level language. It was influential: an ancestor of Fortran and all the other high level languages used today.\n\nIf you like this kind of history, please read Donald Knuth's \"Early development of programming languages\". "
+              },
+              {
+                "type": "link",
+                "url": "http://bitsavers.trailing-edge.com/pdf/stanford/cs_techReports/STAN-CS-76-562_EarlyDevelPgmgLang_Aug76.pdf"
+              },
+              {
+                "type": "text",
+                "text": "\n\nIn 1944, Konrad Zuse invented Plankalcul (Program Calculus in German). This was the first high level computer programming language, full of features decades ahead of its time, including nested data structures, and a 32 bit binary floating point format with Infinity and NaN.\n\nIn 1946, John von Neuman invented the first node-and-wire programming language. It was highly influential in its day, but today the kids think they invented this idea."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574351989.294800",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6539E678-6C0F-4F6A-A6C6-CC9C56A27CE0",
+    "type": "message",
+    "text": "Thanks a lot for the info. Will read that Knuth paper. But one piece of info: I dont think it was Von Neumann but McCullough and Pitts that invented the notation. Neumann’s EDVAC paper borrowed that notation. Its beautiful btw!",
+    "user": "UDKTZSD6H",
+    "ts": "1574367186.306600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1574351989.294800",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "15002703-7bef-4a10-b603-922313562055",
+    "type": "message",
+    "text": "For me (Curv), I am scratching several itches.\n\nI'm building a tool for myself that fixes shortcomings in the other tools I was using at the time I began. I wanted to increase my own productivity, and be able to create things in Curv that were impossibly difficult in OpenSCAD.\n\nMy secondary motivation is that I think that pure functional programming is the future. But Haskell has this very steep learning curve, and you spend all of your time appeasing the type system. Haskell is great if solving type system puzzles is super enjoyable and is your main motivation for programming. But that's not the reason I see value in pure functional programming. I think that properly packaged, pure functional programming is easier than OOP and more powerful. The language I want must be simpler, easier to use, and more dynamic, than Haskell. I didn't see any such languages out there when I started, so I decided to build one in order to demonstrate the idea.\n\nA simple, easy to use language with a super powerful model for graphics programming is exactly what I would have loved to have as a kid.",
+    "user": "UJN1TAYEQ",
+    "ts": "1574367273.095100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZId",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For me (Curv), I am scratching several itches.\n\nI'm building a tool for myself that fixes shortcomings in the other tools I was using at the time I began. I wanted to increase my own productivity, and be able to create things in Curv that were impossibly difficult in OpenSCAD.\n\nMy secondary motivation is that I think that pure functional programming is the future. But Haskell has this very steep learning curve, and you spend all of your time appeasing the type system. Haskell is great if solving type system puzzles is super enjoyable and is your main motivation for programming. But that's not the reason I see value in pure functional programming. I think that properly packaged, pure functional programming is easier than OOP and more powerful. The language I want must be simpler, easier to use, and more dynamic, than Haskell. I didn't see any such languages out there when I started, so I decided to build one in order to demonstrate the idea.\n\nA simple, easy to use language with a super powerful model for graphics programming is exactly what I would have loved to have as a kid."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574358709.093500",
+    "parent_user_id": "ULM3U6275",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "ULM3U6275",
+          "UMVFWPZ36",
+          "UA14TGLTC"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "15002703-7bef-4a10-b603-922313562055",
+    "type": "message",
+    "text": "For me (Curv), I am scratching several itches.\n\nI'm building a tool for myself that fixes shortcomings in the other tools I was using at the time I began. I wanted to increase my own productivity, and be able to create things in Curv that were impossibly difficult in OpenSCAD.\n\nMy secondary motivation is that I think that pure functional programming is the future. But Haskell has this very steep learning curve, and you spend all of your time appeasing the type system. Haskell is great if solving type system puzzles is super enjoyable and is your main motivation for programming. But that's not the reason I see value in pure functional programming. I think that properly packaged, pure functional programming is easier than OOP and more powerful. The language I want must be simpler, easier to use, and more dynamic, than Haskell. I didn't see any such languages out there when I started, so I decided to build one in order to demonstrate the idea.\n\nA simple, easy to use language with a super powerful model for graphics programming is exactly what I would have loved to have as a kid.",
+    "user": "UJN1TAYEQ",
+    "ts": "1574367273.095100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZId",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For me (Curv), I am scratching several itches.\n\nI'm building a tool for myself that fixes shortcomings in the other tools I was using at the time I began. I wanted to increase my own productivity, and be able to create things in Curv that were impossibly difficult in OpenSCAD.\n\nMy secondary motivation is that I think that pure functional programming is the future. But Haskell has this very steep learning curve, and you spend all of your time appeasing the type system. Haskell is great if solving type system puzzles is super enjoyable and is your main motivation for programming. But that's not the reason I see value in pure functional programming. I think that properly packaged, pure functional programming is easier than OOP and more powerful. The language I want must be simpler, easier to use, and more dynamic, than Haskell. I didn't see any such languages out there when I started, so I decided to build one in order to demonstrate the idea.\n\nA simple, easy to use language with a super powerful model for graphics programming is exactly what I would have loved to have as a kid."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574358709.093500",
+    "parent_user_id": "ULM3U6275",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "ULM3U6275",
+          "UMVFWPZ36",
+          "UA14TGLTC"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aa20716f-2892-4e1e-9c59-79ff7cbcfc9c",
+    "type": "message",
+    "text": "Honestly?\n\nLaziness and annoyance.\nI’m lazy. I don’t wanna do in 7 clicks or 20 commands what should be done in 3 - both as a user and developer.  I don’t wanna fight configurations and toolings, I want to express my ideas as I create them in my head, not as someone else imagined them. I’m annoyed when I see the huge amount of boilerplate and configuration that goes into making even the most basic thing, like who the fuck thinks this is a good path for software development culture? I  don’t want to spend half of my day trying to set up the proper configs so I can start working, I don’t wanna spend half of my day rewriting the same models the backend developers have or just connect UI to REST and call it software development. Software costs a ton because we keep writing the same boilerplate over and over again on each side that’s involved into the process.\n\nI’m terribly annoyed that instead of seeing development culture evolve, it’s just rehashing and selling same old shit under new guises. Instead of focusing on developing, I’d say 50% of the development community is focused on self-promotion and “oh look at us we’re experts because we write boilerplate”. I hate going to conferences now because they’re so full of marketing, boilerplate and blatant self-promotion instead of being about code and ideas.\n\nThis culture is forcing talented developers into highly specialized factory workers that work with only specific frameworks and can’t see out of their own framework’s comfort zone.  I don’t like that. I want to unbox everyone from that box.\n\nSo I let the laziness and annoyance guide me - I see what I don’t like and think should be done in a better way and the annoyance with current culture drives me forward to change it and make a tool that’s not gonna be a specialized tool for a special subset of people, but something that everyone can use, no matter what their development domain is.",
+    "user": "UNBPP291C",
+    "ts": "1574367648.095300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gcf29e340a09",
+      "image_72": "https://secure.gravatar.com/avatar/cf29e340a09ac08ae262632ef9101046.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Ian Rumac",
+      "display_name": "Ian Rumac",
+      "team": "T5TCAFTA9",
+      "name": "ian.rumac",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UNBPP291C",
+      "ts": "1574367827.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kbKk0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Honestly?\n\nLaziness and annoyance.\nI’m lazy. I don’t wanna do in 7 clicks or 20 commands what should be done in 3 - both as a user and developer.  I don’t wanna fight configurations and toolings, I want to express my ideas as I create them in my head, not as someone else imagined them. I’m annoyed when I see the huge amount of boilerplate and configuration that goes into making even the most basic thing, like who the fuck thinks this is a good path for software development culture? I  don’t want to spend half of my day trying to set up the proper configs so I can start working, I don’t wanna spend half of my day rewriting the same models the backend developers have or just connect UI to REST and call it software development. Software costs a ton because we keep writing the same boilerplate over and over again on each side that’s involved into the process.\n\nI’m terribly annoyed that instead of seeing development culture evolve, it’s just rehashing and selling same old shit under new guises. Instead of focusing on developing, I’d say 50% of the development community is focused on self-promotion and “oh look at us we’re experts because we write boilerplate”. I hate going to conferences now because they’re so full of marketing, boilerplate and blatant self-promotion instead of being about code and ideas.\n\nThis culture is forcing talented developers into highly specialized factory workers that work with only specific frameworks and can’t see out of their own framework’s comfort zone.  I don’t like that. I want to unbox everyone from that box.\n\nSo I let the laziness and annoyance guide me - I see what I don’t like and think should be done in a better way and the annoyance with current culture drives me forward to change it and make a tool that’s not gonna be a specialized tool for a special subset of people, but something that everyone can use, no matter what their development domain is."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574358709.093500",
+    "parent_user_id": "ULM3U6275",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "ULM3U6275",
+          "UE6EFEPTQ",
+          "UA14TGLTC",
+          "UHWC9PXBL",
+          "UML4ZEKDK"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aa20716f-2892-4e1e-9c59-79ff7cbcfc9c",
+    "type": "message",
+    "text": "Honestly?\n\nLaziness and annoyance.\nI’m lazy. I don’t wanna do in 7 clicks or 20 commands what should be done in 3 - both as a user and developer.  I don’t wanna fight configurations and toolings, I want to express my ideas as I create them in my head, not as someone else imagined them. I’m annoyed when I see the huge amount of boilerplate and configuration that goes into making even the most basic thing, like who the fuck thinks this is a good path for software development culture? I  don’t want to spend half of my day trying to set up the proper configs so I can start working, I don’t wanna spend half of my day rewriting the same models the backend developers have or just connect UI to REST and call it software development. Software costs a ton because we keep writing the same boilerplate over and over again on each side that’s involved into the process.\n\nI’m terribly annoyed that instead of seeing development culture evolve, it’s just rehashing and selling same old shit under new guises. Instead of focusing on developing, I’d say 50% of the development community is focused on self-promotion and “oh look at us we’re experts because we write boilerplate”. I hate going to conferences now because they’re so full of marketing, boilerplate and blatant self-promotion instead of being about code and ideas.\n\nThis culture is forcing talented developers into highly specialized factory workers that work with only specific frameworks and can’t see out of their own framework’s comfort zone.  I don’t like that. I want to unbox everyone from that box.\n\nSo I let the laziness and annoyance guide me - I see what I don’t like and think should be done in a better way and the annoyance with current culture drives me forward to change it and make a tool that’s not gonna be a specialized tool for a special subset of people, but something that everyone can use, no matter what their development domain is.",
+    "user": "UNBPP291C",
+    "ts": "1574367648.095300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gcf29e340a09",
+      "image_72": "https://secure.gravatar.com/avatar/cf29e340a09ac08ae262632ef9101046.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Ian Rumac",
+      "display_name": "Ian Rumac",
+      "team": "T5TCAFTA9",
+      "name": "ian.rumac",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UNBPP291C",
+      "ts": "1574367827.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kbKk0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Honestly?\n\nLaziness and annoyance.\nI’m lazy. I don’t wanna do in 7 clicks or 20 commands what should be done in 3 - both as a user and developer.  I don’t wanna fight configurations and toolings, I want to express my ideas as I create them in my head, not as someone else imagined them. I’m annoyed when I see the huge amount of boilerplate and configuration that goes into making even the most basic thing, like who the fuck thinks this is a good path for software development culture? I  don’t want to spend half of my day trying to set up the proper configs so I can start working, I don’t wanna spend half of my day rewriting the same models the backend developers have or just connect UI to REST and call it software development. Software costs a ton because we keep writing the same boilerplate over and over again on each side that’s involved into the process.\n\nI’m terribly annoyed that instead of seeing development culture evolve, it’s just rehashing and selling same old shit under new guises. Instead of focusing on developing, I’d say 50% of the development community is focused on self-promotion and “oh look at us we’re experts because we write boilerplate”. I hate going to conferences now because they’re so full of marketing, boilerplate and blatant self-promotion instead of being about code and ideas.\n\nThis culture is forcing talented developers into highly specialized factory workers that work with only specific frameworks and can’t see out of their own framework’s comfort zone.  I don’t like that. I want to unbox everyone from that box.\n\nSo I let the laziness and annoyance guide me - I see what I don’t like and think should be done in a better way and the annoyance with current culture drives me forward to change it and make a tool that’s not gonna be a specialized tool for a special subset of people, but something that everyone can use, no matter what their development domain is."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1574358709.093500",
+    "parent_user_id": "ULM3U6275",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "ULM3U6275",
+          "UE6EFEPTQ",
+          "UA14TGLTC",
+          "UHWC9PXBL",
+          "UML4ZEKDK"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "93af28be-88b4-41b0-8bc5-293cf1278494",
+    "type": "message",
+    "text": "We all think our experiences are shared by others. And we expect scratching our own itch to also help others. We're often wrong, and we often over-estimate the \"market size of the opportunity\". But the original question seems fundamentally impossible to answer in the first person and present tense with anything but \"both\".",
+    "user": "UCUSW7WVD",
+    "ts": "1574375253.096800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1574358709.093500",
+    "parent_user_id": "ULM3U6275",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "93af28be-88b4-41b0-8bc5-293cf1278494",
+    "type": "message",
+    "text": "We all think our experiences are shared by others. And we expect scratching our own itch to also help others. We're often wrong, and we often over-estimate the \"market size of the opportunity\". But the original question seems fundamentally impossible to answer in the first person and present tense with anything but \"both\".",
+    "user": "UCUSW7WVD",
+    "ts": "1574375253.096800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1574358709.093500",
+    "parent_user_id": "ULM3U6275",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "This is how it looked like.",
+    "files": [
+      {
+        "id": "FQWUGTHM4",
+        "created": 1574377829,
+        "timestamp": 1574377829,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UDKTZSD6H",
+        "editable": false,
+        "size": 239829,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-FQWUGTHM4/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-FQWUGTHM4/download/image.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 304,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 406,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 608,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 947,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 811,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-FQWUGTHM4-1585064052/image_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 865,
+        "thumb_1024_h": 1024,
+        "image_exif_rotation": 1,
+        "original_w": 1342,
+        "original_h": 1588,
+        "thumb_tiny": "AwAwACjTNIKRycfKMmhSQ2CDjtQAu8UbhS4oxQAgOaWiigAPSmoMDGSfc048CkU8UALRRRQAUUUUANZQevT0pEGcNyCeuacWHQ0A47GgBaKTPsaM+xoAWigHPY0UAf/Z",
+        "permalink": "https://futureofcoding.slack.com/files/UDKTZSD6H/FQWUGTHM4/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-FQWUGTHM4-02131b00d1",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": true,
+    "user": "UDKTZSD6H",
+    "display_as_bot": false,
+    "ts": "1574377834.306800",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GNQp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is how it looked like."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1574377870.000000"
+    },
+    "client_msg_id": "64e84918-4a8f-457e-b2c3-daf01a928914",
+    "thread_ts": "1574351989.294800",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
