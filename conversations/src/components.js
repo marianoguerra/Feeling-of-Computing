@@ -94,7 +94,9 @@ export const ConversationsViewer = component({
     },
   },
   view: html`<section class="flex flex-col gap-3">
-    <div class="flex p-3 gap-3 justify-center bg-base-300 sticky top-0 z-2">
+    <div
+      class="flex flex-wrap p-3 gap-3 justify-evenly bg-base-300 sticky top-0 z-2"
+    >
       <label class="label text-xs">
         <input
           type="checkbox"
@@ -102,7 +104,7 @@ export const ConversationsViewer = component({
           @on.input=".setShowReplies value"
           class="toggle toggle-xs"
         />
-        Show Replies
+        Replies
       </label>
       <label class="label text-xs">
         <input
@@ -111,7 +113,7 @@ export const ConversationsViewer = component({
           @on.input=".setShowReactions value"
           class="toggle toggle-xs"
         />
-        Show Reactions
+        Reactions
       </label>
       <label class="label text-xs">
         <input
@@ -120,7 +122,7 @@ export const ConversationsViewer = component({
           @on.input=".setShowAttachments value"
           class="toggle toggle-xs"
         />
-        Show Attachments
+        Attachments
       </label>
       <label class="label text-xs">
         <input
@@ -129,7 +131,7 @@ export const ConversationsViewer = component({
           @on.input=".setShowChannel value"
           class="toggle toggle-xs"
         />
-        Show Message's Channel
+        Channels
       </label>
     </div>
     <x render=".messages"></x>
@@ -266,7 +268,7 @@ export const Message = component({
   },
   view: html`<section class="flex flex-col gap-3">
     <div class="hover:bg-base-300 p-3 flex flex-col gap-3">
-      <div class="flex gap-5 items-center">
+      <div class="flex flex-wrap gap-3 items-center">
         <x render=".author" as="handle"></x>
         <div @show=".isChannelVisible">
           <x render=".channel" as="handle"></x>
