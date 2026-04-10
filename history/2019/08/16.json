@@ -1,0 +1,411 @@
+[
+  {
+    "client_msg_id": "0b1bb62f-6d6a-4473-86cc-cbd8f27ef2d2",
+    "type": "message",
+    "text": "There are seemingly innocuous design choices in everyday programming languages that make simple tasks hard. For example, in JS, you can't actually ask what the state of a user's mouse is. It's physically impossible. Instead, you have to subscribe to events about changes in mouse state, and then record that event information to use later. This design choice alone would likely prove a serious barrier to laypeople trying to write certain mouse-based apps. What discipline and principles do we need to apply to ensure we avoid these design errors in our end-user programming systems?",
+    "user": "UCGAK10LS",
+    "ts": "1565925259.083700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "ULM3U6275",
+          "UFLN9JFRT"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "1c742c4a-d935-425c-9a6c-33deb12a222a",
+    "type": "message",
+    "text": "For this example, you could probably have the principle \"if the user has a question about the state of the world, then there should be a means to immediately access this state from any point in their app\".",
+    "user": "UCGAK10LS",
+    "ts": "1565925390.085200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "12ac710b-a9db-48a8-93ae-e8e1af479512",
+    "type": "message",
+    "text": "Note that this doesn't suggest that ubiquitous state _modification_ should be possible.",
+    "user": "UCGAK10LS",
+    "ts": "1565925525.086100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "445e0f24-3c6c-4c31-a955-0b6fba8850da",
+    "type": "message",
+    "text": "<https://git-man-page-generator.lokaltog.net/>",
+    "user": "U8A5MS6R1",
+    "ts": "1565925771.059100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "2281af66-b965-4d63-8ceb-e889be3235b6",
+    "type": "message",
+    "text": "You are 100% correct that the introduction of API's instead of memory mapped state info is a drawback. This by the way was Wozniak's greatest contribution to the Apple OS, and what made it so brilliant. Every device was memory mapped in low RAM so you could POKE a value into a memory location and get a character drawn on the screen, etc. some could be read (PEEK) and some could be both read and written like the screen. Fast forward to now, you have 1000 api calls in OSX to do the same things that took zero calls in Apple OS. This is retrograde progress, and i have put as many state variables as i could scrounge in Beads, however as i just pointed out modern OS'es are perverse in their love of API's and you can't actually interrogate so easily. One of the problems is that modern computers want to allow multiple connected mice at the same time, and support all sorts of weird stuff that complexifies the whole thing.",
+    "user": "UEQ6M68H0",
+    "ts": "1565944411.090600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UHWC9PXBL",
+          "UA14TGLTC",
+          "U8A5MS6R1",
+          "UFLN9JFRT"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "8c0341c8-309f-43a0-b719-bc9e3a2f8cf1",
+    "type": "message",
+    "text": "I'm not sure I follow why APIs themselves are bad? An API separates implementation from interface, which is a way to allow the user to mentally manage less complexity. Peeking and poking memory directly maybe works when you know it is only text you are moving around, but I think that's a great example of something that doesn't scale- I don't want to have to know the internal implementation of every OS functionality in order to be able to use it. \n\nArguably a good API makes state querying and modification as easy or easier than your peek/poke example, and does so by organizing the shared data in a nicer way than flat memory, and organizing the procedures into related functionality that makes them easy to find, with minimal mutual interference in meaning and effect.",
+    "user": "U6FKVSVCK",
+    "ts": "1565965539.099500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cad501b70b26",
+      "image_72": "https://avatars.slack-edge.com/2019-10-07/786673147216_cad501b70b26e7666ed0_72.png",
+      "first_name": "Tim",
+      "real_name": "Tim Babb",
+      "display_name": "tbabb",
+      "team": "T5TCAFTA9",
+      "name": "tbabb",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "9590a388-8ea7-48ed-99dd-d8ab7968b5de",
+    "type": "message",
+    "text": "I would argue that encapsulation (the ability to hide internal complexity) is absolutely essential for a good end user programming experience",
+    "user": "U6FKVSVCK",
+    "ts": "1565965636.101100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cad501b70b26",
+      "image_72": "https://avatars.slack-edge.com/2019-10-07/786673147216_cad501b70b26e7666ed0_72.png",
+      "first_name": "Tim",
+      "real_name": "Tim Babb",
+      "display_name": "tbabb",
+      "team": "T5TCAFTA9",
+      "name": "tbabb",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70",
+          "UA14TGLTC",
+          "UAL7940NM",
+          "UFLN9JFRT"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "e9bb0ec2-81b9-4035-b0ff-1f44a4ff8463",
+    "type": "message",
+    "text": "This is pretty conventional, but seems promising purely as a drawing tool without being a FoS exemplar: <https://serialized.net/2019/08/mermaid>",
+    "user": "UCUSW7WVD",
+    "ts": "1565967860.299100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1565995663.000000"
+    },
+    "attachments": [
+      {
+        "title": "Make-ing Mermaid",
+        "title_link": "https://serialized.net/2019/08/mermaid",
+        "text": "Sequence Diagrams and Flowcharts are very useful tools. Mermaid is an excellent library to create them which can be driven from the command line, and therefore improved with some unixy magic.",
+        "fallback": "Make-ing Mermaid",
+        "ts": 1565739926,
+        "from_url": "https://serialized.net/2019/08/mermaid",
+        "service_icon": "https://serialized.net/favicon.ico",
+        "service_name": "serialized.net",
+        "id": 1,
+        "original_url": "https://serialized.net/2019/08/mermaid"
+      }
+    ],
+    "thread_ts": "1560992814.027900",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e9bb0ec2-81b9-4035-b0ff-1f44a4ff8463",
+    "type": "message",
+    "text": "This is pretty conventional, but seems promising purely as a drawing tool without being a FoS exemplar: <https://serialized.net/2019/08/mermaid>",
+    "user": "UCUSW7WVD",
+    "ts": "1565967860.299100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1565995663.000000"
+    },
+    "attachments": [
+      {
+        "title": "Make-ing Mermaid",
+        "title_link": "https://serialized.net/2019/08/mermaid",
+        "text": "Sequence Diagrams and Flowcharts are very useful tools. Mermaid is an excellent library to create them which can be driven from the command line, and therefore improved with some unixy magic.",
+        "fallback": "Make-ing Mermaid",
+        "ts": 1565739926,
+        "from_url": "https://serialized.net/2019/08/mermaid",
+        "service_icon": "https://serialized.net/favicon.ico",
+        "service_name": "serialized.net",
+        "id": 1,
+        "original_url": "https://serialized.net/2019/08/mermaid"
+      }
+    ],
+    "thread_ts": "1560992814.027900",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "21cf33ce-1dcd-4787-a504-a0e9b448acf8",
+    "type": "message",
+    "text": "<https://futureofcoding.slack.com/archives/C5T9GPWFL/p1565967860299100?thread_ts=1560992814.027900&amp;cid=C5T9GPWFL>",
+    "user": "UCUSW7WVD",
+    "ts": "1565967902.060300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1565967860299100?thread_ts=1560992814.027900&amp;cid=C5T9GPWFL",
+        "fallback": "[August 16th, 2019 8:04 AM] ak: This is pretty conventional, but seems promising purely as a drawing too without being a FoS exemplar: <https://serialized.net/2019/08/mermaid>",
+        "ts": "1565967860.299100",
+        "author_id": "UCUSW7WVD",
+        "author_subname": "Kartik Agaram",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_reply_unfurl": true,
+        "text": "This is pretty conventional, but seems promising purely as a drawing too without being a FoS exemplar: <https://serialized.net/2019/08/mermaid>",
+        "author_name": "Kartik Agaram",
+        "author_link": "https://futureofcoding.slack.com/team/UCUSW7WVD",
+        "author_icon": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1565967860299100?thread_ts=1560992814.027900&amp;cid=C5T9GPWFL",
+        "footer": "From a thread in #general"
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "0fee7bf2-c148-42cc-9954-f75b2438f9d9",
+    "type": "message",
+    "text": "this is neat, I want more text -&gt; diagram tools.\n\nI liked this one: <https://github.com/BurntSushi/erd>\nWanted to like but did not like this one: <http://taskjuggler.org/>",
+    "user": "UM1HH60GN",
+    "ts": "1565969355.061300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "50ee467d1311",
+      "image_72": "https://avatars.slack-edge.com/2019-08-07/719033961125_50ee467d13114e4314c2_72.jpg",
+      "first_name": "Gary",
+      "real_name": "Gary Trakhman",
+      "display_name": "Gary Trakhman",
+      "team": "T5TCAFTA9",
+      "name": "gary.trakhman",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UM1HH60GN",
+      "ts": "1565970732.000000"
+    },
+    "thread_ts": "1565969355.061300",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1566258564.063600",
+    "reply_users": [
+      "UE0ETTCG7"
+    ],
+    "replies": [
+      {
+        "user": "UE0ETTCG7",
+        "ts": "1566258564.063600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ce878d1f-0162-4161-aa36-352d6f179934",
+    "type": "message",
+    "text": "I think they lost some steam in the middle of a rewrite",
+    "user": "UM1HH60GN",
+    "ts": "1565970827.061900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "50ee467d1311",
+      "image_72": "https://avatars.slack-edge.com/2019-08-07/719033961125_50ee467d13114e4314c2_72.jpg",
+      "first_name": "Gary",
+      "real_name": "Gary Trakhman",
+      "display_name": "Gary Trakhman",
+      "team": "T5TCAFTA9",
+      "name": "gary.trakhman",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
