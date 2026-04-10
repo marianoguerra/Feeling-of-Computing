@@ -1,0 +1,2871 @@
+[
+  {
+    "client_msg_id": "1921fccc-3edb-4c59-84f2-8395787b0db1",
+    "type": "message",
+    "text": "Hi Pezo! This is the first time I've seen another person here mention DCI, but that's the thing that first got me thinking that something is wrong or missing in software. I think Jim Coplien has a good view of what part of that thing is though, and following his stuff led me to other things (most directly, to Alan Kay and Christopher Alexander (whose work in physical architecture inspired software Design Patterns)).\n\nAnyway, I spent more than a year trying to wrap my head around DCI, like what it is *really* about, and that's opened my eyes on some things -- though I don't think DCI itself fixes anything. That started me on similar journeys to understand that OOP and Design Patterns and many other things have fallen far from what they were originally about, etc. etc. Funny thing is that \"Uncle\" Bob Martin understands this and explains it to some degree, but most software folk that subscribe to him (and his \"clean code\" architecture) wind up excited about new ways to make software more and more needlessly complex and mechanistic.\n\nAnyway, I'd be interested in discussing more of this with you, and hearing your take / journey, if you're interested.\n\nI think most people in this community have some story or journey to tell :)",
+    "user": "UAVCC2X70",
+    "ts": "1564358681.030700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1564368854.000000"
+    },
+    "thread_ts": "1563205840.243800",
+    "parent_user_id": "UL3CJ7YKC",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UL3CJ7YKC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "2f40d3c0-c76f-4ace-92de-6e498a1b2c4d",
+    "type": "message",
+    "text": "Hi <@UAVCC2X70>! Thanks for your response! :slightly_smiling_face: I am glad to have a conversation on that! :slightly_smiling_face:\n\nI have seen almost all Uncle Bob episodes and read the GoF book and many other OO &amp; Design Patterns books because I was really curious what was going on with these “patterns” when started to study OO at the university in my country, Hungary.\n\nOO and Uncle Bob and their debate (<https://www.youtube.com/watch?v=KtHQGs3zFAM>) led me to DCI and Jim Coplien. The first couple times I did not get DCI, I think despite Jim tries hard he can’t explain the essence of DCI. This guy, Andreas Soderlund does better job I think. ( <https://www.youtube.com/watch?v=B0ebZHUixa0> ). Or maybe his understanding is not proper which would mean neither is mine! :smile:\n\nI really think that the nature of the problems (at least the harder=more important) we want to address through computing is “dynamic” - something which needs runtime information and runtime bindings. Complexity arises for sure when I can’t just “enumerate” all the possible states/relations “static”/“compile” time and I need to postpone some computation until multiple pieces of information are gathered together. Because of that I felt I’m just done with Class-based OO and I’ll rather focus on “compositions” (over inheritance) and runtime behaviour. At this point I thought something might still be “over there” in OO I’m not aware of, and when I first met DCI I deeply thought/“felt” this will be the thing!\n\nWhat I have in my mind for a long time is that the same object can play multiple “roles” in multiple “contexts”. (The funny thing is that this comes from Prolog which I studied for a half year at the uni and I was amazed how flexible it is with the “relations” between “objects”/“facts?“.)\n\nFurthermore these roles and contexts often need runtime information to put them together (here is the “dynamic”) but I just could not find out how to express that, I was looking for something “deep” and in retrospectively more powerful (than DCI). I really thought if that is deep that must be hard and I did not notice the elephant in the room.\n\nAt the same time I started to look into FP and think about the corresponding FP variant of any OO piece of code. Today I am 99.9% sure there is no feature of OO which would be superior to FP, if you are interested I might create a post on that. But basically DCI itself seems to me just a really really simple pattern: creating and (dynamically) populating data structures which do have references on other data structures which do belong together. Bam. I really think there is nothing more than that.\n\nI found Andreas’ video 2 weeks ago so I am really happy to discuss this topic, in fact I have already created a tweet with a related question to Jim and Andreas.\nIt addresses the problem of asynchronicity and parallel/concurrent computing which is the root of all evil in my code even if there is no more than 100 lines. It just blows up if I face these issues and I immediately corner myself so there is no way to refactor out myself from that horror. So these days I am focusing on these and I was wondering what DCI says about that.\n\nLook here: <https://twitter.com/ZoliPeto/status/1151101824595910657>\n\nAnd this was literally my last attempt with OO, since that I had some deep thinking on the topic and I am sure neither OO nor DCI have real solution for taming the complexity in software, its in FP with Types.\n\nI do get and agree with many of your points: DCI as “something promising”, Uncle Bob’s half-baked solutions, OO &amp; Design Patterns as the rigid opposite of the wannabe flexible themselves.",
+    "user": "UL3CJ7YKC",
+    "ts": "1564364596.031000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5612322b81b6",
+      "image_72": "https://avatars.slack-edge.com/2019-11-14/834114331988_5612322b81b6d142511b_72.jpg",
+      "first_name": "Pezo",
+      "real_name": "Pezo - Zoltan Peto",
+      "display_name": "Pezo - Zoltan Peto",
+      "team": "T5TCAFTA9",
+      "name": "pezo1919",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UL3CJ7YKC",
+      "ts": "1564366843.000000"
+    },
+    "thread_ts": "1563205840.243800",
+    "parent_user_id": "UL3CJ7YKC",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "2f40d3c0-c76f-4ace-92de-6e498a1b2c4d",
+    "type": "message",
+    "text": "The very shameful and ridiculous fact I’ve found with OO is that it doesnt say anything on correctness except “the thing”: `Tests`/`TDD`. LOL, OO addresses other mechanisms to solve the main issues! Very limited compared to Agda/Idris/Dependent Types/Proof assistants/God knows what else. I’m just scratching the surface with these. <@UDKTZSD6H> might know more about what is out there.",
+    "user": "UL3CJ7YKC",
+    "ts": "1564364596.031200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5612322b81b6",
+      "image_72": "https://avatars.slack-edge.com/2019-11-14/834114331988_5612322b81b6d142511b_72.jpg",
+      "first_name": "Pezo",
+      "real_name": "Pezo - Zoltan Peto",
+      "display_name": "Pezo - Zoltan Peto",
+      "team": "T5TCAFTA9",
+      "name": "pezo1919",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1563205840.243800",
+    "parent_user_id": "UL3CJ7YKC",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "c08d217f-c34b-4d53-ac56-5f1788f9402d",
+    "type": "message",
+    "text": "Ah and one more thing I almost forgot! I’d be happy to be wrong about OO and see at least a somewhat “advanced” approach/angle it gives on complex problems.",
+    "user": "UL3CJ7YKC",
+    "ts": "1564365862.031800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5612322b81b6",
+      "image_72": "https://avatars.slack-edge.com/2019-11-14/834114331988_5612322b81b6d142511b_72.jpg",
+      "first_name": "Pezo",
+      "real_name": "Pezo - Zoltan Peto",
+      "display_name": "Pezo - Zoltan Peto",
+      "team": "T5TCAFTA9",
+      "name": "pezo1919",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UL3CJ7YKC",
+      "ts": "1564365918.000000"
+    },
+    "thread_ts": "1563205840.243800",
+    "parent_user_id": "UL3CJ7YKC",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "733ac567-feb5-47c6-8521-b78a48cc81df",
+    "type": "message",
+    "text": "<@UHWC9PXBL> I've been intending to take a deeper look into the datomic API :thinking_face:",
+    "user": "UCGAK10LS",
+    "ts": "1564367614.029900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564231258.354000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "733ac567-feb5-47c6-8521-b78a48cc81df",
+    "type": "message",
+    "text": "<@UHWC9PXBL> I've been intending to take a deeper look into the datomic API :thinking_face:",
+    "user": "UCGAK10LS",
+    "ts": "1564367614.029900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564231258.354000",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d37c6f0e-58d2-419c-866b-1c1751682e87",
+    "type": "message",
+    "text": "This was great. I honestly don't listen to the podcast much, just because I've somehow never made a habit of listening to anything. But this episode got me over the hump to listen to it, since it was about Lisp. And I was so glad I got to it, because it brought up an idea for my current project that has nothing to do with Lisp.\n\nI've been thinking about a \"personal data server\" as the first use case for my \"human-size computer\", and the notion of \"complex event processing\" (applying FRP to an incoming stream of data) shows me how some of the other projects here connect up concretely with my somewhat _outre_ endeavor.\n\nCreating serendipitous connections between our various projects is the highest aim of this group, I think. This episode achieved that at least for me.",
+    "user": "UCUSW7WVD",
+    "ts": "1564371471.090100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564161021.082300",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "d37c6f0e-58d2-419c-866b-1c1751682e87",
+    "type": "message",
+    "text": "This was great. I honestly don't listen to the podcast much, just because I've somehow never made a habit of listening to anything. But this episode got me over the hump to listen to it, since it was about Lisp. And I was so glad I got to it, because it brought up an idea for my current project that has nothing to do with Lisp.\n\nI've been thinking about a \"personal data server\" as the first use case for my \"human-size computer\", and the notion of \"complex event processing\" (applying FRP to an incoming stream of data) shows me how some of the other projects here connect up concretely with my somewhat _outre_ endeavor.\n\nCreating serendipitous connections between our various projects is the highest aim of this group, I think. This episode achieved that at least for me.",
+    "user": "UCUSW7WVD",
+    "ts": "1564371471.090100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564161021.082300",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "95ba9afc-04a3-4520-a258-41edb0b56e83",
+    "type": "message",
+    "text": "I'll bet there's a lot we could discuss that wouldn't all fit in this thread (not in any short amount of time anyway). For now I'll do my best to pick through one piece at a time in this thread, in part because of the good that comes from all the discussions here being out in the open.",
+    "user": "UAVCC2X70",
+    "ts": "1564372614.033000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1564443437.000000"
+    },
+    "thread_ts": "1563205840.243800",
+    "parent_user_id": "UL3CJ7YKC",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UL3CJ7YKC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "bc53b093-fb55-4363-8fc4-0c9c1696699f",
+    "type": "message",
+    "text": "_\"I’ve noticed when I think about performance nowadays that I think in terms of two different aesthetics. One aesthetic, which I’ll call Never Miss a Frame, comes from the world of game development and is focused on writing code that has good worst case performance by making good use of the hardware. The other aesthetic, which I’ll call Do Almost Nothing comes from a more academic world and is focused on algorithmically minimizing the work that needs to be done to the extent that there’s barely any work left, paying attention to the performance at all scales.\"_\n\n<http://thume.ca/2019/07/27/two-performance-aesthetics>",
+    "user": "UCUSW7WVD",
+    "ts": "1564374914.030200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1564374952.000000"
+    },
+    "thread_ts": "1564374914.030200",
+    "reply_count": 4,
+    "reply_users_count": 2,
+    "latest_reply": "1564439544.045600",
+    "reply_users": [
+      "UKLV35EEM",
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "UKLV35EEM",
+        "ts": "1564382055.031000"
+      },
+      {
+        "user": "UKLV35EEM",
+        "ts": "1564382085.031200"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564438776.045200"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564439544.045600"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UD31LGQKB",
+          "UJVEPCVT6",
+          "ULADE0N0J"
+        ],
+        "count": 3
+      },
+      {
+        "name": "eyes",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bc53b093-fb55-4363-8fc4-0c9c1696699f",
+    "type": "message",
+    "text": "_\"I’ve noticed when I think about performance nowadays that I think in terms of two different aesthetics. One aesthetic, which I’ll call Never Miss a Frame, comes from the world of game development and is focused on writing code that has good worst case performance by making good use of the hardware. The other aesthetic, which I’ll call Do Almost Nothing comes from a more academic world and is focused on algorithmically minimizing the work that needs to be done to the extent that there’s barely any work left, paying attention to the performance at all scales.\"_\n\n<http://thume.ca/2019/07/27/two-performance-aesthetics>",
+    "user": "UCUSW7WVD",
+    "ts": "1564374914.030200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1564374952.000000"
+    },
+    "thread_ts": "1564374914.030200",
+    "reply_count": 4,
+    "reply_users_count": 2,
+    "latest_reply": "1564439544.045600",
+    "reply_users": [
+      "UKLV35EEM",
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "UKLV35EEM",
+        "ts": "1564382055.031000"
+      },
+      {
+        "user": "UKLV35EEM",
+        "ts": "1564382085.031200"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564438776.045200"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564439544.045600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UD31LGQKB",
+          "UJVEPCVT6",
+          "ULADE0N0J"
+        ],
+        "count": 3
+      },
+      {
+        "name": "eyes",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "46DE92CF-B1B7-4C4A-B43D-CF19DFB65846",
+    "type": "message",
+    "text": "<@UHWC9PXBL> I’m glad someone appreciated the links! That (plus editing the transcript) took about 10x the time I thought they would. But totally worth it.",
+    "user": "UC2A2ARPT",
+    "ts": "1564381234.092000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564161021.082300",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "46DE92CF-B1B7-4C4A-B43D-CF19DFB65846",
+    "type": "message",
+    "text": "<@UHWC9PXBL> I’m glad someone appreciated the links! That (plus editing the transcript) took about 10x the time I thought they would. But totally worth it.",
+    "user": "UC2A2ARPT",
+    "ts": "1564381234.092000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564161021.082300",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "f7c3e0ed-9dc4-4e9b-92db-b9c714a9c079",
+    "type": "message",
+    "text": "Robust-first parallels: _Do Almost Nothing_ -&gt; _Correctness &amp; Efficiency Only_ (CEO); _Never Miss a Frame_ -&gt; _A Cycle Saved is a Cycle Wasted_.",
+    "user": "UKLV35EEM",
+    "ts": "1564382055.031000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gdb664c49890",
+      "image_72": "https://secure.gravatar.com/avatar/9db664c49890423e2263d51f331aab76.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "",
+      "real_name": "Dave Ackley",
+      "display_name": "Dave Ackley",
+      "team": "T5TCAFTA9",
+      "name": "ackley",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564374914.030200",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f7c3e0ed-9dc4-4e9b-92db-b9c714a9c079",
+    "type": "message",
+    "text": "Robust-first parallels: _Do Almost Nothing_ -&gt; _Correctness &amp; Efficiency Only_ (CEO); _Never Miss a Frame_ -&gt; _A Cycle Saved is a Cycle Wasted_.",
+    "user": "UKLV35EEM",
+    "ts": "1564382055.031000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gdb664c49890",
+      "image_72": "https://secure.gravatar.com/avatar/9db664c49890423e2263d51f331aab76.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "",
+      "real_name": "Dave Ackley",
+      "display_name": "Dave Ackley",
+      "team": "T5TCAFTA9",
+      "name": "ackley",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564374914.030200",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8b26622d-faaf-4b13-be89-51e59fe04a6a",
+    "type": "message",
+    "text": "(From Section 3 of <https://www.mitpressjournals.org/doi/10.1162/ARTL_a_00212> )",
+    "user": "UKLV35EEM",
+    "ts": "1564382085.031200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gdb664c49890",
+      "image_72": "https://secure.gravatar.com/avatar/9db664c49890423e2263d51f331aab76.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "",
+      "real_name": "Dave Ackley",
+      "display_name": "Dave Ackley",
+      "team": "T5TCAFTA9",
+      "name": "ackley",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "MIT Press Journals",
+        "title_link": "https://www.mitpressjournals.org/doi/10.1162/ARTL_a_00212",
+        "text": "MIT Press Journals is a mission-driven, not-for-profit scholarly publisher devoted to the widest dissemination of its content.",
+        "fallback": "MIT Press Journals",
+        "image_url": "https://www.mitpressjournals.org/pb%2Dassets/images/colophon.png",
+        "from_url": "https://www.mitpressjournals.org/doi/10.1162/ARTL_a_00212",
+        "image_width": 204,
+        "image_height": 250,
+        "image_bytes": 19332,
+        "service_icon": "https://www.mitpressjournals.org/favicon.ico",
+        "service_name": "mitpressjournals.org",
+        "id": 1,
+        "original_url": "https://www.mitpressjournals.org/doi/10.1162/ARTL_a_00212"
+      }
+    ],
+    "thread_ts": "1564374914.030200",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8b26622d-faaf-4b13-be89-51e59fe04a6a",
+    "type": "message",
+    "text": "(From Section 3 of <https://www.mitpressjournals.org/doi/10.1162/ARTL_a_00212> )",
+    "user": "UKLV35EEM",
+    "ts": "1564382085.031200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gdb664c49890",
+      "image_72": "https://secure.gravatar.com/avatar/9db664c49890423e2263d51f331aab76.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "",
+      "real_name": "Dave Ackley",
+      "display_name": "Dave Ackley",
+      "team": "T5TCAFTA9",
+      "name": "ackley",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "MIT Press Journals",
+        "title_link": "https://www.mitpressjournals.org/doi/10.1162/ARTL_a_00212",
+        "text": "MIT Press Journals is a mission-driven, not-for-profit scholarly publisher devoted to the widest dissemination of its content.",
+        "fallback": "MIT Press Journals",
+        "image_url": "https://www.mitpressjournals.org/pb%2Dassets/images/colophon.png",
+        "from_url": "https://www.mitpressjournals.org/doi/10.1162/ARTL_a_00212",
+        "image_width": 204,
+        "image_height": 250,
+        "image_bytes": 19332,
+        "service_icon": "https://www.mitpressjournals.org/favicon.ico",
+        "service_name": "mitpressjournals.org",
+        "id": 1,
+        "original_url": "https://www.mitpressjournals.org/doi/10.1162/ARTL_a_00212"
+      }
+    ],
+    "thread_ts": "1564374914.030200",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b061a5b8-798e-4ef6-890f-dcf9e1fcc3f7",
+    "type": "message",
+    "text": "<http://www.loper-os.org/?p=568>",
+    "user": "UBN9AFS0N",
+    "ts": "1564388777.031900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "cry",
+        "users": [
+          "UJVEPCVT6",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b061a5b8-798e-4ef6-890f-dcf9e1fcc3f7",
+    "type": "message",
+    "text": "<http://www.loper-os.org/?p=568>",
+    "user": "UBN9AFS0N",
+    "ts": "1564388777.031900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "cry",
+        "users": [
+          "UJVEPCVT6",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "de6b6191-0f03-4ee3-8de3-d5fb0cd67b15",
+    "type": "message",
+    "text": "\"Jobs supposedly claimed that he intended his personal computer to be a “bicycle for the mind.” But what he really sold us was a (fairly comfortable) train for the mind. A train which goes only where rails have been laid down\"",
+    "user": "UBN9AFS0N",
+    "ts": "1564389035.032200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UJG7QQQJW",
+          "UA14TGLTC",
+          "UHWC9PXBL",
+          "UE0ETTCG7",
+          "U8A5MS6R1",
+          "UJCHWTMH6",
+          "UAVCC2X70"
+        ],
+        "count": 7
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "de6b6191-0f03-4ee3-8de3-d5fb0cd67b15",
+    "type": "message",
+    "text": "\"Jobs supposedly claimed that he intended his personal computer to be a “bicycle for the mind.” But what he really sold us was a (fairly comfortable) train for the mind. A train which goes only where rails have been laid down\"",
+    "user": "UBN9AFS0N",
+    "ts": "1564389035.032200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UJG7QQQJW",
+          "UA14TGLTC",
+          "UHWC9PXBL",
+          "UE0ETTCG7",
+          "U8A5MS6R1",
+          "UJCHWTMH6",
+          "UAVCC2X70"
+        ],
+        "count": 7
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8750a6e0-2381-45c0-ab54-93587ea8fed1",
+    "type": "message",
+    "text": "\"All of the extra features in a more feature-rich system like SuperCard (or even VB) are not harmless. There is a fundamental difference, especially for a child, between a system which you can fully wrap your mind around and one with countless mystery knobs.\"",
+    "user": "UBN9AFS0N",
+    "ts": "1564389159.032400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8750a6e0-2381-45c0-ab54-93587ea8fed1",
+    "type": "message",
+    "text": "\"All of the extra features in a more feature-rich system like SuperCard (or even VB) are not harmless. There is a fundamental difference, especially for a child, between a system which you can fully wrap your mind around and one with countless mystery knobs.\"",
+    "user": "UBN9AFS0N",
+    "ts": "1564389159.032400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b0b19e93-7dfd-4996-b836-3b61bdbaab8b",
+    "type": "message",
+    "text": "I want to provide an easy way to download / export / build the program, so I’m trying to not to go away from files too far, so I don’t have to build so much tooling for making it executable =P (Check out the “Export to CLI” button)",
+    "user": "UJG7QQQJW",
+    "ts": "1564392777.092200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6028a1c7a821",
+      "image_72": "https://avatars.slack-edge.com/2019-05-19/639818983280_6028a1c7a82161b81120_72.jpg",
+      "first_name": "Adrian",
+      "real_name": "Adrian Sieber",
+      "display_name": "Adrian Sieber",
+      "team": "T5TCAFTA9",
+      "name": "futureofcoding",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1562878308.144200",
+    "parent_user_id": "UJG7QQQJW",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "b0b19e93-7dfd-4996-b836-3b61bdbaab8b",
+    "type": "message",
+    "text": "I want to provide an easy way to download / export / build the program, so I’m trying to not to go away from files too far, so I don’t have to build so much tooling for making it executable =P (Check out the “Export to CLI” button)",
+    "user": "UJG7QQQJW",
+    "ts": "1564392777.092200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6028a1c7a821",
+      "image_72": "https://avatars.slack-edge.com/2019-05-19/639818983280_6028a1c7a82161b81120_72.jpg",
+      "first_name": "Adrian",
+      "real_name": "Adrian Sieber",
+      "display_name": "Adrian Sieber",
+      "team": "T5TCAFTA9",
+      "name": "futureofcoding",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1562878308.144200",
+    "parent_user_id": "UJG7QQQJW",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "3cfa6abe-aaf5-4575-8be0-caaa782c94e1",
+    "type": "message",
+    "text": "<@UL3CJ7YKC> I’ve actually been pretty fortunate to land a job working on implementing a dependently typed DSL at my job (because my boss is excited about them). But yeah, the more you dig into trying to implement them, the more you realise how much we still need to figure out in order to make them viable. I’m still pretty hopeful though. There’s lots of cool work going on at the moment, especially in the realm of modal type theory, and I’m hoping some of it starts coming together in cool, practical ways!\n\nMy advice is to keep plugging away learning, and talk about it online like you’re doing. You might be surprised who you bump into! But it will probably be more of a case of ‘putting yourself in a position to be lucky’, and networking, than finding a job advertised explicitly.",
+    "user": "UJUQESQ1Z",
+    "ts": "1564397140.040100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g52a48f76fc9",
+      "image_72": "https://secure.gravatar.com/avatar/e52a48f76fc911d40711f788d74773a0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "Brendan Zabarauskas",
+      "display_name": "Brendan Zabarauskas",
+      "team": "T5TCAFTA9",
+      "name": "bjzaba",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564397140.040100",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1566004783.097800",
+    "reply_users": [
+      "UD6EXQVM0"
+    ],
+    "replies": [
+      {
+        "user": "UD6EXQVM0",
+        "ts": "1566004783.097800"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UL3CJ7YKC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "daf5a9f0-17ff-4ca7-a4c2-7f43e3b6056d",
+    "type": "message",
+    "text": "That's so nice! I really appreciate the sentiment and vote of confidence! I feel very lucky to have found everyone in this community. The internet can be a magical place",
+    "user": "U5TCAFTD3",
+    "ts": "1564404452.033100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564263042.389500",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "daf5a9f0-17ff-4ca7-a4c2-7f43e3b6056d",
+    "type": "message",
+    "text": "That's so nice! I really appreciate the sentiment and vote of confidence! I feel very lucky to have found everyone in this community. The internet can be a magical place",
+    "user": "U5TCAFTD3",
+    "ts": "1564404452.033100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564263042.389500",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "469cd821-2610-4b7b-ab6a-97ebc41e9de1",
+    "type": "message",
+    "text": "That was a fun conversation to read through! Thanks for the thought provoking questions. I do have thoughts here, but am mostly off the grid this week so I will let them percolate a bit more and get back to this convo early next week when I have time to sit down and write them...",
+    "user": "U5TCAFTD3",
+    "ts": "1564405631.033600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564268114.478600",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "469cd821-2610-4b7b-ab6a-97ebc41e9de1",
+    "type": "message",
+    "text": "That was a fun conversation to read through! Thanks for the thought provoking questions. I do have thoughts here, but am mostly off the grid this week so I will let them percolate a bit more and get back to this convo early next week when I have time to sit down and write them...",
+    "user": "U5TCAFTD3",
+    "ts": "1564405631.033600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564268114.478600",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3803cba8-a53e-4d07-9e57-a1234dd54daf",
+    "type": "message",
+    "text": "For those interested, I wrote about my highlights from Curry On: <http://jschuster.org/blog/2019/07/29/highlights-from-curry-on-2019/>",
+    "user": "UKJ75RMFT",
+    "ts": "1564411671.034900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9f40eca738a7",
+      "image_72": "https://avatars.slack-edge.com/2019-07-13/693369079316_9f40eca738a7ae7412c0_72.jpg",
+      "first_name": "Jonathan",
+      "real_name": "Jonathan Schuster",
+      "display_name": "Jonathan Schuster",
+      "team": "T5TCAFTA9",
+      "name": "jonathan.p.schuster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564411671.034900",
+    "reply_count": 4,
+    "reply_users_count": 4,
+    "latest_reply": "1565474060.263600",
+    "reply_users": [
+      "U8A5MS6R1",
+      "UE1JQM9HQ",
+      "UDKTZSD6H",
+      "UKJ75RMFT"
+    ],
+    "replies": [
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1564425071.040100"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1564432597.041000"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1564714078.155500"
+      },
+      {
+        "user": "UKJ75RMFT",
+        "ts": "1565474060.263600"
+      }
+    ],
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UJUQESQ1Z",
+          "U8A5MS6R1",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJUQESQ1Z",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3803cba8-a53e-4d07-9e57-a1234dd54daf",
+    "type": "message",
+    "text": "For those interested, I wrote about my highlights from Curry On: <http://jschuster.org/blog/2019/07/29/highlights-from-curry-on-2019/>",
+    "user": "UKJ75RMFT",
+    "ts": "1564411671.034900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9f40eca738a7",
+      "image_72": "https://avatars.slack-edge.com/2019-07-13/693369079316_9f40eca738a7ae7412c0_72.jpg",
+      "first_name": "Jonathan",
+      "real_name": "Jonathan Schuster",
+      "display_name": "Jonathan Schuster",
+      "team": "T5TCAFTA9",
+      "name": "jonathan.p.schuster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564411671.034900",
+    "reply_count": 4,
+    "reply_users_count": 4,
+    "latest_reply": "1565474060.263600",
+    "reply_users": [
+      "U8A5MS6R1",
+      "UE1JQM9HQ",
+      "UDKTZSD6H",
+      "UKJ75RMFT"
+    ],
+    "replies": [
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1564425071.040100"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1564432597.041000"
+      },
+      {
+        "user": "UDKTZSD6H",
+        "ts": "1564714078.155500"
+      },
+      {
+        "user": "UKJ75RMFT",
+        "ts": "1565474060.263600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UJUQESQ1Z",
+          "U8A5MS6R1",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UJUQESQ1Z",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "49989074-66ba-4558-8788-02c29e87d223",
+    "type": "message",
+    "text": "<https://www.forbes.com/sites/cognitiveworld/2019/07/29/the-future-will-be-formulated-using-category-theory>",
+    "user": "U8A5MS6R1",
+    "ts": "1564417113.035800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Forbes",
+        "title": "The Future Will Be Formulated Using Category Theory",
+        "title_link": "https://www.forbes.com/sites/cognitiveworld/2019/07/29/the-future-will-be-formulated-using-category-theory",
+        "text": "A new approach to defining and designing systems is coming.",
+        "fallback": "Forbes: The Future Will Be Formulated Using Category Theory",
+        "image_url": "https://thumbor.forbes.com/thumbor/600x315/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5d3e1c87090f4300070dd366%2F960x0.jpg",
+        "from_url": "https://www.forbes.com/sites/cognitiveworld/2019/07/29/the-future-will-be-formulated-using-category-theory",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 41972,
+        "service_icon": "https://www.forbes.com/favicon.ico",
+        "id": 1,
+        "original_url": "https://www.forbes.com/sites/cognitiveworld/2019/07/29/the-future-will-be-formulated-using-category-theory"
+      }
+    ],
+    "thread_ts": "1564417113.035800",
+    "reply_count": 8,
+    "reply_users_count": 4,
+    "latest_reply": "1564435178.041600",
+    "reply_users": [
+      "U8A5MS6R1",
+      "UGLSY9X3J",
+      "UE6EFEPTQ",
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1564421645.038300"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1564423342.038500"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1564423345.038700"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1564423366.039000"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1564423373.039200"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1564423382.039500"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1564423395.039700"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435178.041600"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "49989074-66ba-4558-8788-02c29e87d223",
+    "type": "message",
+    "text": "<https://www.forbes.com/sites/cognitiveworld/2019/07/29/the-future-will-be-formulated-using-category-theory>",
+    "user": "U8A5MS6R1",
+    "ts": "1564417113.035800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Forbes",
+        "title": "The Future Will Be Formulated Using Category Theory",
+        "title_link": "https://www.forbes.com/sites/cognitiveworld/2019/07/29/the-future-will-be-formulated-using-category-theory",
+        "text": "A new approach to defining and designing systems is coming.",
+        "fallback": "Forbes: The Future Will Be Formulated Using Category Theory",
+        "image_url": "https://thumbor.forbes.com/thumbor/600x315/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5d3e1c87090f4300070dd366%2F960x0.jpg",
+        "from_url": "https://www.forbes.com/sites/cognitiveworld/2019/07/29/the-future-will-be-formulated-using-category-theory",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 41972,
+        "service_icon": "https://www.forbes.com/favicon.ico",
+        "id": 1,
+        "original_url": "https://www.forbes.com/sites/cognitiveworld/2019/07/29/the-future-will-be-formulated-using-category-theory"
+      }
+    ],
+    "thread_ts": "1564417113.035800",
+    "reply_count": 8,
+    "reply_users_count": 4,
+    "latest_reply": "1564435178.041600",
+    "reply_users": [
+      "U8A5MS6R1",
+      "UGLSY9X3J",
+      "UE6EFEPTQ",
+      "UC2A2ARPT"
+    ],
+    "replies": [
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1564421645.038300"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1564423342.038500"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1564423345.038700"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1564423366.039000"
+      },
+      {
+        "user": "UE6EFEPTQ",
+        "ts": "1564423373.039200"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1564423382.039500"
+      },
+      {
+        "user": "UGLSY9X3J",
+        "ts": "1564423395.039700"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435178.041600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5bcde4be-527a-420c-b76d-d4415a8f5218",
+    "type": "message",
+    "text": "If you wanted to justify the claim “functional programming and PL theory are useful tools to learn”, how would you do it? What concepts and skills would you point to, and what real-world examples/applications would you use to demonstrate the usefulness of FP?\n\nFor example, “Can Programming Be Liberated from the von Neumann Style” and “Why Functional Programming Matters” both use higher-order functions/composition on lists/trees to prove the point.",
+    "user": "UFB8STN7K",
+    "ts": "1564418480.037900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge240a8e5a8f",
+      "image_72": "https://secure.gravatar.com/avatar/ce240a8e5a8fdc65e86bbb869975ccfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "Will",
+      "real_name": "Will Crichton",
+      "display_name": "Will",
+      "team": "T5TCAFTA9",
+      "name": "wcrichto",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564418480.037900",
+    "reply_count": 14,
+    "reply_users_count": 4,
+    "latest_reply": "1564569519.112000",
+    "reply_users": [
+      "UFB8STN7K",
+      "UC2A2ARPT",
+      "UEQ6M68H0",
+      "U5STGTB3J"
+    ],
+    "replies": [
+      {
+        "user": "UFB8STN7K",
+        "ts": "1564418550.038000"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435232.041800"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435338.042000"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435384.042200"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435683.042400"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435815.042700"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435866.042900"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564436342.043200"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1564472631.053500"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1564473195.053800"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1564483972.058900"
+      },
+      {
+        "user": "UFB8STN7K",
+        "ts": "1564515330.081200"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1564544351.098300"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1564569519.112000"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5bcde4be-527a-420c-b76d-d4415a8f5218",
+    "type": "message",
+    "text": "If you wanted to justify the claim “functional programming and PL theory are useful tools to learn”, how would you do it? What concepts and skills would you point to, and what real-world examples/applications would you use to demonstrate the usefulness of FP?\n\nFor example, “Can Programming Be Liberated from the von Neumann Style” and “Why Functional Programming Matters” both use higher-order functions/composition on lists/trees to prove the point.",
+    "user": "UFB8STN7K",
+    "ts": "1564418480.037900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge240a8e5a8f",
+      "image_72": "https://secure.gravatar.com/avatar/ce240a8e5a8fdc65e86bbb869975ccfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "Will",
+      "real_name": "Will Crichton",
+      "display_name": "Will",
+      "team": "T5TCAFTA9",
+      "name": "wcrichto",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564418480.037900",
+    "reply_count": 14,
+    "reply_users_count": 4,
+    "latest_reply": "1564569519.112000",
+    "reply_users": [
+      "UFB8STN7K",
+      "UC2A2ARPT",
+      "UEQ6M68H0",
+      "U5STGTB3J"
+    ],
+    "replies": [
+      {
+        "user": "UFB8STN7K",
+        "ts": "1564418550.038000"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435232.041800"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435338.042000"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435384.042200"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435683.042400"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435815.042700"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564435866.042900"
+      },
+      {
+        "user": "UC2A2ARPT",
+        "ts": "1564436342.043200"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1564472631.053500"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1564473195.053800"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1564483972.058900"
+      },
+      {
+        "user": "UFB8STN7K",
+        "ts": "1564515330.081200"
+      },
+      {
+        "user": "UEQ6M68H0",
+        "ts": "1564544351.098300"
+      },
+      {
+        "user": "U5STGTB3J",
+        "ts": "1564569519.112000"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1dcd8b3e-b86c-4319-a9f1-9db87f85bd13",
+    "type": "message",
+    "text": "Distinctly not looking for arguments like “Scala/Rust/etc. have a functional flavor, and companies use them, therefore you should learn FP”",
+    "user": "UFB8STN7K",
+    "ts": "1564418550.038000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge240a8e5a8f",
+      "image_72": "https://secure.gravatar.com/avatar/ce240a8e5a8fdc65e86bbb869975ccfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "Will",
+      "real_name": "Will Crichton",
+      "display_name": "Will",
+      "team": "T5TCAFTA9",
+      "name": "wcrichto",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1dcd8b3e-b86c-4319-a9f1-9db87f85bd13",
+    "type": "message",
+    "text": "Distinctly not looking for arguments like “Scala/Rust/etc. have a functional flavor, and companies use them, therefore you should learn FP”",
+    "user": "UFB8STN7K",
+    "ts": "1564418550.038000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge240a8e5a8f",
+      "image_72": "https://secure.gravatar.com/avatar/ce240a8e5a8fdc65e86bbb869975ccfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "Will",
+      "real_name": "Will Crichton",
+      "display_name": "Will",
+      "team": "T5TCAFTA9",
+      "name": "wcrichto",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4f5b4f68-766a-4944-a736-7023ca63a75e",
+    "type": "message",
+    "text": "&gt; Category theory is both an interesting object of philosophical study, and a potentially powerful formal tool for philosophical investigations of concepts such as space, system, and even truth.\n\nIsn't this really over the top?",
+    "user": "U8A5MS6R1",
+    "ts": "1564421645.038300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4f5b4f68-766a-4944-a736-7023ca63a75e",
+    "type": "message",
+    "text": "&gt; Category theory is both an interesting object of philosophical study, and a potentially powerful formal tool for philosophical investigations of concepts such as space, system, and even truth.\n\nIsn't this really over the top?",
+    "user": "U8A5MS6R1",
+    "ts": "1564421645.038300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e504937e-534f-4874-940c-7fe66467b961",
+    "type": "message",
+    "text": "yeah, well its Forbes …",
+    "user": "UGLSY9X3J",
+    "ts": "1564423342.038500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g03ebdf13bbe",
+      "image_72": "https://secure.gravatar.com/avatar/e03ebdf13bbeacace66454bea388b927.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Srini Kadamati",
+      "display_name": "srini",
+      "team": "T5TCAFTA9",
+      "name": "srini",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e504937e-534f-4874-940c-7fe66467b961",
+    "type": "message",
+    "text": "yeah, well its Forbes …",
+    "user": "UGLSY9X3J",
+    "ts": "1564423342.038500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g03ebdf13bbe",
+      "image_72": "https://secure.gravatar.com/avatar/e03ebdf13bbeacace66454bea388b927.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Srini Kadamati",
+      "display_name": "srini",
+      "team": "T5TCAFTA9",
+      "name": "srini",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9784464d-6382-4a56-b78f-6902f4346df8",
+    "type": "message",
+    "text": "This article and associated video gave me a massive dose of WTF?! Even more than when I normally visit anything on that dreadful site.",
+    "user": "UE6EFEPTQ",
+    "ts": "1564423345.038700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UE6EFEPTQ",
+      "ts": "1564423440.000000"
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9784464d-6382-4a56-b78f-6902f4346df8",
+    "type": "message",
+    "text": "This article and associated video gave me a massive dose of WTF?! Even more than when I normally visit anything on that dreadful site.",
+    "user": "UE6EFEPTQ",
+    "ts": "1564423345.038700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UE6EFEPTQ",
+      "ts": "1564423440.000000"
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c0aa2ed9-7dc6-45c0-aded-0bc94a430bc4",
+    "type": "message",
+    "text": "no offense to them, they’re not really accurate keepers of science &amp; tech generally speaking",
+    "user": "UGLSY9X3J",
+    "ts": "1564423366.039000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g03ebdf13bbe",
+      "image_72": "https://secure.gravatar.com/avatar/e03ebdf13bbeacace66454bea388b927.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Srini Kadamati",
+      "display_name": "srini",
+      "team": "T5TCAFTA9",
+      "name": "srini",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c0aa2ed9-7dc6-45c0-aded-0bc94a430bc4",
+    "type": "message",
+    "text": "no offense to them, they’re not really accurate keepers of science &amp; tech generally speaking",
+    "user": "UGLSY9X3J",
+    "ts": "1564423366.039000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g03ebdf13bbe",
+      "image_72": "https://secure.gravatar.com/avatar/e03ebdf13bbeacace66454bea388b927.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Srini Kadamati",
+      "display_name": "srini",
+      "team": "T5TCAFTA9",
+      "name": "srini",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e52fabd5-bb6b-485a-a355-810156e3394e",
+    "type": "message",
+    "text": "or anything?",
+    "user": "UE6EFEPTQ",
+    "ts": "1564423373.039200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UE6EFEPTQ",
+      "ts": "1564423375.000000"
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e52fabd5-bb6b-485a-a355-810156e3394e",
+    "type": "message",
+    "text": "or anything?",
+    "user": "UE6EFEPTQ",
+    "ts": "1564423373.039200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UE6EFEPTQ",
+      "ts": "1564423375.000000"
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3dae9bda-46db-464e-8aaa-1d7e0e0401df",
+    "type": "message",
+    "text": "even Wired and other pop “science” publications routinely overhype things + get details wrong",
+    "user": "UGLSY9X3J",
+    "ts": "1564423382.039500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g03ebdf13bbe",
+      "image_72": "https://secure.gravatar.com/avatar/e03ebdf13bbeacace66454bea388b927.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Srini Kadamati",
+      "display_name": "srini",
+      "team": "T5TCAFTA9",
+      "name": "srini",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3dae9bda-46db-464e-8aaa-1d7e0e0401df",
+    "type": "message",
+    "text": "even Wired and other pop “science” publications routinely overhype things + get details wrong",
+    "user": "UGLSY9X3J",
+    "ts": "1564423382.039500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g03ebdf13bbe",
+      "image_72": "https://secure.gravatar.com/avatar/e03ebdf13bbeacace66454bea388b927.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Srini Kadamati",
+      "display_name": "srini",
+      "team": "T5TCAFTA9",
+      "name": "srini",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "dd7cb09b-c5e3-486b-ba80-6e24ad2757a8",
+    "type": "message",
+    "text": "Quanta is a bit better <https://www.quantamagazine.org/>",
+    "user": "UGLSY9X3J",
+    "ts": "1564423395.039700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g03ebdf13bbe",
+      "image_72": "https://secure.gravatar.com/avatar/e03ebdf13bbeacace66454bea388b927.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Srini Kadamati",
+      "display_name": "srini",
+      "team": "T5TCAFTA9",
+      "name": "srini",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Quanta Magazine",
+        "title": "Quanta Magazine - Illuminating Science | Quanta Magazine",
+        "title_link": "https://www.quantamagazine.org/",
+        "text": "Illuminating mathematics, physics, biology and computer science research through public service journalism.",
+        "fallback": "Quanta Magazine: Quanta Magazine - Illuminating Science | Quanta Magazine",
+        "image_url": "https://d2r55xnwy6nx47.cloudfront.net/uploads/2013/07/QM-About-1200x630.jpg",
+        "from_url": "https://www.quantamagazine.org/",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 32324,
+        "service_icon": "https://www.quantamagazine.org/favicon.png",
+        "id": 1,
+        "original_url": "https://www.quantamagazine.org/"
+      }
+    ],
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UGLSY9X3J",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "dd7cb09b-c5e3-486b-ba80-6e24ad2757a8",
+    "type": "message",
+    "text": "Quanta is a bit better <https://www.quantamagazine.org/>",
+    "user": "UGLSY9X3J",
+    "ts": "1564423395.039700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g03ebdf13bbe",
+      "image_72": "https://secure.gravatar.com/avatar/e03ebdf13bbeacace66454bea388b927.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Srini Kadamati",
+      "display_name": "srini",
+      "team": "T5TCAFTA9",
+      "name": "srini",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Quanta Magazine",
+        "title": "Quanta Magazine - Illuminating Science | Quanta Magazine",
+        "title_link": "https://www.quantamagazine.org/",
+        "text": "Illuminating mathematics, physics, biology and computer science research through public service journalism.",
+        "fallback": "Quanta Magazine: Quanta Magazine - Illuminating Science | Quanta Magazine",
+        "image_url": "https://d2r55xnwy6nx47.cloudfront.net/uploads/2013/07/QM-About-1200x630.jpg",
+        "from_url": "https://www.quantamagazine.org/",
+        "image_width": 476,
+        "image_height": 250,
+        "image_bytes": 32324,
+        "service_icon": "https://www.quantamagazine.org/favicon.png",
+        "id": 1,
+        "original_url": "https://www.quantamagazine.org/"
+      }
+    ],
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UGLSY9X3J",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5fb0c419-c15d-4364-b159-38e9e4629afe",
+    "type": "message",
+    "text": "This is fantastic - thank you!",
+    "user": "U8A5MS6R1",
+    "ts": "1564425071.040100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564411671.034900",
+    "parent_user_id": "UKJ75RMFT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5fb0c419-c15d-4364-b159-38e9e4629afe",
+    "type": "message",
+    "text": "This is fantastic - thank you!",
+    "user": "U8A5MS6R1",
+    "ts": "1564425071.040100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564411671.034900",
+    "parent_user_id": "UKJ75RMFT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5bd6caac-6e02-46bc-85d0-a35d6b318368",
+    "type": "message",
+    "text": "Thanks for the summary, Jonathan.\n\nI very much like the detailed descriptions, especially the one for the talk of Thomas, which I did not see yet (but definitely will soon).\n\nAlso, I am glad you found the moldable development presentation at least intriguing. And, thanks for the explicit concerns, too! I will address what I understood to be the issues. I’d be very happy to follow up with more details, should you (or anyone else) find it interesting.\n\nI think the crux of the misunderstandings lies in your observation that `Most of his demos seemed to be about visualizing data, but when I'm trying to understand a piece of code, I find that it's usually the algorithm that's hard to understand`. Nothing about software has an intrinsic representation because everything is just data, and data is shapeless. The representation is what we deemed important, and so the limitation is mostly in our imagination.\n\nDuring the demo, I actually showed a few algorithms. Just in the first inspectors, I actually showed the inner workings of two algorithms: One showed how to find the nearest neighborhood position to place a new circle in a layout. The other one was the inner rope data structure of a text editor. Both of these visualizations were shown in an inspector showing some objects. However, let’s take the latter. It is important for performance reasons for the rope tree to be balanced, and when it’s not you want to look at those cases in details. This visualization is useful exactly for that purpose. While the inspector shows the current data structure, having it update (for example, by embedding the inspector in a debugger), helps you spot the places that are worth investigating. We created that visualization exactly because we had a couple of those cases.\n\nBut, later on I showed a couple of more algorithms. One was about computing price discounts. In that case, I showed an inspector visualizing a decorator pattern. Indeed, we visualized objects, but the objects reified the actual algorithm. This is the key. As soon as we want to visualize something, we need to make it first class. This exercises our design in a way that testing does not and, even though we program in a Smalltalk system, we often write declarative or functional code made out of explicit objects.\n\nAnd there was an example showing a kind of a workflow showing actors and messages exchanged. In order to show the arrows of how messages propagate, we reified the messages. The picture we show in the visualization was actually drawn on a whiteboard together with the business people when we brainstormed about the algorithm. Because we wanted to preserve the presentation, we ended up reifying messages as first class concepts, which then led to better debugability, too.\n\nDoes this address some of the concerns? Mind you, these kind of conversations are highly precious for our team. We work like this since years, and it’s sometimes hard to convey what we learnt. So, any challenge is actually a boost :slightly_smiling_face:.",
+    "user": "UE1JQM9HQ",
+    "ts": "1564432597.041000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564411671.034900",
+    "parent_user_id": "UKJ75RMFT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5bd6caac-6e02-46bc-85d0-a35d6b318368",
+    "type": "message",
+    "text": "Thanks for the summary, Jonathan.\n\nI very much like the detailed descriptions, especially the one for the talk of Thomas, which I did not see yet (but definitely will soon).\n\nAlso, I am glad you found the moldable development presentation at least intriguing. And, thanks for the explicit concerns, too! I will address what I understood to be the issues. I’d be very happy to follow up with more details, should you (or anyone else) find it interesting.\n\nI think the crux of the misunderstandings lies in your observation that `Most of his demos seemed to be about visualizing data, but when I'm trying to understand a piece of code, I find that it's usually the algorithm that's hard to understand`. Nothing about software has an intrinsic representation because everything is just data, and data is shapeless. The representation is what we deemed important, and so the limitation is mostly in our imagination.\n\nDuring the demo, I actually showed a few algorithms. Just in the first inspectors, I actually showed the inner workings of two algorithms: One showed how to find the nearest neighborhood position to place a new circle in a layout. The other one was the inner rope data structure of a text editor. Both of these visualizations were shown in an inspector showing some objects. However, let’s take the latter. It is important for performance reasons for the rope tree to be balanced, and when it’s not you want to look at those cases in details. This visualization is useful exactly for that purpose. While the inspector shows the current data structure, having it update (for example, by embedding the inspector in a debugger), helps you spot the places that are worth investigating. We created that visualization exactly because we had a couple of those cases.\n\nBut, later on I showed a couple of more algorithms. One was about computing price discounts. In that case, I showed an inspector visualizing a decorator pattern. Indeed, we visualized objects, but the objects reified the actual algorithm. This is the key. As soon as we want to visualize something, we need to make it first class. This exercises our design in a way that testing does not and, even though we program in a Smalltalk system, we often write declarative or functional code made out of explicit objects.\n\nAnd there was an example showing a kind of a workflow showing actors and messages exchanged. In order to show the arrows of how messages propagate, we reified the messages. The picture we show in the visualization was actually drawn on a whiteboard together with the business people when we brainstormed about the algorithm. Because we wanted to preserve the presentation, we ended up reifying messages as first class concepts, which then led to better debugability, too.\n\nDoes this address some of the concerns? Mind you, these kind of conversations are highly precious for our team. We work like this since years, and it’s sometimes hard to convey what we learnt. So, any challenge is actually a boost :slightly_smiling_face:.",
+    "user": "UE1JQM9HQ",
+    "ts": "1564432597.041000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564411671.034900",
+    "parent_user_id": "UKJ75RMFT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "63baa431-d85a-47c0-b4a9-bad8bb710dc3",
+    "type": "message",
+    "text": "Quanta has a good podcast. (Used to be a great podcast, but I liked the old host a lot better than the new host.)",
+    "user": "UC2A2ARPT",
+    "ts": "1564435178.041600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "63baa431-d85a-47c0-b4a9-bad8bb710dc3",
+    "type": "message",
+    "text": "Quanta has a good podcast. (Used to be a great podcast, but I liked the old host a lot better than the new host.)",
+    "user": "UC2A2ARPT",
+    "ts": "1564435178.041600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564417113.035800",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "eb34205e-9a14-48a9-af19-e4874a2407b7",
+    "type": "message",
+    "text": "I'd argue that FP isn't useful (because _that's, like, my opinion, man_) and then look for weaknesses in my argument.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435232.041800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436599.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "eb34205e-9a14-48a9-af19-e4874a2407b7",
+    "type": "message",
+    "text": "I'd argue that FP isn't useful (because _that's, like, my opinion, man_) and then look for weaknesses in my argument.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435232.041800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436599.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a861119f-1a48-466b-9d37-ede4dbbb1f1b",
+    "type": "message",
+    "text": "The most successful arguments in favor of FP that I've encountered came from Rich Hickey and Joe Armstrong talks, describing how they arrived at the philosophies that support the design of Clojure and Erlang.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435338.042000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436961.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a861119f-1a48-466b-9d37-ede4dbbb1f1b",
+    "type": "message",
+    "text": "The most successful arguments in favor of FP that I've encountered came from Rich Hickey and Joe Armstrong talks, describing how they arrived at the philosophies that support the design of Clojure and Erlang.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435338.042000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436961.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "481ffc47-986a-48f4-85f9-a6c8def13bb5",
+    "type": "message",
+    "text": "Simple Made Easy, for instance, seems to be the gateway drug that gets a lot of people hooked on FP. So an answer to your question might be found in there.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435384.042200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436654.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "481ffc47-986a-48f4-85f9-a6c8def13bb5",
+    "type": "message",
+    "text": "Simple Made Easy, for instance, seems to be the gateway drug that gets a lot of people hooked on FP. So an answer to your question might be found in there.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435384.042200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436654.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "410d6d8f-e096-4353-91f4-e4b38a16e4d3",
+    "type": "message",
+    "text": "When it comes to concepts, skills, real world examples.. that's actually the point where I fall off the FP train. I've found it's easier to justify the benefits of writing all your code in C, getting a lot more intimate with registers and memory allocation and nurturing the skill of mechanical sympathy, doing any advanced data manipulation yourself — rather than leaving all that to the compiler and benefitting from a language that lets you explicitly label your algebraic data types (etc).",
+    "user": "UC2A2ARPT",
+    "ts": "1564435683.042400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436677.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "410d6d8f-e096-4353-91f4-e4b38a16e4d3",
+    "type": "message",
+    "text": "When it comes to concepts, skills, real world examples.. that's actually the point where I fall off the FP train. I've found it's easier to justify the benefits of writing all your code in C, getting a lot more intimate with registers and memory allocation and nurturing the skill of mechanical sympathy, doing any advanced data manipulation yourself — rather than leaving all that to the compiler and benefitting from a language that lets you explicitly label your algebraic data types (etc).",
+    "user": "UC2A2ARPT",
+    "ts": "1564435683.042400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436677.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "614cad5c-ae71-47f3-9ed6-f8315e7f36d0",
+    "type": "message",
+    "text": "Being aware of category theory and abstract algebra... being able to know when you need to use an abelian group (eg: for perf reasons) — that's valuable. But once you have that theoretical knowledge, you can leverage it in whatever language you want.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435815.042700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436768.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "614cad5c-ae71-47f3-9ed6-f8315e7f36d0",
+    "type": "message",
+    "text": "Being aware of category theory and abstract algebra... being able to know when you need to use an abelian group (eg: for perf reasons) — that's valuable. But once you have that theoretical knowledge, you can leverage it in whatever language you want.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435815.042700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436768.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7e86d309-a978-4be3-9435-f71810889b4d",
+    "type": "message",
+    "text": "People typically seem to learn that theory at the same time they learn Haskell, so I think the benefits of the former are conferred upon the latter (not undeservedly, since Haskell does allow you to be a lot more explicit about your algebra than most languages). But there's nothing stopping you from taking \"FP, The Good Parts\" and doing it in whatever language/paradigm you want.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435866.042900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436787.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7e86d309-a978-4be3-9435-f71810889b4d",
+    "type": "message",
+    "text": "People typically seem to learn that theory at the same time they learn Haskell, so I think the benefits of the former are conferred upon the latter (not undeservedly, since Haskell does allow you to be a lot more explicit about your algebra than most languages). But there's nothing stopping you from taking \"FP, The Good Parts\" and doing it in whatever language/paradigm you want.",
+    "user": "UC2A2ARPT",
+    "ts": "1564435866.042900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436787.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "da13983f-758f-4fe6-aac2-8f88e07f5f18",
+    "type": "message",
+    "text": "So to answer your question, I'd say the concepts to know are things like.. associativity, commutativity, set theory, a tiny bit of group theory... and things like the joy (and pain) of a pure function, the pain (and joy) of a side effect, etc. The motivating examples are things like.. the difficulty of unit testing stateful code vs pure code, the ease (and joy) of finding analogies between things like sets, and vectors, and maps, and functions (in the math sense), and functions (in the colloquial C/Java sense) when you know about concepts like fixed points, functors, the hyperoperation sequence, etc.\n\nThere's nothing really in there that is conceptually under the umbrella of FP — it's just math, and FP just makes good use of math — but a good education in FP should probably teach you all of that math stuff.",
+    "user": "UC2A2ARPT",
+    "ts": "1564436342.043200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436883.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "da13983f-758f-4fe6-aac2-8f88e07f5f18",
+    "type": "message",
+    "text": "So to answer your question, I'd say the concepts to know are things like.. associativity, commutativity, set theory, a tiny bit of group theory... and things like the joy (and pain) of a pure function, the pain (and joy) of a side effect, etc. The motivating examples are things like.. the difficulty of unit testing stateful code vs pure code, the ease (and joy) of finding analogies between things like sets, and vectors, and maps, and functions (in the math sense), and functions (in the colloquial C/Java sense) when you know about concepts like fixed points, functors, the hyperoperation sequence, etc.\n\nThere's nothing really in there that is conceptually under the umbrella of FP — it's just math, and FP just makes good use of math — but a good education in FP should probably teach you all of that math stuff.",
+    "user": "UC2A2ARPT",
+    "ts": "1564436342.043200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564436883.000000"
+    },
+    "thread_ts": "1564418480.037900",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "48c282d6-ccdb-4d40-bce8-f48604423c9f",
+    "type": "message",
+    "text": "<@UCUSW7WVD> This article is wonderful. I've been wrestling with both aesthetics in the design of Hest, since there are several features that need the never-miss-a-frame smoothness of a video game (eg: panning and zooming and playing in the editor), and some that need the don't-do-work for battery efficiency (eg: shut down the never-miss-a-frame run loops if we can tell that they aren't going to produce any changes), and some that need a different kind of don't-do-work for the sake of fast execution (eg: running end user code as fast as possible, but in a way that is still perfectly deterministic and behaves identically to the slow-motion debug execution). It's been really hard to balance these aesthetics, since these various features that need different aesthetics all touch the same data, so the possibility space for how I can represent that data is wildly constrained. Can't use flat lists and iterate over everything every frame (great for frame rate, terrible for full-speed execution), can't store relationships between entities (great for full-speed, terrible for worst-case), can't use partial application, can't use per-entity caching...",
+    "user": "UC2A2ARPT",
+    "ts": "1564438776.045200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564439453.000000"
+    },
+    "thread_ts": "1564374914.030200",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "48c282d6-ccdb-4d40-bce8-f48604423c9f",
+    "type": "message",
+    "text": "<@UCUSW7WVD> This article is wonderful. I've been wrestling with both aesthetics in the design of Hest, since there are several features that need the never-miss-a-frame smoothness of a video game (eg: panning and zooming and playing in the editor), and some that need the don't-do-work for battery efficiency (eg: shut down the never-miss-a-frame run loops if we can tell that they aren't going to produce any changes), and some that need a different kind of don't-do-work for the sake of fast execution (eg: running end user code as fast as possible, but in a way that is still perfectly deterministic and behaves identically to the slow-motion debug execution). It's been really hard to balance these aesthetics, since these various features that need different aesthetics all touch the same data, so the possibility space for how I can represent that data is wildly constrained. Can't use flat lists and iterate over everything every frame (great for frame rate, terrible for full-speed execution), can't store relationships between entities (great for full-speed, terrible for worst-case), can't use partial application, can't use per-entity caching...",
+    "user": "UC2A2ARPT",
+    "ts": "1564438776.045200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1564439453.000000"
+    },
+    "thread_ts": "1564374914.030200",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f4123829-d09a-420f-ab77-48c0416ae356",
+    "type": "message",
+    "text": "Also, can't use floats (great for perf, terrible for determinism), can't use computable reals (great for determinism, terrible for worst-case perf) — that's a real kick in the shins.",
+    "user": "UC2A2ARPT",
+    "ts": "1564439544.045600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564374914.030200",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f4123829-d09a-420f-ab77-48c0416ae356",
+    "type": "message",
+    "text": "Also, can't use floats (great for perf, terrible for determinism), can't use computable reals (great for determinism, terrible for worst-case perf) — that's a real kick in the shins.",
+    "user": "UC2A2ARPT",
+    "ts": "1564439544.045600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1564374914.030200",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "C39F8725-8865-440E-A428-0A5158346B15",
+    "type": "message",
+    "text": "I'm often wondering about Uncle Bob's Transformation Priority Premise (extract here: <https://medium.com/@zolipeto/extract-of-uncle-bobs-transformation-priority-premise-post-85ab20216fb1> )\n\nNow I am wondering if it is approachable from another angle: using structured programmings 'Sequence, Selection, Iteration' as building blocks (maybe with some extansion eg. State). \n\nWDYT? Is there any research on that? <@UDKTZSD6H>\n\nFor example I'd say these transformations would make sense:\nnil -&gt; Sequence\nSequence -&gt; Selection (+State to branch on &amp; StateSetter before Selection happens) \nSelection -&gt; Iteration\n\nSo I'd be interesred how structured programmings building blocks behave and relate when we use TDD or when we just refactor a piece of code.",
+    "user": "UL3CJ7YKC",
+    "ts": "1564439950.050500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5612322b81b6",
+      "image_72": "https://avatars.slack-edge.com/2019-11-14/834114331988_5612322b81b6d142511b_72.jpg",
+      "first_name": "Pezo",
+      "real_name": "Pezo - Zoltan Peto",
+      "display_name": "Pezo - Zoltan Peto",
+      "team": "T5TCAFTA9",
+      "name": "pezo1919",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UL3CJ7YKC",
+      "ts": "1564440491.000000"
+    },
+    "thread_ts": "1564439950.050500",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1564521516.083000",
+    "reply_users": [
+      "UHWC9PXBL",
+      "UL3CJ7YKC"
+    ],
+    "replies": [
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1564503741.077100"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1564503796.077300"
+      },
+      {
+        "user": "UL3CJ7YKC",
+        "ts": "1564521516.083000"
+      }
+    ],
+    "subscribed": false,
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "C39F8725-8865-440E-A428-0A5158346B15",
+    "type": "message",
+    "text": "I'm often wondering about Uncle Bob's Transformation Priority Premise (extract here: <https://medium.com/@zolipeto/extract-of-uncle-bobs-transformation-priority-premise-post-85ab20216fb1> )\n\nNow I am wondering if it is approachable from another angle: using structured programmings 'Sequence, Selection, Iteration' as building blocks (maybe with some extansion eg. State). \n\nWDYT? Is there any research on that? <@UDKTZSD6H>\n\nFor example I'd say these transformations would make sense:\nnil -&gt; Sequence\nSequence -&gt; Selection (+State to branch on &amp; StateSetter before Selection happens) \nSelection -&gt; Iteration\n\nSo I'd be interesred how structured programmings building blocks behave and relate when we use TDD or when we just refactor a piece of code.",
+    "user": "UL3CJ7YKC",
+    "ts": "1564439950.050500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5612322b81b6",
+      "image_72": "https://avatars.slack-edge.com/2019-11-14/834114331988_5612322b81b6d142511b_72.jpg",
+      "first_name": "Pezo",
+      "real_name": "Pezo - Zoltan Peto",
+      "display_name": "Pezo - Zoltan Peto",
+      "team": "T5TCAFTA9",
+      "name": "pezo1919",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UL3CJ7YKC",
+      "ts": "1564440491.000000"
+    },
+    "thread_ts": "1564439950.050500",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1564521516.083000",
+    "reply_users": [
+      "UHWC9PXBL",
+      "UL3CJ7YKC"
+    ],
+    "replies": [
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1564503741.077100"
+      },
+      {
+        "user": "UHWC9PXBL",
+        "ts": "1564503796.077300"
+      },
+      {
+        "user": "UL3CJ7YKC",
+        "ts": "1564521516.083000"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
