@@ -1,0 +1,779 @@
+[
+  {
+    "client_msg_id": "38a9b5c1-7998-4e62-9237-72ffbcb3502a",
+    "type": "message",
+    "text": "What did I just read!\n\nCan someone post a summary that doesn't require understanding Lacan/Derrida/et al.?",
+    "user": "UCUSW7WVD",
+    "ts": "1693010103.232919",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KBP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What did I just read!\n\nCan someone post a summary that doesn't require understanding Lacan/Derrida/et al.?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692950991.045959",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "client_msg_id": "cfbfd826-dc05-427c-b374-c9eab39cdf69",
+    "type": "message",
+    "text": "Some excellent quotes:\n&gt; I would describe good Haskell code as “brittle”, and I mean that as a compliment. People tend to casually use “brittle” to mean “prone to breakage”, but in materials science what “brittle” means is that something breaks without bending: when a brittle material reaches the limits of its strength, it fractures instead of deforming. Haskell is a language where abstractions do not “bend” (or permit invalid programs) but rather “break” (fail to compile) in the face of problems.\nAnd another:\n&gt; I once heard it said that Haskell lets you work with functions the way Perl lets you work with strings. Lots of Haskell idioms, like monads, are perfectly expressible in other languages: Haskell just makes them feel natural, while writing a monad in many other languages feels like you have to do lots of busy-work.\nI wish the critique of Haskell was as good as the love expressed for it.\n\nFor my part, I just find that most attempts write Haskell programs ends up down theoretical rabbit holes.\n\nHere's a tiny, silly example.  For illustration purposes, I wanted to write `take 25 (map (^2) [0..])` as:\n```do\n  i &lt;- [0..]\n  let ii = i * i\n  guard (i &lt; 25)\n  return ii```\nThis is, of course, bad because it loops after producing the 25 squares.  You keep pulling off `i`s and keep fining that they are not longer less than 25.  It would be \"neat\" if we could replace `guard` with some sort of `until`.  But what sort?  Could get lost for hours.",
+    "user": "UA14TGLTC",
+    "ts": "1693025682.673339",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GYjRV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some excellent quotes:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I would describe good Haskell code as “brittle”, and I mean that as a compliment. People tend to casually use “brittle” to mean “prone to breakage”, but in materials science what “brittle” means is that something breaks without bending: when a brittle material reaches the limits of its strength, it fractures instead of deforming. Haskell is a language where abstractions do not “bend” (or permit invalid programs) but rather “break” (fail to compile) in the face of problems."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And another:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I once heard it said that Haskell lets you work with functions the way Perl lets you work with strings. Lots of Haskell idioms, like monads, are perfectly expressible in other languages: Haskell just makes them feel natural, while writing a monad in many other languages feels like you have to do lots of busy-work."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I wish the critique of Haskell was as good as the love expressed for it.\n\nFor my part, I just find that most attempts write Haskell programs ends up down theoretical rabbit holes.\n\nHere's a tiny, silly example.  For illustration purposes, I wanted to write "
+              },
+              {
+                "type": "text",
+                "text": "take 25 (map (^2) [0..])",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "do\n  i <- [0..]\n  let ii = i * i\n  guard (i < 25)\n  return ii"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is, of course, bad because it loops after producing the 25 squares.  You keep pulling off "
+              },
+              {
+                "type": "text",
+                "text": "i",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "s and keep fining that they are not longer less than 25.  It would be \"neat\" if we could replace "
+              },
+              {
+                "type": "text",
+                "text": "guard",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " with some sort of "
+              },
+              {
+                "type": "text",
+                "text": "until",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".  But what sort?  Could get lost for hours."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692947456.279949",
+    "parent_user_id": "UJBAJNFLK",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9eb071e0-891c-482e-ab4a-c9ff65b98962",
+    "type": "message",
+    "text": "Looks like someone is having fun.",
+    "user": "UA14TGLTC",
+    "ts": "1693025799.955969",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iRY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Looks like someone is having fun."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692965730.536949",
+    "parent_user_id": "UMQ6LR9NZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "62b78174-c0f2-4396-a6a7-e4ba4bb18a68",
+    "type": "message",
+    "text": "The kettle was briefly in my original post, I thought your reference to temperatures versus particle velocities was a continuation of that!\n\nI think we're past the point that I can argue from my own position - all the things I want to reply with are more Deutsch quotes and that is tiresome so I'll refrain. I highly recommend his book; it sounds like you'll have plenty to disagree with ;)",
+    "user": "U05597GCDDK",
+    "ts": "1693027584.039829",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yWn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The kettle was briefly in my original post, I thought your reference to temperatures versus particle velocities was a continuation of that!\n\nI think we're past the point that I can argue from my own position - all the things I want to reply with are more Deutsch quotes and that is tiresome so I'll refrain. I highly recommend his book; it sounds like you'll have plenty to disagree with ;)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692925047.641699",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7C7F3610-E85B-49EA-819F-D1CA725212DA",
+    "type": "message",
+    "text": "What is real is very much dependent on how you make sense of the world. Scientifically, realness seems to be related to truth. If you can make true statements about something, it feels more real than when the statements about it turn out to be false. Eventually, in pretty much any scientific discipline, including math or theoretical physics, you’ll bump into issues with modeling the real world, some of which you touched on above. \n\nIt seems our hope of a completely objective external reality of which we just have to figure out its rules, is not achievable, either because formal systems cannot be powerful enough (incompleteness) or because models begin to face issues with observation itself (observer effect). Yes, incomplete models that assume independence from observers have turned out to be immensely useful and brought us scientific and then industrial revolutions. But they are ultimately still limited.\n\nSo you could either try to figure this out and reconcile this (and at least one Nobel prize will be yours), or you’d have to open yourself up to the idea that realness is perhaps just a subjective experience you have, which in the knowledge category of belief in true propositions comes across as quite independent and universal, so you might feel the urge to object to its subjectivity for as long as you can.\n\nMaybe that sounds unscientific, but many different fields, including hardcore theoretical physics and quantum mechanics conclude that models of the world can’t just be independent of the observer, but need to include the observer within the model — and, boom, now you have to deal with consciousness and the mind/body problem.\n\nThe word “real” seems so simple and clear and insignificant that all this metaphysical and philosophical depth seems unnecessary to unpack just to talk about things like models or abstraction, but look at how consistently we end up in debating definitions. There aren’t really statements about reality and then statements about your own processing ability. Every statement we make will necessarily be about both simultaneously.",
+    "user": "U5STGTB3J",
+    "ts": "1693034614.549479",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QlB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What is real is very much dependent on how you make sense of the world. Scientifically, realness seems to be related to truth. If you can make true statements about something, it feels more real than when the statements about it turn out to be false. Eventually, in pretty much any scientific discipline, including math or theoretical physics, you’ll bump into issues with modeling the real world, some of which you touched on above. \n\nIt seems our hope of a completely objective external reality of which we just have to figure out its rules, is not achievable, either because formal systems cannot be powerful enough (incompleteness) or because models begin to face issues with observation itself (observer effect). Yes, incomplete models that assume independence from observers have turned out to be immensely useful and brought us scientific and then industrial revolutions. But they are ultimately still limited.\n\nSo you could either try to figure this out and reconcile this (and at least one Nobel prize will be yours), or you’d have to open yourself up to the idea that realness is perhaps just a subjective experience you have, which in the knowledge category of belief in true propositions comes across as quite independent and universal, so you might feel the urge to object to its subjectivity for as long as you can.\n\nMaybe that sounds unscientific, but many different fields, including hardcore theoretical physics and quantum mechanics conclude that models of the world can’t just be independent of the observer, but need to include the observer within the model — and, boom, now you have to deal with consciousness and the mind/body problem.\n\nThe word “real” seems so simple and clear and insignificant that all this metaphysical and philosophical depth"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "seems unnecessary to unpack just to talk about things like models or abstraction, but look at how consistently we end up in debating definitions. There aren’t really statements about reality and then statements about your own processing ability"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Every statement we make will necessarily be about both simultaneously"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692925047.641699",
+    "parent_user_id": "U05597GCDDK",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fb233c79-547d-46b0-b165-5763b6f73921",
+    "type": "message",
+    "text": "Hmm... the measurement problem.  It's a big jump from quantum observer to conscious one, but it's a jump that plenty of physicists have been willing to make and then unmake later <https://www.youtube.com/watch?v=CT7SiRiqK-Q>.",
+    "user": "UA14TGLTC",
+    "ts": "1693041178.583159",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VUotg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hmm... the measurement problem.  It's a big jump from quantum observer to conscious one, but it's a jump that plenty of physicists have been willing to make and then unmake later "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=CT7SiRiqK-Q"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=CT7SiRiqK-Q",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/CT7SiRiqK-Q/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/CT7SiRiqK-Q?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Does Consciousness Influence Quantum Mechanics?\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=CT7SiRiqK-Q",
+        "fallback": "YouTube Video: Does Consciousness Influence Quantum Mechanics?",
+        "title": "Does Consciousness Influence Quantum Mechanics?",
+        "title_link": "https://www.youtube.com/watch?v=CT7SiRiqK-Q",
+        "author_name": "PBS Space Time",
+        "author_link": "https://www.youtube.com/@pbsspacetime",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "thread_ts": "1692925047.641699",
+    "parent_user_id": "U05597GCDDK",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aeea4ce0-f481-4784-9adc-9b7747f9652f",
+    "type": "message",
+    "text": "<https://twitter.com/andygocke/status/1017509689695715328>\n:((",
+    "user": "UDRF3ALP4",
+    "ts": "1693048502.728429",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gIp2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://twitter.com/andygocke/status/1017509689695715328"
+              },
+              {
+                "type": "text",
+                "text": "\n:(("
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://twitter.com/andygocke/status/1017509689695715328",
+        "service_icon": "http://abs.twimg.com/favicons/twitter.3.ico",
+        "thumb_url": "https://pbs.twimg.com/profile_images/795458959104737280/61Pu-ZSi_200x200.jpg",
+        "thumb_width": 200,
+        "thumb_height": 200,
+        "id": 1,
+        "original_url": "https://twitter.com/andygocke/status/1017509689695715328",
+        "fallback": "X (formerly Twitter): Andy Gocke on X",
+        "text": "Developer tools seemed like a good industry to be in, \"sell shovels in the gold rush\" and all, but it turns out developers prefer to dig for gold with their teeth.",
+        "title": "Andy Gocke on X",
+        "title_link": "https://twitter.com/andygocke/status/1017509689695715328",
+        "service_name": "X (formerly Twitter)"
+      }
+    ],
+    "thread_ts": "1693048502.728429",
+    "reply_count": 2,
+    "reply_users_count": 2,
+    "latest_reply": "1693121883.991929",
+    "reply_users": [
+      "UL2SJ88Q3",
+      "U0296ACR13M"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U0296ACR13M"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "924F2E66-BD91-4B0A-8D76-263F70FB8A97",
+    "type": "message",
+    "text": "Just judging from the video “make and then unmake later” doesn’t mean they realized they were wrong and corrected their mistake, but that it’s a lot more complicated.\n\nI admit that I jumped over a lot of complexity there, and I wasn’t even aware that there actually was an assumption of such a direct connection between quantum to conscious observer, and I’m not surprised that this didn’t hold for long. I only knew about some other, more complex… hehe… entanglement between the two. Bohm, Hoffmann, Penrose, Wolfram come to mind as names of people who had things to say about that, some of them quite recently.\n\nIt seems the connection between the deepest foundations of physics and the mind are a very hot topic still and that is true for “both sides”, where psychologists and cognitive scientists and even AI researchers are running into issues with physics when they nerd hard about what consciousness could be.\n\nWell, you studied quantum mechanics and for sure know more about that than I ever will. I’d be interested to learn more, so please keep sending pointers.\n\nI wasn’t trying to explain the metaphysics, however (I’m not clever enough to do that), I’m mostly just trying to point out that the Cartesian idea of a mechanistic reality following universal rules aka truth that “just” needs to be discovered and understood is often still the prevalent folk theory that undergirds our discussions (for interesting reasons especially in tech), but is itself limited, profoundly challenged in many disciplines, and introduces all kinds of issues that we can only deal with properly by stepping out of this system. \n\nAnd there are other theories that allow us to do that — and I’m not talking about mystical or esoteric ones, but equally scientific ones — that offer at least some interesting ideas that we software people could benefit tremendously from learning about so we can stop running into the same issues over and over again.",
+    "user": "U5STGTB3J",
+    "ts": "1693057948.152379",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xFhTi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just judging from the video “make and then unmake later” doesn’t mean they realized they were wrong and corrected their mistake, but that it’s a lot more complicated.\n\nI admit that I jumped over a lot of complexity there, and I wasn’t even aware that there actually was an assumption of such a direct connection between quantum to conscious observer, and I’m not surprised that this didn’t hold for long. I only knew about some other, more complex… hehe… entanglement between the two. Bohm, Hoffmann, Penrose, Wolfram come to mind as names of people who had things to say about that, some of them quite recently"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\nIt seems the connection between the deepest foundations of physics and the mind are a very hot topic still and that is true for “both sides”, where psychologists and cognitive scientists and even AI researchers are running into issues with physics when they nerd hard about what consciousness could be.\n\nWell, you studied quantum mechanics and for sure know more about that than I ever will. I’d be interested to learn more, so please keep sending pointers.\n\nI wasn’t trying to explain the metaphysics, however (I’m not clever enough to do that), I’m mostly just trying to point out that the Cartesian idea of a mechanistic reality following universal rules aka truth that “just” needs to be discovered and understood is often still the prevalent folk theory that undergirds our discussions (for interesting reasons especially in tech), but is itself limited, profoundly challenged in many disciplines, and introduces all kinds of issues that we can only deal with properly by stepping out of this system. \n\nAnd there are other theories that allow us to do that — and I’m not talking about mystical or esoteric ones, but equally scientific ones — that offer at least some interesting ideas that we software people could benefit tremendously from learning about so we can stop running into the same issues over and over again."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692925047.641699",
+    "parent_user_id": "U05597GCDDK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "875f4750-b37e-4ae1-ad5d-dfd026f81c68",
+    "type": "message",
+    "text": "It's now easier to build and run little LÖVE apps for yourself on Android\n\n1. Install LÖVE from the app store (see <https://love2d.org>)\n2. Download MiniIDE.love from <https://love2d.org/forums/viewtopic.php?t=94852>. I've been contributing to this app and vouch for it.\n<https://www.youtube.com/watch?v=6R0k0UBw_O4>\n\ncc <@UJBAJNFLK> who's been waiting for this :slightly_smiling_face:\n\n(MiniIDE has also been tested on iOS without limitations. But I gather LÖVE is quite tortuous to install on iOS, so you're on your own there..)",
+    "user": "UCUSW7WVD",
+    "ts": "1693062327.777239",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ArBGo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's now easier to build and run little LÖVE apps for yourself on Android\n\n1. Install LÖVE from the app store (see "
+              },
+              {
+                "type": "link",
+                "url": "https://love2d.org"
+              },
+              {
+                "type": "text",
+                "text": ")\n2. Download MiniIDE.love from "
+              },
+              {
+                "type": "link",
+                "url": "https://love2d.org/forums/viewtopic.php?t=94852"
+              },
+              {
+                "type": "text",
+                "text": ". I've been contributing to this app and vouch for it.\n"
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=6R0k0UBw_O4"
+              },
+              {
+                "type": "text",
+                "text": "\n\ncc "
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " who's been waiting for this "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": "\n\n(MiniIDE has also been tested on iOS without limitations. But I gather LÖVE is quite tortuous to install on iOS, so you're on your own there..)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=6R0k0UBw_O4",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/6R0k0UBw_O4/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/6R0k0UBw_O4?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"August 25, 2023\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 300,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=6R0k0UBw_O4",
+        "fallback": "YouTube Video: August 25, 2023",
+        "title": "August 25, 2023",
+        "title_link": "https://www.youtube.com/watch?v=6R0k0UBw_O4",
+        "author_name": "SugarRayLua",
+        "author_link": "https://www.youtube.com/@michaelstein8939",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7",
+          "UJBAJNFLK",
+          "U0123H7JRDM",
+          "USH01JEDQ"
+        ],
+        "count": 4
+      },
+      {
+        "name": "dolphin",
+        "users": [
+          "U02B6FQKZK8"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "4667f1dd-7de6-4e2f-b029-7f47164eedf8",
+    "type": "message",
+    "text": "Haskell is the formal systems lover's dream (unless they have already moved on to something more sophisticated, such as dependent types). All code defines a formal system, but Haskell programmers love to make formal systems that are _about_ the code (types etc.) Formal systems are very precise, which is great when you can certain that they match your problem. If they don't match, or if you don't know, they are an endless source of frustration. Which means that Haskell is great language if and only if your problem has already been formlized, e.g. in mathematics.",
+    "user": "UJBAJNFLK",
+    "ts": "1693073043.323009",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "L=PR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Haskell is the formal systems lover's dream (unless they have already moved on to something more sophisticated, such as dependent types). All code defines a formal system, but Haskell programmers love to make formal systems that are "
+              },
+              {
+                "type": "text",
+                "text": "about",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the code (types etc.) Formal systems are very precise, which is great when you can certain that they match your problem. If they don't match, or if you don't know, they are an endless source of frustration. Which means that Haskell is great language if and only if your problem has already been formlized, e.g. in mathematics."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692947456.279949",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "20b16d07-b7f7-4e13-b314-5bd699e0db8d",
+    "type": "message",
+    "text": "<@U013ZLJARC7> What's nice about this analysis is that it doesn't really rely on any specific notion of what AI is. \"Large-scale information processing system\" is all it takes.\n<@UCUSW7WVD> Well, the author is a sociologist, and that shows in some places. I just skip the references and try to make sense of what's left, which works pretty well for me.",
+    "user": "UJBAJNFLK",
+    "ts": "1693073215.779249",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NY6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": " What's nice about this analysis is that it doesn't really rely on any specific notion of what AI is. \"Large-scale information processing system\" is all it takes.\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " Well, the author is a sociologist, and that shows in some places. I just skip the references and try to make sense of what's left, which works pretty well for me."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692950991.045959",
+    "parent_user_id": "UJBAJNFLK",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-ai",
+    "channel_id": "C050QK4917D"
+  },
+  {
+    "client_msg_id": "ebd3d00f-8d4b-4e25-9fb7-98006ba62065",
+    "type": "message",
+    "text": "Meh, my take is more like:\n&gt; Developer tools seemed like a good industry to be in, and we had a good business selling shovels, but the VCs weren't getting rich enough, so then when we tried leasing shovels to them with a tether attached that would yank it out of their hands and collapse all the holes they'd previously dug with it if they ever stop paying us... and turns out people who specialize in building tools have options as to where they get their tools",
+    "user": "UL2SJ88Q3",
+    "ts": "1693083337.629719",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CW4TP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Meh, my take is more like:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Developer tools seemed like a good industry to be in, and we had a good business selling shovels, but the VCs weren't getting rich enough, so then when we tried leasing shovels to them with a tether attached that would yank it out of their hands and collapse all the holes they'd previously dug with it if they ever stop paying us... and turns out people who specialize in building tools have options as to where they get their tools"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UL2SJ88Q3",
+      "ts": "1693083390.000000"
+    },
+    "thread_ts": "1693048502.728429",
+    "parent_user_id": "UDRF3ALP4",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U03R0B9U1GD",
+          "UDRF3ALP4"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "AD8CC28D-0FFE-40BB-9E54-2CC5FF283598",
+    "type": "message",
+    "text": "wee, new stuff from Eskil Steenberg:\n<https://youtu.be/CxKujAuz2Vw?si=dtffNBWq6-7rGsQ2|https://youtu.be/CxKujAuz2Vw?si=dtffNBWq6-7rGsQ2>\n\n(not that new, he’s been working on things like this, and advocating for live debugger use for many years at this point. and yet, his stuff always seems fresh, and just…different)",
+    "user": "U0242H3GHHT",
+    "ts": "1693083526.499989",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Zn5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "wee, new stuff from Eskil Steenberg:\n"
+              },
+              {
+                "type": "link",
+                "url": "https://youtu.be/CxKujAuz2Vw?si=dtffNBWq6-7rGsQ2",
+                "text": "https://youtu.be/CxKujAuz2Vw?si=dtffNBWq6-7rGsQ2"
+              },
+              {
+                "type": "text",
+                "text": "\n\n(not that new, he’s been working on things like this, and advocating for live debugger use for many years at this point. and yet, his stuff always seems fresh, and just"
+              },
+              {
+                "type": "text",
+                "text": "…"
+              },
+              {
+                "type": "text",
+                "text": "different)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://youtu.be/CxKujAuz2Vw?si=dtffNBWq6-7rGsQ2",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/CxKujAuz2Vw/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/CxKujAuz2Vw?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Modern C development with Visual studio in 2023.\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://youtu.be/CxKujAuz2Vw?si=dtffNBWq6-7rGsQ2",
+        "fallback": "YouTube Video: Modern C development with Visual studio in 2023.",
+        "title": "Modern C development with Visual studio in 2023.",
+        "title_link": "https://youtu.be/CxKujAuz2Vw?si=dtffNBWq6-7rGsQ2",
+        "author_name": "Eskil Steenberg",
+        "author_link": "https://www.youtube.com/@eskilsteenberg",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
