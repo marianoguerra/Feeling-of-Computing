@@ -1,0 +1,1934 @@
+[
+  {
+    "client_msg_id": "d34ff1bf-91d7-4f44-962a-ec9da7f67bd2",
+    "type": "message",
+    "text": "There's actually a colon that distinguishes the \"with the value of\" case, but yeah I think you would eventually want named variables in queries, for some more complicated patterns. SPARQ uses `?var` notation for this which actually fits with the rest of the syntax neatly.\n\nI was planning to use something like this for the functional calculation side, like;\n\n```@Chris\n  !Person\n  #email:chris@chris.com\n  #email:chris@other.com\n  #sent-emails:?[Chris's sent emails]\n\n?[Chris's sent emails]\n  !Email     &lt;- filter to !Email's\n  ?[Chris email address] = @Chris #email\n  #from:?[Chris email address] &lt;-- filter using var\n\n?[Chris email recipients]\n  ?addr = ?[Chris's sent emails] #to\n  #email: ?addr\n```\nI haven't really thought it through properly, I just wanted to actually try out some of the things I had been discussing in the mentioned threads",
+    "user": "UDQBTJ211",
+    "ts": "1653373326.936889",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDQBTJ211",
+      "ts": "1653373519.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "opQi5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's actually a colon that distinguishes the \"with the value of\" case, but yeah I think you would eventually want named variables in queries, for some more complicated patterns. SPARQ uses "
+              },
+              {
+                "type": "text",
+                "text": "?var",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " notation for this which actually fits with the rest of the syntax neatly.\n\nI was planning to use something like this for the functional calculation side, like;\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "@Chris\n  !Person\n  #email:chris@chris.com\n  #email:chris@other.com\n  #sent-emails:?[Chris's sent emails]\n\n?[Chris's sent emails]\n  !Email     <- filter to !Email's\n  ?[Chris email address] = @Chris #email\n  #from:?[Chris email address] <-- filter using var\n\n?[Chris email recipients]\n  ?addr = ?[Chris's sent emails] #to\n  #email: ?addr\n"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI haven't really thought it through properly, I just wanted to actually try out some of the things I had been discussing in the mentioned threads"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "7017433e-9728-465d-ab7b-e00521302198",
+    "type": "message",
+    "text": "Like, 1000x too small :joy_cat:",
+    "user": "U013ZLJARC7",
+    "ts": "1653375449.070709",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3+3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Like, 1000x too small "
+              },
+              {
+                "type": "emoji",
+                "name": "joy_cat"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653329959.138979",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UML4ZEKDK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "5353c957-6ea6-4722-83e8-7470457d70d2",
+    "type": "message",
+    "text": "If you decide to create a new surface syntax for what are essentially RDF triples, you might want to make sure your model is compatible with RDF so you can interoperate with other knowledge bases.\n\nFor some prior art in terms of the syntax itself, check out the rather similar <https://www.w3.org/TR/turtle/|Turtle notation>:\n```@prefix : &lt;<http://example.org/elements>&gt; .                                                                              \n&lt;<http://en.wikipedia.org/wiki/Helium>&gt;                                                                                  \n    :atomicNumber 2 ;               # xsd:integer                                                                      \n    :atomicMass 4.002602 ;          # xsd:decimal                                                                      \n    :specificGravity 1.663E-4 .     # xsd:double```",
+    "user": "U013ZLJARC7",
+    "ts": "1653376468.809199",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/UFl+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you decide to create a new surface syntax for what are essentially RDF triples, you might want to make sure your model is compatible with RDF so you can interoperate with other knowledge bases.\n\nFor some prior art in terms of the syntax itself, check out the rather similar "
+              },
+              {
+                "type": "link",
+                "url": "https://www.w3.org/TR/turtle/",
+                "text": "Turtle notation"
+              },
+              {
+                "type": "text",
+                "text": ":\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "@prefix : <"
+              },
+              {
+                "type": "link",
+                "url": "http://example.org/elements"
+              },
+              {
+                "type": "text",
+                "text": "> .                                                                              \n<"
+              },
+              {
+                "type": "link",
+                "url": "http://en.wikipedia.org/wiki/Helium"
+              },
+              {
+                "type": "text",
+                "text": ">                                                                                  \n    :atomicNumber 2 ;               # xsd:integer                                                                      \n    :atomicMass 4.002602 ;          # xsd:decimal                                                                      \n    :specificGravity 1.663E-4 .     # xsd:double"
+              }
+            ],
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "bc42b881-f47b-4478-bd4f-586b6bbafefd",
+    "type": "message",
+    "text": "It does essentially get compiled to triples under the hood, because it currently is implemented on top of Neo4j, but the queries are bewilderingly complex when expressed in those terms.\n\nFor example;\n`#sibling: @Bart`\n\nIs translated to the following Cypher query (it would be similar in SPARQL);\n```match (v_: Entity {{name:\"Bart\"}})\n    match p_v = ((v:Entity)-[:IMPLIES*0..]-&gt;(v_))\n    with distinct v, [m in nodes(p_v) where 'Context' in labels(m)] as contexts\n    match (k_:Attribute {name:\"sibling\"})\n    match p_k = ((k:Attribute)-[:IMPLIES*0..]-&gt;(k_))\n    with distinct v, k, [m in nodes(p_k) where 'Context' in labels(m)]+contexts as contexts\n    match (k)-[:VALUE]-&gt;(c:Context)-[:VALUE]-&gt;(v),\n                        (c)-[:CONTEXT]-&gt;(n:Entity)\n    with distinct n, contexts\n    where size(contexts) = 0 or \n    all(c in contexts where exists((c)-[:CONTEXT]-&gt;()&lt;-[:IMPLIES*0..]-()&lt;-[:CATEGORY|ATTRIBUTE*0..1]-()&lt;-[:IMPLIES*0..]-(n)))\n     \n    return distinct n\n```\nWhich is not reasonable for a user to write.",
+    "user": "UDQBTJ211",
+    "ts": "1653378479.416069",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDQBTJ211",
+      "ts": "1653389292.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Wx7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It does essentially get compiled to triples under the hood, because it currently is implemented on top of Neo4j, but the queries are bewilderingly complex when expressed in those terms.\n\nFor example;\n"
+              },
+              {
+                "type": "text",
+                "text": "#sibling: @Bart\n",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\nIs translated to the following Cypher query (it would be similar in SPARQL);\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "match (v_: Entity {{name:\"Bart\"}})\n    match p_v = ((v:Entity)-[:IMPLIES*0..]->(v_))\n    with distinct v, [m in nodes(p_v) where 'Context' in labels(m)] as contexts\n    match (k_:Attribute {name:\"sibling\"})\n    match p_k = ((k:Attribute)-[:IMPLIES*0..]->(k_))\n    with distinct v, k, [m in nodes(p_k) where 'Context' in labels(m)]+contexts as contexts\n    match (k)-[:VALUE]->(c:Context)-[:VALUE]->(v),\n                        (c)-[:CONTEXT]->(n:Entity)\n    with distinct n, contexts\n    where size(contexts) = 0 or \n    all(c in contexts where exists((c)-[:CONTEXT]->()<-[:IMPLIES*0..]-()<-[:CATEGORY|ATTRIBUTE*0..1]-()<-[:IMPLIES*0..]-(n)))\n     \n    return distinct n\n"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWhich is not reasonable for a user to write."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "fc248405-231d-48e9-9977-9af2a825eb0b",
+    "type": "message",
+    "text": "I'm on a bit of an \"ethnographic\" thing at the moment so trying to come at stuff from a starting point of how people are already interacting with computers right now in the real world, rather than my own preferences which tend to be far too mathematical, \"precise\" and \"elegant\" for most of the species :upside_down_face:",
+    "user": "UDQBTJ211",
+    "ts": "1653379390.803009",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDQBTJ211",
+      "ts": "1653379403.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "e=5DT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm on a bit of an \"ethnographic\" thing at the moment so trying to come at stuff from a starting point of how people are already interacting with computers right now in the real world, rather than my own preferences which tend to be far too mathematical, \"precise\" and \"elegant\" for most of the species "
+              },
+              {
+                "type": "emoji",
+                "name": "upside_down_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "83b50d38-a516-4ee6-9ce2-7de69a18aa5c",
+    "type": "message",
+    "text": "Interesting! A small-scale knowledge graph with a lightweight interface looks very useful indeed.\n\nFrom my first impressions, I'd say yours is already getting too complex. Example: the way you disambiguate \"Bart\" by context. For a personal knowledge database, I'd probably prefer to keep entities unique, implying longer names, and add a completion interface for discovery and for faster entry. You'd type \"Bart\" and the system proposes all the entities containing \"Bart\" for selection.",
+    "user": "UJBAJNFLK",
+    "ts": "1653379977.807489",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jI3CO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting! A small-scale knowledge graph with a lightweight interface looks very useful indeed.\n\nFrom my first impressions, I'd say yours is already getting too complex. Example: the way you disambiguate \"Bart\" by context. For a personal knowledge database, I'd probably prefer to keep entities unique, implying longer names, and add a completion interface for discovery and for faster entry. You'd type \"Bart\" and the system proposes all the entities containing \"Bart\" for selection."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "6676b524-788a-4b84-8ed0-f2f53b739e8c",
+    "type": "message",
+    "text": "There's also Pure (<https://agraef.github.io/pure-lang/>), probably the closest to a general-purpose programming language based on term rewriting.\n\nMy own Leibniz project (<https://science-in-the-digital-era.khinsen.net/#Leibniz>) is based on term algebras and term rewriting as well. Its main inspiration is the OBJ family of algebraic specification languages, the latest of which (Maude) has already been mentioned. But the older papers on OBJ, mainly by Joseph Goguen and collaborators, are still worth reading.",
+    "user": "UJBAJNFLK",
+    "ts": "1653380383.030479",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/lx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's also Pure ("
+              },
+              {
+                "type": "link",
+                "url": "https://agraef.github.io/pure-lang/"
+              },
+              {
+                "type": "text",
+                "text": "), probably the closest to a general-purpose programming language based on term rewriting.\n\nMy own Leibniz project ("
+              },
+              {
+                "type": "link",
+                "url": "https://science-in-the-digital-era.khinsen.net/#Leibniz"
+              },
+              {
+                "type": "text",
+                "text": ") is based on term algebras and term rewriting as well. Its main inspiration is the OBJ family of algebraic specification languages, the latest of which (Maude) has already been mentioned. But the older papers on OBJ, mainly by Joseph Goguen and collaborators, are still worth reading."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653308886.510549",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0fc814e4-f013-49a7-9c18-811c0c06877c",
+    "type": "message",
+    "text": "A technique that looks like a nice complement to term rewriting is equality saturation (<https://arxiv.org/abs/1012.1802>). I am currently playing with it in Leibniz. Instead of reducing a term to a normal form, equality saturation compactly represents _all_ equivalent terms, so that you can pick the one that is \"best\" for your purposes. Of course this works only for rewriting systems implementing equivalence transformations.",
+    "user": "UJBAJNFLK",
+    "ts": "1653380934.946739",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://arxiv.org/abs/1012.1802",
+        "thumb_url": "https://static.arxiv.org/icons/twitter/arxiv-logo-twitter-square.png",
+        "thumb_width": 1000,
+        "thumb_height": 1000,
+        "service_icon": "https://static.arxiv.org/static/browse/0.3.4/images/icons/favicon.ico",
+        "id": 1,
+        "original_url": "https://arxiv.org/abs/1012.1802",
+        "fallback": "arXiv.org: Equality Saturation: A New Approach to Optimization",
+        "text": "Optimizations in a traditional compiler are applied sequentially, with each optimization destructively modifying the program to produce a transformed program that is then passed to the next...",
+        "title": "Equality Saturation: A New Approach to Optimization",
+        "title_link": "https://arxiv.org/abs/1012.1802",
+        "service_name": "arXiv.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ww0Dh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A technique that looks like a nice complement to term rewriting is equality saturation ("
+              },
+              {
+                "type": "link",
+                "url": "https://arxiv.org/abs/1012.1802"
+              },
+              {
+                "type": "text",
+                "text": "). I am currently playing with it in Leibniz. Instead of reducing a term to a normal form, equality saturation compactly represents "
+              },
+              {
+                "type": "text",
+                "text": "all",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " equivalent terms, so that you can pick the one that is \"best\" for your purposes. Of course this works only for rewriting systems implementing equivalence transformations."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653308886.510549",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a0ce1ab2-d5d0-4f0c-8c99-4b678cbea813",
+    "type": "message",
+    "text": "Yeah for sure you would need autocomplete in an actual system.\n\nTo clarify the underlying model, `@Bart` and `@[Bart Simpson]` are separate entities, marking it as synonymous just allows them to be switched in/out in a query. This was meant to be like Wikipedia titles. The canonical title will be something globally unique like \"Queen Victoria (British monarch)\", \"Victoria (Australian state)\", but will typically be referred to by a name (\"Victoria\") which is only contextually unique. This was my attempt to reflect how humans use names, but without introducing too much \"magic\" on the computer side.\n\nA dumb example that might be more clearer of the point of this feature;\n```@[My front door]\n   !Door\n   #closed\n\n@[My garden door]\n   !Door\n   #not-open\n\n@[Half open interval [0, 1)]\n   ![Subset of the Reals]\n   #not-open #not-closed\n\n!Door\n   #not-open = #closed\n```\nThen the query `#closed` with return the two doors, but not the set, because the rule `#not-open = #closed` does not apply in the context of `!Set`, only `!Door`.",
+    "user": "UDQBTJ211",
+    "ts": "1653381049.112909",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDQBTJ211",
+      "ts": "1653389261.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GAX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah for sure you would need autocomplete in an actual system.\n\nTo clarify the underlying model, "
+              },
+              {
+                "type": "text",
+                "text": "@Bart",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "@[Bart Simpson]",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " are separate entities, marking it as synonymous just allows them to be switched in/out in a query. This was meant to be like Wikipedia titles. The canonical title will be something globally unique like \"Queen Victoria (British monarch)\", \"Victoria (Australian state)\", but will typically be referred to by a name (\"Victoria\") which is only contextually unique. This was my attempt to reflect how humans use names, but without introducing too much \"magic\" on the computer side.\n\nA dumb example that might be more clearer of the point of this feature;\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "@[My front door]\n   !Door\n   #closed\n\n@[My garden door]\n   !Door\n   #not-open\n\n@[Half open interval [0, 1)]\n   ![Subset of the Reals]\n   #not-open #not-closed\n\n!Door\n   #not-open = #closed\n"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThen the query "
+              },
+              {
+                "type": "text",
+                "text": "#closed",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " with return the two doors, but not the set, because the rule "
+              },
+              {
+                "type": "text",
+                "text": "#not-open = #closed",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " does not apply in the context of "
+              },
+              {
+                "type": "text",
+                "text": "!Set",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", only "
+              },
+              {
+                "type": "text",
+                "text": "!Door",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "fefe2c54-f1f1-4032-b697-68599eec7acb",
+    "type": "message",
+    "text": "Neo4J is worse at this sort of thing than a TripleStore would be. In terms of making this query in SPARQL (using my Clojure wrapper):\n```(query `{:select [?siblingLabel]\n         :where  [[~(entity \"Bart Simpson\") ~(wdt :sibling) ?sibling]]})\n;;=&gt;\n[{:siblingLabel \"Lisa Simpson\"}\n {:siblingLabel \"Maggie Simpson\"}\n {:siblingLabel \"Hugo Simpson\"}]```\nMy own note-taking system includes a bunch of semantic web/GOFAI stuff, but also uses neural nets, &amp;c. I strongly encourage this line of inquiry! :slightly_smiling_face: But I also wanted to give you some advice from farther down this road.",
+    "user": "U013ZLJARC7",
+    "ts": "1653381549.628129",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GpQrm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Neo4J is worse at this sort of thing than a TripleStore would be. In terms of making this query in SPARQL (using my Clojure wrapper):\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(query `{:select [?siblingLabel]\n         :where  [[~(entity \"Bart Simpson\") ~(wdt :sibling) ?sibling]]})\n;;=>\n[{:siblingLabel \"Lisa Simpson\"}\n {:siblingLabel \"Maggie Simpson\"}\n {:siblingLabel \"Hugo Simpson\"}]"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My own note-taking system includes a bunch of semantic web/GOFAI stuff, but also uses neural nets, &c. I strongly encourage this line of inquiry! "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " But I also wanted to give you some advice from farther down this road."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0b2502a2-5242-422a-a12b-dae153b910cc",
+    "type": "message",
+    "text": "But how does it know that \"Bart Simpson\", sibling, \"Lisa Simpson\"?\n\nThe actual triple is \"Bart Simpson\", *sister*, \"Lisa Simpson\"",
+    "user": "UDQBTJ211",
+    "ts": "1653381681.844069",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "V7x0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But how does it know that \"Bart Simpson\", sibling, \"Lisa Simpson\"?\n\nThe actual triple is \"Bart Simpson\", "
+              },
+              {
+                "type": "text",
+                "text": "sister",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", \"Lisa Simpson\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "455327ba-0b77-4e25-be87-61dffddd42ff",
+    "type": "message",
+    "text": "I actually had Hugo in the demo originally but I thought it would confuse people with deficit Simpsons knowledge :rolling_on_the_floor_laughing:",
+    "user": "UDQBTJ211",
+    "ts": "1653381804.537249",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xZw5N",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I actually had Hugo in the demo originally but I thought it would confuse people with deficit Simpsons knowledge "
+              },
+              {
+                "type": "emoji",
+                "name": "rolling_on_the_floor_laughing"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "I've been thinking about the limitations and shortcomings that VPL environments have when they focus on program structure instead of the desired outcome a user has in mind.\n\nAnother word for structure is recipe. Recipes are difficult for most non-coders to wrestle with because they force a mental model of “do A, then B, then C to hopefully achieve the X that I want”. A recipe by its definition means that the outcome – the thing the user is trying to achieve - is a separate thing, which usually divides the UI into two distinct and somewhat disconnected parts.\n\nThis brings me to outcome-driven coding (ODC). I’m making up this term, surely there is a term grounded in research? :grin: With ODC, we’re flipping the script, and letting users work in a way that follows a pattern of “Tinker and change until it (the outcome, not the recipe) feels right”.\n\nBy mostly hiding the program structure, and showing the outcome of running the program live, an ODC tool can be made on top of an existing programming language, leveraging an entire eco-system of existing work, be it open source, or existing code bases that a product team is working on. This is a big deal for adoption of such a tool, and the foundation for collaboration with developers using IDEs.\n\nThere’s an interesting trade-off here that has to do with expressive power versus complexity in a VPL environment. With ODC, we can manage that complexity by deciding on which parts of a code base that visual programming is best suited for, and which parts to “leave alone but still execute to show the real product outcome”. Parts of a code base are inherently about the human element and the user experience. Let's call this \"design code\". Design code naturally centers on using and defining design system components, the visual language, use of data, navigation flows, and pages. This is where visual programming shines.\n\nThe ODC approach lets us create a tool that is optimized to work with design code visually, in a way that UX designers prefer, while allowing traditional business logic code to execute unhampered inside the tool. The key is to allow collaboration on a single shared code base, with tools specialized for the unique skills and needs of the people in a cross-functional team.\n\nWould be great to hear what this group thinks of this hybrid approach, and whether there is existing work that is similar. Thanks :slightly_smiling_face:",
+    "files": [
+      {
+        "id": "F03GHKG3VRU",
+        "created": 1653382704,
+        "timestamp": 1653382704,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U03GBV8B58V",
+        "editable": false,
+        "size": 60543,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F03GHKG3VRU/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F03GHKG3VRU/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 148,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 197,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 296,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 329,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 395,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHKG3VRU-f0770f6d1c/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 421,
+        "original_w": 2270,
+        "original_h": 934,
+        "thumb_tiny": "AwATADDRL4OKA4NIybjmhU296AFZu4NIpye9DjjqaROD1/OmAu4+n60qkk81EN395fyp8e7PJB+gqdR28ySiiimIKKKKACiiigD/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U03GBV8B58V/F03GHKG3VRU/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F03GHKG3VRU-6d7b51752c",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "U03GBV8B58V",
+    "display_as_bot": false,
+    "ts": "1653382869.317309",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iZD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been thinking about the limitations and shortcomings that VPL environments have when they focus on program structure instead of the desired outcome a user has in mind.\n\nAnother word for structure is recipe. Recipes are difficult for most non-coders to wrestle with because they force a mental model of “do A, then B, then C to hopefully achieve the X that I want”. A recipe by its definition means that the outcome – the thing the user is trying to achieve - is a separate thing, which usually divides the UI into two distinct and somewhat disconnected parts.\n\nThis brings me to outcome-driven coding (ODC). I’m making up this term, surely there is a term grounded in research? "
+              },
+              {
+                "type": "emoji",
+                "name": "grin"
+              },
+              {
+                "type": "text",
+                "text": " With ODC, we’re flipping the script, and letting users work in a way that follows a pattern of “Tinker and change until it (the outcome, not the recipe) feels right”.\n\nBy mostly hiding the program structure, and showing the outcome of running the program live, an ODC tool can be made on top of an existing programming language, leveraging an entire eco-system of existing work, be it open source, or existing code bases that a product team is working on. This is a big deal for adoption of such a tool, and the foundation for collaboration with developers using IDEs.\n\nThere’s an interesting trade-off here that has to do with expressive power versus complexity in a VPL environment. With ODC, we can manage that complexity by deciding on which parts of a code base that visual programming is best suited for, and which parts to “leave alone but still execute to show the real product outcome”. Parts of a code base are inherently about the human element and the user experience. Let's call this \"design code\". Design code naturally centers on using and defining design system components, the visual language, use of data, navigation flows, and pages. This is where visual programming shines.\n\nThe ODC approach lets us create a tool that is optimized to work with design code visually, in a way that UX designers prefer, while allowing traditional business logic code to execute unhampered inside the tool. The key is to allow collaboration on a single shared code base, with tools specialized for the unique skills and needs of the people in a cross-functional team.\n\nWould be great to hear what this group thinks of this hybrid approach, and whether there is existing work that is similar. Thanks "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "5df0da74-7f37-47a4-a57e-7bd6c0676e83",
+    "thread_ts": "1653382869.317309",
+    "reply_count": 14,
+    "reply_users_count": 4,
+    "latest_reply": "1653555925.882379",
+    "reply_users": [
+      "U03GBV8B58V",
+      "UDQBTJ211",
+      "UA14TGLTC",
+      "U03B14DUZSA"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "ODC in action:",
+    "files": [
+      {
+        "id": "F03GHM6D5FY",
+        "created": 1653383330,
+        "timestamp": 1653383330,
+        "name": "henosia-design-dev-collaboration.mp4",
+        "title": "henosia-design-dev-collaboration.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U03GBV8B58V",
+        "editable": false,
+        "size": 5292777,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHM6D5FY-70fbd06372/henosia-design-dev-collaboration.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHM6D5FY-70fbd06372/henosia-design-dev-collaboration.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F03GHM6D5FY/download/henosia-design-dev-collaboration.mp4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHM6D5FY-70fbd06372/file.m3u8?_xcb=b423d",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NjI2MDQwLEFWRVJBR0UtQkFORFdJRFRIPTUzMTA4MixDT0RFQ1M9ImF2YzEuNjQwMDFmLG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMTkyeDcyMCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TVM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TWk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TkM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TlM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tmk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tnk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3T0M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3T1M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TUM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TVM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TWk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TkM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TlM1MGN3b2pSVmhVU1U1R09qQXVOelkzTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd00wZElUVFpFTlVaWkxUY3dabUprTURZek56SXZabWxzWlY5SVh6STJORjh4TWpnd2VEY3lNRjh6TlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4Tmk1MGN3b2pSVmhVTFZndFJVNUVURWxUVkFvPQo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHM6D5FY-70fbd06372/henosia-design-dev-collaboration_trans.mp4",
+        "duration_ms": 90857,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GHM6D5FY-70fbd06372/henosia-design-dev-collaboration_thumb_video.jpeg",
+        "thumb_video_w": 1000,
+        "thumb_video_h": 604,
+        "permalink": "https://futureofcoding.slack.com/files/U03GBV8B58V/F03GHM6D5FY/henosia-design-dev-collaboration.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F03GHM6D5FY-d9896407c8",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "U03GBV8B58V",
+    "display_as_bot": false,
+    "ts": "1653383345.526409",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ND/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "ODC in action:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "d4ec181e-865d-4074-94f5-3f62d8025262",
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "21ae7a97-63c0-44a6-9763-08278d015cca",
+    "type": "message",
+    "text": "This is kind of what Wrangler does <http://vis.stanford.edu/wrangler/|http://vis.stanford.edu/wrangler/>",
+    "user": "UDQBTJ211",
+    "ts": "1653383494.666519",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lcjW+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is kind of what Wrangler does "
+              },
+              {
+                "type": "link",
+                "url": "http://vis.stanford.edu/wrangler/",
+                "text": "http://vis.stanford.edu/wrangler/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "64ca349e-da91-4d5f-9bda-328f5760ba4d",
+    "type": "message",
+    "text": "It's now a commercial company called Trifacta",
+    "user": "UDQBTJ211",
+    "ts": "1653383520.781969",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "s11Oc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's now a commercial company called Trifacta"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "68dc1c24-9c54-4ab9-86c8-852c1a45488f",
+    "type": "message",
+    "text": "Cool, thanks. Didn't know about them :slightly_smiling_face:",
+    "user": "U03GBV8B58V",
+    "ts": "1653383601.246569",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1qzS6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Cool, thanks. Didn't know about them "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "688368d8-07d6-4835-a67a-c962b0b55c64",
+    "type": "message",
+    "text": "It's definitely a very promising idea. Sketch-n-sketch is also similar. I'm not familiar enough with the research to know the right things to Google",
+    "user": "UDQBTJ211",
+    "ts": "1653383716.429479",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jXxmF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's definitely a very promising idea. Sketch-n-sketch is also similar. I'm not familiar enough with the research to know the right things to Google"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "21909b13-f828-49e8-979f-dcc5e4264ade",
+    "type": "message",
+    "text": "I know the feeling :smile:",
+    "user": "U03GBV8B58V",
+    "ts": "1653383766.003069",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6+Ot",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I know the feeling "
+              },
+              {
+                "type": "emoji",
+                "name": "smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6682d4ce-1e2e-49a6-bc06-21498403ad28",
+    "type": "message",
+    "text": "Structured editing is one of the terms we seem to overlap a bit.",
+    "user": "U03GBV8B58V",
+    "ts": "1653383794.763639",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6OOh6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Structured editing is one of the terms we seem to overlap a bit."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "I came across a big research lab from the 90s that I didn't know about so I decided to blog about it:\n\n:memo: <https://instadeq.com/blog/posts/interval-research-corporation-a-1990s-parc-without-a-xerox/|Interval Research Corporation: a 90s PARC without a Xerox>",
+    "files": [
+      {
+        "id": "F03GQLD3Y82",
+        "created": 1653387710,
+        "timestamp": 1653387710,
+        "name": "IntervalResearchCorporation.png",
+        "title": "IntervalResearchCorporation.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "UBN9AFS0N",
+        "editable": false,
+        "size": 86117,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F03GQLD3Y82/intervalresearchcorporation.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F03GQLD3Y82/download/intervalresearchcorporation.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GQLD3Y82-d84c3f5ab2/intervalresearchcorporation_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GQLD3Y82-d84c3f5ab2/intervalresearchcorporation_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GQLD3Y82-d84c3f5ab2/intervalresearchcorporation_360.png",
+        "thumb_360_w": 335,
+        "thumb_360_h": 360,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F03GQLD3Y82-d84c3f5ab2/intervalresearchcorporation_160.png",
+        "original_w": 429,
+        "original_h": 461,
+        "thumb_tiny": "AwAwACymttuXO7n6UotH/vLUkDZX9aspycYJpgVVsh/E/wCQqZLSIdVJ+pqYE/7IpQcjqTx6UDBERfuoo+gqC4uVjk27QTj0qV38tCzdAM1lOxdyx6k0MCS3bDYq8pUAZBJqjCypyetOa4/uigRd3AdFH404Fjz0+lVLYGRt8h4FWz84wGK5PUUCb1siK4VniZcnI9azqu3Ejw4Dfe5FUqGMKKKKQGpYxho+mT29KbcRSb/NhJ+Tgr/WoraRWj2FiPcGnTTpECFwXPemIpysXcuSMseg7UylZizEnqTk0lIZ/9k=",
+        "permalink": "https://futureofcoding.slack.com/files/UBN9AFS0N/F03GQLD3Y82/intervalresearchcorporation.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F03GQLD3Y82-97205351ce",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "UBN9AFS0N",
+    "display_as_bot": false,
+    "ts": "1653387732.003949",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ai6UC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I came across a big research lab from the 90s that I didn't know about so I decided to blog about it:\n\n"
+              },
+              {
+                "type": "emoji",
+                "name": "memo"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://instadeq.com/blog/posts/interval-research-corporation-a-1990s-parc-without-a-xerox/",
+                "text": "Interval Research Corporation: a 90s PARC without a Xerox"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "client_msg_id": "19e83b60-5ac8-4e5b-896e-f8bd87a69399",
+    "thread_ts": "1653387732.003949",
+    "reply_count": 5,
+    "reply_users_count": 3,
+    "latest_reply": "1653461646.602349",
+    "reply_users": [
+      "U013ZLJARC7",
+      "UBN9AFS0N",
+      "UDQBTJ211"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1653461646.602349",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U02028JHX37",
+          "UA14TGLTC",
+          "UJBAJNFLK",
+          "UC2A2ARPT"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "3cf33255-97fe-4388-a391-7b9561710e42",
+    "type": "message",
+    "text": "Enso is looking for a rust developer\n\n<https://twitter.com/enso_org/status/1529053395570634753>",
+    "user": "UBN9AFS0N",
+    "ts": "1653391742.191189",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://twitter.com/enso_org/status/1529053395570634753",
+        "ts": 1653389712,
+        "id": 1,
+        "original_url": "https://twitter.com/enso_org/status/1529053395570634753",
+        "fallback": "<https://twitter.com/enso_org|@enso_org>: Guten Tag <https://twitter.com/RustBerlin|@RustBerlin> :crab::de: Enso is on the lookout for #rustaceans - would you mind sharing the news? A fully remote opportunity to work with Rust in an international team, distributed across the EU and the US. For more info, go here: <https://github.com/enso-org/hiring>",
+        "text": "Guten Tag <https://twitter.com/RustBerlin|@RustBerlin> :crab::de: Enso is on the lookout for #rustaceans - would you mind sharing the news? A fully remote opportunity to work with Rust in an international team, distributed across the EU and the US. For more info, go here: <https://github.com/enso-org/hiring>",
+        "author_name": "Enso (formerly Luna)",
+        "author_link": "https://twitter.com/enso_org/status/1529053395570634753",
+        "author_icon": "https://pbs.twimg.com/profile_images/1276175817400291335/zvrNeVit_normal.jpg",
+        "author_subname": "@enso_org",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wg93A",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Enso is looking for a rust developer\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/enso_org/status/1529053395570634753"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653391742.191189",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1653409480.850689",
+    "reply_users": [
+      "U03DNFDFYDA"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1653409480.850689",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "44dbda33-4e2a-421f-b996-069ecd91d23c",
+    "type": "message",
+    "text": "Registrations for Unison Forall 2022 are open\n\nJune 24th (EDT), fully online and completely free\n\n<https://twitter.com/unisonweb/status/1529087283378458625>",
+    "user": "UBN9AFS0N",
+    "ts": "1653398326.092559",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://twitter.com/unisonweb/status/1529087283378458625",
+        "ts": 1653397792,
+        "id": 1,
+        "original_url": "https://twitter.com/unisonweb/status/1529087283378458625",
+        "fallback": "<https://twitter.com/unisonweb|@unisonweb>: We're very pleased to announce that registrations for Unison Forall 2022 are open! Join us June 24th (EDT) for the first Unison language conference, fully online and completely free. We have a lineup of engaging talks, and a virtual \"hallway track\". :robot_face::cherry_blossom::ringed_planet:\n<https://hopin.com/events/unison-forall>",
+        "text": "We're very pleased to announce that registrations for Unison Forall 2022 are open! Join us June 24th (EDT) for the first Unison language conference, fully online and completely free. We have a lineup of engaging talks, and a virtual \"hallway track\". :robot_face::cherry_blossom::ringed_planet:\n<https://hopin.com/events/unison-forall>",
+        "author_name": "Unison",
+        "author_link": "https://twitter.com/unisonweb/status/1529087283378458625",
+        "author_icon": "https://pbs.twimg.com/profile_images/1499836364703023104/Qok9Rmch_normal.jpg",
+        "author_subname": "@unisonweb",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1b9i0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Registrations for Unison Forall 2022 are open\n\nJune 24th (EDT), fully online and completely free\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/unisonweb/status/1529087283378458625"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653398326.092559",
+    "reply_count": 1,
+    "reply_users_count": 1,
+    "latest_reply": "1653505317.457029",
+    "reply_users": [
+      "UCGR73CAY"
+    ],
+    "is_locked": false,
+    "subscribed": true,
+    "last_read": "1653505317.457029",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U03C0DRJB8B",
+          "U02JQA5FY5C"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "f39695d2-0910-40c7-9120-75870813ff12",
+    "type": "message",
+    "text": "<@U013ZLJARC7> I'm curious to hear more about how you use symbolic AI in your note taking system!",
+    "user": "UCUSW7WVD",
+    "ts": "1653399575.069229",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WQS0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": " I'm curious to hear more about how you use symbolic AI in your note taking system!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "4acbc5fc-5118-4c19-b977-d2e1fa596f30",
+    "type": "message",
+    "text": "Love the hybrid approach.  Start with the concrete, gradually abstract.\n\nHow similar/different is outcome-driven coding to programming by example?  Certainly, normal people don't follow recipes, let alone write them.  They have a sense for what a good outcome will be, and if it's not going that way they'll double check, tweak, and outright ignore the steps.  Is improvisation what makes us human?\n\nGood programmers, on the other hand, generally have two uncanny skills:\n\n1) Can play computer, can model, often in their heads, what the steps will actually do rather than what they should do, it's like how an artist can imagine what a subject actually looks like rather than an simpler abstraction.\n\n2) Can sense edge cases and complicating interactions.  Yes, but when you combine this with that what happens?\n\nLiveness helps to address (1).  There are challenges certainly, but what do we do to help a person with (2)?  You could say static checks try to address (2).  I have a recent example in mind.\n\nTrying RubyMine for fun, it flagged an _obviously_ fine stretch of code:\n```@instance_variable = [an, array, of, things]\n@instance_variable.map(&amp;:whatever)\n# ... later in the method ...\n@instance_variable = nil```\nas potentially raising \"NoMethodError: undefined method for nil:NilClass.\"  Smart tool not so smart?  Typing `@instance_variable` based on all its uses ignoring control flow?  Replace `@instance_variable` with `local_variable` no error.  Why the difference?  Thread safety!  Would be nice if the tool explained as much, but there you have it.  (Of course, no sane person uses threads in Ruby, or ever, but that's another conversation.)",
+    "user": "UA14TGLTC",
+    "ts": "1653406539.177889",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+BJO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Love the hybrid approach.  Start with the concrete, gradually abstract.\n\nHow similar/different is outcome-driven coding to programming by example?  Certainly, normal people don't follow recipes, let alone write them.  They have a sense for what a good outcome will be, and if it's not going that way they'll double check, tweak, and outright ignore the steps.  Is improvisation what makes us human?\n\nGood programmers, on the other hand, generally have two uncanny skills:\n\n1) Can play computer, can model, often in their heads, what the steps will actually do rather than what they should do, it's like how an artist can imagine what a subject actually looks like rather than an simpler abstraction.\n\n2) Can sense edge cases and complicating interactions.  Yes, but when you combine this with that what happens?\n\nLiveness helps to address (1).  There are challenges certainly, but what do we do to help a person with (2)?  You could say static checks try to address (2).  I have a recent example in mind.\n\nTrying RubyMine for fun, it flagged an "
+              },
+              {
+                "type": "text",
+                "text": "obviously",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " fine stretch of code:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "@instance_variable = [an, array, of, things]\n@instance_variable.map(&:whatever)\n# ... later in the method ...\n@instance_variable = nil"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "as potentially raising \"NoMethodError: undefined method for nil:NilClass.\"  Smart tool not so smart?  Typing "
+              },
+              {
+                "type": "text",
+                "text": "@instance_variable",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " based on all its uses ignoring control flow?  Replace "
+              },
+              {
+                "type": "text",
+                "text": "@instance_variable",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " with "
+              },
+              {
+                "type": "text",
+                "text": "local_variable",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " no error.  Why the difference?  Thread safety!  Would be nice if the tool explained as much, but there you have it.  (Of course, no sane person uses threads in Ruby, or ever, but that's another conversation.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e6a4b4e8-3c61-4cff-a3ee-6fd74c79d117",
+    "type": "message",
+    "text": "<@UDQBTJ211> In this case the database happens to contain those assertions, as I'm running this query against Wikidata. If I had a DB with only brother and sister, I'd be able to specify what sibling means using a meta-language that would then allow this query to remain as simple.",
+    "user": "U013ZLJARC7",
+    "ts": "1653407492.705799",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CYYYl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UDQBTJ211"
+              },
+              {
+                "type": "text",
+                "text": " In this case the database happens to contain those assertions, as I'm running this query against Wikidata. If I had a DB with only brother and sister, I'd be able to specify what sibling means using a meta-language that would then allow this query to remain as simple."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "580a0dad-ec4e-42aa-a01b-87dd6e7111d8",
+    "type": "message",
+    "text": "<@UCUSW7WVD> I need to make a video about the whole thing",
+    "user": "U013ZLJARC7",
+    "ts": "1653407523.412919",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "01gl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " I need to make a video about the whole thing"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653331495.527059",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UCUSW7WVD",
+          "UEBG0NPDK",
+          "UJBAJNFLK",
+          "UDQBTJ211",
+          "UAZT04VT4"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "49911633-e967-42e1-abf5-9c7ab2ae1688",
+    "type": "message",
+    "text": "\"Our research is kept secret\" :face_vomiting:",
+    "user": "U013ZLJARC7",
+    "ts": "1653407959.032629",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kbMG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"Our research is kept secret\" "
+              },
+              {
+                "type": "emoji",
+                "name": "face_vomiting"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653387732.003949",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b5bab4e6-1876-4f99-8d38-29e3077e9182",
+    "type": "message",
+    "text": "ODC and Programming By Example are definitely related, but PBE is more general in my mind since it can also consist of textual/symbolic/node-based structures. With ODC, the user interacts directly with the program output on a canvas, and the examples being pulled in are also viewed based on their output before being added.",
+    "user": "U03GBV8B58V",
+    "ts": "1653409180.253319",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U03GBV8B58V",
+      "ts": "1653409610.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Bpu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "ODC and Programming By Example are definitely related, but PBE is more general in my mind since it can also consist of textual/symbolic/node-based structures. With ODC, the user interacts directly with the program output on a canvas, and the examples being pulled in are also viewed based on their output before being added."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6c690d78-0f59-46bc-876e-4686ebdb71f9",
+    "type": "message",
+    "text": "Enso is pretty neat… One of the few VPLs I’ve seen that might actually be useful at scale :sweat_smile:",
+    "user": "U03DNFDFYDA",
+    "ts": "1653409480.850689",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t2B",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Enso is pretty neat… One of the few VPLs I’ve seen that might actually be useful at scale "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653391742.191189",
+    "parent_user_id": "UBN9AFS0N",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "d000d2a1-8796-4a4d-9681-0ff18d63e770",
+    "type": "message",
+    "text": "Having to \"play the computer\" is one of the pains we're trying to solve for designers.\n\nToday, with vector based tools, designers have to imagine how their design will look in the final medium (after handoff to dev). We want them to immediately see the real output -- the user experience that ships -- and pass real data though it, so they can evaluate the quality and robustness of the design in real time and improve it as needed.",
+    "user": "U03GBV8B58V",
+    "ts": "1653410070.884739",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xFkO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Having to \"play the computer\" is one of the pains we're trying to solve for designers.\n\nToday, with vector based tools, designers have to imagine how their design will look in the final medium (after handoff to dev). We want them to immediately see the real output -- the user experience that ships -- and pass real data though it, so they can evaluate the quality and robustness of the design in real time and improve it as needed."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653382869.317309",
+    "parent_user_id": "U03GBV8B58V",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "70777E37-3A9D-4C2A-BEDD-68DAC0F8CD87",
+    "type": "message",
+    "text": "Tiny demo from some weekend hacking to bring the computer out of its box by mapping macOS spaces to physical spaces in my room\n\n<https://twitter.com/tobyshooters/status/1529153009032253440?s=21&amp;t=xULGxPhOKg3n6vR5UkVdJg|https://twitter.com/tobyshooters/status/1529153009032253440?s=21&amp;t=xULGxPhOKg3n6vR5UkVdJg>",
+    "user": "U022N3XFW0Y",
+    "ts": "1653415480.538239",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://twitter.com/tobyshooters/status/1529153009032253440?s=21&amp;t=xULGxPhOKg3n6vR5UkVdJg",
+        "ts": 1653413462,
+        "thumb_url": "https://pbs.twimg.com/ext_tw_video_thumb/1529151717153054722/pu/img/DD9Lp6NCWFKAx-w0.jpg",
+        "thumb_width": 1200,
+        "thumb_height": 750,
+        "video_html": "<video controls poster=\"https://pbs.twimg.com/ext_tw_video_thumb/1529151717153054722/pu/img/DD9Lp6NCWFKAx-w0.jpg\" width=\"1200\" height=\"750\"><source type=\"video/mp4\" src=\"https://video.twimg.com/ext_tw_video/1529151717153054722/pu/vid/1152x720/iROxSf1b0tU0HmOG.mp4?tag=12\"></video>",
+        "video_html_width": 1200,
+        "video_html_height": 750,
+        "id": 1,
+        "original_url": "https://twitter.com/tobyshooters/status/1529153009032253440?s=21&amp;t=xULGxPhOKg3n6vR5UkVdJg",
+        "fallback": "<https://twitter.com/tobyshooters|@tobyshooters>: Pinning macOS spaces to physical spaces: Forgot my dictionary at my desk... walk over to grab it!\n\nDepending on one's physical location, a different macOS space is focused (see top-right). You can move windows between spaces by walking over, grabbing onto it, and walking back. <https://pbs.twimg.com/ext_tw_video_thumb/1529151717153054722/pu/img/DD9Lp6NCWFKAx-w0.jpg>",
+        "text": "Pinning macOS spaces to physical spaces: Forgot my dictionary at my desk... walk over to grab it!\n\nDepending on one's physical location, a different macOS space is focused (see top-right). You can move windows between spaces by walking over, grabbing onto it, and walking back.",
+        "author_name": "cristóbal",
+        "author_link": "https://twitter.com/tobyshooters/status/1529153009032253440",
+        "author_icon": "https://pbs.twimg.com/profile_images/1526555781654519808/LgTF5SGp_normal.jpg",
+        "author_subname": "@tobyshooters",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Shm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Tiny demo from some weekend hacking to bring the computer out of its box by mapping macOS spaces to physical spaces in my room\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/tobyshooters/status/1529153009032253440?s=21&t=xULGxPhOKg3n6vR5UkVdJg",
+                "text": "https://twitter.com/tobyshooters/status/1529153009032253440?s=21&t=xULGxPhOKg3n6vR5UkVdJg"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653415480.538239",
+    "reply_count": 3,
+    "reply_users_count": 2,
+    "latest_reply": "1653422820.451189",
+    "reply_users": [
+      "U022N3XFW0Y",
+      "UDQBTJ211"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "heart_eyes",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "0C167FCE-F193-4888-898A-CB47DD726089",
+    "type": "message",
+    "text": "And here’s the code: <https://github.com/tobyshooters/livepipe/tree/main/spaces|https://github.com/tobyshooters/livepipe/tree/main/spaces>",
+    "user": "U022N3XFW0Y",
+    "ts": "1653415587.439969",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7etU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And here’s the code: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/tobyshooters/livepipe/tree/main/spaces",
+                "text": "https://github.com/tobyshooters/livepipe/tree/main/spaces"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653415480.538239",
+    "parent_user_id": "U022N3XFW0Y",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "aa722245-d216-4a1c-bcf1-54c6c16db3b9",
+    "type": "message",
+    "text": "Do you notice a difference in remembering \"where things are\"?",
+    "user": "UDQBTJ211",
+    "ts": "1653417152.023519",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Zqq1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Do you notice a difference in remembering \"where things are\"?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653415480.538239",
+    "parent_user_id": "U022N3XFW0Y",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "9A95FF04-BD72-4A23-8752-1CC1E78BD698",
+    "type": "message",
+    "text": "Not quite sure yet in any general sense. While programming it I found that I quickly associated a chair with where the program was running. It was frustrating at first, but eventually just became expected.",
+    "user": "U022N3XFW0Y",
+    "ts": "1653422820.451189",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wy96",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Not quite sure yet in any general sense. While programming it I found that I quickly associated a chair with where the program was running. It was frustrating at first, but eventually just became expected."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653415480.538239",
+    "parent_user_id": "U022N3XFW0Y",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "ff7f8663-ff19-4d40-a111-4c8eb7a8e6d6",
+    "type": "message",
+    "text": "6 papers: <https://web.archive.org/web/19971012120857/http://www.interval.com/papers/>\n\n50 million USD per paper :stuck_out_tongue:",
+    "user": "UBN9AFS0N",
+    "ts": "1653427014.810069",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+OX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "6 papers: "
+              },
+              {
+                "type": "link",
+                "url": "https://web.archive.org/web/19971012120857/http://www.interval.com/papers/"
+              },
+              {
+                "type": "text",
+                "text": "\n\n50 million USD per paper "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653387732.003949",
+    "parent_user_id": "UBN9AFS0N",
+    "reactions": [
+      {
+        "name": "sob",
+        "users": [
+          "UC2A2ARPT",
+          "UA14TGLTC",
+          "U013ZLJARC7"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "7cdd0b8f-5de6-4245-bbae-28e33fa8d6c4",
+    "type": "message",
+    "text": "Emergent Ventures is a low-application-overhead grant for 'high-reward ideas'. I haven't been able to find out what typical grant size is, but the parallel Covid Fast Grants program seems to be averaging $250k.\n\nApplication - <https://mercatuscenter.formstack.com/forms/emergent_ventures>\nPrevious grants - <https://docs.google.com/spreadsheets/d/1NYv0vsWVtEMDvO7gYDh4DDH4oNBGQBGpV0bZzG9x9JY/edit#gid=243061127>",
+    "user": "U71PMQ1V0",
+    "ts": "1653432315.822419",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BEum",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Emergent Ventures is a low-application-overhead grant for 'high-reward ideas'. I haven't been able to find out what typical grant size is, but the parallel Covid Fast Grants program seems to be averaging $250k.\n\nApplication - "
+              },
+              {
+                "type": "link",
+                "url": "https://mercatuscenter.formstack.com/forms/emergent_ventures"
+              },
+              {
+                "type": "text",
+                "text": "\nPrevious grants - "
+              },
+              {
+                "type": "link",
+                "url": "https://docs.google.com/spreadsheets/d/1NYv0vsWVtEMDvO7gYDh4DDH4oNBGQBGpV0bZzG9x9JY/edit#gid=243061127"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653432315.822419",
+    "reply_count": 11,
+    "reply_users_count": 3,
+    "latest_reply": "1653510553.197269",
+    "reply_users": [
+      "UEBG0NPDK",
+      "UCGR73CAY",
+      "U71PMQ1V0"
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "UCUSW7WVD",
+          "U02U0AS3J49"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "f7672534-d598-4f14-8174-83c92c6a6894",
+    "type": "message",
+    "text": "The range is apparently $10k - $500k",
+    "user": "UEBG0NPDK",
+    "ts": "1653433253.528099",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uV=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The range is apparently $10k - $500k"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1653432315.822419",
+    "parent_user_id": "U71PMQ1V0",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

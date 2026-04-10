@@ -1,0 +1,167 @@
+[
+  {
+    "client_msg_id": "bb39bcf8-cc12-4b14-ae62-9f5c0792a3c7",
+    "type": "message",
+    "text": "<@U03E4LY27FS> Thanks for sharing!  It can be dramatic!  I'm into visualizing execution traces.  Imagine each step as a little wooden strip, a popsicle stick.  Now you have a chain of them, a ribbon, millions of links long.  Use rules to fold that ribbon.\n\nFor example, here's a standard view that I like.  Developed in stages:\n1. Put each step below its predecessor.  The ribbon goes from the sky to the underworld.\n2. If a step is a call, put it to the right of its predecessor.  Now, the ribbon zigs from left to right.\n3. If a step is a return, put it to the left of its predecessor.  Now, the ribbon zigs and zags.  It's still quite tall.\n4. If there's a gap between a step and the one visually above it, collapse it.  Now this structure is compact with lots and lots of overlap in the middle.\n5. If some steps are on top of each other, put earlier steps in front of later steps.  Now we a nicely oriented 3D tree.  Left to right shows call stack depth.  Top to bottom is order of execution.  Front to back shows things at the same depth with the stuff the executed first in front.\nWalking around the tree gives you some perspective.   More comes from, say, making distances smaller the deeper you are in the stack.  It still looks like a mess.  But for me the real, real mind blower was to add a breeze.  Suddenly the connections in this elaborate structure are as easy to see as the separate branches of a real tree.",
+    "user": "UA14TGLTC",
+    "ts": "1651984070.639409",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/P2/j",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U03E4LY27FS"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for sharing!  It can be dramatic!  I'm into visualizing execution traces.  Imagine each step as a little wooden strip, a popsicle stick.  Now you have a chain of them, a ribbon, millions of links long.  Use rules to fold that ribbon.\n\nFor example, here's a standard view that I like.  Developed in stages:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Put each step below its predecessor.  The ribbon goes from the sky to the underworld."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "If a step is a call, put it to the right of its predecessor.  Now, the ribbon zigs from left to right."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "If a step is a return, put it to the left of its predecessor.  Now, the ribbon zigs and zags.  It's still quite tall."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "If there's a gap between a step and the one visually above it, collapse it.  Now this structure is compact with lots and lots of overlap in the middle."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "If some steps are on top of each other, put earlier steps in front of later steps.  Now we a nicely oriented 3D tree.  Left to right shows call stack depth.  Top to bottom is order of execution.  Front to back shows things at the same depth with the stuff the executed first in front."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWalking around the tree gives you some perspective.   More comes from, say, making distances smaller the deeper you are in the stack.  It still looks like a mess.  But for me the real, real mind blower was to add a breeze.  Suddenly the connections in this elaborate structure are as easy to see as the separate branches of a real tree."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1651636380.628219",
+    "parent_user_id": "U03E4LY27FS",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "EB4CA158-5DA5-475B-A935-569C8BBFB315",
+    "type": "message",
+    "text": "<@UA14TGLTC> I'm really chewing on this layout algorithm. I'm trying to think how I would implement this with my current structures. The library currently traces entry and exit of calls, so I could handle the left/right distinction. The list is a set of ids, so theoretically it's not too hard to pull from the list as many times as can be rendered. The sky's the limit indeed.\n\nThis may sound simple, but I could render the persisted UUIDs that represent the call stack into a text layer. Then, stack these text-popsicle-sticks, and arrange them with the left/right pattern. The ifs have a static length so that's easy to make basic assumptions on for layout. It'll look like a big block of code, but indeed, with all those gaps and zig zagging, little mountains. I have a few questions about implementing that sort of packing algorithm! Haha.\n\nYou mentioned introducing a breeze - I'm not sure about that one, is that a technique for some kind of graph interaction? This is a first for me all around for this tech and these ideas, so I have a ton to learn and absorb.",
+    "user": "U03E4LY27FS",
+    "ts": "1651987551.541299",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U03E4LY27FS",
+      "ts": "1651987648.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MgW/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " I'm really chewing on this layout algorithm. I'm trying to think how I would implement this with my current structures. The library currently traces entry and exit of calls, so I could handle the left/right distinction. The list is a set of ids, so theoretically it's not too hard to pull from the list as many times as can be rendered. The sky's the limit indeed.\n\nThis may sound simple, but I could render the persisted UUIDs that represent the call stack into a text layer. Then, stack these text-popsicle-sticks, and arrange them with the left/right pattern. The ifs have a static length so that's easy to make basic assumptions on for layout. It'll look like a big block of code, but indeed, with all those gaps and zig zagging, little mountains. I have a few questions about implementing that sort of packing algorithm! Haha.\n\nYou mentioned introducing a breeze - I'm not sure about that one, is that a technique for some kind of graph interaction? This is a first for me all around for this tech and these ideas, so I have a ton to learn and absorb."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1651636380.628219",
+    "parent_user_id": "U03E4LY27FS",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "789537D0-111C-41FF-AAF3-EEB8570A3AD2",
+    "type": "message",
+    "text": "<@UA14TGLTC> that sounds cool! Have you seen any programs that let you visualize execution traces?",
+    "user": "U85HCL7JP",
+    "ts": "1652016909.768669",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/mG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " that sounds cool! Have you seen any programs that let you visualize execution traces?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1651636380.628219",
+    "parent_user_id": "U03E4LY27FS",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]
