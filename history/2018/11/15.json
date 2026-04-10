@@ -1,0 +1,474 @@
+[
+  {
+    "client_msg_id": "b44de68a-4235-4f3e-b158-10439c7677e4",
+    "type": "message",
+    "text": "Ah sorry we didn't get to meet!",
+    "user": "U5TCAFTD3",
+    "ts": "1542240812.238000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1541452901.070200",
+    "parent_user_id": "UC1TYP06P",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b44de68a-4235-4f3e-b158-10439c7677e4",
+    "type": "message",
+    "text": "Ah sorry we didn't get to meet!",
+    "user": "U5TCAFTD3",
+    "ts": "1542240812.238000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1541452901.070200",
+    "parent_user_id": "UC1TYP06P",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d92a0e8f-48f9-4d7e-9436-d4d811336f40",
+    "type": "message",
+    "text": "Just realized that documentation usually describes higher level of abstraction about code. It describers into what layers program is split, or what functionality several applications should provide.\n\nThere must be a tool that would parse plain English statements with links to your code, transform it into some constraints, and then apply these constraints while developing. This will connect documentation and code more tightly, reduce chance of being obsolete.\n\nSay you're writing in documentation that: \"The whole application is split into three layers: A, B, C. A and C layers never communicate. A consists of ComponentA1, ComponentA2. Components in C layers are all located in 'c_layer' directory\". A tool gonna parse it and produce rules:\n\n```\nlayer('A', 'ComponentA1').\nlayer('A', 'ComponentA2').\n\nread_components_in_dir('C', \"c_layer\").\n\nio_allowed(Component1, Component2) :-\n  layer('A', Component1), layer('C', Component2), false;\nio_allowed(Component1, Component2) :-\n  layer('A', Component2), layer('C', Component1), false;\nio_allowed(Component1, Component2).\n```\n\nI'm not sure I got the Prolog code right, but you get the idea.\n\nThus it will throw a warning if it notices that code break constraint described in documentation.\n\nThis will motivate programmers describe higher level assumptions about code in documentation, because it constraints it and provides some kind of safety. Just like static typing or assertion does.",
+    "user": "UCKRZS3DZ",
+    "ts": "1542263780.084400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "reply_count": 13,
+    "reply_users_count": 3,
+    "latest_reply": "1542762518.110600",
+    "reply_users": [
+      "UCKRZS3DZ",
+      "UE1JQM9HQ",
+      "U8A5MS6R1"
+    ],
+    "replies": [
+      {
+        "user": "UCKRZS3DZ",
+        "ts": "1542264193.084500"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1542265827.086300"
+      },
+      {
+        "user": "UCKRZS3DZ",
+        "ts": "1542266008.086500"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1542266174.086700"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1542266210.086900"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1542266391.087200"
+      },
+      {
+        "user": "UCKRZS3DZ",
+        "ts": "1542266568.087400"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1542304815.088000"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1542305018.088200"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1542305072.088400"
+      },
+      {
+        "user": "UE1JQM9HQ",
+        "ts": "1542315971.088700"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1542762468.110200"
+      },
+      {
+        "user": "U8A5MS6R1",
+        "ts": "1542762518.110600"
+      }
+    ],
+    "is_locked": false,
+    "subscribed": false,
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "81a8611a-7238-4e01-a2e4-7884fa681e07",
+    "type": "message",
+    "text": "Actually it reminds Gherkin somewhat: <https://docs.cucumber.io/gherkin/reference/>\n\nTo make this kind of constraints really work, it will require code and deployment identifiers to be located in single namespace. This way it would be possible to reason about anything in documentation, describe any type of constraints on application or service behavior,\n\nThat's why I look at IPFS with hope.",
+    "user": "UCKRZS3DZ",
+    "ts": "1542264193.084500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCKRZS3DZ",
+      "ts": "1542264205.000000"
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ae9623b6-890f-4ccf-85d4-c2176dae00f3",
+    "type": "message",
+    "text": "Parsing natural language to produce accurate queries is a hard problem. But, you do not need natural language for that. For example, <http://moosetechnology.org|moosetechnology.org> offers an extensive mechanism for writing queries like this. In fact, I believe this is the only way we can steer agile architecture.",
+    "user": "UE1JQM9HQ",
+    "ts": "1542265827.086300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "7e1bf8d8-cf48-492c-864d-c100f4a5fe6c",
+    "type": "message",
+    "text": "Well, I still want to keep it as documentation first. Make it undestandable for humans first.\n\nI'm fine with manual assistance of translating plain text statement into formula.",
+    "user": "UCKRZS3DZ",
+    "ts": "1542266008.086500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "531e1f37-443c-4dec-b241-8b4a1e375e17",
+    "type": "message",
+    "text": "The problem with this is that if you need to maintain it manually, it will get obsolete.",
+    "user": "UE1JQM9HQ",
+    "ts": "1542266174.086700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "075dbf29-1ac1-47b9-b13c-25e9cad13e27",
+    "type": "message",
+    "text": "but, queries do not have to be unapproachable. A query could look like this: `componentA shouldNotUse: componentB`.",
+    "user": "UE1JQM9HQ",
+    "ts": "1542266210.086900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UE1JQM9HQ",
+      "ts": "1542266219.000000"
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "030395f9-819f-42ed-b001-847f830e1d39",
+    "type": "message",
+    "text": "Also, translating queries to natural language should be an easier problem than the other way around.",
+    "user": "UE1JQM9HQ",
+    "ts": "1542266391.087200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "reactions": [
+      {
+        "name": "+1::skin-tone-3",
+        "users": [
+          "UAL7940NM",
+          "U8A5MS6R1"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "3dac7af1-2dfb-4c7c-8ff9-ccb7fec3c475",
+    "type": "message",
+    "text": "yeah",
+    "user": "UCKRZS3DZ",
+    "ts": "1542266568.087400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "33ef79e0-b717-4f11-99d3-1c90ea132eec",
+    "type": "message",
+    "text": "Top down design is useful. Bottom up should also be possible - e.g. write programs that grow organically over time but then you identify the boundaries, patterns extract the higher level descriptions. Doing this in form that remains connected and true to the lower levels is what could make this different from the alternative 'document the architecture in a google doc'.",
+    "user": "U8A5MS6R1",
+    "ts": "1542304815.088000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "78e4ba95-c61c-41d1-884c-5561a66bb5c2",
+    "type": "message",
+    "text": "I developed a method that does exactly that and used it in practice for the last 9 years. It works really well :slightly_smiling_face:",
+    "user": "UE1JQM9HQ",
+    "ts": "1542305018.088200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e1e7a2ea-d1ad-453c-adc3-1a921057860c",
+    "type": "message",
+    "text": "in fact, even if you do top down design, the reality is always in the code, so the ability to know what is there is crucial. Code reading does not scale, so we need tools that answer questions for us.",
+    "user": "UE1JQM9HQ",
+    "ts": "1542305072.088400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "fe476a1a-8c4d-4ca3-86df-6cab7d64de59",
+    "type": "message",
+    "text": "if anyone is interested, you can look for more details at <http://humane-assessment.com>",
+    "user": "UE1JQM9HQ",
+    "ts": "1542315971.088700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1542263780.084400",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "bcf6c956-ea1e-40ab-a412-4b0ca5e550c2",
+    "type": "message",
+    "text": "Quite impressied how fast this community is growing. Does anybody <!here> happen to be based in Berlin?",
+    "user": "UA8HY8R7B",
+    "ts": "1542319304.090700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g7db3c1ad975",
+      "image_72": "https://secure.gravatar.com/avatar/e7db3c1ad975b0355d3047ca8acb7c54.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "Nikolas",
+      "real_name": "Nikolas Martens",
+      "display_name": "Nikolas",
+      "team": "T5TCAFTA9",
+      "name": "nikolas.m",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]
