@@ -1,0 +1,764 @@
+[
+  {
+    "client_msg_id": "fd2f33d4-303a-41fd-ad2c-5ef3e407276c",
+    "type": "message",
+    "text": "<@U8A5MS6R1> If we think the requirement of tokens from the abstract data structure point of view:\n\n-As you stated: text files are a list of strings. Therefore we can have many things on the single level.\n-To be able to compose things from smaller parts we need a tree. This level lives usually on the syntax level.\n-Next, we need to be able to reuse existing parts elsewhere so we need DAG. Currently done with tokens on higher level inside the compiler.\n-Cyclic graphs for recursive definitions? - out of scope for now\n\nOne point here is that while you can represent the general program as graph we still represent some of the program structure as a nested tree and rest with tokens. Even tough program can be considered to be composed from equal class relations. So nesting is quite cheap and obvious way of improvement but yeah it kind is just halfway to the natural structure of programming languages.\n\nSo do we need tokens as an addition for nesting? I think we need the structure which has native support for at least DAGs. The most direct way of thinking next incremental step is adding tokens in addition to nesting. However, then there are two different ways of referencing. That smells to my nose a bit.\n\nMy own current favorite structure model is to use GUID/hash identified tuples (or lists) which have in cells either payload data or reference. Therefore there is the only single way of having substructure which also supports graphs. Visualizing / editing can then happen by nesting and by token (label by metadata of token) and this visualization doesn't have to be static even tough actual structure is untouched.\n\nBtw your blog post: Files, Formats and Byte Arrays was great area capture and caused that \"of course\"-realization. Files require same kind metastructure where referencing to other files is standardized. But if files contain graph which can have references to another same kind of files (which lives in a hierarchical filesystem), what is the value of file concept? It starts to smell like low-level implementation detail which I maybe don't want to see at all. Some time ago I relistened Future Of Coding E10 - Interview of Paul Chiusano and got idea/illusion that it should be possible to make application persistency completely invisible by using the right abstraction. Elm family-architectures with time-traveling debugger are some sort of proof.",
+    "user": "U7C7B75R6",
+    "ts": "1536022009.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "be27878783b4",
+      "image_72": "https://avatars.slack-edge.com/2019-04-10/604262911488_be27878783b4b23a5ed4_72.png",
+      "first_name": "",
+      "real_name": "Niko Autio",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "niko.elmari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fd2f33d4-303a-41fd-ad2c-5ef3e407276c",
+    "type": "message",
+    "text": "<@U8A5MS6R1> If we think the requirement of tokens from the abstract data structure point of view:\n\n-As you stated: text files are a list of strings. Therefore we can have many things on the single level.\n-To be able to compose things from smaller parts we need a tree. This level lives usually on the syntax level.\n-Next, we need to be able to reuse existing parts elsewhere so we need DAG. Currently done with tokens on higher level inside the compiler.\n-Cyclic graphs for recursive definitions? - out of scope for now\n\nOne point here is that while you can represent the general program as graph we still represent some of the program structure as a nested tree and rest with tokens. Even tough program can be considered to be composed from equal class relations. So nesting is quite cheap and obvious way of improvement but yeah it kind is just halfway to the natural structure of programming languages.\n\nSo do we need tokens as an addition for nesting? I think we need the structure which has native support for at least DAGs. The most direct way of thinking next incremental step is adding tokens in addition to nesting. However, then there are two different ways of referencing. That smells to my nose a bit.\n\nMy own current favorite structure model is to use GUID/hash identified tuples (or lists) which have in cells either payload data or reference. Therefore there is the only single way of having substructure which also supports graphs. Visualizing / editing can then happen by nesting and by token (label by metadata of token) and this visualization doesn't have to be static even tough actual structure is untouched.\n\nBtw your blog post: Files, Formats and Byte Arrays was great area capture and caused that \"of course\"-realization. Files require same kind metastructure where referencing to other files is standardized. But if files contain graph which can have references to another same kind of files (which lives in a hierarchical filesystem), what is the value of file concept? It starts to smell like low-level implementation detail which I maybe don't want to see at all. Some time ago I relistened Future Of Coding E10 - Interview of Paul Chiusano and got idea/illusion that it should be possible to make application persistency completely invisible by using the right abstraction. Elm family-architectures with time-traveling debugger are some sort of proof.",
+    "user": "U7C7B75R6",
+    "ts": "1536022009.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "be27878783b4",
+      "image_72": "https://avatars.slack-edge.com/2019-04-10/604262911488_be27878783b4b23a5ed4_72.png",
+      "first_name": "",
+      "real_name": "Niko Autio",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "niko.elmari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "ts": "1536022910.000200",
+    "user": "UAL7940NM",
+    "text": "<@UAL7940NM> has joined the channel",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "ts": "1536022910.000200",
+    "user": "UAL7940NM",
+    "text": "<@UAL7940NM> has joined the channel",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "c852aa79-d4ad-4a1f-8193-e50fdcebaabf",
+    "type": "message",
+    "text": "<@UCKRZS3DZ> welcome to the club :stuck_out_tongue:\nI don't know how good match for you but just in case:\n<https://futureprogramming.slack.com/archives/C5T9GPWFL/p1536022009000100?thread_ts=1534675466.000100&amp;cid=C5T9GPWFL>",
+    "user": "U7C7B75R6",
+    "ts": "1536023785.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "be27878783b4",
+      "image_72": "https://avatars.slack-edge.com/2019-04-10/604262911488_be27878783b4b23a5ed4_72.png",
+      "first_name": "",
+      "real_name": "Niko Autio",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "niko.elmari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureprogramming.slack.com/archives/C5T9GPWFL/p1536022009000100?thread_ts=1534675466.000100&amp;cid=C5T9GPWFL",
+        "fallback": "[September 3rd, 2018 5:46 PM] niko.elmari: <@U8A5MS6R1> If we think the requirement of tokens from the abstract data structure point of view:\n\n-As you stated: text files are a list of strings. Therefore we can have many things on the single level.\n-To be able to compose things from smaller parts we need a tree. This level lives usually on the syntax level.\n-Next, we need to be able to reuse existing parts elsewhere so we need DAG. Currently done with tokens on higher level inside the compiler.\n-Cyclic graphs for recursive definitions? - out of scope for now\n\nOne point here is that while you can represent the general program as graph we still represent some of the program structure as a nested tree and rest with tokens. Even tough program can be considered to be composed from equal class relations. So nesting is quite cheap and obvious way of improvement but yeah it kind is just halfway to the natural structure of programming languages.\n\nSo do we need tokens as an addition for nesting? I think we need the structure which has native support for at least DAGs. The most direct way of thinking next incremental step is adding tokens in addition to nesting. However, then there are two different ways of referencing. That smells to my nose a bit.\n\nMy own current favorite structure model is to use GUID/hash identified tuples (or lists) which have in cells either payload data or reference. Therefore there is the only single way of having substructure which also supports graphs. Visualizing / editing can then happen by nesting and by token (label by metadata of token) and this visualization doesn't have to be static even tough actual structure is untouched.\n\nBtw your blog post: Files, Formats and Byte Arrays was great area capture and caused that \"of course\"-realization. Files require same kind metastructure where referencing to other files is standardized. But if files contain graph which can have references to another same kind of files (which lives in a hierarchical filesystem), what is the value of file concept? It starts to smell like low-level implementation detail which I maybe don't want to see at all. Some time ago I relistened Future Of Coding E10 - Interview of Paul Chiusano and got idea/illusion that it should be possible to make application persistency completely invisible by using the right abstraction. Elm family-architectures with time-traveling debugger are some sort of proof.",
+        "ts": "1536022009.000100",
+        "author_id": "U7C7B75R6",
+        "author_subname": "Niko Autio",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_reply_unfurl": true,
+        "text": "<@U8A5MS6R1> If we think the requirement of tokens from the abstract data structure point of view:\n\n-As you stated: text files are a list of strings. Therefore we can have many things on the single level.\n-To be able to compose things from smaller parts we need a tree. This level lives usually on the syntax level.\n-Next, we need to be able to reuse existing parts elsewhere so we need DAG. Currently done with tokens on higher level inside the compiler.\n-Cyclic graphs for recursive definitions? - out of scope for now\n\nOne point here is that while you can represent the general program as graph we still represent some of the program structure as a nested tree and rest with tokens. Even tough program can be considered to be composed from equal class relations. So nesting is quite cheap and obvious way of improvement but yeah it kind is just halfway to the natural structure of programming languages.\n\nSo do we need tokens as an addition for nesting? I think we need the structure which has native support for at least DAGs. The most direct way of thinking next incremental step is adding tokens in addition to nesting. However, then there are two different ways of referencing. That smells to my nose a bit.\n\nMy own current favorite structure model is to use GUID/hash identified tuples (or lists) which have in cells either payload data or reference. Therefore there is the only single way of having substructure which also supports graphs. Visualizing / editing can then happen by nesting and by token (label by metadata of token) and this visualization doesn't have to be static even tough actual structure is untouched.\n\nBtw your blog post: Files, Formats and Byte Arrays was great area capture and caused that \"of course\"-realization. Files require same kind metastructure where referencing to other files is standardized. But if files contain graph which can have references to another same kind of files (which lives in a hierarchical filesystem), what is the value of file concept? It starts to smell like low-level implementation detail which I maybe don't want to see at all. Some time ago I relistened Future Of Coding E10 - Interview of Paul Chiusano and got idea/illusion that it should be possible to make application persistency completely invisible by using the right abstraction. Elm family-architectures with time-traveling debugger are some sort of proof.",
+        "author_name": "Niko Autio",
+        "author_link": "https://futureprogramming.slack.com/team/U7C7B75R6",
+        "author_icon": "https://secure.gravatar.com/avatar/63864c00a4500594b4b420a267d8391f.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0019-48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureprogramming.slack.com/archives/C5T9GPWFL/p1536022009000100?thread_ts=1534675466.000100&amp;cid=C5T9GPWFL",
+        "footer": "From a thread in #general"
+      }
+    ],
+    "thread_ts": "1536006302.000100",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c852aa79-d4ad-4a1f-8193-e50fdcebaabf",
+    "type": "message",
+    "text": "<@UCKRZS3DZ> welcome to the club :stuck_out_tongue:\nI don't know how good match for you but just in case:\n<https://futureprogramming.slack.com/archives/C5T9GPWFL/p1536022009000100?thread_ts=1534675466.000100&amp;cid=C5T9GPWFL>",
+    "user": "U7C7B75R6",
+    "ts": "1536023785.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "be27878783b4",
+      "image_72": "https://avatars.slack-edge.com/2019-04-10/604262911488_be27878783b4b23a5ed4_72.png",
+      "first_name": "",
+      "real_name": "Niko Autio",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "niko.elmari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureprogramming.slack.com/archives/C5T9GPWFL/p1536022009000100?thread_ts=1534675466.000100&amp;cid=C5T9GPWFL",
+        "fallback": "[September 3rd, 2018 5:46 PM] niko.elmari: <@U8A5MS6R1> If we think the requirement of tokens from the abstract data structure point of view:\n\n-As you stated: text files are a list of strings. Therefore we can have many things on the single level.\n-To be able to compose things from smaller parts we need a tree. This level lives usually on the syntax level.\n-Next, we need to be able to reuse existing parts elsewhere so we need DAG. Currently done with tokens on higher level inside the compiler.\n-Cyclic graphs for recursive definitions? - out of scope for now\n\nOne point here is that while you can represent the general program as graph we still represent some of the program structure as a nested tree and rest with tokens. Even tough program can be considered to be composed from equal class relations. So nesting is quite cheap and obvious way of improvement but yeah it kind is just halfway to the natural structure of programming languages.\n\nSo do we need tokens as an addition for nesting? I think we need the structure which has native support for at least DAGs. The most direct way of thinking next incremental step is adding tokens in addition to nesting. However, then there are two different ways of referencing. That smells to my nose a bit.\n\nMy own current favorite structure model is to use GUID/hash identified tuples (or lists) which have in cells either payload data or reference. Therefore there is the only single way of having substructure which also supports graphs. Visualizing / editing can then happen by nesting and by token (label by metadata of token) and this visualization doesn't have to be static even tough actual structure is untouched.\n\nBtw your blog post: Files, Formats and Byte Arrays was great area capture and caused that \"of course\"-realization. Files require same kind metastructure where referencing to other files is standardized. But if files contain graph which can have references to another same kind of files (which lives in a hierarchical filesystem), what is the value of file concept? It starts to smell like low-level implementation detail which I maybe don't want to see at all. Some time ago I relistened Future Of Coding E10 - Interview of Paul Chiusano and got idea/illusion that it should be possible to make application persistency completely invisible by using the right abstraction. Elm family-architectures with time-traveling debugger are some sort of proof.",
+        "ts": "1536022009.000100",
+        "author_id": "U7C7B75R6",
+        "author_subname": "Niko Autio",
+        "channel_id": "C5T9GPWFL",
+        "channel_name": "general",
+        "is_msg_unfurl": true,
+        "is_reply_unfurl": true,
+        "text": "<@U8A5MS6R1> If we think the requirement of tokens from the abstract data structure point of view:\n\n-As you stated: text files are a list of strings. Therefore we can have many things on the single level.\n-To be able to compose things from smaller parts we need a tree. This level lives usually on the syntax level.\n-Next, we need to be able to reuse existing parts elsewhere so we need DAG. Currently done with tokens on higher level inside the compiler.\n-Cyclic graphs for recursive definitions? - out of scope for now\n\nOne point here is that while you can represent the general program as graph we still represent some of the program structure as a nested tree and rest with tokens. Even tough program can be considered to be composed from equal class relations. So nesting is quite cheap and obvious way of improvement but yeah it kind is just halfway to the natural structure of programming languages.\n\nSo do we need tokens as an addition for nesting? I think we need the structure which has native support for at least DAGs. The most direct way of thinking next incremental step is adding tokens in addition to nesting. However, then there are two different ways of referencing. That smells to my nose a bit.\n\nMy own current favorite structure model is to use GUID/hash identified tuples (or lists) which have in cells either payload data or reference. Therefore there is the only single way of having substructure which also supports graphs. Visualizing / editing can then happen by nesting and by token (label by metadata of token) and this visualization doesn't have to be static even tough actual structure is untouched.\n\nBtw your blog post: Files, Formats and Byte Arrays was great area capture and caused that \"of course\"-realization. Files require same kind metastructure where referencing to other files is standardized. But if files contain graph which can have references to another same kind of files (which lives in a hierarchical filesystem), what is the value of file concept? It starts to smell like low-level implementation detail which I maybe don't want to see at all. Some time ago I relistened Future Of Coding E10 - Interview of Paul Chiusano and got idea/illusion that it should be possible to make application persistency completely invisible by using the right abstraction. Elm family-architectures with time-traveling debugger are some sort of proof.",
+        "author_name": "Niko Autio",
+        "author_link": "https://futureprogramming.slack.com/team/U7C7B75R6",
+        "author_icon": "https://secure.gravatar.com/avatar/63864c00a4500594b4b420a267d8391f.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0019-48.png",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureprogramming.slack.com/archives/C5T9GPWFL/p1536022009000100?thread_ts=1534675466.000100&amp;cid=C5T9GPWFL",
+        "footer": "From a thread in #general"
+      }
+    ],
+    "thread_ts": "1536006302.000100",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1ff78749-b83f-42fa-9126-e046316183a5",
+    "type": "message",
+    "text": "When we're talking about immutability and content-addressed data, I feel like I should mention <https://ipfs.io/>. Wouldn't it be cool if one day public data / code / programs would be shared in a distibuted peer-to-peer network like ipfs?",
+    "user": "UAL7940NM",
+    "ts": "1536023962.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "43873346f949",
+      "image_72": "https://avatars.slack-edge.com/2018-07-13/399377633206_43873346f949174e340e_72.jpg",
+      "first_name": "Felix",
+      "real_name": "Felix Kohlgrüber",
+      "display_name": "Felix Kohlgrüber",
+      "team": "T5TCAFTA9",
+      "name": "felix.kohlgrueber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "IPFS",
+        "title": "IPFS is the Distributed Web",
+        "title_link": "https://ipfs.io/",
+        "text": "A peer-to-peer hypermedia protocol to make the web faster, safer, and more open.",
+        "fallback": "IPFS: IPFS is the Distributed Web",
+        "from_url": "https://ipfs.io/",
+        "service_icon": "https://ipfs.io/./images/favicon.png",
+        "id": 1,
+        "original_url": "https://ipfs.io/"
+      }
+    ],
+    "thread_ts": "1536006302.000100",
+    "parent_user_id": "UCKRZS3DZ",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U8A5MS6R1",
+          "UCKRZS3DZ"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1ff78749-b83f-42fa-9126-e046316183a5",
+    "type": "message",
+    "text": "When we're talking about immutability and content-addressed data, I feel like I should mention <https://ipfs.io/>. Wouldn't it be cool if one day public data / code / programs would be shared in a distibuted peer-to-peer network like ipfs?",
+    "user": "UAL7940NM",
+    "ts": "1536023962.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "43873346f949",
+      "image_72": "https://avatars.slack-edge.com/2018-07-13/399377633206_43873346f949174e340e_72.jpg",
+      "first_name": "Felix",
+      "real_name": "Felix Kohlgrüber",
+      "display_name": "Felix Kohlgrüber",
+      "team": "T5TCAFTA9",
+      "name": "felix.kohlgrueber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "IPFS",
+        "title": "IPFS is the Distributed Web",
+        "title_link": "https://ipfs.io/",
+        "text": "A peer-to-peer hypermedia protocol to make the web faster, safer, and more open.",
+        "fallback": "IPFS: IPFS is the Distributed Web",
+        "from_url": "https://ipfs.io/",
+        "service_icon": "https://ipfs.io/./images/favicon.png",
+        "id": 1,
+        "original_url": "https://ipfs.io/"
+      }
+    ],
+    "thread_ts": "1536006302.000100",
+    "parent_user_id": "UCKRZS3DZ",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U8A5MS6R1",
+          "UCKRZS3DZ"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9105b4b1-8ceb-4902-88ea-eba634362dde",
+    "type": "message",
+    "text": ":thumbsup: Yes - files are 'in the way'. First we break apart our interconnected structures into different files and then invent ways to put them back together. I also agree persistence should be 'orthogonal' to structure. Files cause another  conflation here as they are also the unit of persistence. We have to do all kinds of gymnastics to use files consistently (databases, version control etc.). Interestingly, the B-trees are often bound both below and above the file (i.e. in filesystems implementations and database implementations). It seems like a 'system smell' that these definitions cannot collapse into one.\n\nMaybe the general idea here is that any 'partition' of some 'whole' (e.g. files) can be problematic. But partitioning is also useful because we do want to break apart the whole into smaller bits... so there's a tension there. Even 'programs' are a partitioning concept - a system is broken down into programs, and the behavior is the result of coupling between programs and shared libraries, configuration etc.. it all seems very messy.\n\nIn another thread started by <@UCKRZS3DZ> we're discussing something related - a distributed, append-only graph to store 'everything'.\n\nCould you elaborate on what you mean by hash identified tuples/lists?",
+    "user": "U8A5MS6R1",
+    "ts": "1536024871.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9105b4b1-8ceb-4902-88ea-eba634362dde",
+    "type": "message",
+    "text": ":thumbsup: Yes - files are 'in the way'. First we break apart our interconnected structures into different files and then invent ways to put them back together. I also agree persistence should be 'orthogonal' to structure. Files cause another  conflation here as they are also the unit of persistence. We have to do all kinds of gymnastics to use files consistently (databases, version control etc.). Interestingly, the B-trees are often bound both below and above the file (i.e. in filesystems implementations and database implementations). It seems like a 'system smell' that these definitions cannot collapse into one.\n\nMaybe the general idea here is that any 'partition' of some 'whole' (e.g. files) can be problematic. But partitioning is also useful because we do want to break apart the whole into smaller bits... so there's a tension there. Even 'programs' are a partitioning concept - a system is broken down into programs, and the behavior is the result of coupling between programs and shared libraries, configuration etc.. it all seems very messy.\n\nIn another thread started by <@UCKRZS3DZ> we're discussing something related - a distributed, append-only graph to store 'everything'.\n\nCould you elaborate on what you mean by hash identified tuples/lists?",
+    "user": "U8A5MS6R1",
+    "ts": "1536024871.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d75a34e2-28de-43ae-bad1-ac94c0fbea95",
+    "type": "message",
+    "text": "(oh now I see you already found that thread :smile:)",
+    "user": "U8A5MS6R1",
+    "ts": "1536024981.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d75a34e2-28de-43ae-bad1-ac94c0fbea95",
+    "type": "message",
+    "text": "(oh now I see you already found that thread :smile:)",
+    "user": "U8A5MS6R1",
+    "ts": "1536024981.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "80d80cae-4a51-4fbe-9d2e-45f15c6d35d3",
+    "type": "message",
+    "text": "There is also <https://datproject.org/> for peer-to-peer data distribution",
+    "user": "UCKRZS3DZ",
+    "ts": "1536039141.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Dat Project",
+        "title": "Dat Project - A Distributed Data Community",
+        "title_link": "https://datproject.org/",
+        "text": "Dat is the nonprofit-backed technology &amp; community for building apps of the future.",
+        "fallback": "Dat Project: Dat Project - A Distributed Data Community",
+        "from_url": "https://datproject.org/",
+        "service_icon": "https://datproject.org/public/img/favicon.ico",
+        "id": 1,
+        "original_url": "https://datproject.org/"
+      }
+    ],
+    "thread_ts": "1536006302.000100",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "80d80cae-4a51-4fbe-9d2e-45f15c6d35d3",
+    "type": "message",
+    "text": "There is also <https://datproject.org/> for peer-to-peer data distribution",
+    "user": "UCKRZS3DZ",
+    "ts": "1536039141.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Dat Project",
+        "title": "Dat Project - A Distributed Data Community",
+        "title_link": "https://datproject.org/",
+        "text": "Dat is the nonprofit-backed technology &amp; community for building apps of the future.",
+        "fallback": "Dat Project: Dat Project - A Distributed Data Community",
+        "from_url": "https://datproject.org/",
+        "service_icon": "https://datproject.org/public/img/favicon.ico",
+        "id": 1,
+        "original_url": "https://datproject.org/"
+      }
+    ],
+    "thread_ts": "1536006302.000100",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6313FFB9-DBE4-4B0B-8185-AA2DDB40B78F",
+    "type": "message",
+    "text": "It sounds like we’re searching for the “atoms of data”. What is the smallest entity to model data structures?\n\nWe already know that we can represent anything as a stream of bytes. That seems to be a universal format, but that alone isn’t enough. A stream of bytes is only usable with some sort of encoding. That is usually not explicitly part of the data itself, but external, e.g. when we implicitly assume that a stream of bytes is UTF-8 encoded.\n\nNow that gives us a text string. Which is still pretty universal, but not enough to do anything interesting with it. We want to express structure, because structure gives us a way to have proper entities. Entities allow us to do meaningful computation with them.\n\nSo we invented all kinds of ways to break a text string down into entities. That’s where it diverges into a hell of a lot of different formats we invented over time. Simple Unix configuration and data files with various formats, often using one or two different delimiters (often newlines and spaces or tabs) to break strings into entities.\nThese give us simple collections to do some meaningful computation with.\n\nBut that’s still not enough, because we also need hierarchy, or nesting, and so we invented more elaborate ways to encode that, e.g. XML or JSON.\nThese give us trees and as such even more interesting ways to compute with them.\n\nSomewhere along this way, we made some decisions that got us where we are today — so it’s not exactly terrible, but at least most of us here think we can do better.\n\nI think it’s relatively easy to see why a graph looks so appealing to us. But I think the core question is not “Should it be a graph?” but rather “What exactly do the nodes and edges represent?”",
+    "user": "U5STGTB3J",
+    "ts": "1536040639.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "U5TCAFTD3"
+        ],
+        "count": 1
+      },
+      {
+        "name": "star",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6313FFB9-DBE4-4B0B-8185-AA2DDB40B78F",
+    "type": "message",
+    "text": "It sounds like we’re searching for the “atoms of data”. What is the smallest entity to model data structures?\n\nWe already know that we can represent anything as a stream of bytes. That seems to be a universal format, but that alone isn’t enough. A stream of bytes is only usable with some sort of encoding. That is usually not explicitly part of the data itself, but external, e.g. when we implicitly assume that a stream of bytes is UTF-8 encoded.\n\nNow that gives us a text string. Which is still pretty universal, but not enough to do anything interesting with it. We want to express structure, because structure gives us a way to have proper entities. Entities allow us to do meaningful computation with them.\n\nSo we invented all kinds of ways to break a text string down into entities. That’s where it diverges into a hell of a lot of different formats we invented over time. Simple Unix configuration and data files with various formats, often using one or two different delimiters (often newlines and spaces or tabs) to break strings into entities.\nThese give us simple collections to do some meaningful computation with.\n\nBut that’s still not enough, because we also need hierarchy, or nesting, and so we invented more elaborate ways to encode that, e.g. XML or JSON.\nThese give us trees and as such even more interesting ways to compute with them.\n\nSomewhere along this way, we made some decisions that got us where we are today — so it’s not exactly terrible, but at least most of us here think we can do better.\n\nI think it’s relatively easy to see why a graph looks so appealing to us. But I think the core question is not “Should it be a graph?” but rather “What exactly do the nodes and edges represent?”",
+    "user": "U5STGTB3J",
+    "ts": "1536040639.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "U5TCAFTD3"
+        ],
+        "count": 1
+      },
+      {
+        "name": "star",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "ts": "1536041256.000200",
+    "user": "U9ZKD8T0R",
+    "text": "<@U9ZKD8T0R> has joined the channel",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "ts": "1536041256.000200",
+    "user": "U9ZKD8T0R",
+    "text": "<@U9ZKD8T0R> has joined the channel",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "bd1e73c8-3d79-4378-92a6-e7f8aeebede1",
+    "type": "message",
+    "text": "completely forgot about ipfs, it looks so good. Thanks <@UAL7940NM>!",
+    "user": "UCKRZS3DZ",
+    "ts": "1536044749.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1536006302.000100",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bd1e73c8-3d79-4378-92a6-e7f8aeebede1",
+    "type": "message",
+    "text": "completely forgot about ipfs, it looks so good. Thanks <@UAL7940NM>!",
+    "user": "UCKRZS3DZ",
+    "ts": "1536044749.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "222a2870915d",
+      "image_72": "https://avatars.slack-edge.com/2019-12-15/861537614034_222a2870915d24ec10cc_72.jpg",
+      "first_name": "Vladimir",
+      "real_name": "Vladimir Gordeev",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gordeev.vladimir.v",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1536006302.000100",
+    "parent_user_id": "UCKRZS3DZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "ts": "1536046194.000200",
+    "user": "UC2A2ARPT",
+    "text": "<@UC2A2ARPT> has joined the channel",
+    "channel_name": "feedback",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "ts": "1536046194.000200",
+    "user": "UC2A2ARPT",
+    "text": "<@UC2A2ARPT> has joined the channel",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "FD11AAA2-B8E5-4445-AF68-683E58E6D408",
+    "type": "message",
+    "text": "<!everyone> if you’re in NY this month, go vote on when you’d like the next meetup to be in the <#CBC968C1M|nyc> channel",
+    "user": "U5TCAFTD3",
+    "ts": "1536072633.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U7PH857FB"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "FD11AAA2-B8E5-4445-AF68-683E58E6D408",
+    "type": "message",
+    "text": "<!everyone> if you’re in NY this month, go vote on when you’d like the next meetup to be in the <#CBC968C1M|nyc> channel",
+    "user": "U5TCAFTD3",
+    "ts": "1536072633.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U7PH857FB"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5895291C-9157-4588-A97E-C32F42FFCD3B",
+    "type": "message",
+    "text": "<@U7ERJK07Q> just published a new thing! <https://tinyletter.com/Flowsheets/letters/repl-debugger-replugger-a-pleasant-and-scalable-live-code-editor>",
+    "user": "U5TCAFTD3",
+    "ts": "1536091529.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "TinyLetter",
+        "title": "REPL + Debugger = REPLugger, a pleasant and scalable live code editor",
+        "title_link": "https://tinyletter.com/Flowsheets/letters/repl-debugger-replugger-a-pleasant-and-scalable-live-code-editor",
+        "text": "Hello friends! :smile: In this email I'll be describing my work on a research programming environment, a mix between a code editor, a REPL, and a debugger, which I'm naturally calling REPLugger.",
+        "fallback": "TinyLetter: REPL + Debugger = REPLugger, a pleasant and scalable live code editor",
+        "from_url": "https://tinyletter.com/Flowsheets/letters/repl-debugger-replugger-a-pleasant-and-scalable-live-code-editor",
+        "service_icon": "https://tinyletter.com/site/favicon.ico",
+        "id": 1,
+        "original_url": "https://tinyletter.com/Flowsheets/letters/repl-debugger-replugger-a-pleasant-and-scalable-live-code-editor"
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "319947ab-a534-436f-92ea-1148e7d65780",
+    "type": "message",
+    "text": "<@U8A5MS6R1>: I agree that being able to split graph to subgraphs (files) is still useful.\nAbout tuple/list model (I stick with list for now on):\n\nTraditionally graphs are tough as nodes and edges. Usually, edges are at least labeled so that you can separate different relations and nodes can also have data. To me, this kind model can be thought of as Node = Map&lt;Label, Node&gt;. Also, you have incoming edges but I leave that out just for simplicity.\n\nOne idea forward is that you have to have data also in edges. I am not a fan of this idea since it smells like XML-attributes: metadata is always simple string:string key-value pair whether data actually fit or not. And if we allow complex data for edges =&gt; edges can now have edges... and are kind of nodes? What that even mean? In RDF world they do this but the mental model is toward general subject-predicate-object tuples instead of hard node/edge distinction.\n\nSo we maybe won't want to introduce two different things that can have data. At least let's try to survive with only one.\n\nEdge-labeled graphs are fine but can it be made simpler? Another way of separating relations is to use position instead of name like we do in function calls. Then our graph become simply Node = Node[] which I think is the simplest possible meaningful graph. Is it positional/list based better than named/map based graph? Don't know, those have some different characteristic.\n\nList graph has a nice spreadsheet like property when you can basically just write your data in without having to concern about semantics. It somewhat simpler in a sense that you can just give string instead of being rejected \"You have to give 'first-name' but just 'name' was found.\".\n\nLists are also very atom like composition which can represent nicely other compositions. List and tuples are the same from a data perspective. Difference lives only on expectation or type level.\n\n-\"List\" list is an arbitrary length of homogenous things.\n-Tuple is a fixed size of heterogeneous things.\n\nMaps can be represented as a nested list. Actually two ways, at first I thought this is miss feature but different representations express nicely different intention.\n\nDynamic style map:\n[ [k1, v1], [k2, v2], ... ]\n\nStatic style map where key list can be shared as \"type\":\n[ [k1, k2, ...], [v1, v2, ...] ]\n\nPersonal opinion is that expressing a list or tuple with a map is not as elegant. But these are more like different sides of the coin and maybe UI can expose one kind of view while having another model under the hood.\n\nAnother way of thinking: the data knows itself that it is HTML dom VS somebody is offering data to HTML renderer, therefore, it should be treated as HTML dom. If the data doesn't have to know what it is, it can be anything where it matches... even though it can happen by accident.\n\nI haven't much to say about hashes. Referencing require some sort of identity. It would be nice to have some serializable non-memory position related identity. GUIDs and hashes can do the job well. Hashes could bring benefits (and challenges) of value referencing but that's not my main focus currently.\n\n\n\n<@U5STGTB3J>: Definedly hunting those \"atoms of data\". Can you open that “What exactly do the nodes and edges represent?” a bit?\n\nWe can probably create quite a nice visualization and editing experience just for dummy graph with some pattern matching for common structures etc. Additional semantic while important is a bit out of scope like it should belong to the next layer? Like there are multiple vocabularies on top of generic RDF concept.",
+    "user": "U7C7B75R6",
+    "ts": "1536104636.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "be27878783b4",
+      "image_72": "https://avatars.slack-edge.com/2019-04-10/604262911488_be27878783b4b23a5ed4_72.png",
+      "first_name": "",
+      "real_name": "Niko Autio",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "niko.elmari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U7C7B75R6",
+      "ts": "1536105468.000000"
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "319947ab-a534-436f-92ea-1148e7d65780",
+    "type": "message",
+    "text": "<@U8A5MS6R1>: I agree that being able to split graph to subgraphs (files) is still useful.\nAbout tuple/list model (I stick with list for now on):\n\nTraditionally graphs are tough as nodes and edges. Usually, edges are at least labeled so that you can separate different relations and nodes can also have data. To me, this kind model can be thought of as Node = Map&lt;Label, Node&gt;. Also, you have incoming edges but I leave that out just for simplicity.\n\nOne idea forward is that you have to have data also in edges. I am not a fan of this idea since it smells like XML-attributes: metadata is always simple string:string key-value pair whether data actually fit or not. And if we allow complex data for edges =&gt; edges can now have edges... and are kind of nodes? What that even mean? In RDF world they do this but the mental model is toward general subject-predicate-object tuples instead of hard node/edge distinction.\n\nSo we maybe won't want to introduce two different things that can have data. At least let's try to survive with only one.\n\nEdge-labeled graphs are fine but can it be made simpler? Another way of separating relations is to use position instead of name like we do in function calls. Then our graph become simply Node = Node[] which I think is the simplest possible meaningful graph. Is it positional/list based better than named/map based graph? Don't know, those have some different characteristic.\n\nList graph has a nice spreadsheet like property when you can basically just write your data in without having to concern about semantics. It somewhat simpler in a sense that you can just give string instead of being rejected \"You have to give 'first-name' but just 'name' was found.\".\n\nLists are also very atom like composition which can represent nicely other compositions. List and tuples are the same from a data perspective. Difference lives only on expectation or type level.\n\n-\"List\" list is an arbitrary length of homogenous things.\n-Tuple is a fixed size of heterogeneous things.\n\nMaps can be represented as a nested list. Actually two ways, at first I thought this is miss feature but different representations express nicely different intention.\n\nDynamic style map:\n[ [k1, v1], [k2, v2], ... ]\n\nStatic style map where key list can be shared as \"type\":\n[ [k1, k2, ...], [v1, v2, ...] ]\n\nPersonal opinion is that expressing a list or tuple with a map is not as elegant. But these are more like different sides of the coin and maybe UI can expose one kind of view while having another model under the hood.\n\nAnother way of thinking: the data knows itself that it is HTML dom VS somebody is offering data to HTML renderer, therefore, it should be treated as HTML dom. If the data doesn't have to know what it is, it can be anything where it matches... even though it can happen by accident.\n\nI haven't much to say about hashes. Referencing require some sort of identity. It would be nice to have some serializable non-memory position related identity. GUIDs and hashes can do the job well. Hashes could bring benefits (and challenges) of value referencing but that's not my main focus currently.\n\n\n\n<@U5STGTB3J>: Definedly hunting those \"atoms of data\". Can you open that “What exactly do the nodes and edges represent?” a bit?\n\nWe can probably create quite a nice visualization and editing experience just for dummy graph with some pattern matching for common structures etc. Additional semantic while important is a bit out of scope like it should belong to the next layer? Like there are multiple vocabularies on top of generic RDF concept.",
+    "user": "U7C7B75R6",
+    "ts": "1536104636.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "be27878783b4",
+      "image_72": "https://avatars.slack-edge.com/2019-04-10/604262911488_be27878783b4b23a5ed4_72.png",
+      "first_name": "",
+      "real_name": "Niko Autio",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "niko.elmari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U7C7B75R6",
+      "ts": "1536105468.000000"
+    },
+    "thread_ts": "1534675466.000100",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
