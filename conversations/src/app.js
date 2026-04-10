@@ -32,8 +32,15 @@ function parseParams() {
 }
 
 async function main() {
-  const { fromDate, toDate, showReplies, showReactions, showAttachments, showChannel, isPlainMode } =
-    parseParams();
+  const {
+    fromDate,
+    toDate,
+    showReplies,
+    showReactions,
+    showAttachments,
+    showChannel,
+    isPlainMode,
+  } = parseParams();
 
   const fetcher = httpFetcher("../history");
   const users = await fetcher.fetchUsers();
@@ -49,13 +56,48 @@ async function main() {
   const ctx = { usersById, channelsById };
 
   const items = [];
+  const repliesByTs = {};
+  const topMsgsByTs = {};
+  const msgsByTs = {};
   function onDayData(data, _info) {
     for (const msg of data) {
-      const message = Message.Class.fromData(msg, ctx);
-      items.push(message);
+      const { type, ts, thread_ts: threadTs } = msg;
+      if (type !== "message") {
+        console.log("not message", msg);
+        continue;
+      }
+
+      if (threadTs === undefined || ts === threadTs) {
+        if (topMsgsByTs[ts] !== undefined) {
+          console.warn("two top msgs with same ts?", msg);
+        }
+        topMsgsByTs[ts] = msg;
+      } else {
+        repliesByTs[threadTs] ??= [];
+        repliesByTs[threadTs].push(msg);
+      }
+    }
+
+    const orphanReplies = {};
+    const orphanDates = new Set();
+    for (const ts in repliesByTs) {
+      const replies = repliesByTs[ts];
+      const topMsg = topMsgsByTs[ts];
+      if (topMsg === undefined) {
+        orphanReplies[ts] = replies;
+        const date = new Date(+ts * 1000).toISOString().split("T")[0];
+        orphanDates.add(date);
+        continue;
+      }
+
+      topMsg.thread_replies = replies;
+      msgsByTs[ts] = topMsg;
     }
   }
   await walk(fetcher, fromDate, toDate, onDayData);
+  for (const ts in topMsgsByTs) {
+    items.push(Message.Class.fromData(topMsgsByTs[ts], ctx));
+  }
   items.sort((a, b) => a.date - b.date);
   const messages = Messages.make({ items });
 
