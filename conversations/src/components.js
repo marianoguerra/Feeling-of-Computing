@@ -1,0 +1,574 @@
+import { component, html } from "./ui.js";
+import { textFromCode, getNameToCode } from "./emoji.js";
+
+const NAME_TO_CODE = getNameToCode();
+
+export const Messages = component({
+  name: "Messages",
+  fields: { items: [] },
+  view: html`<div class="flex flex-col gap-3">
+    <x render-each=".items"></x>
+  </div>`,
+});
+
+export const Message = component({
+  name: "Message",
+  fields: {
+    author: null,
+    date: new Date(),
+    body: null,
+    reactions: [],
+    replies: [],
+    attachments: [],
+    files: [],
+  },
+  statics: {
+    fromData(d, ctx) {
+      const { usersById } = ctx;
+      const {
+        ts,
+        user: userId,
+        blocks,
+        thread_replies: rawReplies = [],
+        reactions: rawReactions = [],
+        attachments: rawAttachments = [],
+        files: rawFiles = [],
+      } = d;
+      const date = new Date(+ts * 1000);
+      const author =
+        usersById[userId] ??
+        User.make({ id: userId, name: userId, realName: `@${userId}` });
+      const body = Blocks.Class.fromData(blocks, ctx);
+      const replies = new Array(Math.max(0, rawReplies.length - 1));
+      if (rawReplies.length > 0) {
+        for (let i = 1; i < rawReplies.length; i++) {
+          const reply = rawReplies[i];
+          replies[i - 1] = this.fromData(reply, ctx);
+        }
+      }
+      // TODO: optimize
+      const reactions = [];
+      for (const reaction of rawReactions) {
+        reactions.push(Reaction.Class.fromData(reaction));
+      }
+      // TODO: optimize
+      const attachments = [];
+      for (const attachment of rawAttachments) {
+        attachments.push(Attachment.Class.fromData(attachment, ctx));
+      }
+      // TODO: optimize
+      const files = [];
+      for (const file of rawFiles) {
+        files.push(File.Class.fromData(file, ctx));
+      }
+      return this.make({
+        author,
+        date,
+        body,
+        reactions,
+        replies,
+        attachments,
+        files,
+      });
+    },
+  },
+  methods: {
+    formatDisplayDate() {
+      return this.date.toLocaleString(undefined, {
+        dateStyle: "short",
+        timeStyle: "short",
+      });
+    },
+    formatMessageAnchor() {
+      return `#${this.date.toISOString()}`;
+    },
+  },
+  view: html`<section class="flex flex-col gap-3">
+    <div class="hover:bg-base-300 p-3 flex flex-col gap-3">
+      <div class="flex gap-5 items-baseline">
+        <x render=".author" as="handle"></x>
+        <a
+          class="text-content-200 text-xs"
+          :href=".formatMessageAnchor"
+          @text=".formatDisplayDate"
+        ></a>
+      </div>
+      <x render=".body"></x>
+      <div class="flex flex-col gap-3" @hide=".attachmentsIsEmpty">
+        <x render-each=".attachments"></x>
+      </div>
+      <div class="flex flex-col gap-3" @hide=".filesIsEmpty">
+        <x render-each=".files"></x>
+      </div>
+      <div class="flex gap-3" @hide=".reactionsIsEmpty">
+        <x render-each=".reactions"></x>
+      </div>
+    </div>
+    <div
+      class="flex flex-col ml-3 pl-3 border-l border-l-gray-500"
+      @hide=".repliesIsEmpty"
+    >
+      <x render-each=".replies"></x>
+    </div>
+  </section>`,
+});
+
+export const User = component({
+  name: "User",
+  fields: { id: "?", name: "?", realName: "" },
+  statics: {
+    fromData(d, ctx) {
+      const { user_id: id } = d ?? {};
+      return (
+        ctx.usersById[id] ?? this.make({ id, name: id, realName: `@${id}` })
+      );
+    },
+  },
+  view: html`<span class="font-bold" :title=".name" @text=".realName"></span>`,
+});
+
+export const Channel = component({
+  name: "Channel",
+  fields: { id: "?", name: "?" },
+  statics: {
+    fromData(d, ctx) {
+      const { channel_id: id } = d ?? {};
+      return ctx.channelsById[id] ?? this.make({ id, name: `#${id}` });
+    },
+  },
+  view: html`<span class="font-bold" @text=".name"></span>`,
+});
+
+export const Emoji = component({
+  name: "Emoji",
+  fields: { name: "", unicode: "", text: "?" },
+  statics: {
+    fromData(d) {
+      const { name, unicode } = d ?? {};
+      const text = textFromCode(unicode);
+      return this.make({ name, unicode, text });
+    },
+  },
+  view: html`<span @text=".text"></span>`,
+});
+
+export const Reaction = component({
+  name: "Reaction",
+  fields: { icon: "?", count: 1 },
+  statics: {
+    fromData(d) {
+      const { name, count } = d ?? {};
+      const code = NAME_TO_CODE[name];
+      const icon = code ? textFromCode(code) : `:${name}:`;
+      return this.make({ icon, count });
+    },
+  },
+  view: html`<div class="badge badge-soft badge-info gap-2">
+    <span @text=".icon"></span><span @text=".count"></span>
+  </div>`,
+});
+
+export const Thumbnail = component({
+  name: "Thumbnail",
+  fields: { url: "", width: 100, height: 100 },
+  view: html`<img :src=".url" :width=".width" :height=".height" />`,
+});
+
+export const Attachment = component({
+  name: "Attachment",
+  fields: {
+    icon: "🔗",
+    text: "?",
+    url: "#",
+    sourceName: "?",
+    sourceUrl: "#",
+    thumbnail: null,
+  },
+  statics: {
+    fromData(d, ctx) {
+      const {
+        service_name,
+        thumb_url,
+        thumb_width,
+        thumb_height,
+        title,
+        title_link,
+        text: dtext,
+        author_name,
+        author_link,
+        fallback,
+        original_url,
+        message_blocks,
+      } = d ?? {};
+
+      if (Array.isArray(message_blocks)) {
+        const items = [];
+        for (const item of message_blocks) {
+          items.push(Blocks.Class.fromData(item.message.blocks, ctx));
+        }
+        // TODO: attachment subtype and better
+        return RichTextQuote.make({ elements: items });
+      }
+      const thumbnail = thumb_url
+        ? Thumbnail.make({
+            url: thumb_url,
+            width: thumb_width,
+            height: thumb_height,
+          })
+        : null;
+      let sourceName = "";
+      let sourceUrl = "#";
+      if (author_name) {
+        sourceName = author_name;
+        sourceUrl = author_link;
+      } else if (title_link) {
+        sourceName = title;
+        sourceUrl = title_link;
+      } else {
+        console.log("unknown attachment source", d);
+      }
+      const text = title ?? dtext ?? fallback;
+      const url = title_link ?? original_url;
+      return this.make({
+        text,
+        url,
+        icon: this.serviceNameToIcon(service_name),
+        sourceName,
+        sourceUrl,
+        thumbnail,
+      });
+    },
+    serviceNameToIcon(v) {
+      switch (v) {
+        case "YouTube":
+          return "🎥";
+        case "twitter":
+        case "Twitter":
+        case "X (formerly Twitter)":
+          return "🐦";
+        case "bluesky":
+          return "🦋";
+        case "arXiv.org":
+          return "📄";
+        case "Medium":
+          return "📝";
+        default:
+          return "🔗";
+      }
+    },
+  },
+  view: html`<div
+    class="flex flex-col gap-3 border-l-4 border-gray-500 pl-3 mb-2"
+  >
+    <div class="flex gap-3 align-baseline">
+      <span @text=".icon"></span>
+      <a
+        class="cursor-pointer font-bold"
+        :href=".sourceUrl"
+        @text=".sourceName"
+      ></a>
+    </div>
+    <a class="cursor-pointer text-sky-500" :href=".url" @text=".text"></a>
+    <x render=".thumbnail"></x>
+  </div>`,
+});
+
+export const Image = component({
+  name: "Image",
+  fields: { id: "", filetype: "", text: "" },
+  methods: {
+    formatUrl() {
+      const { id, filetype } = this;
+      return `https://history.futureofcoding.org/history/msg_files/${id.slice(0, 3)}/${id}.${filetype}`;
+    },
+  },
+  view: html`<a :href=".formatUrl" target="_blank"
+    ><img
+      :src=".formatUrl"
+      :alt=".text"
+      style="max-height: 40vh; width: auto; cursor: pointer"
+  /></a>`,
+});
+
+export const Video = component({
+  name: "Video",
+  fields: { id: "", filetype: "", text: "" },
+  methods: {
+    formatUrl() {
+      const { id, filetype } = this;
+      return `https://history.futureofcoding.org/history/msg_files/${id.slice(0, 3)}/${id}.${filetype}`;
+    },
+  },
+  view: html`<video
+    controls
+    preload="metadata"
+    :src=".formatUrl"
+    :alt=".text"
+    style="max-height: 40vh; width: auto; cursor: pointer"
+  />`,
+});
+
+export const File = component({
+  name: "File",
+  fields: { icon: "🔗", text: "?", url: "#" },
+  statics: {
+    fromData(d, _ctx) {
+      if (d?.mode === "tombstone") {
+        return this.make({ text: "🪦" });
+      }
+      const {
+        title,
+        name,
+        mimetype,
+        //permalink,
+        //permalink_public,
+        id,
+        filetype,
+      } = d ?? {};
+
+      const text = title ?? name;
+      if (mimetype.startsWith("image/")) {
+        return Image.make({ id, filetype, text });
+      } else if (mimetype.startsWith("video/")) {
+        console.log("video", { id, filetype, text });
+        return Video.make({ id, filetype, text });
+      }
+      //const url = permalink_public ?? permalink;
+      const url = `https://history.futureofcoding.org/history/msg_files/${id.slice(0, 3)}/${id}.${filetype}`;
+      const icon = this.mimetypeToIcon(mimetype);
+      return this.make({ text, url, icon });
+    },
+    mimetypeToIcon(mimetype) {
+      if (mimetype.startsWith("video/")) {
+        return "🎥";
+      } else if (mimetype.startsWith("image/")) {
+        return "🖼️";
+      } else if (mimetype.startsWith("application/")) {
+        return "📄";
+      } else if (mimetype.startsWith("text/")) {
+        return "🗒️";
+      } else {
+        return "📝";
+      }
+    },
+  },
+  view: html`<div class="flex gap-3 align-baseline">
+    <span @text=".icon"></span>
+    <a class="cursor-pointer underline" :href=".url" @text=".text"></a>
+  </div>`,
+});
+
+export const Blocks = component({
+  name: "Blocks",
+  fields: { items: [] },
+  statics: {
+    fromData(d = [], ctx) {
+      const r = [];
+      for (const block of d ?? []) {
+        switch (block.type) {
+          case "rich_text":
+            r.push(RichText.Class.fromData(block, ctx));
+            break;
+          default:
+            console.warn("unknown block type", block.type);
+        }
+      }
+      return this.make({ items: r });
+    },
+  },
+  view: html`<div class="flex flex-col gap-3">
+    <x render-each=".items"></x>
+  </div>`,
+});
+
+function parseRichTextElements(elements, ctx) {
+  const r = [];
+  for (const item of elements) {
+    switch (item.type) {
+      case "rich_text_section":
+        r.push(RichTextSection.Class.fromData(item, ctx));
+        break;
+      case "rich_text_quote":
+        r.push(RichTextQuote.Class.fromData(item, ctx));
+        break;
+      case "rich_text_preformatted":
+        r.push(RichTextPreformatted.Class.fromData(item, ctx));
+        break;
+      case "rich_text_list":
+        r.push(RichTextList.Class.fromData(item, ctx));
+        break;
+      default:
+        console.warn("unknown rich text element type", item.type, item);
+    }
+  }
+  return r;
+}
+
+export const RichText = component({
+  name: "RichText",
+  fields: { elements: [] },
+  statics: {
+    fromData(d, ctx) {
+      return this.make({
+        elements: parseRichTextElements(d?.elements ?? [], ctx),
+      });
+    },
+  },
+  view: html`<div><x render-each=".elements"></x></div>`,
+});
+
+function parseRichTextSectionElements(elements = [], ctx) {
+  const r = [];
+  for (const item of elements) {
+    switch (item.type) {
+      case "text":
+        r.push(Text.Class.fromData(item));
+        break;
+      case "link":
+        r.push(Link.Class.fromData(item));
+        break;
+      case "user":
+        r.push(User.Class.fromData(item, ctx));
+        break;
+      case "channel":
+        r.push(Channel.Class.fromData(item, ctx));
+        break;
+      case "emoji":
+        r.push(Emoji.Class.fromData(item));
+        break;
+      default:
+        console.warn("unknown rich text section type", item.type, item);
+    }
+  }
+  return r;
+}
+
+export const RichTextSection = component({
+  name: "RichTextSection",
+  fields: { elements: [] },
+  statics: {
+    fromData(d, ctx) {
+      return this.make({
+        elements: parseRichTextSectionElements(d?.elements, ctx),
+      });
+    },
+  },
+  view: html`<div><x render-each=".elements"></x></div>`,
+});
+
+export const RichTextQuote = component({
+  name: "RichTextQuote",
+  fields: { elements: [] },
+  statics: {
+    fromData(d) {
+      return this.make({ elements: parseRichTextSectionElements(d?.elements) });
+    },
+  },
+  view: html`<div class="border-l-4 border-gray-500 pl-3 mb-2">
+    <x render-each=".elements"></x>
+  </div>`,
+});
+
+export const RichTextPreformatted = component({
+  name: "RichTextPreformatted",
+  fields: { elements: [] },
+  statics: {
+    fromData(d) {
+      return this.make({ elements: parseRichTextSectionElements(d?.elements) });
+    },
+  },
+  view: html`<div class="border-1 border-gray-500 p-3 my-3 font-mono text-sm">
+    <x render-each=".elements"></x>
+  </div>`,
+});
+
+export const RichTextList = component({
+  name: "RichTextList",
+  fields: { className: "list-disc", elements: [] },
+  statics: {
+    fromData(d, ctx) {
+      const className =
+        d.style === "bullet" ? "list-disc ml-5" : "list-decimal ml-5";
+      return this.make({
+        className,
+        elements: parseRichTextElements(d?.elements, ctx),
+      });
+    },
+  },
+  view: html`<ul :class=".className">
+    <li @each=".elements"><x render-it></x></li>
+  </ul>`,
+});
+
+export const Link = component({
+  name: "Link",
+  fields: { url: "?", text: "" },
+  statics: {
+    fromData(d) {
+      const { url, text = url } = d ?? {};
+      return this.make({ url, text });
+    },
+  },
+  view: html`<a
+    class="cursor-pointer underline text-sky-500"
+    :href=".url"
+    @text=".text"
+  ></a>`,
+});
+
+export const Text = component({
+  name: "Text",
+  fields: { text: "", className: "" },
+  statics: {
+    fromData(d) {
+      const { text, style = {} } = d ?? {};
+      const { bold, italic, strike, code } = style;
+      let className = "";
+      if (bold || italic || strike || code) {
+        const parts = [];
+        if (bold) {
+          parts.push("font-bold");
+        }
+        if (italic) {
+          parts.push("italic");
+        }
+        if (strike) {
+          parts.push("line-through");
+        }
+        if (code) {
+          parts.push("badge badge-soft font-mono p-1");
+        }
+        className = parts.join(" ");
+      }
+      return this.make({ text, className });
+    },
+  },
+  view: html`<span
+    :class="whitespace-pre-wrap {.className}"
+    @text=".text"
+  ></span>`,
+});
+
+export function getComponents() {
+  return [
+    Message,
+    Messages,
+    User,
+    Channel,
+    Attachment,
+    File,
+    Reaction,
+    Blocks,
+    RichText,
+    RichTextSection,
+    RichTextQuote,
+    RichTextPreformatted,
+    RichTextList,
+    Link,
+    Text,
+    Emoji,
+    Thumbnail,
+    Image,
+    Video,
+  ];
+}
