@@ -30,7 +30,7 @@ export const Messages = component({
       return this.mapItems((m) => m.setShowChannel(v));
     },
   },
-  view: html`<div class="flex flex-col gap-3">
+  view: html`<div class="flex flex-col gap-1 md:gap-3">
     <div @each=".items" class="card card-border bg-base-200 shadow-sm">
       <div
         class="card-body p-0 outline-0 outline-solid outline-base-400 hover:outline-1"
@@ -117,9 +117,11 @@ export const ConversationsViewer = component({
     }
     .conversations-grid > .area-messages {
       grid-area: messages;
+      min-width: 0;
     }
     .conversations-grid > .area-thread {
       grid-area: thread;
+      min-width: 0;
     }
 
     @media (min-width: 768px) {
@@ -137,9 +139,9 @@ export const ConversationsViewer = component({
       }
     }
   `,
-  view: html`<section class="conversations-grid grid gap-3">
+  view: html`<section class="conversations-grid grid gap-1 md:gap-3">
     <nav
-      class="area-nav flex flex-wrap p-3 gap-3 justify-evenly bg-base-300 z-2 sticky top-0"
+      class="area-nav flex flex-wrap p-1 md:p-3 gap-1 md:gap-3 justify-evenly bg-base-300 z-2 sticky top-0"
     >
       <label class="label text-xs">
         <input
@@ -181,9 +183,12 @@ export const ConversationsViewer = component({
     <div class="area-messages">
       <x render=".messages"></x>
     </div>
-    <div class="area-thread flex flex-col gap-3" @show=".isActiveMessageSet">
+    <div
+      class="area-thread flex flex-col gap-1 md:gap-3"
+      @show=".isActiveMessageSet"
+    >
       <div
-        class="flex bg-base-300 justify-between items-center gap-3 p-2 sticky top-0 z-1"
+        class="flex bg-base-300 justify-between items-center gap-1 md:gap-3 p-2 sticky top-0 z-1"
       >
         <span class="font-bold text-lg">Thread</span>
         <button
@@ -333,9 +338,9 @@ export const Message = component({
       return pluralize(this.files.size, "File", "Files");
     },
   },
-  view: html`<section class="flex flex-col gap-3">
-    <div class="hover:bg-base-300 p-3 flex flex-col gap-3">
-      <div class="flex flex-wrap gap-3 items-center">
+  view: html`<section class="flex flex-col gap-1 md:gap-3">
+    <div class="hover:bg-base-300 p-3 flex flex-col gap-1 md:gap-3">
+      <div class="flex flex-wrap gap-1 md:gap-3 items-center">
         <x render=".author" as="handle"></x>
         <div @show=".isChannelVisible">
           <x render=".channel" as="handle"></x>
@@ -347,13 +352,13 @@ export const Message = component({
         ></a>
       </div>
       <x render=".body"></x>
-      <div class="flex flex-col gap-3" @show=".areAttachmentsVisible">
+      <div class="flex flex-col gap-1 md:gap-3" @show=".areAttachmentsVisible">
         <x render-each=".attachments"></x>
       </div>
-      <div class="flex flex-col gap-3" @show=".areFilesVisible">
+      <div class="flex flex-col gap-1 md:gap-3" @show=".areFilesVisible">
         <x render-each=".files"></x>
       </div>
-      <div class="flex gap-3" @show=".areReactionsVisible">
+      <div class="flex gap-1 md:gap-3" @show=".areReactionsVisible">
         <x render-each=".reactions"></x>
       </div>
     </div>
@@ -538,9 +543,9 @@ export const Attachment = component({
     },
   },
   view: html`<div
-    class="flex flex-col gap-3 border-l-4 border-gray-500 pl-3 mb-2"
+    class="flex flex-col gap-1 md:gap-3 border-l-4 border-gray-500 pl-3 mb-2"
   >
-    <div class="flex gap-3 align-baseline">
+    <div class="flex gap-1 md:gap-3 align-baseline">
       <span @text=".icon"></span>
       <a
         class="cursor-pointer font-bold"
@@ -631,7 +636,7 @@ export const File = component({
       }
     },
   },
-  view: html`<div class="flex gap-3 align-baseline">
+  view: html`<div class="flex gap-1 md:gap-3 align-baseline">
     <span @text=".icon"></span>
     <a class="cursor-pointer underline" :href=".url" @text=".text"></a>
   </div>`,
@@ -655,7 +660,7 @@ export const Blocks = component({
       return this.make({ items: r });
     },
   },
-  view: html`<div class="flex flex-col gap-3">
+  view: html`<div class="flex flex-col gap-1 md:gap-3">
     <x render-each=".items"></x>
   </div>`,
 });
