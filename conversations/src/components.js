@@ -814,29 +814,6 @@ export const Text = component({
       }
       return className;
     },
-    inlineStyle() {
-      const { bold, italic, strike, code } = this;
-      let inlineStyle = "white-space: pre-wrap";
-      if (bold || italic || strike || code) {
-        const parts = [];
-        if (bold) {
-          parts.push("font-weight: bold");
-        }
-        if (italic) {
-          parts.push("font-style: italic");
-        }
-        if (strike) {
-          parts.push("text-decoration-line: line-through");
-        }
-        if (code) {
-          parts.push(
-            'font-family:  ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-          );
-        }
-        inlineStyle = parts.join(";");
-      }
-      return inlineStyle;
-    },
   },
   statics: {
     fromData(d) {
