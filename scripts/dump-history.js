@@ -95,7 +95,7 @@ async function fetchChannels(outPath) {
   console.log(`Wrote ${channels.length} channels to ${outPath}`);
 }
 
-async function fetchMessages(startStr, endStr, outDir) {
+async function fetchMessages(startStr, endStr, outDir, configPath) {
   const startDate = parseDate(startStr);
   const endDate = parseDate(endStr);
   if (startDate > endDate) {
@@ -107,6 +107,14 @@ async function fetchMessages(startStr, endStr, outDir) {
   // latest is exclusive — set to start of day after endDate
   const latestDate = new Date(endDate.getTime() + 86400000);
   const latest = String(latestDate.getTime() / 1000);
+
+  // Load config
+  if (!existsSync(configPath)) {
+    console.error(`Config file not found: ${configPath}`);
+    process.exit(1);
+  }
+  const config = JSON.parse(readFileSync(configPath, "utf-8"));
+  const hideChannelIds = new Set(config.hideChannelIds || []);
 
   // Load channels from the output directory
   const channelsPath = join(outDir, "channels.json");
@@ -123,6 +131,10 @@ async function fetchMessages(startStr, endStr, outDir) {
 
   for (let i = 0; i < channels.length; i++) {
     const ch = channels[i];
+    if (hideChannelIds.has(ch.id)) {
+      console.log(`Skipping #${ch.name} (hidden by config)`);
+      continue;
+    }
     console.log(
       `Fetching #${ch.name} (${i + 1}/${channels.length})...`,
     );
@@ -266,13 +278,13 @@ switch (command) {
     await fetchChannels(args[0] || DEFAULT_CHANNELS_PATH);
     break;
   case "fetch-messages":
-    if (args.length < 2 || args.length > 3) {
+    if (args.length < 3 || args.length > 4) {
       console.error(
-        "Usage: dump-history.js fetch-messages <start-date> <end-date> [output-dir]",
+        "Usage: dump-history.js fetch-messages <start-date> <end-date> <output-dir> [config-path]",
       );
       process.exit(1);
     }
-    await fetchMessages(args[0], args[1], args[2] || HISTORY_DIR);
+    await fetchMessages(args[0], args[1], args[2], args[3] || "fetch-messages-config.json");
     break;
   default:
     console.error(
