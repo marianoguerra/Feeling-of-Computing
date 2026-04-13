@@ -273,16 +273,16 @@ export const Message = component({
       return `${MSG_PERMALINK_BASE_URL}?from-date=${from}&to-date=${to}#${this.date.toISOString()}`;
     },
     areAttachmentsVisible() {
-      return this.showAttachments && !this.attachmentsIsEmpty();
+      return this.showAttachments && !this.isAttachmentsEmpty();
     },
     areFilesVisible() {
-      return this.showAttachments && !this.filesIsEmpty();
+      return this.showAttachments && !this.isFilesEmpty();
     },
     areReactionsVisible() {
-      return this.showReactions && !this.reactionsIsEmpty();
+      return this.showReactions && !this.isReactionsEmpty();
     },
     areRepliesVisible() {
-      return this.showReplies && !this.repliesIsEmpty();
+      return this.showReplies && !this.isRepliesEmpty();
     },
     mapReplies(fn) {
       return this.updateReplies((v) => v.map(fn));
