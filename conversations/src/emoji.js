@@ -1,20 +1,16 @@
-import {
-  entries,
-  aliases,
-  skinIdsToCodes,
-} from "./emoji-data.js";
+import { aliases, entries, skinTones } from "./emoji-data.js";
 import { slackAliases } from "./slack-emoji-data.js";
 
-let nameToCode = null;
+let nameToEmoji = null;
 
-function getNameToCode() {
-  if (nameToCode === null) {
-    nameToCode = Object.assign({}, slackAliases, aliases);
+function getNameToEmoji() {
+  if (nameToEmoji === null) {
+    nameToEmoji = Object.assign({}, slackAliases, aliases);
     for (let i = 0, len = entries.length; i < len; i++) {
-      nameToCode[entries[i][0]] = entries[i][1];
+      nameToEmoji[entries[i][0]] = entries[i][1];
     }
   }
-  return nameToCode;
+  return nameToEmoji;
 }
 
 function textFromCode(code) {
@@ -28,4 +24,4 @@ function textFromCode(code) {
   return text;
 }
 
-export { getNameToCode, textFromCode, skinIdsToCodes };
+export { getNameToEmoji, skinTones, textFromCode };

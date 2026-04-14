@@ -1,8 +1,8 @@
 import { addDays, dateToDateString } from "./date.js";
-import { getNameToCode, textFromCode } from "./emoji.js";
+import { getNameToEmoji, textFromCode } from "./emoji.js";
 import { component, css, html } from "./ui.js";
 
-const NAME_TO_CODE = getNameToCode();
+const NAME_TO_EMOJI = getNameToEmoji();
 const MSG_PERMALINK_BASE_URL =
   "https://marianoguerra.github.io/Feeling-of-Computing/conversations/";
 
@@ -397,8 +397,7 @@ export const Reaction = component({
   statics: {
     fromData(d) {
       const { name, count } = d ?? {};
-      const code = NAME_TO_CODE[name];
-      const icon = code ? textFromCode(code) : `:${name}:`;
+      const icon = NAME_TO_EMOJI[name] ?? `:${name}:`;
       return this.make({ icon, count });
     },
   },
