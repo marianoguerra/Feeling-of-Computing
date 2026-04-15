@@ -1,0 +1,2549 @@
+[
+  {
+    "user": "UA14TGLTC",
+    "type": "message",
+    "ts": "1709713012.022269",
+    "client_msg_id": "42e1fae9-2934-41a9-addf-ec32b833e66a",
+    "text": "Please elaborate.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709702725.709209",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KZLD3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Please elaborate."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U06MKD39QR4",
+    "type": "message",
+    "ts": "1709730873.830819",
+    "client_msg_id": "4696e901-aa8d-49c4-9715-446dea426cb4",
+    "text": "So, I've got a problem with this thing I called 'unregulated I/O'. Here's what I mean by this:\n\n• Unix set the standard of modelling files as byte arrays in the 70s.\n• Likewise, storage I/O, IPC and RPC is mostly done via byte array. There are some exceptions - for example:\n    ◦ The OS normally abstracts away most packet handling up to the transport layer.\n    ◦ Windows has dabbled with wacky ports (COM1 et al.)\n• This means that application programs have the responsibility of validating the binary data loaded via I/O.\n    ◦ Improper validation accounts for the vast majority of attack vectors (especially if we include memory management bugs).\n    ◦ Most modern applications employ widely-used libraries to minimise the amount of custom validation they have to perform, which is fair, because more eyes are on the libraries.\nNevertheless, SQL injection and buffer overflows still happen in 2024. Exploit accessibility seems (to me) likely to increase with the employment of LLMs.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZIGbd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So, I've got a problem with this thing I called 'unregulated I/O'. Here's what I mean by this:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Unix set the standard of modelling files as byte arrays in the 70s."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Likewise, storage I/O, IPC and RPC is mostly done via byte array. There are some exceptions - for example:"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The OS normally abstracts away most packet handling up to the transport layer."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Windows has dabbled with wacky ports (COM1 et al.)"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "This means that application programs have the responsibility of validating the binary data loaded via I/O."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Improper validation accounts for the vast majority of attack vectors (especially if we include memory management bugs)."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Most modern applications employ widely-used libraries to minimise the amount of custom validation they have to perform, which is fair, because more eyes are on the libraries."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nNevertheless, SQL injection and buffer overflows still happen in 2024. Exploit accessibility seems (to me) likely to increase with the employment of LLMs."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MKD39QR4",
+    "type": "message",
+    "ts": "1709730888.708659",
+    "client_msg_id": "a225d29e-2653-42ae-9eee-2213fb47fc70",
+    "text": "I'm proposing that the Unix model should be replaced with something more secure by design:\n\n• An abstract data model should be established for I/O:\n    ◦ The OS should abstract away a reasonable amount of validation.\n        ▪︎ Syscalls in applications would be typed. For Rustaceans, I/O calls would yield something like a `std::io::Result&lt;T&gt;`.\n    ◦ The available types should include those that application programmers want to get I/O'd data into ASAP: scalars, arrays, maps, tuples/structs/enums (the latter of which should be <https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html|Rusty>).\n    ◦ We would certainly require encapsulation, and (possibly) higher-kinded facilities like mixins.\n    ◦ *All* data in this system should be represented this way, including programs themselves.\n        ▪︎ This means that program source code is \"already an AST\".\n        ▪︎ Plain text would not be used for source code.\n        ▪︎ UI development for these 'structured languages' must be improved. (maybe I should've said Scratch was an influence? :smirk:)\n        ▪︎ These ASTs should be transformed by the OS into machine code (which can also be represented with this model: a `.s` file becomes an array of instruction enums).\n        ▪︎ Eventually, the OS running this should be able to self-host in this way.\n    ◦ Applications should barely ever concern themselves with any kind of binary data, though this is of course impossible to prevent in a Turing-complete environment.\n• Data, as stored, should be content-addressable:\n    ◦ <https://www.youtube.com/watch?v=lKXe3HUG2l4|Joe Armstrong> has plenty of reasons why this is a good idea (especially for greenfield).\n    ◦ The equivalent of a 'filesystem' for this ecosystem would instead be what is effectively a hashmap with wear leveling.\n        ▪︎ Or, <https://www.theregister.com/2022/08/01/optane_intel_cancellation/|Optane> could be revived (some hope). Would be nice to design around this possibility.\n    ◦ 'Files', now more accurately 'objects', are stored by a hash of their contents.\n        ▪︎ Important note: this is _not_ object-oriented computing. We don't want to be piping vtables.\n    ◦ The need for encapsulation means that our 'filesystem' effectively becomes a <https://en.wikipedia.org/wiki/Merkle_tree|Merkle tree>.\n    ◦ In order to prevent massive hash cascades when writing to storage, we would need to employ mutable references (in a similar manner to symlinks).\n    ◦ Fast random-access updates to very large objects could be achieved with a hasher suited to incremental verification, such as <https://github.com/BLAKE3-team/BLAKE3|BLAKE3>.\n",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4/wlL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm proposing that the Unix model should be replaced with something more secure by design:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "An abstract data model should be established for I/O:"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The OS should abstract away a reasonable amount of validation."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Syscalls in applications would be typed. For Rustaceans, I/O calls would yield something like a "
+                  },
+                  {
+                    "type": "text",
+                    "text": "std::io::Result<T>",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 2,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The available types should include those that application programmers want to get I/O'd data into ASAP: scalars, arrays, maps, tuples/structs/enums (the latter of which should be "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html",
+                    "text": "Rusty"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "We would certainly require encapsulation, and (possibly) higher-kinded facilities like mixins."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "All",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " data in this system should be represented this way, including programs themselves."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "This means that program source code is \"already an AST\"."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Plain text would not be used for source code."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "UI development for these 'structured languages' must be improved. (maybe I should've said Scratch was an influence? "
+                  },
+                  {
+                    "type": "emoji",
+                    "name": "smirk",
+                    "unicode": "1f60f"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "These ASTs should be transformed by the OS into machine code (which can also be represented with this model: a "
+                  },
+                  {
+                    "type": "text",
+                    "text": ".s",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " file becomes an array of instruction enums)."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Eventually, the OS running this should be able to self-host in this way."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 2,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Applications should barely ever concern themselves with any kind of binary data, though this is of course impossible to prevent in a Turing-complete environment."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Data, as stored, should be content-addressable:"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://www.youtube.com/watch?v=lKXe3HUG2l4",
+                    "text": "Joe Armstrong"
+                  },
+                  {
+                    "type": "text",
+                    "text": " has plenty of reasons why this is a good idea (especially for greenfield)."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The equivalent of a 'filesystem' for this ecosystem would instead be what is effectively a hashmap with wear leveling."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Or, "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://www.theregister.com/2022/08/01/optane_intel_cancellation/",
+                    "text": "Optane"
+                  },
+                  {
+                    "type": "text",
+                    "text": " could be revived (some hope). Would be nice to design around this possibility."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 2,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "'Files', now more accurately 'objects', are stored by a hash of their contents."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Important note: this is "
+                  },
+                  {
+                    "type": "text",
+                    "text": "not",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " object-oriented computing. We don't want to be piping vtables."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 2,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The need for encapsulation means that our 'filesystem' effectively becomes a "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://en.wikipedia.org/wiki/Merkle_tree",
+                    "text": "Merkle tree"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "In order to prevent massive hash cascades when writing to storage, we would need to employ mutable references (in a similar manner to symlinks)."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Fast random-access updates to very large objects could be achieved with a hasher suited to incremental verification, such as "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://github.com/BLAKE3-team/BLAKE3",
+                    "text": "BLAKE3"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MKD39QR4",
+    "type": "message",
+    "ts": "1709730914.140699",
+    "client_msg_id": "cb15b4fb-3f86-431f-bfd9-3b2aa1c95d4f",
+    "text": "Here are some fun implications of such a design:\n\n• New programming languages would be required.\n• Deduplication of data becomes trivial.\n    ◦ On the subject, we'd need to be mindful of granular we are with the storage of heavily-encapsulated objects.\n    ◦ Denormalisation should probably happen when eg. objects' raw data is less than the size of a hash digest (at the very least).\n• Transfer of large objects over a network can be heavily optimised. Downloads effectively become a `git pull`.\n• Core web technologies such as HTTP, HTML, CSS &amp; JavaScript are no longer kosher, because they are based on plaintext.\n    ◦ \"This obsoletes the web\" is a silly thing to say, but could be fun in the pitch.\n    ◦ All of these formats _could_ be transformed into the strongly-typed model presented above, though.\n• Tabs vs spaces is no longer a concern, because formatting is no longer a concern for plaintext. That's now the UI's responsibility.\n• Entire classes of attack should be all but eliminated (eg. injection).\n• The types used in the data model can themselves be represented in the data model, and we can relatively easily implement internationalisation for code:\n    ◦ Here's a horrible illustration: `Enum Type { i8, i16, i32, i64, u8, u16, u32, u64, Array&lt;Type&gt;, Map&lt;Type, Type&gt;, Tuple&lt;Type, ...&gt;, Enum&lt;Array&lt;Type&gt;&gt; }`\n    ◦ These types don't have canon names, and I don't think they should.\n    ◦ They do have hashes, though. So we can refer to types by their hash.\n    ◦ We can then map human translations for these types and their encapsulated members in any number of natural languages: `Map Translations&lt;Tuple&lt;[Locale, Type]&gt;, Array&lt;String&gt;&gt;`\n",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FKm+A",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here are some fun implications of such a design:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "New programming languages would be required."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Deduplication of data becomes trivial."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "On the subject, we'd need to be mindful of granular we are with the storage of heavily-encapsulated objects."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Denormalisation should probably happen when eg. objects' raw data is less than the size of a hash digest (at the very least)."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Transfer of large objects over a network can be heavily optimised. Downloads effectively become a "
+                  },
+                  {
+                    "type": "text",
+                    "text": "git pull",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Core web technologies such as HTTP, HTML, CSS & JavaScript are no longer kosher, because they are based on plaintext."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "\"This obsoletes the web\" is a silly thing to say, but could be fun in the pitch."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "All of these formats "
+                  },
+                  {
+                    "type": "text",
+                    "text": "could",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " be transformed into the strongly-typed model presented above, though."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Tabs vs spaces is no longer a concern, because formatting is no longer a concern for plaintext. That's now the UI's responsibility."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Entire classes of attack should be all but eliminated (eg. injection)."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The types used in the data model can themselves be represented in the data model, and we can relatively easily implement internationalisation for code:"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Here's a horrible illustration: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "Enum Type { i8, i16, i32, i64, u8, u16, u32, u64, Array<Type>, Map<Type, Type>, Tuple<Type, ...>, Enum<Array<Type>> }",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "These types don't have canon names, and I don't think they should."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "They do have hashes, though. So we can refer to types by their hash."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "We can then map human translations for these types and their encapsulated members in any number of natural languages: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "Map Translations<Tuple<[Locale, Type]>, Array<String>>",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 1,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MKD39QR4",
+    "type": "message",
+    "ts": "1709730939.830439",
+    "client_msg_id": "f71d030a-9277-4817-ad70-debc364a369b",
+    "text": "I appreciate this is a lot, so if you've taken the time to read this, thank you :heart:\nPlease shoot with your questions and comments. I've got some visual explainers for this stuff lying around which I'll probably add too.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "R49BU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I appreciate this is a lot, so if you've taken the time to read this, thank you "
+              },
+              {
+                "type": "emoji",
+                "name": "heart",
+                "unicode": "2764-fe0f"
+              },
+              {
+                "type": "text",
+                "text": "\nPlease shoot with your questions and comments. I've got some visual explainers for this stuff lying around which I'll probably add too."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UFEQUBNNT",
+          "U85HCL7JP"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MKD39QR4",
+    "type": "message",
+    "ts": "1709731166.131149",
+    "client_msg_id": "57f8a367-0729-41c1-9d67-3a2a16fe2a7c",
+    "text": "...oh, and: much as I've searched, I can't find a project that's attempting to create an entire ecosystem out of these principles (even if it's just using VMs rather than an entire OS). If you know of any project doing this, please let me know, because I suspect they're probably doing a better job.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QwwXy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "...oh, and: much as I've searched, I can't find a project that's attempting to create an entire ecosystem out of these principles (even if it's just using VMs rather than an entire OS). If you know of any project doing this, please let me know, because I suspect they're probably doing a better job."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U03HC3XHZGW",
+    "type": "message",
+    "ts": "1709744998.875189",
+    "edited": {
+      "user": "U03HC3XHZGW",
+      "ts": "1709745040.000000"
+    },
+    "client_msg_id": "54d8f2f6-3f29-4833-af75-b083fb34f58d",
+    "text": "Does it work in the terminal? That’s a big place I want autocomplete that I don’t currently have it.\n\nedit: I have now checked out the landing page and see that it does :slightly_smiling_face:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xBb5U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Does it work in the terminal? That’s a big place I want autocomplete that I don’t currently have it.\n\nedit: I have now checked out the landing page and see that it does "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U03HC3XHZGW",
+    "type": "message",
+    "ts": "1709745146.128849",
+    "client_msg_id": "62ba9100-5f74-4967-95ef-fc4d57067826",
+    "text": "Super cool. How do you build context? is it always based on the current text buffer?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "M1Rry",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Super cool. How do you build context? is it always based on the current text buffer?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U03HC3XHZGW",
+    "type": "message",
+    "ts": "1709745505.757389",
+    "client_msg_id": "b799be53-27dc-4512-b11d-9e0f2cc2ad32",
+    "text": "It would be super cool if the clipboard contents were always appended to context. That way you could google/chatgpt a question, highlight and copy the answer, and then focus in your code editor etc. and get more relevant completions. In general I’m interested in UI that allows people to manage context more explicitly",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "a5Tt+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It would be super cool if the clipboard contents were always appended to context. That way you could google/chatgpt a question, highlight and copy the answer, and then focus in your code editor etc. and get more relevant completions. In general I’m interested in UI that allows people to manage context more explicitly"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MT9KDU7Q",
+    "type": "message",
+    "ts": "1709746187.658829",
+    "client_msg_id": "b5d32924-77cf-4707-a3cb-068868c02e80",
+    "text": "Yes! Builds context based on what’s in the current app",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "19wQO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes! Builds context based on what’s in the current app"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MT9KDU7Q",
+    "type": "message",
+    "ts": "1709746201.668819",
+    "client_msg_id": "a2d5e4c1-f121-4b51-97be-916f59e9840e",
+    "text": "when you select text and press Option Space",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Fhpd1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "when you select text and press Option Space"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MT9KDU7Q",
+    "type": "message",
+    "ts": "1709746208.087869",
+    "client_msg_id": "cfaf43b6-ab04-40c9-b264-1e5387c4e46a",
+    "text": "then that text goes into the context",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AAiTN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "then that text goes into the context"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U03HC3XHZGW"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "",
+    "files": [
+      {
+        "id": "F06N5FD15CM",
+        "created": 1709746355,
+        "timestamp": 1709746355,
+        "name": "Screen slack.mp4",
+        "title": "Screen slack.mp4",
+        "mimetype": "video/mp4",
+        "filetype": "mp4",
+        "pretty_type": "MPEG 4 Video",
+        "user": "U06MT9KDU7Q",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 542420,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F06N5FD15CM-a9ee649ad4/screen_slack.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F06N5FD15CM-a9ee649ad4/screen_slack.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F06N5FD15CM/download/screen_slack.mp4",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F06N5FD15CM-a9ee649ad4/file.m3u8?_xcb=d03fd",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9ODcyNzAwLEFWRVJBR0UtQkFORFdJRFRIPTg3MjcwMCxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMzU2eDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdOazQxUmtReE5VTk5MV0U1WldVMk5EbGhaRFF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam93TGprek5Dd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRFpPTlVaRU1UVkRUUzFoT1dWbE5qUTVZV1EwTDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUXRXQzFGVGtSTVNWTlVDZz09CiNFWFQtWC1TVFJFQU0tSU5GOkJBTkRXSURUSD01NTk0MjksQVZFUkFHRS1CQU5EV0lEVEg9NTU5NDI5LENPREVDUz0iYXZjMS42NDAwMWYsbXA0YS40MC41IixSRVNPTFVUSU9OPTkwNHg3MjAsRlJBTUUtUkFURT0yOS45NzAKaHR0cHM6Ly9maWxlcy5zbGFjay5jb20vZmlsZXMtdG1iL1Q1VENBRlRBOS1GMDZONUZEMTVDTS1hOWVlNjQ5YWQ0L2ZpbGVfSF8yNjRfMTI4MHg3MjBfMzUwMEtCUFNfN1FWQlIubTN1OAo=",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F06N5FD15CM-a9ee649ad4/screen_slack_trans.mp4",
+        "duration_ms": 6940,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F06N5FD15CM-a9ee649ad4/screen_slack_thumb_video.jpeg",
+        "thumb_video_w": 1720,
+        "thumb_video_h": 1370,
+        "permalink": "https://futureofcoding.slack.com/files/U06MT9KDU7Q/F06N5FD15CM/screen_slack.mp4",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F06N5FD15CM-bad00b63f3",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U06MT9KDU7Q",
+    "display_as_bot": false,
+    "type": "message",
+    "ts": "1709746362.086959",
+    "client_msg_id": "32a54000-1f4e-4238-8d3d-359b307f6a68",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U03HC3XHZGW",
+    "type": "message",
+    "ts": "1709746609.779139",
+    "client_msg_id": "0fdfcd7a-484f-4381-b8a9-7187e1c9e6d4",
+    "text": "Awesome, excited to try it out!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kdsAj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Awesome, excited to try it out!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1709746806.845039",
+    "client_msg_id": "2e19dcda-c7c8-43ae-8daa-fca1a0182a51",
+    "text": "I see the main problem of your project in the wish to design a complex system from scratch. Such projects have basically always failed, for running out of steam before accomplishing anything useful.\n\nOne of the insights from John Gall's \"Systems Bible\" (highly recommended!) is (chapter 11):  \"A complex system that works is invariably found to have evolved from a simple system that worked\" with the corollary that \"A complex system designed from scratch never works and cannot be made to work. you have to start over, beginning with a working simple system.\"\n\nThat's in fact how today's computing systems evolved over a few decades. The result is a bit of a mess, but it works. And it's so big by now that it cannot be replaced, only evolved.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zknT5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I see the main problem of your project in the wish to design a complex system from scratch. Such projects have basically always failed, for running out of steam before accomplishing anything useful.\n\nOne of the insights from John Gall's \"Systems Bible\" (highly recommended!) is (chapter 11):  \"A complex system that works is invariably found to have evolved from a simple system that worked\" with the corollary that \"A complex system designed from scratch never works and cannot be made to work. you have to start over, beginning with a working simple system.\"\n\nThat's in fact how today's computing systems evolved over a few decades. The result is a bit of a mess, but it works. And it's so big by now that it cannot be replaced, only evolved."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MT9KDU7Q",
+    "type": "message",
+    "ts": "1709747478.694699",
+    "client_msg_id": "da19f1a0-ab51-4a91-b385-baee91bd6c8d",
+    "text": "also! you can also @tag windows that you’ve had open recently to add them to the context in the option space chat",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aYWpX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "also! you can also @tag windows that you’ve had open recently to add them to the context in the option space chat"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06MT9KDU7Q",
+    "type": "message",
+    "ts": "1709747498.984949",
+    "client_msg_id": "481a74ff-9ba3-49f9-87e8-86093e127e8e",
+    "text": "and any recently selected text too",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MVl7L",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "and any recently selected text too"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1709748096.022409",
+    "client_msg_id": "9b37aa02-eec8-4b30-abdb-45b05a583c94",
+    "text": "So much wisdom in there! At first sight it might seem as just another regurgitation of what he has been preaching for more than two decades already. But he’s always trying to evolve how he tries to make his points.\n\nI hope he’ll be with us for a few more decades and keeps reminding us of these things. Although I can’t really understand how he is still willing to put up with us, as we have clearly decided to go in a very different direction.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "v7fE9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So much wisdom in there! At first sight it might seem as just another regurgitation of what he has been preaching for more than two decades already. But he’s always trying to evolve how he tries to make his points.\n\nI hope he’ll be with us for a few more decades and keeps reminding us of these things. Although I can’t really understand how he is still willing to put up with us, as we have clearly decided to go in a very different direction."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UGWUJUZHT"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1709749587.753199",
+    "client_msg_id": "5d0caaae-0049-4b17-8c0f-016194878d7b",
+    "text": "The message I saw was, \"take out trash.\"\n\nMy first thought was, \"huh, trash day was yesterday.\"\n\nThe program does periodic reminders. Here it had added 7 days to Feb 26 and gotten to Mar 5.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709702725.709209",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "swJDZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The message I saw was, \"take out trash.\"\n\nMy first thought was, \"huh, trash day was yesterday.\"\n\nThe program does periodic reminders. Here it had added 7 days to Feb 26 and gotten to Mar 5."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1709776050.463349",
+    "client_msg_id": "ad3bf6b6-b8a8-4f98-b243-03c45cd8b5df",
+    "text": "<@U5STGTB3J> In the words of Joseph Heller, \"What else is there?\" :slightly_smiling_face:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AQYlJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": " In the words of Joseph Heller, \"What else is there?\" "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UA14TGLTC",
+    "type": "message",
+    "ts": "1709802907.532249",
+    "client_msg_id": "34df0f46-8a2b-4abd-b2ee-b48c6676a0ea",
+    "text": "Ah!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709702725.709209",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xAslj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U06MJU6LBN3",
+    "type": "message",
+    "ts": "1709806741.796559",
+    "client_msg_id": "a5b6eb0a-e80a-48ed-8cc5-28e8a054f286",
+    "text": "For the \"copilot in the shell\" usecase, there is <https://butterfi.sh/|https://butterfi.sh/>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709743834.765159",
+    "parent_user_id": "U06MT9KDU7Q",
+    "attachments": [
+      {
+        "image_url": "https://butterfi.sh/shell3.gif",
+        "image_width": 1200,
+        "image_height": 600,
+        "image_bytes": 2011466,
+        "from_url": "https://butterfi.sh/",
+        "service_icon": "https://butterfi.sh/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://butterfi.sh/",
+        "fallback": "Butterfish - A shell with AI superpowers",
+        "text": "Add easy, context aware AI prompting with OpenAI to bash and zsh shells",
+        "title": "Butterfish - A shell with AI superpowers",
+        "title_link": "https://butterfi.sh/",
+        "service_name": "butterfi.sh"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oWpdP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For the \"copilot in the shell\" usecase, there is "
+              },
+              {
+                "type": "link",
+                "url": "https://butterfi.sh/",
+                "text": "https://butterfi.sh/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1709807902.229019",
+    "client_msg_id": "eb98f2af-5e1d-4aa4-bcfc-643b382054f4",
+    "text": "Came across this transcript of another one of his talks. This one’s very different, but together they draw a pretty good picture of what he’s trying to do and — more importantly — why. <https://tinlizzie.org/VPRIPapers/m2004002_center.pdf>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PF5k8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Came across this transcript of another one of his talks. This one’s very different, but together they draw a pretty good picture of what he’s trying to do and — more importantly — why. "
+              },
+              {
+                "type": "link",
+                "url": "https://tinlizzie.org/VPRIPapers/m2004002_center.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "text": "The problem with AI (and technology in general) in one slide:",
+    "files": [
+      {
+        "id": "F06NRQFAJ8Z",
+        "created": 1709809266,
+        "timestamp": 1709809266,
+        "name": "Screenshot 2024-03-07 at 10.58.15.png",
+        "title": "Screenshot 2024-03-07 at 10.58.15.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U5STGTB3J",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 1831489,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F06NRQFAJ8Z/screenshot_2024-03-07_at_10.58.15.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F06NRQFAJ8Z/download/screenshot_2024-03-07_at_10.58.15.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 202,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 404,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 449,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 539,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 575,
+        "original_w": 1916,
+        "original_h": 1076,
+        "thumb_tiny": "AwAaADBoYgYwKR+tLkUpAPOa0JI6Kk2ik2+lFxDMUmKk20baLgKFBHWnBcdwfqKbkjvRk+poGGG9qMN6D9KTcfU0bj6mgQu1v8mm5NOyfU0lAH//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U5STGTB3J/F06NRQFAJ8Z/screenshot_2024-03-07_at_10.58.15.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F06NRQFAJ8Z-8ac12ec1fb",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U5STGTB3J",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "thVNW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The problem with AI (and technology in general) in one slide:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "subtype": "thread_broadcast",
+    "root": {
+      "user": "UAJKEBGP8",
+      "type": "message",
+      "ts": "1709732691.993869",
+      "client_msg_id": "2a98060d-6f04-45a7-a363-eeb02bcd5fdb",
+      "text": "Alan Kay’s talk at UCLA (2/21/2024): <https://news.ycombinator.com/item?id=39612799>",
+      "team": "T5TCAFTA9",
+      "thread_ts": "1709732691.993869",
+      "reply_count": 15,
+      "reply_users_count": 4,
+      "latest_reply": "1710104678.260849",
+      "reply_users": [
+        "U5STGTB3J",
+        "UCUSW7WVD",
+        "UJFN50C00",
+        "U02JQA5FY5C"
+      ],
+      "is_locked": false,
+      "subscribed": false,
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "dBqoI",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "Alan Kay’s talk at UCLA (2/21/2024): "
+                },
+                {
+                  "type": "link",
+                  "url": "https://news.ycombinator.com/item?id=39612799"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "type": "message",
+    "ts": "1709809292.300669",
+    "client_msg_id": "c8a48035-8e21-40db-b48e-fe463048dbfd",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U013ZLJARC7",
+          "UJBAJNFLK",
+          "UA14TGLTC"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "text": "The problem with AI (and technology in general) in one slide:",
+    "files": [
+      {
+        "id": "F06NRQFAJ8Z",
+        "created": 1709809266,
+        "timestamp": 1709809266,
+        "name": "Screenshot 2024-03-07 at 10.58.15.png",
+        "title": "Screenshot 2024-03-07 at 10.58.15.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U5STGTB3J",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 1831489,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F06NRQFAJ8Z/screenshot_2024-03-07_at_10.58.15.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F06NRQFAJ8Z/download/screenshot_2024-03-07_at_10.58.15.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 202,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 270,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 404,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 449,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 539,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F06NRQFAJ8Z-5011f8c570/screenshot_2024-03-07_at_10.58.15_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 575,
+        "original_w": 1916,
+        "original_h": 1076,
+        "thumb_tiny": "AwAaADBoYgYwKR+tLkUpAPOa0JI6Kk2ik2+lFxDMUmKk20baLgKFBHWnBcdwfqKbkjvRk+poGGG9qMN6D9KTcfU0bj6mgQu1v8mm5NOyfU0lAH//2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U5STGTB3J/F06NRQFAJ8Z/screenshot_2024-03-07_at_10.58.15.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F06NRQFAJ8Z-8ac12ec1fb",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U5STGTB3J",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "thVNW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The problem with AI (and technology in general) in one slide:"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "subtype": "thread_broadcast",
+    "root": {
+      "user": "UAJKEBGP8",
+      "type": "message",
+      "ts": "1709732691.993869",
+      "client_msg_id": "2a98060d-6f04-45a7-a363-eeb02bcd5fdb",
+      "text": "Alan Kay’s talk at UCLA (2/21/2024): <https://news.ycombinator.com/item?id=39612799>",
+      "team": "T5TCAFTA9",
+      "thread_ts": "1709732691.993869",
+      "reply_count": 15,
+      "reply_users_count": 4,
+      "latest_reply": "1710104678.260849",
+      "reply_users": [
+        "U5STGTB3J",
+        "UCUSW7WVD",
+        "UJFN50C00",
+        "U02JQA5FY5C"
+      ],
+      "is_locked": false,
+      "subscribed": false,
+      "blocks": [
+        {
+          "type": "rich_text",
+          "block_id": "dBqoI",
+          "elements": [
+            {
+              "type": "rich_text_section",
+              "elements": [
+                {
+                  "type": "text",
+                  "text": "Alan Kay’s talk at UCLA (2/21/2024): "
+                },
+                {
+                  "type": "link",
+                  "url": "https://news.ycombinator.com/item?id=39612799"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "type": "message",
+    "ts": "1709809292.300669",
+    "client_msg_id": "c8a48035-8e21-40db-b48e-fe463048dbfd",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U013ZLJARC7",
+          "UJBAJNFLK",
+          "UA14TGLTC"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1709809403.902249",
+    "client_msg_id": "84f16727-238f-45eb-b604-5e3166e6d3f3",
+    "text": "“Wisdom requires a lot more context than building.” — Alan Kay",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QKpdE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "“Wisdom requires a lot more context than building.” — Alan Kay"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1709886067.178829",
+    "client_msg_id": "BC511FCA-AE50-41CF-808A-4F5820C751B2",
+    "text": "There are a couple of things going on with “context”.  As a technologist it’s a bit too easy to get too exited about science and the abstract. But talking all the time about technology and potential can lead to misunderstandings. ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pVcQ8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There are a couple of things going on with “context”"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "  As a technologist "
+              },
+              {
+                "type": "text",
+                "text": "it’s"
+              },
+              {
+                "type": "text",
+                "text": " a bit too easy to get too exited about science and the abstract"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " But talking all the time about technology and potential can lead to misunderstandings"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1709887707.362109",
+    "client_msg_id": "3E834FD1-EE79-4F50-9C78-ED6CF330029B",
+    "text": "<@UJFN50C00> Please elaborate!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7fCW9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJFN50C00"
+              },
+              {
+                "type": "text",
+                "text": " Please elaborate!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1709909385.363469",
+    "edited": {
+      "user": "UJFN50C00",
+      "ts": "1709913810.000000"
+    },
+    "client_msg_id": "40f89cae-45be-458c-a786-38dd2326a2d8",
+    "text": "It will be very difficult but I can try. Maybe I should participate in one of those Christopher Alexander Events you linked before. I need to find that link. I can only write from my experience.  So first of all a bit about my context about Alan Kay, here is a link to my Main Zettel File about Alans work: <https://andreass.gitlab.io/2022/AlanKay.html> . So Although alan has tried to create some form of context for Computer Technology it did not go to places where it may be should have gone.\nWhen I first encountered the STEPS project I was deeply impressed with its technical ambition. But what happend with the final report? There was no coherent source code release of the work. Some researchers did put out _some_ code in _some_ form but it wasn't nothing like the system Alan showed, Why wasn't that put out to the public? Was it because of funding issues that led to troubles with research goals and communicating the whole thing? That still feels very unsettling, on the one hand Alan participated in xerox parc or he talks about Martin luther but then he and his research group fail to think about ways how to actually _communicate_ their technology which could provide paradigm shift potential.  You can see some of the strange in this github issue comment thread: <https://github.com/damelang/nile/issues/3>\nOver the course of many years (!) people asked about ways to understand even this graphic sub system, let alone the bigger systems philosophy of the STEPS project.\nSo at some point the idea what research means or that you can have a idea on the level of paradigm shift and be able to share it.  Some aspects of it you can see here where alan gives a talk but then there happens some _actual_ discussion after that: <https://www.youtube.com/watch?v=PFc379hu--8> the video is 1:20 , the relevant discussion happens about 1:17. Where you can see how confused alan is about what the students perception is what he is doing at university - could be or should be doing.  I think with the years after the STEPS project Alan slowly realized that it is not only difficult nowadays to create something novel and hope or work towards a unfolding of that paradigm shift even talking about becomes difficult such that it enters the teritory of cargo cults (see Alans Conversation with Gardner Campell for context about that)  I think this can be seen in this talk for example: <https://www.youtube.com/watch?v=j9ZGFaIHegE>. In this talk from 2019 Alan talks on a conference for circular economy for the alan macarthur foundation. He is basically asked to explain how he as part of xerox research community did achieve that, how did they initiate a paradigm shift ( from pre-personal computing to personal computing). ALan starts of by presenting a list of question and basically asks for a participation on these questions. But after his talk the moderator seems confused that alan did not \"simply\" deliver \"the answer\". While all, at least , to some part part alan was trying to was pointing to that even the structures to talk about a problem ( here working with paradigm shifts) matter and that giving a \"talk\" can not do that, it misses the point.  All of this was pre covid and the culture wars have made cultural understanding even more complicatedon so many levels. I think in some sense its almost impossible to work on technology without work on better understanding of ideas and I do not mean like: oh you \"just\" have to build a better interface which is more intuitevly. Its more work in terms of relationships. See the video from alan called: *Portable Portrait: Alan Kay (1990) from my file above to get a feeling about it.* I'll stop here for now.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=PFc379hu--8",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/PFc379hu--8/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/PFc379hu--8?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Alan Kay : July 2007 : A Conversation with CMU Faculty &amp; Students\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 300,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=PFc379hu--8",
+        "fallback": "YouTube Video: Alan Kay : July 2007 : A Conversation with CMU Faculty & Students",
+        "title": "Alan Kay : July 2007 : A Conversation with CMU Faculty &amp; Students",
+        "title_link": "https://www.youtube.com/watch?v=PFc379hu--8",
+        "author_name": "CMU Robotics Institute",
+        "author_link": "https://www.youtube.com/@cmurobotics",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      },
+      {
+        "from_url": "https://www.youtube.com/watch?v=j9ZGFaIHegE",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/j9ZGFaIHegE/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/j9ZGFaIHegE?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"Scale Up the Circular Economy - Great Talk with Legendary Computer Scientist Alan Kay | Summit 2019\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 2,
+        "original_url": "https://www.youtube.com/watch?v=j9ZGFaIHegE",
+        "fallback": "YouTube Video: Scale Up the Circular Economy - Great Talk with Legendary Computer Scientist Alan Kay | Summit 2019",
+        "title": "Scale Up the Circular Economy - Great Talk with Legendary Computer Scientist Alan Kay | Summit 2019",
+        "title_link": "https://www.youtube.com/watch?v=j9ZGFaIHegE",
+        "author_name": "Ellen MacArthur Foundation",
+        "author_link": "https://www.youtube.com/@EllenMacArthurFoundation",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vzpBx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It will be very difficult but I can try. Maybe I should participate in one of those Christopher Alexander Events you linked before. I need to find that link. I can only write from my experience.  So first of all a bit about my context about Alan Kay, here is a link to my Main Zettel File about Alans work: "
+              },
+              {
+                "type": "link",
+                "url": "https://andreass.gitlab.io/2022/AlanKay.html"
+              },
+              {
+                "type": "text",
+                "text": " . So Although alan has tried to create some form of context for Computer Technology it did not go to places where it may be should have gone.\nWhen I first encountered the STEPS project I was deeply impressed with its technical ambition. But what happend with the final report? There was no coherent source code release of the work. Some researchers did put out "
+              },
+              {
+                "type": "text",
+                "text": "some",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " code in "
+              },
+              {
+                "type": "text",
+                "text": "some",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " form but it wasn't nothing like the system Alan showed, Why wasn't that put out to the public? Was it because of funding issues that led to troubles with research goals and communicating the whole thing? That still feels very unsettling, on the one hand Alan participated in xerox parc or he talks about Martin luther but then he and his research group fail to think about ways how to actually "
+              },
+              {
+                "type": "text",
+                "text": "communicate",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " their technology which could provide paradigm shift potential.  You can see some of the strange in this github issue comment thread: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/damelang/nile/issues/3"
+              },
+              {
+                "type": "text",
+                "text": "\nOver the course of many years (!) people asked about ways to understand even this graphic sub system, let alone the bigger systems philosophy of the STEPS project.\nSo at some point the idea what research means or that you can have a idea on the level of paradigm shift and be able to share it.  Some aspects of it you can see here where alan gives a talk but then there happens some "
+              },
+              {
+                "type": "text",
+                "text": "actual",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " discussion after that: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=PFc379hu--8"
+              },
+              {
+                "type": "text",
+                "text": " the video is 1:20 , the relevant discussion happens about 1:17. Where you can see how confused alan is about what the students perception is what he is doing at university - could be or should be doing.  I think with the years after the STEPS project Alan slowly realized that it is not only difficult nowadays to create something novel and hope or work towards a unfolding of that paradigm shift even talking about becomes difficult such that it enters the teritory of cargo cults (see Alans Conversation with Gardner Campell for context about that)  I think this can be seen in this talk for example: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=j9ZGFaIHegE"
+              },
+              {
+                "type": "text",
+                "text": ". In this talk from 2019 Alan talks on a conference for circular economy for the alan macarthur foundation. He is basically asked to explain how he as part of xerox research community did achieve that, how did they initiate a paradigm shift ( from pre-personal computing to personal computing). ALan starts of by presenting a list of question and basically asks for a participation on these questions. But after his talk the moderator seems confused that alan did not \"simply\" deliver \"the answer\". While all, at least , to some part part alan was trying to was pointing to that even the structures to talk about a problem ( here working with paradigm shifts) matter and that giving a \"talk\" can not do that, it misses the point.  All of this was pre covid and the culture wars have made cultural understanding even more complicatedon so many levels. I think in some sense its almost impossible to work on technology without work on better understanding of ideas and I do not mean like: oh you \"just\" have to build a better interface which is more intuitevly. Its more work in terms of relationships. See the video from alan called: "
+              },
+              {
+                "type": "text",
+                "text": "Portable Portrait: Alan Kay (1990) from my file above to get a feeling about it.",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " I'll stop here for now."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1709916905.319589",
+    "client_msg_id": "3593a188-2322-4987-b21f-cf2aec0948b1",
+    "text": "<@UJFN50C00> Thanks for sharing that! Looks like you’ve been following him for quite a while. Impressive. I thought I had watched pretty much every video with him, but you easily pulled several videos out of your hat I hadn’t seen before.\n\nI’d be delighted to have you join the discussion about simplicity next Thursday.\n\nIt sounds like your criticism is primarily based on not making research publicly available, or at least not doing that properly, like in the case of STEPS. Is that a fair conclusion?\n\nI am as frustrated about that as you are. I don’t know the exact details of what happened to STEPS, I’m more familiar with the funding issues around Bret Victor’s Dynamicland, which also doesn’t exactly share much of what’s going on there in the form of public artifacts. However, if you were lucky enough to visit and talk to Bret and all the other researchers, they couldn’t be more open about what they do, how they do it, and what they are trying to achieve (at least in 2017, when I got to visit a few times). There seemed to be similar dynamics at play in both projects.\n\nI’m not sure I understand your later point. Is Alan not doing something that he should be doing? Or is he doing something he shouldn't be? Are there expectations that he doesn’t meet? Or is this more a big picture point about culture that you’re making?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ikOZR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJFN50C00"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for sharing that! Looks like you’ve been following him for quite a while. Impressive. I thought I had watched pretty much every video with him, but you easily pulled several videos out of your hat I hadn’t seen before.\n\nI’d be delighted to have you join the discussion about simplicity next Thursday.\n\nIt sounds like your criticism is primarily based on not making research publicly available, or at least not doing that properly, like in the case of STEPS. Is that a fair conclusion?\n\nI am as frustrated about that as you are. I don’t know the exact details of what happened to STEPS, I’m more familiar with the funding issues around Bret Victor’s Dynamicland, which also doesn’t exactly share much of what’s going on there in the form of public artifacts. However, if you were lucky enough to visit and talk to Bret and all the other researchers, they couldn’t be more open about what they do, how they do it, and what they are trying to achieve (at least in 2017, when I got to visit a few times). There seemed to be similar dynamics at play in both projects.\n\nI’m not sure I understand your later point. Is Alan not doing something that he should be doing? Or is he doing something he shouldn't be? Are there expectations that he doesn’t meet? Or is this more a big picture point about culture that you’re making?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1709993457.030099",
+    "client_msg_id": "5559a1f1-dbcc-4c9a-a059-82f40b7a421b",
+    "text": "Yes funding is a major part of the problem. Like described in the nile issue <https://github.com/damelang/nile/issues/3> It comes basically to the point where dan amelang says he would need more then 4k per month to work on the project, weather that means only coding or also explaining things he leaves it open. It was arround that time that I became aware of the whole crypto bubble. Humongous amounts of money got \"spent\" there.  Ethereum also had for some time the label - programmable money.  It seems to me as a real tragedy that a few thousands of dollars could not be gathered. Is it a marketing problem? Is it a problem of norms and values? Is society unable to fund its own sustainable progress or computing culture? One of the projects that did things in a similar scope and that actually succeeded is urbit.  15 years of evolution : <https://www.youtube.com/watch?v=DFeN-TKZor0>\nor this resource <https://urbit.org/blog/hoon-4-lispers> They apparently found funding but also managed local user groups which maintained a kind of local \"hacking\" culture.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=DFeN-TKZor0",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "thumb_url": "https://i.ytimg.com/vi/DFeN-TKZor0/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/DFeN-TKZor0?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"#205 Galen Wolfe-Pauly: Urbit - A Digital Republic Reinventing the Internet\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=DFeN-TKZor0",
+        "fallback": "YouTube Video: #205 Galen Wolfe-Pauly: Urbit - A Digital Republic Reinventing the Internet",
+        "title": "#205 Galen Wolfe-Pauly: Urbit - A Digital Republic Reinventing the Internet",
+        "title_link": "https://www.youtube.com/watch?v=DFeN-TKZor0",
+        "author_name": "Epicenter Podcast",
+        "author_link": "https://www.youtube.com/@epicenterbtc",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      },
+      {
+        "image_url": "https://urbit.org/images/twitter-header.png",
+        "image_width": 1500,
+        "image_height": 500,
+        "image_bytes": 10861,
+        "from_url": "https://urbit.org/blog/hoon-4-lispers",
+        "service_icon": "https://urbit.org/images/apple-touch-icon.png",
+        "id": 2,
+        "original_url": "https://urbit.org/blog/hoon-4-lispers",
+        "fallback": "A Perspective on Lisp and Hoon",
+        "text": "Lisp is an éminence grise of programming. How does Hoon compare?",
+        "title": "A Perspective on Lisp and Hoon",
+        "title_link": "https://urbit.org/blog/hoon-4-lispers",
+        "service_name": "urbit.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9H7nU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes funding is a major part of the problem. Like described in the nile issue "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/damelang/nile/issues/3"
+              },
+              {
+                "type": "text",
+                "text": " It comes basically to the point where dan amelang says he would need more then 4k per month to work on the project, weather that means only coding or also explaining things he leaves it open. It was arround that time that I became aware of the whole crypto bubble. Humongous amounts of money got \"spent\" there.  Ethereum also had for some time the label - programmable money.  It seems to me as a real tragedy that a few thousands of dollars could not be gathered. Is it a marketing problem? Is it a problem of norms and values? Is society unable to fund its own sustainable progress or computing culture? One of the projects that did things in a similar scope and that actually succeeded is urbit.  15 years of evolution : "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=DFeN-TKZor0"
+              },
+              {
+                "type": "text",
+                "text": "\nor this resource "
+              },
+              {
+                "type": "link",
+                "url": "https://urbit.org/blog/hoon-4-lispers"
+              },
+              {
+                "type": "text",
+                "text": " They apparently found funding but also managed local user groups which maintained a kind of local \"hacking\" culture."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1710001649.220709",
+    "client_msg_id": "3d0a5608-ae8c-4836-955c-bcd4ae87480c",
+    "text": "Interesting that crypto is your prime example for misspending of money. As I understand him, one of Alan’s main points is that governments/academia messed up funding after ARPA, and then companies messed it up after PARC, because they began demanding at least rough ideas of how such “investments” will be recouped. And now “humongous amounts” of money are “misspent” in the form of government grants, academic funding, and venture capital that makes all the money ever converted into crypto still look like pocket change.\n\nIsn’t Urbit also somehow connected to Peter Thiel? That would probably explain why it worked for them but that probably means there are some skeletons hiding in the closet…\n\nClearly, money shouldn’t really be the problem to fund good research. The problem is that all the people who have that kind of money want even more of it, and as close to a good story you can come up with of how you will make them more money if they lend you theirs. And that is incompatible with what researchers need to do good work. And that is essentially the main story I get out of pretty much every Alan Kay presentation in the last two decades. So I think he would agree that, yes, as a society we are unable to fund this. For pretty stupid reasons.\n\n(Christopher Alexander tells an analogous story about contemporary architecture, which also has chosen to follow different norms and values and to no longer care about what Alexander thinks should be the priority — designing spaces that serve the communities that live in them. Instead, architects care about how their skyscraper helps define the skyline of a city and makes them and their architecture firm famous and prosperous.)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VUnYQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting that crypto is your prime example for misspending of money. As I understand him, one of Alan’s main points is that governments/academia messed up funding after ARPA, and then companies messed it up after PARC, because they began demanding at least rough ideas of how such “investments” will be recouped. And now “humongous amounts” of money are “misspent” in the form of government grants, academic funding, and venture capital that makes all the money ever converted into crypto still look like pocket change.\n\nIsn’t Urbit also somehow connected to Peter Thiel? That would probably explain why it worked for them but that probably means there are some skeletons hiding in the closet…\n\nClearly, money shouldn’t really be the problem to fund good research. The problem is that all the people who have that kind of money want even more of it, and as close to a good story you can come up with of how you will make them more money if they lend you theirs. And that is incompatible with what researchers need to do good work. And that is essentially the main story I get out of pretty much every Alan Kay presentation in the last two decades. So I think he would agree that, yes, as a society we are unable to fund this. For pretty stupid reasons.\n\n(Christopher Alexander tells an analogous story about contemporary architecture, which also has chosen to follow different norms and values and to no longer care about what Alexander thinks should be the priority — designing spaces that serve the communities that live in them. Instead, architects care about how their skyscraper helps define the skyline of a city and makes them and their architecture firm famous and prosperous.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1710002618.883179",
+    "client_msg_id": "2A55BB43-51DF-45B9-AB1F-0B8DA36C3697",
+    "text": "I just read through the HN, some people in the thread claim to have a STEPS system running:\n<https://news.ycombinator.com/item?id=39636074|https://news.ycombinator.com/item?id=39636074> it’s almost tempting to try to bring this back to a bigger audience. ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ym/Ne",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I just read through the HN, some people in the thread claim to have a STEPS system running:\n"
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=39636074",
+                "text": "https://news.ycombinator.com/item?id=39636074"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "it’s"
+              },
+              {
+                "type": "text",
+                "text": " almost tempting to try to bring this back to a bigger audience"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1710003530.958899",
+    "client_msg_id": "caa3730b-8441-4b92-820c-7fb275f7d432",
+    "text": "Yes, that would be great! And it should be possible. I read a lot of the VPRI papers and even if they are more abstract and there’s little source code available, the concepts are pretty solid and there are enough clever people out there who could certainly “fill in the blanks”.\n\nWhat I would like to see even more is that thinking that motivated STEPS, the economy of creating something incredibly useful with orders of magnitude less complexity, and not being afraid to reinvent some of the foundations, spread to more projects. Instead of just taking what we are given, in the form of existing platforms, libraries and frameworks, and exclusively trying to innovate on top of them.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0zMPZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, that would be great! And it should be possible. I read a lot of the VPRI papers and even if they are more abstract and there’s little source code available, the concepts are pretty solid and there are enough clever people out there who could certainly “fill in the blanks”.\n\nWhat I would like to see even more is that thinking that motivated STEPS, the economy of creating something incredibly useful with orders of magnitude less complexity, and not being afraid to reinvent some of the foundations, spread to more projects. Instead of just taking what we are given, in the form of existing platforms, libraries and frameworks, and exclusively trying to innovate on top of them."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U85HCL7JP",
+    "type": "message",
+    "ts": "1710038518.826549",
+    "client_msg_id": "19A29DD8-B3B6-4F56-849F-D6CB6E9CDC67",
+    "text": "Are you familiar with <https://www.unison-lang.org|unison lang> ? As you mentioned they aren’t attempting to create an entire ecosystem, but I think has a lot of overlap with your ideas",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "attachments": [
+      {
+        "from_url": "https://www.unison-lang.org/",
+        "service_icon": "https://www.unison-lang.org/favicon.ico",
+        "thumb_url": "https://unison-lang.org/assets/unison-social.png",
+        "thumb_width": 1200,
+        "thumb_height": 1200,
+        "id": 1,
+        "original_url": "https://www.unison-lang.org",
+        "fallback": "Unison | A friendly, statically-typed, functional programming language from the future · Unison programming language",
+        "text": "A friendly programming language from the future.",
+        "title": "Unison | A friendly, statically-typed, functional programming language from the future · Unison programming language",
+        "title_link": "https://www.unison-lang.org/",
+        "service_name": "unison-lang.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7V9C4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Are you familiar with "
+              },
+              {
+                "type": "link",
+                "url": "https://www.unison-lang.org",
+                "text": "unison lang"
+              },
+              {
+                "type": "text",
+                "text": " ? As you mentioned "
+              },
+              {
+                "type": "text",
+                "text": "they aren’t"
+              },
+              {
+                "type": "text",
+                "text": " attempting to create an entire ecosystem, but I think has a lot of overlap with your ideas"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1710057375.774569",
+    "client_msg_id": "8b004dcd-9021-43f8-a309-99de974ab87a",
+    "text": "Unison and IPFS are indeed the two main existing projects that have the most overlap. Neither tries a from-scratch approach. But unfortunately, the two don't really coexist well either, having their own content-addressing scheme each.\nAnother language in that space is <https://scrapscript.org/|scrapscript>.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+cS3q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Unison and IPFS are indeed the two main existing projects that have the most overlap. Neither tries a from-scratch approach. But unfortunately, the two don't really coexist well either, having their own content-addressing scheme each.\nAnother language in that space is "
+              },
+              {
+                "type": "link",
+                "url": "https://scrapscript.org/",
+                "text": "scrapscript"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U5STGTB3J",
+    "type": "message",
+    "ts": "1710103708.401079",
+    "client_msg_id": "3B654CF8-3086-401A-AF44-44D5F8FA3B82",
+    "text": "Alan Kay answers questions on Quora. 638 so far. This one is pretty related to this thread: <https://www.quora.com/What-does-Alan-Kay-think-independent-researchers-in-computing-should-do-for-money-if-commercialization-was-part-of-the-problem-What-if-good-funding-for-research-isnt-available-but-your-ideas-are-worth-pursuing|https://www.quora.com/What-does-Alan-Kay-think-independent-researchers-in-computing-should-do-for-money-if-commercialization-was-part-of-the-problem-What-if-good-funding-for-research-isnt-available-but-your-ideas-are-worth-pursuing>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "attachments": [
+      {
+        "image_url": "https://qph.cf2.quoracdn.net/main-custom-t-980-600x315-sqxxospfciejqkjfytssmfbdcvzbbxla.jpeg",
+        "image_width": 600,
+        "image_height": 315,
+        "image_bytes": 68896,
+        "from_url": "https://www.quora.com/What-does-Alan-Kay-think-independent-researchers-in-computing-should-do-for-money-if-commercialization-was-part-of-the-problem-What-if-good-funding-for-research-isnt-available-but-your-ideas-are-worth-pursuing",
+        "id": 1,
+        "original_url": "https://www.quora.com/What-does-Alan-Kay-think-independent-researchers-in-computing-should-do-for-money-if-commercialization-was-part-of-the-problem-What-if-good-funding-for-research-isnt-available-but-your-ideas-are-worth-pursuing",
+        "fallback": "Quora: What does Alan Kay think independent researchers in computing should do for money if commercialization was part of the problem? What if \"...",
+        "text": "Answer: I don’t know. There is no lack of money, especially when one looks at what the computer part of Xerox Parc cost, or even what the ARPA-IPTO community cost.\n\nIn my own experience, I and the other researchers within ARPA/ONR/Parc, etc knew we were in a wonderful situation. Our appreciation ...",
+        "title": "What does Alan Kay think independent researchers in computing should do for money if commercialization was part of the problem? What if \"...",
+        "title_link": "https://www.quora.com/What-does-Alan-Kay-think-independent-researchers-in-computing-should-do-for-money-if-commercialization-was-part-of-the-problem-What-if-good-funding-for-research-isnt-available-but-your-ideas-are-worth-pursuing",
+        "service_name": "Quora"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JYaZK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Alan Kay answers questions on Quora. 638 so far. This one is pretty related to this thread: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.quora.com/What-does-Alan-Kay-think-independent-researchers-in-computing-should-do-for-money-if-commercialization-was-part-of-the-problem-What-if-good-funding-for-research-isnt-available-but-your-ideas-are-worth-pursuing",
+                "text": "https://www.quora.com/What-does-Alan-Kay-think-independent-researchers-in-computing-should-do-for-money-if-commercialization-was-part-of-the-problem-What-if-good-funding-for-research-isnt-available-but-your-ideas-are-worth-pursuing"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U02JQA5FY5C",
+    "type": "message",
+    "ts": "1710104678.260849",
+    "edited": {
+      "user": "U02JQA5FY5C",
+      "ts": "1710104703.000000"
+    },
+    "client_msg_id": "3f2ed794-bb7f-4b12-b91a-b4a7a8f11ae6",
+    "text": "I watched huge number of Alan Kay talks and this one is just repetition of what he said before…",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709732691.993869",
+    "parent_user_id": "UAJKEBGP8",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "l/umq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I watched huge number of Alan Kay talks and this one is just repetition of what he said before…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U06MKD39QR4",
+    "type": "message",
+    "ts": "1710150360.473539",
+    "client_msg_id": "cd4d16c8-066c-4a9a-9087-1ca411bf1acf",
+    "text": "Thanks <@UJBAJNFLK> <@U85HCL7JP> - those are exactly what I'm looking for :pray:\n\nI actually don't want to have to \"make something big\", because yeah, I've also seen countless examples of things of this scale failing (or worse, leaving a stain on its surroundings... (cough) Windows Registry). I don't want to have to make an OS, but having the entire software ecosystem playing to the same conceptual tune is going to make things all the more sound - if that makes sense.\n\nMaking a VM of it, in the same way as Unison or Scrapscript are doing (if I'm understanding them correctly), is where I'd want to start too. So I think I'm going to reach out to the authors of both and ask what they think about scaling them up.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1709730829.580339",
+    "parent_user_id": "U06MKD39QR4",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2rl0I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "U85HCL7JP"
+              },
+              {
+                "type": "text",
+                "text": " - those are exactly what I'm looking for "
+              },
+              {
+                "type": "emoji",
+                "name": "pray",
+                "unicode": "1f64f"
+              },
+              {
+                "type": "text",
+                "text": "\n\nI actually don't want to have to \"make something big\", because yeah, I've also seen countless examples of things of this scale failing (or worse, leaving a stain on its surroundings... (cough) Windows Registry). I don't want to have to make an OS, but having the entire software ecosystem playing to the same conceptual tune is going to make things all the more sound - if that makes sense.\n\nMaking a VM of it, in the same way as Unison or Scrapscript are doing (if I'm understanding them correctly), is where I'd want to start too. So I think I'm going to reach out to the authors of both and ask what they think about scaling them up."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

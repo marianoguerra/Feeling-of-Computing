@@ -1,0 +1,60 @@
+[
+  {
+    "user": "U06SS0DHZD1",
+    "type": "message",
+    "ts": "1746099563.005739",
+    "client_msg_id": "10616c44-8181-48a9-ad0d-64a3296d6f4c",
+    "text": "Looks awesome. Since it's a single file and can be worked on offline, I assume it's also using the same file for storing the updated state. Is that correct? If so then I'm wondering how have you solved the windows write lock that prevents opened files from being written to.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1746096152.484779",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0BhbV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Looks awesome. Since it's a single file and can be worked on offline, I assume it's also using the same file for storing the updated state. Is that correct? If so then I'm wondering how have you solved the windows write lock that prevents opened files from being written to."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1746101486.680249",
+    "client_msg_id": "fbc9b82b-d5c1-4235-bf13-2c1f275fa71c",
+    "text": "no to save state you have to reserialize, so its a new file (the timestamp is appended to the filename). If I added a proper history feature I would use indexdb so then you could replay edits on startup, but thats not really a priority ATM. Next priority will be making the authoring experience actually good and converting all my notebooks over.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1746096152.484779",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "I4nBo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "no to save state you have to reserialize, so its a new file (the timestamp is appended to the filename). If I added a proper history feature I would use indexdb so then you could replay edits on startup, but thats not really a priority ATM. Next priority will be making the authoring experience actually good and converting all my notebooks over."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  }
+]

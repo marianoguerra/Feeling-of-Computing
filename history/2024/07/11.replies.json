@@ -1,0 +1,499 @@
+[
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1720660543.429949",
+    "client_msg_id": "ea812aae-b8d6-471e-bdb9-5540d15670ff",
+    "text": "Here's the Lua code skeleton corresponding to that drawing. The ellipses are the protrusions:\n\n```for line_index, line in array.each(State.lines, State.screen_top.line) do\n\tif line.mode == 'text' then\n\t\tlocal initpos = 1\n\t\tif line_index == State.screen_top.line then\n\t\t\t-- top screen line\n\t\t\tinitpos = State.screen_top.pos\n\t\tend\n\t\tfor pos, char in utf8chars(line.data, initpos) do\n\t\t\tif char:match('%s') then\n\t\t\t\tif line_wrap_at_word_boundary(State) then\n\t\t\t\t\t...\n\t\t\t\telse\n\t\t\t\t\t...\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tif x+w &gt; State.right then\n\t\t\t\t\t...\n\t\t\t\telse\n\t\t\t\t\t...\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\telse  -- drawing\n\t\t...\n\tend\nend```\n",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720660021.938839",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gwAzp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here's the Lua code skeleton corresponding to that drawing. The ellipses are the protrusions:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "for line_index, line in array.each(State.lines, State.screen_top.line) do\n\tif line.mode == 'text' then\n\t\tlocal initpos = 1\n\t\tif line_index == State.screen_top.line then\n\t\t\t-- top screen line\n\t\t\tinitpos = State.screen_top.pos\n\t\tend\n\t\tfor pos, char in utf8chars(line.data, initpos) do\n\t\t\tif char:match('%s') then\n\t\t\t\tif line_wrap_at_word_boundary(State) then\n\t\t\t\t\t...\n\t\t\t\telse\n\t\t\t\t\t...\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tif x+w > State.right then\n\t\t\t\t\t...\n\t\t\t\telse\n\t\t\t\t\t...\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\telse  -- drawing\n\t\t...\n\tend\nend"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": []
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UFEQUBNNT",
+    "type": "message",
+    "ts": "1720663256.621999",
+    "client_msg_id": "E86F6911-4247-4F4E-9A18-D8956CFB07AA",
+    "text": "That shape doesn’t mean anything to me yet, but I love that it means something to you and that if we were to talk about it, it would probably become a useful artifact for us both to refer to as we forget the details…\n\nI think there’s potential for semantics to be layered onto a diagram like that, in a way that can be maintained as the design evolves. It reminds me of <http://tinlizzie.org/dbjr/high_contrast.html|http://tinlizzie.org/dbjr/high_contrast.html>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720660021.938839",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "amfmm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That shape doesn’t mean anything to me yet, but I love that it means something to you and that if we were to talk about it, it would probably become a useful artifact for us both to refer to as we forget the details…\n\nI think there’s potential for semantics to be layered onto a diagram like that, in a way that can be maintained as the design evolves"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " It reminds me of "
+              },
+              {
+                "type": "link",
+                "url": "http://tinlizzie.org/dbjr/high_contrast.html",
+                "text": "http://tinlizzie.org/dbjr/high_contrast.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1720728431.593459",
+    "client_msg_id": "ec4b08e9-25fa-4794-947a-7c1cabd29f81",
+    "text": "Hello Chris, it's a really great talk! Thanks for sharing. Is there any chance to see slides?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720711810.201969",
+    "parent_user_id": "U067RCH8NB0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YKkJf",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hello Chris, it's a really great talk! Thanks for sharing. Is there any chance to see slides?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U067RCH8NB0",
+    "type": "message",
+    "ts": "1720730801.866709",
+    "client_msg_id": "61b36554-ac84-4ba1-8673-862658efee11",
+    "text": "Thanks! Yes, slides and script (not a transcript, but what I was going from) are both <https://v5.chriskrycho.com/elsewhere/seeing-like-a-programmer/|here>.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720711810.201969",
+    "parent_user_id": "U067RCH8NB0",
+    "attachments": [
+      {
+        "image_url": "https://cdn.statically.io/og/theme=dark/Seeing%20Like%20a%20Programmer%20(LambdaConf%202024)%20%E2%80%93%20Sympolymathesy.png",
+        "image_width": 2048,
+        "image_height": 1170,
+        "image_bytes": 71710,
+        "from_url": "https://v5.chriskrycho.com/elsewhere/seeing-like-a-programmer/",
+        "ts": 1715125200,
+        "id": 1,
+        "original_url": "https://v5.chriskrycho.com/elsewhere/seeing-like-a-programmer/",
+        "fallback": "Seeing Like a Programmer (LambdaConf 2024) — Sympolymathesy, by Chris Krycho",
+        "text": "Resiliency, Limits, and Moral Hazards in Software Engineering",
+        "title": "Seeing Like a Programmer (LambdaConf 2024) — Sympolymathesy, by Chris Krycho",
+        "title_link": "https://v5.chriskrycho.com/elsewhere/seeing-like-a-programmer/",
+        "service_name": "v5.chriskrycho.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ULmdG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks! Yes, slides and script (not a transcript, but what I was going from) are both "
+              },
+              {
+                "type": "link",
+                "url": "https://v5.chriskrycho.com/elsewhere/seeing-like-a-programmer/",
+                "text": "here"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1720731035.693209",
+    "client_msg_id": "c365b5a7-4919-468c-a670-e4d822b26578",
+    "text": "nice, thanks a lot!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720711810.201969",
+    "parent_user_id": "U067RCH8NB0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hSVRS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "nice, thanks a lot!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1::skin-tone-3",
+        "users": [
+          "U067RCH8NB0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U067RCH8NB0",
+    "type": "message",
+    "ts": "1720731098.943089",
+    "client_msg_id": "82e1389e-1ea7-4b15-8ba3-b4f550148abd",
+    "text": "I need to add the YT link and a better splash image to that now that the talk is online!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720711810.201969",
+    "parent_user_id": "U067RCH8NB0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vEwFs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I need to add the YT link and a better splash image to that now that the talk is online!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1720731241.948619",
+    "client_msg_id": "786bfdcd-5917-4459-9067-30430626a5ae",
+    "text": "cant add my email to the list, getting error",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720727079.821539",
+    "parent_user_id": "U06G61YMZ4G",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "E+d0W",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "cant add my email to the list, getting error"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "",
+    "files": [
+      {
+        "id": "F07BWLE26UW",
+        "created": 1720731279,
+        "timestamp": 1720731279,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U02PUDETGRW",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 58521,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F07BWLE26UW/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F07BWLE26UW/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F07BWLE26UW-1044cc420c/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F07BWLE26UW-1044cc420c/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F07BWLE26UW-1044cc420c/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 76,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F07BWLE26UW-1044cc420c/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 101,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F07BWLE26UW-1044cc420c/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F07BWLE26UW-1044cc420c/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 152,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F07BWLE26UW-1044cc420c/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 169,
+        "original_w": 920,
+        "original_h": 194,
+        "thumb_tiny": "AwAKADC7xtG0/rQM85I/OpVAwOKXA9KB3Isf7Q/OgD/aH51LgelGB6UARYP94fnTgcdSKfgelGB6UAf/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U02PUDETGRW/F07BWLE26UW/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F07BWLE26UW-3f33889210",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U02PUDETGRW",
+    "display_as_bot": false,
+    "type": "message",
+    "ts": "1720731283.068659",
+    "client_msg_id": "b1d6eef7-2a19-4a0d-9b0e-0e9075f4287f",
+    "thread_ts": "1720727079.821539",
+    "parent_user_id": "U06G61YMZ4G",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U06G61YMZ4G",
+    "type": "message",
+    "ts": "1720731363.984829",
+    "client_msg_id": "8ddbe530-9398-49c8-9f1b-4139cb2b909d",
+    "text": "ahh thanks for lmk. here’s a link to the product on VSCode marketplace so you can try it out there <https://marketplace.visualstudio.com/items?itemName=SenecaFron.spectral-beta>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720727079.821539",
+    "parent_user_id": "U06G61YMZ4G",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2jPGg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "ahh thanks for lmk. here’s a link to the product on VSCode marketplace so you can try it out there "
+              },
+              {
+                "type": "link",
+                "url": "https://marketplace.visualstudio.com/items?itemName=SenecaFron.spectral-beta"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1720731497.963779",
+    "client_msg_id": "b7047967-1a25-4603-8d59-0022b220dfb1",
+    "text": "yep, already looked. looks really great. I've been thinking about similar approach, canvas + bits and pieces of code to ease navigation",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720727079.821539",
+    "parent_user_id": "U06G61YMZ4G",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "G86Fw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yep, already looked. looks really great. I've been thinking about similar approach, canvas + bits and pieces of code to ease navigation"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1720754733.868239",
+    "client_msg_id": "4b7696a9-aa21-4ef7-8444-ac5703fad8b5",
+    "text": "[moved from top level, original message by <@U06G61YMZ4G>]\n\nhere’s the canvas I made in the video, feel free to check it out: <https://spectral-cloud.vercel.app/canvas/7a4c9ee1-2d84-4b98-90f4-7720265f2e53>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720727079.821539",
+    "parent_user_id": "U06G61YMZ4G",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "u2/gp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "[moved from top level, original message by "
+              },
+              {
+                "type": "user",
+                "user_id": "U06G61YMZ4G"
+              },
+              {
+                "type": "text",
+                "text": "]\n\nhere’s the canvas I made in the video, feel free to check it out: "
+              },
+              {
+                "type": "link",
+                "url": "https://spectral-cloud.vercel.app/canvas/7a4c9ee1-2d84-4b98-90f4-7720265f2e53"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1720797115.177039",
+    "client_msg_id": "8644f6af-4278-463a-9b17-81ebff93af13",
+    "text": "Just bought book you've cited from! the system thinking. looks interesting",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720711810.201969",
+    "parent_user_id": "U067RCH8NB0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wYf0N",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Just bought book you've cited from! the system thinking. looks interesting"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U067RCH8NB0",
+    "type": "message",
+    "ts": "1720804564.500909",
+    "client_msg_id": "5cfd580e-36ea-4f33-b2f0-54c0d803d0f5",
+    "text": "Ah, it’s very good!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1720711810.201969",
+    "parent_user_id": "U067RCH8NB0",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8lGtS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, it’s very good!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

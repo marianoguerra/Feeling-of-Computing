@@ -1,0 +1,108 @@
+[
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1730693986.841599",
+    "client_msg_id": "04fc1431-200f-4ea2-bf86-be2c5879ff0a",
+    "text": "&gt; Routing must be performed in an atomic manner to avoid possible interleaving of messages from other places.\n&gt; \n&gt; Containers must process each message to completion before inhaling another message.\n&gt; \nI think this might answer my long-standing question about timing. So if a component has two input ports, there's no automatic way to consume from both in parallel?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730687068.670909",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Sdlb2",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Routing must be performed in an atomic manner to avoid possible interleaving of messages from other places.\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Containers must process each message to completion before inhaling another message.\n"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI think this might answer my long-standing question about timing. So if a component has two input ports, there's no automatic way to consume from both in parallel?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1730840939.618699",
+    "client_msg_id": "855396bb-7a50-454e-b1ce-c30311f2b00a",
+    "text": "&gt; I think this might answer my long-standing question about timing. So if a component has two input ports, there's no automatic way to consume from both in parallel?\nCorrect.\n\nI believe that this kind of thing is an Architectural decision and should not be built in under-the-hood into the tools. Components can have multiple input ports. The tool only guarantees that the inputs are queued up in order of arrival. The Architect decides what to do about the inputs.\n\nFurther... multi-processing is essentially a fiction in FP. ...\nFurther... there is exactly one \"race condition\" in reality. ...\n\n<https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1730687068.670909",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "image_url": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F25eb1b68-d2e4-4b8a-9be9-720cf268fd61_163x222.png",
+        "image_width": 163,
+        "image_height": 222,
+        "image_bytes": 8201,
+        "from_url": "https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky",
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky",
+        "fallback": "Multiple Input Ports, Only One Input Queue",
+        "text": "Software Components, Race Conditions 2024-11-05",
+        "title": "Multiple Input Ports, Only One Input Queue",
+        "title_link": "https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jioyU",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think this might answer my long-standing question about timing. So if a component has two input ports, there's no automatic way to consume from both in parallel?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nCorrect.\n\nI believe that this kind of thing is an Architectural decision and should not be built in under-the-hood into the tools. Components can have multiple input ports. The tool only guarantees that the inputs are queued up in order of arrival. The Architect decides what to do about the inputs.\n\nFurther... multi-processing is essentially a fiction in FP. ...\nFurther... there is exactly one \"race condition\" in reality. ...\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/multiple-input-ports-only-one-input?r=1egdky"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

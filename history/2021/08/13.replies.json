@@ -1,0 +1,775 @@
+[
+  {
+    "client_msg_id": "9bedc77a-4275-494e-bf07-be07274a8d20",
+    "type": "message",
+    "text": "<@U0282PL61U1> This one might be interesting for you. Literate programming?",
+    "user": "U01ULEWACPP",
+    "ts": "1628856188.051600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4d4f0ee36615",
+      "image_72": "https://avatars.slack-edge.com/2021-05-26/2104531310403_4d4f0ee36615313d19e3_72.jpg",
+      "first_name": "Florian",
+      "real_name": "Florian Schulz",
+      "display_name": "Florian Schulz",
+      "team": "T5TCAFTA9",
+      "name": "mail213",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Tnb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0282PL61U1"
+              },
+              {
+                "type": "text",
+                "text": " This one might be interesting for you. Literate programming?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628855573.050800",
+    "parent_user_id": "U01ULEWACPP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "f92a9ba8-6ed5-443b-94bd-e9c476f2d222",
+    "type": "message",
+    "text": "Neat! I remember trying to use reveal.js to outline my codebase once :slightly_smiling_face: I think with voice over this extension could be quite useful. There were some youtubers trying to present complex projects like jquery but sadly that trend did not kick off. While this approach fixes code comprehension, literate programming solves the problem when such presentations and codebases go out of sync too.",
+    "user": "U0282PL61U1",
+    "ts": "1628856732.051800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "dfd3f152a9aa",
+      "image_72": "https://avatars.slack-edge.com/2021-07-20/2276395867463_dfd3f152a9aab7345faf_72.png",
+      "first_name": "xyzzy",
+      "real_name": "xyzzy",
+      "display_name": "xyzzy",
+      "team": "T5TCAFTA9",
+      "name": "moodyharsh",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6Ob",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Neat! I remember trying to use reveal.js to outline my codebase once "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " I think with voice over this extension could be quite useful. There were some youtubers trying to present complex projects like jquery but sadly that trend did not kick off. While this approach fixes code comprehension, literate programming solves the problem when such presentations and codebases go out of sync too."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628855573.050800",
+    "parent_user_id": "U01ULEWACPP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "d77936e1-46ee-4fcf-bcfb-42e7859f3ca9",
+    "type": "message",
+    "text": "Some more details:\nTo take a little step back, I want to illustrate the differences between what you see here in comparison to the flows that I’ve shown in other videos on this channel. The thing that they are sharing is the editor, which is a react component I build. But the way the flows are running, is totally different. \n\nThe earlier flows are interpreted and event handlers are created based on the nodes in the flow. An event handler calls the node-tasks when it receives an event. The connections represent the events. When a node-tasks is done, it calls its output events.\nThe node-tasks can contain quite some code themselves and from flow perspective they are much more high level. \n\nBut the flow that you see in this video contains much smaller blocks which get compiled to webassembly in real-time in the browser using javascript when you add or change nodes.\n \nIt somehow made more sense to layout this flow from top to bottom instead of left to right.\n\nI’ve color coded some blocks to help understand what is going on:\n\nthe blue node is the start point\nyellow nodes are function definitions or the calling of a function\norange nodes are subflow definitions and the inserting points for a subflow\n\nThis flow contains two while loops for the x and y of the canvas so that we can calculate the color for each pixel. The inspiration for this was the tixyland demo from last year. So the flow also has a time parameter that is handled internally by the component that calls the compiled webassembly code from within a requestAnimationFrame.\n\nThere are some helper variables which define 3 points and for each pixel the distance is calculated to these points. These 3 points are moving using a sine calculation. The sine function is actually the only javascript function that is called from within the webassembly code because webassembly has no sine function itself and my knowledge is too little to implement it in webassembly myself.\n\nIn the future I hope to extend this flow to webassembly compiler to make it Turing complete and I also hope to add some features so that it can be used in more business line of applications and combine it with the other flow solution.\n\nIn the editor I’ve added a feature so that I can move through a flow automatically while recording a video. I’ve tried to make it a smooth as possible but I am running into limitations of the browser or my programming capabilities. The problem is probably that it’s a hybrid model that uses both canvas and html for showing a flow. So, I am still thinking of doing a big rewrite using webgl and webassembly. If anybody has some suggestions on how to improve the performance then please let me know.",
+    "user": "U0123H7JRDM",
+    "ts": "1628856857.012200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gfb283c8a09c",
+      "image_72": "https://secure.gravatar.com/avatar/fb283c8a09c5c8909b00498ba9634a70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Maikel",
+      "real_name": "Maikel van de Lisdonk",
+      "display_name": "Maikel",
+      "team": "T5TCAFTA9",
+      "name": "maikel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "b4dW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some more details:\nTo take a little step back, I want to illustrate the differences between what you see here in comparison to the flows that I’ve shown in other videos on this channel. The thing that they are sharing is the editor, which is a react component I build. But the way the flows are running, is totally different. \n\nThe earlier flows are interpreted and event handlers are created based on the nodes in the flow. An event handler calls the node-tasks when it receives an event. The connections represent the events. When a node-tasks is done, it calls its output events.\nThe node-tasks can contain quite some code themselves and from flow perspective they are much more high level. \n\nBut the flow that you see in this video contains much smaller blocks which get compiled to webassembly in real-time in the browser using javascript when you add or change nodes.\n \nIt somehow made more sense to layout this flow from top to bottom instead of left to right.\n\nI’ve color coded some blocks to help understand what is going on:\n\nthe blue node is the start point\nyellow nodes are function definitions or the calling of a function\norange nodes are subflow definitions and the inserting points for a subflow\n\nThis flow contains two while loops for the x and y of the canvas so that we can calculate the color for each pixel. The inspiration for this was the tixyland demo from last year. So the flow also has a time parameter that is handled internally by the component that calls the compiled webassembly code from within a requestAnimationFrame.\n\nThere are some helper variables which define 3 points and for each pixel the distance is calculated to these points. These 3 points are moving using a sine calculation. The sine function is actually the only javascript function that is called from within the webassembly code because webassembly has no sine function itself and my knowledge is too little to implement it in webassembly myself.\n\nIn the future I hope to extend this flow to webassembly compiler to make it Turing complete and I also hope to add some features so that it can be used in more business line of applications and combine it with the other flow solution.\n\nIn the editor I’ve added a feature so that I can move through a flow automatically while recording a video. I’ve tried to make it a smooth as possible but I am running into limitations of the browser or my programming capabilities. The problem is probably that it’s a hybrid model that uses both canvas and html for showing a flow. So, I am still thinking of doing a big rewrite using webgl and webassembly. If anybody has some suggestions on how to improve the performance then please let me know."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628856565.012000",
+    "parent_user_id": "U0123H7JRDM",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "8a92f82f-cb6d-472c-9dcb-a3d510b49769",
+    "type": "message",
+    "text": "True, the syncing part might not be as great compared to literate programming. From what I can tell, the extension works by annotating the Line of Code @ File. But the extension keeps track of code changes and updates the annotations accordingly. Simple.",
+    "user": "U01ULEWACPP",
+    "ts": "1628856947.052100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4d4f0ee36615",
+      "image_72": "https://avatars.slack-edge.com/2021-05-26/2104531310403_4d4f0ee36615313d19e3_72.jpg",
+      "first_name": "Florian",
+      "real_name": "Florian Schulz",
+      "display_name": "Florian Schulz",
+      "team": "T5TCAFTA9",
+      "name": "mail213",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "90aI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "True, the syncing part might not be as great compared to literate programming. From what I can tell, the extension works by annotating the Line of Code @ File. But the extension keeps track of code changes and updates the annotations accordingly. Simple."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628855573.050800",
+    "parent_user_id": "U01ULEWACPP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "type": "message",
+    "text": "This is the whole flow as an image, it was made manually using a lot of separate images and stiched together in photoshop since I can't easily export it as one readable image because of the hybrid model... although the readibility of this image can also be improved:sweat_smile:",
+    "files": [
+      {
+        "id": "F02APHVHN5D",
+        "created": 1628856886,
+        "timestamp": 1628856886,
+        "name": "flow.png",
+        "title": "flow.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U0123H7JRDM",
+        "editable": false,
+        "size": 950336,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F02APHVHN5D/flow.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F02APHVHN5D/download/flow.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 240,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 320,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 480,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 1200,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_960.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 640,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F02APHVHN5D-f5152808ce/flow_1024.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 683,
+        "thumb_1024_h": 1024,
+        "original_w": 2800,
+        "original_h": 4200,
+        "thumb_tiny": "AwAwACC/RRRSuAUUUUwCiiigAooooAKKKKACiiigD//Z",
+        "permalink": "https://futureofcoding.slack.com/files/U0123H7JRDM/F02APHVHN5D/flow.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F02APHVHN5D-2dcb8362d6",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "U0123H7JRDM",
+    "display_as_bot": false,
+    "ts": "1628857011.012400",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vj4/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is the whole flow as an image, it was made manually using a lot of separate images and stiched together in photoshop since I can't easily export it as one readable image because of the hybrid model... although the readibility of this image can also be improved"
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628856565.012000",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "d8d6b699-576a-4fe6-8682-5b9b055b8811",
+    "type": "message",
+    "text": "It wants to be backdrivable so bad :stuck_out_tongue_winking_eye:",
+    "user": "U9C92716C",
+    "ts": "1628857721.052400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6bd6fe3fcf91",
+      "image_72": "https://avatars.slack-edge.com/2020-05-20/1137095139906_6bd6fe3fcf91b6f41781_72.jpg",
+      "first_name": "",
+      "real_name": "Dalton Banks",
+      "display_name": "daltonb",
+      "team": "T5TCAFTA9",
+      "name": "dalton",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jCS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It wants to be backdrivable so bad "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue_winking_eye"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628841494.049000",
+    "parent_user_id": "U01ULEWACPP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8cae7d92-e0b3-4869-92f8-7b265b91cef1",
+    "type": "message",
+    "text": "An IDE for literate programming would be radically different, kinda like Scrivener which is used to write film screenplays. There’s also Leo editor. I think it is definitely high time for more tools like CodeTour that aim at code comprehension and not just code completion! It feels like intro.js but for code.",
+    "user": "U0282PL61U1",
+    "ts": "1628861073.052600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "dfd3f152a9aa",
+      "image_72": "https://avatars.slack-edge.com/2021-07-20/2276395867463_dfd3f152a9aab7345faf_72.png",
+      "first_name": "xyzzy",
+      "real_name": "xyzzy",
+      "display_name": "xyzzy",
+      "team": "T5TCAFTA9",
+      "name": "moodyharsh",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nWBL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "An IDE for literate programming would be radically different, kinda like Scrivener which is used to write film screenplays. There’s also Leo editor. I think it is definitely high time for more tools like CodeTour that aim at code comprehension and not just code completion! It feels like intro.js but for code."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628855573.050800",
+    "parent_user_id": "U01ULEWACPP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e644a0dd-c698-4e00-bc33-5c89cf8591a5",
+    "type": "message",
+    "text": "What does that mean?",
+    "user": "U01ULEWACPP",
+    "ts": "1628862734.052800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4d4f0ee36615",
+      "image_72": "https://avatars.slack-edge.com/2021-05-26/2104531310403_4d4f0ee36615313d19e3_72.jpg",
+      "first_name": "Florian",
+      "real_name": "Florian Schulz",
+      "display_name": "Florian Schulz",
+      "team": "T5TCAFTA9",
+      "name": "mail213",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bjXy8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What does that mean?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628841494.049000",
+    "parent_user_id": "U01ULEWACPP",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c107b61d-55c6-4fb6-83ce-29b384284b54",
+    "type": "message",
+    "text": "You could partially solve the problem of stale code locations by including git hashes in the location representations. Coupled with some visual indicator of how old a given line is in a tour, that helps readers/viewers gauge how much to trust the tour.",
+    "user": "UCUSW7WVD",
+    "ts": "1628866062.053200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "H+=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You could partially solve the problem of stale code locations by including git hashes in the location representations. Coupled with some visual indicator of how old a given line is in a tour, that helps readers/viewers gauge how much to trust the tour."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628855573.050800",
+    "parent_user_id": "U01ULEWACPP",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "U01ULEWACPP"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "29fe2060-3323-4a6d-91d0-89e00a18ee16",
+    "type": "message",
+    "text": "So cool, thanks a lot for sharing and taking time to record video!",
+    "user": "U02ADH37E02",
+    "ts": "1628890790.012800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7b07be04e1f4",
+      "image_72": "https://avatars.slack-edge.com/2021-08-05/2353581298866_7b07be04e1f4d03e0a10_72.jpg",
+      "first_name": "Tomas",
+      "real_name": "Tomas Čerkasas",
+      "display_name": "Tomas Čerkasas",
+      "team": "T5TCAFTA9",
+      "name": "tomas.cerkasas",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EZ+4",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So cool, thanks a lot for sharing and taking time to record video!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628856565.012000",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "27ce4f66-7538-4293-81f5-abef2f7e96f6",
+    "type": "message",
+    "text": "I loved the feature to move through the flow while recording, but the acceleration from node to node is a bit fast for me. I'm afraid I got a little dizzy in some parts!",
+    "user": "U01661S9F34",
+    "ts": "1628893857.013000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "19925410efa8",
+      "image_72": "https://avatars.slack-edge.com/2020-06-28/1196019819111_19925410efa8da86ae13_72.jpg",
+      "first_name": "",
+      "real_name": "Ray Imber",
+      "display_name": "Ray Imber",
+      "team": "T5TCAFTA9",
+      "name": "rayimber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FTm9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I loved the feature to move through the flow while recording, but the acceleration from node to node is a bit fast for me. I'm afraid I got a little dizzy in some parts!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628856565.012000",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "B9A6EA22-F019-4C6A-BB13-7257967AB9E1",
+    "type": "message",
+    "text": "Thanks for the feedback about the acceleration, in future video's I'll take that into account or maybe make the project available to play with it yourselves so you are more in control",
+    "user": "U0123H7JRDM",
+    "ts": "1628918348.015500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gfb283c8a09c",
+      "image_72": "https://secure.gravatar.com/avatar/fb283c8a09c5c8909b00498ba9634a70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Maikel",
+      "real_name": "Maikel van de Lisdonk",
+      "display_name": "Maikel",
+      "team": "T5TCAFTA9",
+      "name": "maikel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=9cI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the feedback about the acceleration, in future video's I'll take that into account or maybe make the project available to play with it yourselves so you are more in control"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628856565.012000",
+    "parent_user_id": "U0123H7JRDM",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U01661S9F34"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "a207aca3-ef5e-4180-a2d6-0fac1944ff95",
+    "type": "message",
+    "text": "directly manipulatable from the drawing? - I tried a generic solution for something like that: <https://szymonkaliski.com/projects/dacein/> - there's also <https://glisp.app> which is actually usable compared to my Dacein (but uses a different technique/mental model than I did)",
+    "user": "UF6RLAL7J",
+    "ts": "1628925810.058400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gfede74ebb05",
+      "image_72": "https://secure.gravatar.com/avatar/6fede74ebb05f68b74971bfc332857f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0022-72.png",
+      "first_name": "",
+      "real_name": "Szymon Kaliski",
+      "display_name": "szymon_k",
+      "team": "T5TCAFTA9",
+      "name": "hi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2tIms",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "directly manipulatable from the drawing? - I tried a generic solution for something like that: "
+              },
+              {
+                "type": "link",
+                "url": "https://szymonkaliski.com/projects/dacein/"
+              },
+              {
+                "type": "text",
+                "text": " - there's also "
+              },
+              {
+                "type": "link",
+                "url": "https://glisp.app"
+              },
+              {
+                "type": "text",
+                "text": " which is actually usable compared to my Dacein (but uses a different technique/mental model than I did)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628841494.049000",
+    "parent_user_id": "U01ULEWACPP",
+    "reactions": [
+      {
+        "name": "raised_hands",
+        "users": [
+          "U01ULEWACPP",
+          "U019PRL1BNU"
+        ],
+        "count": 2
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "U9C92716C"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6cebe34f-92cb-4ec2-af18-2d3eecfbe688",
+    "type": "message",
+    "text": "&gt;  In the editor I’ve added a feature so that I can move through a flow automatically while recording a video. \nSo cool! Love seeing this after discovering the Code Tours Extension in VS Code last week. Really digging this!\n\nI also like the spatial organisation and color coding of your environment. Together with the tour, you’re starting to build a map of a program with different islands but instead of just dropping someone into this new world, you offer a map/tour guide with it. This is fantastic.",
+    "user": "U01ULEWACPP",
+    "ts": "1629100832.016200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4d4f0ee36615",
+      "image_72": "https://avatars.slack-edge.com/2021-05-26/2104531310403_4d4f0ee36615313d19e3_72.jpg",
+      "first_name": "Florian",
+      "real_name": "Florian Schulz",
+      "display_name": "Florian Schulz",
+      "team": "T5TCAFTA9",
+      "name": "mail213",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01ULEWACPP",
+      "ts": "1629101132.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uffB=",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " In the editor I’ve added a feature so that I can move through a flow automatically while recording a video. "
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nSo cool! Love seeing this after discovering the Code Tours Extension in VS Code last week. Really digging this!\n\nI also like the spatial organisation and color coding of your environment. Together with the tour, you’re starting to build a map of a program with different islands but instead of just dropping someone into this new world, you offer a map/tour guide with it. This is fantastic."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628856565.012000",
+    "parent_user_id": "U0123H7JRDM",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U0123H7JRDM"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "client_msg_id": "2F9997FF-D3B0-4155-807F-E37540426071",
+    "type": "message",
+    "text": "Thanks! I am going to check out that extension in vs.code, I hadn't heard of it yet",
+    "user": "U0123H7JRDM",
+    "ts": "1629109580.018700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gfb283c8a09c",
+      "image_72": "https://secure.gravatar.com/avatar/fb283c8a09c5c8909b00498ba9634a70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Maikel",
+      "real_name": "Maikel van de Lisdonk",
+      "display_name": "Maikel",
+      "team": "T5TCAFTA9",
+      "name": "maikel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "JIR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks! I am going to check out that extension in vs.code, I hadn't heard of it yet"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1628856565.012000",
+    "parent_user_id": "U0123H7JRDM",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  }
+]

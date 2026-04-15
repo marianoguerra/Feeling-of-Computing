@@ -1,0 +1,310 @@
+[
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1738451063.923949",
+    "client_msg_id": "9eaf523c-48da-426d-805b-04ce4082dda9",
+    "text": "I tried making one once and yeah, its really hard mapping the polar look to mouse. I just did the up or right for +ve and it just seems wrong when its at certain angles. If you do a drag it can be really sensitive to the singularity that exists near the center which is where you naturally start a drag  so its pretty interesting you are removing that singularity with a local center of rotation. How are you tracking that?\n<https://observablehq.com/@tomlarkworthy/audio-inputs#cell-906>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1738449335.894129",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FThsc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I tried making one once and yeah, its really hard mapping the polar look to mouse. I just did the up or right for +ve and it just seems wrong when its at certain angles. If you do a drag it can be really sensitive to the singularity that exists near the center which is where you naturally start a drag  so its pretty interesting you are removing that singularity with a local center of rotation. How are you tracking that?\n"
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/audio-inputs#cell-906"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1738451474.359569",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1738453804.000000"
+    },
+    "client_msg_id": "82DD40DC-A456-4019-8377-8A9D08F92108",
+    "text": "I remember the path that the mouse has moved, take a bounding box of that path, take the center of the box, and use that as the local center of rotation. I also discard older segments of the path, keeping roughly 4pi*r of them, since that's enough to figure out roughly where the local center ought to be.\n\nThe logic for switching between modes on the fly (horizontal, vertical, or angular) is a bit dodgy. That's something that could be better, but there are also unavoidable edge cases — like when dragging rightward at the bottom of the circle (which could mean \"increase the value\" when treating the input as horizontal or \"decrease the value\" when treating it as angular), so my current approach is just to pick whichever one seems most likely and kinda lock-in on it after a handful of samples.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1738449335.894129",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uqXAQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I remember the path that the mouse has moved, take a bounding box of that path, take the center of the box, and use that as the local center of rotation. I also discard older segments of the path, keeping roughly 4pi*r of them, since that's enough to figure out roughly where the local center ought to be.\n\nThe logic for switching between modes on the fly (horizontal, vertical, or angular) is a bit dodgy"
+              },
+              {
+                "type": "text",
+                "text": ". T"
+              },
+              {
+                "type": "text",
+                "text": "hat's something that could be better, but there are also unavoidable edge cases"
+              },
+              {
+                "type": "text",
+                "text": " —"
+              },
+              {
+                "type": "text",
+                "text": " like when dragging rightward at the bottom of the circle (which could mean \"increase the value\" when treating the input as horizontal or \"decrease the value\" when treating it as angular), so my current approach is just to pick whichever one seems most likely and kinda lock-in on it after a handful of samples."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1738471725.646039",
+    "client_msg_id": "ae517884-be92-4705-b804-20ef43a8938d",
+    "text": "for me on my mac: works on Chrome, doesn't work on Firefox (looks like it's loading forever), doesn't work on Safari (same).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1738449335.894129",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "z3jvA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "for me on my mac: works on Chrome, doesn't work on Firefox (looks like it's loading forever), doesn't work on Safari (same)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1738473083.665549",
+    "client_msg_id": "7896099E-BB77-4AC1-8902-E74006CB64E5",
+    "text": "Weird. I only use safari",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1738449335.894129",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Q3npl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Weird"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " I only use safari"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1738483388.935959",
+    "client_msg_id": "125292ae-8178-414a-b5f0-8f3a30ec4bc1",
+    "text": "For me it works fine in Firefox on the mac.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1738449335.894129",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Qo0nu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For me it works fine in Firefox on the mac."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U0378MDUG1Y",
+    "type": "message",
+    "ts": "1738483399.872029",
+    "client_msg_id": "3C413372-D3DD-498F-8628-FBB339A5B37F",
+    "text": "Is this licensed? I have a couple of ideas to riff on this",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1738449335.894129",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3PVY+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Is this licensed? I have a couple of ideas to riff on this"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "U04S5LF5C7R"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1738510295.598859",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1738510410.000000"
+    },
+    "client_msg_id": "7E017A8F-B7CA-4372-B990-6EC6A33196B1",
+    "text": "<@U0378MDUG1Y> ah, good point — it's unlicense'd now, have at!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1738449335.894129",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "o1cnt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0378MDUG1Y"
+              },
+              {
+                "type": "text",
+                "text": " ah, good point — it's unlicense"
+              },
+              {
+                "type": "text",
+                "text": "'"
+              },
+              {
+                "type": "text",
+                "text": "d now, have at!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGWUJUZHT",
+          "U0378MDUG1Y"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UA14TGLTC",
+    "type": "message",
+    "ts": "1738566229.559949",
+    "client_msg_id": "55aa0825-6276-4bdd-9eb1-2b8305774fd9",
+    "text": "Versatile.  Interesting contrast to what I usually see in fancy knobs (and sliders) that use the second dimension for tuning.  For example, a radial knob where distance from the center decreases the amount of turning that happens.  I was just using this in OmniGraffle a second ago to precisely rotate a shape.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1738449335.894129",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FMUKJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Versatile.  Interesting contrast to what I usually see in fancy knobs (and sliders) that use the second dimension for tuning.  For example, a radial knob where distance from the center decreases the amount of turning that happens.  I was just using this in OmniGraffle a second ago to precisely rotate a shape."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]

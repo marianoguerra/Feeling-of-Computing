@@ -1,0 +1,741 @@
+[
+  {
+    "client_msg_id": "86173b83-d1ae-4b47-b09e-fd85cdcbe32c",
+    "type": "message",
+    "text": "Here's one example;\n```Alice, Bob and Charles live at 123 Fake St.\nAlice works as an Accountant and earns $20,000\nBob works as a Baker and earns $25,000\nCharles works part-time as a Carer earning $10,000 and part-time as a Carpenter earning $12,000.\n\nWe want to be able to calculate the total household income easily.```\nIn most systems the most natural way to model the first two people would be as a class/schema with a `salary` field/column, but this makes it hard to do the third person.",
+    "user": "UDQBTJ211",
+    "ts": "1652798874.644139",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDQBTJ211",
+      "ts": "1652799032.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5FA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here's one example;\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Alice, Bob and Charles live at 123 Fake St.\nAlice works as an Accountant and earns $20,000\nBob works as a Baker and earns $25,000\nCharles works part-time as a Carer earning $10,000 and part-time as a Carpenter earning $12,000.\n\nWe want to be able to calculate the total household income easily."
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nIn most systems the most natural way to model the first two people would be as a class/schema with a "
+              },
+              {
+                "type": "text",
+                "text": "salary",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " field/column, but this makes it hard to do the third person."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c526485b-4bc9-466d-ae2f-9bccfaa1b62e",
+    "type": "message",
+    "text": "Some others:\n• Handling exceptions: birds can fly, except penguins, except harry the rocket penguin. Or my monthly budget is $1200 except every other month there's an extra 200 and once a year there's an extra 1000.\n• Meta-information: chris's salary of $100 is self reported\n• Temporal understanding: Is Chris a student? (No, but he was from X to Y despite there being an entry in the student table) ",
+    "user": "UEBG0NPDK",
+    "ts": "1652805585.652619",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "alfsa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some others:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Handling exceptions: birds can fly, except penguins, except harry the rocket penguin. Or my monthly budget is $1200 except every other month there's an extra 200 and once a year there's an extra 1000."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Meta-information: chris's salary of $100 is self reported"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Temporal understanding: Is Chris a student? (No, but he was from X to Y despite there being an entry in the student table) "
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UDQBTJ211",
+          "U016VUZGUUQ",
+          "U013ZLJARC7",
+          "UA14TGLTC"
+        ],
+        "count": 4
+      },
+      {
+        "name": "thinking_face",
+        "users": [
+          "UDQBTJ211"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1::skin-tone-2",
+        "users": [
+          "U02U0AS3J49"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5891e70d-d604-42b1-97b9-66fe77c3761a",
+    "type": "message",
+    "text": "Yeah these expose quite a few limitations to my current design :see_no_evil:.\n\nI think exceptions needs nesting/inheritance + overwriting. CSS is actually pretty natural and intuitive for exceptions.\n\nMeta is not easy. You need a way to point to the notation itself. My first thought would be citations/footnotes somehow.\n\nThe third one is actually best for me, I can limit attributes/relationships to a certain context, but it's not really queryable. It wouldn't allow you to get students on a particular day.",
+    "user": "UDQBTJ211",
+    "ts": "1652807726.641729",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "giUM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah these expose quite a few limitations to my current design "
+              },
+              {
+                "type": "emoji",
+                "name": "see_no_evil"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nI think exceptions needs nesting/inheritance + overwriting. CSS is actually pretty natural and intuitive for exceptions.\n\nMeta is not easy. You need a way to point to the notation itself. My first thought would be citations/footnotes somehow.\n\nThe third one is actually best for me, I can limit attributes/relationships to a certain context, but it's not really queryable. It wouldn't allow you to get students on a particular day."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9b411419-e7fd-446f-8be6-1dba0a01a79d",
+    "type": "message",
+    "text": "I am mainly influenced by JSON + this paper <https://www.researchgate.net/publication/200043248_Conceptual_Graphs_for_a_Data_Base_Interface>",
+    "user": "UDQBTJ211",
+    "ts": "1652807829.338589",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wjuSO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I am mainly influenced by JSON + this paper "
+              },
+              {
+                "type": "link",
+                "url": "https://www.researchgate.net/publication/200043248_Conceptual_Graphs_for_a_Data_Base_Interface"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "90b560c8-f0f4-431e-97cb-6629d6711c6d",
+    "type": "message",
+    "text": "yeah, this stuff is pretty hard, e.g. how do you model Joe knows that Tim lives in Seattle?",
+    "user": "UEBG0NPDK",
+    "ts": "1652816062.626919",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KMoV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yeah, this stuff is pretty hard, e.g. how do you model Joe knows that Tim lives in Seattle?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9f6aa1a3-55ec-453f-9a9d-751b960b7b99",
+    "type": "message",
+    "text": "<https://c.tenor.com/mpmbsd82G14AAAAC/wolf-of-wall-street-jordan-belfort.gif>",
+    "user": "UAJKEBGP8",
+    "ts": "1652817210.657679",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://c.tenor.com/mpmbsd82G14AAAAC/wolf-of-wall-street-jordan-belfort.gif",
+        "image_url": "https://c.tenor.com/mpmbsd82G14AAAAC/wolf-of-wall-street-jordan-belfort.gif",
+        "image_width": 498,
+        "image_height": 300,
+        "image_bytes": 1046203,
+        "id": 1,
+        "original_url": "https://c.tenor.com/mpmbsd82G14AAAAC/wolf-of-wall-street-jordan-belfort.gif",
+        "fallback": "498x300px image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8cWC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://c.tenor.com/mpmbsd82G14AAAAC/wolf-of-wall-street-jordan-belfort.gif"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652815881.942099",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "smile",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "18162842-3772-467a-9ce5-f7878beaca0b",
+    "type": "message",
+    "text": "It's by the TaskPaper dev. I've heard really good things about TaskPaper.",
+    "user": "UC2A2ARPT",
+    "ts": "1652817498.066659",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KVo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It's by the TaskPaper dev. I've heard really good things about TaskPaper."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652815881.942099",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "dae191cd-3e75-487f-bc65-d956a7fbd630",
+    "type": "message",
+    "text": "A signed document arrives on Tuesday. The person who signed it is found dead on the following Thursday. When might they have died?",
+    "user": "U02U0AS3J49",
+    "ts": "1652817848.788329",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "p7CMy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A signed document arrives on Tuesday. The person who signed it is found dead on the following Thursday. When might they have died?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UDQBTJ211"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "85e9d811-9a35-4a25-86b1-2e7525aeac46",
+    "type": "message",
+    "text": "I'm currently working with constraint answer set programming to deal with a lot of these sorts of problems. Exceptions are dealt with in the Bird Act demo at <http://dev.blawx.com|dev.blawx.com>. I have a plan for causality and temporality using Event Calculus, but haven't gotten there, yet. Meta-data is currently being done in a sketchy way for the source of legal conclusions, but what I would prefer to do is use a higher-order logic representation for it, like you can do in Flora-2.",
+    "user": "U02U0AS3J49",
+    "ts": "1652818081.706979",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "70L",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm currently working with constraint answer set programming to deal with a lot of these sorts of problems. Exceptions are dealt with in the Bird Act demo at "
+              },
+              {
+                "type": "link",
+                "url": "http://dev.blawx.com",
+                "text": "dev.blawx.com"
+              },
+              {
+                "type": "text",
+                "text": ". I have a plan for causality and temporality using Event Calculus, but haven't gotten there, yet. Meta-data is currently being done in a sketchy way for the source of legal conclusions, but what I would prefer to do is use a higher-order logic representation for it, like you can do in Flora-2."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "UDQBTJ211"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e7efcca9-2ec3-400e-be4a-d8c3e82c7efc",
+    "type": "message",
+    "text": "I have a doc somewhere about a short-lived pet project called “a metamodel for unreliable information”, I wonder if I could find it :slightly_smiling_face:",
+    "user": "U03DNFDFYDA",
+    "ts": "1652977405.213729",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cYT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I have a doc somewhere about a short-lived pet project called “a metamodel for unreliable information”, I wonder if I could find it "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "13395325-444d-4cf9-986c-8788cd4ead98",
+    "type": "message",
+    "text": "somewhat relevant: <https://www.youtube.com/watch?v=3wMKoSRbGVs>",
+    "user": "U03DNFDFYDA",
+    "ts": "1652977474.217149",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=3wMKoSRbGVs",
+        "thumb_url": "https://i.ytimg.com/vi/3wMKoSRbGVs/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/3wMKoSRbGVs?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=3wMKoSRbGVs",
+        "fallback": "YouTube Video: Douglas Lenat: Cyc and the Quest to Solve Common Sense Reasoning in AI | Lex Fridman Podcast #221",
+        "title": "Douglas Lenat: Cyc and the Quest to Solve Common Sense Reasoning in AI | Lex Fridman Podcast #221",
+        "title_link": "https://www.youtube.com/watch?v=3wMKoSRbGVs",
+        "author_name": "Lex Fridman",
+        "author_link": "https://www.youtube.com/c/lexfridman",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "F5v",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "somewhat relevant: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=3wMKoSRbGVs"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3669249e-57f4-421c-9d64-3f5ad2c4c1f2",
+    "type": "message",
+    "text": "There was a striking comment about finding that the semantic web style “triples all the way down” was found to be insufficient, lemme see if I can find it",
+    "user": "U03DNFDFYDA",
+    "ts": "1652977539.718579",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/OQHU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There was a striking comment about finding that the semantic web style “triples all the way down” was found to be insufficient, lemme see if I can find it"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "384b1223-3d59-4362-ac0d-cfe7da60c9fb",
+    "type": "message",
+    "text": "Here’s the Semantic Web chapter, it should be in there <https://www.youtube.com/watch?v=3wMKoSRbGVs&amp;t=4003s>",
+    "user": "U03DNFDFYDA",
+    "ts": "1652977839.842239",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://www.youtube.com/watch?v=3wMKoSRbGVs&amp;t=4003s",
+        "thumb_url": "https://i.ytimg.com/vi/3wMKoSRbGVs/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/3wMKoSRbGVs?feature=oembed&start=4003&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=3wMKoSRbGVs&amp;t=4003s",
+        "fallback": "YouTube Video: Douglas Lenat: Cyc and the Quest to Solve Common Sense Reasoning in AI | Lex Fridman Podcast #221",
+        "title": "Douglas Lenat: Cyc and the Quest to Solve Common Sense Reasoning in AI | Lex Fridman Podcast #221",
+        "title_link": "https://www.youtube.com/watch?v=3wMKoSRbGVs&amp;t=4003s",
+        "author_name": "Lex Fridman",
+        "author_link": "https://www.youtube.com/c/lexfridman",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8ug",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Here’s the Semantic Web chapter, it should be in there "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=3wMKoSRbGVs&t=4003s"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9c9ba809-4bd0-4c18-bfc6-0e9d013a5f25",
+    "type": "message",
+    "text": "You can model everything he talks about with triples. I'm not sure I'd want to, but it's doable. In some sense, 6th normal form (of which triples is a crappier version) is the atomic form of data - all other structures fall out of it. What's useful at a practical level for modeling very complex things, like knowledge of someone else's knowledge of, is still an open question.",
+    "user": "UEBG0NPDK",
+    "ts": "1652978338.814889",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "u4WDA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You can model everything he talks about with triples. I'm not sure I'd want to, but it's doable. In some sense, 6th normal form (of which triples is a crappier version) is the atomic form of data - all other structures fall out of it. What's useful at a practical level for modeling very complex things, like knowledge of someone else's knowledge of, is still an open question."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "11ec63d6-283b-49cb-a585-6221840bdb9f",
+    "type": "message",
+    "text": "Yes, I think ultimately every format is essentially \"Turing Complete\". You *can* model everything with everything, in the same way you can translate any algorithm into a mountain of NAND gates. That doesn't make NAND gates a good way to express algorithms.\n\nYou can come up with crappy ways of representing ordered lists in XML, at the same time I think it's fair to say XML doesn't really support ordered lists.\n\nIt's more about having a sort of Theory of Mind for the computer, so you can express yourself in a language fluently, _and also be completely confident in how the computer is understanding what you are saying_.\n\nTo use one of Chris's examples. We can say;\n(Joe) (KNOWS) (Tim lives in Seattle)\nWhere (Tim lives in Seattle) (INSTANCE OF) (Fact about Tim)\n\nBut that clearly just *doesn't count* because the computer isn't understanding it in the same way I am.",
+    "user": "UDQBTJ211",
+    "ts": "1652980519.355209",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "X5vKY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, I think ultimately every format is essentially \"Turing Complete\". You *can* model everything with everything, in the same way you can translate any algorithm into a mountain of NAND gates. That doesn't make NAND gates a good way to express algorithms.\n\nYou can come up with crappy ways of representing ordered lists in XML, at the same time I think it's fair to say XML doesn't really support ordered lists.\n\nIt's more about having a sort of Theory of Mind for the computer, so you can express yourself in a language fluently, _and also be completely confident in how the computer is understanding what you are saying_.\n\nTo use one of Chris's examples. We can say;\n(Joe) (KNOWS) (Tim lives in Seattle)\nWhere (Tim lives in Seattle) (INSTANCE OF) (Fact about Tim)\n\nBut that clearly just *doesn't count* because the computer isn't understanding it in the same way I am."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4d743c50-0d5d-4547-b9df-a5454c5ca44d",
+    "type": "message",
+    "text": "This example is solved as a design problem when \"Joe knows Tim lives in Seattle\" is naturally related to the representation of \"Tim lives in Seattle\". THAT's the thing that RDF is going to struggle with",
+    "user": "UDQBTJ211",
+    "ts": "1652980694.648339",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1gCkV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This example is solved as a design problem when \"Joe knows Tim lives in Seattle\" is naturally related to the representation of \"Tim lives in Seattle\". THAT's the thing that RDF is going to struggle with"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "04f16e46-45ba-4ee1-a270-8466b2adc5d0",
+    "type": "message",
+    "text": "But anyway <@U03DNFDFYDA> your title there has certainly whetted my appetite so if you do find it please share! Or whatever you can remember",
+    "user": "UDQBTJ211",
+    "ts": "1652980848.811619",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "=m3Cp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But anyway "
+              },
+              {
+                "type": "user",
+                "user_id": "U03DNFDFYDA"
+              },
+              {
+                "type": "text",
+                "text": " your title there has certainly whetted my appetite so if you do find it please share! Or whatever you can remember"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "17b268d4-cd0b-4efa-8d9e-de14cd494729",
+    "type": "message",
+    "text": "My personal data modeling hell is when a 1-1 relationship becomes 1-n.  What things stay the same (say across all the n), what should be aggregated, and what now needs to be different?",
+    "user": "UA14TGLTC",
+    "ts": "1653186082.941179",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tY=Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My personal data modeling hell is when a 1-1 relationship becomes 1-n.  What things stay the same (say across all the n), what should be aggregated, and what now needs to be different?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1652798711.578289",
+    "parent_user_id": "UDQBTJ211",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

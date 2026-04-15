@@ -1,0 +1,2411 @@
+[
+  {
+    "client_msg_id": "ad06d46b-8367-4a94-9fbd-732dd83aefb8",
+    "type": "message",
+    "text": "&gt; *all* functions in a key_value database with unique names\nThere’s a large part of me that wants to believe this could work. Yet the received wisdom is the opposite: modules facilitate independent development by encouraging loose coupling, and (following Conway’s law) make interfaces explicit between the people building the software. <https://en.wikipedia.org/wiki/Conway%27s_law>",
+    "user": "UC21F8Q48",
+    "ts": "1566318748.201600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d79ba47b2952",
+      "image_72": "https://avatars.slack-edge.com/2018-08-03/410049852848_d79ba47b2952e74a99d9_72.jpg",
+      "first_name": "Brian",
+      "real_name": "Brian Hempel",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "brianhempel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC21F8Q48",
+      "ts": "1566318773.000000"
+    },
+    "attachments": [
+      {
+        "title": "Conway's law",
+        "title_link": "https://en.wikipedia.org/wiki/Conway%27s_law",
+        "from_url": "https://en.wikipedia.org/wiki/Conway%27s_law",
+        "author_name": "Wikipedia",
+        "author_link": "https://en.wikipedia.org/",
+        "text": "Conway's law is an adage named after computer programmer Melvin Conway, who introduced the idea in 1967. It states that\n\norganizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations.\n\nThe law is based on the reasoning that in order for a software module to function, multiple authors must communicate frequently with each other. Therefore, the software interface structure of a system will reflect the social boundaries of the organization(s) that produced it, across which communication is more difficult. Conway's law was intended as a valid sociological observation, although sometimes it's used in a humorous context. It was dubbed Conway's law by participants at the 1968 National Symposium on Modular Programming.",
+        "fallback": "wikipedia: Conway's law",
+        "service_icon": "https://a.slack-edge.com/bfaba/img/unfurl_icons/wikipedia.png",
+        "id": 1,
+        "original_url": "https://en.wikipedia.org/wiki/Conway%27s_law"
+      }
+    ],
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "0604f224-6421-4bc5-a8d0-4c233379f8e0",
+    "type": "message",
+    "text": "Is loose coupling possible in a system where the 'functions' (or whatever the units of composition are) are stored in a db? In theory having two pieces of metadata attached to each function - a namespace and a private/public flag - seems equivalent to whatever benefit is provided by modules?",
+    "user": "U8A5MS6R1",
+    "ts": "1566318996.202200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "458a4720-e539-46fd-ab9d-bc4153cb92f7",
+    "type": "message",
+    "text": "Web URLs (just like local file paths) are naming a location instead of identifying a particular content. If the particular content is at the location they're naming, everything's fine, but this is brittle. Think of unresolved imports, dll errors, 404s, ... These all happen because we're naming locations instead of content directly. In addition to the projects you mentioned, there's also IPFS which is pushing the idea of decentralized content-based addressing. I think that IPFS might be good candidate for a program representation that allows safe collaboration and sharing.",
+    "user": "UAL7940NM",
+    "ts": "1566319156.202400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "43873346f949",
+      "image_72": "https://avatars.slack-edge.com/2018-07-13/399377633206_43873346f949174e340e_72.jpg",
+      "first_name": "Felix",
+      "real_name": "Felix Kohlgrüber",
+      "display_name": "Felix Kohlgrüber",
+      "team": "T5TCAFTA9",
+      "name": "felix.kohlgrueber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "4424722a-509b-4a81-befe-a067b444de7c",
+    "type": "message",
+    "text": "Forgot to mention another related project: farm/hypermerge (<https://github.com/inkandswitch/farm>)",
+    "user": "U8A5MS6R1",
+    "ts": "1566319355.202600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "c1fbed8f-461a-4163-afa9-089babe32b89",
+    "type": "message",
+    "text": "I'd like to see a PL where modules / namespaces are purely metadata for humans and the actual \"link\" between function calls and definitions is a unique (content-based?) identifier. This would allow people to curate related functions as they like without breaking any programs. Organizations / communities could maintain such collections and individual people could create their own organization based on their favorite functions / packages, ...",
+    "user": "UAL7940NM",
+    "ts": "1566321984.203000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "43873346f949",
+      "image_72": "https://avatars.slack-edge.com/2018-07-13/399377633206_43873346f949174e340e_72.jpg",
+      "first_name": "Felix",
+      "real_name": "Felix Kohlgrüber",
+      "display_name": "Felix Kohlgrüber",
+      "team": "T5TCAFTA9",
+      "name": "felix.kohlgrueber",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "U8A5MS6R1",
+          "UCUSW7WVD"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "02c508a0-762a-419f-8c37-f0853d46eec8",
+    "type": "message",
+    "text": "And someone on the eutomerge slack mentionnd InfoCentral.\n\n\"InfoCentral is an information-centered architecture for better software and a decentralizable internet. It is foremost concerned with data portability, semantics, and interoperability. \"",
+    "user": "UJ6LDMMN0",
+    "ts": "1566322518.203500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "b411820d-6262-490f-9814-e234c7788a90",
+    "type": "message",
+    "text": "<https://infocentral.org/>",
+    "user": "UJ6LDMMN0",
+    "ts": "1566322577.203700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "c01b1c70-f30e-418c-927d-9b668d19c8b0",
+    "type": "message",
+    "text": "But the project seems old and I am not sure it is still active.",
+    "user": "UJ6LDMMN0",
+    "ts": "1566322645.203900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "ace16601-7d79-48d6-8b14-29e76253ba9c",
+    "type": "message",
+    "text": "Based on what <@UGK6P07UP> said at <https://futureofcoding.slack.com/archives/CLYCGTCPL/p1566286289184100?thread_ts=1566238710.155700&amp;cid=CLYCGTCPL>, it sounds like ValOS may be doing something interesting here as well.",
+    "user": "UCUSW7WVD",
+    "ts": "1566325514.204400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/CLYCGTCPL/p1566286289184100?thread_ts=1566238710.155700&amp;cid=CLYCGTCPL",
+        "fallback": "[August 20th, 2019 12:31 AM] ilari: I guess the key things about the plan are that the infra makes it possible to just point to any part (resource-tree) of any other thing made by the infra (provided access is allowed), and use it in the code interchangeably from if it was within your code. (The client reading the infra will on the background automatically connect to and/or cache the remote content.) This is then coupled with the attempt at reducing any app complexity and supporting a structure for a layered approach to app creation that would naturally consist of interoperable parts within the app itself. This is then extended by the (infra-level support for) not just using remote code, but  adapting it while maintaining the link.\n\nSo in the short-term vision this leads to me (as a overly simplified example) creating an app that rolls a d6 die with having a Dice element, and then you creating an app that directly uses my Dice element but I adjust the value \"6\" to \"10\", yet maintaining the link. So then when a third party looks at your code, it'll lead to mine as well, and perhaps they take it and make the number a parameter that can be provided...\n\nBut this leads to obvious issues about versioning and structural changes and authorship, and there's no inherent backward loop for improving my code (for easing further collaboration), etc. etc. etc. No silver bullet, this is a tough problem, but I have hopes something will develop out of this.\n\nThe grander vision would be to have an IDE/software crafting environment which is built to support this sort of interaction, visualizes/conceptualizes the connections between apps and makes them more social, and has some capabilities the bridge gaps between commercial and open source software.",
+        "ts": "1566286289.184100",
+        "author_id": "UGK6P07UP",
+        "author_subname": "Ilari Kajaste",
+        "channel_id": "CLYCGTCPL",
+        "channel_name": "end-user-programming",
+        "is_msg_unfurl": true,
+        "is_reply_unfurl": true,
+        "text": "I guess the key things about the plan are that the infra makes it possible to just point to any part (resource-tree) of any other thing made by the infra (provided access is allowed), and use it in the code interchangeably from if it was within your code. (The client reading the infra will on the background automatically connect to and/or cache the remote content.) This is then coupled with the attempt at reducing any app complexity and supporting a structure for a layered approach to app creation that would naturally consist of interoperable parts within the app itself. This is then extended by the (infra-level support for) not just using remote code, but  adapting it while maintaining the link.\n\nSo in the short-term vision this leads to me (as a overly simplified example) creating an app that rolls a d6 die with having a Dice element, and then you creating an app that directly uses my Dice element but I adjust the value \"6\" to \"10\", yet maintaining the link. So then when a third party looks at your code, it'll lead to mine as well, and perhaps they take it and make the number a parameter that can be provided...\n\nBut this leads to obvious issues about versioning and structural changes and authorship, and there's no inherent backward loop for improving my code (for easing further collaboration), etc. etc. etc. No silver bullet, this is a tough problem, but I have hopes something will develop out of this.\n\nThe grander vision would be to have an IDE/software crafting environment which is built to support this sort of interaction, visualizes/conceptualizes the connections between apps and makes them more social, and has some capabilities the bridge gaps between commercial and open source software.",
+        "author_name": "Ilari Kajaste",
+        "author_link": "https://futureofcoding.slack.com/team/UGK6P07UP",
+        "author_icon": "https://avatars.slack-edge.com/2019-02-27/562509014037_87bd62a4d028d26ec0d4_48.jpg",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/CLYCGTCPL/p1566286289184100?thread_ts=1566238710.155700&amp;cid=CLYCGTCPL",
+        "footer": "From a thread in #end-user-programming"
+      }
+    ],
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "c23fcfc5-83d3-4b54-a5ec-1116a1e6116d",
+    "type": "message",
+    "text": "\"Why do we need modules at all?\" In Curv, modules are first class values. They can be parameterized. You can have multiple implementations of the same API, each represented by a different module value, and you can pass these values as arguments or store them in data structures.",
+    "user": "UJN1TAYEQ",
+    "ts": "1566326251.206500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "1932fd94-6f2e-4904-895e-ca5091fb8e04",
+    "type": "message",
+    "text": "I've been thinking about this as well. Collaboration isn't a simple thing, there's multiple axes to it. You've identified two so far: level of synchronicity and level of centralization. I wonder if there are others. Somewhere out there is a paper with a comprehensive list. <@UEH6T3RJB>, any ideas?",
+    "user": "UCUSW7WVD",
+    "ts": "1566326262.206700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "9c5f9791-be14-45e2-ac83-36703a92b6d3",
+    "type": "message",
+    "text": "(I should clarify that I _love_ designing features for collaboration. I just have a philosophical objection to emphasizing community over individual. Now that I realize it's philosophical I'll shut up about it :slightly_smiling_face:)",
+    "user": "UCUSW7WVD",
+    "ts": "1566326338.206900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "39f144c5-6241-4b54-91fc-09a0ef3ae72d",
+    "type": "message",
+    "text": "<@UCUSW7WVD> Quite so. The _valos_ resource space (we call it _valospace_ for short) is indeed a fundamentally \"shared\" single world, even if it does consist of data that resides in different sources (_authorities_).",
+    "user": "UGK6P07UP",
+    "ts": "1566329078.209700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "87bd62a4d028",
+      "image_72": "https://avatars.slack-edge.com/2019-02-27/562509014037_87bd62a4d028d26ec0d4_72.jpg",
+      "first_name": "Ilari",
+      "real_name": "Ilari Kajaste",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ilari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "4660ed0c-c21e-4c0b-9743-04fb6f9abd46",
+    "type": "message",
+    "text": "Basically, any _valos resource_ is defined by its partition URI (which consists of the authority, and the segment it lives within on that authority), and the resource identifier. We also plan on having the resource identifiers to be cryptographically transferable from authorities to another, so that the id will be the central defining factor, and the partition only working as a (very important) locator - but this is not implemented yet.",
+    "user": "UGK6P07UP",
+    "ts": "1566329277.212500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "87bd62a4d028",
+      "image_72": "https://avatars.slack-edge.com/2019-02-27/562509014037_87bd62a4d028d26ec0d4_72.jpg",
+      "first_name": "Ilari",
+      "real_name": "Ilari Kajaste",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ilari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "f7d41f23-e821-4748-b8ba-fb59abc30dc2",
+    "type": "message",
+    "text": "(<@UCUSW7WVD> well, I guess I am also biased by my philosophical view: we lack emphasize on collective. And as for our subject here, I see value to bring more collaborative behaviour in programming activity. And maybe I must clarify this once like you then shut up too... :wink: anyway: thanks)",
+    "user": "UJ6LDMMN0",
+    "ts": "1566329618.216700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "fa5577fc-f6a6-42ce-a5f0-d5821988d52e",
+    "type": "message",
+    "text": "<@UAL7940NM> I'm not completely sure I get all of what you're implying by the \"actual link being being a unique identifier\", but we are indeed doing something very much like that.",
+    "user": "UGK6P07UP",
+    "ts": "1566330095.217100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "87bd62a4d028",
+      "image_72": "https://avatars.slack-edge.com/2019-02-27/562509014037_87bd62a4d028d26ec0d4_72.jpg",
+      "first_name": "Ilari",
+      "real_name": "Ilari Kajaste",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ilari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "8d7dc197-5d76-46a5-b094-d1c93f3eeda2",
+    "type": "message",
+    "text": "If a function in valos calls another function, say `foo.doSomething()` then what actually happens is that the resource `foo` is a valos Entity that has a Property `doSomething`, which references a valos resource containing the function data - this is likely to be a resource directly owned by foo, but it doesn't need to be, in fact it could be a resource on a completely different authority. When that function call starts to happen, the system running the valos (the valos _gateway_) will notice the reference to doSomething, discern from the partition URI the correct protocol for connecting to the authority that has that resource, establish the connection, fetch the contents, and then execute the function. The code doing the call (and indeed the user) doesn't need to care, and the actual Resource that the `foo.doSomething` references could indeed be called or renamed to whatever, the relevant part is that it's `a810b-c9eea-...` that lives at `<valos-protocol://authorityUri/partition>`. In the programmer's IDE it will be just a reference like any other (well, probably with a small indicator that it's a foreign reference). (This has obvious app security ramifications, but those can be mitigated by various means.)",
+    "user": "UGK6P07UP",
+    "ts": "1566330117.217300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "87bd62a4d028",
+      "image_72": "https://avatars.slack-edge.com/2019-02-27/562509014037_87bd62a4d028d26ec0d4_72.jpg",
+      "first_name": "Ilari",
+      "real_name": "Ilari Kajaste",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ilari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UGK6P07UP",
+      "ts": "1566331498.000000"
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAL7940NM"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "88d9d3ca-2a3f-4fe9-a8fa-f079a5c5a909",
+    "type": "message",
+    "text": "I'm not sure if that matches what you meant or not.",
+    "user": "UGK6P07UP",
+    "ts": "1566330126.217500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "87bd62a4d028",
+      "image_72": "https://avatars.slack-edge.com/2019-02-27/562509014037_87bd62a4d028d26ec0d4_72.jpg",
+      "first_name": "Ilari",
+      "real_name": "Ilari Kajaste",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ilari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566318408.201400",
+    "parent_user_id": "U8A5MS6R1",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "f50d4d13-851c-4f1f-a51b-0f610ab1992e",
+    "type": "message",
+    "text": "The simple explanation is that it's breaking one fixed point into multiple. So all the logic in stratum 1 must converge, before you move to stratum 2 which then converges, then stratum 3...",
+    "user": "UEBG0NPDK",
+    "ts": "1566336738.316300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f50d4d13-851c-4f1f-a51b-0f610ab1992e",
+    "type": "message",
+    "text": "The simple explanation is that it's breaking one fixed point into multiple. So all the logic in stratum 1 must converge, before you move to stratum 2 which then converges, then stratum 3...",
+    "user": "UEBG0NPDK",
+    "ts": "1566336738.316300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f84be8a8-4fad-49e3-b071-18f0331b9e2d",
+    "type": "message",
+    "text": "this makes certain logical fallacies well-formed",
+    "user": "UEBG0NPDK",
+    "ts": "1566336757.316500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f84be8a8-4fad-49e3-b071-18f0331b9e2d",
+    "type": "message",
+    "text": "this makes certain logical fallacies well-formed",
+    "user": "UEBG0NPDK",
+    "ts": "1566336757.316500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "23e295e8-1a95-4fb9-97eb-b60f774114f9",
+    "type": "message",
+    "text": "so you split all the rules up into strata and only apply those rules in their given stratum",
+    "user": "UEBG0NPDK",
+    "ts": "1566336858.316700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "23e295e8-1a95-4fb9-97eb-b60f774114f9",
+    "type": "message",
+    "text": "so you split all the rules up into strata and only apply those rules in their given stratum",
+    "user": "UEBG0NPDK",
+    "ts": "1566336858.316700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "That makes a certain amount of sense. Can you help me map that to this explanation?",
+    "files": [
+      {
+        "id": "FMJ9UURGU",
+        "created": 1566337363,
+        "timestamp": 1566337363,
+        "name": "IMG_20190820_174023424.jpg",
+        "title": "IMG_20190820_174023424.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UJK8MKYAZ",
+        "editable": false,
+        "size": 3601435,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-FMJ9UURGU/img_20190820_174023424.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-FMJ9UURGU/download/img_20190820_174023424.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_64.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_80.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_360.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_360_w": 270,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_480.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_480_w": 360,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_160.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_720.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_720_w": 540,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_800.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_800_w": 800,
+        "thumb_800_h": 1067,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_960.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_960_w": 720,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_1024.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_1024_w": 768,
+        "thumb_1024_h": 1024,
+        "image_exif_rotation": 1,
+        "original_w": 3024,
+        "original_h": 4032,
+        "permalink": "https://futureofcoding.slack.com/files/UJK8MKYAZ/FMJ9UURGU/img_20190820_174023424.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-FMJ9UURGU-ab8e07d66f",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": true,
+    "user": "UJK8MKYAZ",
+    "display_as_bot": false,
+    "ts": "1566337368.317400",
+    "client_msg_id": "a713f824-f9de-4ac1-8cca-df8132454b7e",
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "That makes a certain amount of sense. Can you help me map that to this explanation?",
+    "files": [
+      {
+        "id": "FMJ9UURGU",
+        "created": 1566337363,
+        "timestamp": 1566337363,
+        "name": "IMG_20190820_174023424.jpg",
+        "title": "IMG_20190820_174023424.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UJK8MKYAZ",
+        "editable": false,
+        "size": 3601435,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-FMJ9UURGU/img_20190820_174023424.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-FMJ9UURGU/download/img_20190820_174023424.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_64.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_80.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_360.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 270,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_480.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 360,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_160.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_720.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 540,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_800.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 1067,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_960.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 720,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-FMJ9UURGU-d862778b16/img_20190820_174023424_1024.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 768,
+        "thumb_1024_h": 1024,
+        "image_exif_rotation": 1,
+        "original_w": 3024,
+        "original_h": 4032,
+        "permalink": "https://futureofcoding.slack.com/files/UJK8MKYAZ/FMJ9UURGU/img_20190820_174023424.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-FMJ9UURGU-ab8e07d66f",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": true,
+    "user": "UJK8MKYAZ",
+    "display_as_bot": false,
+    "ts": "1566337368.317400",
+    "client_msg_id": "a713f824-f9de-4ac1-8cca-df8132454b7e",
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "",
+    "files": [
+      {
+        "id": "FM7AE7M34",
+        "created": 1566337407,
+        "timestamp": 1566337407,
+        "name": "IMG_20190820_174040771.jpg",
+        "title": "IMG_20190820_174040771.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UJK8MKYAZ",
+        "editable": false,
+        "size": 4078271,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-FM7AE7M34/img_20190820_174040771.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-FM7AE7M34/download/img_20190820_174040771.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_64.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_80.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_360.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_360_w": 270,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_480.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_480_w": 360,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_160.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_720.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_720_w": 540,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_800.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_800_w": 800,
+        "thumb_800_h": 1067,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_960.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_960_w": 720,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_1024.jpg?t=xoxe-197418537349-1220335257046-1227067770482-88f226025a2db8e34ac513e918d80320",
+        "thumb_1024_w": 768,
+        "thumb_1024_h": 1024,
+        "image_exif_rotation": 1,
+        "original_w": 3024,
+        "original_h": 4032,
+        "permalink": "https://futureofcoding.slack.com/files/UJK8MKYAZ/FM7AE7M34/img_20190820_174040771.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-FM7AE7M34-96423e8145",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": true,
+    "user": "UJK8MKYAZ",
+    "display_as_bot": false,
+    "ts": "1566337413.317800",
+    "client_msg_id": "ab2befc0-cd78-4259-92a4-249c102416fa",
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "type": "message",
+    "text": "",
+    "files": [
+      {
+        "id": "FM7AE7M34",
+        "created": 1566337407,
+        "timestamp": 1566337407,
+        "name": "IMG_20190820_174040771.jpg",
+        "title": "IMG_20190820_174040771.jpg",
+        "mimetype": "image/jpeg",
+        "filetype": "jpg",
+        "pretty_type": "JPEG",
+        "user": "UJK8MKYAZ",
+        "editable": false,
+        "size": 4078271,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-FM7AE7M34/img_20190820_174040771.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-FM7AE7M34/download/img_20190820_174040771.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_64.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_80.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_360.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 270,
+        "thumb_360_h": 360,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_480.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 360,
+        "thumb_480_h": 480,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_160.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_720.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 540,
+        "thumb_720_h": 720,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_800.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 1067,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_960.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_960_w": 720,
+        "thumb_960_h": 960,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-FM7AE7M34-97f651fe91/img_20190820_174040771_1024.jpg?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_1024_w": 768,
+        "thumb_1024_h": 1024,
+        "image_exif_rotation": 1,
+        "original_w": 3024,
+        "original_h": 4032,
+        "permalink": "https://futureofcoding.slack.com/files/UJK8MKYAZ/FM7AE7M34/img_20190820_174040771.jpg",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-FM7AE7M34-96423e8145",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": true,
+    "user": "UJK8MKYAZ",
+    "display_as_bot": false,
+    "ts": "1566337413.317800",
+    "client_msg_id": "ab2befc0-cd78-4259-92a4-249c102416fa",
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "59d45b3d-d701-42b4-a998-c76990fa3d29",
+    "type": "message",
+    "text": "I think I'm starting to get it... \"The barber is the man who shaves all men who do not shave themselves\" isn't stratified because it has a negative reference on the same \"strata\", but negative references are only allowed to lower strata. Is that about right?",
+    "user": "UJK8MKYAZ",
+    "ts": "1566338018.318200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UEF95M2RH",
+          "UD3AK9JRF"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "59d45b3d-d701-42b4-a998-c76990fa3d29",
+    "type": "message",
+    "text": "I think I'm starting to get it... \"The barber is the man who shaves all men who do not shave themselves\" isn't stratified because it has a negative reference on the same \"strata\", but negative references are only allowed to lower strata. Is that about right?",
+    "user": "UJK8MKYAZ",
+    "ts": "1566338018.318200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UEF95M2RH",
+          "UD3AK9JRF"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6654bde1-99eb-46ce-a8c2-842b26204ea3",
+    "type": "message",
+    "text": "That's how I understand it, yeah :slightly_smiling_face:",
+    "user": "UEBG0NPDK",
+    "ts": "1566338110.318400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6654bde1-99eb-46ce-a8c2-842b26204ea3",
+    "type": "message",
+    "text": "That's how I understand it, yeah :slightly_smiling_face:",
+    "user": "UEBG0NPDK",
+    "ts": "1566338110.318400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a96f3bc4-c4c2-49cc-aed1-f9427ea0793d",
+    "type": "message",
+    "text": "Thanks!",
+    "user": "UJK8MKYAZ",
+    "ts": "1566338222.318600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a96f3bc4-c4c2-49cc-aed1-f9427ea0793d",
+    "type": "message",
+    "text": "Thanks!",
+    "user": "UJK8MKYAZ",
+    "ts": "1566338222.318600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8badec7a-633f-44fa-88da-53487f8edc4b",
+    "type": "message",
+    "text": "Out of curiousity, where did you learn this stuff? Just reading papers? Or was there a book, etc. that you found helpful?",
+    "user": "UJK8MKYAZ",
+    "ts": "1566338270.318800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8badec7a-633f-44fa-88da-53487f8edc4b",
+    "type": "message",
+    "text": "Out of curiousity, where did you learn this stuff? Just reading papers? Or was there a book, etc. that you found helpful?",
+    "user": "UJK8MKYAZ",
+    "ts": "1566338270.318800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c6ff7f57-e6f4-41bc-bf55-1145102ac303",
+    "type": "message",
+    "text": "Probably from trying to get Eve to behave sensibly.  :wink:",
+    "user": "UA14TGLTC",
+    "ts": "1566353973.319300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c6ff7f57-e6f4-41bc-bf55-1145102ac303",
+    "type": "message",
+    "text": "Probably from trying to get Eve to behave sensibly.  :wink:",
+    "user": "UA14TGLTC",
+    "ts": "1566353973.319300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7a5ace0a-9271-4ca9-bf34-5375a1c8da78",
+    "type": "message",
+    "text": "haha yep :slightly_smiling_face: We read lots of papers, but working this stuff out with real programs is what actually taught us I think.",
+    "user": "UEBG0NPDK",
+    "ts": "1566354517.319500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7a5ace0a-9271-4ca9-bf34-5375a1c8da78",
+    "type": "message",
+    "text": "haha yep :slightly_smiling_face: We read lots of papers, but working this stuff out with real programs is what actually taught us I think.",
+    "user": "UEBG0NPDK",
+    "ts": "1566354517.319500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4c836e7b-1b46-4e49-8bb5-e31b5c0e1985",
+    "type": "message",
+    "text": "There's a lot that the math doesn't tell you if you're trying to implement one of these systems",
+    "user": "UEBG0NPDK",
+    "ts": "1566354547.319700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4c836e7b-1b46-4e49-8bb5-e31b5c0e1985",
+    "type": "message",
+    "text": "There's a lot that the math doesn't tell you if you're trying to implement one of these systems",
+    "user": "UEBG0NPDK",
+    "ts": "1566354547.319700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9e85c7bdd45b",
+      "image_72": "https://avatars.slack-edge.com/2018-11-25/487455880658_9e85c7bdd45b1d2d4721_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Granger",
+      "display_name": "ibdknox",
+      "team": "T5TCAFTA9",
+      "name": "ibdknox",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4e770026-02fa-4c1a-9354-8eb813dd024d",
+    "type": "message",
+    "text": "Dear Daniel, i wouldn't spend too much time on pure logic. One of the famous math books of the 20th century was Whitehead &amp; Russell's Principia Mathematica, and it used a custom symbology, which drove the printers crazy because this was early 1900's. If i recall correctly it takes them over 100 pages of complete gibberish to prove that 1 + 1 = 2. If you need to sleep that book is infallible. We all know that 1 + 1 is two but a proof of this is surprisingly difficult. And this is where the risk lies in studying problems that are invented by academics. Most of the great breakthroughs in science and math were from people trying to solve a real problem in the world, like the motions of the planets, which inspired Newton, Lagrange, or cracking the Enigma code by Turing's computers, and so many others. When people invent their own problems to solve you head dangerously into \"how many angels dance on the head of a pin\" territory which so plagued medieval thinkers who never looked out into the world.  I remember seeing the first category theory book decades ago, and was intrigued by it, but that branch of mathematics is littered with problems that don't matter to anyone but the people getting degrees. I can't think of a language or a tool that i use on a regular basis in computers that was developed at a university since 1980's Modula-2/Oberon from my idol Prof. Wirth of ETH, or Icon from Griswold at Univ. of Arizona also around 1980.",
+    "user": "UEQ6M68H0",
+    "ts": "1566373781.320300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1566374706.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "face_with_raised_eyebrow",
+        "users": [
+          "UJUQESQ1Z"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4e770026-02fa-4c1a-9354-8eb813dd024d",
+    "type": "message",
+    "text": "Dear Daniel, i wouldn't spend too much time on pure logic. One of the famous math books of the 20th century was Whitehead &amp; Russell's Principia Mathematica, and it used a custom symbology, which drove the printers crazy because this was early 1900's. If i recall correctly it takes them over 100 pages of complete gibberish to prove that 1 + 1 = 2. If you need to sleep that book is infallible. We all know that 1 + 1 is two but a proof of this is surprisingly difficult. And this is where the risk lies in studying problems that are invented by academics. Most of the great breakthroughs in science and math were from people trying to solve a real problem in the world, like the motions of the planets, which inspired Newton, Lagrange, or cracking the Enigma code by Turing's computers, and so many others. When people invent their own problems to solve you head dangerously into \"how many angels dance on the head of a pin\" territory which so plagued medieval thinkers who never looked out into the world.  I remember seeing the first category theory book decades ago, and was intrigued by it, but that branch of mathematics is littered with problems that don't matter to anyone but the people getting degrees. I can't think of a language or a tool that i use on a regular basis in computers that was developed at a university since 1980's Modula-2/Oberon from my idol Prof. Wirth of ETH, or Icon from Griswold at Univ. of Arizona also around 1980.",
+    "user": "UEQ6M68H0",
+    "ts": "1566373781.320300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1566374706.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "face_with_raised_eyebrow",
+        "users": [
+          "UJUQESQ1Z"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b2c42670-ac1e-4caa-b695-c69a3592b1dc",
+    "type": "message",
+    "text": "Here is a nice article by one of the few people who can understand Principia Mathematica (and i would estimate fewer than 100 alive do):<https://blog.stephenwolfram.com/2010/11/100-years-since-principia-mathematica/>",
+    "user": "UEQ6M68H0",
+    "ts": "1566374929.321000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "100 Years Since Principia Mathematica—Stephen Wolfram Blog",
+        "title_link": "https://blog.stephenwolfram.com/2010/11/100-years-since-principia-mathematica/",
+        "text": "Stephen Wolfram Personal Blog",
+        "fallback": "100 Years Since Principia Mathematica—Stephen Wolfram Blog",
+        "from_url": "https://blog.stephenwolfram.com/2010/11/100-years-since-principia-mathematica/",
+        "service_icon": "https://blog.stephenwolfram.com/favicon.ico",
+        "service_name": "blog.stephenwolfram.com",
+        "id": 1,
+        "original_url": "https://blog.stephenwolfram.com/2010/11/100-years-since-principia-mathematica/"
+      }
+    ],
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b2c42670-ac1e-4caa-b695-c69a3592b1dc",
+    "type": "message",
+    "text": "Here is a nice article by one of the few people who can understand Principia Mathematica (and i would estimate fewer than 100 alive do):<https://blog.stephenwolfram.com/2010/11/100-years-since-principia-mathematica/>",
+    "user": "UEQ6M68H0",
+    "ts": "1566374929.321000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "100 Years Since Principia Mathematica—Stephen Wolfram Blog",
+        "title_link": "https://blog.stephenwolfram.com/2010/11/100-years-since-principia-mathematica/",
+        "text": "Stephen Wolfram Personal Blog",
+        "fallback": "100 Years Since Principia Mathematica—Stephen Wolfram Blog",
+        "from_url": "https://blog.stephenwolfram.com/2010/11/100-years-since-principia-mathematica/",
+        "service_icon": "https://blog.stephenwolfram.com/favicon.ico",
+        "service_name": "blog.stephenwolfram.com",
+        "id": 1,
+        "original_url": "https://blog.stephenwolfram.com/2010/11/100-years-since-principia-mathematica/"
+      }
+    ],
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0c7228e6-1515-4c3d-a4af-aefda8065efe",
+    "type": "message",
+    "text": "<@UEQ6M68H0> A more recent example of a language/tool from academia that is actually useful in practice is Racket.",
+    "user": "UJBAJNFLK",
+    "ts": "1566376397.321400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g05e4cf66ef1",
+      "image_72": "https://secure.gravatar.com/avatar/305e4cf66ef1179f7e95981b1520ba1a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0c7228e6-1515-4c3d-a4af-aefda8065efe",
+    "type": "message",
+    "text": "<@UEQ6M68H0> A more recent example of a language/tool from academia that is actually useful in practice is Racket.",
+    "user": "UJBAJNFLK",
+    "ts": "1566376397.321400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "12dc2f7f-de37-4b33-9893-831c58889fdb",
+    "type": "message",
+    "text": "(Failed to hit return earlier.  I blame Jony Ive.)  Nothing gets an appendix written for a paper faster than going to the authors with questions while trying to implement what they've written.",
+    "user": "UA14TGLTC",
+    "ts": "1566377322.321600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "12dc2f7f-de37-4b33-9893-831c58889fdb",
+    "type": "message",
+    "text": "(Failed to hit return earlier.  I blame Jony Ive.)  Nothing gets an appendix written for a paper faster than going to the authors with questions while trying to implement what they've written.",
+    "user": "UA14TGLTC",
+    "ts": "1566377322.321600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "37db3bc5-ea3c-4071-8c75-eb886d929c1d",
+    "type": "message",
+    "text": "<@UJK8MKYAZ> \"Negative references are allowed only to lower strata\" is exactly right. The \"level mapping\" idea (which I haven't run across before) seems like it's just a formalization of this, where you assign numbers to predicates according to their stratum.\n\nYou can also think in terms of dependency graphs between predicates instead of numbering strata explicitly, which I prefer. Let every predicate be a node, and make an edge from A to B if there's a rule with A in the head &amp; B in the body. Call the edge \"negative\" if B appears negated. Then a graph is stratified if every cycle has only *positive* edges; put another way, cycles aren't allowed to have negated edges.",
+    "user": "UEF95M2RH",
+    "ts": "1566404003.322000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4e6637707ff",
+      "image_72": "https://secure.gravatar.com/avatar/c4e6637707ff62601f3dd21ec7626095.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "",
+      "real_name": "Michael Arntzenius",
+      "display_name": "rntz",
+      "team": "T5TCAFTA9",
+      "name": "daekharel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEF95M2RH",
+      "ts": "1566404217.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "37db3bc5-ea3c-4071-8c75-eb886d929c1d",
+    "type": "message",
+    "text": "<@UJK8MKYAZ> \"Negative references are allowed only to lower strata\" is exactly right. The \"level mapping\" idea (which I haven't run across before) seems like it's just a formalization of this, where you assign numbers to predicates according to their stratum.\n\nYou can also think in terms of dependency graphs between predicates instead of numbering strata explicitly, which I prefer. Let every predicate be a node, and make an edge from A to B if there's a rule with A in the head &amp; B in the body. Call the edge \"negative\" if B appears negated. Then a graph is stratified if every cycle has only *positive* edges; put another way, cycles aren't allowed to have negated edges.",
+    "user": "UEF95M2RH",
+    "ts": "1566404003.322000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4e6637707ff",
+      "image_72": "https://secure.gravatar.com/avatar/c4e6637707ff62601f3dd21ec7626095.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "",
+      "real_name": "Michael Arntzenius",
+      "display_name": "rntz",
+      "team": "T5TCAFTA9",
+      "name": "daekharel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEF95M2RH",
+      "ts": "1566404217.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8059e792-34cc-42b0-9a51-bc2fdfb27822",
+    "type": "message",
+    "text": "For the umpteenth time I share the kernel of Edward de Jong's concern -- and find the broad opinions extrapolated from it wildly inappropriate. Evolution is robust because it proceeds along many directions at once. I am constantly thankful that it takes all sorts to make a world, and that there are others blazing trails in directions I don't care to go.\n\nThere are many well-known examples of ideas that seemed incredibly abstract and divorced from reality -- until they suddenly turned out to be useful in understanding our world. To name just one, I believe Gauss's _remarkable theorem_ (<https://en.wikipedia.org/wiki/Theorema_Egregium>) was considered for almost a hundred years a classic case of how many angels can dance on the head of a pin -- until Einstein used it in General Relativity.\n\n(It's true that the massive increase in funding for the sciences over the last 100 years has created perverse incentives for bullshit academic activity. But I want to be careful not to throw the baby out with the bath-water. And I say this as a disgruntled ex-academic.)\n\n---\n\nIt is a common mis-phrasing to say that _Principia_ \"takes over 100 pages to prove that `1+1 = 2`\". It takes 100 pages to show that a specific system of logic actually connects up with the numbers as others know and recognize them.",
+    "user": "UCUSW7WVD",
+    "ts": "1566411973.323100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1566412584.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8059e792-34cc-42b0-9a51-bc2fdfb27822",
+    "type": "message",
+    "text": "For the umpteenth time I share the kernel of Edward de Jong's concern -- and find the broad opinions extrapolated from it wildly inappropriate. Evolution is robust because it proceeds along many directions at once. I am constantly thankful that it takes all sorts to make a world, and that there are others blazing trails in directions I don't care to go.\n\nThere are many well-known examples of ideas that seemed incredibly abstract and divorced from reality -- until they suddenly turned out to be useful in understanding our world. To name just one, I believe Gauss's _remarkable theorem_ (<https://en.wikipedia.org/wiki/Theorema_Egregium>) was considered for almost a hundred years a classic case of how many angels can dance on the head of a pin -- until Einstein used it in General Relativity.\n\n(It's true that the massive increase in funding for the sciences over the last 100 years has created perverse incentives for bullshit academic activity. But I want to be careful not to throw the baby out with the bath-water. And I say this as a disgruntled ex-academic.)\n\n---\n\nIt is a common mis-phrasing to say that _Principia_ \"takes over 100 pages to prove that `1+1 = 2`\". It takes 100 pages to show that a specific system of logic actually connects up with the numbers as others know and recognize them.",
+    "user": "UCUSW7WVD",
+    "ts": "1566411973.323100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1566412584.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e4849f91-f7a7-4ddb-b7da-8caf3d5efc95",
+    "type": "message",
+    "text": "Regardless of the debate, I promise I asked on purely practical grounds. Moreover, the text I'm working with, _Knowledge Representation, Reasoning, and the Design of Intelligent Agents: the Answer Set Approach_ has very practical ends in mind.",
+    "user": "UJK8MKYAZ",
+    "ts": "1566414545.323800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJK8MKYAZ",
+      "ts": "1566414589.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e4849f91-f7a7-4ddb-b7da-8caf3d5efc95",
+    "type": "message",
+    "text": "Regardless of the debate, I promise I asked on purely practical grounds. Moreover, the text I'm working with, _Knowledge Representation, Reasoning, and the Design of Intelligent Agents: the Answer Set Approach_ has very practical ends in mind.",
+    "user": "UJK8MKYAZ",
+    "ts": "1566414545.323800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJK8MKYAZ",
+      "ts": "1566414589.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "21e5b555-46d0-40c4-aa1c-39cd08aab6cc",
+    "type": "message",
+    "text": "The Clingo solver (<https://github.com/potassco/clingo>) seems another exception to <@UEQ6M68H0>’s rule: the Potassco group out of the University of Potsdam is an academic group, but their solver is scheduling Europe's trains and moving Amazon's warehouse robots.",
+    "user": "UJK8MKYAZ",
+    "ts": "1566414783.324200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "21e5b555-46d0-40c4-aa1c-39cd08aab6cc",
+    "type": "message",
+    "text": "The Clingo solver (<https://github.com/potassco/clingo>) seems another exception to <@UEQ6M68H0>’s rule: the Potassco group out of the University of Potsdam is an academic group, but their solver is scheduling Europe's trains and moving Amazon's warehouse robots.",
+    "user": "UJK8MKYAZ",
+    "ts": "1566414783.324200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g191fa9e3260",
+      "image_72": "https://secure.gravatar.com/avatar/6191fa9e32605141275a68a8bb5f04fa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Daniel Hines",
+      "display_name": "Daniel Hines",
+      "team": "T5TCAFTA9",
+      "name": "d4hines",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6e01c6e6-ec9f-49f2-846d-0c1d0360ad3d",
+    "type": "message",
+    "text": "It isn't a rule; there is nothing stopping Academia from producing breakthroughs. It is just an observation that although the funding and number of computer science depts. has exploded since 1980 we have little to show for it. We have reached a point where many of the professors only talk to each other, and don't interact with industry. They communicate in journals that might cost $1000 a year to subscribe to, which means no regular person will ever see their work. There are lot of things wrong with academia. It's gotten pretty decadent, with administrators getting 7 figure salaries and flying in the school's private jet. Smaller schools are actually suffering, but the top ones are rolling in money. My good friend paul was at UC Berkeley in the 70's and the students protested and went on strike because the tuition was being raised $50 a quarter or something like that. Now many students are leaving with six figure debt, and here in the states we have a crisis brewing with over a trillion in student loans outstanding. Unfortunately, there seems to be a very weak connection at present between industry and academic computing.",
+    "user": "UEQ6M68H0",
+    "ts": "1566416400.325000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1566430488.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6e01c6e6-ec9f-49f2-846d-0c1d0360ad3d",
+    "type": "message",
+    "text": "It isn't a rule; there is nothing stopping Academia from producing breakthroughs. It is just an observation that although the funding and number of computer science depts. has exploded since 1980 we have little to show for it. We have reached a point where many of the professors only talk to each other, and don't interact with industry. They communicate in journals that might cost $1000 a year to subscribe to, which means no regular person will ever see their work. There are lot of things wrong with academia. It's gotten pretty decadent, with administrators getting 7 figure salaries and flying in the school's private jet. Smaller schools are actually suffering, but the top ones are rolling in money. My good friend paul was at UC Berkeley in the 70's and the students protested and went on strike because the tuition was being raised $50 a quarter or something like that. Now many students are leaving with six figure debt, and here in the states we have a crisis brewing with over a trillion in student loans outstanding. Unfortunately, there seems to be a very weak connection at present between industry and academic computing.",
+    "user": "UEQ6M68H0",
+    "ts": "1566416400.325000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UEQ6M68H0",
+      "ts": "1566430488.000000"
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5f033631-7621-482a-a5a7-a40c1f706af6",
+    "type": "message",
+    "text": "That is all true. But there's a difference between \"I wouldn't spend time on academia\" and \"I wouldn't spend time on pure logic\".\n\nIf 90% of everything is crap, the number goes up to 99% or more for scifi and academia.",
+    "user": "UCUSW7WVD",
+    "ts": "1566417703.325400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5f033631-7621-482a-a5a7-a40c1f706af6",
+    "type": "message",
+    "text": "That is all true. But there's a difference between \"I wouldn't spend time on academia\" and \"I wouldn't spend time on pure logic\".\n\nIf 90% of everything is crap, the number goes up to 99% or more for scifi and academia.",
+    "user": "UCUSW7WVD",
+    "ts": "1566417703.325400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566336506.316200",
+    "parent_user_id": "UJK8MKYAZ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5ecd7f17-ed99-480a-8568-26f4c58208a0",
+    "type": "message",
+    "text": "Are you an extrovert, <@UJ6LDMMN0>? :smile: That may explain it.",
+    "user": "UCUSW7WVD",
+    "ts": "1566444642.235200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "e291b3b2-6837-4dad-ab0e-bf9709e5f7fd",
+    "type": "message",
+    "text": "Well, not at all, I guess I am more on the introvert side. But it is complicated... :wink: Let's say that I like to work alone but I also like creating stuff with others when the collaborative organisation works. The results are different and the collaborative ones are interesting. And I like a lot seeing how others are thinking about the creations/problems we work on.",
+    "user": "UJ6LDMMN0",
+    "ts": "1566460380.236100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "c36862c9-4a2b-4e0d-b36e-e0d01a74d7bb",
+    "type": "message",
+    "text": "And for me programming, and especially its tooling, has a huge legacy as an individual activity. And in my experience, when several programmers have to work to create something, if they have an individual behavior and miss some collaborative ones, the result can be bad and it can be a waste of time. And sometime (often ?) the tooling we have now don't help in that: it is mainly designed for individual activity. Even git, it is a collaborative tool with an individual use in mind: one programmer develops on her computer, she commits on her computer, then she pushes on the repository and eventually others pull her modification on their computers to work on it. It is a kind of \"collaborative patch\" on a highly individual workflow.",
+    "user": "UJ6LDMMN0",
+    "ts": "1566460401.236300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "86324766-0480-414b-9f5f-0f274fa6d9db",
+    "type": "message",
+    "text": "&gt;git is a collaborative tool\n_Content warning: Unpopular opinion._ :wink:\nIsn't git a tool that allows multiple developers to *not* have to collaborate with other developers directly, by carving out a part of a codebase where they can make changes with lower probability of affecting others? Instead of coordinating with others, we find it more efficient to separate us from them and let a merge algorithm do the cooperation for us. And when conflicts emerge, it's a problem, an exception we have to deal with, and we focus — consciously or subconsciously — on the negative connotations.\n\nMaybe our industry has a bias against collaboration? How many people here reading this are (a) working on their own project, and (b) how many of you here are working together on the same project?\nOr what's the first thing you think when you look at code from a different person? Is it more like \"Oh wow, that's interesting — I wonder why they did it like that!\" or more like \"What a mess. I would do this differently.\"\n\nI had an interesting conversation with a film director last week and he was comparing our industry with his. He noticed how collaboration \"isn't much of a thing for most developers\". He is working on some software that's being developed for him, which is why he has lots of interaction with developers lately. He observed: when asked for help, they tend to give quick feedback and opinions, often without showing any empathy for the person seeking help by asking clarifying questions for the situation they're in.\n\nCompared to a film set, every person on that set needs to know what the movie is about and what everyone else is doing and it doesn't matter if you're the director, the sound person, in catering, or whatever — you'll frequently collaborate with other people outside your domain because everything is tightly connected to everything else.\n\nIn software development, we're trying to untangle everything and ideally only have loose coupling everywhere — maybe the most important benefit of that has nothing to do with architecture, but with our desire to focus and work alone?\n\nCan't wait to see what such people come up with in terms of collaborative tools then… :sunglasses:\n\n_I know that's a dark perspective on our industry and collaboration, and I've been deliberately pushing it a little further than I really mean it to make a point._",
+    "user": "U5STGTB3J",
+    "ts": "1566463601.237000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UA14TGLTC",
+          "UJ6LDMMN0",
+          "UHWC9PXBL"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "3a9c97b6-e38c-45fa-8387-a26ac972dc1b",
+    "type": "message",
+    "text": "Film-making is a short-term activity. Everyone comes together for an intense burst of effort, then disbands to unwind. Software (particularly the sort of tool-creation endeavor we discuss here) is a long-term activity. I think that explains why our industry rightly holds loose coupling in such high regard.\n\n(_In principle._ To me the high coupling of teams in the software industry (open-plan offices, historical reluctance to let people work remote, etc.) is a symptom of regrettable short-termism in outlook _in practice_. To be fair there's a lot of reason for short-termism in a startup. Which is why I'm suspicious of money, but I won't rehash that conversation.)\n\n&gt; what's the first thing you think when you look at code from a different person? Is it more like \"Oh wow, that's interesting — I wonder why they did it like that!\" or more like \"What a mess. I would do this differently.\"\n\nBased on my browser history, here are some links to projects I spent time reading code for in the past few days:\n\n• <https://idea.junglecoder.com/view/idea/274>\n• <http://minimal.linux-bg.org> (I spent 2 weeks understanding this to distill it down to <https://github.com/akkartik/mu/blob/master/gen_iso>)\n• <https://nurpax.github.io/posts/2019-08-18-dirty-tricks-6502-programmers-use.html>\n• <https://people.kernel.org/mcgrof/kdevops-a-devops-framework-for-linux-kernel-development>\n\nI still think your question is valid. I'm fairly unconventional in my interest in reading code, and I think the world would be a better place if more people were like me :angel: My project basically got started by frustrations in reading other people's code. Every codebase is like its own language, and it's too hard to copy/steal code from others. It doesn't help that people worry about IP law. I had someone tell me recently that they don't want to look at code without a license because of contagion worries _for copyright_. That's either insane or reinforces my determination to learn as little about IP law as possible. Anyways, I'll stop rambling here :slightly_smiling_face: Thanks for a great comment <@U5STGTB3J>.",
+    "user": "UCUSW7WVD",
+    "ts": "1566493891.240400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1566494017.000000"
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "5df43a48-897a-4f8c-ad19-a17774785440",
+    "type": "message",
+    "text": "<@U5STGTB3J> On git as an anti-collaborative tool. Here is a paper that makes this same point, when constrasting the design of git vs fossil. See section 2.5: <https://www.fossil-scm.org/index.html/doc/trunk/www/fossil-v-git.wiki>",
+    "user": "UJN1TAYEQ",
+    "ts": "1566675384.242400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "835f940c-6393-4b5a-8584-ad3b44b30352",
+    "type": "message",
+    "text": "<@UCUSW7WVD> The Fossil paper uses the Cathedral and the Bazaar metaphor to distinguish between Fossil-style tightly coupled collaboration (Cathedral) vs Git-style loosely coupled collaboration (Bazaar).",
+    "user": "UJN1TAYEQ",
+    "ts": "1566675807.242600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "e4c37823-c70d-4836-86f6-d1596dfa6798",
+    "type": "message",
+    "text": "I think both Cathedral and Bazaar are way more loosely coupled than making a film.",
+    "user": "UCUSW7WVD",
+    "ts": "1566677685.242800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "3327ad64-40eb-47bb-a003-e6c3f7f92111",
+    "type": "message",
+    "text": "<@UCUSW7WVD> I've worked in several software development environments where all the developers were on site in the same small team in the same office (no remoting), and where we had a \"one true source\" philosophy for the SCM system (no branches), and where accumulating changes for days or weeks at a time before checking in changes was discouraged. This required discipline and frequent communication between team members. Everybody had to know what everyone else was working on. At one place, we even had a scoreboard showing how long each team member had gone before checking in changes, to create peer pressure. I think this counts as a \"cathedral\" style. I think this style of work is far less common today, due to the effect of things like git and remote development on the culture. Today, I'm sure a lot of people can't comprehend how you'd develop a significant sized system without using branches. Just want to make it clear that this style of development has been practiced, and maybe still is in some places.",
+    "user": "UJN1TAYEQ",
+    "ts": "1566681228.243000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "aa189ba3-5aec-41d9-a9f4-d7116488b930",
+    "type": "message",
+    "text": "No disagreement. I'm not sure if you were trying to oppose my previous comment, but I'm not seeing any merge conflicts here :slightly_smiling_face:\n\nI've actually never used long-lived branches in any of my jobs. I assume y'all had some process for review before merging new code into the one true source?",
+    "user": "UCUSW7WVD",
+    "ts": "1566681893.243200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "21a3a010-71be-47ad-b0a2-b28c01a8959e",
+    "type": "message",
+    "text": "<@UCUSW7WVD> On your comment that \"Cathedral is way more loosely coupled than making a film.\" Okay, it can be, but surely it must be possible for software development collaboration to be as tightly coupled as making a film? And maybe some developers are using tightly coupled collaboration and getting benefit from it? I think that is worth exploring, if we are making a taxonomy of collaboration styles. What about pair programming?",
+    "user": "UJN1TAYEQ",
+    "ts": "1566821889.246200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "type": "message",
+    "subtype": "thread_broadcast",
+    "text": "i find that the most difficult collaboration is also inescapable: collaborating with my past and future selves. i can’t even ask them a clarifying question!",
+    "user": "UHWC9PXBL",
+    "ts": "1566851172.248300",
+    "thread_ts": "1566326016.206300",
+    "root": {
+      "client_msg_id": "76fa8190-d7d8-4faf-b5ad-3cbbb3a3503d",
+      "type": "message",
+      "text": "Types of collaboration:\n\n1. Publish your code. Other people (who you may not know) can discover your code, reuse it, remix it.\n\nCentralized version: github public repository.\nDecentralized version: IPFS, plus a discovery mechanism.\n\n2. Share your code with members of your team (but don't share it outside your team).\n\nCentralized: github private repository.\nLess centralized: Run your own git server, with authentication and a user account for each team member.\nDecentralized: Each team member has their own git repository, shares patches with other team members.\n\n3. Real time collaboration. Several people editing the same code base at the same time.\n\nCentralized: The true version of the code exists on a central server.\nDecentralized: Each person has their own copy of the code, and a peer to peer protocol keeps them in sync.\n\n4. Collaborative live coding. Several people editing the same code base while the program is running. Or, in a video/music performance, outputs of one live coding session are taken as inputs to another live coding session, in real time.",
+      "user": "UJN1TAYEQ",
+      "ts": "1566326016.206300",
+      "team": "T5TCAFTA9",
+      "thread_ts": "1566326016.206300",
+      "reply_count": 16,
+      "reply_users_count": 6,
+      "latest_reply": "1566851823.248600",
+      "reply_users": [
+        "UCUSW7WVD",
+        "UJ6LDMMN0",
+        "U5STGTB3J",
+        "UJN1TAYEQ",
+        "UHWC9PXBL",
+        "U7C7B75R6"
+      ],
+      "replies": [
+        {
+          "user": "UCUSW7WVD",
+          "ts": "1566326262.206700"
+        },
+        {
+          "user": "UCUSW7WVD",
+          "ts": "1566326338.206900"
+        },
+        {
+          "user": "UJ6LDMMN0",
+          "ts": "1566329618.216700"
+        },
+        {
+          "user": "UCUSW7WVD",
+          "ts": "1566444642.235200"
+        },
+        {
+          "user": "UJ6LDMMN0",
+          "ts": "1566460380.236100"
+        },
+        {
+          "user": "UJ6LDMMN0",
+          "ts": "1566460401.236300"
+        },
+        {
+          "user": "U5STGTB3J",
+          "ts": "1566463601.237000"
+        },
+        {
+          "user": "UCUSW7WVD",
+          "ts": "1566493891.240400"
+        },
+        {
+          "user": "UJN1TAYEQ",
+          "ts": "1566675384.242400"
+        },
+        {
+          "user": "UJN1TAYEQ",
+          "ts": "1566675807.242600"
+        },
+        {
+          "user": "UCUSW7WVD",
+          "ts": "1566677685.242800"
+        },
+        {
+          "user": "UJN1TAYEQ",
+          "ts": "1566681228.243000"
+        },
+        {
+          "user": "UCUSW7WVD",
+          "ts": "1566681893.243200"
+        },
+        {
+          "user": "UJN1TAYEQ",
+          "ts": "1566821889.246200"
+        },
+        {
+          "user": "UHWC9PXBL",
+          "ts": "1566851172.248300"
+        },
+        {
+          "user": "U7C7B75R6",
+          "ts": "1566851823.248600"
+        }
+      ],
+      "is_locked": false,
+      "subscribed": false
+    },
+    "client_msg_id": "8A72DB94-C831-4774-9589-F7E710904583",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UC2A2ARPT",
+          "UA14TGLTC"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "8ab9724c-28a2-487b-9cc3-b879951a423c",
+    "type": "message",
+    "text": "Yep the only real collaborative way of coding I can imagine is pair programming. This is simply because it require lot of bandwidth between people to actually working with same problem together. Such bandwidth isn't available directly by (collaboratibe) code editor. Which is also behind that past and future me problem. So here we go again: How to bring actual thought process and code closer together?",
+    "user": "U7C7B75R6",
+    "ts": "1566851823.248600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "be27878783b4",
+      "image_72": "https://avatars.slack-edge.com/2019-04-10/604262911488_be27878783b4b23a5ed4_72.png",
+      "first_name": "",
+      "real_name": "Niko Autio",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "niko.elmari",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566326016.206300",
+    "parent_user_id": "UJN1TAYEQ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  }
+]

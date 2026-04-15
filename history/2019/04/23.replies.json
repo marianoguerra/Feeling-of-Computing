@@ -1,0 +1,110 @@
+[
+  {
+    "client_msg_id": "f0480ec3-071c-4013-9007-62505ff0ea8a",
+    "type": "message",
+    "text": "I invited <@UC37508EL> to the slack a while back, so maybe he can comment? I really like how detailed he gets with the format, in specifying the byte structure and such (random thought: what if it was a superset of UTF-8?).\n\nI find it an interesting idea to take text and elevate it from this ground-level-only representation (a string of characters) to something recursive and more powerful. Infra doesn't bottom out like text does, but can have nesting of various containers, references, and an interesting concept to apply changes to references called a patch.\n\nMy one thought is that maybe by starting with text and elevating it makes Infra limited in some ways. Text is linear and one dimensional. Infra reflects that in that it has byte-length prefixes for all elements. I think if the goal is to have this be used as a base level for implementing a programming environments or other application, there would still be a lot of work linearizing the parts of the system so it could be encoded in Infra. The thought about using Infra even in memory on the heap (so you don't need serializers/de-serializers) is interesting, but I'm not sure many systems would be able to do that with the linearity constraint.",
+    "user": "UBUFWBGNN",
+    "ts": "1556067441.169800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0f172f3d3081",
+      "image_72": "https://avatars.slack-edge.com/2018-07-22/404118576918_0f172f3d3081286ae626_72.jpg",
+      "first_name": "Jacob",
+      "real_name": "Jacob Sandlund",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jake",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UBUFWBGNN",
+      "ts": "1556067825.000000"
+    },
+    "thread_ts": "1556055431.169300",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f0480ec3-071c-4013-9007-62505ff0ea8a",
+    "type": "message",
+    "text": "I invited <@UC37508EL> to the slack a while back, so maybe he can comment? I really like how detailed he gets with the format, in specifying the byte structure and such (random thought: what if it was a superset of UTF-8?).\n\nI find it an interesting idea to take text and elevate it from this ground-level-only representation (a string of characters) to something recursive and more powerful. Infra doesn't bottom out like text does, but can have nesting of various containers, references, and an interesting concept to apply changes to references called a patch.\n\nMy one thought is that maybe by starting with text and elevating it makes Infra limited in some ways. Text is linear and one dimensional. Infra reflects that in that it has byte-length prefixes for all elements. I think if the goal is to have this be used as a base level for implementing a programming environments or other application, there would still be a lot of work linearizing the parts of the system so it could be encoded in Infra. The thought about using Infra even in memory on the heap (so you don't need serializers/de-serializers) is interesting, but I'm not sure many systems would be able to do that with the linearity constraint.",
+    "user": "UBUFWBGNN",
+    "ts": "1556067441.169800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0f172f3d3081",
+      "image_72": "https://avatars.slack-edge.com/2018-07-22/404118576918_0f172f3d3081286ae626_72.jpg",
+      "first_name": "Jacob",
+      "real_name": "Jacob Sandlund",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jake",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UBUFWBGNN",
+      "ts": "1556067825.000000"
+    },
+    "thread_ts": "1556055431.169300",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e0b643f4-d62c-4be6-9ac6-73301c962cad",
+    "type": "message",
+    "text": "Infra is both brilliant and ignorant at the same time. It is kind of neat to consider a text form that has meta-data above it, that you can access. that keeps the detail from overwhelming you. that's intriguing and deserves more study - is reminiscent of Xanadu in that sense. But it is ignorant because their serialization is basically a very rudimentary version of Adobe Flash's AMF (action message format), which is up to version 3 and handles very tricky things like serialization of circular rings, and has dozens of tricky data formats like fonts, bitmaps, mp3 sounds, etc. AMF is fully in the public domain and I believe is used by Hack as well. A good binary serialization system is found in many high quality environments, and the mark of quality in a serialization format is the range of datatypes that can be encoded. Using XML and JSON, two of the absolute weakest-extant encoding formats, as your starting point was their mistake. Many of the latest languages have serialization built in, and it is a huge amount of code to do this well, one of the monster issues confronting anyone trying to develop a new system. I would wager not 100 people on the planet earth understand the truetype language, which underlies all font rendering. Most people think that a font is a bunch of pictures of a letter, but in reality it is a bizarre language custom made for describing letter shapes, and it is executed by an interpreter to generate letters, and since it is code it can have bugs, and Microsoft in one of their releases of Office shipped fonts that had crash bugs in them, and wreaked havoc with one of my publishing products that produced thumbnails in the background of every font. Ever wonder why PDF won the battle for document format, even though it is not a file format but a glob of postscript code? Primarily because Adobe was one of the only companies that knows Truetype (and their own font format, which they called Type 1).",
+    "user": "UEQ6M68H0",
+    "ts": "1556083436.170300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1556055431.169300",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e0b643f4-d62c-4be6-9ac6-73301c962cad",
+    "type": "message",
+    "text": "Infra is both brilliant and ignorant at the same time. It is kind of neat to consider a text form that has meta-data above it, that you can access. that keeps the detail from overwhelming you. that's intriguing and deserves more study - is reminiscent of Xanadu in that sense. But it is ignorant because their serialization is basically a very rudimentary version of Adobe Flash's AMF (action message format), which is up to version 3 and handles very tricky things like serialization of circular rings, and has dozens of tricky data formats like fonts, bitmaps, mp3 sounds, etc. AMF is fully in the public domain and I believe is used by Hack as well. A good binary serialization system is found in many high quality environments, and the mark of quality in a serialization format is the range of datatypes that can be encoded. Using XML and JSON, two of the absolute weakest-extant encoding formats, as your starting point was their mistake. Many of the latest languages have serialization built in, and it is a huge amount of code to do this well, one of the monster issues confronting anyone trying to develop a new system. I would wager not 100 people on the planet earth understand the truetype language, which underlies all font rendering. Most people think that a font is a bunch of pictures of a letter, but in reality it is a bizarre language custom made for describing letter shapes, and it is executed by an interpreter to generate letters, and since it is code it can have bugs, and Microsoft in one of their releases of Office shipped fonts that had crash bugs in them, and wreaked havoc with one of my publishing products that produced thumbnails in the background of every font. Ever wonder why PDF won the battle for document format, even though it is not a file format but a glob of postscript code? Primarily because Adobe was one of the only companies that knows Truetype (and their own font format, which they called Type 1).",
+    "user": "UEQ6M68H0",
+    "ts": "1556083436.170300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "326328f75c3f",
+      "image_72": "https://avatars.slack-edge.com/2019-02-05/542651515888_326328f75c3f2a08544c_72.jpg",
+      "first_name": "Edward",
+      "real_name": "Edward de Jong",
+      "display_name": "Edward de Jong / Beads Project",
+      "team": "T5TCAFTA9",
+      "name": "magicmouse94937",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1556055431.169300",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

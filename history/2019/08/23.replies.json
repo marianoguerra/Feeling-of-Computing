@@ -1,0 +1,878 @@
+[
+  {
+    "client_msg_id": "cbae15fd-0d42-48f2-8bb6-8b297c1a7f1b",
+    "type": "message",
+    "text": "I've only heard this talked about in a rule-of-thumb or aspirational sense. For instance, that you should structure abstractions, or layers of your system, so that the things that are likely to be changed at the same time are easy to change at the same time, without needing to change any other things. Never really any explanation of how to do a good job of this. I've seen people say that composition via protocols (as opposed to class inheritance or interfaces) helps with this by allowing for better separation of concepts. The Clojure community is big on that. But again, nothing too formal. I believe the book Elements of Clojure by Zach Tellman (which is ostensibly more of a book of general principles than it is notions exclusive to Clojure) talks about this in more detail, but I haven't read it yet.",
+    "user": "UC2A2ARPT",
+    "ts": "1566583073.412500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cbae15fd-0d42-48f2-8bb6-8b297c1a7f1b",
+    "type": "message",
+    "text": "I've only heard this talked about in a rule-of-thumb or aspirational sense. For instance, that you should structure abstractions, or layers of your system, so that the things that are likely to be changed at the same time are easy to change at the same time, without needing to change any other things. Never really any explanation of how to do a good job of this. I've seen people say that composition via protocols (as opposed to class inheritance or interfaces) helps with this by allowing for better separation of concepts. The Clojure community is big on that. But again, nothing too formal. I believe the book Elements of Clojure by Zach Tellman (which is ostensibly more of a book of general principles than it is notions exclusive to Clojure) talks about this in more detail, but I haven't read it yet.",
+    "user": "UC2A2ARPT",
+    "ts": "1566583073.412500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f1322e21-88bc-4d96-a3b2-3e89afac39a4",
+    "type": "message",
+    "text": "Rails, Phoenix, and similar web frameworks are seemingly designed with this as an underlying goal. They make an attempt to help you organize your web service into conceptually separate slices of domain logic (\"resources\"), and to organize each piece of each slice into a purpose-specific area of the codebase (model, view, migration, controller, services, script, stylesheet, etc). They also create homes for code that *must* be shared, for cross-cutting concerns (literally called \"concerns\" in Rails).\n\nSo when you're working on a particular problem, you can think of it in terms of \"I need to make a change that will affect just models\", or \"... a change that affects just the Users resource\" and clearly identify which parts of the code need to be changed, and which don't.\n\nOf course, this falls apart in the real world, because resources are often tightly interdependent and it's hard to draw clear boundaries.",
+    "user": "UC2A2ARPT",
+    "ts": "1566583374.412700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1566583626.000000"
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f1322e21-88bc-4d96-a3b2-3e89afac39a4",
+    "type": "message",
+    "text": "Rails, Phoenix, and similar web frameworks are seemingly designed with this as an underlying goal. They make an attempt to help you organize your web service into conceptually separate slices of domain logic (\"resources\"), and to organize each piece of each slice into a purpose-specific area of the codebase (model, view, migration, controller, services, script, stylesheet, etc). They also create homes for code that *must* be shared, for cross-cutting concerns (literally called \"concerns\" in Rails).\n\nSo when you're working on a particular problem, you can think of it in terms of \"I need to make a change that will affect just models\", or \"... a change that affects just the Users resource\" and clearly identify which parts of the code need to be changed, and which don't.\n\nOf course, this falls apart in the real world, because resources are often tightly interdependent and it's hard to draw clear boundaries.",
+    "user": "UC2A2ARPT",
+    "ts": "1566583374.412700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1566583626.000000"
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "26a6b0f6-5f10-48a9-b6eb-cac112cffea8",
+    "type": "message",
+    "text": "Elm does a little bit of this by using static types to enforce automatic semantic versioning, but that only really helps at the library level, not within a single codebase.",
+    "user": "UC2A2ARPT",
+    "ts": "1566583674.413000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1566583832.000000"
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "26a6b0f6-5f10-48a9-b6eb-cac112cffea8",
+    "type": "message",
+    "text": "Elm does a little bit of this by using static types to enforce automatic semantic versioning, but that only really helps at the library level, not within a single codebase.",
+    "user": "UC2A2ARPT",
+    "ts": "1566583674.413000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1566583832.000000"
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "351651f4-a519-4943-adb4-7563ce82271f",
+    "type": "message",
+    "text": "Rich Hickey gave a talk about safely evolving software and what the semantics around it are, but his recommendations were pretty controversial. Here's the HN discussion, so that you can get some meta commentary along with the talk itself if you'd like. <https://news.ycombinator.com/item?id=13085952>",
+    "user": "UC2A2ARPT",
+    "ts": "1566583742.413200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1566583885.000000"
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAL7940NM"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "351651f4-a519-4943-adb4-7563ce82271f",
+    "type": "message",
+    "text": "Rich Hickey gave a talk about safely evolving software and what the semantics around it are, but his recommendations were pretty controversial. Here's the HN discussion, so that you can get some meta commentary along with the talk itself if you'd like. <https://news.ycombinator.com/item?id=13085952>",
+    "user": "UC2A2ARPT",
+    "ts": "1566583742.413200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1566583885.000000"
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAL7940NM"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6ca44757-0627-4f4f-a419-65354b152adb",
+    "type": "message",
+    "text": "Like \"sheer layers\" in buildings: Being able to change the drapes without having to rip up the carpet",
+    "user": "UAVCC2X70",
+    "ts": "1566591371.417600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6ca44757-0627-4f4f-a419-65354b152adb",
+    "type": "message",
+    "text": "Like \"sheer layers\" in buildings: Being able to change the drapes without having to rip up the carpet",
+    "user": "UAVCC2X70",
+    "ts": "1566591371.417600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "50799e0b-2d32-4ffd-9713-7eaa8a23ae60",
+    "type": "message",
+    "text": "Totally counts. Thanks!",
+    "user": "UC2A2ARPT",
+    "ts": "1566593972.421300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566591017.417500",
+    "parent_user_id": "UJ6LDMMN0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "50799e0b-2d32-4ffd-9713-7eaa8a23ae60",
+    "type": "message",
+    "text": "Totally counts. Thanks!",
+    "user": "UC2A2ARPT",
+    "ts": "1566593972.421300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566591017.417500",
+    "parent_user_id": "UJ6LDMMN0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3CDF5897-84BB-42E4-B044-657198DF4292",
+    "type": "message",
+    "text": "Ha! So is that a decrease, or an increase, in incidental complexity? And relative to what?",
+    "user": "UC2A2ARPT",
+    "ts": "1566651205.429900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1566651238.000000"
+    },
+    "thread_ts": "1566591528.419800",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3CDF5897-84BB-42E4-B044-657198DF4292",
+    "type": "message",
+    "text": "Ha! So is that a decrease, or an increase, in incidental complexity? And relative to what?",
+    "user": "UC2A2ARPT",
+    "ts": "1566651205.429900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1566651238.000000"
+    },
+    "thread_ts": "1566591528.419800",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ed61e214-8c2f-4693-a396-d6d2283af467",
+    "type": "message",
+    "text": "<@UC2A2ARPT> Wow, that's a lot of stuff, thanks! I am mostly interested in the large scale, i.e. library and language dependencies, rather than the internal structure of a code base.\nRich Hickey's talk addresses most of the issues I was thinking of, and the comments on Hacker News add various points of view.",
+    "user": "UJBAJNFLK",
+    "ts": "1566661220.430200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g05e4cf66ef1",
+      "image_72": "https://secure.gravatar.com/avatar/305e4cf66ef1179f7e95981b1520ba1a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ed61e214-8c2f-4693-a396-d6d2283af467",
+    "type": "message",
+    "text": "<@UC2A2ARPT> Wow, that's a lot of stuff, thanks! I am mostly interested in the large scale, i.e. library and language dependencies, rather than the internal structure of a code base.\nRich Hickey's talk addresses most of the issues I was thinking of, and the comments on Hacker News add various points of view.",
+    "user": "UJBAJNFLK",
+    "ts": "1566661220.430200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "858f8699-2510-4134-a810-f52c2c44ab36",
+    "type": "message",
+    "text": "Relative to a burrito? ... Not sure :)",
+    "user": "UAVCC2X70",
+    "ts": "1566661279.430400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566591528.419800",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "858f8699-2510-4134-a810-f52c2c44ab36",
+    "type": "message",
+    "text": "Relative to a burrito? ... Not sure :)",
+    "user": "UAVCC2X70",
+    "ts": "1566661279.430400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566591528.419800",
+    "parent_user_id": "UAVCC2X70",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b8f6d9d6-9bc6-4f4b-98c2-95aedef9a862",
+    "type": "message",
+    "text": "That's funny, because I would have thought that the applicability was more the other way around -- I guess it works both ways. I do know he had a whole other presentation on package dependencies though",
+    "user": "UAVCC2X70",
+    "ts": "1566661676.430600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b8f6d9d6-9bc6-4f4b-98c2-95aedef9a862",
+    "type": "message",
+    "text": "That's funny, because I would have thought that the applicability was more the other way around -- I guess it works both ways. I do know he had a whole other presentation on package dependencies though",
+    "user": "UAVCC2X70",
+    "ts": "1566661676.430600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "238361D3-3F10-4ADA-B35D-F00BBF52DCC9",
+    "type": "message",
+    "text": "Oh, I thought this was the talk about package dependencies",
+    "user": "UC2A2ARPT",
+    "ts": "1566664138.431200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "238361D3-3F10-4ADA-B35D-F00BBF52DCC9",
+    "type": "message",
+    "text": "Oh, I thought this was the talk about package dependencies",
+    "user": "UC2A2ARPT",
+    "ts": "1566664138.431200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "A3FD5ACC-CEB1-4251-B614-33B23D59592D",
+    "type": "message",
+    "text": "Maybe I linked the wrong talk",
+    "user": "UC2A2ARPT",
+    "ts": "1566664147.431600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "A3FD5ACC-CEB1-4251-B614-33B23D59592D",
+    "type": "message",
+    "text": "Maybe I linked the wrong talk",
+    "user": "UC2A2ARPT",
+    "ts": "1566664147.431600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "B99441F5-F8A7-496E-800A-ED09BC96BD7B",
+    "type": "message",
+    "text": "I was thinking of the one where he proposed never making breaking changes. If you need to make a breaking change, make a new thing with a different name instead.",
+    "user": "UC2A2ARPT",
+    "ts": "1566664190.432800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "B99441F5-F8A7-496E-800A-ED09BC96BD7B",
+    "type": "message",
+    "text": "I was thinking of the one where he proposed never making breaking changes. If you need to make a breaking change, make a new thing with a different name instead.",
+    "user": "UC2A2ARPT",
+    "ts": "1566664190.432800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "49e6251d-cc17-4e4e-a02a-0286afbead46",
+    "type": "message",
+    "text": "We believe Storyscript could be a good fit for this idea because it’s simply a language for gluing microservices. Those microservices can evolve independently, AB test and micro-scale. Fully polyglot development, cloud-native at <http://docs.storyscript.io|docs.storyscript.io>",
+    "user": "UJKKBAMLL",
+    "ts": "1566809556.462500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJKKBAMLL",
+      "ts": "1566809572.000000"
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "49e6251d-cc17-4e4e-a02a-0286afbead46",
+    "type": "message",
+    "text": "We believe Storyscript could be a good fit for this idea because it’s simply a language for gluing microservices. Those microservices can evolve independently, AB test and micro-scale. Fully polyglot development, cloud-native at <http://docs.storyscript.io|docs.storyscript.io>",
+    "user": "UJKKBAMLL",
+    "ts": "1566809556.462500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJKKBAMLL",
+      "ts": "1566809572.000000"
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7e99128c-7b79-4aad-b8d4-dd5e526d731e",
+    "type": "message",
+    "text": "TBH I’m not sure a new language that replaces all other languages will truly transform the industry. IMO a new level of programming (call it top-level or cloud-native) should just be glue for polyglot microservices+functions+openapi+graphql+etc. — I’m still in shock that we (as a community) think a new one-size-fits-all language with an attitude of throw everything else out will resonate. It’s Smalltalk all over.",
+    "user": "UJKKBAMLL",
+    "ts": "1566809794.462800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7e99128c-7b79-4aad-b8d4-dd5e526d731e",
+    "type": "message",
+    "text": "TBH I’m not sure a new language that replaces all other languages will truly transform the industry. IMO a new level of programming (call it top-level or cloud-native) should just be glue for polyglot microservices+functions+openapi+graphql+etc. — I’m still in shock that we (as a community) think a new one-size-fits-all language with an attitude of throw everything else out will resonate. It’s Smalltalk all over.",
+    "user": "UJKKBAMLL",
+    "ts": "1566809794.462800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6b9db1f76eed",
+      "image_72": "https://avatars.slack-edge.com/2019-06-12/662675221668_6b9db1f76eed746965ca_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Peak",
+      "display_name": "Steve",
+      "team": "T5TCAFTA9",
+      "name": "steve727",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d308d0db-07ad-4bd2-9317-584be1c322b1",
+    "type": "message",
+    "text": "<@UC2A2ARPT> You linked exactly that talk!",
+    "user": "UJBAJNFLK",
+    "ts": "1566832948.464200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g05e4cf66ef1",
+      "image_72": "https://secure.gravatar.com/avatar/305e4cf66ef1179f7e95981b1520ba1a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0004-72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d308d0db-07ad-4bd2-9317-584be1c322b1",
+    "type": "message",
+    "text": "<@UC2A2ARPT> You linked exactly that talk!",
+    "user": "UJBAJNFLK",
+    "ts": "1566832948.464200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1566555331.405700",
+    "parent_user_id": "UJBAJNFLK",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

@@ -1,0 +1,3261 @@
+[
+  {
+    "client_msg_id": "cfb622bd-d772-4a11-a38e-42a9aba29342",
+    "type": "message",
+    "text": "I'm reminded of this recent <https://twitter.com/Catfish_Man/status/1326238434235568128|tweet> from Apple engineer Dave Smith about the perf of the M1 chip:\n\n&gt; fun fact: retaining and releasing an NSObject takes ~30 nanoseconds on current gen Intel, and ~6.5 nanoseconds on an M1\n&gt; \n&gt; …and ~14 nanoseconds on an M1 emulating an Intel :innocent: \nThey designed the M1 chip to do really well at object retain/release because Swift &amp; Obj-C use reference counting extensively (rather than, say, some sort of full-blown GC).\n\nWould be interesting to know what work they did to the hardware to accelerate that particular pattern. Like you said — is it just in the CPU, or is it affected by memory latency, or..?\n\nWould also be interesting to know whether other languages could be pulled along in the slipstream of that particular HW optimization.",
+    "user": "UC2A2ARPT",
+    "ts": "1606178935.100200",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1606179374.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "7E75B",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm reminded of this recent "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/Catfish_Man/status/1326238434235568128",
+                "text": "tweet"
+              },
+              {
+                "type": "text",
+                "text": " from Apple engineer Dave Smith about the perf of the M1 chip:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "fun fact: retaining and releasing an NSObject takes ~30 nanoseconds on current gen Intel, and ~6.5 nanoseconds on an M1\n\n…and ~14 nanoseconds on an M1 emulating an Intel "
+              },
+              {
+                "type": "emoji",
+                "name": "innocent"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThey designed the M1 chip to do really well at object retain/release because Swift & Obj-C use reference counting extensively (rather than, say, some sort of full-blown GC).\n\nWould be interesting to know what work they did to the hardware to accelerate that particular pattern. Like you said — is it just in the CPU, or is it affected by memory latency, or..?\n\nWould also be interesting to know whether other languages could be pulled along in the slipstream of that particular HW optimization."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "f837435a-acd2-41c0-b58f-7371b167a1f5",
+    "type": "message",
+    "text": "I think it is a rabbit hole. Hardware is inherently stateful, state machines are a good model to think about it. There were whole teams trying to come up with Lisp machines and the effort is well documented elsewhere but they ultimately failed to get traction (there's also a distinction to be made between \"functional\" and \"immutable\"). I feel like stateful hardware with an immutable layer on top is the correct way to model something like Clojure.",
+    "user": "UN9SCH5RD",
+    "ts": "1606182152.101000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jhkg0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think it is a rabbit hole. Hardware is inherently stateful, state machines are a good model to think about it. There were whole teams trying to come up with Lisp machines and the effort is well documented elsewhere but they ultimately failed to get traction (there's also a distinction to be made between \"functional\" and \"immutable\"). I feel like stateful hardware with an immutable layer on top is the correct way to model something like Clojure."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UKP3B2J5D"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "e1b5e03a-bc94-4d89-a689-18681389d4f0",
+    "type": "message",
+    "text": "Yeah, this has been explored a whole lot. I'd have more citations to provide 10+ years ago when I did my PhD in computer architecture. One thing to note here is that the whole CISC thing that RISC was in response to was a trend of adding special instructions for common patterns in software.\n\nWhich is not to say there's nothing to explore here. It's gotten quite unfashionable for 30+ years now. That seems like enough time for another turn of the wheel.",
+    "user": "UCUSW7WVD",
+    "ts": "1606184017.101300",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1606184055.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CkZ8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, this has been explored a whole lot. I'd have more citations to provide 10+ years ago when I did my PhD in computer architecture. One thing to note here is that the whole CISC thing that RISC was in response to was a trend of adding special instructions for common patterns in software.\n\nWhich is not to say there's nothing to explore here. It's gotten quite unfashionable for 30+ years now. That seems like enough time for another turn of the wheel."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "ferris_wheel",
+        "users": [
+          "UN9SCH5RD",
+          "U013ZLJARC7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "f170a1de-b76e-4f28-91d6-5cc962ba2302",
+    "type": "message",
+    "text": "On the one hand: yeah, RISC has definitely had a good run for the past 30 years.\n\nOn the other hand: chips are extremely wide now wherever the software is able to make use of that (eg: SIMD, GPU units); SoCs have dedicated image signal processors, ML accelerators, crypto accelerators, video decoding (and sometimes encoding); mobile chips (or, at least, Apple's chips) have heterogeneous cores, some for high-perf and some for low-power.\n\nSo there seems to be a move away from simple, undifferentiated compute and a return to specialized hardware aplenty — but this time it's physical specialization, rather than instruction specialization.\n\nCuriously, it seems the opposite might be happening in memory. RAM and VRAM are frequently merged (ie. by M1, modern game consoles, mobile devices), there's the thought that we might see NVRAM combine RAM and storage, I wouldn't be surprised if L3 cache fell out of favour.",
+    "user": "UC2A2ARPT",
+    "ts": "1606192516.101600",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1606192558.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HQTFn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "On the one hand: yeah, RISC has definitely had a good run for the past 30 years.\n\nOn the other hand: chips are extremely wide now wherever the software is able to make use of that (eg: SIMD, GPU units); SoCs have dedicated image signal processors, ML accelerators, crypto accelerators, video decoding (and sometimes encoding); mobile chips (or, at least, Apple's chips) have heterogeneous cores, some for high-perf and some for low-power.\n\nSo there seems to be a move away from simple, undifferentiated compute and a return to specialized hardware aplenty — but this time it's physical specialization, rather than instruction specialization.\n\nCuriously, it seems the opposite might be happening in memory. RAM and VRAM are frequently merged (ie. by M1, modern game consoles, mobile devices), there's the thought that we might see NVRAM combine RAM and storage, I wouldn't be surprised if L3 cache fell out of favour."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "ED293135-3110-4274-8367-3C5992202D16",
+    "type": "message",
+    "text": "<@UCUSW7WVD> my only disagreement with your post is that, yes, lisp machine have been tried. However, afaik most lisps before clojure used more out less standard mutable data structures. My theory (could still be wrong) is that the data structures provide the biggest possible ROI for hardware. ",
+    "user": "U01DUNFS2N4",
+    "ts": "1606202711.106000",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RFQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " my only disagreement with your post is that, yes, lisp machine have been tried. However, afaik most lisps before clojure used more out less standard mutable data structures. My theory (could still be wrong) is that the data structures provide the biggest possible ROI for hardware. "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "e3b5f728-64e0-4d7f-91c6-20c7ca07f637",
+    "type": "message",
+    "text": "Perhaps you're responding to Emanuel's comment? I didn't really mention Lisp machines.",
+    "user": "UCUSW7WVD",
+    "ts": "1606203055.106200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "km9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Perhaps you're responding to Emanuel's comment? I didn't really mention Lisp machines."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "BCB3D7B7-0D3C-4BF8-8BBB-B3BA80B2C371",
+    "type": "message",
+    "text": "Oops, mobile is hard to read :)",
+    "user": "U01DUNFS2N4",
+    "ts": "1606226570.107100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TiLp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oops, mobile is hard to read :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "9241C51C-77A2-4CCC-9F54-333CC1EC4650",
+    "type": "message",
+    "text": "I thought you had made both comments, but with each of you making one my comment applies less",
+    "user": "U01DUNFS2N4",
+    "ts": "1606226703.108400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Goc1H",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I thought you had made both comments, but with each of you making one my comment applies less"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "81d14db2-1912-4719-807e-a296ff889511",
+    "type": "message",
+    "text": "<@U01DUNFS2N4> While most Lisps allow one to tinker with the inner workings of cons cells, it's probably worth noting that the standard list building process of `(cons elem the-list)`  (construct a new list with `elem` as the head and `the-list` as the tail) does not modify `the-list` in any way, allowing other reference holders to continue as if nothing has happened. It's a form of \"unenforced immutability,\" if you will.\n\nYou can read about how this works in the context of Common Lisp here:\n<http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html>",
+    "user": "U013ZLJARC7",
+    "ts": "1606229953.108800",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "title": "Immutable Persistent Data Structures in Common Lisp - the zero bit stream",
+        "title_link": "http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html",
+        "text": "0. The Rationale Clojure, Scala, and Haskell (and other languages) have recently brought the idea of immutable (and persistent) data structures into …",
+        "fallback": "Immutable Persistent Data Structures in Common Lisp - the zero bit stream",
+        "from_url": "http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html",
+        "service_name": "blog.thezerobit.com",
+        "id": 1,
+        "original_url": "http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TV=c6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01DUNFS2N4"
+              },
+              {
+                "type": "text",
+                "text": " While most Lisps allow one to tinker with the inner workings of cons cells, it's probably worth noting that the standard list building process of "
+              },
+              {
+                "type": "text",
+                "text": "(cons elem the-list)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "  (construct a new list with "
+              },
+              {
+                "type": "text",
+                "text": "elem",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as the head and "
+              },
+              {
+                "type": "text",
+                "text": "the-list",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " as the tail) does not modify "
+              },
+              {
+                "type": "text",
+                "text": "the-list ",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "in any way, allowing other reference holders to continue as if nothing has happened. It's a form of \"unenforced immutability,\" if you will.\n\nYou can read about how this works in the context of Common Lisp here:\n"
+              },
+              {
+                "type": "link",
+                "url": "http://blog.thezerobit.com/2012/07/21/immutable-persistent-data-structures-in-common-lisp.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "590c0ee9-00f7-408f-bcd8-92a367374406",
+    "type": "message",
+    "text": "Ah, interesting. I've come across this before, but I didn't think about it w.r.t. this topic",
+    "user": "U01DUNFS2N4",
+    "ts": "1606234884.109100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AE/s",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, interesting. I've come across this before, but I didn't think about it w.r.t. this topic"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606178161.100100",
+    "parent_user_id": "U01DUNFS2N4",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "f488a5cc-e27f-41c6-95e6-0db5eae9a2e1",
+    "type": "message",
+    "text": "We're aiming for that in Wikifunctions. Each function will have labels in natural languages, and you can read your code in English, German, or any of the other 300 languages of Wikimedia",
+    "user": "U01AD80KMLK",
+    "ts": "1606239014.036700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a07cdcb6d037",
+      "image_72": "https://avatars.slack-edge.com/2020-09-09/1376906509376_a07cdcb6d037bf7b6a5e_72.jpg",
+      "first_name": "",
+      "real_name": "Denny Vrandečić",
+      "display_name": "Denny Vrandečić",
+      "team": "T5TCAFTA9",
+      "name": "dvrandecic",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GG7=Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "We're aiming for that in Wikifunctions. Each function will have labels in natural languages, and you can read your code in English, German, or any of the other 300 languages of Wikimedia"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "f1b19e72-8776-4ec3-9584-c14ba6489f00",
+    "type": "message",
+    "text": "<https://meta.wikimedia.org/wiki/Abstract_Wikipedia>",
+    "user": "U01AD80KMLK",
+    "ts": "1606239033.036900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "a07cdcb6d037",
+      "image_72": "https://avatars.slack-edge.com/2020-09-09/1376906509376_a07cdcb6d037bf7b6a5e_72.jpg",
+      "first_name": "",
+      "real_name": "Denny Vrandečić",
+      "display_name": "Denny Vrandečić",
+      "team": "T5TCAFTA9",
+      "name": "dvrandecic",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01AD80KMLK",
+      "ts": "1606239094.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0LQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://meta.wikimedia.org/wiki/Abstract_Wikipedia"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "64753bc5-7602-430d-821d-c12ed6ee2495",
+    "type": "message",
+    "text": "(To anyone who might reply here – please add replies to <https://futureofcoding.slack.com/archives/CLYCGTCPL/p1606238576036600|the thread> in <#CLYCGTCPL|of-end-user-programming>. Thanks!)",
+    "user": "UC2A2ARPT",
+    "ts": "1606239058.102200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1606239078.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6q6l5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(To anyone who might reply here – please add replies to "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/CLYCGTCPL/p1606238576036600",
+                "text": "the thread"
+              },
+              {
+                "type": "text",
+                "text": " in "
+              },
+              {
+                "type": "channel",
+                "channel_id": "CLYCGTCPL"
+              },
+              {
+                "type": "text",
+                "text": ". Thanks!)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238757.102100",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "83ecd355-8e77-462d-a402-3f5ea9fc0ae8",
+    "type": "message",
+    "text": "<https://ide.wy-lang.org/> :slightly_smiling_face:",
+    "user": "UN9SCH5RD",
+    "ts": "1606240384.037400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xOJJh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://ide.wy-lang.org/"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "908e8b03-bed5-4e43-9a08-3d001e909ab3",
+    "type": "message",
+    "text": "cc <@UHWC9PXBL>",
+    "user": "UAJKEBGP8",
+    "ts": "1606246101.281600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "72578ab3b4f8",
+      "image_72": "https://avatars.slack-edge.com/2021-10-09/2610495978720_72578ab3b4f8ab9ef250_72.jpg",
+      "first_name": "Srini",
+      "real_name": "Srini K",
+      "display_name": "Srini K",
+      "team": "T5TCAFTA9",
+      "name": "skadamat",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LHuP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "cc "
+              },
+              {
+                "type": "user",
+                "user_id": "UHWC9PXBL"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606245835.281400",
+    "parent_user_id": "UFQQ3P867",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UHWC9PXBL"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "CF49843C-2D88-4A76-B867-7491C5FD0595",
+    "type": "message",
+    "text": "I have done two small efforts in this direction. First one is to make Javascript programmable in my mother tongue using some regex hacks: <https://makers-of-kerala.com/thengascript/>\n\nAnother one was a plan to use Lisp macros: <https://twitter.com/prathyvsh/status/635733805567840256?s=21>\n\nIf you are interested in looking at such efforts, then Yor lang: <https://github.com/anoniscoding/yorlang> and Wenyan: <https://ide.wy-lang.org/> are two nice projects.\n\nIf its for a more fundamental base from which to internationalize the base language, think there was something that leveraged Jetbrains MPS platform.",
+    "user": "UDKTZSD6H",
+    "ts": "1606249031.037700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1606258236.000000"
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/prathyvsh|@prathyvsh>: Programming Lisp in my native Indian language - Malayalam. This is so much fun. Thanks Elango Cheran and <https://twitter.com/ra|@ra>. <https://pbs.twimg.com/media/CNJPsfRWoAAOjTE.png>",
+        "ts": 1440405725,
+        "author_name": "Prathyush",
+        "author_link": "https://twitter.com/prathyvsh/status/635733805567840256",
+        "author_icon": "https://pbs.twimg.com/profile_images/1157092207075061760/v_xB---l_normal.jpg",
+        "author_subname": "@prathyvsh",
+        "text": "Programming Lisp in my native Indian language - Malayalam. This is so much fun. Thanks Elango Cheran and <https://twitter.com/ra|@ra>. <https://pbs.twimg.com/media/CNJPsfRWoAAOjTE.png>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/prathyvsh/status/635733805567840256?s=21",
+        "image_url": "https://pbs.twimg.com/media/CNJPsfRWoAAOjTE.png",
+        "image_width": 300,
+        "image_height": 175,
+        "image_bytes": 10124,
+        "id": 2,
+        "original_url": "https://twitter.com/prathyvsh/status/635733805567840256?s=21",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "B8A984AC-D522-4151-8AB6-4D5404A9B9DC",
+    "type": "message",
+    "text": "Hey! I am friends and coworkers with some adzerk alumni! Welcome!",
+    "user": "U01DKR962S2",
+    "ts": "1606249430.183200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5fae55cf900",
+      "image_72": "https://secure.gravatar.com/avatar/5fae55cf900c6577e6c3841a344015bd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "",
+      "real_name": "John Soo",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jsoo1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U01DKR962S2",
+      "ts": "1606249439.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0OP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hey! I am friends and coworkers with some adzerk alumni! Welcome!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606221622.180400",
+    "parent_user_id": "U01FBBVPZB5",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "79b404af-3078-4053-b590-680283acc72f",
+    "type": "message",
+    "text": "thanks all!",
+    "user": "UV1CVSXGC",
+    "ts": "1606256697.038000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "bacfa5ca638a",
+      "image_72": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Martens",
+      "display_name": "Chris Martens (they/them)",
+      "team": "T5TCAFTA9",
+      "name": "contextadventure",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WKaye",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "thanks all!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "9c08ef8f-7c52-45b2-a1c5-731110e57a12",
+    "type": "message",
+    "text": "(Yeah, <#C5U3SEW6A|linking-together> or <#C01932BJGE8|present-company> are fine for job listings. Thanks Max)",
+    "user": "UC2A2ARPT",
+    "ts": "1606263220.282700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ez8ez",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Yeah, "
+              },
+              {
+                "type": "channel",
+                "channel_id": "C5U3SEW6A"
+              },
+              {
+                "type": "text",
+                "text": " or "
+              },
+              {
+                "type": "channel",
+                "channel_id": "C01932BJGE8"
+              },
+              {
+                "type": "text",
+                "text": " are fine for job listings. Thanks Max)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606245835.281400",
+    "parent_user_id": "UFQQ3P867",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFQQ3P867",
+          "U019CPED6T1"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "7e009ddd-76f1-4785-abdf-ce90f06d1890",
+    "type": "message",
+    "text": "Oh hi, I was going to see about posting this here but <@UFQQ3P867> beat me to it! Feel free to ask me any questions about the role here or via DM.",
+    "user": "U01F5UR4R1C",
+    "ts": "1606270901.282900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "5418b5d34b61",
+      "image_72": "https://avatars.slack-edge.com/2020-11-23/1519620182805_5418b5d34b619dbae1ab_72.png",
+      "first_name": "",
+      "real_name": "Paul Chiusano",
+      "display_name": "Paul Chiusano",
+      "team": "T5TCAFTA9",
+      "name": "paul.chiusano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qoP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Oh hi, I was going to see about posting this here but "
+              },
+              {
+                "type": "user",
+                "user_id": "UFQQ3P867"
+              },
+              {
+                "type": "text",
+                "text": " beat me to it! Feel free to ask me any questions about the role here or via DM."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606245835.281400",
+    "parent_user_id": "UFQQ3P867",
+    "reactions": [
+      {
+        "name": "heart_eyes",
+        "users": [
+          "UFQQ3P867",
+          "U019CPED6T1",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c721ed01-0456-4b7f-85e1-38c7d9aa0a0d",
+    "type": "message",
+    "text": "I agree with most of what you say, but keep wondering of what exactly you mean by \"code\". Most often that term is used for algorithms and data structures expressed in a programming language. However, many scientific ideas are not of that kind. The most powerful scientific models we have are expressed as specifications, not algorithms, and programming languages are not a good medium to express them.\n\n<@U8A5MS6R1> just shared a paper by Terry Winograd on Twitter (<https://twitter.com/chatur_shalabh/status/1331410504204488706>) that addresses this point very well (and is 40 years old!). It describes \"Three domains of descriptions\" of software systems. Scientific concepts, models, and ideas belong to the \"subject domain\", whereas code is designed for the \"domain of implementation\".\n\nHowever, if you define \"code\" in a wider sense that includes formal languages designed for other purposes than \"programming\", then I agree with everything you say :wink:",
+    "user": "UJBAJNFLK",
+    "ts": "1606298304.273800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/chatur_shalabh|@chatur_shalabh>: “A programming system needs to provide a powerful set of mechanisms for building up and maintaining \"world views\"—coherent sets of description structures in the subject domain that are independent of any implementation.”\n\n— Beyond Programming Languages\n<https://john.cs.olemiss.edu/~dwilkins/Seminar/S05/winogradPL.pdf>",
+        "ts": 1606267975,
+        "author_name": "Shalabh",
+        "author_link": "https://twitter.com/chatur_shalabh/status/1331410504204488706",
+        "author_icon": "https://pbs.twimg.com/profile_images/1168926214343536641/wNcbqYu0_normal.jpg",
+        "author_subname": "@chatur_shalabh",
+        "text": "“A programming system needs to provide a powerful set of mechanisms for building up and maintaining \"world views\"—coherent sets of description structures in the subject domain that are independent of any implementation.”\n\n— Beyond Programming Languages\n<https://john.cs.olemiss.edu/~dwilkins/Seminar/S05/winogradPL.pdf>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/chatur_shalabh/status/1331410504204488706",
+        "id": 1,
+        "original_url": "https://twitter.com/chatur_shalabh/status/1331410504204488706",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8gA+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I agree with most of what you say, but keep wondering of what exactly you mean by \"code\". Most often that term is used for algorithms and data structures expressed in a programming language. However, many scientific ideas are not of that kind. The most powerful scientific models we have are expressed as specifications, not algorithms, and programming languages are not a good medium to express them.\n\n"
+              },
+              {
+                "type": "user",
+                "user_id": "U8A5MS6R1"
+              },
+              {
+                "type": "text",
+                "text": " just shared a paper by Terry Winograd on Twitter ("
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/chatur_shalabh/status/1331410504204488706"
+              },
+              {
+                "type": "text",
+                "text": ") that addresses this point very well (and is 40 years old!). It describes \"Three domains of descriptions\" of software systems. Scientific concepts, models, and ideas belong to the \"subject domain\", whereas code is designed for the \"domain of implementation\".\n\nHowever, if you define \"code\" in a wider sense that includes formal languages designed for other purposes than \"programming\", then I agree with everything you say "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "bced0c13-4e4e-438f-90be-7c069889c5d2",
+    "type": "message",
+    "text": "Another programming language based on something other than English is قلب (<https://github.com/nasser/--->), a variant of Scheme based on Arabic. I have also seen Lisp dialects based on French, but they pre-date the Internet, so I can't offer any pointers.",
+    "user": "UJBAJNFLK",
+    "ts": "1606298622.038400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "nasser/---",
+        "title_link": "https://github.com/nasser/---",
+        "text": "قلب: لغة برمجة. Contribute to nasser/--- development by creating an account on GitHub.",
+        "fallback": "GitHub: nasser/---",
+        "thumb_url": "https://avatars1.githubusercontent.com/u/412966?s=400&v=4",
+        "from_url": "https://github.com/nasser/---",
+        "thumb_width": 400,
+        "thumb_height": 400,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/nasser/---"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VNpV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Another programming language based on something other than English is قلب ("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/nasser/---"
+              },
+              {
+                "type": "text",
+                "text": "), a variant of Scheme based on Arabic. I have also seen Lisp dialects based on French, but they pre-date the Internet, so I can't offer any pointers."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC",
+          "UDKTZSD6H",
+          "UV1CVSXGC"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "0434cc3d-baa3-4d0d-92ca-d5116257dcc3",
+    "type": "message",
+    "text": "<@U01F5UR4R1C> Glad to see you hiring for this role. :slightly_smiling_face:",
+    "user": "U013ZLJARC7",
+    "ts": "1606308052.283800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "upu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U01F5UR4R1C"
+              },
+              {
+                "type": "text",
+                "text": " Glad to see you hiring for this role. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606245835.281400",
+    "parent_user_id": "UFQQ3P867",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "3ae3abf6-c92a-4a2b-914f-51ee5ff8665d",
+    "type": "message",
+    "text": "Excellent, thanks for the reference, <@UJBAJNFLK>! Sitting down with this paper this AM. of course you’re right - I’ll plug your Leibniz work here for anyone else following this thread <https://github.com/khinsen/leibniz>",
+    "user": "U01EHAE9D0W",
+    "ts": "1606322842.274200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gcd378611a91",
+      "image_72": "https://secure.gravatar.com/avatar/cd378611a91eb7852ae19cd582de718a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Sam Ritchie",
+      "display_name": "Sam Ritchie",
+      "team": "T5TCAFTA9",
+      "name": "sritchie09",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "khinsen/leibniz",
+        "title_link": "https://github.com/khinsen/leibniz",
+        "text": "A Digital Scientific Notation. Contribute to khinsen/leibniz development by creating an account on GitHub.",
+        "fallback": "GitHub: khinsen/leibniz",
+        "thumb_url": "https://avatars1.githubusercontent.com/u/94934?s=400&v=4",
+        "from_url": "https://github.com/khinsen/leibniz",
+        "thumb_width": 157,
+        "thumb_height": 157,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/khinsen/leibniz"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "XaPS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Excellent, thanks for the reference, "
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": "! Sitting down with this paper this AM. of course you’re right - I’ll plug your Leibniz work here for anyone else following this thread "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/khinsen/leibniz"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "d7c45386-b129-44eb-bf59-2ac7bfa7a9d6",
+    "type": "message",
+    "text": "I’m going to start sharing these physics-as-code essays that can’t animate themselves yet, so in part I was trying to prepare folks for the knee-jerk “wait, how is all this code he’s sending us any better than reading the original math?”",
+    "user": "U01EHAE9D0W",
+    "ts": "1606322938.274500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gcd378611a91",
+      "image_72": "https://secure.gravatar.com/avatar/cd378611a91eb7852ae19cd582de718a.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+      "first_name": "",
+      "real_name": "Sam Ritchie",
+      "display_name": "Sam Ritchie",
+      "team": "T5TCAFTA9",
+      "name": "sritchie09",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "S6fg1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’m going to start sharing these physics-as-code essays that can’t animate themselves yet, so in part I was trying to prepare folks for the knee-jerk “wait, how is all this code he’s sending us any better than reading the original math?”"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "reactions": [
+      {
+        "name": "wink",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7",
+          "U8A5MS6R1"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "ea606009-42c9-4df8-80b6-b64f585b719d",
+    "type": "message",
+    "text": "It’s a small world indeed, isn’t it? :slightly_smiling_face:",
+    "user": "U01FBBVPZB5",
+    "ts": "1606383682.185400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd85aea997cc",
+      "image_72": "https://secure.gravatar.com/avatar/d85aea997ccd96eee89f1d372b33ae5b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Caban",
+      "display_name": "nabacg",
+      "team": "T5TCAFTA9",
+      "name": "nabacg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xdi6X",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It’s a small world indeed, isn’t it? "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606221622.180400",
+    "parent_user_id": "U01FBBVPZB5",
+    "reactions": [
+      {
+        "name": "earth_americas",
+        "users": [
+          "U01DKR962S2"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "ED7CBDD4-4933-48B1-8E5C-46672F320618",
+    "type": "message",
+    "text": "True. Though I think many clojurists would be attracted to future of coding subjects. Plus was a time when brett victor was big among clojurians. Maybe he still is",
+    "user": "U01DKR962S2",
+    "ts": "1606414247.187600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5fae55cf900",
+      "image_72": "https://secure.gravatar.com/avatar/5fae55cf900c6577e6c3841a344015bd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "",
+      "real_name": "John Soo",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jsoo1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/m/4H",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "True. Though I think many clojurists would be attracted to future of coding subjects. Plus was a time when brett victor was big among clojurians. Maybe he still is"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606221622.180400",
+    "parent_user_id": "U01FBBVPZB5",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "3E3B8E70-0876-4F49-819D-4CF62DB4FA8B",
+    "type": "message",
+    "text": "Interesting that you worked with Mathematica!  ",
+    "user": "U01DKR962S2",
+    "ts": "1606414315.188300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5fae55cf900",
+      "image_72": "https://secure.gravatar.com/avatar/5fae55cf900c6577e6c3841a344015bd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "",
+      "real_name": "John Soo",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "jsoo1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "45a",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting that you worked with Mathematica!  "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606221622.180400",
+    "parent_user_id": "U01FBBVPZB5",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "2c391f28-3e16-4b06-a255-157e5cd463d9",
+    "type": "message",
+    "text": "Agreed, there is definitely an overlap between people who decide to learn Clojure or other Lisps and people who are searching for new better ways to do programming, that lack of satisfaction with status quo etc. I personally discovered Bret Victor much later and learned about him from Javascript people, but he is definitely a huge inspiration, particularly loved the Magic Ink paper.",
+    "user": "U01FBBVPZB5",
+    "ts": "1606474713.188500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd85aea997cc",
+      "image_72": "https://secure.gravatar.com/avatar/d85aea997ccd96eee89f1d372b33ae5b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Caban",
+      "display_name": "nabacg",
+      "team": "T5TCAFTA9",
+      "name": "nabacg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jV2p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Agreed, there is definitely an overlap between people who decide to learn Clojure or other Lisps and people who are searching for new better ways to do programming, that lack of satisfaction with status quo etc. I personally discovered Bret Victor much later and learned about him from Javascript people, but he is definitely a huge inspiration, particularly loved the Magic Ink paper."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606221622.180400",
+    "parent_user_id": "U01FBBVPZB5",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U01DKR962S2",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "e415fe6a-97ae-49d8-9f04-2d6dc62f1b19",
+    "type": "message",
+    "text": "re:Mathematica / Wolfram Alpha - it was more tinkering, than work really.  We wanted a term rewriting system in that custom language and we were looking for inspiration (a.k.a stealing good ideas :slightly_smiling_face: )",
+    "user": "U01FBBVPZB5",
+    "ts": "1606475042.188700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gd85aea997cc",
+      "image_72": "https://secure.gravatar.com/avatar/d85aea997ccd96eee89f1d372b33ae5b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0006-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Caban",
+      "display_name": "nabacg",
+      "team": "T5TCAFTA9",
+      "name": "nabacg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tmJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "re:Mathematica / Wolfram Alpha - it was more tinkering, than work really.  We wanted a term rewriting system in that custom language and we were looking for inspiration (a.k.a stealing good ideas "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " )"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606221622.180400",
+    "parent_user_id": "U01FBBVPZB5",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U01DKR962S2",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "11c30042-43d6-4427-8f9b-3ead42e8872d",
+    "type": "message",
+    "text": "<@UJBAJNFLK> I haven’t read the paper you linked, in case it’s explained there, but what are specifications and how do they differ from algorithms?\n\nAre they more like interfaces?\n\nThinking about it some more I guess you’re saying that it’s useful to separate knowledge representation from computation. Is that right?",
+    "user": "UDQKHNP51",
+    "ts": "1606725897.282600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g3074e1515db",
+      "image_72": "https://secure.gravatar.com/avatar/b3074e1515db1a3d79acf5d954eac0d1.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Lucian Ursu",
+      "display_name": "elbear",
+      "team": "T5TCAFTA9",
+      "name": "lucian.ursu",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6uB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " I haven’t read the paper you linked, in case it’s explained there, but what are specifications and how do they differ from algorithms?\n\nAre they more like interfaces?\n\nThinking about it some more I guess you’re saying that it’s useful to separate knowledge representation from computation. Is that right?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "87ba00d4-5a94-406b-9b3a-1b3e89a36d18",
+    "type": "message",
+    "text": "<@UDQKHNP51> A simple example to illustrate the difference is sorting. The specification of sorting is\n 1. L' = sorted(L) is a list with the same elements as the list L\n 2. The elements x_i of L' satisfy x_i &lt;= x_{i+1}.\nThere are many algorithms satisfying this specification (quick sort, heap sort, etc.). The information content of specification and implementation is very different, as neither one is trivially derived from the other. It requires non-trivial creative work to find an algorithm satisfying a specification, and it also requires a serious effort for someone else than the author to prove that a given algorithm actually satisfies the specification, although that direction is in general simpler.\n\nIn mathematics, we have exactly the same relation between equations and their solutions, so we can say that equations are specifications for their solutions. They provide a criterion to check if a solution is correct, but no help at all for actually finding a solution, which therefore requires non-trivial creative work.",
+    "user": "UJBAJNFLK",
+    "ts": "1606731625.282800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "judb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UDQKHNP51"
+              },
+              {
+                "type": "text",
+                "text": " A simple example to illustrate the difference is sorting. The specification of sorting is\n 1. L' = sorted(L) is a list with the same elements as the list L\n 2. The elements x_i of L' satisfy x_i <= x_{i+1}.\nThere are many algorithms satisfying this specification (quick sort, heap sort, etc.). The information content of specification and implementation is very different, as neither one is trivially derived from the other. It requires non-trivial creative work to find an algorithm satisfying a specification, and it also requires a serious effort for someone else than the author to prove that a given algorithm actually satisfies the specification, although that direction is in general simpler.\n\nIn mathematics, we have exactly the same relation between equations and their solutions, so we can say that equations are specifications for their solutions. They provide a criterion to check if a solution is correct, but no help at all for actually finding a solution, which therefore requires non-trivial creative work."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "5b278489-6b84-43aa-93f7-9c86254d2866",
+    "type": "message",
+    "text": "If you look at the history of science, the most powerful scientific models are specifications (e.g. the equations named after Newton, Maxwell, Schrödinger, Einstein, etc.). More importantly, most scientific insight has been derived from the equations rather than from their solutions (which however are very important to check that the model actually describes reality). Example: you can derive energy conservation from Newton's equations, but not from any one of its many solutions.",
+    "user": "UJBAJNFLK",
+    "ts": "1606731808.283000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qZtfh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you look at the history of science, the most powerful scientific models are specifications (e.g. the equations named after Newton, Maxwell, Schrödinger, Einstein, etc.). More importantly, most scientific insight has been derived from the equations rather than from their solutions (which however are very important to check that the model actually describes reality). Example: you can derive energy conservation from Newton's equations, but not from any one of its many solutions."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "836e163e-c392-44e6-a6a8-eabe2d854a63",
+    "type": "message",
+    "text": "do you agree with saying that the equations or specifications are a form of knowledge representation?\nand that finding the solution(s) involves computation?",
+    "user": "UDQKHNP51",
+    "ts": "1606731931.283200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g3074e1515db",
+      "image_72": "https://secure.gravatar.com/avatar/b3074e1515db1a3d79acf5d954eac0d1.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Lucian Ursu",
+      "display_name": "elbear",
+      "team": "T5TCAFTA9",
+      "name": "lucian.ursu",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDQKHNP51",
+      "ts": "1606731939.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "L1C",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "do you agree with saying that the equations or specifications are a form of knowledge representation?\nand that finding the solution(s) involves computation?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "5705bc97-d502-48ec-a53e-3064d9cc2ced",
+    "type": "message",
+    "text": "Yes. Note though that finding solutions involves more than just computation. It's not something we can automate yet. Nor have we figured out automatic methods for finding specifications from solutions. Which is why Wired's proclamation of the \"end of theory\" (<https://www.wired.com/2008/06/pb-theory/>) is very premature.",
+    "user": "UJBAJNFLK",
+    "ts": "1606733409.283500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Wired",
+        "title": "The End of Theory: The Data Deluge Makes the Scientific Method Obsolete",
+        "title_link": "https://www.wired.com/2008/06/pb-theory/",
+        "text": "Illustration: Marian Bantjes “All models are wrong, but some are useful.” So proclaimed statistician George Box 30 years ago, and he was right. But what choice did we have? Only models, from cosmological equations to theories of human behavior, seemed to be able to consistently, if imperfectly, explain the world around us. Until now. Today companies […]",
+        "fallback": "Wired: The End of Theory: The Data Deluge Makes the Scientific Method Obsolete",
+        "image_url": "https://media.wired.com/photos/5a6bb01fe9c86f511f5e79d6/191:100/w_1280,c_limit/pb_theory_f.jpg?mbid=social_retweet",
+        "from_url": "https://www.wired.com/2008/06/pb-theory/",
+        "image_width": 382,
+        "image_height": 200,
+        "image_bytes": 25416,
+        "service_icon": "https://www.wired.com/verso/static/wired/assets/favicon.ico",
+        "id": 1,
+        "original_url": "https://www.wired.com/2008/06/pb-theory/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UUCSF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes. Note though that finding solutions involves more than just computation. It's not something we can automate yet. Nor have we figured out automatic methods for finding specifications from solutions. Which is why Wired's proclamation of the \"end of theory\" ("
+              },
+              {
+                "type": "link",
+                "url": "https://www.wired.com/2008/06/pb-theory/"
+              },
+              {
+                "type": "text",
+                "text": ") is very premature."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "b19d11dc-a4ec-4091-bdc0-1142b35fe657",
+    "type": "message",
+    "text": "is there more besides defining entities and the relationships between those entities?",
+    "user": "UDQKHNP51",
+    "ts": "1606748906.291700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g3074e1515db",
+      "image_72": "https://secure.gravatar.com/avatar/b3074e1515db1a3d79acf5d954eac0d1.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Lucian Ursu",
+      "display_name": "elbear",
+      "team": "T5TCAFTA9",
+      "name": "lucian.ursu",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ilc4N",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "is there more besides defining entities and the relationships between those entities?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "fcd62515-2cc1-4217-acc3-2a25ef0c9b01",
+    "type": "message",
+    "text": "Well, that's so high-level a description that it's probably universal. The main effort is developing scientific models is identifying the most useful entities.",
+    "user": "UJBAJNFLK",
+    "ts": "1606765772.303900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "n0Qn1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Well, that's so high-level a description that it's probably universal. The main effort is developing scientific models is identifying the most useful entities."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606248562.273000",
+    "parent_user_id": "U01EHAE9D0W",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "type": "message",
+    "text": "The TeX macro suite <https://wiki.contextgarden.net/Main_Page|ConTeXt> has one interface with definitions in different langauges. This uses TeX's [`\\csname`](<https://en.wikibooks.org/wiki/TeX/csname>) macro, which allows you to call or define a TeX command by building its name from strings.\n\nAllow me to quote from <https://tex.stackexchange.com/questions/109869/what-does-s-do/110131#110131|Aditya's excellent explanation on the TeX Stack Exchange>:\n\n&gt; How should such a multilingual a key-value driven interface be defined?\n&gt; This is where the `\\c!...` and `\\v!...` macros come in. (Remember that in `\\unprotected` mode `!` is a letter, so `\\c!something` is a macro with a name `c!something`). In the core packages, ConteXt defines\n&gt; \n&gt;     \\definehead[\\v!chapter][...]\n&gt; \n&gt; This defines (amongst other things) a macro `\\e!start\\v!chapter`: in the English interface, `\\e!start=start`, `\\v!chapter=chapter`; in the French interface `\\e!start=demarre`, `\\v!chapter=chapitre`. Hence we get `\\startchapter` and `\\demarrechapitre`.\nHis full explanation is longer and better, I can recommend it.\n\nSome Stack Overflow QAs explaining the mechanism:\n\n• <https://tex.stackexchange.com/questions/109869/what-does-s-do/110131#110131>\n• <https://tex.stackexchange.com/questions/58654/context-how-do-you-create-your-own-commands/58716#58716>\nRelevant source files:\n\n• <https://source.contextgarden.net/tex/context/base/mkiv/mult-ini.mkiv#l452|mult-ini.mkiv> contains doc comments explaining the system\n• <https://source.contextgarden.net/tex/context/base/mkiv/mult-def.lua|mult-def.lua> contains command translations. One of them, Farsi, is a right-to-left language (actually a macrolanguage, in both senses of the word :D).\nOther noteworthy elements of the multilingual system:\n\n- namespaces for the system's words, because 'left' might mean 'the left' or 'leftwards'.\n- This implementation actually uses less CPU and RAM than the old monolingual one, because TeX commands take up less TeX tokens (1 in total) than strings (1 per letter).\n\n----\n\n#### Quick intro to ConTeXt for those unfamiliar with it\n\nI realise <https://wiki.contextgarden.net/Main_Page|ConTeXt> is nowhere near as well-known as LaTeX, so I'll briefly introduce it. Like LaTeX, it is a TeX macro suite that provides high-level typesetting constructs on top of TeX. Its development is headed by Hans Hagen, an independent publisher/designer in the Netherlands. Unlike LaTeX:\n\n- ConTeXt supports user-controlled per-document design as well as style sheets.\n- ConTeXt is expandable: it makes it easy to derive or define your own structural/sementic elements. For example, you could define a section type `\\exercises` that inherits from `\\subsection`, or a block type `\\startexercise...\\stopexercise` that inherits from `\\startframed`.\n- ConTeXt is stylable: it provides commands and parameters to change the style of elements, both your own and the built-ins.\n- ConTeXt is consistent: setting style parameters uses a nice `key=value` syntax, and settings like `color=...` are available everywhere they make sense.\n- ConTeXt is integrated: fundamental typesetting concepts such as page numbering, or margin notes, or arranging multiple pages on a sheet, are all part of core. (There are third-party modules, too.)\n\nA small example: (output attached):\n\n```\\setuppapersize[A6][A5,landscape]  % A6 pages on A5 paper,\n\\setuparranging[2SIDE]             % arranged side-by-side\n\n% Section heads are bold, blue, and start 3cm below previous text.\n\\setuphead[section]\n    [color=blue,\n     style=bold,\n     before={\\blank[2cm]},\n    ]\n\n% Our custom `redsection` inherits from `section`,\n% but uses red instead.\n\\definehead[redsection][section]\n    [color=red]\n\n\\starttext  % like \\begin{document}\n\n\\section{Black, black, black...}\n\\startlines[style=bold]\n  ...is the color of my true love's hair\n  His lips are something wondrous fair.\n\\stoplines\n\n\\redsection{The lady in red is dancing with me...}\nCheek \\color[red]{to} cheek.\n\n\\section{ʿAlī ibn Abī Ṭālib}\n\\input khatt-en  % Some lorem ipsum text\n\n\\stoptext```",
+    "files": [
+      {
+        "id": "F01FP6B23V4",
+        "created": 1606824437,
+        "timestamp": 1606824437,
+        "name": "contextdemo.png",
+        "title": "contextdemo.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U01BSAKUDJQ",
+        "editable": false,
+        "size": 40700,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F01FP6B23V4/contextdemo.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F01FP6B23V4/download/contextdemo.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FP6B23V4-794ef6115f/contextdemo_64.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FP6B23V4-794ef6115f/contextdemo_80.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FP6B23V4-794ef6115f/contextdemo_360.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_360_w": 360,
+        "thumb_360_h": 255,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FP6B23V4-794ef6115f/contextdemo_480.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_480_w": 480,
+        "thumb_480_h": 341,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FP6B23V4-794ef6115f/contextdemo_160.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FP6B23V4-794ef6115f/contextdemo_720.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_720_w": 720,
+        "thumb_720_h": 511,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F01FP6B23V4-794ef6115f/contextdemo_800.png?t=xoxe-197418537349-3334460411954-3327810370486-8408fa93380fad4df07aa2b554429b02",
+        "thumb_800_w": 800,
+        "thumb_800_h": 568,
+        "original_w": 864,
+        "original_h": 613,
+        "thumb_tiny": "AwAiADDSzijIoIHek2r6UAOpMgUAAdKWgBMijOaWigBOKUGkIzSbTQA6ikAxS0AFFFFADMmjJ9aKKADJ9aMn1oooAMn1pcmkooA//9k=",
+        "permalink": "https://futureofcoding.slack.com/files/U01BSAKUDJQ/F01FP6B23V4/contextdemo.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F01FP6B23V4-8f887b0519",
+        "is_starred": false,
+        "has_rich_preview": false
+      }
+    ],
+    "upload": false,
+    "user": "U01BSAKUDJQ",
+    "display_as_bot": false,
+    "ts": "1606824623.039600",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MLj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The TeX macro suite "
+              },
+              {
+                "type": "link",
+                "url": "https://wiki.contextgarden.net/Main_Page",
+                "text": "ConTeXt"
+              },
+              {
+                "type": "text",
+                "text": " has one interface with definitions in different langauges. This uses TeX's ["
+              },
+              {
+                "type": "text",
+                "text": "\\csname",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "]("
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikibooks.org/wiki/TeX/csname"
+              },
+              {
+                "type": "text",
+                "text": ") macro, which allows you to call or define a TeX command by building its name from strings.\n\nAllow me to quote from "
+              },
+              {
+                "type": "link",
+                "url": "https://tex.stackexchange.com/questions/109869/what-does-s-do/110131#110131",
+                "text": "Aditya's excellent explanation on the TeX Stack Exchange"
+              },
+              {
+                "type": "text",
+                "text": ":\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How should such a multilingual a key-value driven interface be defined?\nThis is where the "
+              },
+              {
+                "type": "text",
+                "text": "\\c!...",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "\\v!...",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " macros come in. (Remember that in "
+              },
+              {
+                "type": "text",
+                "text": "\\unprotected",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " mode "
+              },
+              {
+                "type": "text",
+                "text": "!",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is a letter, so "
+              },
+              {
+                "type": "text",
+                "text": "\\c!something",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is a macro with a name "
+              },
+              {
+                "type": "text",
+                "text": "c!something",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "). In the core packages, ConteXt defines\n\n    \\definehead[\\v!chapter][...]\n\nThis defines (amongst other things) a macro "
+              },
+              {
+                "type": "text",
+                "text": "\\e!start\\v!chapter",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ": in the English interface, "
+              },
+              {
+                "type": "text",
+                "text": "\\e!start=start",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "\\v!chapter=chapter",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "; in the French interface "
+              },
+              {
+                "type": "text",
+                "text": "\\e!start=demarre",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "\\v!chapter=chapitre",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Hence we get "
+              },
+              {
+                "type": "text",
+                "text": "\\startchapter",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "\\demarrechapitre",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nHis full explanation is longer and better, I can recommend it.\n\nSome Stack Overflow QAs explaining the mechanism:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://tex.stackexchange.com/questions/109869/what-does-s-do/110131#110131"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://tex.stackexchange.com/questions/58654/context-how-do-you-create-your-own-commands/58716#58716"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nRelevant source files:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://source.contextgarden.net/tex/context/base/mkiv/mult-ini.mkiv#l452",
+                    "text": "mult-ini.mkiv"
+                  },
+                  {
+                    "type": "text",
+                    "text": " contains doc comments explaining the system"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "link",
+                    "url": "https://source.contextgarden.net/tex/context/base/mkiv/mult-def.lua",
+                    "text": "mult-def.lua"
+                  },
+                  {
+                    "type": "text",
+                    "text": " contains command translations. One of them, Farsi, is a right-to-left language (actually a macrolanguage, in both senses of the word :D)."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nOther noteworthy elements of the multilingual system:\n\n- namespaces for the system's words, because 'left' might mean 'the left' or 'leftwards'.\n- This implementation actually uses less CPU and RAM than the old monolingual one, because TeX commands take up less TeX tokens (1 in total) than strings (1 per letter).\n\n----\n\n#### Quick intro to ConTeXt for those unfamiliar with it\n\nI realise "
+              },
+              {
+                "type": "link",
+                "url": "https://wiki.contextgarden.net/Main_Page",
+                "text": "ConTeXt"
+              },
+              {
+                "type": "text",
+                "text": " is nowhere near as well-known as LaTeX, so I'll briefly introduce it. Like LaTeX, it is a TeX macro suite that provides high-level typesetting constructs on top of TeX. Its development is headed by Hans Hagen, an independent publisher/designer in the Netherlands. Unlike LaTeX:\n\n- ConTeXt supports user-controlled per-document design as well as style sheets.\n- ConTeXt is expandable: it makes it easy to derive or define your own structural/sementic elements. For example, you could define a section type "
+              },
+              {
+                "type": "text",
+                "text": "\\exercises",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " that inherits from "
+              },
+              {
+                "type": "text",
+                "text": "\\subsection",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", or a block type "
+              },
+              {
+                "type": "text",
+                "text": "\\startexercise...\\stopexercise",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " that inherits from "
+              },
+              {
+                "type": "text",
+                "text": "\\startframed",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n- ConTeXt is stylable: it provides commands and parameters to change the style of elements, both your own and the built-ins.\n- ConTeXt is consistent: setting style parameters uses a nice "
+              },
+              {
+                "type": "text",
+                "text": "key=value",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " syntax, and settings like "
+              },
+              {
+                "type": "text",
+                "text": "color=...",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " are available everywhere they make sense.\n- ConTeXt is integrated: fundamental typesetting concepts such as page numbering, or margin notes, or arranging multiple pages on a sheet, are all part of core. (There are third-party modules, too.)\n\nA small example: (output attached):\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\\setuppapersize[A6][A5,landscape]  % A6 pages on A5 paper,\n\\setuparranging[2SIDE]             % arranged side-by-side\n\n% Section heads are bold, blue, and start 3cm below previous text.\n\\setuphead[section]\n    [color=blue,\n     style=bold,\n     before={\\blank[2cm]},\n    ]\n\n% Our custom `redsection` inherits from `section`,\n% but uses red instead.\n\\definehead[redsection][section]\n    [color=red]\n\n\\starttext  % like \\begin{document}\n\n\\section{Black, black, black...}\n\\startlines[style=bold]\n  ...is the color of my true love's hair\n  His lips are something wondrous fair.\n\\stoplines\n\n\\redsection{The lady in red is dancing with me...}\nCheek \\color[red]{to} cheek.\n\n\\section{ʿAlī ibn Abī Ṭālib}\n\\input khatt-en  % Some lorem ipsum text\n\n\\stoptext"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "edited": {
+      "user": "U01BSAKUDJQ",
+      "ts": "1606824724.000000"
+    },
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "028D5BE9-9F41-4BA5-9410-4D20BD97477B",
+    "type": "message",
+    "text": "<@UV1CVSXGC>, I'm not sure where you're going with your ask. Do mean localizing existing general purpose programming languages? Or is there a different category of \"natural language programming languages\"?\n\nThe words used sound similar to some of our design work at Storyscript. For example, in our language, our type system encodes i18n information dependent on the data, e.g. a list type had a singular form L10nItem that must be defined wherever a list is constructed.",
+    "user": "UFPPABQ7P",
+    "ts": "1608141358.047700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1608141369.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "106",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UV1CVSXGC"
+              },
+              {
+                "type": "text",
+                "text": ", I'm not sure where you're going with your ask. Do mean localizing existing general purpose programming languages? Or is there a different category of \"natural language programming languages\"?\n\nThe words used sound similar to some of our design work at Storyscript. For example, in our language, our type system encodes i18n information dependent on the data, e.g. a list type had a singular form L10nItem that must be defined wherever a list is constructed."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "bcc3e6f9-ec51-4682-952f-0e58b707c26b",
+    "type": "message",
+    "text": "I mean “natural language programming languages” include things like COBOL, Cocoa, Inform 7, and myriad DSLs that try to afford “programming in English” (and it is usually English that I see).",
+    "user": "UV1CVSXGC",
+    "ts": "1608141462.048000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "bacfa5ca638a",
+      "image_72": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Martens",
+      "display_name": "Chris Martens (they/them)",
+      "team": "T5TCAFTA9",
+      "name": "contextadventure",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ryb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I mean “natural language programming languages” include things like COBOL, Cocoa, Inform 7, and myriad DSLs that try to afford “programming in English” (and it is usually English that I see)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "D8CD8CA1-1C77-4258-84B8-4474B40A87C8",
+    "type": "message",
+    "text": "Okay, gotcha. Yeah, we have our own structured language where all identifiers are projections of their types' localization info.",
+    "user": "UFPPABQ7P",
+    "ts": "1608141560.050000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1608141572.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Vnbo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Okay, gotcha. Yeah, we have our own structured language where all identifiers are projections of their types' localization info."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "a20d947e-f332-48f0-a6dc-0c8e338c0eb0",
+    "type": "message",
+    "text": "<@UJBAJNFLK> yeah I’m familiar with Ramsey’s work, but i see that as more of an Arabic-specific PL variant, rather than an attempt to “internationalize.” which, maybe it’s flawed assumption anyway to think that this is possible!",
+    "user": "UV1CVSXGC",
+    "ts": "1608141571.050200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "bacfa5ca638a",
+      "image_72": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Martens",
+      "display_name": "Chris Martens (they/them)",
+      "team": "T5TCAFTA9",
+      "name": "contextadventure",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UWTF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " yeah I’m familiar with Ramsey’s work, but i see that as more of an Arabic-specific PL variant, rather than an attempt to “internationalize.” which, maybe it’s flawed assumption anyway to think that this is possible!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "11545869-d701-4615-8733-799a347bbe05",
+    "type": "message",
+    "text": "Ok, that’s pretty cool tho!",
+    "user": "UV1CVSXGC",
+    "ts": "1608141594.050500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "bacfa5ca638a",
+      "image_72": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Martens",
+      "display_name": "Chris Martens (they/them)",
+      "team": "T5TCAFTA9",
+      "name": "contextadventure",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "x1C",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ok, that’s pretty cool tho!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "eeca6e93-5114-41a1-8113-1ac6404a106c",
+    "type": "message",
+    "text": "<@UV1CVSXGC> If you are looking for I18N applied to code, then the most popular use case is perhaps VB code in Excel spreadsheets. I have vague memories of attempts to rebase Forth on other human languages than English. Another twist is the avoidance of any reference to a human language, as in APL, but that's the opposite of what you are looking for.",
+    "user": "UJBAJNFLK",
+    "ts": "1608189508.050700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "r933j",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UV1CVSXGC"
+              },
+              {
+                "type": "text",
+                "text": " If you are looking for I18N applied to code, then the most popular use case is perhaps VB code in Excel spreadsheets. I have vague memories of attempts to rebase Forth on other human languages than English. Another twist is the avoidance of any reference to a human language, as in APL, but that's the opposite of what you are looking for."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "5e73ca56-fc8e-41c9-8fef-22236333c2da",
+    "type": "message",
+    "text": "Well, to be honest, I am a critic of “natural language” programming languages. One of my critiques is that they are difficult to internationalize — but I realized at some point that this was a baseless claim and that I needed to investigate to what extent folks had tried.",
+    "user": "UV1CVSXGC",
+    "ts": "1608230166.050900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "bacfa5ca638a",
+      "image_72": "https://avatars.slack-edge.com/2020-03-12/985422980563_bacfa5ca638add1dd05e_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Martens",
+      "display_name": "Chris Martens (they/them)",
+      "team": "T5TCAFTA9",
+      "name": "contextadventure",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nAC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Well, to be honest, I am a critic of “natural language” programming languages. One of my critiques is that they are difficult to internationalize — but I realized at some point that this was a baseless claim and that I needed to investigate to what extent folks had tried."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "7a337563-21a2-45f9-8a81-63c15d371ab4",
+    "type": "message",
+    "text": "<@UV1CVSXGC> AppleScript (which is quite natural-language-ish) was originally localized, but eventually support was dropped because “few app developers provided terminology in multiple languages”\n\n<https://twitter.com/geoffreylitt/status/1258769298862100483>",
+    "user": "UCDBW1H26",
+    "ts": "1609949085.089100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4262cddd28e",
+      "image_72": "https://secure.gravatar.com/avatar/94262cddd28e127e29dacba5f09c8125.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0017-72.png",
+      "first_name": "",
+      "real_name": "Geoffrey Litt",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "gklitt",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/geoffreylitt|@geoffreylitt>: Finding some gems in this history of Applescript:\n<https://dl.acm.org/doi/pdf/10.1145/1238844.1238845?download=true>\n\n1) Applescript originally had other dialects besides English!?  Including a \"professional\" syntax that never shipped <https://pbs.twimg.com/media/EXgC9YiWkAEmXbS.png>",
+        "ts": 1588948962,
+        "author_name": "Geoffrey Litt",
+        "author_link": "https://twitter.com/geoffreylitt/status/1258769298862100483",
+        "author_icon": "https://pbs.twimg.com/profile_images/722626068293763072/4erM-SPN_normal.jpg",
+        "author_subname": "@geoffreylitt",
+        "text": "Finding some gems in this history of Applescript:\n<https://dl.acm.org/doi/pdf/10.1145/1238844.1238845?download=true>\n\n1) Applescript originally had other dialects besides English!?  Including a \"professional\" syntax that never shipped <https://pbs.twimg.com/media/EXgC9YiWkAEmXbS.png>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/geoffreylitt/status/1258769298862100483",
+        "image_url": "https://pbs.twimg.com/media/EXgC9YiWkAEmXbS.png",
+        "image_width": 1032,
+        "image_height": 284,
+        "image_bytes": 24013,
+        "id": 1,
+        "original_url": "https://twitter.com/geoffreylitt/status/1258769298862100483",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xzPhe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UV1CVSXGC"
+              },
+              {
+                "type": "text",
+                "text": " AppleScript (which is quite natural-language-ish) was originally localized, but eventually support was dropped because “few app developers provided terminology in multiple languages”\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/geoffreylitt/status/1258769298862100483"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "5c4adcd8-1052-4b27-8c04-7af4da09cfc0",
+    "type": "message",
+    "text": "Cool find! <@UCDBW1H26>",
+    "user": "UFPPABQ7P",
+    "ts": "1609950991.089600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oMbo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Cool find! "
+              },
+              {
+                "type": "user",
+                "user_id": "UCDBW1H26"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "267a1432-b6f5-4224-8837-6228daeba5c1",
+    "type": "message",
+    "text": "Crap, looks like I missed this opportunity. Probably wouldn't have landed it anyway?",
+    "user": "UD6EXQVM0",
+    "ts": "1610170727.462200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4a9957508aa",
+      "image_72": "https://secure.gravatar.com/avatar/e4a9957508aa1bdb16018793cfc1bb40.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "David Piepgrass",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "qwertie256",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "w9tFY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Crap, looks like I missed this opportunity. Probably wouldn't have landed it anyway?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606245835.281400",
+    "parent_user_id": "UFQQ3P867",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1a87bed5-a370-4a6e-9b48-a2ead82b0fd9",
+    "type": "message",
+    "text": "Lojban looks like an (unintentional) attempt to redefine human language (in a culturally neutral way) in terms of Lisp. It's mainly a bunch of relations, and placeholders in those relations",
+    "user": "UAVCC2X70",
+    "ts": "1610995602.000100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UAVCC2X70",
+      "ts": "1610995764.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "J7MX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Lojban looks like an (unintentional) attempt to redefine human language (in a culturally neutral way) in terms of Lisp. It's mainly a bunch of relations, and placeholders in those relations"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "bfce8dcd-5664-4695-9c92-16341e859eec",
+    "type": "message",
+    "text": "<@UAVCC2X70> I thought Lojban was just a constructed language for human communication. Is there a facet of it being used for computer specification?\n\nI know it attempts to remove lots of ambiguity",
+    "user": "UFPPABQ7P",
+    "ts": "1610995698.000300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Uju",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UAVCC2X70"
+              },
+              {
+                "type": "text",
+                "text": " I thought Lojban was just a constructed language for human communication. Is there a facet of it being used for computer specification?\n\nI know it attempts to remove lots of ambiguity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "bf4ace88-16a5-47f6-ac32-949ac01905ce",
+    "type": "message",
+    "text": "Interesting\n&gt; Lojban is proposed as a speakable language for communication between people of different language backgrounds, as a potential means of machine translation, and as a tool to explore the intersection between human language and software.\n– from wikipedia.\nI hadn't thought of it from the software perspective.",
+    "user": "UFPPABQ7P",
+    "ts": "1610995812.000600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1610995847.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CSvd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Lojban is proposed as a speakable language for communication between people of different language backgrounds, as a potential means of machine translation, and as a tool to explore the intersection between human language and software."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "– from wikipedia.\nI hadn't thought of it from the software perspective."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "466a81c2-57b5-4321-bbe2-dbf61ecaeae4",
+    "type": "message",
+    "text": "There's mention of it being a good candidate for computers to process (parse, understand, translate) language because of the uniform structure. It's like a language AST",
+    "user": "UAVCC2X70",
+    "ts": "1610995902.001000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Hej",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's mention of it being a good candidate for computers to process (parse, understand, translate) language because of the uniform structure. It's like a language AST"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "321da88a-298f-4cf1-880f-4acacaa46024",
+    "type": "message",
+    "text": "Yeah, that. You can find mention of this in various reference material, I think also in the complete Lojban language book",
+    "user": "UAVCC2X70",
+    "ts": "1610995972.001200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LlSFl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, that. You can find mention of this in various reference material, I think also in the complete Lojban language book"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "d55e45b3-e781-46e8-8fdc-ddaaea56aa63",
+    "type": "message",
+    "text": "Hmmm <https://en.wikipedia.org/wiki/Lojban_grammar>",
+    "user": "UFPPABQ7P",
+    "ts": "1610995991.001400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gO=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hmmm "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Lojban_grammar"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "55c1ec2b-cdf9-4aa8-8682-1518dea9f700",
+    "type": "message",
+    "text": "Lojban is such a fun research area. Thanks for reminding me of this wonderful language!",
+    "user": "UFPPABQ7P",
+    "ts": "1610996075.001600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mVwsF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Lojban is such a fun research area. Thanks for reminding me of this wonderful language!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "87040767-e20b-4d59-a902-aa01c36377d9",
+    "type": "message",
+    "text": "cc <@UHTPRR5SM> Lojban is a constructed language which prioritizes the ability to express concepts as relationships (like a logical language)",
+    "user": "UFPPABQ7P",
+    "ts": "1610996166.001800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cb9d79e2bebc",
+      "image_72": "https://avatars.slack-edge.com/2019-05-09/631538186901_cb9d79e2bebc09100b3f_72.jpg",
+      "first_name": "Cole",
+      "real_name": "Cole Lawrence",
+      "display_name": "Cole",
+      "team": "T5TCAFTA9",
+      "name": "colelawr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OluS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "cc "
+              },
+              {
+                "type": "user",
+                "user_id": "UHTPRR5SM"
+              },
+              {
+                "type": "text",
+                "text": " Lojban is a constructed language which prioritizes the ability to express concepts as relationships (like a logical language)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UHTPRR5SM"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "df6412cf-66b1-4b42-8f43-877dc79fe3f4",
+    "type": "message",
+    "text": "I had looked at Lojban a long time ago (mid-1990s), and I must admit i am somewhat surprised that people are still working on it. It looks like a solution looking for a problem. Back then, there was nobody who could fluently communicate in Lojban, in spite of many people trying. It looked like a language ultimately unsuitable for human brains.",
+    "user": "UJBAJNFLK",
+    "ts": "1611049945.002200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Tuhc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I had looked at Lojban a long time ago (mid-1990s), and I must admit i am somewhat surprised that people are still working on it. It looks like a solution looking for a problem. Back then, there was nobody who could fluently communicate in Lojban, in spite of many people trying. It looked like a language ultimately unsuitable for human brains."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606238576.036600",
+    "parent_user_id": "UV1CVSXGC",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  }
+]

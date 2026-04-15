@@ -1,0 +1,2218 @@
+[
+  {
+    "client_msg_id": "0e666765-1b3d-4bdb-9df2-643ef06acb8f",
+    "type": "message",
+    "text": "I like how <http://thi.ng|thi.ng> handles this. You have explicit vec2 and vec3 when you want to use performance-optimized functions to manipulate them. But you can also just use arbitrarily long arrays of numbers, and treat them as 2d or 3d or 4d (etc) vecs using functions that work in arbitrary dimensions when that's more convenient.\n\nSo I'd say go with a_point2 and a_point3 when you have an explicit number of dimensions, and a_point when you want to be unspecific.\n\nAlso, saying a_xy and a_xyz means you're assuming these are cartesian coordinates. Often, in cases where you're doing work in 2-space or 3-space, you're also doing work in color space (rgb) or texture space (ts) or normal space (uvw). By keeping your linear algebra library generic, and not baking in the assumption that you're only ever working with cartesian coords, you save yourself some pain when it comes time to use these points (or vectors) in different ways.\n\nLastly, it's worth thinking about whether you're someday going to have matrices (where your vectors might be column or row matrices), or use homogenous coordinates (where a 3d point or vector in space is represented by 4 values, where the 4th represents whether it's a point or a vector), or a Clifford algebra (where you have a bivector instead of a cross product). In these cases, sticking with terms like \"point\" and \"vector\" is more useful than using \"xyz\" to establish the name, since not all things that have an x, y, and z are the same.\n\nSummary: Go with \"point\".",
+    "user": "UC2A2ARPT",
+    "ts": "1559279030.022400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1559279095.000000"
+    },
+    "thread_ts": "1559278364.022200",
+    "parent_user_id": "UEQ6M68H0",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0e666765-1b3d-4bdb-9df2-643ef06acb8f",
+    "type": "message",
+    "text": "I like how <http://thi.ng|thi.ng> handles this. You have explicit vec2 and vec3 when you want to use performance-optimized functions to manipulate them. But you can also just use arbitrarily long arrays of numbers, and treat them as 2d or 3d or 4d (etc) vecs using functions that work in arbitrary dimensions when that's more convenient.\n\nSo I'd say go with a_point2 and a_point3 when you have an explicit number of dimensions, and a_point when you want to be unspecific.\n\nAlso, saying a_xy and a_xyz means you're assuming these are cartesian coordinates. Often, in cases where you're doing work in 2-space or 3-space, you're also doing work in color space (rgb) or texture space (ts) or normal space (uvw). By keeping your linear algebra library generic, and not baking in the assumption that you're only ever working with cartesian coords, you save yourself some pain when it comes time to use these points (or vectors) in different ways.\n\nLastly, it's worth thinking about whether you're someday going to have matrices (where your vectors might be column or row matrices), or use homogenous coordinates (where a 3d point or vector in space is represented by 4 values, where the 4th represents whether it's a point or a vector), or a Clifford algebra (where you have a bivector instead of a cross product). In these cases, sticking with terms like \"point\" and \"vector\" is more useful than using \"xyz\" to establish the name, since not all things that have an x, y, and z are the same.\n\nSummary: Go with \"point\".",
+    "user": "UC2A2ARPT",
+    "ts": "1559279030.022400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1559279095.000000"
+    },
+    "thread_ts": "1559278364.022200",
+    "parent_user_id": "UEQ6M68H0",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "43a38bfc-9896-46fc-a0fa-2c930b79c9f1",
+    "type": "message",
+    "text": "everything you mention sounds great, one of the limitations is (I think) that most of the people here are stronger on compilers, language, semantics and software in general than design, so even when they believe in VPL it's hard to take into account what you mentioned in the last tweet (all the design considerations and their implementation)",
+    "user": "UBN9AFS0N",
+    "ts": "1559290569.024400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "43a38bfc-9896-46fc-a0fa-2c930b79c9f1",
+    "type": "message",
+    "text": "everything you mention sounds great, one of the limitations is (I think) that most of the people here are stronger on compilers, language, semantics and software in general than design, so even when they believe in VPL it's hard to take into account what you mentioned in the last tweet (all the design considerations and their implementation)",
+    "user": "UBN9AFS0N",
+    "ts": "1559290569.024400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6fc13cc3-5583-4e6d-afbf-a42b23511808",
+    "type": "message",
+    "text": "what I wish we also had is a stronger and better foundation for experimentation, like a \"lisp/llvm/pypy/bootstrap of VPLs\", where you can go straight to build your thing with a lot of things already solved and many libraries to use for different aspects",
+    "user": "UBN9AFS0N",
+    "ts": "1559290632.024600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6fc13cc3-5583-4e6d-afbf-a42b23511808",
+    "type": "message",
+    "text": "what I wish we also had is a stronger and better foundation for experimentation, like a \"lisp/llvm/pypy/bootstrap of VPLs\", where you can go straight to build your thing with a lot of things already solved and many libraries to use for different aspects",
+    "user": "UBN9AFS0N",
+    "ts": "1559290632.024600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2cd9bdbd-e341-404f-bba3-5abbb6b00cf1",
+    "type": "message",
+    "text": "VPL shoulders :stuck_out_tongue:",
+    "user": "UBN9AFS0N",
+    "ts": "1559290638.024800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2cd9bdbd-e341-404f-bba3-5abbb6b00cf1",
+    "type": "message",
+    "text": "VPL shoulders :stuck_out_tongue:",
+    "user": "UBN9AFS0N",
+    "ts": "1559290638.024800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c30784fd-01fb-4420-93e0-839f84fa144a",
+    "type": "message",
+    "text": "Of course, I disagree with most of this perspective. It's just interesting to keep in mind where most engineers are coming from",
+    "user": "U5TCAFTD3",
+    "ts": "1559296208.029800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c30784fd-01fb-4420-93e0-839f84fa144a",
+    "type": "message",
+    "text": "Of course, I disagree with most of this perspective. It's just interesting to keep in mind where most engineers are coming from",
+    "user": "U5TCAFTD3",
+    "ts": "1559296208.029800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "20e818bc-065a-4a8e-950b-d2dcf3227ebe",
+    "type": "message",
+    "text": "That's what I've heard though it hasn't reached my tiny corner of the world.",
+    "user": "UA14TGLTC",
+    "ts": "1559296375.030000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559295363.027400",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "20e818bc-065a-4a8e-950b-d2dcf3227ebe",
+    "type": "message",
+    "text": "That's what I've heard though it hasn't reached my tiny corner of the world.",
+    "user": "UA14TGLTC",
+    "ts": "1559296375.030000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559295363.027400",
+    "parent_user_id": "UC6997THT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "479aacf3-161e-4c09-9b79-6b441bc0f822",
+    "type": "message",
+    "text": "Perhaps a developer brings something to the table distinct from coding.  Just like a *good* graphic designer does much more than pick color schemes and animate icons.",
+    "user": "UA14TGLTC",
+    "ts": "1559296710.030200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "479aacf3-161e-4c09-9b79-6b441bc0f822",
+    "type": "message",
+    "text": "Perhaps a developer brings something to the table distinct from coding.  Just like a *good* graphic designer does much more than pick color schemes and animate icons.",
+    "user": "UA14TGLTC",
+    "ts": "1559296710.030200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "F36F9772-D32F-48E3-8E9A-205A5596DA2B",
+    "type": "message",
+    "text": "Oh 100% agreed. Until strong AI, it will always be a needed skill, like writing is a needed skill",
+    "user": "U5TCAFTD3",
+    "ts": "1559296776.031700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "F36F9772-D32F-48E3-8E9A-205A5596DA2B",
+    "type": "message",
+    "text": "Oh 100% agreed. Until strong AI, it will always be a needed skill, like writing is a needed skill",
+    "user": "U5TCAFTD3",
+    "ts": "1559296776.031700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0f6c5b67-169b-4803-9b93-6271f63918ca",
+    "type": "message",
+    "text": "I’m not unconvinced with his essay. That’s also why Lamdu *is* code.",
+    "user": "U79HM6726",
+    "ts": "1559306497.033500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4ac39488e9c",
+      "image_72": "https://secure.gravatar.com/avatar/24ac39488e9c4f2833d087a1343707dc.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Yair Chuchem",
+      "display_name": "yairchu",
+      "team": "T5TCAFTA9",
+      "name": "yairchu",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0f6c5b67-169b-4803-9b93-6271f63918ca",
+    "type": "message",
+    "text": "I’m not unconvinced with his essay. That’s also why Lamdu *is* code.",
+    "user": "U79HM6726",
+    "ts": "1559306497.033500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4ac39488e9c",
+      "image_72": "https://secure.gravatar.com/avatar/24ac39488e9c4f2833d087a1343707dc.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Yair Chuchem",
+      "display_name": "yairchu",
+      "team": "T5TCAFTA9",
+      "name": "yairchu",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UAVCC2X70"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "252c9214-1d2f-4590-aa3f-b75bbf4f09d4",
+    "type": "message",
+    "text": "It makes a lot of points I agree with. I'm no fan of the low-code industry as it currently is",
+    "user": "U5TCAFTD3",
+    "ts": "1559306959.033700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "252c9214-1d2f-4590-aa3f-b75bbf4f09d4",
+    "type": "message",
+    "text": "It makes a lot of points I agree with. I'm no fan of the low-code industry as it currently is",
+    "user": "U5TCAFTD3",
+    "ts": "1559306959.033700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7c31dc735c6c",
+      "image_72": "https://avatars.slack-edge.com/2018-09-11/433781465829_7c31dc735c6c1257fe1f_72.jpg",
+      "first_name": "Steve",
+      "real_name": "Steve Krouse",
+      "display_name": "stevekrouse",
+      "team": "T5TCAFTA9",
+      "name": "stevekrouse",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "373d07d1-91b6-44c3-8c0d-ea0a2331c43f",
+    "type": "message",
+    "text": "In this kind of circumstance I look to see if there is a de-facto name for the concept that is already in widespread use. For these types, I use the names `vec2` and `vec3`, copied from GLSL. Several of my C++ library dependencies also use these names. (This assumes that 3D point and 3D vector are represented by the same type, which might not be true for your system.)",
+    "user": "UJN1TAYEQ",
+    "ts": "1559316740.037100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559278364.022200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "373d07d1-91b6-44c3-8c0d-ea0a2331c43f",
+    "type": "message",
+    "text": "In this kind of circumstance I look to see if there is a de-facto name for the concept that is already in widespread use. For these types, I use the names `vec2` and `vec3`, copied from GLSL. Several of my C++ library dependencies also use these names. (This assumes that 3D point and 3D vector are represented by the same type, which might not be true for your system.)",
+    "user": "UJN1TAYEQ",
+    "ts": "1559316740.037100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559278364.022200",
+    "parent_user_id": "UEQ6M68H0",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "805896e0-6d63-4121-85ff-cdb76cc98c4f",
+    "type": "message",
+    "text": "This GUI claims to have the expressive power of a CLI. If you squint, it's a visual programming environment. One that keeps track of the tasks you are working on, and the workflow you need to complete those tasks. With built in support for collaboration with other people. These seem like useful features for a visual programming environment. <@UJPHQ8Z3N> any reaction to that?",
+    "user": "UJN1TAYEQ",
+    "ts": "1559316923.037300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "805896e0-6d63-4121-85ff-cdb76cc98c4f",
+    "type": "message",
+    "text": "This GUI claims to have the expressive power of a CLI. If you squint, it's a visual programming environment. One that keeps track of the tasks you are working on, and the workflow you need to complete those tasks. With built in support for collaboration with other people. These seem like useful features for a visual programming environment. <@UJPHQ8Z3N> any reaction to that?",
+    "user": "UJN1TAYEQ",
+    "ts": "1559316923.037300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4185a542241",
+      "image_72": "https://secure.gravatar.com/avatar/34185a5422416f82b3e4a62964f2866b.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0008-72.png",
+      "first_name": "",
+      "real_name": "Doug Moen",
+      "display_name": "Doug Moen",
+      "team": "T5TCAFTA9",
+      "name": "doug",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c1140daf-588e-492f-87b6-063547ffe99a",
+    "type": "message",
+    "text": "I like the idea of breaking down application into composable components (which was the platonic ideal of OpenDoc, and BeOS's translators, to some extent), and evolving the CLI so that it is not text-based but hybrid text/visual is something that hopefully will happen to our everyday OSes. The thing that I don't like about Mercury specifically is an extreme Apple-ification of the user experience: instead of letting people decide, the author provides a set of curated micro-experiences revolving around common operations. Interfaces should simplify actions, but they should not simplify at the cost of removing degrees of freedom. But in the case of Mercury, it's primary goal was to reduce the cognitive load, so it makes sense to do so. To me, creating a visual environment used for intensive work (like programming) means that task performance, flexibility and information bandwidth have to be considered as priorities -- Mercury does provide some interesting elements, but its fundamental goals are not in line with requirements for a high-performance work environment.",
+    "user": "UJPHQ8Z3N",
+    "ts": "1559317628.037500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "geb6636f344e",
+      "image_72": "https://secure.gravatar.com/avatar/deb6636f344e6071fd9fe70724825ac6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Sébastien",
+      "real_name": "Sébastien",
+      "display_name": "Sébastien",
+      "team": "T5TCAFTA9",
+      "name": "sebastien.pierre",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "100",
+        "users": [
+          "UC2A2ARPT",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c1140daf-588e-492f-87b6-063547ffe99a",
+    "type": "message",
+    "text": "I like the idea of breaking down application into composable components (which was the platonic ideal of OpenDoc, and BeOS's translators, to some extent), and evolving the CLI so that it is not text-based but hybrid text/visual is something that hopefully will happen to our everyday OSes. The thing that I don't like about Mercury specifically is an extreme Apple-ification of the user experience: instead of letting people decide, the author provides a set of curated micro-experiences revolving around common operations. Interfaces should simplify actions, but they should not simplify at the cost of removing degrees of freedom. But in the case of Mercury, it's primary goal was to reduce the cognitive load, so it makes sense to do so. To me, creating a visual environment used for intensive work (like programming) means that task performance, flexibility and information bandwidth have to be considered as priorities -- Mercury does provide some interesting elements, but its fundamental goals are not in line with requirements for a high-performance work environment.",
+    "user": "UJPHQ8Z3N",
+    "ts": "1559317628.037500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "geb6636f344e",
+      "image_72": "https://secure.gravatar.com/avatar/deb6636f344e6071fd9fe70724825ac6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "Sébastien",
+      "real_name": "Sébastien",
+      "display_name": "Sébastien",
+      "team": "T5TCAFTA9",
+      "name": "sebastien.pierre",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "100",
+        "users": [
+          "UC2A2ARPT",
+          "UHWC9PXBL"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e57beeea-2851-42b3-8d3c-3a987224102b",
+    "type": "message",
+    "text": "That's a great point. There are things like Blocky, but I don't know of anything similar for node-and-wire languages. There's Unity (and Flash before it), but those tools still require a lot of expertise and a lot of effort to build a meaningful prototype.",
+    "user": "UC2A2ARPT",
+    "ts": "1559318571.037700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "e57beeea-2851-42b3-8d3c-3a987224102b",
+    "type": "message",
+    "text": "That's a great point. There are things like Blocky, but I don't know of anything similar for node-and-wire languages. There's Unity (and Flash before it), but those tools still require a lot of expertise and a lot of effort to build a meaningful prototype.",
+    "user": "UC2A2ARPT",
+    "ts": "1559318571.037700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "677fa947-cd21-4ae4-a2f7-21e48e737fca",
+    "type": "message",
+    "text": "Pour one out for OpenDoc.. :beer:",
+    "user": "UC2A2ARPT",
+    "ts": "1559318684.038100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "677fa947-cd21-4ae4-a2f7-21e48e737fca",
+    "type": "message",
+    "text": "Pour one out for OpenDoc.. :beer:",
+    "user": "UC2A2ARPT",
+    "ts": "1559318684.038100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6d5f939e-f7b0-47e7-8e9f-14b9a6921afe",
+    "type": "message",
+    "text": "I'm dubious of any \"OS\" design discussion that starts and ends with the GUI.",
+    "user": "UCGR73CAY",
+    "ts": "1559319875.038500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c388798a019d",
+      "image_72": "https://avatars.slack-edge.com/2018-08-28/424957723331_c388798a019db9bbf60d_72.png",
+      "first_name": "Corey",
+      "real_name": "Corey Montella",
+      "display_name": "Corey",
+      "team": "T5TCAFTA9",
+      "name": "cmontella",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UBSMEUXAA",
+          "UCUSW7WVD"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6d5f939e-f7b0-47e7-8e9f-14b9a6921afe",
+    "type": "message",
+    "text": "I'm dubious of any \"OS\" design discussion that starts and ends with the GUI.",
+    "user": "UCGR73CAY",
+    "ts": "1559319875.038500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "60840a70b1da",
+      "image_72": "https://avatars.slack-edge.com/2022-03-29/3313499509682_60840a70b1da2b9e5b4a_72.png",
+      "first_name": "Corey",
+      "real_name": "Corey Montella",
+      "display_name": "Corey",
+      "team": "T5TCAFTA9",
+      "name": "cmontella",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UBSMEUXAA",
+          "UCUSW7WVD"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "454f5f12-2d3e-4d10-954e-5d6361a44b5c",
+    "type": "message",
+    "text": "something in between, higher level than a drawing library, but lowerlevel than \"create an instance with some parameters\"",
+    "user": "UBN9AFS0N",
+    "ts": "1559321293.039200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "454f5f12-2d3e-4d10-954e-5d6361a44b5c",
+    "type": "message",
+    "text": "something in between, higher level than a drawing library, but lowerlevel than \"create an instance with some parameters\"",
+    "user": "UBN9AFS0N",
+    "ts": "1559321293.039200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1cb150b4-4c5f-4066-a498-21b671c9f63b",
+    "type": "message",
+    "text": "wires, connectors, effects, placeholders, flow, dependencies and similar abstractions",
+    "user": "UBN9AFS0N",
+    "ts": "1559321331.039400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1cb150b4-4c5f-4066-a498-21b671c9f63b",
+    "type": "message",
+    "text": "wires, connectors, effects, placeholders, flow, dependencies and similar abstractions",
+    "user": "UBN9AFS0N",
+    "ts": "1559321331.039400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "7f0f1c0238ec",
+      "image_72": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_72.jpg",
+      "first_name": "Mariano",
+      "real_name": "Mariano Guerra",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "mariano",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "931f070f-7904-4277-88e4-802572cd959d",
+    "type": "message",
+    "text": "Counterpoint: why not start with a GUI when designing an OS? After all, an OS exists to serve the user?",
+    "user": "U8A5MS6R1",
+    "ts": "1559321491.039600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "931f070f-7904-4277-88e4-802572cd959d",
+    "type": "message",
+    "text": "Counterpoint: why not start with a GUI when designing an OS? After all, an OS exists to serve the user?",
+    "user": "U8A5MS6R1",
+    "ts": "1559321491.039600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2a80eaf0-ccc3-4357-851c-1464a28878c4",
+    "type": "message",
+    "text": "Also parallel discussion here: <https://futureofcoding.slack.com/archives/C5U3SEW6A/p1559190299000300>",
+    "user": "U8A5MS6R1",
+    "ts": "1559321707.040000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "UX Collective",
+        "title": "Introducing Mercury OS",
+        "title_link": "https://uxdesign.cc/introducing-mercury-os-f4de45a04289",
+        "text": "A speculative vision of the operating system, driven by humane design principles.",
+        "fallback": "UX Collective: Introducing Mercury OS",
+        "image_url": "https://cdn-images-1.medium.com/max/1200/1*sxksghXlAI6HLtn1ZqREIg.png",
+        "fields": [
+          {
+            "title": "Reading time",
+            "value": "12 min read",
+            "short": true
+          }
+        ],
+        "ts": 1559065238,
+        "from_url": "https://uxdesign.cc/introducing-mercury-os-f4de45a04289",
+        "image_width": 375,
+        "image_height": 250,
+        "image_bytes": 564012,
+        "service_icon": "https://cdn-images-1.medium.com/fit/c/304/304/1*qv9Sg626VtUlO7xSL89lNg.png",
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1559190299000300"
+      }
+    ],
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2a80eaf0-ccc3-4357-851c-1464a28878c4",
+    "type": "message",
+    "text": "Also parallel discussion here: <https://futureofcoding.slack.com/archives/C5U3SEW6A/p1559190299000300>",
+    "user": "U8A5MS6R1",
+    "ts": "1559321707.040000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "UX Collective",
+        "title": "Introducing Mercury OS",
+        "title_link": "https://uxdesign.cc/introducing-mercury-os-f4de45a04289",
+        "text": "A speculative vision of the operating system, driven by humane design principles.",
+        "fallback": "UX Collective: Introducing Mercury OS",
+        "image_url": "https://cdn-images-1.medium.com/max/1200/1*sxksghXlAI6HLtn1ZqREIg.png",
+        "fields": [
+          {
+            "title": "Reading time",
+            "value": "12 min read",
+            "short": true
+          }
+        ],
+        "ts": 1559065238,
+        "from_url": "https://uxdesign.cc/introducing-mercury-os-f4de45a04289",
+        "image_width": 375,
+        "image_height": 250,
+        "image_bytes": 564012,
+        "service_icon": "https://cdn-images-1.medium.com/fit/c/304/304/1*qv9Sg626VtUlO7xSL89lNg.png",
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1559190299000300"
+      }
+    ],
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "16a1ef81-c5b2-4aba-bb64-abad35be9f90",
+    "type": "message",
+    "text": "I think starting with the GUI is fine, but my point was begins and ends. If you start with the GUI and interactions you'd like to have, then that may inform the rest of the architecture",
+    "user": "UCGR73CAY",
+    "ts": "1559322190.040400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c388798a019d",
+      "image_72": "https://avatars.slack-edge.com/2018-08-28/424957723331_c388798a019db9bbf60d_72.png",
+      "first_name": "Corey",
+      "real_name": "Corey Montella",
+      "display_name": "Corey",
+      "team": "T5TCAFTA9",
+      "name": "cmontella",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "16a1ef81-c5b2-4aba-bb64-abad35be9f90",
+    "type": "message",
+    "text": "I think starting with the GUI is fine, but my point was begins and ends. If you start with the GUI and interactions you'd like to have, then that may inform the rest of the architecture",
+    "user": "UCGR73CAY",
+    "ts": "1559322190.040400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "60840a70b1da",
+      "image_72": "https://avatars.slack-edge.com/2022-03-29/3313499509682_60840a70b1da2b9e5b4a_72.png",
+      "first_name": "Corey",
+      "real_name": "Corey Montella",
+      "display_name": "Corey",
+      "team": "T5TCAFTA9",
+      "name": "cmontella",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5bd352b4-a71b-469e-a594-d4b22b165573",
+    "type": "message",
+    "text": "I guess I've just seen a lot of \"OS\" designs that were just mockups that never went anywhere.",
+    "user": "UCGR73CAY",
+    "ts": "1559322252.040600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "c388798a019d",
+      "image_72": "https://avatars.slack-edge.com/2018-08-28/424957723331_c388798a019db9bbf60d_72.png",
+      "first_name": "Corey",
+      "real_name": "Corey Montella",
+      "display_name": "Corey",
+      "team": "T5TCAFTA9",
+      "name": "cmontella",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGR73CAY",
+      "ts": "1559322259.000000"
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5bd352b4-a71b-469e-a594-d4b22b165573",
+    "type": "message",
+    "text": "I guess I've just seen a lot of \"OS\" designs that were just mockups that never went anywhere.",
+    "user": "UCGR73CAY",
+    "ts": "1559322252.040600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "60840a70b1da",
+      "image_72": "https://avatars.slack-edge.com/2022-03-29/3313499509682_60840a70b1da2b9e5b4a_72.png",
+      "first_name": "Corey",
+      "real_name": "Corey Montella",
+      "display_name": "Corey",
+      "team": "T5TCAFTA9",
+      "name": "cmontella",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGR73CAY",
+      "ts": "1559322259.000000"
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b236acaa-c4b0-46f2-ac8e-4155425ba945",
+    "type": "message",
+    "text": "Ah right yeah. I have no idea where this will go. But I find it useful as a visualization of an alternative idea to app orientation: intention/workflow orientation.",
+    "user": "U8A5MS6R1",
+    "ts": "1559323117.041000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b236acaa-c4b0-46f2-ac8e-4155425ba945",
+    "type": "message",
+    "text": "Ah right yeah. I have no idea where this will go. But I find it useful as a visualization of an alternative idea to app orientation: intention/workflow orientation.",
+    "user": "U8A5MS6R1",
+    "ts": "1559323117.041000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "C25A8000-CA46-4A3B-9FAE-0BAA44322394",
+    "type": "message",
+    "text": "yeah I feel like this is a solid argument against no-code tools but also a solid argument **for** tools that don't take an incremental approach and instead aim to deliver programming-level power from the get-go ",
+    "user": "UHWC9PXBL",
+    "ts": "1559331843.044200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U5TCAFTD3",
+          "UJVEPCVT6",
+          "UHZNB3HRP",
+          "UAVCC2X70",
+          "UJ6LDMMN0"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "C25A8000-CA46-4A3B-9FAE-0BAA44322394",
+    "type": "message",
+    "text": "yeah I feel like this is a solid argument against no-code tools but also a solid argument **for** tools that don't take an incremental approach and instead aim to deliver programming-level power from the get-go ",
+    "user": "UHWC9PXBL",
+    "ts": "1559331843.044200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U5TCAFTD3",
+          "UJVEPCVT6",
+          "UHZNB3HRP",
+          "UAVCC2X70",
+          "UJ6LDMMN0"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5b3fb94b-bdd1-427f-9cfc-bac3eda34df7",
+    "type": "message",
+    "text": "This person is a visual / interaction designer. There are a lot of those people on the planet. When they're working on their own, they make mockups. Like this: <http://nenadmilosevic.co/ableton-live-redesign/> Or like this: <http://www.minimallyminimal.com/blog/2012/7/3/the-next-microsoft.html>\n\nYou could call these \"mockups that never went anywhere\". But that'd be like a BFA saying all the Lisp compilers or quines or rendering engines or constraint systems we programmers whip up are \"products that never went anywhere\".\n\nAs a visual / interaction designer, the offering that this person is making to the world is — \"Here's an idea I had, and here's how I would realize the parts of that idea that I have the skills to create.\" You could hand that same idea to a programmer, and they could make a usable prototype, but in the absence of help from a visual / interaction designer it'd almost certainly look so bad that it'd be hard to use. And in the absence of someone skilled at sales or marketing, it'd probably never take root in the world at large.\n\nSo don't dismay that this is _yet another mockup_. Learn what you can from this, so that when it comes time for you to make your demo, it might be benefitted by you having studied good visual / interaction design.",
+    "user": "UC2A2ARPT",
+    "ts": "1559333547.044800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1559333560.000000"
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U8A5MS6R1",
+          "UJUGB1XGD",
+          "UE0ETTCG7",
+          "UCUSW7WVD"
+        ],
+        "count": 4
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UHZNB3HRP",
+          "UDJ2TKB99"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "5b3fb94b-bdd1-427f-9cfc-bac3eda34df7",
+    "type": "message",
+    "text": "This person is a visual / interaction designer. There are a lot of those people on the planet. When they're working on their own, they make mockups. Like this: <http://nenadmilosevic.co/ableton-live-redesign/> Or like this: <http://www.minimallyminimal.com/blog/2012/7/3/the-next-microsoft.html>\n\nYou could call these \"mockups that never went anywhere\". But that'd be like a BFA saying all the Lisp compilers or quines or rendering engines or constraint systems we programmers whip up are \"products that never went anywhere\".\n\nAs a visual / interaction designer, the offering that this person is making to the world is — \"Here's an idea I had, and here's how I would realize the parts of that idea that I have the skills to create.\" You could hand that same idea to a programmer, and they could make a usable prototype, but in the absence of help from a visual / interaction designer it'd almost certainly look so bad that it'd be hard to use. And in the absence of someone skilled at sales or marketing, it'd probably never take root in the world at large.\n\nSo don't dismay that this is _yet another mockup_. Learn what you can from this, so that when it comes time for you to make your demo, it might be benefitted by you having studied good visual / interaction design.",
+    "user": "UC2A2ARPT",
+    "ts": "1559333547.044800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1559333560.000000"
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U8A5MS6R1",
+          "UJUGB1XGD",
+          "UE0ETTCG7",
+          "UCUSW7WVD"
+        ],
+        "count": 4
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UHZNB3HRP",
+          "UDJ2TKB99"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "17c194de-fecc-4da2-be0e-fb89a091e37f",
+    "type": "message",
+    "text": "Going back to the actual idea... I quite like this concept. It's a refreshing change from the silo app world where any integration between apps is really poor and crude file-copy based. My intention/goal is also split across apps, each with it's own distractions since they intermix all my intentions.\n\nE.g. Gmail shows me *all* my emails - I don't really care about emails but the greater purpose they serve. Maybe I'm working on a home improvement project and waiting for a package containing a tool and am just interested in that email. I also have other ideas and resources (how to videos) I bookmarked for the same project - these are split across a note app and my browser bookmarks. So if the computer let me make a 'space' where I could freely intermix these kinds of objects, that would be awesome.\n\nI've thought about context sensitive spaces before. E.g. when I'm thinking of travel, 'everything' I'm looking for in the destination is centered around some dates. I have to type out those same dates so many times in different places it's irritating. What if I could make a space, 'pin' a date onto the space. Then anything I bring into the space (drag and drop an event calendar for instance) automatically highlights and scrolls to the contextual dates. The same idea can be extrapolated  to places, people, project names, etc.",
+    "user": "U8A5MS6R1",
+    "ts": "1559334813.045300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh Chaturvedi",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "+1::skin-tone-3",
+        "users": [
+          "UFEQUBNNT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "17c194de-fecc-4da2-be0e-fb89a091e37f",
+    "type": "message",
+    "text": "Going back to the actual idea... I quite like this concept. It's a refreshing change from the silo app world where any integration between apps is really poor and crude file-copy based. My intention/goal is also split across apps, each with it's own distractions since they intermix all my intentions.\n\nE.g. Gmail shows me *all* my emails - I don't really care about emails but the greater purpose they serve. Maybe I'm working on a home improvement project and waiting for a package containing a tool and am just interested in that email. I also have other ideas and resources (how to videos) I bookmarked for the same project - these are split across a note app and my browser bookmarks. So if the computer let me make a 'space' where I could freely intermix these kinds of objects, that would be awesome.\n\nI've thought about context sensitive spaces before. E.g. when I'm thinking of travel, 'everything' I'm looking for in the destination is centered around some dates. I have to type out those same dates so many times in different places it's irritating. What if I could make a space, 'pin' a date onto the space. Then anything I bring into the space (drag and drop an event calendar for instance) automatically highlights and scrolls to the contextual dates. The same idea can be extrapolated  to places, people, project names, etc.",
+    "user": "U8A5MS6R1",
+    "ts": "1559334813.045300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "reactions": [
+      {
+        "name": "+1::skin-tone-3",
+        "users": [
+          "UFEQUBNNT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "69a9aa80-2593-4e73-b280-3e039d5c96bc",
+    "type": "message",
+    "text": "In my own work, Onex, you have a tree/graph of objects on the left half of the UI, and a workspace on the right where you can pin any object you come across. There are no applications, just these objects. You can create new objects on the left aggregating stuff you collected on the right. Everything is linked so you can pick up anything of any type by its link and put it in another object.",
+    "user": "UE6EFEPTQ",
+    "ts": "1559342340.047100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "69a9aa80-2593-4e73-b280-3e039d5c96bc",
+    "type": "message",
+    "text": "In my own work, Onex, you have a tree/graph of objects on the left half of the UI, and a workspace on the right where you can pin any object you come across. There are no applications, just these objects. You can create new objects on the left aggregating stuff you collected on the right. Everything is linked so you can pick up anything of any type by its link and put it in another object.",
+    "user": "UE6EFEPTQ",
+    "ts": "1559342340.047100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8073c43d5d8d",
+      "image_72": "https://avatars.slack-edge.com/2018-12-18/508431502471_8073c43d5d8dd3d3b4b2_72.jpg",
+      "first_name": "Duncan",
+      "real_name": "Duncan Cragg",
+      "display_name": "Duncan Cragg",
+      "team": "T5TCAFTA9",
+      "name": "fp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "332d9161-5eed-4ee6-baac-ae5e84e71a2c",
+    "type": "message",
+    "text": "Am a huge fan of the data-as-nodes, functions-as-edges paradigm introduced by PANE (Joshua Horowitz). Forces you to work with the data and maintain its visibility and clarity at all times",
+    "user": "UFQQ3P867",
+    "ts": "1559376078.049400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "75bc4f5fbeed",
+      "image_72": "https://avatars.slack-edge.com/2019-12-20/882734188373_75bc4f5fbeedc5a2213e_72.jpg",
+      "first_name": "",
+      "real_name": "Max Krieger",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "photos482",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "332d9161-5eed-4ee6-baac-ae5e84e71a2c",
+    "type": "message",
+    "text": "Am a huge fan of the data-as-nodes, functions-as-edges paradigm introduced by PANE (Joshua Horowitz). Forces you to work with the data and maintain its visibility and clarity at all times",
+    "user": "UFQQ3P867",
+    "ts": "1559376078.049400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "75bc4f5fbeed",
+      "image_72": "https://avatars.slack-edge.com/2019-12-20/882734188373_75bc4f5fbeedc5a2213e_72.jpg",
+      "first_name": "",
+      "real_name": "Max Krieger",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "photos482",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "F2E5F9DF-D8E4-45E5-8DFC-3B3C892432CA",
+    "type": "message",
+    "text": "Off the top of my head:\n* Componentization: not allowing the developer to see the entire network, only a single level: the component in focus, and how it fits into its environment.\n* Free edge directions: input-left / output-right does a huge disservice to readability\n* Deterministic shapes: a component with given child components, connections and parameters should look the same. (visual hash)\n* Filtering that highlights relevant nodes by dependencies, function, etc\n* Slow motion, time machine\n* Forking and comparing changes: multiple variations of a change running concurrently (imagine 3 variants of a component laid out side-by-side)\n* Topography-based diffing for version control.\n* Test paths: selecting a path with test input (eg table) and output components (eg. chart), straightened out and annotated.\n* Edge bundles: connecting certain types of nodes may require multiple connections between them. These should be nameable and marked differently.",
+    "user": "UJVEPCVT6",
+    "ts": "1559388455.051800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6022dfa9d683",
+      "image_72": "https://avatars.slack-edge.com/2019-10-16/785829927155_6022dfa9d683a7413601_72.jpg",
+      "first_name": "Dan",
+      "real_name": "Dan Stocker",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dan346",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UDJ2TKB99"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "F2E5F9DF-D8E4-45E5-8DFC-3B3C892432CA",
+    "type": "message",
+    "text": "Off the top of my head:\n* Componentization: not allowing the developer to see the entire network, only a single level: the component in focus, and how it fits into its environment.\n* Free edge directions: input-left / output-right does a huge disservice to readability\n* Deterministic shapes: a component with given child components, connections and parameters should look the same. (visual hash)\n* Filtering that highlights relevant nodes by dependencies, function, etc\n* Slow motion, time machine\n* Forking and comparing changes: multiple variations of a change running concurrently (imagine 3 variants of a component laid out side-by-side)\n* Topography-based diffing for version control.\n* Test paths: selecting a path with test input (eg table) and output components (eg. chart), straightened out and annotated.\n* Edge bundles: connecting certain types of nodes may require multiple connections between them. These should be nameable and marked differently.",
+    "user": "UJVEPCVT6",
+    "ts": "1559388455.051800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9ae6680c0eb6",
+      "image_72": "https://avatars.slack-edge.com/2022-01-30/3025680183365_9ae6680c0eb63c7a6caa_72.jpg",
+      "first_name": "Dan",
+      "real_name": "Dan Stocker",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dan346",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UDJ2TKB99"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fe811bad-a67b-4dc4-9d2d-ed78f9af5ac8",
+    "type": "message",
+    "text": "<@UJVEPCVT6> Fantastic ideas there.\n\nTopography-based diffing is something I have in mind, but for a different use case than version control — topographic find &amp; replace. I wonder what other dev features you could make based on that sort of topographic awareness.\n\nCan you describe \"Test paths\" in more detail?",
+    "user": "UC2A2ARPT",
+    "ts": "1559405327.053100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1559406618.000000"
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fe811bad-a67b-4dc4-9d2d-ed78f9af5ac8",
+    "type": "message",
+    "text": "<@UJVEPCVT6> Fantastic ideas there.\n\nTopography-based diffing is something I have in mind, but for a different use case than version control — topographic find &amp; replace. I wonder what other dev features you could make based on that sort of topographic awareness.\n\nCan you describe \"Test paths\" in more detail?",
+    "user": "UC2A2ARPT",
+    "ts": "1559405327.053100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1559406618.000000"
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f671efb9-a892-4add-a864-a4bf43724aee",
+    "type": "message",
+    "text": "I don't like how the author sets of a false choice. I don't think it has to be an either/or proposition.\n\nI use a low-code platform as my daily driver. I need to get outside of it and write code but my \"scripting languages\" are SQL and Javascript, so pretty universal and easy to find other programmers.\n\nI also could, almost as easily, forsake the choice of javascript and SQL and write web services using whatever I want to.",
+    "user": "UHZNB3HRP",
+    "ts": "1559439334.055900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g1e605c7d8c8",
+      "image_72": "https://secure.gravatar.com/avatar/91e605c7d8c807d1a07fb13a73ff8e06.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Jarmiolowski",
+      "display_name": "Greg Jarmiolowski",
+      "team": "T5TCAFTA9",
+      "name": "greg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70",
+          "UA14TGLTC",
+          "U5TCAFTD3"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f671efb9-a892-4add-a864-a4bf43724aee",
+    "type": "message",
+    "text": "I don't like how the author sets of a false choice. I don't think it has to be an either/or proposition.\n\nI use a low-code platform as my daily driver. I need to get outside of it and write code but my \"scripting languages\" are SQL and Javascript, so pretty universal and easy to find other programmers.\n\nI also could, almost as easily, forsake the choice of javascript and SQL and write web services using whatever I want to.",
+    "user": "UHZNB3HRP",
+    "ts": "1559439334.055900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g1e605c7d8c8",
+      "image_72": "https://secure.gravatar.com/avatar/91e605c7d8c807d1a07fb13a73ff8e06.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "Greg",
+      "real_name": "Greg Jarmiolowski",
+      "display_name": "Greg Jarmiolowski",
+      "team": "T5TCAFTA9",
+      "name": "greg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559296162.029700",
+    "parent_user_id": "U5TCAFTD3",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UAVCC2X70",
+          "UA14TGLTC",
+          "U5TCAFTD3"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c4533896-8b9b-4a99-9ea8-2b067633911d",
+    "type": "message",
+    "text": "\"lisp/llvm/pypy/bootstrap of VPLs\" -- That's partly what I have in mind for the project I'm working on",
+    "user": "UAVCC2X70",
+    "ts": "1559442064.056400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "tada",
+        "users": [
+          "UBN9AFS0N",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c4533896-8b9b-4a99-9ea8-2b067633911d",
+    "type": "message",
+    "text": "\"lisp/llvm/pypy/bootstrap of VPLs\" -- That's partly what I have in mind for the project I'm working on",
+    "user": "UAVCC2X70",
+    "ts": "1559442064.056400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ec35ac5b251f",
+      "image_72": "https://avatars.slack-edge.com/2018-05-22/369438371830_ec35ac5b251f37e26aca_72.jpg",
+      "first_name": "",
+      "real_name": "Dan Cook",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dcook0819",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "tada",
+        "users": [
+          "UBN9AFS0N",
+          "UJ6LDMMN0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6AD7DE51-F947-46A9-8E97-B710A3F16235",
+    "type": "message",
+    "text": "I _think_ I like the core metaphor of modules and flows, where I think a module is a state mind (studying for a certain class, catching up news, sorting incoming tasks, etc) and a flow is the encoded multi-application set of microtasks that solve some module-level goal. But I sure do hate the term \"module\"!\n\nWith respect to scripting, I like thinking about it as collaboration (<https://www.ianbicking.org/blog/2014/02/collaboration-as-a-skeuomorphism-for-agents.html>). I think it would benefit from an OS-level distinction between staging an action and performing an action: our permission systems usually only let an app/agent/script either perform an action or not do it at all. Having a UX metaphor for staged actions also let's us group and review past actions. ",
+    "user": "UJM9NG84Q",
+    "ts": "1559498371.078000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4791f7f49bc",
+      "image_72": "https://secure.gravatar.com/avatar/74791f7f49bc26afa271eced90cda37c.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Ian Bicking",
+      "display_name": "Ian Bicking",
+      "team": "T5TCAFTA9",
+      "name": "ian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6AD7DE51-F947-46A9-8E97-B710A3F16235",
+    "type": "message",
+    "text": "I _think_ I like the core metaphor of modules and flows, where I think a module is a state mind (studying for a certain class, catching up news, sorting incoming tasks, etc) and a flow is the encoded multi-application set of microtasks that solve some module-level goal. But I sure do hate the term \"module\"!\n\nWith respect to scripting, I like thinking about it as collaboration (<https://www.ianbicking.org/blog/2014/02/collaboration-as-a-skeuomorphism-for-agents.html>). I think it would benefit from an OS-level distinction between staging an action and performing an action: our permission systems usually only let an app/agent/script either perform an action or not do it at all. Having a UX metaphor for staged actions also let's us group and review past actions. ",
+    "user": "UJM9NG84Q",
+    "ts": "1559498371.078000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4791f7f49bc",
+      "image_72": "https://secure.gravatar.com/avatar/74791f7f49bc26afa271eced90cda37c.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Ian Bicking",
+      "display_name": "Ian Bicking",
+      "team": "T5TCAFTA9",
+      "name": "ian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559311244.035000",
+    "parent_user_id": "UJFN50C00",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8bcd8020-edeb-4afd-8d79-960e73a624e2",
+    "type": "message",
+    "text": "<@UC2A2ARPT>: I agree there’s a lot of potential in basing features on recognizing / comparing topography.\nBy “test paths” I mean something like a cross-breed between integration tests and documentation. Take a series of connected nodes, eg. A-&gt;B-&gt;C. In the context of a test “path”, you supply inputs, and match outputs to expectations. But beyond this, you can also attach explanations as to what is happening when data flows through this path. The way I picture this, when you activate a test path, the rest of the graph fades out, and the nodes involved rearrange into a vertical chain; revealing inputs, outputs, and comments / explanations.",
+    "user": "UJVEPCVT6",
+    "ts": "1559505675.081500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6022dfa9d683",
+      "image_72": "https://avatars.slack-edge.com/2019-10-16/785829927155_6022dfa9d683a7413601_72.jpg",
+      "first_name": "Dan",
+      "real_name": "Dan Stocker",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dan346",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8bcd8020-edeb-4afd-8d79-960e73a624e2",
+    "type": "message",
+    "text": "<@UC2A2ARPT>: I agree there’s a lot of potential in basing features on recognizing / comparing topography.\nBy “test paths” I mean something like a cross-breed between integration tests and documentation. Take a series of connected nodes, eg. A-&gt;B-&gt;C. In the context of a test “path”, you supply inputs, and match outputs to expectations. But beyond this, you can also attach explanations as to what is happening when data flows through this path. The way I picture this, when you activate a test path, the rest of the graph fades out, and the nodes involved rearrange into a vertical chain; revealing inputs, outputs, and comments / explanations.",
+    "user": "UJVEPCVT6",
+    "ts": "1559505675.081500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9ae6680c0eb6",
+      "image_72": "https://avatars.slack-edge.com/2022-01-30/3025680183365_9ae6680c0eb63c7a6caa_72.jpg",
+      "first_name": "Dan",
+      "real_name": "Dan Stocker",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dan346",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "987B5B3D-2BF1-4C28-932C-08909210094C",
+    "type": "message",
+    "text": "<@UC2A2ARPT> Another use case for topographic awareness: finding duplicate code.",
+    "user": "UJVEPCVT6",
+    "ts": "1559643171.001900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6022dfa9d683",
+      "image_72": "https://avatars.slack-edge.com/2019-10-16/785829927155_6022dfa9d683a7413601_72.jpg",
+      "first_name": "Dan",
+      "real_name": "Dan Stocker",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dan346",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "987B5B3D-2BF1-4C28-932C-08909210094C",
+    "type": "message",
+    "text": "<@UC2A2ARPT> Another use case for topographic awareness: finding duplicate code.",
+    "user": "UJVEPCVT6",
+    "ts": "1559643171.001900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "9ae6680c0eb6",
+      "image_72": "https://avatars.slack-edge.com/2022-01-30/3025680183365_9ae6680c0eb63c7a6caa_72.jpg",
+      "first_name": "Dan",
+      "real_name": "Dan Stocker",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "dan346",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1559280517.023400",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "clap",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

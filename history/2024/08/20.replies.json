@@ -1,0 +1,379 @@
+[
+  {
+    "user": "U05UK5T7LPP",
+    "type": "message",
+    "ts": "1724179837.624989",
+    "client_msg_id": "a910b637-0791-49b5-aa7d-4df71a84ccd7",
+    "text": "Well, it's clear to me I haven't watched enough of Adam Savage's conversations around prototyping. Thanks for sharing these notes - the crossover between interfaces and media is super fascinating. While it's a bit of a self-fulfilling prophecy, we do get to see what Just Works through these speculative interfaces.\n\nI remember my designers were strongly influenced by Star Trek graphical elements when they gave me a bunch of Figma boards on the week of the deliverable. I remember that the usability gains were not salient to me at that time. And also, being grateful that I didn't have to pen the CSS and the design at the same exact time.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724163685.904969",
+    "parent_user_id": "U5STGTB3J",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ppj5+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Well, it's clear to me I haven't watched enough of Adam Savage's conversations around prototyping. Thanks for sharing these notes - the crossover between interfaces and media is super fascinating. While it's a bit of a self-fulfilling prophecy, we do get to see what Just Works through these speculative interfaces.\n\nI remember my designers were strongly influenced by Star Trek graphical elements when they gave me a bunch of Figma boards on the week of the deliverable. I remember that the usability gains were not salient to me at that time. And also, being grateful that I didn't have to pen the CSS and the design at the same exact time."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1724185891.935759",
+    "client_msg_id": "9615479e-345f-484c-84b8-ff796855f327",
+    "text": "At about 00:25 I see feedback and fan-out (to the gray boxes on the right plus to the feedback loop). Can you comment about that? For example, is there some sort of queuing and propagation delay going on?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+dAhl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "At about 00:25 I see feedback and fan-out (to the gray boxes on the right plus to the feedback loop). Can you comment about that? For example, is there some sort of queuing and propagation delay going on?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1724186789.056469",
+    "client_msg_id": "08570A86-C5BA-4F1D-98B5-1801B39426A4",
+    "text": "There's no queuing but when a node triggers multiple nodes, these run in parallel independently of each other",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0EzXw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's no queuing but when a node triggers multiple nodes, these run in parallel independently of each other"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1724187127.684959",
+    "client_msg_id": "a490bbbd-c25b-42ec-80fe-79c2968a967e",
+    "text": "How is \"run in parallel\" implemented? Do you spawn several threads (using a thread library, for example)? For fan-out, do you make copies of the data for each target node?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9BlpQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How is \"run in parallel\" implemented? Do you spawn several threads (using a thread library, for example)? For fan-out, do you make copies of the data for each target node?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1724220287.964339",
+    "client_msg_id": "53DB276B-6A8D-4AC6-9F88-96B105E8A66D",
+    "text": "Yeah sorry, I should have said \"parallel\". Because of the animation system it only appears that the nodes runs in parallel. The nodes are normal functions that can either run in sync or async when it returns a promise to the flow-engine. When the animation system is disables (by putting the speed slider in the top left at max) , the flow runs normally and nodes have to wait on each other. I probably could use a pool of web workers to improve this",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VGVWY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah sorry, I should have said \"parallel\". Because of the animation system it only appears that the nodes runs in parallel. The nodes are normal functions that can either run in sync or async when it returns a promise to the flow-engine. When the animation system is disables (by putting the speed slider in the top left at max) , the flow runs normally and nodes have to wait on each other. I probably could use a pool of web workers to improve this"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1724223008.953699",
+    "client_msg_id": "5DB9E30D-B7E1-494C-A420-68F8464987F5",
+    "text": "Input send to each node is currently not copied/cloned. The input data is in most cases just a simple string but can be an object or array. And depending on the exact implementation of a node, the input data is passed through or not. In the passed I've build a different system which cloned the input payload to a node and a node could add or change data of that payload and it was passed on. But it was quite heavy on memory. That's why I am trying a different approach in this implementation",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "f8leX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Input send to each node is currently not copied/cloned. The input data is in most cases just a simple string but can be an object or array. And depending on the exact implementation of a node, the input data is passed through or not. In the passed I've build a different system which cloned the input payload to a node and a node could add or change data of that payload and it was passed on. But it was quite heavy on memory. That's why I am trying a different approach in this implementation"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1724236136.426989",
+    "client_msg_id": "d737fed6-abc3-4f51-9241-54278d428e8e",
+    "text": "over on the FBP slack (Flow-Based Programming) someone suggested using copy-on-write instead of copy ; this suggestion lingers in my mind but I haven't tried it yet ; aside: in general I've just stopped worrying about \"efficiency\", machines are so fast today that I don't need to care about implementation details, knowing that whatever I do can be production-engineered later to be a bit faster, \"getting it right\" is my foremost concern",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qusvu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "over on the FBP slack (Flow-Based Programming) someone suggested using copy-on-write instead of copy ; this suggestion lingers in my mind but I haven't tried it yet ; aside: in general I've just stopped worrying about \"efficiency\", machines are so fast today that I don't need to care about implementation details, knowing that whatever I do can be production-engineered later to be a bit faster, \"getting it right\" is my foremost concern"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1724236586.093899",
+    "client_msg_id": "f16a1ad9-f28c-4d92-afe1-8685ee0ad02f",
+    "text": "I'm thinking on \"... either run in sync or async when it returns a promise to the flow-engine. ...\". From my perspective, the goal is to reach into a bowl full of Arduinos and put the code for each rectangle on the diagram onto its own Arduino. It's not clear (by this I mean: I don't know) whether a promise-based approach is realistic ... pondering ... I'd be interested in your thoughts ...",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EaDjY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm thinking on \"... either run in sync or async when it returns a promise to the flow-engine. ...\". From my perspective, the goal is to reach into a bowl full of Arduinos and put the code for each rectangle on the diagram onto its own Arduino. It's not clear (by this I mean: I don't know) whether a promise-based approach is realistic ... pondering ... I'd be interested in your thoughts ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1724236958.707729",
+    "client_msg_id": "996D3B85-FD10-4228-BD02-9A53DD02473A",
+    "text": "My first thought is that in that scenario you always want to return a promise because you're (probably) dealing with hardware communication and want to return from the node when the needed communication is done. In my scenario I used it when a node needs to do fetches for example (the node that initiates the training in the neural network example fetches the mnist dataset).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "srJDZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My first thought is that in that scenario you always want to return a promise because you're (probably) dealing with hardware communication and want to return from the node when the needed communication is done. In my scenario I used it when a node needs to do fetches for example (the node that initiates the training in the neural network example fetches the mnist dataset)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1724237028.099499",
+    "client_msg_id": "1cceb4e1-5f57-491d-a47a-e0a216069e30",
+    "text": "... how do you send a promise across a thin wire from one node to another? ...",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kEGMw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "... how do you send a promise across a thin wire from one node to another? ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1724237130.514899",
+    "client_msg_id": "B3EC230F-C7B8-44E2-B413-DBAED3F2551F",
+    "text": "I meant the internal code implementation of the node. The information that is send over the wire should be serializable to json (in my case at least)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aa6OZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I meant the internal code implementation of the node. The information that is send over the wire should be serializable to json (in my case at least)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1724237438.335859",
+    "client_msg_id": "12f5793b-c67d-4812-8698-1770492dfb93",
+    "text": "Have you thought about what the information sent across a wire needs to be? (I don't mean to derail you, if you haven't thought about it, then there is no need to spend lots of time trying to answer)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WKmhn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Have you thought about what the information sent across a wire needs to be? (I don't mean to derail you, if you haven't thought about it, then there is no need to spend lots of time trying to answer)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U0123H7JRDM",
+    "type": "message",
+    "ts": "1724237665.962249",
+    "client_msg_id": "31E3288E-04BD-452F-9FA0-0D8734D73559",
+    "text": "Currently it varies per node/node port, and I can specify some constraints so that only node-ports that can receive that data can connect to each other. That implementation is still limited and I want to expand on it further in the future",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1724157392.101319",
+    "parent_user_id": "U0123H7JRDM",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "uze6g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Currently it varies per node/node port, and I can specify some constraints so that only node-ports that can receive that data can connect to each other. That implementation is still limited and I want to expand on it further in the future"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  }
+]

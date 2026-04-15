@@ -1,0 +1,3375 @@
+[
+  {
+    "client_msg_id": "2f99aec2-d6f0-4c1e-ba4c-54469f4253f7",
+    "type": "message",
+    "text": "I've been thinking about this kind of plumbing a bit too. I recently wrote an HTTP service with an <https://gist.github.com/EmmanuelOga/8458a500645da511f10ad32fe8084367#sample-code-for-working-with-rdf|API expressed as mostly RPC operations>.\n\nI wanted to add a REPL so I used prompt-toolkit. But then it occurred to me I should also accept the repl commands as command line parameters. I also wanted to be able to trigger these RPC commands from VS Code.\n\nI think the answer is a machine readable spec and code generation. That would assist with:\n• Writing boilerplate server and client code\n• Generating a REPL and CLI parser\n• Calling the API from any other place (like a VS Code plugin!)\nWithout a spec, I would just have to write all these API clients by hand.\n\nsince I'm thinking RDF for this spec, it should be relatively easy to express composability: send the result of executing this command as input of this other command.\n\nMy use case is HTTP but seems like a specific case of IPC\n\nPerhaps I could bypass the REPL altogether by integrating deeply with my shell, providing completions, etc.",
+    "user": "UN9SCH5RD",
+    "ts": "1606360485.136900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UN9SCH5RD",
+      "ts": "1606360529.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "D23",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been thinking about this kind of plumbing a bit too. I recently wrote an HTTP service with an "
+              },
+              {
+                "type": "link",
+                "url": "https://gist.github.com/EmmanuelOga/8458a500645da511f10ad32fe8084367#sample-code-for-working-with-rdf",
+                "text": "API expressed as mostly RPC operations"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nI wanted to add a REPL so I used prompt-toolkit. But then it occurred to me I should also accept the repl commands as command line parameters. I also wanted to be able to trigger these RPC commands from VS Code.\n\nI think the answer is a machine readable spec and code generation. That would assist with:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Writing boilerplate server and client code"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Generating a REPL and CLI parser"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Calling the API from any other place (like a VS Code plugin!)"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWithout a spec, I would just have to write all these API clients by hand.\n\nsince I'm thinking RDF for this spec, it should be relatively easy to express composability: send the result of executing this command as input of this other command.\n\nMy use case is HTTP but seems like a specific case of IPC\n\nPerhaps I could bypass the REPL altogether by integrating deeply with my shell, providing completions, etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "fd69f8e2-ce7a-4764-a912-f6eff62c12bb",
+    "type": "message",
+    "text": "-- the tricky part is sharing binary data, I will probably wan to do it out of band since rdf is not great for binary, but that adds some complexity to the mix",
+    "user": "UN9SCH5RD",
+    "ts": "1606360847.137200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZuuR3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "-- the tricky part is sharing binary data, I will probably wan to do it out of band since rdf is not great for binary, but that adds some complexity to the mix"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "49feb4ab-7217-4247-803f-9b23690df5d3",
+    "type": "message",
+    "text": "It is interesting how they try to make the logic \"tangible\". Like the pad can move if the arrow key is pressed and the pad is not touching the border, and displaying the \"state\" of this logic: i.e. key press or not, touching or not, and moving condition met or not.",
+    "user": "UJ6LDMMN0",
+    "ts": "1606381497.290800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "LId",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "It is interesting how they try to make the logic \"tangible\". Like the pad can move if the arrow key is pressed and the pad is not touching the border, and displaying the \"state\" of this logic: i.e. key press or not, touching or not, and moving condition met or not."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606374792.290500",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "79cb815c-f95c-48db-bcbd-c6ce2f44a2cf",
+    "type": "message",
+    "text": "Never knowing how much of the wisdom of the ancients has been lost, I offer this related material (if you haven't the patience to read Knuth's beautiful program, skip to page 478 to read McIlroy's review): <https://www.cs.tufts.edu/~nr/cs257/archive/don-knuth/pearls-2.pdf>",
+    "user": "U013ZLJARC7",
+    "ts": "1606381850.139000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rEz9p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Never knowing how much of the wisdom of the ancients has been lost, I offer this related material (if you haven't the patience to read Knuth's beautiful program, skip to page 478 to read McIlroy's review): "
+              },
+              {
+                "type": "link",
+                "url": "https://www.cs.tufts.edu/~nr/cs257/archive/don-knuth/pearls-2.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f2ba9591-e540-41b0-8e95-f9925dc64401",
+    "type": "message",
+    "text": "<@UJ6LDMMN0> Yup, this sort of logic as creating a picture world of facts is a realm easily accessible with the power of computers, but we somehow choose to tread the path of linguistic symbols (possibly because it is well treaded and mapped out for its pros and cons).",
+    "user": "UDKTZSD6H",
+    "ts": "1606381855.291000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1606381891.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EY8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJ6LDMMN0"
+              },
+              {
+                "type": "text",
+                "text": " Yup, this sort of logic as creating a picture world of facts is a realm easily accessible with the power of computers, but we somehow choose to tread the path of linguistic symbols (possibly because it is well treaded and mapped out for its pros and cons)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606374792.290500",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9a7270c2-5eb7-46a2-841b-6e2038a83a9a",
+    "type": "message",
+    "text": "Thank you <@U013ZLJARC7> for sharing",
+    "user": "UJFN50C00",
+    "ts": "1606382408.139200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CBp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thank you "
+              },
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": " for sharing"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "feaa4779-137f-4022-9aa5-66320875fca1",
+    "type": "message",
+    "text": "I guess linguistic symbols are kind of easier to manipulate when things become complicated. It is hard to have an expressive visual representation of what is going for complicated logic (i.e. the need for composition/hierarchy comes quickly and this is hard to design well). Here, the logic is very very basic so the visual expressiveness is still here.",
+    "user": "UJ6LDMMN0",
+    "ts": "1606382413.291500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rM/T",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I guess linguistic symbols are kind of easier to manipulate when things become complicated. It is hard to have an expressive visual representation of what is going for complicated logic (i.e. the need for composition/hierarchy comes quickly and this is hard to design well). Here, the logic is very very basic so the visual expressiveness is still here."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606374792.290500",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UD6EXQVM0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "2f5bc15d-941c-4e92-8589-9dcdd20b2ee4",
+    "type": "message",
+    "text": "I think that might be exactly what we do when we manipulate objects in our environment: <https://twitter.com/prathyvsh/status/1323954600060231680> I think there’s a case to be made here that learning linguistic abstractions is the harder choice to learn with a steep learning curve. But it does provides beautiful insights into ideas like compositionality/algebraic manipulations. It helps map the world to an alphabetic discrete thinking and enables exploring an entirely different realm than we are accustomed to visuo-spatially. So the alphabet is indeed a super power but not when it comes at the cost of our other capabilities I think.",
+    "user": "UDKTZSD6H",
+    "ts": "1606383515.291700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1606386818.000000"
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/prathyvsh|@prathyvsh>: This has been something brewing in the back of my mind, but great that it has got explicit expression here. Programs have a counterfactual-supporting causal structure and can provide a causal model of the external world: <https://onlinelibrary.wiley.com/doi/epdf/10.1111/cogs.12062> <https://pbs.twimg.com/media/El-hll6VkAAHQkK.jpg>",
+        "ts": 1604490349,
+        "author_name": "Prathyush",
+        "author_link": "https://twitter.com/prathyvsh/status/1323954600060231680",
+        "author_icon": "https://pbs.twimg.com/profile_images/1157092207075061760/v_xB---l_normal.jpg",
+        "author_subname": "@prathyvsh",
+        "text": "This has been something brewing in the back of my mind, but great that it has got explicit expression here. Programs have a counterfactual-supporting causal structure and can provide a causal model of the external world: <https://onlinelibrary.wiley.com/doi/epdf/10.1111/cogs.12062> <https://pbs.twimg.com/media/El-hll6VkAAHQkK.jpg>",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/prathyvsh/status/1323954600060231680",
+        "image_url": "https://pbs.twimg.com/media/El-hll6VkAAHQkK.jpg",
+        "image_width": 910,
+        "image_height": 536,
+        "image_bytes": 180043,
+        "id": 1,
+        "original_url": "https://twitter.com/prathyvsh/status/1323954600060231680",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "thread_ts": "1606374792.290500",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "6d7f7d5b-885f-42bb-a48d-cff8b3fd93c2",
+    "type": "message",
+    "text": "oh yes, the famed \"knuth v mcilroy\" :stuck_out_tongue:",
+    "user": "UN9SCH5RD",
+    "ts": "1606384342.139400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tuoi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "oh yes, the famed \"knuth v mcilroy\" "
+              },
+              {
+                "type": "emoji",
+                "name": "stuck_out_tongue"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6CE2BC14-8E37-4B79-ABAB-02048A719375",
+    "type": "message",
+    "text": "Maybe companies producing their own silicon will also one day include the language-independent, optimal \"higher-order command set\" that simply, physically can't be improved upon - just used by everything - (I imagine Apple will do this atop their Apple Silicon GPU instruction set - but also from top-down, as their OS is iterated towards maximal use of their chips - some unequivocally optimized libraries should fall out)",
+    "user": "USH01JEDQ",
+    "ts": "1606409837.150900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0c975eeefb0",
+      "image_72": "https://secure.gravatar.com/avatar/0c975eeefb0d9484d0ccce64bbd16e85.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "Christopher",
+      "real_name": "Christopher Galtenberg",
+      "display_name": "Chris G",
+      "team": "T5TCAFTA9",
+      "name": "galtenberg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Y1KjF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Maybe companies producing their own silicon will also one day include the language-independent, optimal \"higher-order command set\" that simply, physically can't be improved upon - just used by everything - (I imagine Apple will do this atop their Apple Silicon GPU instruction set - but also from top-down, as their OS is iterated towards maximal use of their chips - some unequivocally optimized libraries should fall out)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "eaa962cd-418f-40f9-aeb1-9c04315963ca",
+    "type": "message",
+    "text": "<@USJD6240L> sounds a lot like protobuf as an OS interface.\n\nI strongly agree that starting with procedures and exposing them via user friendly interfaces like repls is the right direction.",
+    "user": "U016VUZGUUQ",
+    "ts": "1606428649.151500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "D6/l",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "USJD6240L"
+              },
+              {
+                "type": "text",
+                "text": " sounds a lot like protobuf as an OS interface.\n\nI strongly agree that starting with procedures and exposing them via user friendly interfaces like repls is the right direction."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bbdb2c12-f5e9-434f-80fb-7d49723365f4",
+    "type": "message",
+    "text": "I've had contact with the fellow who created this demo. Story here: <https://futureofcoding.slack.com/archives/C5T9GPWFL/p1595434370130900?thread_ts=1595419573.125100&amp;cid=C5T9GPWFL>",
+    "user": "UC2A2ARPT",
+    "ts": "1606431427.292900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1606431431.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "csax",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've had contact with the fellow who created this demo. Story here: "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5T9GPWFL/p1595434370130900?thread_ts=1595419573.125100&cid=C5T9GPWFL"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606374792.290500",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "850a3d32-9be5-4441-b417-3b549dd3cebf",
+    "type": "message",
+    "text": "proto is close  but a lot more strict, I like open formats like JSON or RDF because you can add things and pass them trough so is more composable",
+    "user": "UN9SCH5RD",
+    "ts": "1606435197.151700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SgS5a",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "proto is close  but a lot more strict, I like open formats like JSON or RDF because you can add things and pass them trough so is more composable"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "02e76a1b-8dbc-4b76-883c-7e3755351138",
+    "type": "message",
+    "text": "for all nice things people say about the wisdom of unix there's little talk about the ugly parts. Plain text as an interface between programs is awful, because every program can output whatever, usually the glue is parsing line by line using regular expressions. Even something as simple as numbers can come in a number of formats. Not to speak of so called \"comma separated values\", which may use comma, semicolons tabs of fixed width, etc... often times without a spec or documentation",
+    "user": "UN9SCH5RD",
+    "ts": "1606435347.151900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KBZ=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "for all nice things people say about the wisdom of unix there's little talk about the ugly parts. Plain text as an interface between programs is awful, because every program can output whatever, usually the glue is parsing line by line using regular expressions. Even something as simple as numbers can come in a number of formats. Not to speak of so called \"comma separated values\", which may use comma, semicolons tabs of fixed width, etc... often times without a spec or documentation"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UA14TGLTC",
+          "U8A5MS6R1"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c238c05b-37ad-4c3c-bc1f-0a706165089c",
+    "type": "message",
+    "text": "if unix has “small programs, each doing one thing well”, why are the man pages 20 pages long? Can you imagine having *one function* which takes 200 parameters? No type checking, mind you, you just need to provide the right parameters *in the correct order* (`find`, i'm looking at you)",
+    "user": "UN9SCH5RD",
+    "ts": "1606435431.152100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BSMd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "if unix has “small programs, each doing one thing well”, why are the man pages 20 pages long? Can you imagine having "
+              },
+              {
+                "type": "text",
+                "text": "one function",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " which takes 200 parameters? No type checking, mind you, you just need to provide the right parameters "
+              },
+              {
+                "type": "text",
+                "text": "in the correct order",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " ("
+              },
+              {
+                "type": "text",
+                "text": "find",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", i'm looking at you)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "959fc5a7-cde0-494f-b78f-56edf7be3415",
+    "type": "message",
+    "text": "`powershell` went in the right direction but after trying really hard to like it, I still don't feel like it has very good ergonomics",
+    "user": "UN9SCH5RD",
+    "ts": "1606435504.152300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fNZ2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "powershell",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " went in the right direction but after trying really hard to like it, I still don't feel like it has very good ergonomics"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "be715146-acf8-4eda-a135-13c189166fc4",
+    "type": "message",
+    "text": "There's a fable about a historian who distilled a comprehensive history down to three sentences: _\"People were born. They lived. They died.\"_ If I had to do a similar distillation for programming, it might be: _\"People tried to solve problems. The problems turned out to be more difficult than expected. People came slowly to terms with how difficult they were.\"_\n\nHere's Maurice Wilkes:\n\n&gt; I can remember the exact instant when I realized that a large part of my life from then on was going to be spent [doing this].\nI've been grinding my wheels for the past week because I've been reading about how to print floating-point numbers in decimal. Absurdly, ridiculously difficult as it is, the time has gone less in figuring out how to do it and more in coming to terms with the irreducible difficulty of it. No, this shortcut doesn't work. No, we can't avoid bignum support. And on and on. No, reading this one more research paper isn't going to make the problem magically simpler.\n\nOP seems similar. Yes, it's actually not that hard to reuse code between shell scripts and standard libraries. All you have to do is specify for every function call:\n* Where to look for the function. (Is it a source file? A dynamic library somewhere in the path? A database? A registry somewhere online?)\n* How to look for the function in that source. (An address in RAM? A mangled name? A URL? A file handle?)\n* Where to look for each input, and how to look for it. (An address in RAM? A file handle to load lines asynchronously from? How to unmarshall?)\n* Where the computation must run. (Same process? A new child sharing nothing? A threadpool? A coroutine? Some computer on the internet?)\n* Where to send each output. (To a register? Memory location? In-memory FIFO? File system? Database table? API endpoint on some server on the internet?)\n\nGiven the infinite detail of reality (<http://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail>), each of these questions can be answered with arbitrary, Turing-complete code. Still, totally doable. You just have to be willing to be verbose. At every single call site.\n\nNo? Well, if you aren't willing to be verbose, by Shannon's law of entropy you have to trade off flexibility for concision. Live within the life-boat of a shell script, and it will impose the standard policy called, \"`execve()` all the things\". Live within the life-boat of a single language, and it will impose the standard policy called, \"push args on the stack and call.\" Or something like that.\n\nIt's certainly possible to explore other points on this spectrum. For example it might be quite ergonomic to unbundle an OS to the point that any synchronous function call `foo()` forks a process in an isolated address space and receives its inputs asynchronously over a channel simply by calling it as `foo!()` (or `spawn`, or `go`, in a maze of subtle differences in semantics). But it seems clear you have to accept a limited menu of choices. Languages that share this menu can interoperate. Languages that make distinct choices will have to \"be told again.\" Regardless of what you choose, I submit that having to specify the algorithm again is not that big a deal next to these problems of namespace management, mutable stores and marshalling/unmarshalling. Computation is always the easiest part of any non-trivial program.\n\nInteresting question. It's clearly one Louis Pouzin grappled with, and I see a day later that I've dealt with it multiple times in myriad guises. It's a question my brain is designed to keep butting heads against every so often.",
+    "user": "UCUSW7WVD",
+    "ts": "1606444940.153300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1606453526.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4w3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's a fable about a historian who distilled a comprehensive history down to three sentences: "
+              },
+              {
+                "type": "text",
+                "text": "\"People were born. They lived. They died.\"",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " If I had to do a similar distillation for programming, it might be: "
+              },
+              {
+                "type": "text",
+                "text": "\"People tried to solve problems. The problems turned out to be more difficult than expected. People came slowly to terms with how difficult they were.\"",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n\nHere's Maurice Wilkes:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I can remember the exact instant when I realized that a large part of my life from then on was going to be spent [doing this]."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been grinding my wheels for the past week because I've been reading about how to print floating-point numbers in decimal. Absurdly, ridiculously difficult as it is, the time has gone less in figuring out how to do it and more in coming to terms with the irreducible difficulty of it. No, this shortcut doesn't work. No, we can't avoid bignum support. And on and on. No, reading this one more research paper isn't going to make the problem magically simpler.\n\nOP seems similar. Yes, it's actually not that hard to reuse code between shell scripts and standard libraries. All you have to do is specify for every function call:\n* Where to look for the function. (Is it a source file? A dynamic library somewhere in the path? A database? A registry somewhere online?)\n* How to look for the function in that source. (An address in RAM? A mangled name? A URL? A file handle?)\n* Where to look for each input, and how to look for it. (An address in RAM? A file handle to load lines asynchronously from? How to unmarshall?)\n* Where the computation must run. (Same process? A new child sharing nothing? A threadpool? A coroutine? Some computer on the internet?)\n* Where to send each output. (To a register? Memory location? In-memory FIFO? File system? Database table? API endpoint on some server on the internet?)\n\nGiven the infinite detail of reality ("
+              },
+              {
+                "type": "link",
+                "url": "http://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail"
+              },
+              {
+                "type": "text",
+                "text": "), each of these questions can be answered with arbitrary, Turing-complete code. Still, totally doable. You just have to be willing to be verbose. At every single call site.\n\nNo? Well, if you aren't willing to be verbose, by Shannon's law of entropy you have to trade off flexibility for concision. Live within the life-boat of a shell script, and it will impose the standard policy called, \""
+              },
+              {
+                "type": "text",
+                "text": "execve()",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " all the things\". Live within the life-boat of a single language, and it will impose the standard policy called, \"push args on the stack and call.\" Or something like that.\n\nIt's certainly possible to explore other points on this spectrum. For example it might be quite ergonomic to unbundle an OS to the point that any synchronous function call "
+              },
+              {
+                "type": "text",
+                "text": "foo()",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " forks a process in an isolated address space and receives its inputs asynchronously over a channel simply by calling it as "
+              },
+              {
+                "type": "text",
+                "text": "foo!()",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (or "
+              },
+              {
+                "type": "text",
+                "text": "spawn",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", or "
+              },
+              {
+                "type": "text",
+                "text": "go",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", in a maze of subtle differences in semantics). But it seems clear you have to accept a limited menu of choices. Languages that share this menu can interoperate. Languages that make distinct choices will have to \"be told again.\" Regardless of what you choose, I submit that having to specify the algorithm again is not that big a deal next to these problems of namespace management, mutable stores and marshalling/unmarshalling. Computation is always the easiest part of any non-trivial program.\n\nInteresting question. It's clearly one Louis Pouzin grappled with, and I see a day later that I've dealt with it multiple times in myriad guises. It's a question my brain is designed to keep butting heads against every so often."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UFEQUBNNT"
+        ],
+        "count": 1
+      },
+      {
+        "name": "100",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "0640e1d1-ccc1-4890-9c6d-ce219cb4b05e",
+    "type": "message",
+    "text": "Not \"difficult\" so much as \"fiddly\" where often you need to handle the fiddly bit (names, dates, addresses, Pythagorean commas) rather iron it out — presuming you can iron it out at all.",
+    "user": "UA14TGLTC",
+    "ts": "1606446003.153500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xjaL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Not \"difficult\" so much as \"fiddly\" where often you need to handle the fiddly bit (names, dates, addresses, Pythagorean commas) rather iron it out — presuming you can iron it out at all."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "205aa754-eb19-45a8-bfbf-a98a7104ee73",
+    "type": "message",
+    "text": "Part of what we have to come to terms with is what we think of as \"honorably difficult\" vs \"unfair fiddly bits\".\n\n\"What, do you really expect me to think about that? What am I, a farmer?\"\n\"No, Mr. Baldwin, I expect you to die.\"",
+    "user": "UCUSW7WVD",
+    "ts": "1606446481.153700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ied",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Part of what we have to come to terms with is what we think of as \"honorably difficult\" vs \"unfair fiddly bits\".\n\n\"What, do you really expect me to think about that? What am I, a farmer?\"\n\"No, Mr. Baldwin, I expect you to die.\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cfdb53c1-1ddc-4716-a90e-73d6928bc6fa",
+    "type": "message",
+    "text": "that's a great observation Kartik, it is true that \"plumbing programs together\" has some irreducible complexity, but I think the premise of a lot of projects in here (FoC) is that we can do better. I feel like many times though we fantasize sci-fi like solutions involving A.I., advanced GUIs and what not when we could be taking smaller incremental steps to a more ergonomic computing system",
+    "user": "UN9SCH5RD",
+    "ts": "1606446538.153900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "e4U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "that's a great observation Kartik, it is true that \"plumbing programs together\" has some irreducible complexity, but I think the premise of a lot of projects in here (FoC) is that we can do better. I feel like many times though we fantasize sci-fi like solutions involving A.I., advanced GUIs and what not when we could be taking smaller incremental steps to a more ergonomic computing system"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ba908f79-0215-4d4e-8192-90674163d22b",
+    "type": "message",
+    "text": "I'm not as visionary as others ... I feel like shells could work closer to IDEs, with inline documentation, autocompletion and solid language oriented tools, it doesn't feel like scifi, it feels doable. I feel like current shells are a bit hacky in this regard. Say, Bash completions are like the crappy version of real grammar and type analysis to produce completions that you would get in a normal IDE. We could start sending JSON at least, the least common denominator, to our standard outputs, instead of plain text (then we can start thinking how to add encodings for things like dates and bignums...). The small overhead is probably worth all the benefits.",
+    "user": "UN9SCH5RD",
+    "ts": "1606446806.154100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Mj2Fa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm not as visionary as others ... I feel like shells could work closer to IDEs, with inline documentation, autocompletion and solid language oriented tools, it doesn't feel like scifi, it feels doable. I feel like current shells are a bit hacky in this regard. Say, Bash completions are like the crappy version of real grammar and type analysis to produce completions that you would get in a normal IDE. We could start sending JSON at least, the least common denominator, to our standard outputs, instead of plain text (then we can start thinking how to add encodings for things like dates and bignums...). The small overhead is probably worth all the benefits."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "069c6844-9ffd-4420-9583-8225330ef3bb",
+    "type": "message",
+    "text": "Current shells seem all kinds of hacking.  I've been typing at this shell for twenty years, and I still don't know it's basic syntax.  For all the programming languages I know, never seemed much point in learning the rhyme and reason to the shell as there seems to be little to none.",
+    "user": "UA14TGLTC",
+    "ts": "1606446875.154300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UA14TGLTC",
+      "ts": "1606446972.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "un2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Current shells seem all kinds of hacking.  I've been typing at this shell for twenty years, and I still don't know it's basic syntax.  For all the programming languages I know, never seemed much point in learning the rhyme and reason to the shell as there seems to be little to none."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b54e0c19-2226-41b8-a1de-a5105823c0d6",
+    "type": "message",
+    "text": "For sure. I think my comment was a long-winded way of saying, \"don't expect to support a large plethora of languages and runtimes.\" If you want it to cleanly interoperate and not be hacky, you have to be modernist about it and control diversity.",
+    "user": "UCUSW7WVD",
+    "ts": "1606447004.154600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1606452948.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Sxg/K",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "For sure. I think my comment was a long-winded way of saying, \"don't expect to support a large plethora of languages and runtimes.\" If you want it to cleanly interoperate and not be hacky, you have to be modernist about it and control diversity."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "D1BDAD4E-70C8-4F26-8873-2712A33CEA45",
+    "type": "message",
+    "text": "I see Hest in the same fresh direction where you move away from text streams and go for interactive structures of computation (that is not the blocks / tofu noodles model). It’s pretty exciting to see novel paradigms explored!",
+    "user": "UDKTZSD6H",
+    "ts": "1606450305.297000",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1606450332.000000"
+    },
+    "thread_ts": "1606374792.290500",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "D1BDAD4E-70C8-4F26-8873-2712A33CEA45",
+    "type": "message",
+    "text": "I see Hest in the same fresh direction where you move away from text streams and go for interactive structures of computation (that is not the blocks / tofu noodles model). It’s pretty exciting to see novel paradigms explored!",
+    "user": "UDKTZSD6H",
+    "ts": "1606450305.297000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UDKTZSD6H",
+      "ts": "1606450332.000000"
+    },
+    "thread_ts": "1606374792.290500",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "34e0511a-9ce6-4632-9c59-25a8ab70716f",
+    "type": "message",
+    "text": "<@UN9SCH5RD> \"for all nice things people say about the wisdom of unix there's little talk about the ugly parts\"\nIt's not like we haven't been talking about this for decades: <http://doc.cat-v.org/bell_labs/structural_regexps/se.pdf>\n\nJust yesterday: <https://twitter.com/jackrusher/status/1331901111620481025>",
+    "user": "U013ZLJARC7",
+    "ts": "1606464254.155100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U013ZLJARC7",
+      "ts": "1606464325.000000"
+    },
+    "attachments": [
+      {
+        "fallback": "<https://twitter.com/jackrusher|@jackrusher>: <https://twitter.com/plexus|@plexus> I'm sad so many better things that came before the web were ignored during the development of those standards. The tragedy of Unix is the inverse: it was just good enough to block the better things that came after (e.g. Plan9).:man-shrugging::skin-tone-2:",
+        "ts": 1606384945,
+        "author_name": "⸘Jack Rusher‽",
+        "author_link": "https://twitter.com/jackrusher/status/1331901111620481025",
+        "author_icon": "https://pbs.twimg.com/profile_images/931507447088500736/j50JPYN5_normal.jpg",
+        "author_subname": "@jackrusher",
+        "text": "<https://twitter.com/plexus|@plexus> I'm sad so many better things that came before the web were ignored during the development of those standards. The tragedy of Unix is the inverse: it was just good enough to block the better things that came after (e.g. Plan9).:man-shrugging::skin-tone-2:",
+        "service_name": "twitter",
+        "service_url": "https://twitter.com/",
+        "from_url": "https://twitter.com/jackrusher/status/1331901111620481025",
+        "id": 1,
+        "original_url": "https://twitter.com/jackrusher/status/1331901111620481025",
+        "footer": "Twitter",
+        "footer_icon": "https://a.slack-edge.com/80588/img/services/twitter_pixel_snapped_32.png"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "PAjy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UN9SCH5RD"
+              },
+              {
+                "type": "text",
+                "text": " \"for all nice things people say about the wisdom of unix there's little talk about the ugly parts\"\nIt's not like we haven't been talking about this for decades: "
+              },
+              {
+                "type": "link",
+                "url": "http://doc.cat-v.org/bell_labs/structural_regexps/se.pdf"
+              },
+              {
+                "type": "text",
+                "text": "\n\nJust yesterday: "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/jackrusher/status/1331901111620481025"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U8A5MS6R1"
+        ],
+        "count": 1
+      },
+      {
+        "name": "+1",
+        "users": [
+          "UN9SCH5RD",
+          "UA14TGLTC"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3543cf28-0f49-4571-aa8a-5ce411961ee5",
+    "type": "message",
+    "text": "Its almost as if history moves forward as a kind of dialectic and unix was a thesis and smalltalk (maybe) was an anti-thesis and now we wait for synthesis which create something with best of both worlds. Its just taking so long",
+    "user": "UJFN50C00",
+    "ts": "1606467048.155500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e35958b94f07",
+      "image_72": "https://avatars.slack-edge.com/2019-05-06/616300651267_e35958b94f07da17cf17_72.png",
+      "first_name": "Andreas",
+      "real_name": "Andreas S.",
+      "display_name": "curious_reader",
+      "team": "T5TCAFTA9",
+      "name": "andreas.scheinert",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/xXC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Its almost as if history moves forward as a kind of dialectic and unix was a thesis and smalltalk (maybe) was an anti-thesis and now we wait for synthesis which create something with best of both worlds. Its just taking so long"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3be27a48-dda7-4b54-8ced-55e178fb8196",
+    "type": "message",
+    "text": "&gt; I feel like shells could work closer to IDEs, with inline documentation, autocompletion and solid language oriented tools, it doesn't feel like scifi, it feels doable.\n<@UN9SCH5RD> - have you looked into the Genera Lisp Machines? It comes very close to what you are describing. Each \"function\" is available at the \"shell\" (they call it something else, I think \"listener\"?). When you invoke a function from the listener, it does have autocomplete. E.g. if it accepts a file, all the filenames on the screen will \"light up\" and become clickable. This works because fundamentally it is not dumping streams of text on a tty, but _attaching presentation objects on the screen_ - so each visible presentation is linked to the backing object and its type is available to the system. There are some details in this short demo: <https://www.youtube.com/watch?v=o4-YnLpLgtk>.\n\nYou can also introspect and jump to source from the listener. I linked to a twitter thread about some more features: <https://twitter.com/chatur_shalabh/status/1213740969201262593>. Also check out <http://lispm.de/genera-concepts> (section \"Data Level Integration\")",
+    "user": "U8A5MS6R1",
+    "ts": "1606474471.156100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U8A5MS6R1",
+      "ts": "1606474490.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zqh7",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I feel like shells could work closer to IDEs, with inline documentation, autocompletion and solid language oriented tools, it doesn't feel like scifi, it feels doable."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UN9SCH5RD"
+              },
+              {
+                "type": "text",
+                "text": " - have you looked into the Genera Lisp Machines? It comes very close to what you are describing. Each \"function\" is available at the \"shell\" (they call it something else, I think \"listener\"?). When you invoke a function from the listener, it does have autocomplete. E.g. if it accepts a file, all the filenames on the screen will \"light up\" and become clickable. This works because fundamentally it is not dumping streams of text on a tty, but "
+              },
+              {
+                "type": "text",
+                "text": "attaching presentation objects on the screen",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " - so each visible presentation is linked to the backing object and its type is available to the system. There are some details in this short demo: "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=o4-YnLpLgtk"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nYou can also introspect and jump to source from the listener. I linked to a twitter thread about some more features: "
+              },
+              {
+                "type": "link",
+                "url": "https://twitter.com/chatur_shalabh/status/1213740969201262593"
+              },
+              {
+                "type": "text",
+                "text": ". Also check out "
+              },
+              {
+                "type": "link",
+                "url": "http://lispm.de/genera-concepts"
+              },
+              {
+                "type": "text",
+                "text": " (section \"Data Level Integration\")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UN9SCH5RD",
+          "UMVFWPZ36",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      },
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d7becfd5-0c83-4563-9df5-c8a20ab21421",
+    "type": "message",
+    "text": "&gt;  for all nice things people say about the wisdom of unix\nSome say fewer nice things than others :wink:.\n\nI'm starting to think the primary purpose of an OS is providing _composition models_ which subsumes the abstract objects they provide. E.g. the Unix models are the C ABI, bytestream pipes, command shells and the rest are built on top of these. The concepts of processes and files sort of live within these models.",
+    "user": "U8A5MS6R1",
+    "ts": "1606475174.156800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "k8uH",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " for all nice things people say about the wisdom of unix"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some say fewer nice things than others "
+              },
+              {
+                "type": "emoji",
+                "name": "wink"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nI'm starting to think the primary purpose of an OS is providing "
+              },
+              {
+                "type": "text",
+                "text": "composition models",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " which subsumes the abstract objects they provide. E.g. the Unix models are the C ABI, bytestream pipes, command shells and the rest are built on top of these. The concepts of processes and files sort of live within these models."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UFEQUBNNT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b37f9392-8245-4bf4-bddc-3ca1622e64ee",
+    "type": "message",
+    "text": "haven't seen the lisp machines demo before, really cool",
+    "user": "UN9SCH5RD",
+    "ts": "1606475727.157200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YNOWa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "haven't seen the lisp machines demo before, really cool"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d670c3f7-ae74-465d-a8e2-ec56724e7fa9",
+    "type": "message",
+    "text": "<@U8A5MS6R1> An example of a less nice thing :joy_cat:\n&gt; _“I liken starting one’s computing career with Unix, say as an under- graduate, to being born in East Africa. It is intolerably hot, your body is covered with lice and flies, you are malnourished and you suffer from numerous curable diseases. But, as far as young East Africans can tell, this is simply the natural condition and they live within it. By the time they find out differently, it is too late. They already think that the writing of shell scripts is a natural act.”_\n&gt; — Ken Pier, Xerox PARC\n(taken, of course, from *The UNIX- HATERS Handbook* <https://en.wikipedia.org/wiki/The_UNIX-HATERS_Handbook|wiki>, <http://web.mit.edu/~simsong/www/ugh.pdf|pdf>)",
+    "user": "U013ZLJARC7",
+    "ts": "1606485554.157500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf4ae9e5b293",
+      "image_72": "https://secure.gravatar.com/avatar/f4ae9e5b29386489b18b3bc6b1f41a22.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0024-72.png",
+      "first_name": "",
+      "real_name": "Jack Rusher",
+      "display_name": "Jack Rusher",
+      "team": "T5TCAFTA9",
+      "name": "jack529",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nAU5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U8A5MS6R1"
+              },
+              {
+                "type": "text",
+                "text": " An example of a less nice thing "
+              },
+              {
+                "type": "emoji",
+                "name": "joy_cat"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "“I liken starting one’s computing career with Unix, say as an under- graduate, to being born in East Africa. It is intolerably hot, your body is covered with lice and flies, you are malnourished and you suffer from numerous curable diseases. But, as far as young East Africans can tell, this is simply the natural condition and they live within it. By the time they find out differently, it is too late. They already think that the writing of shell scripts is a natural act.”",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n— Ken Pier, Xerox PARC"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(taken, of course, from "
+              },
+              {
+                "type": "text",
+                "text": "The UNIX- HATERS Handbook",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/The_UNIX-HATERS_Handbook",
+                "text": "wiki"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "link",
+                "url": "http://web.mit.edu/~simsong/www/ugh.pdf",
+                "text": "pdf"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      },
+      {
+        "name": "grin",
+        "users": [
+          "UN9SCH5RD",
+          "UMVFWPZ36",
+          "UJBAJNFLK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "70039BA6-4B3E-47CB-8B6F-13D2101D0939",
+    "type": "message",
+    "text": "infra is another stab at this problem <http://www.infra-structure.org/specification.html|http://www.infra-structure.org/specification.html>",
+    "user": "UHWC9PXBL",
+    "ts": "1606492223.157900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zuNe",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "infra is another stab at this problem "
+              },
+              {
+                "type": "link",
+                "url": "http://www.infra-structure.org/specification.html",
+                "text": "http://www.infra-structure.org/specification.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4389BAC6-8854-461B-AA7C-77EBD31A351A",
+    "type": "message",
+    "text": "Interesting, also incomplete and already abandoned? (Is the Working Group active?)",
+    "user": "USH01JEDQ",
+    "ts": "1606495030.158700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0c975eeefb0",
+      "image_72": "https://secure.gravatar.com/avatar/0c975eeefb0d9484d0ccce64bbd16e85.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+      "first_name": "Christopher",
+      "real_name": "Christopher Galtenberg",
+      "display_name": "Chris G",
+      "team": "T5TCAFTA9",
+      "name": "galtenberg",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "USH01JEDQ",
+      "ts": "1606495084.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wLzT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Interesting, also incomplete and already abandoned? (Is the Working Group active?)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "01cda609-896f-4c4b-9040-6677ef109a7c",
+    "type": "message",
+    "text": "\"There is a long and sordid history of numerous attempts to bridge composition barriers: CORBA, COM, D-Bus, XML-RPC, SOAP, Protocol Buffers, JSON, the list goes on.\" We only need 1 more: Tree/2-D Notation  :)",
+    "user": "UMVFWPZ36",
+    "ts": "1606514948.159500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "cbd558604a21",
+      "image_72": "https://avatars.slack-edge.com/2021-03-22/1871363334903_cbd558604a21b23211c3_72.png",
+      "first_name": "",
+      "real_name": "Breck Yunits",
+      "display_name": "Breck Yunits",
+      "team": "T5TCAFTA9",
+      "name": "breck7",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zSg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"There is a long and sordid history of numerous attempts to bridge composition barriers: CORBA, COM, D-Bus, XML-RPC, SOAP, Protocol Buffers, JSON, the list goes on.\" We only need 1 more: Tree/2-D Notation  :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "scream",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "73f40f3f-4f1b-44a3-a996-928838e48e39",
+    "type": "message",
+    "text": "another one: <https://concise-encoding.org/>",
+    "user": "UN9SCH5RD",
+    "ts": "1606516076.159800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Concise Encoding",
+        "title_link": "https://concise-encoding.org/",
+        "text": "The friendly data format for human and machine. Think JSON, but with 1:1 compatible twin binary and text formats, and rich type support.",
+        "fallback": "Concise Encoding",
+        "from_url": "https://concise-encoding.org/",
+        "service_name": "concise-encoding.org",
+        "id": 1,
+        "original_url": "https://concise-encoding.org/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "u3kRn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "another one: "
+              },
+              {
+                "type": "link",
+                "url": "https://concise-encoding.org/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      },
+      {
+        "name": "clap",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ce4bd633-b698-4a4f-93f4-e563b0c01115",
+    "type": "message",
+    "text": "I think this is a bit of an spinoff this thread (serialization/IDL languages), but there was an interesting <https://news.ycombinator.com/item?id=24994304|thread going on on HN recently>.\n\nTwo type definition languages presented something that I did not think about before when dealing with IDL:\n• the concept of *equality* (preserves: \"two Values are equal if neither is less than the other according to the total order.\")\n• a design that ensures that `serialized . deserialize = id`, which may seem obvious but in fact is not trivial.\nI guess there's a reason unix people went with plaintext, they were basically kicking the problem to someone else to deal with (\"do the simplest thing that works\" and such).",
+    "user": "UN9SCH5RD",
+    "ts": "1606516816.160100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "T=j",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think this is a bit of an spinoff this thread (serialization/IDL languages), but there was an interesting "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=24994304",
+                "text": "thread going on on HN recently"
+              },
+              {
+                "type": "text",
+                "text": ".\n\nTwo type definition languages presented something that I did not think about before when dealing with IDL:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "the concept of "
+                  },
+                  {
+                    "type": "text",
+                    "text": "equality ",
+                    "style": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "(preserves: \"two Values are equal if neither is less than the other according to the total order.\")"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "a design that ensures that "
+                  },
+                  {
+                    "type": "text",
+                    "text": "serialized . deserialize = id",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ", which may seem obvious but in fact is not trivial."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI guess there's a reason unix people went with plaintext, they were basically kicking the problem to someone else to deal with (\"do the simplest thing that works\" and such)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UMVFWPZ36"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "25ff600e-8d7b-4d1b-a226-9d885f1afd11",
+    "type": "message",
+    "text": "I used to collect names of serialization formats (only reluctantly including RPC protocols, because I was young and didn't yet know true suffering*). So I have this urge to add all these links to my list, but also can't really get excited about them. After a while they all look the same.\n\nI think the rpc protocol that makes a difference will have to be one that makes it easy, or at least feasible, to bridge all these other formats, including the mucky legacy wire protocols. A couple other people here have expressed similar ideas.\n\nI do like the idea that the OSs job is to allow composing heterogeneous components. I think that fits in with the interop idea above.\n\n* Probably still true, honestly.",
+    "user": "U016VUZGUUQ",
+    "ts": "1606522068.161000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NVf5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I used to collect names of serialization formats (only reluctantly including RPC protocols, because I was young and didn't yet know true suffering*). So I have this urge to add all these links to my list, but also can't really get excited about them. After a while they all look the same.\n\nI think the rpc protocol that makes a difference will have to be one that makes it easy, or at least feasible, to bridge all these other formats, including the mucky legacy wire protocols. A couple other people here have expressed similar ideas.\n\nI do like the idea that the OSs job is to allow composing heterogeneous components. I think that fits in with the interop idea above.\n\n* Probably still true, honestly."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "grin",
+        "users": [
+          "UN9SCH5RD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "E6546697-C262-42BF-80E5-D5C55CA5D10C",
+    "type": "message",
+    "text": "infra includes a few interesting properties: a “patch” datatype, which represents references to other infra data as well as immutable changes, using the same format as the rest of the data, and an editor that lets you make changes to data with mouse and keyboard and then outputs the changed data with a record in the form of patches",
+    "user": "UHWC9PXBL",
+    "ts": "1606586289.165500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2Ofx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "infra includes a few interesting properties: a “patch” datatype, which represents references to other infra data as well as immutable changes, using the same format as the rest of the data, and an editor that lets you make changes to data with mouse and keyboard and then outputs the changed data with a record in the form of patches"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "c09fbad6-8319-428f-827d-b7a02415daf6",
+    "type": "message",
+    "text": "In this comment I present a counterpoint to what I think <@UCUSW7WVD> is saying here:\n&gt;  Yes, it's actually not that hard to reuse code between shell scripts and standard libraries. All you have to do is specify for every function call:\n&gt; _&lt;snipped a long list of mechanism details pertaining to function invocation&gt;_\nhere:\n&gt;  Shannon's law of entropy you have to trade off flexibility for concision\nand here:\n&gt; _\"People tried to solve problems. The problems turned out to be more difficult than expected. People came slowly to terms with how difficult they were.\"_\nFunnily I kind of agree with Kartik but only while we stick to the current models of abstraction.\n\nI'm going to use the following analogy to describe how I think about this. Imagine we are all \"electronics people\" making circuit boards with LEDs, batteries, wires, switches etc. We send signals around encoded as voltage-on-wire or even FM. Note that voltage-on-wire serves a higher purpose (e.g. a specific voltage on a line may represent the \"turn this light on\" signal). We create  wired-ports/FM transmitters/recievers to hook up multiple such gizmos together. Unfortunately we all use different conventions for _how_ the voltage levels or FM bands correspond to the the signals we share. So most of our integration work is spent building adapters - the simple ones might just step up/down the voltage. The complex ones may receive a signal encoded as FM and re-encode the same signal as voltage-on-wire, or even re-transmit it on another FM band. There's nothing wrong with this because _this is reality_.\n\nOTOH, we can also think of making things better, or even doing something  _different_. Here, and this is key, I think there are two broad paths:\n\n1. Standardize. If everyone uses 5V and the same FM band and the same \"encoding\" of the shared signals, we can more easily plug things with each other. _We're still electronics people, doing mostly the same thing,_ but better and easier.\n2. A new level of abstraction. Say we completely stop thinking about voltages and think in a new level of abstraction called \"bytes\". This is the idea of software. I'd say we're now doing a fundamentally different thing - _we now are \"software people\" and no longer electronics people_ - because we are absolved of concerns about voltages and such things. The voltage didn't disappear, but don't matter directly to us. In fact many different physical contraptions may use very different physical mechanisms to represent the same bytes, but from our abstraction level, we still think of those disparate systems through a unified model of \"bytes\".\nNow the next chapter.. bytes are themselves problematic in ways that resemble voltage and FM band mismatches. The thing is bytes are used to represent \"higher purpose\" signals and messages that we send around - so encoding matters, again. The first approach is \"standardize the encodings\". This is very popular (cue this history of byte formats). But is there a second approach which would _make bytes irrelevant_ _to us_? What are the new concepts we would think and design in? We may end up with many different byte level encodings for the same messages we send around but we will have a new unified model of design across all of them. We will no longer be \"bytes people\", so what will we be? (BTW, eventually we could forego bytes completely in some cases and map directly to voltage or other physical representations.)",
+    "user": "U8A5MS6R1",
+    "ts": "1606594264.166300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U8A5MS6R1",
+      "ts": "1606594412.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SBKR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In this comment I present a counterpoint to what I think "
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " is saying here:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " Yes, it's actually not that hard to reuse code between shell scripts and standard libraries. All you have to do is specify for every function call:\n"
+              },
+              {
+                "type": "text",
+                "text": "<snipped a long list of mechanism details pertaining to function invocation>",
+                "style": {
+                  "italic": true
+                }
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "here:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " Shannon's law of entropy you have to trade off flexibility for concision"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "and here:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\"People tried to solve problems. The problems turned out to be more difficult than expected. People came slowly to terms with how difficult they were.\"",
+                "style": {
+                  "italic": true
+                }
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nFunnily I kind of agree with Kartik but only while we stick to the current models of abstraction.\n\nI'm going to use the following analogy to describe how I think about this. Imagine we are all \"electronics people\" making circuit boards with LEDs, batteries, wires, switches etc. We send signals around encoded as voltage-on-wire or even FM. Note that voltage-on-wire serves a higher purpose (e.g. a specific voltage on a line may represent the \"turn this light on\" signal). We create  wired-ports/FM transmitters/recievers to hook up multiple such gizmos together. Unfortunately we all use different conventions for "
+              },
+              {
+                "type": "text",
+                "text": "how",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the voltage levels or FM bands correspond to the the signals we share. So most of our integration work is spent building adapters - the simple ones might just step up/down the voltage. The complex ones may receive a signal encoded as FM and re-encode the same signal as voltage-on-wire, or even re-transmit it on another FM band. There's nothing wrong with this because "
+              },
+              {
+                "type": "text",
+                "text": "this is reality",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n\nOTOH, we can also think of making things better, or even doing something  "
+              },
+              {
+                "type": "text",
+                "text": "different",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Here, and this is key, I think there are two broad paths:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Standardize. If everyone uses 5V and the same FM band and the same \"encoding\" of the shared signals, we can more easily plug things with each other. "
+                  },
+                  {
+                    "type": "text",
+                    "text": "We're still electronics people, doing mostly the same thing, ",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "but better and easier."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "A new level of abstraction. Say we completely stop thinking about voltages and think in a new level of abstraction called \"bytes\". This is the idea of software. I'd say we're now doing a fundamentally different thing - "
+                  },
+                  {
+                    "type": "text",
+                    "text": "we now are \"software people\" and no longer electronics people",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " - because we are absolved of concerns about voltages and such things. The voltage didn't disappear, but don't matter directly to us. In fact many different physical contraptions may use very different physical mechanisms to represent the same bytes, but from our abstraction level, we still think of those disparate systems through a unified model of \"bytes\"."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nNow the next chapter.. bytes are themselves problematic in ways that resemble voltage and FM band mismatches. The thing is bytes are used to represent \"higher purpose\" signals and messages that we send around - so encoding matters, again. The first approach is \"standardize the encodings\". This is very popular (cue this history of byte formats). But is there a second approach which would "
+              },
+              {
+                "type": "text",
+                "text": "make bytes irrelevant",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "to us",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "? What are the new concepts we would think and design in? We may end up with many different byte level encodings for the same messages we send around but we will have a new unified model of design across all of them. We will no longer be \"bytes people\", so what will we be? (BTW, eventually we could forego bytes completely in some cases and map directly to voltage or other physical representations.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "873dab04-3373-4e47-8c65-f50e09c747cf",
+    "type": "message",
+    "text": "what you are describing sounds  an awful lot like networking. In networking you go from radio, copper. fiber optic mediums to ... bytes, and then more layers of bytes by packing in \"layers\". The way systems like TCP/IP has been successful is .. by standardizing. I may be wrong but it sounds like you are thinking there may be something undiscovered that is superior to \"arranging bits\", but encoding and decoding data just seems like the nature of the problem.",
+    "user": "UN9SCH5RD",
+    "ts": "1606607135.166800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Bi/WR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "what you are describing sounds  an awful lot like networking. In networking you go from radio, copper. fiber optic mediums to ... bytes, and then more layers of bytes by packing in \"layers\". The way systems like TCP/IP has been successful is .. by standardizing. I may be wrong but it sounds like you are thinking there may be something undiscovered that is superior to \"arranging bits\", but encoding and decoding data just seems like the nature of the problem."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bb475ffc-279a-4c91-bd80-ff0b63e834e8",
+    "type": "message",
+    "text": "I'm not proposing a solution but rather suggesting a perspective on the problem. It's not about superior, but the about virtual concepts we work with. Yes it is about what concepts have been standardized. E.g. TCP/IP will work across copper wire, _or_ radio frequency _or_ microwave frequency _or_ any other medium the someone cares to map it to.\n\nI could just as correctly say \"designing circuits or radio frequencies is just the nature of the problem\". Yet in decades of building systems that _transmit information_ I have never once had to design the mapping of information to radio frequencies. Yet I have often designed (or reckoned with) the mapping of information to _bits._ You could standardize on a concept higher level than bits of course, (one example is something based on \"symbols\"). In fact we always work with higher levels within PLs or frameworks. Yet the OS and networks stop at giving us support for bits.",
+    "user": "U8A5MS6R1",
+    "ts": "1606611089.167000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lVA8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm not proposing a solution but rather suggesting a perspective on the problem. It's not about superior, but the about virtual concepts we work with. Yes it is about what concepts have been standardized. E.g. TCP/IP will work across copper wire, "
+              },
+              {
+                "type": "text",
+                "text": "or",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " radio frequency "
+              },
+              {
+                "type": "text",
+                "text": "or",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " microwave frequency "
+              },
+              {
+                "type": "text",
+                "text": "or",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " any other medium the someone cares to map it to.\n\nI could just as correctly say \"designing circuits or radio frequencies is just the nature of the problem\". Yet in decades of building systems that "
+              },
+              {
+                "type": "text",
+                "text": "transmit information",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " I have never once had to design the mapping of information to radio frequencies. Yet I have often designed (or reckoned with) the mapping of information to "
+              },
+              {
+                "type": "text",
+                "text": "bits. ",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "You could standardize on a concept higher level than bits of course, (one example is something based on \"symbols\"). In fact we always work with higher levels within PLs or frameworks. Yet the OS and networks stop at giving us support for bits."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "69e0c189-f475-47b3-aedd-b42b0811bfc2",
+    "type": "message",
+    "text": "Since software is executable, it gives us much more powerful ways of re-configuring than we can have with hardware. With hardware the encodings tend to be fixed. With software we can look at standardizing the bare minimum and leveraging its reconfigurability. For instance instead of standardizing \"encodings\" we could standardize \"encoding grammar\" which are pre-shared, but any real encodings can just be defined using this grammar and sent on the wire. Any receiver can then generate encoder/decoder on the fly. This doesn't do away with bits but encapsulates them in a way.",
+    "user": "U8A5MS6R1",
+    "ts": "1606612182.167300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U8A5MS6R1",
+      "ts": "1606612219.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "o0mrS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Since software is executable, it gives us much more powerful ways of re-configuring than we can have with hardware. With hardware the encodings tend to be fixed. With software we can look at standardizing the bare minimum and leveraging its reconfigurability. For instance instead of standardizing \"encodings\" we could standardize \"encoding grammar\" which are pre-shared, but any real encodings can just be defined using this grammar and sent on the wire. Any receiver can then generate encoder/decoder on the fly. This doesn't do away with bits but encapsulates them in a way."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3875c2d5-5a0a-46fa-991a-d9d4be19bd7a",
+    "type": "message",
+    "text": "In the general case, I suspect your \"encoding grammar\" is equivalent in complexity to a general purpose programming language. Maybe a total language depending on your definition. I mean, the idea is pretty close to what I want to do/see, but even these \"grammars\" have to be encoded to be shared, and standardizing that encoding won't be any easier than the others.\n\nI think of this as \"encoding\" vs \"intent\". Intent is the human purpose for whatever the system is supposed to do. We would really like to specify everything in terms of intent, both messages and programs, but intent is inherently non-physical (unless you want to talk about neurology). You can't standardize intent, or transmit it. I don't believe you can really get higher-level than \"arranging bits\" without confronting this non-physicality.\n\nMy design goals, as far as I've nailed them down, revolve in large part around precisely capturing intent, in particular, _avoiding_ encoding things that are not intended but merely side effects of the encoding a user is using to convey their intent to a computer. One of my catchphrases is \"as specific as desired\", something I've thought about since I first felt straitjacketed by a mind-mapping app. Implicit ordering and implicit dependencies are quite pernicious, e.g. a supposedly unordered map that is nevertheless processed in order and allows/requires you to make assumptions based on that order. (Notably, bit strings are always ordered, which in a way is the fundamental obstacle.)\n\nI've gotten as far as \"make all dependencies explicit and optional (including ordering)\" and \"define things by the effects (in the sense of I/O!) they produce\". What form of communication your intent produces, or whether it results in native code, is a matter of encoding, to be specified independently; as I (and Emmanuel I guess) said, the OS's job. Details are WIP. :-/",
+    "user": "U016VUZGUUQ",
+    "ts": "1606620852.167600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UMZn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In the general case, I suspect your \"encoding grammar\" is equivalent in complexity to a general purpose programming language. Maybe a total language depending on your definition. I mean, the idea is pretty close to what I want to do/see, but even these \"grammars\" have to be encoded to be shared, and standardizing that encoding won't be any easier than the others.\n\nI think of this as \"encoding\" vs \"intent\". Intent is the human purpose for whatever the system is supposed to do. We would really like to specify everything in terms of intent, both messages and programs, but intent is inherently non-physical (unless you want to talk about neurology). You can't standardize intent, or transmit it. I don't believe you can really get higher-level than \"arranging bits\" without confronting this non-physicality.\n\nMy design goals, as far as I've nailed them down, revolve in large part around precisely capturing intent, in particular, "
+              },
+              {
+                "type": "text",
+                "text": "avoiding",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " encoding things that are not intended but merely side effects of the encoding a user is using to convey their intent to a computer. One of my catchphrases is \"as specific as desired\", something I've thought about since I first felt straitjacketed by a mind-mapping app. Implicit ordering and implicit dependencies are quite pernicious, e.g. a supposedly unordered map that is nevertheless processed in order and allows/requires you to make assumptions based on that order. (Notably, bit strings are always ordered, which in a way is the fundamental obstacle.)\n\nI've gotten as far as \"make all dependencies explicit and optional (including ordering)\" and \"define things by the effects (in the sense of I/O!) they produce\". What form of communication your intent produces, or whether it results in native code, is a matter of encoding, to be specified independently; as I (and Emmanuel I guess) said, the OS's job. Details are WIP. :-/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "b45f2140-396a-4bbe-b143-1b52eb0ac0f4",
+    "type": "message",
+    "text": "<@U016VUZGUUQ> wrote\n&gt; In the general case, I suspect your \"encoding grammar\" is equivalent in complexity to a general purpose programming language.\nI agree.\n&gt; I think of this as \"encoding\" vs \"intent\".\nYou've put this really well. I think of this as \"meaning\", which only exists in our minds, and \"representations\" and \"mechanisms\" which exist outside the mind.\n&gt; I don't believe you can really get higher-level than \"arranging bits\" without confronting this non-physicality.\nIf you're saying that irrespective of the encoding, the machines can only hold _signifiers_ and all mechanisms in the end amount to just transmitting arbitrary symbols (bits are just a sequence of symbols \"1\", \"0\") I must agree. But consider that we spend a lot of effort designing and manually implementing the mapping between _multiple_ vocabularies of such symbols - all of which are entirely in the machine. So there is the possibility of removing this extra work. (BTW, <@UJBAJNFLK> and I have a <https://shalabh.com/programmable-systems/files-and-file-formats.html#comment-7|discussion> on this topic on my blog post).\n\n&gt; _avoiding_ encoding things that are \n&gt; not intended but merely side effects of the encoding a user is using to \n&gt; convey their intent to a computer\nNicely put. In some sense these are _encoding artifacts_. Looking forward to see where you take these ideas.",
+    "user": "U8A5MS6R1",
+    "ts": "1606631008.167900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "U8A5MS6R1",
+      "ts": "1606631112.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kTYU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U016VUZGUUQ"
+              },
+              {
+                "type": "text",
+                "text": " wrote\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In the general case, I suspect your \"encoding grammar\" is equivalent in complexity to a general purpose programming language."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I agree.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think of this as \"encoding\" vs \"intent\"."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You've put this really well. I think of this as \"meaning\", which only exists in our minds, and \"representations\" and \"mechanisms\" which exist outside the mind.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I don't believe you can really get higher-level than \"arranging bits\" without confronting this non-physicality."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you're saying that irrespective of the encoding, the machines can only hold "
+              },
+              {
+                "type": "text",
+                "text": "signifiers",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and all mechanisms in the end amount to just transmitting arbitrary symbols (bits are just a sequence of symbols \"1\", \"0\") I must agree. But consider that we spend a lot of effort designing and manually implementing the mapping between "
+              },
+              {
+                "type": "text",
+                "text": "multiple",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " vocabularies of such symbols - all of which are entirely in the machine. So there is the possibility of removing this extra work. (BTW, "
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " and I have a "
+              },
+              {
+                "type": "link",
+                "url": "https://shalabh.com/programmable-systems/files-and-file-formats.html#comment-7",
+                "text": "discussion"
+              },
+              {
+                "type": "text",
+                "text": " on this topic on my blog post).\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "avoiding",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " encoding things that are \nnot intended but merely side effects of the encoding a user is using to \nconvey their intent to a computer"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Nicely put. In some sense these are "
+              },
+              {
+                "type": "text",
+                "text": "encoding artifacts",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Looking forward to see where you take these ideas."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8f890de7-7a01-4ca7-bfc7-51a9ce4f13ce",
+    "type": "message",
+    "text": "<@U8A5MS6R1> It seems like we're mostly on the same track. :) Thanks for the interesting link, too.\n\n&gt; So there is the possibility of removing this extra work.\n&gt; \nPerhaps the closest thing to a disagreement is this: it would be more precise to say that we're only doing the work once, rather than not doing it at all (and we want to let a compiler handle the details of hooking up encodings to business logic). Probably this is already what you were thinking, but I like to be explicit that the essential complexity is still there.\n\nI think we should keep in mind that any \"solution\" to this problem of lots of encodings needs to be imagined in a world that still seethes with conflicting formats and protocols. Even besides the mess of existing formats that have zero chance of going away, different encodings have different useful properties, notably performance under various queries (also space efficiency, error resilience, etc). You wouldn't try to back a relational database with the same encoding you send over a network. I'm looking for a tool to navigate chaos more than tame it (at least in a global standard sense).",
+    "user": "U016VUZGUUQ",
+    "ts": "1606683105.168600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iWflV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U8A5MS6R1"
+              },
+              {
+                "type": "text",
+                "text": " It seems like we're mostly on the same track. :) Thanks for the interesting link, too.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So there is the possibility of removing this extra work.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nPerhaps the closest thing to a disagreement is this: it would be more precise to say that we're only doing the work once, rather than not doing it at all (and we want to let a compiler handle the details of hooking up encodings to business logic). Probably this is already what you were thinking, but I like to be explicit that the essential complexity is still there.\n\nI think we should keep in mind that any \"solution\" to this problem of lots of encodings needs to be imagined in a world that still seethes with conflicting formats and protocols. Even besides the mess of existing formats that have zero chance of going away, different encodings have different useful properties, notably performance under various queries (also space efficiency, error resilience, etc). You wouldn't try to back a relational database with the same encoding you send over a network. I'm looking for a tool to navigate chaos more than tame it (at least in a global standard sense)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "58654d22-9382-4778-89b6-d018b32585ab",
+    "type": "message",
+    "text": "Related: \"it took eighteen years for ASCII to become installed in most computers from its year of publication.\" :exploding_head: <https://news.ycombinator.com/item?id=25235575>",
+    "user": "UN9SCH5RD",
+    "ts": "1606695749.168800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaa31b79aded",
+      "image_72": "https://secure.gravatar.com/avatar/aa31b79adedc3f60547769f1a8971ba6.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "",
+      "real_name": "Emmanuel Oga",
+      "display_name": "Emmanuel Oga",
+      "team": "T5TCAFTA9",
+      "name": "emmanueloga",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hwY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Related: \"it took eighteen years for ASCII to become installed in most computers from its year of publication.\" "
+              },
+              {
+                "type": "emoji",
+                "name": "exploding_head"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://news.ycombinator.com/item?id=25235575"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "9e8b1758-43ab-440c-a42a-eb7995083f2a",
+    "type": "message",
+    "text": "The one point made by <@U8A5MS6R1> on which I tend to insist is \"standardize\". It's actually a condition for productively moving on to higher abstraction levels. The reason we can discuss information management at the byte level (and higher) is that we do have standards for storing and communicating bytes. Even the byte itself as a practical unit of information is a standard.\n\nIf you look at the history of computing, it started out, like other technologies, with cycles of messy innovation followed by standardization. Until about the year 2000. All major standards of the computing world were created before 2000, although some have been updated since. But nobody seems to be interested in standardization any more. Tech is dominated by a few big players whose game is \"Who can impose their conventions on the rest of the world?\" And even small players accept this game, proposing new ideas they consider \"better\", and thus deserving to \"win\" by the ideas of meritocracy. Some have been cited above.\n\nSo what happened to the idea of compromise for the benefit of everyone? Many technical issues are reasonably well understood. We know about the relative benefits of function calls with on-stack argument passing, subprocess creation with command-line arguments, and other techniques for calling code blocks. A committee of experts could come up with a minimal list of techniques that cover the various use cases/priorities, and write up a standard with something like three or four calling conventions. If everybody accepted and implemented them, we could then move on to discussing higher levels of abstraction. But this isn't happening. There is no incentive for agreeing with others. Can we fix that somehow?",
+    "user": "UJBAJNFLK",
+    "ts": "1606733271.169400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "OjXS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The one point made by "
+              },
+              {
+                "type": "user",
+                "user_id": "U8A5MS6R1"
+              },
+              {
+                "type": "text",
+                "text": " on which I tend to insist is \"standardize\". It's actually a condition for productively moving on to higher abstraction levels. The reason we can discuss information management at the byte level (and higher) is that we do have standards for storing and communicating bytes. Even the byte itself as a practical unit of information is a standard.\n\nIf you look at the history of computing, it started out, like other technologies, with cycles of messy innovation followed by standardization. Until about the year 2000. All major standards of the computing world were created before 2000, although some have been updated since. But nobody seems to be interested in standardization any more. Tech is dominated by a few big players whose game is \"Who can impose their conventions on the rest of the world?\" And even small players accept this game, proposing new ideas they consider \"better\", and thus deserving to \"win\" by the ideas of meritocracy. Some have been cited above.\n\nSo what happened to the idea of compromise for the benefit of everyone? Many technical issues are reasonably well understood. We know about the relative benefits of function calls with on-stack argument passing, subprocess creation with command-line arguments, and other techniques for calling code blocks. A committee of experts could come up with a minimal list of techniques that cover the various use cases/priorities, and write up a standard with something like three or four calling conventions. If everybody accepted and implemented them, we could then move on to discussing higher levels of abstraction. But this isn't happening. There is no incentive for agreeing with others. Can we fix that somehow?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "U5STGTB3J",
+          "U8A5MS6R1"
+        ],
+        "count": 2
+      },
+      {
+        "name": "point_up_2",
+        "users": [
+          "U5STGTB3J"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "be264f87-69d7-4ebe-8075-11f770cf1c0e",
+    "type": "message",
+    "text": "<@U016VUZGUUQ> wrote:\n&gt; Perhaps the closest thing to a disagreement is this: it would be more precise to say that we're only doing the work once, rather than not doing it at all (and we want to let a compiler handle the details of hooking up encodings to business logic).\nI think that's fair. There's definitely some work we'll always need to do and some complexity in the way. BTW there's an old thread which disputes that there's a sharp distinction between incidental and essential complexity. Hopefully this <https://marianoguerra.github.io/future-of-coding-weekly/history/?fromDate=2020-02-03&amp;toDate=2020-02-05&amp;channel=general#2020-02-04T04:04:54.491Z|link to the search history> works.",
+    "user": "U8A5MS6R1",
+    "ts": "1606761117.173300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MxX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U016VUZGUUQ"
+              },
+              {
+                "type": "text",
+                "text": " wrote:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Perhaps the closest thing to a disagreement is this: it would be more precise to say that we're only doing the work once, rather than not doing it at all (and we want to let a compiler handle the details of hooking up encodings to business logic)."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think that's fair. There's definitely some work we'll always need to do and some complexity in the way. BTW there's an old thread which disputes that there's a sharp distinction between incidental and essential complexity. Hopefully this "
+              },
+              {
+                "type": "link",
+                "url": "https://marianoguerra.github.io/future-of-coding-weekly/history/?fromDate=2020-02-03&toDate=2020-02-05&channel=general#2020-02-04T04:04:54.491Z",
+                "text": "link to the search history"
+              },
+              {
+                "type": "text",
+                "text": " works."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4fd45fab-d48a-4af8-bfac-36723355c105",
+    "type": "message",
+    "text": "Bad behavior by tech companies aside (which I agree is a problem), I disagree that we're technically ready to standardize on inter-procedure calling conventions. In particular, picking among the current options for inter-process communication fills me with dread. I don't see consensus on how to even address processes, much less a language for them to speak.\n\nIt's natural for higher-level abstractions to take longer to stabilize. In some sense they have more degrees of freedom in their design, so there's an exponentially larger search space. More tradeoffs to optimize, with more local minima.",
+    "user": "U016VUZGUUQ",
+    "ts": "1606762390.173500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gaee3c99144d",
+      "image_72": "https://secure.gravatar.com/avatar/aee3c99144dfc6644c6c1f1303683140.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "Andrew F",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "andrewflnr",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Oph",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Bad behavior by tech companies aside (which I agree is a problem), I disagree that we're technically ready to standardize on inter-procedure calling conventions. In particular, picking among the current options for inter-process communication fills me with dread. I don't see consensus on how to even address processes, much less a language for them to speak.\n\nIt's natural for higher-level abstractions to take longer to stabilize. In some sense they have more degrees of freedom in their design, so there's an exponentially larger search space. More tradeoffs to optimize, with more local minima."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "48ae420f-c000-4449-8456-59b254622212",
+    "type": "message",
+    "text": "Using a standard model that is higher level and *independent* of the underlying mechanism is key. This is the option 2 I was suggesting earlier in the thread. Eg. with TCP/IP you don't have to stay stuck to copper wire or powerline or whatever it was originally designed with. You can switch those around _even later_ while the systems using it continue to work. Same thing with 'bits'. This is why I am interested in models that are \"not bits\" however \"can be mapped to bits many different ways\". BTW, transmitting and storing information is a subset of organizing computation (e.g. decomposing into processes, defining execution models), so doing this abstract model for distributed computation is much harder.\n\nOne more thing I find very interesting is that software gives us a new superpower for achieving standardization because it is \"virtual\". Imagine you could magically and instantaneously ship FM receivers to everyone in the world. The shift from AM radio to FM would be overnight. With software, the limitations of hardware are gone, you can actually ship such software _receivers_. Yet we live in a world where switching to a new _software_ protocol or media format is very burdensome. Our standard-making ideas are holdovers from a hardware world. So maybe instead of making software standards we usually do,we should be inventing new standard-making software (i.e. standardize the meta level)?",
+    "user": "U8A5MS6R1",
+    "ts": "1606763676.173700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7c63cc07373",
+      "image_72": "https://avatars.slack-edge.com/2019-03-21/584465935395_b7c63cc07373326ec6ea_72.jpg",
+      "first_name": "Shalabh",
+      "real_name": "Shalabh",
+      "display_name": "shalabh",
+      "team": "T5TCAFTA9",
+      "name": "shalabh.chaturvedi",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dYIcU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Using a standard model that is higher level and "
+              },
+              {
+                "type": "text",
+                "text": "independent",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of the underlying mechanism is key. This is the option 2 I was suggesting earlier in the thread. Eg. with TCP/IP you don't have to stay stuck to copper wire or powerline or whatever it was originally designed with. You can switch those around "
+              },
+              {
+                "type": "text",
+                "text": "even later",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " while the systems using it continue to work. Same thing with 'bits'. This is why I am interested in models that are \"not bits\" however \"can be mapped to bits many different ways\". BTW, transmitting and storing information is a subset of organizing computation (e.g. decomposing into processes, defining execution models), so doing this abstract model for distributed computation is much harder.\n\nOne more thing I find very interesting is that software gives us a new superpower for achieving standardization because it is \"virtual\". Imagine you could magically and instantaneously ship FM receivers to everyone in the world. The shift from AM radio to FM would be overnight. With software, the limitations of hardware are gone, you can actually ship such software "
+              },
+              {
+                "type": "text",
+                "text": "receivers",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Yet we live in a world where switching to a new "
+              },
+              {
+                "type": "text",
+                "text": "software",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " protocol or media format is very burdensome. Our standard-making ideas are holdovers from a hardware world. So maybe instead of making software standards we usually do,we should be inventing new standard-making software (i.e. standardize the meta level)?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "bd6464dc-819b-4a13-ac96-74099316648f",
+    "type": "message",
+    "text": "Exactly. Calling conventions can require some intermediary, which could well involve no performance overhead via JIT techniques.",
+    "user": "UJBAJNFLK",
+    "ts": "1606765647.174100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "e169f54bbaf8",
+      "image_72": "https://avatars.slack-edge.com/2021-03-12/1859691333940_e169f54bbaf8b9b36b12_72.png",
+      "first_name": "Konrad",
+      "real_name": "Konrad Hinsen",
+      "display_name": "Konrad Hinsen",
+      "team": "T5TCAFTA9",
+      "name": "konrad.hinsen",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6O8al",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Exactly. Calling conventions can require some intermediary, which could well involve no performance overhead via JIT techniques."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1606359276.136400",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

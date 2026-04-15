@@ -1,0 +1,1156 @@
+[
+  {
+    "user": "UE1JQM9HQ",
+    "type": "message",
+    "ts": "1761901768.532459",
+    "client_msg_id": "dde951de-e5ea-49d8-9379-dd1f0cce2a72",
+    "text": "Beautiful!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "C04yh",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Beautiful!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1761922664.371199",
+    "client_msg_id": "17421662-e952-462f-ae8b-81f425ba3ba6",
+    "text": "That looks like a fork of the Fediverse.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891948.263169",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aXjyA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That looks like a fork of the Fediverse."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1761922697.183649",
+    "client_msg_id": "ADFADEF1-E769-46D2-B3D0-63991C1D4E2C",
+    "text": "I believe it is, both technically and (especially) culturally.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891948.263169",
+    "parent_user_id": "UC2A2ARPT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "U0Bsl",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I believe it is, both technically and (especially) culturally"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1761925047.963349",
+    "client_msg_id": "56f74e86-06c4-4313-a497-8d2fbaafb25a",
+    "text": "tiny example of some of my rules\n\n```  // Security: Secrets and credentials (Score: 0.9, Red highlight)\n  secrets: {\n    score: 0.9,\n    highlightClass: 'secret',\n    patterns: [\n      { regex: /(['\"][a-zA-Z0-9]{32,}['\"])/g, desc: 'Long alphanumeric strings' },\n      { regex: /\\b(api[_-]?key|secret|password|token|auth)\\s*[:=]\\s*['\"][^'\"]+['\"]/gi, desc: 'Credential assignments' },\n      { regex: /\\b(sk-[a-zA-Z0-9]{32,}|pk-[a-zA-Z0-9]{32,})\\b/g, desc: 'API keys (OpenAI, Stripe, etc)' },\n      { regex: /\\b([0-9a-f]{40,64})\\b/g, desc: 'Hex keys (SHA hashes, tokens)' },\n      { regex: /-----BEGIN (PRIVATE|RSA|OPENSSH) KEY-----/g, desc: 'Private keys' },\n      { regex: /\\b(ghp_|gho_|ghu_|ghs_|ghr_)[a-zA-Z0-9]{36,}\\b/g, desc: 'GitHub tokens' },\n      { regex: /\\b(AKIA[0-9A-Z]{16})\\b/g, desc: 'AWS access keys' }\n    ]\n  },\n  \n  // Security: Dangerous functions (Score: 0.85, Orange highlight)\n  dangerous_functions: {\n    score: 0.85,\n    highlightClass: 'danger',\n    patterns: [\n      { regex: /\\b(eval|exec|execFile|spawn)\\s*\\(/g, desc: 'Code execution', languages: ['javascript', 'typescript', 'python', 'ruby'] },\n      { regex: /\\b(innerHTML|outerHTML|document\\.write|execScript)\\b/g, desc: 'DOM injection', languages: ['javascript', 'typescript'] },\n      { regex: /\\b(system|shell_exec|passthru|proc_open)\\s*\\(/g, desc: 'Shell execution', languages: ['php'] },\n      { regex: /\\b(__import__|compile|globals|locals)\\s*\\(/g, desc: 'Dynamic imports', languages: ['python'] },\n      { regex: /\\b(eval|instance_eval|class_eval|module_eval)\\b/g, desc: 'Dynamic evaluation', languages: ['ruby'] },\n      { regex: /\\b(Runtime\\.getRuntime|ProcessBuilder)\\b/g, desc: 'Process execution', languages: ['java'] },\n      { regex: /\\bsystem\\s*\\(/g, desc: 'System calls', languages: ['c', 'cpp', 'rust'] }\n    ]\n  },\n  \n  // Security: Weak cryptography (Score: 0.75, Yellow highlight)\n  weak_crypto: {\n    score: 0.75,\n    highlightClass: 'warning',\n    patterns: [\n      { regex: /\\b(md5|sha1|des|rc4)\\b/gi, desc: 'Weak hash algorithms' },\n      { regex: /Math\\.random\\(\\)/g, desc: 'Insecure random', languages: ['javascript', 'typescript'] },\n      { regex: /\\brandom\\(\\)/g, desc: 'Insecure random', languages: ['php', 'python'] },\n      { regex: /\\bnew\\s+Random\\(\\)/g, desc: 'Insecure random', languages: ['java', 'csharp'] }\n    ]\n  },```",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ebKdk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "tiny example of some of my rules\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "  // Security: Secrets and credentials (Score: 0.9, Red highlight)\n  secrets: {\n    score: 0.9,\n    highlightClass: 'secret',\n    patterns: [\n      { regex: /(['\"][a-zA-Z0-9]{32,}['\"])/g, desc: 'Long alphanumeric strings' },\n      { regex: /\\b(api[_-]?key|secret|password|token|auth)\\s*[:=]\\s*['\"][^'\"]+['\"]/gi, desc: 'Credential assignments' },\n      { regex: /\\b(sk-[a-zA-Z0-9]{32,}|pk-[a-zA-Z0-9]{32,})\\b/g, desc: 'API keys (OpenAI, Stripe, etc)' },\n      { regex: /\\b([0-9a-f]{40,64})\\b/g, desc: 'Hex keys (SHA hashes, tokens)' },\n      { regex: /-----BEGIN (PRIVATE|RSA|OPENSSH) KEY-----/g, desc: 'Private keys' },\n      { regex: /\\b(ghp_|gho_|ghu_|ghs_|ghr_)[a-zA-Z0-9]{36,}\\b/g, desc: 'GitHub tokens' },\n      { regex: /\\b(AKIA[0-9A-Z]{16})\\b/g, desc: 'AWS access keys' }\n    ]\n  },\n  \n  // Security: Dangerous functions (Score: 0.85, Orange highlight)\n  dangerous_functions: {\n    score: 0.85,\n    highlightClass: 'danger',\n    patterns: [\n      { regex: /\\b(eval|exec|execFile|spawn)\\s*\\(/g, desc: 'Code execution', languages: ['javascript', 'typescript', 'python', 'ruby'] },\n      { regex: /\\b(innerHTML|outerHTML|document\\.write|execScript)\\b/g, desc: 'DOM injection', languages: ['javascript', 'typescript'] },\n      { regex: /\\b(system|shell_exec|passthru|proc_open)\\s*\\(/g, desc: 'Shell execution', languages: ['php'] },\n      { regex: /\\b(__import__|compile|globals|locals)\\s*\\(/g, desc: 'Dynamic imports', languages: ['python'] },\n      { regex: /\\b(eval|instance_eval|class_eval|module_eval)\\b/g, desc: 'Dynamic evaluation', languages: ['ruby'] },\n      { regex: /\\b(Runtime\\.getRuntime|ProcessBuilder)\\b/g, desc: 'Process execution', languages: ['java'] },\n      { regex: /\\bsystem\\s*\\(/g, desc: 'System calls', languages: ['c', 'cpp', 'rust'] }\n    ]\n  },\n  \n  // Security: Weak cryptography (Score: 0.75, Yellow highlight)\n  weak_crypto: {\n    score: 0.75,\n    highlightClass: 'warning',\n    patterns: [\n      { regex: /\\b(md5|sha1|des|rc4)\\b/gi, desc: 'Weak hash algorithms' },\n      { regex: /Math\\.random\\(\\)/g, desc: 'Insecure random', languages: ['javascript', 'typescript'] },\n      { regex: /\\brandom\\(\\)/g, desc: 'Insecure random', languages: ['php', 'python'] },\n      { regex: /\\bnew\\s+Random\\(\\)/g, desc: 'Insecure random', languages: ['java', 'csharp'] }\n    ]\n  },"
+              }
+            ],
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1761925269.453659",
+    "client_msg_id": "332b6709-157b-4b5a-9c4f-6ba88fe44db2",
+    "text": "also, I swear that I'm not a monster who keeps their browser window smooshed up against the top while leaving gutter to the bottom and sides...my OBS is wonkily aligned since upgrading macOS...it is Apple's fault.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ikkOs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "also, I swear that I'm not a monster who keeps their browser window smooshed up against the top while leaving gutter to the bottom and sides...my OBS is wonkily aligned since upgrading macOS...it is Apple's fault."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "joy",
+        "users": [
+          "U07PYD02V2S"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1761925785.509489",
+    "client_msg_id": "8eff86a8-1c1f-4c26-b486-677d24c76b26",
+    "text": "another approach to the rules that I've considered but haven't implemented yet, is to use AST parsing or something like tree sitter to help to build or apply the rules. So far, haven't been super convinced that'll be deeply better than what I'm doing beyond that having knowledge of the AST could allow me to approach whole logical blocks more easily than I can with regex rules.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VTxqH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "another approach to the rules that I've considered but haven't implemented yet, is to use AST parsing or something like tree sitter to help to build or apply the rules. So far, haven't been super convinced that'll be deeply better than what I'm doing beyond that having knowledge of the AST could allow me to approach whole logical blocks more easily than I can with regex rules."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U07PYD02V2S",
+    "type": "message",
+    "ts": "1761928546.433959",
+    "client_msg_id": "dc569998-9335-456f-ac60-eb29fa0f4ef7",
+    "text": "This is awesome! Neat project. How are you approaching the definition of what makes for a good rule, especially without \"intelligence\" backing your ruleset, or is that outside of your concerns? (\"Gnarly logic\" seems like a tough one to do with pure regex :upside_down_face:)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mlcyL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is awesome! Neat project. How are you approaching the definition of what makes for a good rule, especially without \"intelligence\" backing your ruleset, or is that outside of your concerns? (\"Gnarly logic\" seems like a tough one to do with pure regex "
+              },
+              {
+                "type": "emoji",
+                "name": "upside_down_face",
+                "unicode": "1f643"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U07PYD02V2S",
+    "type": "message",
+    "ts": "1761928582.042149",
+    "edited": {
+      "user": "U07PYD02V2S",
+      "ts": "1761928643.000000"
+    },
+    "client_msg_id": "7b6e6614-f59f-4387-b174-eb7f6fa171a5",
+    "text": "I got curious about what the inspiring project uses as its rules and funnily enough, from what it looks like, <https://github.com/manaflow-ai/cmux/blob/054d860dc3147ea555e84479fde353a61d411814/apps/www/lib/services/code-review/heatmap-shared.ts#L30-L33|they leave that >_<https://github.com/manaflow-ai/cmux/blob/054d860dc3147ea555e84479fde353a61d411814/apps/www/lib/services/code-review/heatmap-shared.ts#L30-L33|almost>_<https://github.com/manaflow-ai/cmux/blob/054d860dc3147ea555e84479fde353a61d411814/apps/www/lib/services/code-review/heatmap-shared.ts#L30-L33| entirely up to gpt to decide> :)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AkIU5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I got curious about what the inspiring project uses as its rules and funnily enough, from what it looks like, "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/manaflow-ai/cmux/blob/054d860dc3147ea555e84479fde353a61d411814/apps/www/lib/services/code-review/heatmap-shared.ts#L30-L33",
+                "text": "they leave that "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/manaflow-ai/cmux/blob/054d860dc3147ea555e84479fde353a61d411814/apps/www/lib/services/code-review/heatmap-shared.ts#L30-L33",
+                "text": "almost",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/manaflow-ai/cmux/blob/054d860dc3147ea555e84479fde353a61d411814/apps/www/lib/services/code-review/heatmap-shared.ts#L30-L33",
+                "text": " entirely up to gpt to decide"
+              },
+              {
+                "type": "text",
+                "text": " :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1761935457.806259",
+    "client_msg_id": "ee68692e-5661-4dd1-8ea8-e43855e40415",
+    "text": "<@U07PYD02V2S> yeah, I found it kinda unsettling that the other system doesn't really have rules, it is rather trusting the model to do it all.\n\nRight now, rules are mostly me trying to think through what I know to be \"fragile\" or potentially hairy changes that require more attention. My goal isn't for this to be a linter or code quality tool, but instead a way to draw attention to places that _could_ be borked up, and that need human eyes to linger on them.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZS/tI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U07PYD02V2S"
+              },
+              {
+                "type": "text",
+                "text": " yeah, I found it kinda unsettling that the other system doesn't really have rules, it is rather trusting the model to do it all.\n\nRight now, rules are mostly me trying to think through what I know to be \"fragile\" or potentially hairy changes that require more attention. My goal isn't for this to be a linter or code quality tool, but instead a way to draw attention to places that "
+              },
+              {
+                "type": "text",
+                "text": "could",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " be borked up, and that need human eyes to linger on them."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "fire",
+        "users": [
+          "U07PYD02V2S"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1761935691.990689",
+    "client_msg_id": "5c2cdcb8-76bf-42bf-aa2c-81c002c52295",
+    "text": "If you do happen to look at other parsing technologies, do look at <http://ohmjs.org|ohmjs>. OhmJS is better than PEG, PEG is better than LR. REGEX is unsuitable for anything with structure beyond line-at-a-time.\n\nIn addition, I like Prolog for defining and exhaustively searching rules. The easiest-to-understand Prolog that I’ve encountered is Nils Holm’s <https://www.t3x.org/prolog6/|Prolog control in 6 slides>. I ported it to javascript, then didn’t bother using it when I found out how simple and fast it was to shell out to <https://www.swi-prolog.org|SWIPL>. (I also ported it to common lisp). At one point, I used OhmJS to give myself a quikie DSL that allowed me to express rules in Prolog and to format results in JS, and, produced a bash script to choreograph the whole thing. It ran in the blink of an eye - I wouldn’t use it in production code, but, I did use it my development workflow.\n\n(Aside: we used backtracking <http://txl.org|TXL> to create date-finding rules and to process bank code before Y2K).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "e6jXk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you do happen to look at other parsing technologies, do look at "
+              },
+              {
+                "type": "link",
+                "url": "http://ohmjs.org",
+                "text": "ohmjs"
+              },
+              {
+                "type": "text",
+                "text": ". OhmJS is better than PEG, PEG is better than LR. REGEX is unsuitable for anything with structure beyond line-at-a-time.\n\nIn addition, I like Prolog for defining and exhaustively searching rules. The easiest-to-understand Prolog that I’ve encountered is Nils Holm’s "
+              },
+              {
+                "type": "link",
+                "url": "https://www.t3x.org/prolog6/",
+                "text": "Prolog control in 6 slides"
+              },
+              {
+                "type": "text",
+                "text": ". I ported it to javascript, then didn’t bother using it when I found out how simple and fast it was to shell out to "
+              },
+              {
+                "type": "link",
+                "url": "https://www.swi-prolog.org",
+                "text": "SWIPL"
+              },
+              {
+                "type": "text",
+                "text": ". (I also ported it to common lisp). At one point, I used OhmJS to give myself a quikie DSL that allowed me to express rules in Prolog and to format results in JS, and, produced a bash script to choreograph the whole thing. It ran in the blink of an eye - I wouldn’t use it in production code, but, I did use it my development workflow.\n\n(Aside: we used backtracking "
+              },
+              {
+                "type": "link",
+                "url": "http://txl.org",
+                "text": "TXL"
+              },
+              {
+                "type": "text",
+                "text": " to create date-finding rules and to process bank code before Y2K)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1761935971.051649",
+    "client_msg_id": "7060f30d-1d39-401e-996e-b78bbbbb6e40",
+    "text": "oh! Thanks for the call out of ohmjs! This looks interesting, and maybe, might break me of my unwillingness to use other people's code in a thing -- Prolog was actually my first thought, or a constraints systems, but I couldn't quickly come up with a way for how to write anything like reusable logic for various languages in something shaped like prolog.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6mWU+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "oh! Thanks for the call out of ohmjs! This looks interesting, and maybe, might break me of my unwillingness to use other people's code in a thing -- Prolog was actually my first thought, or a constraints systems, but I couldn't quickly come up with a way for how to write anything like reusable logic for various languages in something shaped like prolog."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1761937291.762899",
+    "client_msg_id": "1c5d5820-bdd4-48d2-afeb-fea866695adc",
+    "text": "FYI - there’s a discord for OhmJS (Ohmland) and several experts are probably reachable in this slack (<@U01DWJSAF2B> <@UBN9AFS0N>). Further FYI - I consider that my programming language is “UNIX pipes”. This lets me use multiple languages to solve any problem in multiple paradigms. I find this to be more productive than simply trying to force-fit just one language onto my problem(s). OhmJS makes it even easier to glue stuff like this together (and, I’ve gone way down that rabbit hole creating my own little DSLs and using OhmJS to parse and transmogrify diagrams saved out as XML, graphML, SVG, …)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KgUXU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "FYI - there’s a discord for OhmJS (Ohmland) and several experts are probably reachable in this slack ("
+              },
+              {
+                "type": "user",
+                "user_id": "U01DWJSAF2B"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UBN9AFS0N"
+              },
+              {
+                "type": "text",
+                "text": "). Further FYI - I consider that my programming language is “UNIX pipes”. This lets me use multiple languages to solve any problem in multiple paradigms. I find this to be more productive than simply trying to force-fit just one language onto my problem(s). OhmJS makes it even easier to glue stuff like this together (and, I’ve gone way down that rabbit hole creating my own little DSLs and using OhmJS to parse and transmogrify diagrams saved out as XML, graphML, SVG, …)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UBKNXPBAB",
+    "type": "message",
+    "ts": "1761939117.627869",
+    "client_msg_id": "5f73c606-44e7-4bc9-b5cf-babe94578166",
+    "text": "My guessed aesthetic preference is for the larger handle to move from the top to the bottom in linear relation to the smaller indicator. This means that when the handle is at the very top, so is the indicator, and when the handle is at the very bottom, so is the indicator, and they transition smoothly between, with the indicator moving down the handle. Curious what you think of that.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/u6Kg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My guessed aesthetic preference is for the larger handle to move from the top to the bottom in linear relation to the smaller indicator. This means that when the handle is at the very top, so is the indicator, and when the handle is at the very bottom, so is the indicator, and they transition smoothly between, with the indicator moving down the handle. Curious what you think of that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UE1JQM9HQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1761941581.642769",
+    "client_msg_id": "d9ea7946-f0ce-403d-94e4-cb4210b00c40",
+    "text": "Yes someone else suggested that as well on Mastodon. I think of it as \"yo dawg, I put a scrollbar in your scrollbar so you can scroll while you scroll.\"\n\nAfter some thought I think it might be less distracting if:\n• The small handle starts out at the top when the scrollbar is on top. \n• It quickly moves to the middle once there's room.\n• As you scroll further down it remains stably in the middle for most of the file as long as there's room below. \n• As you get close to the bottom it quickly moves to the bottom. \nWhat do y'all think?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8T1Yo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes someone else suggested that as well on Mastodon. I think of it as \"yo dawg, I put a scrollbar in your scrollbar so you can scroll while you scroll.\"\n\nAfter some thought I think it might be less distracting if:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "The small handle starts out at the top when the scrollbar is on top. "
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "It quickly moves to the middle once there's room."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "As you scroll further down it remains stably in the middle for most of the file as long as there's room below. "
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "As you get close to the bottom it quickly moves to the bottom. "
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "offset": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nWhat do y'all think?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UBKNXPBAB",
+    "type": "message",
+    "ts": "1761949560.496439",
+    "client_msg_id": "9edd9c1d-c47b-4c42-a18e-8e594ebed69d",
+    "text": "I like mine more. :slightly_smiling_face:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Jz9wm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I like mine more. "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UBKNXPBAB",
+    "type": "message",
+    "ts": "1761949629.149479",
+    "client_msg_id": "2e007b42-b0a8-48db-a8b6-b5d10013dd20",
+    "text": "(Why? 1. it’s simpler, 2. it’s behaves more predictably, 3. it’s more truthful: the reality is that as you move the pointer linearly, the position in the document moves linearly, so why not just show that? 4. it’s mine.)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2zfa5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Why? 1. it’s simpler, 2. it’s behaves more predictably, 3. it’s more truthful: the reality is that as you move the pointer linearly, the position in the document moves linearly, so why not just show that? 4. it’s mine.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "text": "But, but.. just gaze upon this!",
+    "files": [
+      {
+        "id": "F09Q1MDPV1U",
+        "created": 1761972496,
+        "timestamp": 1761972496,
+        "name": "scrollbar2.webm",
+        "title": "scrollbar2.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "UCUSW7WVD",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 2287014,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "is_transcription_region_supported": true,
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F09Q1MDPV1U/scrollbar2.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F09Q1MDPV1U/download/scrollbar2.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F09Q1MDPV1U-9a5810dc46/file.m3u8?_xcb=064ee",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MTAzNjk3MyxBVkVSQUdFLUJBTkRXSURUSD0xMDM2OTczLENPREVDUz0iYXZjMS42NDAwMWYsbXA0YS40MC41IixSRVNPTFVUSU9OPTEyODB4NzIwLEZSQU1FLVJBVEU9MjkuOTcwCmRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzNDaU5GV0ZRdFdDMU5SVVJKUVMxVFJWRlZSVTVEUlRveENpTkZXRlF0V0MxUVRFRlpURWxUVkMxVVdWQkZPbFpQUkFvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3T1ZFeFRVUlFWakZWTFRsaE5UZ3hNR1JqTkRZdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNUzUwY3dvalJWaFVTVTVHT2pRdU56QTFMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3T1ZFeFRVUlFWakZWTFRsaE5UZ3hNR1JqTkRZdlptbHNaVjlJWHpJMk5GOHhNamd3ZURjeU1GOHpOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNaTUwY3dvalJWaFVMVmd0UlU1RVRFbFRWQW89Cg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F09Q1MDPV1U-9a5810dc46/file_trans.mp4",
+        "duration_ms": 10710,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F09Q1MDPV1U-9a5810dc46/scrollbar2_thumb_video.jpeg",
+        "thumb_video_w": 1280,
+        "thumb_video_h": 720,
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F09Q1MDPV1U/scrollbar2.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F09Q1MDPV1U-360c4c4595",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UCUSW7WVD",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YMtbP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But, but.. just gaze upon this!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1761972502.194729",
+    "client_msg_id": "c65882ba-e7c7-4189-a47e-59ffb92da4a5",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1761994764.110879",
+    "client_msg_id": "7559add4-92c8-4e04-a5b0-1f17ac41baf5",
+    "text": "FWIW, aside: what I see in this is something that Jef Raskin discussed in “The Humane Interface”. Measuring and increasing the size of the target area of buttons and selectable doo-dads. Now that I’m retired, I am discovering a lot of horrible UI problems in everything I use. I’ve had to disable cmd-Q in MacOS and ^X^C in emacs (due to increased finger-slop, I hit ^X and ^C together when I mean to hit only ^X). I regularly type cmd-C when I mean cmd-V only due to the physical closeness of those keys. I regularly click on the Claude icon in the dock when I mean to click on <http://draw.io|draw.io>, due to the similarity in background colour (orange) and the relative density of the foreground image (white splat for Claude vs. white node-and-wire for <http://draw.io|draw.io>, both filling about 75% of the icon, vs. the Pages icon which has an orange background but with only 30%-ish white foreground image). Disappearing and reappearing scroll bars and dock-bars are plain annoying. Auto-rearrangement of menu items (e.g. by recently used) is annoying and confusing - I first noticed this problem in SBCL’s restart menu (ultra-horrible UI, due to inconsistency).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pV6lr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "FWIW, aside: what I see in this is something that Jef Raskin discussed in “The Humane Interface”. Measuring and increasing the size of the target area of buttons and selectable doo-dads. Now that I’m retired, I am discovering a lot of horrible UI problems in everything I use. I’ve had to disable cmd-Q in MacOS and ^X^C in emacs (due to increased finger-slop, I hit ^X and ^C together when I mean to hit only ^X). I regularly type cmd-C when I mean cmd-V only due to the physical closeness of those keys. I regularly click on the Claude icon in the dock when I mean to click on "
+              },
+              {
+                "type": "link",
+                "url": "http://draw.io",
+                "text": "draw.io"
+              },
+              {
+                "type": "text",
+                "text": ", due to the similarity in background colour (orange) and the relative density of the foreground image (white splat for Claude vs. white node-and-wire for "
+              },
+              {
+                "type": "link",
+                "url": "http://draw.io",
+                "text": "draw.io"
+              },
+              {
+                "type": "text",
+                "text": ", both filling about 75% of the icon, vs. the Pages icon which has an orange background but with only 30%-ish white foreground image). Disappearing and reappearing scroll bars and dock-bars are plain annoying. Auto-rearrangement of menu items (e.g. by recently used) is annoying and confusing - I first noticed this problem in SBCL’s restart menu (ultra-horrible UI, due to inconsistency)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1762034234.045849",
+    "client_msg_id": "F8D1911F-FF7A-4200-B63F-6031A2F24CDF",
+    "text": "I always thought it might work better for the size of the thumb to be logarithmically related to the size of the text.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "iHqnb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I always thought it might work better for the size of the thumb to be logarithmically related to the size of the text."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1762056478.174989",
+    "client_msg_id": "4b10ccb6-3157-4454-a23e-0e702c62dafa",
+    "text": "Logarithmically related?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CdzQ3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Logarithmically related?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1762073771.542809",
+    "client_msg_id": "9e786bc9-962a-4c0f-aad2-0b9b1e965ab9",
+    "text": "<@UMQ6LR9NZ> A nice case of <https://moldabledevelopment.com/|Moldable Development>!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761924837.139409",
+    "parent_user_id": "UMQ6LR9NZ",
+    "attachments": [
+      {
+        "from_url": "https://moldabledevelopment.com/",
+        "id": 1,
+        "original_url": "https://moldabledevelopment.com/",
+        "fallback": "Moldable Development",
+        "text": "Moldable Development is a way of programming through contextual micro tools.",
+        "title": "Moldable Development",
+        "title_link": "https://moldabledevelopment.com/",
+        "service_name": "moldabledevelopment.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "U+gjg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UMQ6LR9NZ"
+              },
+              {
+                "type": "text",
+                "text": " A nice case of "
+              },
+              {
+                "type": "link",
+                "url": "https://moldabledevelopment.com/",
+                "text": "Moldable Development"
+              },
+              {
+                "type": "text",
+                "text": "!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UMQ6LR9NZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1762102414.157419",
+    "client_msg_id": "AC00E84B-B6C5-4F60-B317-F004C98F6AC5",
+    "text": "Typically, if the viewport is showing 1/10th of the document, the thumb takes up 1/10th of the scroll bar; if 1/100th, 1/100th. At that point, the thumb is so small, it’s a bad UI experience — hard to see, hard to click on.\n\nRather, the reduction should be logarithmic, so that even at 1/1000th, the thumb is smaller, but still usable.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tyI4U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Typically, if the viewport is showing 1/10th of the document, the thumb takes up 1/10th of the scroll bar; if 1/100th, 1/100th. At that point, the thumb is so small, it’s a bad UI experience — hard to see, hard to click on.\n\nRather, the reduction should be logarithmic, so that even at 1/1000th, the thumb is smaller, but still usable."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1762102555.137379",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1762102578.000000"
+    },
+    "client_msg_id": "094f32de-26fe-4a09-8cc2-47058231c364",
+    "text": "And by thumb you mean the handle itself that you can drag? I don't know the names of things. I've been calling it the scrollbar that lives in the scrollbar gutter. Is it a thumb that lives in the scrollbar?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "huPvz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And by thumb you mean the handle itself that you can drag? I don't know the names of things. I've been calling it the scrollbar that lives in the scrollbar gutter. Is it a thumb that lives in the scrollbar?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1762102572.894409",
+    "client_msg_id": "799933DD-6A6B-43C4-BEBC-32DB23892F9E",
+    "text": "Yes.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A8z4L",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1762102807.061359",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1762103542.000000"
+    },
+    "client_msg_id": "87202c62-0d47-42a2-9a4d-cafae37daa48",
+    "text": "After this experiment and talking to <@UC2A2ARPT> I realized a much simpler solution is to grow the hit area of the thumb.\n\n<https://mastodon.social/@spiralganglion/115469389148175886|https://mastodon.social/@spiralganglion/115469389148175886>\n\n<https://git.sr.ht/~akkartik/carousel2.love/commit/c84cda3eec839c25fafddb2eb98b02bcb3244360|https://git.sr.ht/~akkartik/carousel2.love/commit/c84cda3eec839c25fafddb2eb98b02bcb3244360>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FvYVJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "After this experiment and talking to "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " I realized a much simpler solution is to grow the hit area of the thumb.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://mastodon.social/@spiralganglion/115469389148175886",
+                "text": "https://mastodon.social/@spiralganglion/115469389148175886"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://git.sr.ht/~akkartik/carousel2.love/commit/c84cda3eec839c25fafddb2eb98b02bcb3244360",
+                "text": "https://git.sr.ht/~akkartik/carousel2.love/commit/c84cda3eec839c25fafddb2eb98b02bcb3244360"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1762102982.096239",
+    "client_msg_id": "BCC08B75-A614-48AC-B434-780E6412E405",
+    "text": "Yes, this is an even better solution.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gk3RM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, this is an even better solution."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1762103654.925369",
+    "client_msg_id": "e652691d-2e4c-4a2b-b20f-4aaa4c137dad",
+    "text": "There might still be some role for logarithmic calculation. One remaining problem is that it's hard to get to the right line in a large file. I'll still thinking about that one.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1761891896.324109",
+    "parent_user_id": "UCUSW7WVD",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "e9HAx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There might still be some role for logarithmic calculation. One remaining problem is that it's hard to get to the right line in a large file. I'll still thinking about that one."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  }
+]

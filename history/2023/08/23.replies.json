@@ -1,0 +1,410 @@
+[
+  {
+    "client_msg_id": "9aeb88a1-168a-47f1-a12c-eb4022565b04",
+    "type": "message",
+    "text": "IMO, you can have both.  It’s not either/or.  You need the complexity of full solutions, you just don’t want to ingest all of the complexity in one big gulp.  UNIX’ hierarchical file systems overcame the complexity issues of DOS’ flat file system.  Lisp overcame the complexity issues of very long lists (lists are defined recursively).  Hardware people learned early on that PIC - relative addressing - was a better way to express branching.  Much of what we see in modern PLs inhibits layering, eg. inheritance with method overriding, functions that name other functions, etc., etc.",
+    "user": "UGWUJUZHT",
+    "ts": "1692801665.877149",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GJwKk",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "IMO, you can have both.  It’s not either/or.  You need the complexity of full solutions, you just don’t want to ingest all of the complexity in one big gulp.  UNIX’ hierarchical file systems overcame the complexity issues of DOS’ flat file system.  Lisp overcame the complexity issues of very long lists (lists are defined recursively).  Hardware people learned early on that PIC - relative addressing - was a better way to express branching.  Much of what we see in modern PLs inhibits layering, eg. inheritance with method overriding, functions that name other functions, etc., etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692800156.581119",
+    "parent_user_id": "UMQ6LR9NZ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U03LJBR6THT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "0E59BE67-60E6-4649-824A-87CE48545FC7",
+    "type": "message",
+    "text": "There was an alan kay quote something along the lines of “simplicity” can arise from slightly more sophisticated building blocks. \n\nI see a lot of replies to this article advocating for absolute simplicity - simpler building blocks, and less code etc. \n\nBut we don’t have many great examples of good building blocks in mainstream application development. Designing good building blocks is very hard, so many people reject them all together.\n\nI think this is a marketing issue, better building blocks obviously exist given the examples Paul gave. \n\nBut FoC projects need to effectively show how your new building blocks are 1 - simple to understand, implement &amp; use, &amp; 2 - implications on existing hard problems and how classes of complexity just disappear from the POV of the new building blocks.\n\nMost people just see a structural editor and think “that must be super complex” and don’t see the beautiful simple underlying abstraction &amp; implications on simpler plugin development &amp; tooling. ",
+    "user": "U03LJBR6THT",
+    "ts": "1692802245.033379",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UnVJ7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There was an alan kay quote something along the lines of “simplicity” can arise from slightly more sophisticated building blocks. \n\nI see a lot of replies to this article advocating for absolute simplicity - simpler building blocks, and less code etc. \n\nBut we "
+              },
+              {
+                "type": "text",
+                "text": "don’t"
+              },
+              {
+                "type": "text",
+                "text": " have many great examples of good building blocks in mainstream application development"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Designing good building blocks is very hard, so many people reject them all together.\n\nI think this is a marketing issue, better building blocks obviously exist given the examples Paul gave. \n\nBut FoC projects need to effectively show how your new building blocks are 1 - simple to understand, implement & use, & 2 - implications on existing hard problems and how classes of complexity just disappear from the POV of the new building blocks.\n\nMost people just see a structural editor and think “that must be super complex” and "
+              },
+              {
+                "type": "text",
+                "text": "don’t"
+              },
+              {
+                "type": "text",
+                "text": " see the beautiful simple underlying abstraction & implications on simpler plugin development & tooling. "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692800156.581119",
+    "parent_user_id": "UMQ6LR9NZ",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U05NLFQQ5MJ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c1c0abff-99e4-493c-bd23-345d3fa9e6bb",
+    "type": "message",
+    "text": "The idea of snapping building blocks together is easier when only one simple type is used.\n\nLEGO == “round peg” into “round hole”.\n\nThe UNIX idea of a simple inter-command type - characters delimited by newlines - is already too complicated (!).  Workarounds to handle binary data instead of 7-bit ASCII bytes were invented, and, then, came Unicode.\n\nIt is possible to build up more complex types using layers of types.\n\nTypes in networks are layered this way.  Types in PLs are not layered in the same manner.  IMO, the concepts espoused in something like the OSI 7-layer model need to be applied to programming.\n\nMy feeling at this time, is that a software Message for coupling software components is (1) a Tag and (2) Data.  One can complexify on the way up and simplify on the way down.  Type checking and type stripping can be done by software components, but, the components need to be isolated from one another, e.g. free from hidden and visible dependencies (aka “0D”, anti-CALL/RETURN).  The premature-optimization crowd can be mollified by allowing some components to be optimized out at “compile time”.\n\n\nWe have all of the tools, we just don’t bother to organize this way.  In the same way that we wrote spaghetti code when everything looked like a GOTO.",
+    "user": "UGWUJUZHT",
+    "ts": "1692804230.135229",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "q5CNs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The idea of snapping building blocks together is easier when only one simple type is used.\n\nLEGO == “round peg” into “round hole”.\n\nThe UNIX idea of a simple inter-command type - characters delimited by newlines - is already too complicated (!).  Workarounds to handle binary data instead of 7-bit ASCII bytes were invented, and, then, came Unicode.\n\nIt is possible to build up more complex types using layers of types.\n\nTypes in networks are layered this way.  Types in PLs are not layered in the same manner.  IMO, the concepts espoused in something like the OSI 7-layer model need to be applied to programming.\n\nMy feeling at this time, is that a software Message for coupling software components is (1) a Tag and (2) Data.  One can complexify on the way up and simplify on the way down.  Type checking and type stripping can be done by software components, but, the components need to be isolated from one another, e.g. free from hidden and visible dependencies (aka “0D”, anti-CALL/RETURN).  The premature-optimization crowd can be mollified by allowing some components to be optimized out at “compile time”.\n\n\nWe have all of the tools, we just don’t bother to organize this way.  In the same way that we wrote spaghetti code when everything looked like a GOTO."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692800156.581119",
+    "parent_user_id": "UMQ6LR9NZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "4fca0c27-f086-43d8-9271-e7a01aa2e007",
+    "type": "message",
+    "text": "I do not pretend to know the challenges you face in searching for new work, but I can share a bit my experience of going through a similar sounding situation.",
+    "user": "UE1JQM9HQ",
+    "ts": "1692819619.695299",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "n67=R",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I do not pretend to know the challenges you face in searching for new work, but I can share a bit my experience of going through a similar sounding situation."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UE1JQM9HQ",
+      "ts": "1692819626.000000"
+    },
+    "thread_ts": "1692815754.702279",
+    "parent_user_id": "U02U0AS3J49",
+    "reactions": [
+      {
+        "name": "pray::skin-tone-2",
+        "users": [
+          "U02U0AS3J49"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "16a36723-c30b-42bf-9b79-224fa77fc4ef",
+    "type": "message",
+    "text": "In the game of FoC Patreon Tiers, Visual Programming is in the lead. Type System purists, where you at!?",
+    "user": "UC2A2ARPT",
+    "ts": "1692821273.206939",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qoY=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In the game of FoC Patreon Tiers, Visual Programming is in the lead. Type System purists, where you at!?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692759278.355689",
+    "parent_user_id": "UC2A2ARPT",
+    "reactions": [
+      {
+        "name": "raised_hands",
+        "users": [
+          "U03R0B9U1GD",
+          "UMQ6LR9NZ"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "6ef30380-d3d8-4b4e-9da8-6f3375feed77",
+    "type": "message",
+    "text": "Speaking of spaghetti...  As tangled cords prove, simple doesn't not mean easy or natural.",
+    "user": "UA14TGLTC",
+    "ts": "1692851733.402009",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DO5K8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Speaking of spaghetti...  As tangled cords prove, simple doesn't not mean easy or natural."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692800156.581119",
+    "parent_user_id": "UMQ6LR9NZ",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c74e5295-4804-4608-aa55-34604d931c71",
+    "type": "message",
+    "text": "Sorry to hear that.. I'm no help, but would you like to share bit of a retrospective? Does this mean Blawx is going to be scrapped? Why do you think it didn't come to be?",
+    "user": "U0296ACR13M",
+    "ts": "1692857509.453389",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3J7vb",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sorry to hear that.. I'm no help, but would you like to share bit of a retrospective? Does this mean Blawx is going to be scrapped? Why do you think it didn't come to be?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692815754.702279",
+    "parent_user_id": "U02U0AS3J49",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "25988E2F-937E-4D88-A005-D3FB2B234574",
+    "type": "message",
+    "text": "Is simplicity an objective property of a system that is just hard to define? Or is simplicity somehow wrapped up — at least partially — with our subjective experience of it and is that why we have a hard time agreeing on it?\n\nThe article picks up on this issue, but then concludes that if it is partially subjective, we still just have to agree on how to deal with it — but that is the problem, not the solution.\n\nThere is an aspect of legibility to a system where different people might fundamentally disagree and no agreement seems possible (Emacs vs. Vim, Lisp vs. Forth, tabs vs. spaces, etc.). It often looks like it’s just an agreement issue and one side (of course, usually the other) is somehow confused and can’t see the “truth”.\n\nBut what if that is a flawed perspective to begin with?\nWhat if there are emergent properties that are only ever clearly defined by their current context and not fully generalizable? \n\nSimilar to how many organisms are well adapted to their environment, but it means different things for different organisms in different environments. If you drop a shark, a well adapted deadly predator at a fairly high spot in the aquatic food chain, into the middle of Sahara desert, it’ll be dead within seconds.\n\nMaybe when a system appears simple to us, we are just like a shark in water. Everything looks just fine over here. But try to teach that to a camel in the desert…",
+    "user": "U5STGTB3J",
+    "ts": "1692857571.904069",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NtJc7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Is simplicity an objective property of a system that is just hard to define? Or is simplicity somehow wrapped up — at least partially — with our subjective experience of it and is that why we have a hard time agreeing on it?\n\nThe article picks up on this issue, but then concludes that if it is partially subjective, we still just have to agree on how to deal with it — but that is the problem, not the solution.\n\nThere is an aspect of legibility to a system where different people might fundamentally disagree and no agreement seems possible (Emacs vs. Vim, Lisp vs. Forth, tabs vs. spaces, etc.). It often looks like it’s just an agreement issue and one side (of course, usually the other) is somehow confused and can’t see the “truth”.\n\nBut what if that is a flawed perspective to begin with?\nWhat if there are emergent properties that are only ever clearly defined by their current context and not fully generalizable? \n\nSimilar to how many organisms are well adapted to their environment, but it means different things for different organisms in different environments. If you drop a shark, a well adapted deadly predator at a fairly high spot in the aquatic food chain, into the middle of Sahara desert, it’ll be dead within seconds.\n\nMaybe when a system appears simple to us, we are just like a shark in water. Everything looks just fine over here"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " But try to teach that to a camel in the desert…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692800156.581119",
+    "parent_user_id": "UMQ6LR9NZ",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "5523b0b9-7929-40b2-9852-031b2ad27abf",
+    "type": "message",
+    "text": "My unproven and probably unprovable hypothesis is that much of complexity in software comes from believing that \"software\" is a useful category to think about, independent of context. From an engineering (as opposed to philosophical-mathematical) point of view, an embedded computer in a washing machine has pretty much nothing in common with a Web browser, and a climate simulation has nothing in common with Dungeons &amp; Dragons.",
+    "user": "UJBAJNFLK",
+    "ts": "1692858793.513629",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vQ=32",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My unproven and probably unprovable hypothesis is that much of complexity in software comes from believing that \"software\" is a useful category to think about, independent of context. From an engineering (as opposed to philosophical-mathematical) point of view, an embedded computer in a washing machine has pretty much nothing in common with a Web browser, and a climate simulation has nothing in common with Dungeons & Dragons."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1692800156.581119",
+    "parent_user_id": "UMQ6LR9NZ",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD",
+          "UMQ6LR9NZ",
+          "UA14TGLTC",
+          "U0245E9RB2B",
+          "UML4ZEKDK",
+          "U05NLFQQ5MJ"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "33c1e3ca-118b-4ef3-b3ff-357674e4ced8",
+    "type": "message",
+    "text": "Thanks for another fun episode! Here are my notes.\n\nAlan Kay's vision is focused on communicating by giving other people an executable simulation of your idea, not just figuring things out for yourself. His work on \"active essays\" is all about embedding simulations within a document for the purpose of improving communication.\n\nWith respect to programs that write programs, Andrew Hume supposedly said \"Programs that write programs are the happiest programs in the world.\"\n\nRegarding \"The computer is the fake bit and the program is the real part,\" though I cannot find a primary source, Dijkstra is sometimes quoted as saying \"Computer Science is no more about computers than astronomy is about telescopes.\"\n\nAlso, from SICP (<https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html|https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html>), \"First, we want to establish the idea that a computer language is not just a way of getting a computer to perform operations but rather that it is a novel formal medium for expressing ideas about methodology. Thus, programs must be written for people to read, and only incidentally for machines to execute.\"\n\nIf Dijkstra the Formal AND the freewheeling MIT crowd BOTH agree with you, Jimmy, then you might be onto something.\n\nOn the subject of modifying existing programs, one outstanding success story is Emacs. Emacs is really easy to customize in little and big ways because it was designed to be customized, with extensive support for custom key mapping, configuration, and the ability to install hooks before and after almost every important action. The result Is that it takes very little code to insert a little tweak in behavior wherever you want to. This wasn't an inevitable consequence of the language or the development environment, although they were a tremendous help. It came from a steadfast commitment to customizability at every stage of the design and implementation.\n\nIt also offers a gentle on-ramp to programming because the user can start with small customizations and gradually ramp up to more intricate ones. There is no point in the journey where you need to stop playing and go learn how to program all at once.\n\nI especially love section \"8.3 Blue Sky\" in the original Emacs paper. \n<https://dspace.mit.edu/handle/1721.1/5736|https://dspace.mit.edu/handle/1721.1/5736>\n\nI think Peter Naur's paper Diminishing Returns of User Programming (1978) is relevant to this whole conversation. As languages become higher and higher level, they tend to either become specialized and limited, or to have an explosion in vocabulary. Some people think that domain-specific languages are a way to escape this trap, but somehow this dichotomy must be addressed if we want to create a form of programming that is easy, high level, and general purpose.",
+    "user": "U03CEGR3HSL",
+    "ts": "1692897050.327209",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Vlr17",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for another fun episode! Here are my notes.\n\nAlan Kay's vision is focused on communicating by giving other people an executable simulation of your idea, not just figuring things out for yourself. His work on \"active essays\" is all about embedding simulations within a document for the purpose of improving communication.\n\nWith respect to programs that write programs, Andrew Hume supposedly said \"Programs that write programs are the happiest programs in the world.\"\n\nRegarding \"The computer is the fake bit and the program is the real part,\" though I cannot find a primary source, Dijkstra is sometimes quoted as saying \"Computer Science is no more about computers than astronomy is about telescopes.\"\n\nAlso, from SICP ("
+              },
+              {
+                "type": "link",
+                "url": "https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html",
+                "text": "https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-H-7.html"
+              },
+              {
+                "type": "text",
+                "text": "), \"First, we want to establish the idea that a computer language is not just a way of getting a computer to perform operations but rather that it is a novel formal medium for expressing ideas about methodology. Thus, programs must be written for people to read, and only incidentally for machines to execute.\"\n\nIf Dijkstra the Formal AND the freewheeling MIT crowd BOTH agree with you, Jimmy, then you might be onto something.\n\nOn the subject of modifying existing programs, one outstanding success story is Emacs. Emacs is really easy to customize in little and big ways because it was designed to be customized, with extensive support for custom key mapping, configuration, and the ability to install hooks before and after almost every important action. The result Is that it takes very little code to insert a little tweak in behavior wherever you want to. This wasn't an inevitable consequence of the language or the development environment, although they were a tremendous help. It came from a steadfast commitment to customizability at every stage of the design and implementation.\n\nIt also offers a gentle on-ramp to programming because the user can start with small customizations and gradually ramp up to more intricate ones. There is no point in the journey where you need to stop playing and go learn how to program all at once.\n\nI especially love section \"8.3 Blue Sky\" in the original Emacs paper. \n"
+              },
+              {
+                "type": "link",
+                "url": "https://dspace.mit.edu/handle/1721.1/5736",
+                "text": "https://dspace.mit.edu/handle/1721.1/5736"
+              },
+              {
+                "type": "text",
+                "text": "\n\nI think Peter Naur's paper Diminishing Returns of User Programming (1978) is relevant to this whole conversation. As languages become higher and higher level, they tend to either become specialized and limited, or to have an explosion in vocabulary. Some people think that domain-specific languages are a way to escape this trap, but somehow this dichotomy must be addressed if we want to create a form of programming that is easy, high level, and general purpose."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U03CEGR3HSL",
+      "ts": "1692899896.000000"
+    },
+    "thread_ts": "1692759278.355689",
+    "parent_user_id": "UC2A2ARPT",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

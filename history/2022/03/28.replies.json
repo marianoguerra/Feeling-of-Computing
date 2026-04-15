@@ -1,0 +1,762 @@
+[
+  {
+    "client_msg_id": "4d828128-fc6a-48d9-84e7-9b4399740aa6",
+    "type": "message",
+    "text": "&gt; I think the fundamental mistake that people seem to be making with LP is using it to describe algorithms rather than code history, code inspirations, bug stories, features and any other context surrounding code like tests / security.\nThis sounds a bit strange to me. The original goal of literate programming, as introduced by Donald Knuth, was to formulate algorithms in a pedagogical way. I wouldn't call that goal a mistake. Maybe literate programming is not the best way to achieve it, but then... what is?\n\nThat said, I am perfectly fine with your approach, which is more in line with the various notebooks that have appeared over the last years. From my perspective as a long-time user of Emacs-plus-org-mode, I'd say you are doing org-mode with Web technology.\n\nBut I think this approach misses something essential: the algorithms on which all the high-level stuff ultimately depends. I want those algorithms to be just as accessible to readers as the high-level outline. With notebooks and friends, they disappear in a black box instead.",
+    "user": "UJBAJNFLK",
+    "ts": "1648451245.723489",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1648451514.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9cGL",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think the fundamental mistake that people seem to be making with LP is using it to describe algorithms rather than code history, code inspirations, bug stories, features and any other context surrounding code like tests / security."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThis sounds a bit strange to me. The original goal of literate programming, as introduced by Donald Knuth, was to formulate algorithms in a pedagogical way. I wouldn't call that goal a mistake. Maybe literate programming is not the best way to achieve it, but then... what is?\n\nThat said, I am perfectly fine with your approach, which is more in line with the various notebooks that have appeared over the last years. From my perspective as a long-time user of Emacs-plus-org-mode, I'd say you are doing org-mode with Web technology.\n\nBut I think this approach misses something essential: the algorithms on which all the high-level stuff ultimately depends. I want those algorithms to be just as accessible to readers as the high-level outline. With notebooks and friends, they disappear in a black box instead."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648427435.251609",
+    "parent_user_id": "U0282PL61U1",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "098f2aa1-3ac3-4e59-8458-8b7f9eaa19a6",
+    "type": "message",
+    "text": "I am super into LP too, I use Observablehq, and I love mixing in tweets into my notebooks. You can tell a whole story, so you can connect a LP story to internet media (or in my opinion you should do). I also dogfooding my experience here <https://futureofcoding.slack.com/archives/CCL5VVBAN/p1647859090612199>\nI also think git is less needed in LP situation, you just need the rollback safety features, and merging for team workflow. Funny enough we discussed that organically last week!",
+    "user": "U02E4DAQGSZ",
+    "ts": "1648457223.694159",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bFI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I am super into LP too, I use Observablehq, and I love mixing in tweets into my notebooks. You can tell a whole story, so you can connect a LP story to internet media (or in my opinion you should do). I also dogfooding my experience here "
+              },
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/CCL5VVBAN/p1647859090612199"
+              },
+              {
+                "type": "text",
+                "text": "\nI also think git is less needed in LP situation, you just need the rollback safety features, and merging for team workflow. Funny enough we discussed that organically last week!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648427435.251609",
+    "parent_user_id": "U0282PL61U1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "a03ae50f-3b35-49f3-8ad7-28cb793a83b4",
+    "type": "message",
+    "text": "<@U02E4DAQGSZ>\n\nYes its about the story! Does Observablehq allow you to embed content from other blocks, like noweb ? Jupyternotebook can't really do that and it is just linear. It is crucial to have that so that  you can explain code in any order.\n\n<@UJBAJNFLK>\n\nTo take <https://www.literateprograms.org/quicksort__c_.html|quick sort> as an example, I would\n\n1. show the video of quick sort first\n2. show the unit test second\n3. explain the history of the algorithm\n4. explain any trivia\n5. give a brief explanation of the algorithm along with common bugs\n6. put  up personal anecdotes\n7. put the complete quick sort code rather than go into details like declarations, loops, recursion ... \nI find examples going into too much details  while completely missing 1-6\n\nIn the LP <https://www.literateprograms.org/quicksort__c_.html|wiki> quick sort is described as\n\n```\n*&lt;&lt;public declarations&gt;&gt;=*\n*void* quicksort(*void* * base, size_t num_elements, size_t element_size,\n        *int* (*comparer)(*const* *void* *, *const* *void* *));\n*&lt;&lt;quicksort&gt;&gt;=*\n*void* quicksort(*void* * base, size_t num_elements, size_t element_size,\n        *int* (*comparer)(*const* *void* *, *const* *void* *))\n*{*\n  &lt;&lt;quicksort declarations&gt;&gt;\n &lt;&lt;check termination condition&gt;&gt;\n  &lt;&lt;select a pivot&gt;&gt;\n  &lt;&lt;partition the array&gt;&gt;\n  &lt;&lt;recursively sort each subpartition&gt;&gt;\n*}*\n```\n\nI would basically avoid declaration chunks like the above snippet ... unless its really a complex algorithm. Most everyday code in apps is  far too simple to warrant such detail.",
+    "user": "U0282PL61U1",
+    "ts": "1648468147.577299",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U0282PL61U1",
+      "ts": "1648469447.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "I/e35",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U02E4DAQGSZ"
+              },
+              {
+                "type": "text",
+                "text": "\n\nYes its about the story! Does Observablehq allow you to embed content from other blocks, like noweb ? Jupyternotebook can't really do that and it is just linear. It is crucial to have that so that  you can explain code in any order.\n\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": "\n\nTo take "
+              },
+              {
+                "type": "link",
+                "url": "https://www.literateprograms.org/quicksort__c_.html",
+                "text": "quick sort"
+              },
+              {
+                "type": "text",
+                "text": " as an example, I would\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "show the video of quick sort first"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "show the unit test second"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "explain the history of the algorithm"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "explain any trivia"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "give a brief explanation of the algorithm along with common bugs"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "put  up personal anecdotes"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "put the complete quick sort code rather than go into details like declarations, loops, recursion ... "
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI find examples going into too much details  while completely missing 1-6\n\nIn the LP "
+              },
+              {
+                "type": "link",
+                "url": "https://www.literateprograms.org/quicksort__c_.html",
+                "text": "wiki"
+              },
+              {
+                "type": "text",
+                "text": " quick sort is described as\n\n```\n"
+              },
+              {
+                "type": "text",
+                "text": "<<",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "public declarations",
+                "style": {
+                  "bold": true,
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ">>=",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "void",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " quicksort("
+              },
+              {
+                "type": "text",
+                "text": "void",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " * base, size_t num_elements, size_t element_size,\n        "
+              },
+              {
+                "type": "text",
+                "text": "int",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (*comparer)("
+              },
+              {
+                "type": "text",
+                "text": "const",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "void",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " *, "
+              },
+              {
+                "type": "text",
+                "text": "const",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "void",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " *));\n"
+              },
+              {
+                "type": "text",
+                "text": "<<",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "quicksort",
+                "style": {
+                  "bold": true,
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ">>=",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "void",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " quicksort("
+              },
+              {
+                "type": "text",
+                "text": "void",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " * base, size_t num_elements, size_t element_size,\n        "
+              },
+              {
+                "type": "text",
+                "text": "int",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (*comparer)("
+              },
+              {
+                "type": "text",
+                "text": "const",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "void",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " *, "
+              },
+              {
+                "type": "text",
+                "text": "const",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "void",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " *))\n"
+              },
+              {
+                "type": "text",
+                "text": "{",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n  <<"
+              },
+              {
+                "type": "text",
+                "text": "quicksort declarations",
+                "style": {
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ">>\n <<"
+              },
+              {
+                "type": "text",
+                "text": "check termination condition",
+                "style": {
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ">>\n  <<"
+              },
+              {
+                "type": "text",
+                "text": "select a pivot",
+                "style": {
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ">>\n  <<"
+              },
+              {
+                "type": "text",
+                "text": "partition the array",
+                "style": {
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ">>\n  <<"
+              },
+              {
+                "type": "text",
+                "text": "recursively sort each subpartition",
+                "style": {
+                  "unlink": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ">>\n"
+              },
+              {
+                "type": "text",
+                "text": "}",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n```\n\nI would basically avoid declaration chunks like the above snippet ... unless its really a complex algorithm. Most everyday code in apps is  far too simple to warrant such detail."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648427435.251609",
+    "parent_user_id": "U0282PL61U1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "5c928163-6744-49a2-b522-7b6a9128a43f",
+    "type": "message",
+    "text": "yes, observable is dataflow driven and features non-linear (topological) execution order <https://observablehq.com/@observablehq/observables-not-javascript>",
+    "user": "U02E4DAQGSZ",
+    "ts": "1648471910.573339",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zk9L",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yes, observable is dataflow driven and features non-linear (topological) execution order "
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@observablehq/observables-not-javascript"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648427435.251609",
+    "parent_user_id": "U0282PL61U1",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "U0282PL61U1"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "2853f82d-256f-46d3-b6ce-015a27c0ad32",
+    "type": "message",
+    "text": "<@U0282PL61U1> I think the challenge is to link all that together.\n\nExample: I have a notebook that calls a function called `quicksort`. As a reader, I want to figure out what it does.\n\nFirst step: look up the code that is actually called. That's your step 7, and should be trivial, which it is in a good IDE but (so far) it is not in notebook-like environments. The only other piece that a code analysis could lead to is unit tests (your step 2).\n\nEverything else would be annotations added by the developer, so now we are in the \"documentation\" category. Donald Knuth's prose gets complemented by other media, links to Wikipedia, etc. All the niceties that didn't exist at Knuth's time. But that's just a technology update, not a fundamental improvement compared to the LP of the past.",
+    "user": "UJBAJNFLK",
+    "ts": "1648485206.503189",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9j8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0282PL61U1"
+              },
+              {
+                "type": "text",
+                "text": " I think the challenge is to link all that together.\n\nExample: I have a notebook that calls a function called "
+              },
+              {
+                "type": "text",
+                "text": "quicksort",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". As a reader, I want to figure out what it does.\n\nFirst step: look up the code that is actually called. That's your step 7, and should be trivial, which it is in a good IDE but (so far) it is not in notebook-like environments. The only other piece that a code analysis could lead to is unit tests (your step 2).\n\nEverything else would be annotations added by the developer, so now we are in the \"documentation\" category. Donald Knuth's prose gets complemented by other media, links to Wikipedia, etc. All the niceties that didn't exist at Knuth's time. But that's just a technology update, not a fundamental improvement compared to the LP of the past."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648427435.251609",
+    "parent_user_id": "U0282PL61U1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "e5f78cde-e701-44e8-9f54-70c29b4b2b6c",
+    "type": "message",
+    "text": "Roughly speaking what I propose is not an update on LP, anything that implements tangle and mangle is LP,  but an update on the code  documentation genre / style. The final LP document should read like a history book as opposed to technical description of the code. My goal is to capture the evolution of all technical decisions made in a project, algorithms unless they are critical ... like say complex signal processing are of secondary importance.",
+    "user": "U0282PL61U1",
+    "ts": "1648490096.210129",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nB4x",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Roughly speaking what I propose is not an update on LP, anything that implements tangle and mangle is LP,  but an update on the code  documentation genre / style. The final LP document should read like a history book as opposed to technical description of the code. My goal is to capture the evolution of all technical decisions made in a project, algorithms unless they are critical ... like say complex signal processing are of secondary importance."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648427435.251609",
+    "parent_user_id": "U0282PL61U1",
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "42cf2004-31ec-4e62-b5be-c15c45e5f101",
+    "type": "message",
+    "text": "This one was a style I liked <https://observablehq.com/@tomlarkworthy/mip>. BIG intro to topic, executable tests, actual implementation was really done elsewhere. Sorta looks more like a text book in the end. I have a change log for the history, though I tend to be quite terse on on that bit. I don't think history is very interesting if you end up reading about doing something that 3 months later is deleted and replaced with a different way. I use history to answer... did anything change since I last looked?\n\nIf you want an overview of how a whole community is using LP (which is different to how I do it) I have a 100 of the best here:- <https://observablehq.com/@tomlarkworthy/notebooks2021>",
+    "user": "U02E4DAQGSZ",
+    "ts": "1648540486.202029",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U02E4DAQGSZ",
+      "ts": "1648540560.000000"
+    },
+    "attachments": [
+      {
+        "from_url": "https://observablehq.com/@tomlarkworthy/notebooks2021",
+        "image_url": "https://static.observableusercontent.com/thumbnail/375887ea9084abcb5c7f848457c205d7a6de4d53a5e1bb9672ff63c2a7755f21.jpg",
+        "image_width": 400,
+        "image_height": 250,
+        "image_bytes": 57499,
+        "service_icon": "https://observablehq.com/favicon-512.png",
+        "id": 2,
+        "original_url": "https://observablehq.com/@tomlarkworthy/notebooks2021",
+        "fallback": "100 Beautiful and Informative Notebooks of 2021",
+        "text": "It's the end of 2021, and I would like to reminisce about the amazing work that was produced on Observable over the last year. I have taken all the notebooks that were trending from the Top Trending Notebook Twitter Bot and picked 100 good ones. The broad categories apparent in 2021 were \"dataviz, art, mathematics, maps, apps, development, design, tutorials and tools\". Every notebook listed here is worth a read, but there is rather a lot so it might take you a few sessions! OK, enough chat... here are my fa",
+        "title": "100 Beautiful and Informative Notebooks of 2021",
+        "title_link": "https://observablehq.com/@tomlarkworthy/notebooks2021",
+        "service_name": "observablehq.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "klgP5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This one was a style I liked "
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/mip"
+              },
+              {
+                "type": "text",
+                "text": ". BIG intro to topic, executable tests, actual implementation was really done elsewhere. Sorta looks more like a text book in the end. I have a change log for the history, though I tend to be quite terse on on that bit. I don't think history is very interesting if you end up reading about doing something that 3 months later is deleted and replaced with a different way. I use history to answer... did anything change since I last looked?\n\nIf you want an overview of how a whole community is using LP (which is different to how I do it) I have a 100 of the best here:- "
+              },
+              {
+                "type": "link",
+                "url": "https://observablehq.com/@tomlarkworthy/notebooks2021"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648427435.251609",
+    "parent_user_id": "U0282PL61U1",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "client_msg_id": "daeedd3a-7222-46a7-a434-2328d4716b1a",
+    "type": "message",
+    "text": "I like obervablehq's style! What a difference it makes to show examples and tests first. In many ways blogs are literate programs too.\n\nWhile a history approach may not seem useful for discussing math heavy topics, it becomes very useful for showcasing project evolution.\n\nRight now I am evaluating DuctapeJS and Lua. Instead of throwing the final code away, I will just add a section on  scripting engine under early prototypes chapter for example.\n\nLet us say a project is changing from apache to Nginx or from REST to Graphql, all these can be discussed in github issues and then the code changes can be documented. Heck, you can even have a toggle button to show old code - as I am using web stuff for doing LP, this is entirely possible. I right now use a \"DEV\" flag to hide stripe API keys.\n\nMany decisions like framework choice, architecture choice, requirements can go into LP. Why are you building the damn thing in the first place ? When a function is deprecated I would like that to be documented too. Right now this is scattered in pm tools, github issues, mails, ad-hoc documents and commit messages. Apart from examples and tests, add a tutorial and user guide if you are building a reusable library. I am using wheel to build everyday polyglot webapps, where most decisions are  actually related to UI, so I am also documenting colorschemes :slightly_smiling_face:",
+    "user": "U0282PL61U1",
+    "ts": "1648552569.034009",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U0282PL61U1",
+      "ts": "1648553033.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2ZG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I like obervablehq's style! What a difference it makes to show examples and tests first. In many ways blogs are literate programs too.\n\nWhile a history approach may not seem useful for discussing math heavy topics, it becomes very useful for showcasing project evolution.\n\nRight now I am evaluating DuctapeJS and Lua. Instead of throwing the final code away, I will just add a section on  scripting engine under early prototypes chapter for example.\n\nLet us say a project is changing from apache to Nginx or from REST to Graphql, all these can be discussed in github issues and then the code changes can be documented. Heck, you can even have a toggle button to show old code - as I am using web stuff for doing LP, this is entirely possible. I right now use a \"DEV\" flag to hide stripe API keys.\n\nMany decisions like framework choice, architecture choice, requirements can go into LP. Why are you building the damn thing in the first place ? When a function is deprecated I would like that to be documented too. Right now this is scattered in pm tools, github issues, mails, ad-hoc documents and commit messages. Apart from examples and tests, add a tutorial and user guide if you are building a reusable library. I am using wheel to build everyday polyglot webapps, where most decisions are  actually related to UI, so I am also documenting colorschemes "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1648427435.251609",
+    "parent_user_id": "U0282PL61U1",
+    "reactions": [
+      {
+        "name": "raised_hands",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      },
+      {
+        "name": "rocket",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      },
+      {
+        "name": "ok_hand",
+        "users": [
+          "U02E4DAQGSZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  }
+]

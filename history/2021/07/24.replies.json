@@ -1,0 +1,645 @@
+[
+  {
+    "client_msg_id": "4132f7aa-c3d7-4ced-8f4d-c70e0b88ec86",
+    "type": "message",
+    "text": "I feel like Puredata or MaxMSP might be good to take inspiration from",
+    "user": "UFPPABQ7P",
+    "ts": "1627143763.077400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "frQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I feel like Puredata or MaxMSP might be good to take inspiration from"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "340831a3-a81f-4489-8c23-10fbb930e9e2",
+    "type": "message",
+    "text": "Hest vibes in the look of the dots moving around",
+    "user": "UDQBTJ211",
+    "ts": "1627145094.022800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lkS5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hest vibes in the look of the dots moving around"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627142936.022400",
+    "parent_user_id": "U018HK8QM2R",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c57be31d-05d1-4d91-b91f-98ee19a3c1b4",
+    "type": "message",
+    "text": "This is quite incredible!! If this was combined with a way to parse music into this format, that would be insane..",
+    "user": "U01JNTE35QS",
+    "ts": "1627156269.023100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "97155db555c2",
+      "image_72": "https://avatars.slack-edge.com/2021-01-13/1631845309525_97155db555c2091ecd20_72.jpg",
+      "first_name": "",
+      "real_name": "Vijay Chakravarthy",
+      "display_name": "Vijay Chakravarthy",
+      "team": "T5TCAFTA9",
+      "name": "vchakrav",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vwwn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is quite incredible!! If this was combined with a way to parse music into this format, that would be insane.."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627142936.022400",
+    "parent_user_id": "U018HK8QM2R",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b52b7464-4daf-46c6-b296-175d1661dbb9",
+    "type": "message",
+    "text": "Are you asking for input on things like... how to structure the concepts so that you get the best motions possible?\n\nAs a motivating example, one approach might be to create a data structure that contains a start value, end value, perhaps the current time, and perhaps some ease function (or spring, sure). Then, each frame, you increment the time and compute a new intermedia value to display. But then what do you do if, midway through the transition, the destination needs to change? Or what happens if you need to cancel the transition mid-flight? You'll probably get discontinuities.\n\nA better approach might be to store a current value and velocity, as well as a function that handles acceleration with respect to some goal value (again, could be a spring). Then if you need to change the destination, you can just change the acceleration function, and the velocity changes smoothly as a result, and you don't get discontinuities. But what if you need to revert the transition, and return to the start point? You'll need to store that too.\n\nIf this is the level of design thinking you're looking for, the best thing I remember coming across is a WWDC session titled <https://developer.apple.com/videos/play/wwdc2018/803/|Designing Fluid Interfaces>, where they talk about _the stuff you want_ when designing an animation abstraction, plus how to design the coding interface so that it's artist-friendly (in other words, so that you can more easily predict what sort of motion you'll get when specifying parameters).\n\nHope that helps!",
+    "user": "UC2A2ARPT",
+    "ts": "1627181804.077600",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "service_name": "Apple Developer",
+        "title": "Designing Fluid Interfaces - WWDC18 - Videos - Apple Developer",
+        "title_link": "https://developer.apple.com/videos/play/wwdc2018/803/",
+        "text": "Discover the techniques used to create the fluid gestural interface of iPhone X. Learn how to design with gestures and motion that feel...",
+        "fallback": "Apple Developer: Designing Fluid Interfaces - WWDC18 - Videos - Apple Developer",
+        "image_url": "https://devimages-cdn.apple.com/wwdc-services/images/42/2247/2247_wide_250x141_2x.jpg",
+        "from_url": "https://developer.apple.com/videos/play/wwdc2018/803/",
+        "image_width": 443,
+        "image_height": 250,
+        "image_bytes": 34387,
+        "service_icon": "https://developer.apple.com/favicon.ico",
+        "id": 1,
+        "original_url": "https://developer.apple.com/videos/play/wwdc2018/803/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UL+uo",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Are you asking for input on things like... how to structure the concepts so that you get the best motions possible?\n\nAs a motivating example, one approach might be to create a data structure that contains a start value, end value, perhaps the current time, and perhaps some ease function (or spring, sure). Then, each frame, you increment the time and compute a new intermedia value to display. But then what do you do if, midway through the transition, the destination needs to change? Or what happens if you need to cancel the transition mid-flight? You'll probably get discontinuities.\n\nA better approach might be to store a current value and velocity, as well as a function that handles acceleration with respect to some goal value (again, could be a spring). Then if you need to change the destination, you can just change the acceleration function, and the velocity changes smoothly as a result, and you don't get discontinuities. But what if you need to revert the transition, and return to the start point? You'll need to store that too.\n\nIf this is the level of design thinking you're looking for, the best thing I remember coming across is a WWDC session titled "
+              },
+              {
+                "type": "link",
+                "url": "https://developer.apple.com/videos/play/wwdc2018/803/",
+                "text": "Designing Fluid Interfaces"
+              },
+              {
+                "type": "text",
+                "text": ", where they talk about "
+              },
+              {
+                "type": "text",
+                "text": "the stuff you want",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " when designing an animation abstraction, plus how to design the coding interface so that it's artist-friendly (in other words, so that you can more easily predict what sort of motion you'll get when specifying parameters).\n\nHope that helps!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "abf191b7-41d8-4dd4-b703-12fadceaa837",
+    "type": "message",
+    "text": "(Note that there's a transcript, and you can click words in the transcript to jump the video to that spot)\n\nI would suggest jumping ahead to 7:00, where it begins talking about \"interruption\".",
+    "user": "UC2A2ARPT",
+    "ts": "1627182263.077900",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1627182347.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "s5zvU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Note that there's a transcript, and you can click words in the transcript to jump the video to that spot)\n\nI would suggest jumping ahead to 7:00, where it begins talking about \"interruption\"."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "aee065dc-59d9-48e2-9bc7-dc59b347c66f",
+    "type": "message",
+    "text": "Thanks <@UC2A2ARPT>, this sounds great! Using a spring as the lowest primitive has allowed me to avoid interrupted motions. The talk looks really applicable and inspiring, thanks for sharing!",
+    "user": "UFPPABQ7P",
+    "ts": "1627210922.078200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1GE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": ", this sounds great! Using a spring as the lowest primitive has allowed me to avoid interrupted motions. The talk looks really applicable and inspiring, thanks for sharing!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "04be6bd7-5534-4765-8021-823fbc8668d0",
+    "type": "message",
+    "text": "When you say 'FRP-oriented', do you mean you'll be integrating with some larger FRP library/framework/ecosystem?",
+    "user": "U013ZLJARC7",
+    "ts": "1627283067.078400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/He6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "When you say 'FRP-oriented', do you mean you'll be integrating with some larger FRP library/framework/ecosystem?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "e31f0c2b-c414-442e-9ee4-725dad93b5aa",
+    "type": "message",
+    "text": "<@U013ZLJARC7>, yes. I’m primarily building around RxJS as our Observable primitive.\n<https://github.com/colelawrence/behavior-state/blob/master/src/spring/BehaviorSpring.ts> (this “Spring” is not React-specific)\n<https://github.com/storyai/jsx-view> (RxJS as values. e.g. `&lt;div style={styleStringObservable$}/&gt;`)",
+    "user": "UFPPABQ7P",
+    "ts": "1627299108.078900",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UFPPABQ7P",
+      "ts": "1627299197.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "p5hI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": ", yes. I’m primarily building around RxJS as our Observable primitive.\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/colelawrence/behavior-state/blob/master/src/spring/BehaviorSpring.ts"
+              },
+              {
+                "type": "text",
+                "text": " (this “Spring” is not React-specific)\n"
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/storyai/jsx-view"
+              },
+              {
+                "type": "text",
+                "text": " (RxJS as values. e.g. "
+              },
+              {
+                "type": "text",
+                "text": "<div style={styleStringObservable$}/>",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "6d78bcde-3456-4e4b-8012-1c20ea3a857d",
+    "type": "message",
+    "text": "Wow! Really really cool ideas here.\n\nWhat I like:\n• Use of 2D to simply organize your work. In the end, your work is in some kind of map, that you have build and that you can visually remember. \n• Use of links only for event triggers.\n• In fact it is kind of similar to traditional nodes'n wire environments except as there is no text by default in nodes, you can look to the patch from any angle, and it is the point of view of the user that defines the text orientation when you need to display it.\n• To increase the volume parameter for a node you drag'n drop new \"volume+\" cells on the node and the volume will be higher if there are more cells. Same with other parameters.",
+    "user": "UJ6LDMMN0",
+    "ts": "1627313749.024100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jY5rd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Wow! Really really cool ideas here.\n\nWhat I like:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Use of 2D to simply organize your work. In the end, your work is in some kind of map, that you have build and that you can visually remember. "
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Use of links only for event triggers."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "In fact it is kind of similar to traditional nodes'n wire environments except as there is no text by default in nodes, you can look to the patch from any angle, and it is the point of view of the user that defines the text orientation when you need to display it."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "To increase the volume parameter for a node you drag'n drop new \"volume+\" cells on the node and the volume will be higher if there are more cells. Same with other parameters."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627142936.022400",
+    "parent_user_id": "U018HK8QM2R",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "88E5B7D6-C96B-4DF2-B93A-C88CE2F82F26",
+    "type": "message",
+    "text": "When I did this at invision, we leveraged the greensock API for our motion prototyping tool\nThe barrier for most devs seems to be understanding the three animation cases (transition, add, and delete), handling the corner cases (usually things like a half-drag, undo/redo/back/forward, and click during transition), and dealing with topology morphing (square-&gt; circle or solid-&gt;gradient, though there are some decent libraries for this)",
+    "user": "UN57U8V53",
+    "ts": "1627321675.085200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5RK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "When I did this at invision, we leveraged the greensock API for our motion prototyping tool\n"
+              },
+              {
+                "type": "text",
+                "text": "The barrier for most devs seems to be understanding the three animation cases (transition, add, and delete), handling the corner cases (usually things like a half-drag, undo/redo/back/forward, and click during transition), and dealing with topology morphing (square-> circle or solid->gradient, though there are some decent libraries for this)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "raised_hands",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "a9947a26-cce2-4db1-8f4f-21a14b6d9863",
+    "type": "message",
+    "text": "Thanks for the reference Don! I’ll take a close look at Greensock’s animation concepts",
+    "user": "UFPPABQ7P",
+    "ts": "1627321760.086200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KZWH",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the reference Don! I’ll take a close look at Greensock’s animation concepts"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "b54770f0-32f0-4701-aac9-0b1f7bf7eafd",
+    "type": "message",
+    "text": "Greensock is great. Well worth the commercial license cost if you don't want to write your own animation lib.",
+    "user": "UC2A2ARPT",
+    "ts": "1627321859.086800",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ON1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Greensock is great. Well worth the commercial license cost if you don't want to write your own animation lib."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "ADC49580-E474-4CAA-BD8A-933B8B0A29BD",
+    "type": "message",
+    "text": "I’ll also say from experience that designers LOVE to tweak animation timings, so make that easy :)",
+    "user": "UN57U8V53",
+    "ts": "1627321876.087400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RSdAD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’ll also say from experience that designers LOVE to tweak animation timings, so make that easy :)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627141602.077200",
+    "parent_user_id": "UFPPABQ7P",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UFPPABQ7P"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "c2dfed87-e706-49f2-bc7e-0252f35b86e7",
+    "type": "message",
+    "text": "This is so good. Tangible, playful, fast, … nicely shows again how the tool you use (UE5) influences your own work. #want",
+    "user": "U01ULEWACPP",
+    "ts": "1627363763.028700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4d4f0ee36615",
+      "image_72": "https://avatars.slack-edge.com/2021-05-26/2104531310403_4d4f0ee36615313d19e3_72.jpg",
+      "first_name": "Florian",
+      "real_name": "Florian Schulz",
+      "display_name": "Florian Schulz",
+      "team": "T5TCAFTA9",
+      "name": "mail213",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "u4h",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is so good. Tangible, playful, fast, … nicely shows again how the tool you use (UE5) influences your own work. #want"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1627142936.022400",
+    "parent_user_id": "U018HK8QM2R",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

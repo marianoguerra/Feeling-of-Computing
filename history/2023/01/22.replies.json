@@ -1,0 +1,533 @@
+[
+  {
+    "client_msg_id": "4a709262-01da-4785-86dc-b310be43dff2",
+    "type": "message",
+    "text": "# Appendix\nIf you want to play along with this experiment, the code is in <https://github.com/guitarvydas/cfunc>.\n\n## c.ohm\nA quickie grammar that matches function declarations in a C file.\n\nNote that this grammar is longer than a REGEX, but, is significantly shorter than a CFG specification (LR(k), YACC, etc.) for the C programming language.\n\n```Cfunctions {\n  program = item+\n  item =\n    | comment\n    | string\n    | applySyntactic&lt;FunctionDecl&gt; -- decl\n    | any -- other\n  FunctionDecl = name \"(\" param+ \")\" \"{\" block+ \"}\"\n\n    param =\n      | \"(\" param+ \")\" -- nested\n      | ~\"(\" ~\")\" any  -- flat\n\n    block =\n      | \"{\" block+ \"}\" -- nested\n      | ~\"{\" ~\"}\" any  -- flat\n\n      name = letter (alnum | \"_\")*\n      comment =\n        | \"//\" (~nl any)* nl\n        | \"/*\" (~\"*/\" any)* \"*/\"\n      string =\n        | bqstring\n        | dqstring\n        | sqstring\n      bqstring = \"`\" (qbq | (~\"`\" any))* \"`\"\n      dqstring = \"\\\"\" (qdq | (~\"\\\"\" any))* \"\\\"\"\n      sqstring = \"'\" (qsq | (~\"'\" any))* \"'\"\n      qbq = \"\\\\\" \"`\"\n      qdq = \"\\\\\" \"\\\"\"\n      qsq = \"\\\\\" \"'\"\n      nl = \"\\n\"\n      spaces += comment\n}```\nCan this grammar be improved and optimized?  Probably.  But, why would you care?\n\nYou would care only if you used this code in an end-user product.\n\nIf you use this code in something like a batch-editing environment, “efficiency” takes on a different meaning.  End-users don’t care about the efficiency of your code editor and its Find-and-Replace function.  End-users don’t care how efficient your command line tools, like *grep*, are.\n\nWhen you treat Ohm-JS + Fab as batch editors for development, then, only *development efficiency* matters.\n\nI strongly believe that one shouldn’t write code.  One should write code that writes code.  From this perspective, “efficiency” breaks down into 2 camps:\n1. developer efficiency\n2. end-user efficiency.\nNote that traditional *compilers* are simply apps that write code.  Developers use *compilers*.  End-users don’t care if a developer created end-user app code by hand or by using a compiler.  The only things that end-users care about is if the app is cheap and runs on cheap hardware.  The final app is assembler, regardless of how it was created. Developers, on the other hand, do care about development time and effort.  Hand-writing apps requires much more effort than using high-level language compilers to generate the final app code.  Debugging apps is easier when using high-level languages with type-checkers.  On the other hand, developers usually buy fancier hardware than that which is used by end-users.  Developers can afford to burn CPU cycles on their fancy hardware to give themselves faster - and cheaper - development and debugging times.\n\nThe final step in development is that of Production Engineering an app to make it cheap-enough to sell.  Up until that point, the development workflow should consist of *anything* that speeds up and cheapens development time, for example, dynamic language environments and REPLs.  For example, *Rust* is a Production Engineering language and needn’t be used until the last moment.\n\n## c.fab\n\nA `.fab` file is a specification that creates strings based on the above grammar.  *Fab* is an experimental transpiler tool that works with Ohm-JS.  It generates JavaScript code required by Ohm-JS.  This could all be done by off-the-shelf Ohm-JS.  *Fab* simply reduces the amount of keyboarding needed for creating JavaScript “semantics” code required by Ohm-JS.  *Fab* is written in Ohm-JS.\n```Cfunctions {\n  program [item+] = ‛«item»'\n  item_decl [x] =  ‛«x»'\n  item_other [x] =  ‛'\n  FunctionDecl [name lp param+ rp lb block+ rb] = ‛\\n«name»'\n    param_nested [lp param+ rp] = ‛'\n    param_flat [c] = ‛'\n    block_nested [lp block+ rp] = ‛'\n    block_flat [c] = ‛'\n      name [letter c*] = ‛«letter»«c»'\n      comment [begin cs end] = ‛'\n      nl [c] =  ‛«c»'\n      spaces [cs] =  ‛«cs»'\n      bqstring [begin cs* end] = ‛'\n      dqstring [begin cs* end] = ‛'\n      sqstring [begin cs* end] = ‛'\n      qbq [bslash c] = ‛'\n      qdq [bslash c] = ‛'\n      qsq [bslash c] = ‛'\n}```\n## grep.c\nThe above was tested against `grep.c` from the Gnu grep repo.\n\n`git clone <https://git.savannah.gnu.org/git/grep.git>`\n## Even Smaller\nI’m playing with the design of a new tool that I call *bred* (bracket editor).  It’s like a super-simple batch editor that walks through text that contains bracketed constructs.\n\nThe full specification consists of 2 strings\n1. what to match\n2. how to rewrite it.\nThe above specifications might be re-expressed as:\n```‛«name» («params») {«block»}'\n‛«name»'```\nwhich reads as:\n1. match, recursively, anything that looks like `«name» («params») {«block»}`\n2. then, throw away everything except the name\nCurrently, my concepts have warts - what happens when a comment or a string or a character constant contains brackets, or, even worse, what happens if they contain unmatched brackets?",
+    "user": "UGWUJUZHT",
+    "ts": "1674396645.606299",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kx3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "# Appendix\nIf you want to play along with this experiment, the code is in "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/guitarvydas/cfunc"
+              },
+              {
+                "type": "text",
+                "text": ".\n\n## c.ohm\nA quickie grammar that matches function declarations in a C file.\n\nNote that this grammar is longer than a REGEX, but, is significantly shorter than a CFG specification (LR(k), YACC, etc.) for the C programming language.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Cfunctions {\n  program = item+\n  item =\n    | comment\n    | string\n    | applySyntactic<FunctionDecl> -- decl\n    | any -- other\n  FunctionDecl = name \"(\" param+ \")\" \"{\" block+ \"}\"\n\n    param =\n      | \"(\" param+ \")\" -- nested\n      | ~\"(\" ~\")\" any  -- flat\n\n    block =\n      | \"{\" block+ \"}\" -- nested\n      | ~\"{\" ~\"}\" any  -- flat\n\n      name = letter (alnum | \"_\")*\n      comment =\n        | \"//\" (~nl any)* nl\n        | \"/*\" (~\"*/\" any)* \"*/\"\n      string =\n        | bqstring\n        | dqstring\n        | sqstring\n      bqstring = \"`\" (qbq | (~\"`\" any))* \"`\"\n      dqstring = \"\\\"\" (qdq | (~\"\\\"\" any))* \"\\\"\"\n      sqstring = \"'\" (qsq | (~\"'\" any))* \"'\"\n      qbq = \"\\\\\" \"`\"\n      qdq = \"\\\\\" \"\\\"\"\n      qsq = \"\\\\\" \"'\"\n      nl = \"\\n\"\n      spaces += comment\n}"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nCan this grammar be improved and optimized?  Probably.  But, why would you care?\n\nYou would care only if you used this code in an end-user product.\n\nIf you use this code in something like a batch-editing environment, “efficiency” takes on a different meaning.  End-users don’t care about the efficiency of your code editor and its Find-and-Replace function.  End-users don’t care how efficient your command line tools, like "
+              },
+              {
+                "type": "text",
+                "text": "grep",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", are.\n\nWhen you treat Ohm-JS + Fab as batch editors for development, then, only "
+              },
+              {
+                "type": "text",
+                "text": "development efficiency",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " matters.\n\nI strongly believe that one shouldn’t write code.  One should write code that writes code.  From this perspective, “efficiency” breaks down into 2 camps:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "developer efficiency"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "end-user efficiency."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nNote that traditional "
+              },
+              {
+                "type": "text",
+                "text": "compilers",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " are simply apps that write code.  Developers use "
+              },
+              {
+                "type": "text",
+                "text": "compilers",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".  End-users don’t care if a developer created end-user app code by hand or by using a compiler.  The only things that end-users care about is if the app is cheap and runs on cheap hardware.  The final app is assembler, regardless of how it was created. Developers, on the other hand, do care about development time and effort.  Hand-writing apps requires much more effort than using high-level language compilers to generate the final app code.  Debugging apps is easier when using high-level languages with type-checkers.  On the other hand, developers usually buy fancier hardware than that which is used by end-users.  Developers can afford to burn CPU cycles on their fancy hardware to give themselves faster - and cheaper - development and debugging times.\n\nThe final step in development is that of Production Engineering an app to make it cheap-enough to sell.  Up until that point, the development workflow should consist of "
+              },
+              {
+                "type": "text",
+                "text": "anything",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " that speeds up and cheapens development time, for example, dynamic language environments and REPLs.  For example, "
+              },
+              {
+                "type": "text",
+                "text": "Rust",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is a Production Engineering language and needn’t be used until the last moment.\n\n## c.fab\n\nA "
+              },
+              {
+                "type": "text",
+                "text": ".fab",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " file is a specification that creates strings based on the above grammar.  "
+              },
+              {
+                "type": "text",
+                "text": "Fab",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is an experimental transpiler tool that works with Ohm-JS.  It generates JavaScript code required by Ohm-JS.  This could all be done by off-the-shelf Ohm-JS.  "
+              },
+              {
+                "type": "text",
+                "text": "Fab",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " simply reduces the amount of keyboarding needed for creating JavaScript “semantics” code required by Ohm-JS.  "
+              },
+              {
+                "type": "text",
+                "text": "Fab",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " is written in Ohm-JS.\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Cfunctions {\n  program [item+] = ‛«item»'\n  item_decl [x] =  ‛«x»'\n  item_other [x] =  ‛'\n  FunctionDecl [name lp param+ rp lb block+ rb] = ‛\\n«name»'\n    param_nested [lp param+ rp] = ‛'\n    param_flat [c] = ‛'\n    block_nested [lp block+ rp] = ‛'\n    block_flat [c] = ‛'\n      name [letter c*] = ‛«letter»«c»'\n      comment [begin cs end] = ‛'\n      nl [c] =  ‛«c»'\n      spaces [cs] =  ‛«cs»'\n      bqstring [begin cs* end] = ‛'\n      dqstring [begin cs* end] = ‛'\n      sqstring [begin cs* end] = ‛'\n      qbq [bslash c] = ‛'\n      qdq [bslash c] = ‛'\n      qsq [bslash c] = ‛'\n}"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "## grep.c\nThe above was tested against "
+              },
+              {
+                "type": "text",
+                "text": "grep.c",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " from the Gnu grep repo.\n\n"
+              },
+              {
+                "type": "text",
+                "text": "git clone ",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "link",
+                "url": "https://git.savannah.gnu.org/git/grep.git",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n## Even Smaller\nI’m playing with the design of a new tool that I call "
+              },
+              {
+                "type": "text",
+                "text": "bred",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (bracket editor).  It’s like a super-simple batch editor that walks through text that contains bracketed constructs.\n\nThe full specification consists of 2 strings\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "what to match"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "how to rewrite it."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThe above specifications might be re-expressed as:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "‛«name» («params») {«block»}'\n‛«name»'"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "which reads as:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "match, recursively, anything that looks like "
+                  },
+                  {
+                    "type": "text",
+                    "text": "«name» («params») {«block»}",
+                    "style": {
+                      "code": true
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "then, throw away everything except the name"
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nCurrently, my concepts have warts - what happens when a comment or a string or a character constant contains brackets, or, even worse, what happens if they contain unmatched brackets?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1674396396.762359",
+    "parent_user_id": "UGWUJUZHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "67ff7467-7488-450c-b2df-1ab92f75bae6",
+    "type": "message",
+    "text": "Nice ideas.\n\nRe 0D, my next question is: how to decide at what granularity to stop using function calls? Or are you suggesting eliminating them entirely?\n\nRe transpiler pipelines: I tried this for a while a few years ago. The conclusion I reached was that they were great for adding capabilities but they can't add restrictions. In first class languages often a lot of value comes from guarantees that certain events won't occur. An int won't be assigned to a string. There you need a single coherent grammar. Does this seem right?",
+    "user": "UCUSW7WVD",
+    "ts": "1674413048.780219",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "d9TM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Nice ideas.\n\nRe 0D, my next question is: how to decide at what granularity to stop using function calls? Or are you suggesting eliminating them entirely?\n\nRe transpiler pipelines: I tried this for a while a few years ago. The conclusion I reached was that they were great for adding capabilities but they can't add restrictions. In first class languages often a lot of value comes from guarantees that certain events won't occur. An int won't be assigned to a string. There you need a single coherent grammar. Does this seem right?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1674396396.762359",
+    "parent_user_id": "UGWUJUZHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d066a1d7-85fa-4ab7-a9eb-f3b842648126",
+    "type": "message",
+    "text": "this talk is quite relevant —",
+    "user": "U01JNTE35QS",
+    "ts": "1674427195.703659",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/6PCm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this talk is quite relevant —"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1674396396.762359",
+    "parent_user_id": "UGWUJUZHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a427843d-b2b5-42cd-a0b9-95c7cecde864",
+    "type": "message",
+    "text": "<https://youtu.be/JMZLBB_BFNg>",
+    "user": "U01JNTE35QS",
+    "ts": "1674427198.559319",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IwT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://youtu.be/JMZLBB_BFNg"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "from_url": "https://youtu.be/JMZLBB_BFNg",
+        "thumb_url": "https://i.ytimg.com/vi/JMZLBB_BFNg/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/JMZLBB_BFNg?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen title=\"&quot;Parser Parser Combinators for Program Transformation&quot; by Rijnard van Tonder\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/JMZLBB_BFNg",
+        "fallback": "YouTube Video: \"Parser Parser Combinators for Program Transformation\" by Rijnard van Tonder",
+        "title": "\"Parser Parser Combinators for Program Transformation\" by Rijnard van Tonder",
+        "title_link": "https://youtu.be/JMZLBB_BFNg",
+        "author_name": "Strange Loop Conference",
+        "author_link": "https://www.youtube.com/@StrangeLoopConf",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "thread_ts": "1674396396.762359",
+    "parent_user_id": "UGWUJUZHT",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "500d59a9-5377-42c5-b9b0-cb4e7e1cf49a",
+    "type": "message",
+    "text": "... re: 0D ...\n\nideal: use both, without letting language influence your thinking\nideal: use both, but, remain aware of what each choice accomplishes\nideal: 0D to be so cheap that it could be used on every line of code\n\nreality: 0D is entangled with Multiprocessing and the current grain size is “Process”\nalternate reality: 0D can be couched in terms of closures and FIFOs, hence, grain size is “function” (where closure is roughly equivalent to function)\n\nreality: CALL/RETURN and the callstack are hard-wired into CPUs (there used to be a time when CPUs didn’t have hard-wired callstacks)\n\nreality: 1950s IDEs for Programming were Programming Languages, but, in 2022++ IDEs include other stuff, like powerful programming editors\n\nCALL is used for 2 reasons: (1) compacting code size, (2) DRY (Don’t Repeat Yourself).  There is no good reason to allow CALL/RETURN to leak into end-user code except for case (1) compacting code size [corollary: case (2) should be entirely optimized away at “compile time” and “edit time”]\n\nx.f(x) is syntax with the meaning “mutate the global callstack and mutate the IP to point at the method function x.f” (and “return” means “put the return value in a special place, then mutate the global callstack, then mutate the IP to point at the caller’s continuation code”)\n\nbut, there is no popular builtin syntax for Send()ing to an output queue and passing the finalized output queue back up to the parent Container\n\n... re: transpiler pipelines question ... thinking ...",
+    "user": "UGWUJUZHT",
+    "ts": "1674476389.286669",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/olu",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "... re: 0D ...\n\nideal: use both, without letting language influence your thinking\nideal: use both, but, remain aware of what each choice accomplishes\nideal: 0D to be so cheap that it could be used on every line of code\n\nreality: 0D is entangled with Multiprocessing and the current grain size is “Process”\nalternate reality: 0D can be couched in terms of closures and FIFOs, hence, grain size is “function” (where closure is roughly equivalent to function)\n\nreality: CALL/RETURN and the callstack are hard-wired into CPUs (there used to be a time when CPUs didn’t have hard-wired callstacks)\n\nreality: 1950s IDEs for Programming were Programming Languages, but, in 2022++ IDEs include other stuff, like powerful programming editors\n\nCALL is used for 2 reasons: (1) compacting code size, (2) DRY (Don’t Repeat Yourself).  There is no good reason to allow CALL/RETURN to leak into end-user code except for case (1) compacting code size [corollary: case (2) should be entirely optimized away at “compile time” and “edit time”]\n\nx.f(x) is syntax with the meaning “mutate the global callstack and mutate the IP to point at the method function x.f” (and “return” means “put the return value in a special place, then mutate the global callstack, then mutate the IP to point at the caller’s continuation code”)\n\nbut, there is no popular builtin syntax for Send()ing to an output queue and passing the finalized output queue back up to the parent Container\n\n... re: transpiler pipelines question ... thinking ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1674396396.762359",
+    "parent_user_id": "UGWUJUZHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1b2dd842-fce1-4eac-8683-fe48fd1dd1de",
+    "type": "message",
+    "text": "... re: transpiler pipelines question, progress towards answering the question, WIP ...\n... this doesn’t necessarily answer the question, but might show where my thinking is going, while I try to figure out what is really being asked ...\n... I think of a PL as 2 issues: (1) data (2) control flow, i.e. (1) operands and (2) syntax ...\n... I am playing with Orthogonal Programming Languages, where (1) is OO, (2) is syntax ; based on Cordy’s Orthogonal Code Generator ideas and based on RTL and based on dataless PLs (like Holt’s S/SL (used in PT Pascal, Concurrent Euclid, Turing, etc.)) ...\n... I think that dataless languages boils down to 2 entities: (1) Things, (2) Lists of Things.  Types are opaque and cannot be defined at the dataless language-level (Types are defined and manipulated in other layers, implemented in common PLs (e.g. Python, C, etc.))\n\n# Src\nString s\ns &lt;- ‘abc’\ns &lt;- 7\n\n# Gather\n$defsynonym (‘s’, ⟨od, kind=var, type=“String”, key=‘s’⟩)\ns &lt;- ‘abc’\ns &lt;- 7\n\n# Normalize\n$defsynonym (‘s’, ⟨od-var, “String”, ‘s’⟩)\n$Assign s, ⟨od-lit, “String”, ‘abc’⟩\n$Assign s, ⟨od-lit, “int”, 7⟩\n\n... same as ...\n\n$Assign ⟨od-var, “String”, ‘s’⟩, ⟨od-lit, “String”, ‘abc’⟩\n$Assign ⟨od-var, “String”, ‘s’⟩, ⟨od-lit, “int”, 7⟩\n\n# Semantic Check\n“String” == “String” --&gt; OK\n“String” != “int” --&gt; Error\n\nThis looks like simple name equivalence.  Lower layers are free to use structural equivalence instead (using names as keys to a map containing more detail for each type).\n\n[The goal here is to think of a compiler as a string of pearls on a pipeline instead of as a honking big tree].\n\n[od - oh-D, not zero-D, means “object descriptor”]",
+    "user": "UGWUJUZHT",
+    "ts": "1674555091.488049",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ps=v",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "... re: transpiler pipelines question, progress towards answering the question, WIP ...\n... this doesn’t necessarily answer the question, but might show where my thinking is going, while I try to figure out what is really being asked ...\n... I think of a PL as 2 issues: (1) data (2) control flow, i.e. (1) operands and (2) syntax ...\n... I am playing with Orthogonal Programming Languages, where (1) is OO, (2) is syntax ; based on Cordy’s Orthogonal Code Generator ideas and based on RTL and based on dataless PLs (like Holt’s S/SL (used in PT Pascal, Concurrent Euclid, Turing, etc.)) ...\n... I think that dataless languages boils down to 2 entities: (1) Things, (2) Lists of Things.  Types are opaque and cannot be defined at the dataless language-level (Types are defined and manipulated in other layers, implemented in common PLs (e.g. Python, C, etc.))\n\n# Src\nString s\ns <- ‘abc’\ns <- 7\n\n# Gather\n$defsynonym (‘s’, ⟨od, kind=var, type=“String”, key=‘s’⟩)\ns <- ‘abc’\ns <- 7\n\n# Normalize\n$defsynonym (‘s’, ⟨od-var, “String”, ‘s’⟩)\n$Assign s, ⟨od-lit, “String”, ‘abc’⟩\n$Assign s, ⟨od-lit, “int”, 7⟩\n\n... same as ...\n\n$Assign ⟨od-var, “String”, ‘s’⟩, ⟨od-lit, “String”, ‘abc’⟩\n$Assign ⟨od-var, “String”, ‘s’⟩, ⟨od-lit, “int”, 7⟩\n\n# Semantic Check\n“String” == “String” --> OK\n“String” != “int” --> Error\n\nThis looks like simple name equivalence.  Lower layers are free to use structural equivalence instead (using names as keys to a map containing more detail for each type).\n\n[The goal here is to think of a compiler as a string of pearls on a pipeline instead of as a honking big tree].\n\n[od - oh-D, not zero-D, means “object descriptor”]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "team": "T5TCAFTA9",
+    "thread_ts": "1674396396.762359",
+    "parent_user_id": "UGWUJUZHT",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

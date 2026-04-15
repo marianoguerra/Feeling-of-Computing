@@ -1,0 +1,3586 @@
+[
+  {
+    "client_msg_id": "98356009-d043-472a-b2a8-2bfc1b2b3041",
+    "type": "message",
+    "text": "<@UJM9NG84Q> I was thinking of a solution for natural language programming a while ago. This is what I came up with:\n\n*Transform English to code*\nA simple parser will try to convert English sentences to code with the following steps: The verb of the sentece will be the function that’s going to be called. For the moment, if the sentence has no verb it’s an error. The other words are the parameters of the function. Articles, prepositions, and other words with no meaning will be ignored. The _parameters_ are converted to a Hash. The keys are the categories of the words, the values are objects with the words and more information. The hypernyms (<https://en.wikipedia.org/wiki/Hyponymy_and_hypernymy>) of a word are the candidates for the category (this is IMO the most complex problem to solve for the project, might need some heuristics).\nFor example the sentence:\n```Draw a red circle```\nWould get transformed to the code:\n```draw(color: 'red', shape: 'circle')```\nI was thinking about it for a text based language, here is the POC I did <https://github.com/nlpl-lang/nlpl-editor>",
+    "user": "U85HCL7JP",
+    "ts": "1580090794.007600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c5d8f6a2266",
+      "image_72": "https://avatars.slack-edge.com/2020-07-25/1286770110448_0c5d8f6a2266551a36f2_72.jpg",
+      "first_name": "",
+      "real_name": "Daniel Garcia",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "daniel.garcia.carmona",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Hyponym_and_hypernym.svg/1200px-Hyponym_and_hypernym.svg.png",
+        "image_width": 1200,
+        "image_height": 488,
+        "image_bytes": 62374,
+        "title": "Hyponymy and hypernymy",
+        "title_link": "https://en.wikipedia.org/wiki/Hyponymy_and_hypernymy",
+        "from_url": "https://en.wikipedia.org/wiki/Hyponymy_and_hypernymy",
+        "author_name": "Wikipedia",
+        "author_link": "https://en.wikipedia.org/",
+        "text": "In linguistics, a hyponym (from Greek hupó, \"under\" and ónoma, \"name\") is a word or phrase whose semantic field is included within that of another word, its hyperonym or hypernym (from Greek hupér, \"over\" and ónoma, \"name\"). In simpler terms, a hyponym is in a type-of relationship with its hypernym. For example, pigeon, crow, eagle and seagull are all hyponyms of bird (their hypernym); which, in turn, is a hyponym of animal.Other names for hypernym include umbrella term and blanket term. A synonym of co-hyponym based on same tier (and not hyponymic) relation is allonym (it means different name).",
+        "fallback": "wikipedia: Hyponymy and hypernymy",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/wikipedia.png",
+        "id": 1,
+        "original_url": "https://en.wikipedia.org/wiki/Hyponymy_and_hypernymy"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kgy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJM9NG84Q"
+              },
+              {
+                "type": "text",
+                "text": " I was thinking of a solution for natural language programming a while ago. This is what I came up with:\n\n"
+              },
+              {
+                "type": "text",
+                "text": "Transform English to code",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\nA simple parser will try to convert English sentences to code with the following steps: The verb of the sentece will be the function that’s going to be called. For the moment, if the sentence has no verb it’s an error. The other words are the parameters of the function. Articles, prepositions, and other words with no meaning will be ignored. The "
+              },
+              {
+                "type": "text",
+                "text": "parameters",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " are converted to a Hash. The keys are the categories of the words, the values are objects with the words and more information. The hypernyms ("
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Hyponymy_and_hypernymy"
+              },
+              {
+                "type": "text",
+                "text": ") of a word are the candidates for the category (this is IMO the most complex problem to solve for the project, might need some heuristics).\nFor example the sentence:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Draw a red circle"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Would get transformed to the code:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "draw(color: 'red', shape: 'circle')"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI was thinking about it for a text based language, here is the POC I did "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/nlpl-lang/nlpl-editor"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580086606.006200",
+    "parent_user_id": "UJM9NG84Q",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "a673b0cb-8ed8-4ac0-9046-784bd5376418",
+    "type": "message",
+    "text": "Ah I forgot about how threads are used here, apologies\nYour design reminds me somewhat of mozilla lab's canned ubiquity project, though voice driven. Though it seems to me that your project aims to be more composable than ubiquity?\nIncidentally, ubiquity got ported to webextensions, and thus can be tried out here: <https://gchristensen.github.io/ubiquitywe/>",
+    "user": "UT60XSVCN",
+    "ts": "1580094227.008000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbc3e6041047",
+      "image_72": "https://secure.gravatar.com/avatar/bc3e6041047849518d1b042f0a29d5af.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "S.M Mukarram Nainar",
+      "display_name": "S.M Mukarram Nainar",
+      "team": "T5TCAFTA9",
+      "name": "nainars",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Ubiquity WebExtension",
+        "title": "UbiquityWE",
+        "title_link": "https://gchristensen.github.io/ubiquitywe/",
+        "text": "A natural language interface for web browsers",
+        "fallback": "Ubiquity WebExtension: UbiquityWE",
+        "from_url": "https://gchristensen.github.io/ubiquitywe/",
+        "service_icon": "https://gchristensen.github.io/favicon.ico",
+        "id": 1,
+        "original_url": "https://gchristensen.github.io/ubiquitywe/"
+      }
+    ],
+    "thread_ts": "1580086606.006200",
+    "parent_user_id": "UJM9NG84Q",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "f3963620-5bba-4024-93fd-5310fd52fdcb",
+    "type": "message",
+    "text": "<@UJM9NG84Q> I assume you're aware of Inform 7? We discussed this talk here a while back: <http://inform7.com/talks/2018/06/09/london.html>",
+    "user": "UCUSW7WVD",
+    "ts": "1580096869.008400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6e649a383cf8",
+      "image_72": "https://avatars.slack-edge.com/2019-07-14/687915485201_6e649a383cf8f9e366e3_72.png",
+      "first_name": "Kartik",
+      "real_name": "Kartik Agaram",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ak",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Inform 7",
+        "title": "Assessing Inform (London 2018 talk)",
+        "title_link": "http://inform7.com/talks/2018/06/09/london.html",
+        "text": "This is the talk and slides from the June 2018 London IF meetup, held at Elephant Studios in London South Bank University on 9 June 2018. I was invited to speak about Inform, past, present and future. I’d like to thank the audience, who were not all from London nor even from England, for their insightful questions. This talk assumes a little familiarity with what is sometimes called parser IF, because it was preceded by an introduction from Emily Short, who led a live play-through of part of Mike Spivey’s recent work A Beauty Cold and Austere, and showed a gallery of contemporary pieces written in this genre. — Graham Nelson",
+        "fallback": "Inform 7: Assessing Inform (London 2018 talk)",
+        "ts": 1528549200,
+        "from_url": "http://inform7.com/talks/2018/06/09/london.html",
+        "id": 1,
+        "original_url": "http://inform7.com/talks/2018/06/09/london.html"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jX9Nq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJM9NG84Q"
+              },
+              {
+                "type": "text",
+                "text": " I assume you're aware of Inform 7? We discussed this talk here a while back: "
+              },
+              {
+                "type": "link",
+                "url": "http://inform7.com/talks/2018/06/09/london.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580086606.006200",
+    "parent_user_id": "UJM9NG84Q",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "df13fa5b-7171-40ab-ad77-1a783d188ff0",
+    "type": "message",
+    "text": "Was an interesting read, thanks.\n&gt;The systematic influence of mnemotechnics on individual human consciousness must therefore be looked at as political in itself; if we are to understand technics, we must understand how the technical milieu of human consciousness affects us collectively, as a ‘we’, thus affecting us politically. \nThis really points at the political core of computing I think often goes unseen. Well maybe not so much unseen as deliberately ignored.\nI think the key takeaway here is that technology is /persistent/ and has long-ranging effects. As a creator, are you willing to take responsibility for your creation? Perhaps the more important question is whether you can even do so—is it a task even capable by humans? I wonder how much of the general disregard for these questions comes out of a sense of despair?\nBut eh, I didn't really expect to be discussing philosophy here to be perfectly honest",
+    "user": "UT60XSVCN",
+    "ts": "1580106191.197200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbc3e6041047",
+      "image_72": "https://secure.gravatar.com/avatar/bc3e6041047849518d1b042f0a29d5af.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "S.M Mukarram Nainar",
+      "display_name": "S.M Mukarram Nainar",
+      "team": "T5TCAFTA9",
+      "name": "nainars",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1580102141.196600",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "USUMN6XLH",
+          "UD3AK9JRF"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "df13fa5b-7171-40ab-ad77-1a783d188ff0",
+    "type": "message",
+    "text": "Was an interesting read, thanks.\n&gt;The systematic influence of mnemotechnics on individual human consciousness must therefore be looked at as political in itself; if we are to understand technics, we must understand how the technical milieu of human consciousness affects us collectively, as a ‘we’, thus affecting us politically. \nThis really points at the political core of computing I think often goes unseen. Well maybe not so much unseen as deliberately ignored.\nI think the key takeaway here is that technology is /persistent/ and has long-ranging effects. As a creator, are you willing to take responsibility for your creation? Perhaps the more important question is whether you can even do so—is it a task even capable by humans? I wonder how much of the general disregard for these questions comes out of a sense of despair?\nBut eh, I didn't really expect to be discussing philosophy here to be perfectly honest",
+    "user": "UT60XSVCN",
+    "ts": "1580106191.197200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbc3e6041047",
+      "image_72": "https://secure.gravatar.com/avatar/bc3e6041047849518d1b042f0a29d5af.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0020-72.png",
+      "first_name": "",
+      "real_name": "S.M Mukarram Nainar",
+      "display_name": "S.M Mukarram Nainar",
+      "team": "T5TCAFTA9",
+      "name": "nainars",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1580102141.196600",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "USUMN6XLH",
+          "UD3AK9JRF"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "EB8B5078-4C35-4E59-9247-DD75FE7B5D54",
+    "type": "message",
+    "text": "The importance of technics with regards to time (just the influence of Bret Victor and how the concepts he espoused have flowed into many of the tools we use today, or ditto Haskell) can shed light on the importance of tools in shaping the thought of future users. There is a kind of consciousness transfer happening between generations using tools, and what is a better argument for tools for thought than that? :P",
+    "user": "USUMN6XLH",
+    "ts": "1580110975.200900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8a3bc278696f",
+      "image_72": "https://avatars.slack-edge.com/2020-01-26/922460775044_8a3bc278696f955af590_72.jpg",
+      "first_name": "Josh",
+      "real_name": "Josh Cho",
+      "display_name": "Josh Cho",
+      "team": "T5TCAFTA9",
+      "name": "joshchonpc",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1580102141.196600",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "EB8B5078-4C35-4E59-9247-DD75FE7B5D54",
+    "type": "message",
+    "text": "The importance of technics with regards to time (just the influence of Bret Victor and how the concepts he espoused have flowed into many of the tools we use today, or ditto Haskell) can shed light on the importance of tools in shaping the thought of future users. There is a kind of consciousness transfer happening between generations using tools, and what is a better argument for tools for thought than that? :P",
+    "user": "USUMN6XLH",
+    "ts": "1580110975.200900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8a3bc278696f",
+      "image_72": "https://avatars.slack-edge.com/2020-01-26/922460775044_8a3bc278696f955af590_72.jpg",
+      "first_name": "Josh",
+      "real_name": "Josh Cho",
+      "display_name": "Josh Cho",
+      "team": "T5TCAFTA9",
+      "name": "joshchonpc",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1580102141.196600",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "981f59b5-a3c3-4af7-8b11-b991ea095791",
+    "type": "message",
+    "text": "I periodically remember and forget inform ;) I will check out that talk! \n\nAnd I'm hoping the project I'm working on can revive some of those ideas from Ubiquity (<https://github.com/mozilla/firefox-voice|https://github.com/mozilla/firefox-voice>)",
+    "user": "UJM9NG84Q",
+    "ts": "1580122588.008700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g4791f7f49bc",
+      "image_72": "https://secure.gravatar.com/avatar/74791f7f49bc26afa271eced90cda37c.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Ian Bicking",
+      "display_name": "Ian Bicking",
+      "team": "T5TCAFTA9",
+      "name": "ian",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ai7gg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I periodically remember and forget inform ;) I will check out that talk! \n\nAnd I'm hoping the project I'm working on can revive some of those ideas from Ubiquity ("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/mozilla/firefox-voice",
+                "text": "https://github.com/mozilla/firefox-voice"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580086606.006200",
+    "parent_user_id": "UJM9NG84Q",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "AA3E5761-CD26-4EC4-A4BF-4F50364E964D",
+    "type": "message",
+    "text": "That’s pretty much my perspective, although with different words here and there.\n\nIndeed, I believe the 3 following topics are identical, and will converge at some point: artistic expression, philosophy of mind, and user interface design. They all need to somehow understand the mind/body/environment, and they all require some tool and action to do so.",
+    "user": "UKASUGYL8",
+    "ts": "1580126377.018200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "1be0ff30a27c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-06/656896537269_1be0ff30a27c1f309eb6_72.png",
+      "first_name": "Achraf",
+      "real_name": "Achraf Kassioui",
+      "display_name": "Achraf Kassioui",
+      "team": "T5TCAFTA9",
+      "name": "achrafkassioui",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MXgM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That’s pretty much my perspective, although with different words here and there.\n\n"
+              },
+              {
+                "type": "text",
+                "text": "Indeed, I believe the 3 following topics are identical, and will converge at some point: artistic expression, philosophy of mind, and user interface design. They all need to somehow understand the mind/body/environment, and they all require some tool and action to do so."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580101513.012700",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UFPPABQ7P",
+          "UR0AX2VHB"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "USUMN6XLH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "39562617-cca0-4f0c-9171-df714e3872a3",
+    "type": "message",
+    "text": "<http://www.drgeo.eu>",
+    "user": "UE1JQM9HQ",
+    "ts": "1580126609.205300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "GNU Dr. Geo, be a geometer!",
+        "title_link": "http://www.drgeo.eu/",
+        "text": "geometry géométrie interactive dynamic mathematic mathématiques linux windows mac apple",
+        "fallback": "GNU Dr. Geo, be a geometer!",
+        "image_url": "http://www.drgeo.eu/_/rsrc/1472782761448/home/drgeo-title.png",
+        "from_url": "http://www.drgeo.eu/",
+        "image_width": 500,
+        "image_height": 244,
+        "image_bytes": 107011,
+        "service_icon": "http://www.gstatic.com/sites/p/fe5eb1/system/app/images/apple-touch-icon.png",
+        "service_name": "drgeo.eu",
+        "id": 1,
+        "original_url": "http://www.drgeo.eu"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eT1E3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "http://www.drgeo.eu"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "39562617-cca0-4f0c-9171-df714e3872a3",
+    "type": "message",
+    "text": "<http://www.drgeo.eu>",
+    "user": "UE1JQM9HQ",
+    "ts": "1580126609.205300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "GNU Dr. Geo, be a geometer!",
+        "title_link": "http://www.drgeo.eu/",
+        "text": "geometry géométrie interactive dynamic mathematic mathématiques linux windows mac apple",
+        "fallback": "GNU Dr. Geo, be a geometer!",
+        "image_url": "http://www.drgeo.eu/_/rsrc/1472782761448/home/drgeo-title.png",
+        "from_url": "http://www.drgeo.eu/",
+        "image_width": 500,
+        "image_height": 244,
+        "image_bytes": 107011,
+        "service_icon": "http://www.gstatic.com/sites/p/fe5eb1/system/app/images/apple-touch-icon.png",
+        "service_name": "drgeo.eu",
+        "id": 1,
+        "original_url": "http://www.drgeo.eu"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eT1E3",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "http://www.drgeo.eu"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cd4c76a4-6270-411f-a06e-41ee44193a23",
+    "type": "message",
+    "text": "Some other usefull thoughts from Bernard Stiegler, is that each technical artifact is a pharmakos, i.e. it is both a poison, a cure and you have to take care of it, in the sense that it can be a destructive power. For example, writings as a technic can be an empowerment source or can be an alienation tool. An other obvious example is the web, with all the benefits and the obvious drawbacks (privacy concerns, advertisments overdose, etc.). Stiegler also says that a pharmakos has also to be considered as a potential spacegoat for those who are not able to manage the cure/poison balance. (source in french from one association from Stiegler, Ars Industrialis: <http://www.arsindustrialis.org/pharmakon>)",
+    "user": "UJ6LDMMN0",
+    "ts": "1580132583.206700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "426cd5067da7",
+      "image_72": "https://avatars.slack-edge.com/2019-04-26/607834329346_426cd5067da7fc8c6933_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJ6LDMMN0",
+      "ts": "1580162702.000000"
+    },
+    "attachments": [
+      {
+        "title": "Pharmakon | Ars Industrialis",
+        "title_link": "http://www.arsindustrialis.org/pharmakon",
+        "text": " Ars Industrialis, association internationale pour une politique industrielle des technologies de l'esprit, fondée notamment par Bernard Stiegler",
+        "fallback": "Pharmakon | Ars Industrialis",
+        "from_url": "http://www.arsindustrialis.org/pharmakon",
+        "service_icon": "http://www.arsindustrialis.org/sites/default/files/favicon.ico",
+        "service_name": "arsindustrialis.org",
+        "id": 1,
+        "original_url": "http://www.arsindustrialis.org/pharmakon"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FMM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some other usefull thoughts from Bernard Stiegler, is that each technical artifact is a pharmakos, i.e. it is both a poison, a cure and you have to take care of it, in the sense that it can be a destructive power. For example, writings as a technic can be an empowerment source or can be an alienation tool. An other obvious example is the web, with all the benefits and the obvious drawbacks (privacy concerns, advertisments overdose, etc.). Stiegler also says that a pharmakos has also to be considered as a potential spacegoat for those who are not able to manage the cure/poison balance. (source in french from one association from Stiegler, Ars Industrialis: "
+              },
+              {
+                "type": "link",
+                "url": "http://www.arsindustrialis.org/pharmakon"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580102141.196600",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "USUMN6XLH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cd4c76a4-6270-411f-a06e-41ee44193a23",
+    "type": "message",
+    "text": "Some other usefull thoughts from Bernard Stiegler, is that each technical artifact is a pharmakos, i.e. it is both a poison, a cure and you have to take care of it, in the sense that it can be a destructive power. For example, writings as a technic can be an empowerment source or can be an alienation tool. An other obvious example is the web, with all the benefits and the obvious drawbacks (privacy concerns, advertisments overdose, etc.). Stiegler also says that a pharmakos has also to be considered as a potential spacegoat for those who are not able to manage the cure/poison balance. (source in french from one association from Stiegler, Ars Industrialis: <http://www.arsindustrialis.org/pharmakon>)",
+    "user": "UJ6LDMMN0",
+    "ts": "1580132583.206700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UJ6LDMMN0",
+      "ts": "1580162702.000000"
+    },
+    "attachments": [
+      {
+        "title": "Pharmakon | Ars Industrialis",
+        "title_link": "http://www.arsindustrialis.org/pharmakon",
+        "text": " Ars Industrialis, association internationale pour une politique industrielle des technologies de l'esprit, fondée notamment par Bernard Stiegler",
+        "fallback": "Pharmakon | Ars Industrialis",
+        "from_url": "http://www.arsindustrialis.org/pharmakon",
+        "service_icon": "http://www.arsindustrialis.org/sites/default/files/favicon.ico",
+        "service_name": "arsindustrialis.org",
+        "id": 1,
+        "original_url": "http://www.arsindustrialis.org/pharmakon"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FMM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Some other usefull thoughts from Bernard Stiegler, is that each technical artifact is a pharmakos, i.e. it is both a poison, a cure and you have to take care of it, in the sense that it can be a destructive power. For example, writings as a technic can be an empowerment source or can be an alienation tool. An other obvious example is the web, with all the benefits and the obvious drawbacks (privacy concerns, advertisments overdose, etc.). Stiegler also says that a pharmakos has also to be considered as a potential spacegoat for those who are not able to manage the cure/poison balance. (source in french from one association from Stiegler, Ars Industrialis: "
+              },
+              {
+                "type": "link",
+                "url": "http://www.arsindustrialis.org/pharmakon"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580102141.196600",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "USUMN6XLH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "62918E40-7526-440F-99B6-766331A828D1",
+    "type": "message",
+    "text": "I'm not sure what you consider a visual math tool. I personally might not count observable as AFAIK it's just Javascript and the canvas api in which case you might as well list all the browsers and any language with a similar library.\n\nIn anycase along those lines are Matlab and Octave",
+    "user": "UC6997THT",
+    "ts": "1580135938.210900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "f3eb3ca69d86",
+      "image_72": "https://avatars.slack-edge.com/2018-08-13/414472553296_f3eb3ca69d86feb77929_72.png",
+      "first_name": "Gregg",
+      "real_name": "Gregg Tavares",
+      "display_name": "gman",
+      "team": "T5TCAFTA9",
+      "name": "slack1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dTcwv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm not sure what you consider a visual math tool. I personally might not count observable as AFAIK it's just Javascript and the canvas api in which case you might as well list all the browsers and any language with a similar library.\n"
+              },
+              {
+                "type": "text",
+                "text": "\nIn anycase along those lines are Matlab and Octave"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UDKTZSD6H"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "62918E40-7526-440F-99B6-766331A828D1",
+    "type": "message",
+    "text": "I'm not sure what you consider a visual math tool. I personally might not count observable as AFAIK it's just Javascript and the canvas api in which case you might as well list all the browsers and any language with a similar library.\n\nIn anycase along those lines are Matlab and Octave",
+    "user": "UC6997THT",
+    "ts": "1580135938.210900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "f3eb3ca69d86",
+      "image_72": "https://avatars.slack-edge.com/2018-08-13/414472553296_f3eb3ca69d86feb77929_72.png",
+      "first_name": "Gregg",
+      "real_name": "Gregg Tavares",
+      "display_name": "gman",
+      "team": "T5TCAFTA9",
+      "name": "slack1",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dTcwv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm not sure what you consider a visual math tool. I personally might not count observable as AFAIK it's just Javascript and the canvas api in which case you might as well list all the browsers and any language with a similar library.\n"
+              },
+              {
+                "type": "text",
+                "text": "\nIn anycase along those lines are Matlab and Octave"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UDKTZSD6H"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8c42a000-ef80-4936-9f64-7a1793b69042",
+    "type": "message",
+    "text": "Maybe this is subsumed by Geogebra but \"Euclid: The Game\" seems nifty. Cool list by the way!",
+    "user": "UFPRPSA4S",
+    "ts": "1580136863.211100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5f4ac5375e5",
+      "image_72": "https://secure.gravatar.com/avatar/f5f4ac5375e539e50ceedb08f65e9dd3.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "Robin Allison",
+      "display_name": "Robin",
+      "team": "T5TCAFTA9",
+      "name": "robinps2",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kdDgs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Maybe this is subsumed by Geogebra but \"Euclid: The Game\" seems nifty. Cool list by the way!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8c42a000-ef80-4936-9f64-7a1793b69042",
+    "type": "message",
+    "text": "Maybe this is subsumed by Geogebra but \"Euclid: The Game\" seems nifty. Cool list by the way!",
+    "user": "UFPRPSA4S",
+    "ts": "1580136863.211100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g5f4ac5375e5",
+      "image_72": "https://secure.gravatar.com/avatar/f5f4ac5375e539e50ceedb08f65e9dd3.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0003-72.png",
+      "first_name": "",
+      "real_name": "Robin Allison",
+      "display_name": "Robin",
+      "team": "T5TCAFTA9",
+      "name": "robinps2",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kdDgs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Maybe this is subsumed by Geogebra but \"Euclid: The Game\" seems nifty. Cool list by the way!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "CE7D6FC2-6AAA-487D-B7DA-F996AEE7054B",
+    "type": "message",
+    "text": "<https://sciencevsmagic.net/geo/|https://sciencevsmagic.net/geo/>\n\nI have notes / context for that one here: <https://github.com/ivanreese/visual-programming-codex/blob/master/inspirations.md#lets-play-ancient-greek-geometry|https://github.com/ivanreese/visual-programming-codex/blob/master/inspirations.md#lets-play-ancient-greek-geometry>",
+    "user": "UC2A2ARPT",
+    "ts": "1580137996.211500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1580138097.000000"
+    },
+    "attachments": [
+      {
+        "title": "ANCIENT GREEK GEOMETRY",
+        "title_link": "https://sciencevsmagic.net/geo/",
+        "text": "GEOMETRY",
+        "fallback": "ANCIENT GREEK GEOMETRY",
+        "from_url": "https://sciencevsmagic.net/geo/",
+        "service_icon": "https://sciencevsmagic.net/favicon.ico",
+        "service_name": "sciencevsmagic.net",
+        "id": 1,
+        "original_url": "https://sciencevsmagic.net/geo/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Rgll",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://sciencevsmagic.net/geo/",
+                "text": "https://sciencevsmagic.net/geo/"
+              },
+              {
+                "type": "text",
+                "text": "\n\nI have notes / context for that one here: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/ivanreese/visual-programming-codex/blob/master/inspirations.md#lets-play-ancient-greek-geometry",
+                "text": "https://github.com/ivanreese/visual-programming-codex/blob/master/inspirations.md#lets-play-ancient-greek-geometry"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "CE7D6FC2-6AAA-487D-B7DA-F996AEE7054B",
+    "type": "message",
+    "text": "<https://sciencevsmagic.net/geo/|https://sciencevsmagic.net/geo/>\n\nI have notes / context for that one here: <https://github.com/ivanreese/visual-programming-codex/blob/master/inspirations.md#lets-play-ancient-greek-geometry|https://github.com/ivanreese/visual-programming-codex/blob/master/inspirations.md#lets-play-ancient-greek-geometry>",
+    "user": "UC2A2ARPT",
+    "ts": "1580137996.211500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1580138097.000000"
+    },
+    "attachments": [
+      {
+        "title": "ANCIENT GREEK GEOMETRY",
+        "title_link": "https://sciencevsmagic.net/geo/",
+        "text": "GEOMETRY",
+        "fallback": "ANCIENT GREEK GEOMETRY",
+        "from_url": "https://sciencevsmagic.net/geo/",
+        "service_icon": "https://sciencevsmagic.net/favicon.ico",
+        "service_name": "sciencevsmagic.net",
+        "id": 1,
+        "original_url": "https://sciencevsmagic.net/geo/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Rgll",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://sciencevsmagic.net/geo/",
+                "text": "https://sciencevsmagic.net/geo/"
+              },
+              {
+                "type": "text",
+                "text": "\n\nI have notes / context for that one here: "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/ivanreese/visual-programming-codex/blob/master/inspirations.md#lets-play-ancient-greek-geometry",
+                "text": "https://github.com/ivanreese/visual-programming-codex/blob/master/inspirations.md#lets-play-ancient-greek-geometry"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "BBDB0274-2D97-4BFE-9FFE-64B91D048838",
+    "type": "message",
+    "text": "There's also MathBox: <https://acko.net/blog/mathbox2/|https://acko.net/blog/mathbox2/>",
+    "user": "UC2A2ARPT",
+    "ts": "1580138201.212600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Acko.net",
+        "title": "MathBox²",
+        "title_link": "https://acko.net/blog/mathbox2/",
+        "text": "PowerPoint must die.",
+        "fallback": "Acko.net: MathBox²",
+        "image_url": "https://acko.net/files/mathbox2/cover1.jpg",
+        "from_url": "https://acko.net/blog/mathbox2/",
+        "image_width": 444,
+        "image_height": 250,
+        "image_bytes": 261275,
+        "service_icon": "https://acko.net/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://acko.net/blog/mathbox2/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t8S/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's also MathBox: "
+              },
+              {
+                "type": "link",
+                "url": "https://acko.net/blog/mathbox2/",
+                "text": "https://acko.net/blog/mathbox2/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UDKTZSD6H",
+          "US370TRJA"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "BBDB0274-2D97-4BFE-9FFE-64B91D048838",
+    "type": "message",
+    "text": "There's also MathBox: <https://acko.net/blog/mathbox2/|https://acko.net/blog/mathbox2/>",
+    "user": "UC2A2ARPT",
+    "ts": "1580138201.212600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "Acko.net",
+        "title": "MathBox²",
+        "title_link": "https://acko.net/blog/mathbox2/",
+        "text": "PowerPoint must die.",
+        "fallback": "Acko.net: MathBox²",
+        "image_url": "https://acko.net/files/mathbox2/cover1.jpg",
+        "from_url": "https://acko.net/blog/mathbox2/",
+        "image_width": 444,
+        "image_height": 250,
+        "image_bytes": 261275,
+        "service_icon": "https://acko.net/apple-touch-icon.png",
+        "id": 1,
+        "original_url": "https://acko.net/blog/mathbox2/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t8S/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's also MathBox: "
+              },
+              {
+                "type": "link",
+                "url": "https://acko.net/blog/mathbox2/",
+                "text": "https://acko.net/blog/mathbox2/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UDKTZSD6H",
+          "US370TRJA"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "efd180b5-5ddc-4142-aeef-2c32c3d0dca6",
+    "type": "message",
+    "text": "The time is definitely ripe for revisiting speech-to-code. Between neural NLP and program synthesis, all the tech is now there there for an effective and usable speech interface for inputting lines of code. Someone just needs to do it.",
+    "user": "UC21F8Q48",
+    "ts": "1580141824.008900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d79ba47b2952",
+      "image_72": "https://avatars.slack-edge.com/2018-08-03/410049852848_d79ba47b2952e74a99d9_72.jpg",
+      "first_name": "Brian",
+      "real_name": "Brian Hempel",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "brianhempel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ap9V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The time is definitely ripe for revisiting speech-to-code. Between neural NLP and program synthesis, all the tech is now there there for an effective and usable speech interface for inputting lines of code. Someone just needs to do it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580086606.006200",
+    "parent_user_id": "UJM9NG84Q",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "d154544e-8ba9-421d-b047-43c802b1a6cd",
+    "type": "message",
+    "text": "There's discussion of the paper on the Sympy mailing list <https://groups.google.com/forum/#!topic/sympy/KMRXrdLiHPg>",
+    "user": "UNS7QDKFV",
+    "ts": "1580141885.216500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbc993d98fe7",
+      "image_72": "https://secure.gravatar.com/avatar/bc993d98fe7bf26c048ac0818a598d4d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0001-72.png",
+      "first_name": "",
+      "real_name": "Mark Dewing",
+      "display_name": "Mark Dewing",
+      "team": "T5TCAFTA9",
+      "name": "markdewing",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GZcD7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's discussion of the paper on the Sympy mailing list "
+              },
+              {
+                "type": "link",
+                "url": "https://groups.google.com/forum/#!topic/sympy/KMRXrdLiHPg"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580123463.202900",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d154544e-8ba9-421d-b047-43c802b1a6cd",
+    "type": "message",
+    "text": "There's discussion of the paper on the Sympy mailing list <https://groups.google.com/forum/#!topic/sympy/KMRXrdLiHPg>",
+    "user": "UNS7QDKFV",
+    "ts": "1580141885.216500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gbc993d98fe7",
+      "image_72": "https://secure.gravatar.com/avatar/bc993d98fe7bf26c048ac0818a598d4d.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0001-72.png",
+      "first_name": "",
+      "real_name": "Mark Dewing",
+      "display_name": "Mark Dewing",
+      "team": "T5TCAFTA9",
+      "name": "markdewing",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GZcD7",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There's discussion of the paper on the Sympy mailing list "
+              },
+              {
+                "type": "link",
+                "url": "https://groups.google.com/forum/#!topic/sympy/KMRXrdLiHPg"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580123463.202900",
+    "parent_user_id": "UE6EFEPTQ",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a3678b1a-055f-48cd-91cc-a3e90c1cea51",
+    "type": "message",
+    "text": "• DragonBox Algebra and DragonBox Geometry on iOS are pretty interesting. <https://dragonbox.com/products/algebra-5>\n• Geometry Explorer was something I was exposed to as an undergrad in the 00's <http://homepages.gac.edu/~hvidsten/gex/>",
+    "user": "UMH5FAW2Y",
+    "ts": "1580146015.216800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "051926604c26",
+      "image_72": "https://avatars.slack-edge.com/2020-07-04/1216047713558_051926604c2691293aaa_72.png",
+      "first_name": "",
+      "real_name": "Alex Wein",
+      "display_name": "Alex Wein",
+      "team": "T5TCAFTA9",
+      "name": "alexwein",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "DragonBox Algebra 5+ - so easy a 5 y.o. can do it!",
+        "title_link": "https://dragonbox.com/products/algebra-5",
+        "text": "For ages 5-8. Algebra concepts have been simplified into a simple game. Over the course of the game, cards transform into variables and math symbols.",
+        "fallback": "DragonBox Algebra 5+ - so easy a 5 y.o. can do it!",
+        "from_url": "https://dragonbox.com/products/algebra-5",
+        "service_icon": "https://d1me9gyjqvn2ca.cloudfront.net/assets/favicon-adb6489f991d5c57cea867f2e1cd15a7.ico",
+        "service_name": "dragonbox.com",
+        "id": 1,
+        "original_url": "https://dragonbox.com/products/algebra-5"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sGW=",
+        "elements": [
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "DragonBox Algebra and DragonBox Geometry on iOS are pretty interesting. "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://dragonbox.com/products/algebra-5"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Geometry Explorer was something I was exposed to as an undergrad in the 00's "
+                  },
+                  {
+                    "type": "link",
+                    "url": "http://homepages.gac.edu/~hvidsten/gex/"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UD31LGQKB",
+          "UDKTZSD6H"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "a3678b1a-055f-48cd-91cc-a3e90c1cea51",
+    "type": "message",
+    "text": "• DragonBox Algebra and DragonBox Geometry on iOS are pretty interesting. <https://dragonbox.com/products/algebra-5>\n• Geometry Explorer was something I was exposed to as an undergrad in the 00's <http://homepages.gac.edu/~hvidsten/gex/>",
+    "user": "UMH5FAW2Y",
+    "ts": "1580146015.216800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "051926604c26",
+      "image_72": "https://avatars.slack-edge.com/2020-07-04/1216047713558_051926604c2691293aaa_72.png",
+      "first_name": "",
+      "real_name": "Alex Wein",
+      "display_name": "Alex Wein",
+      "team": "T5TCAFTA9",
+      "name": "alexwein",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "DragonBox Algebra 5+ - so easy a 5 y.o. can do it!",
+        "title_link": "https://dragonbox.com/products/algebra-5",
+        "text": "For ages 5-8. Algebra concepts have been simplified into a simple game. Over the course of the game, cards transform into variables and math symbols.",
+        "fallback": "DragonBox Algebra 5+ - so easy a 5 y.o. can do it!",
+        "from_url": "https://dragonbox.com/products/algebra-5",
+        "service_icon": "https://d1me9gyjqvn2ca.cloudfront.net/assets/favicon-adb6489f991d5c57cea867f2e1cd15a7.ico",
+        "service_name": "dragonbox.com",
+        "id": 1,
+        "original_url": "https://dragonbox.com/products/algebra-5"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sGW=",
+        "elements": [
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "DragonBox Algebra and DragonBox Geometry on iOS are pretty interesting. "
+                  },
+                  {
+                    "type": "link",
+                    "url": "https://dragonbox.com/products/algebra-5"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Geometry Explorer was something I was exposed to as an undergrad in the 00's "
+                  },
+                  {
+                    "type": "link",
+                    "url": "http://homepages.gac.edu/~hvidsten/gex/"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UD31LGQKB",
+          "UDKTZSD6H"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ba9b6329-0fe0-4f21-8788-03e45240a99c",
+    "type": "message",
+    "text": "Yeah, I also found DragonBox quite interesting. I love collecting examples of games that are able to use their systems to convey something specific, like a narrative about individualism/collectivism (BioShock) or a way of seeing (The Witness) or an understanding of physics (Slower Speed of Light). DragonBox did a good job mapping basic symbolic algebra into a gameplay system.",
+    "user": "UC2A2ARPT",
+    "ts": "1580149054.217400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1580149918.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sEq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, I also found DragonBox quite interesting. I love collecting examples of games that are able to use their systems to convey something specific, like a narrative about individualism/collectivism (BioShock) or a way of seeing (The Witness) or an understanding of physics (Slower Speed of Light). DragonBox did a good job mapping basic symbolic algebra into a gameplay system."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "ba9b6329-0fe0-4f21-8788-03e45240a99c",
+    "type": "message",
+    "text": "Yeah, I also found DragonBox quite interesting. I love collecting examples of games that are able to use their systems to convey something specific, like a narrative about individualism/collectivism (BioShock) or a way of seeing (The Witness) or an understanding of physics (Slower Speed of Light). DragonBox did a good job mapping basic symbolic algebra into a gameplay system.",
+    "user": "UC2A2ARPT",
+    "ts": "1580149054.217400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1580149918.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sEq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, I also found DragonBox quite interesting. I love collecting examples of games that are able to use their systems to convey something specific, like a narrative about individualism/collectivism (BioShock) or a way of seeing (The Witness) or an understanding of physics (Slower Speed of Light). DragonBox did a good job mapping basic symbolic algebra into a gameplay system."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "af5c8bbb-25ff-487d-8f08-da8df858106f",
+    "type": "message",
+    "text": "My original intention with what became fructure was to create something basically in the vein of dragonbox, for similar age ranges, but targetting a slightly broader range of algebra-like structures. I've drifted quite a bit but hope to come back to this area eventually.",
+    "user": "UD31LGQKB",
+    "ts": "1580151330.219000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7e6e0f8e031",
+      "image_72": "https://avatars.slack-edge.com/2019-07-19/699535022069_b7e6e0f8e031cdcf896f_72.jpg",
+      "first_name": "",
+      "real_name": "andrew blinn",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "me1856",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Dsn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My original intention with what became fructure was to create something basically in the vein of dragonbox, for similar age ranges, but targetting a slightly broader range of algebra-like structures. I've drifted quite a bit but hope to come back to this area eventually."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "ok_hand",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart_eyes",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "af5c8bbb-25ff-487d-8f08-da8df858106f",
+    "type": "message",
+    "text": "My original intention with what became fructure was to create something basically in the vein of dragonbox, for similar age ranges, but targetting a slightly broader range of algebra-like structures. I've drifted quite a bit but hope to come back to this area eventually.",
+    "user": "UD31LGQKB",
+    "ts": "1580151330.219000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "b7e6e0f8e031",
+      "image_72": "https://avatars.slack-edge.com/2019-07-19/699535022069_b7e6e0f8e031cdcf896f_72.jpg",
+      "first_name": "",
+      "real_name": "andrew blinn",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "me1856",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Dsn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "My original intention with what became fructure was to create something basically in the vein of dragonbox, for similar age ranges, but targetting a slightly broader range of algebra-like structures. I've drifted quite a bit but hope to come back to this area eventually."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "ok_hand",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart_eyes",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "37d2dac5-a2b2-4bf0-af7f-ba1c37565a72",
+    "type": "message",
+    "text": "I'm using some of the techniques they use in this paper to create a _problem-representing_ neural network instead of a _problem-solving_ neural network. Can't wait to share results here (might take a while though :sweat_smile:)",
+    "user": "UQPHR6Y3S",
+    "ts": "1580151510.219200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "072ed9b65c97",
+      "image_72": "https://avatars.slack-edge.com/2020-01-09/890538367777_072ed9b65c977f61e33b_72.jpg",
+      "first_name": "noahtren",
+      "real_name": "noahtren",
+      "display_name": "noahtren",
+      "team": "T5TCAFTA9",
+      "name": "noahtren",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dv7IG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm using some of the techniques they use in this paper to create a "
+              },
+              {
+                "type": "text",
+                "text": "problem-representing",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " neural network instead of a "
+              },
+              {
+                "type": "text",
+                "text": "problem-solving",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " neural network. Can't wait to share results here (might take a while though "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580123463.202900",
+    "parent_user_id": "UE6EFEPTQ",
+    "reactions": [
+      {
+        "name": "heart_eyes",
+        "users": [
+          "USL4R0T61"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "37d2dac5-a2b2-4bf0-af7f-ba1c37565a72",
+    "type": "message",
+    "text": "I'm using some of the techniques they use in this paper to create a _problem-representing_ neural network instead of a _problem-solving_ neural network. Can't wait to share results here (might take a while though :sweat_smile:)",
+    "user": "UQPHR6Y3S",
+    "ts": "1580151510.219200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "6a0cd939e41a",
+      "image_72": "https://avatars.slack-edge.com/2021-02-02/1706249229922_6a0cd939e41a68326c28_72.jpg",
+      "first_name": "noahtren",
+      "real_name": "noahtren",
+      "display_name": "noahtren",
+      "team": "T5TCAFTA9",
+      "name": "noahtren",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dv7IG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm using some of the techniques they use in this paper to create a "
+              },
+              {
+                "type": "text",
+                "text": "problem-representing",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " neural network instead of a "
+              },
+              {
+                "type": "text",
+                "text": "problem-solving",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " neural network. Can't wait to share results here (might take a while though "
+              },
+              {
+                "type": "emoji",
+                "name": "sweat_smile"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580123463.202900",
+    "parent_user_id": "UE6EFEPTQ",
+    "reactions": [
+      {
+        "name": "heart_eyes",
+        "users": [
+          "USL4R0T61"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d104c192-1313-40a1-98a1-3739f14d83aa",
+    "type": "message",
+    "text": "Glamorous Toolkit ships with reasonably extensive analysis support for several languages. In our case, the emphasis is not on generic automation, but on allowing you to build your own views over the system.",
+    "user": "UE1JQM9HQ",
+    "ts": "1580155834.221400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3fvK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Glamorous Toolkit ships with reasonably extensive analysis support for several languages. In our case, the emphasis is not on generic automation, but on allowing you to build your own views over the system."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "USJ9LD0E4"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d104c192-1313-40a1-98a1-3739f14d83aa",
+    "type": "message",
+    "text": "Glamorous Toolkit ships with reasonably extensive analysis support for several languages. In our case, the emphasis is not on generic automation, but on allowing you to build your own views over the system.",
+    "user": "UE1JQM9HQ",
+    "ts": "1580155834.221400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48924f215ef",
+      "image_72": "https://secure.gravatar.com/avatar/f48924f215efa665f3c87affcdb14278.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0002-72.png",
+      "first_name": "Tudor",
+      "real_name": "Tudor Girba",
+      "display_name": "Tudor Girba",
+      "team": "T5TCAFTA9",
+      "name": "tudor",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3fvK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Glamorous Toolkit ships with reasonably extensive analysis support for several languages. In our case, the emphasis is not on generic automation, but on allowing you to build your own views over the system."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "USJ9LD0E4"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "6aaa8106-b0b3-4241-a001-942637b04db0",
+    "type": "message",
+    "text": "I absolutely love your perspective on this Josh. I started my career in the world of sociolinguistic research, and write poetry excessively, but somehow now have found myself in the world of app development. Pulling them all together is what makes my current job fun.",
+    "user": "USL4R0T61",
+    "ts": "1580156498.020100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "465cbc12b100",
+      "image_72": "https://avatars.slack-edge.com/2020-07-15/1256820554849_465cbc12b100bc9d0a9e_72.jpg",
+      "first_name": "Tim",
+      "real_name": "Tim Lipp",
+      "display_name": "Tim Lipp",
+      "team": "T5TCAFTA9",
+      "name": "timelipp",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZZlNq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I absolutely love your perspective on this Josh. I started my career in the world of sociolinguistic research, and write poetry excessively, but somehow now have found myself in the world of app development. Pulling them all together is what makes my current job fun."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580101513.012700",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "USUMN6XLH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "3a93793e-e177-4f79-9e49-dd06f63c7fc4",
+    "type": "message",
+    "text": "Cameron Yick gave a talk at react conf on automated codebase visualization that included several examples. <https://github.com/hydrosquall/code-maps-frontend> <https://www.youtube.com/watch?v=SbreAPNmZOk>",
+    "user": "UMH5FAW2Y",
+    "ts": "1580156935.221600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "051926604c26",
+      "image_72": "https://avatars.slack-edge.com/2020-07-04/1216047713558_051926604c2691293aaa_72.png",
+      "first_name": "",
+      "real_name": "Alex Wein",
+      "display_name": "Alex Wein",
+      "team": "T5TCAFTA9",
+      "name": "alexwein",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Automatic Visualizations of the Frontend | Cameron Yick",
+        "title_link": "https://www.youtube.com/watch?v=SbreAPNmZOk",
+        "author_name": "React Conf",
+        "author_link": "https://www.youtube.com/channel/UCz5vTaEhvh7dOHEyd1efcaQ",
+        "thumb_url": "https://i.ytimg.com/vi/SbreAPNmZOk/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Automatic Visualizations of the Frontend | Cameron Yick",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/SbreAPNmZOk?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=SbreAPNmZOk",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=SbreAPNmZOk"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "M03",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Cameron Yick gave a talk at react conf on automated codebase visualization that included several examples. "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/hydrosquall/code-maps-frontend"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=SbreAPNmZOk"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "3a93793e-e177-4f79-9e49-dd06f63c7fc4",
+    "type": "message",
+    "text": "Cameron Yick gave a talk at react conf on automated codebase visualization that included several examples. <https://github.com/hydrosquall/code-maps-frontend> <https://www.youtube.com/watch?v=SbreAPNmZOk>",
+    "user": "UMH5FAW2Y",
+    "ts": "1580156935.221600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "051926604c26",
+      "image_72": "https://avatars.slack-edge.com/2020-07-04/1216047713558_051926604c2691293aaa_72.png",
+      "first_name": "",
+      "real_name": "Alex Wein",
+      "display_name": "Alex Wein",
+      "team": "T5TCAFTA9",
+      "name": "alexwein",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/",
+        "title": "Automatic Visualizations of the Frontend | Cameron Yick",
+        "title_link": "https://www.youtube.com/watch?v=SbreAPNmZOk",
+        "author_name": "React Conf",
+        "author_link": "https://www.youtube.com/channel/UCz5vTaEhvh7dOHEyd1efcaQ",
+        "thumb_url": "https://i.ytimg.com/vi/SbreAPNmZOk/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "fallback": "YouTube Video: Automatic Visualizations of the Frontend | Cameron Yick",
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/SbreAPNmZOk?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "from_url": "https://www.youtube.com/watch?v=SbreAPNmZOk",
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://www.youtube.com/watch?v=SbreAPNmZOk"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "M03",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Cameron Yick gave a talk at react conf on automated codebase visualization that included several examples. "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/hydrosquall/code-maps-frontend"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/watch?v=SbreAPNmZOk"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d8537829-e3ca-4adf-b99d-033e198b2ac0",
+    "type": "message",
+    "text": "Hi, <@UFB8STN7K>, me and <@UPU0YJ1CM> are building CodistAI (<https://codist-ai.com>) which, among few other things, try to solve this problem. We will be happy to talk with you.",
+    "user": "UPVBV34EL",
+    "ts": "1580157206.221900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "259a1e56ad2e",
+      "image_72": "https://avatars.slack-edge.com/2019-10-28/811814014976_259a1e56ad2e11fe3d56_72.jpg",
+      "first_name": "",
+      "real_name": "Shubhadeep Roychowdhury",
+      "display_name": "Shubhadeep Roychowdhury",
+      "team": "T5TCAFTA9",
+      "name": "shubhadeeproychowdhur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UPVBV34EL",
+      "ts": "1580157297.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "CodistAI",
+        "title": "CodistAI | Fast graphical navigation of source code with augmented knowledge",
+        "title_link": "https://codist-ai.com/",
+        "text": "CodistAI helps any developers explore and navigate source code quickly and thoroughly by providing an interactive graph visualization and all contextual information (documentation, reported bugs...) necessary.",
+        "fallback": "CodistAI: CodistAI | Fast graphical navigation of source code with augmented knowledge",
+        "from_url": "https://codist-ai.com/",
+        "service_icon": "https://codist-ai.com/assets/images/logo/logoCodist.png",
+        "id": 1,
+        "original_url": "https://codist-ai.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YLfE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi, "
+              },
+              {
+                "type": "user",
+                "user_id": "UFB8STN7K"
+              },
+              {
+                "type": "text",
+                "text": ", me and "
+              },
+              {
+                "type": "user",
+                "user_id": "UPU0YJ1CM"
+              },
+              {
+                "type": "text",
+                "text": " are building CodistAI ("
+              },
+              {
+                "type": "link",
+                "url": "https://codist-ai.com"
+              },
+              {
+                "type": "text",
+                "text": ") which, among few other things, try to solve this problem. We will be happy to talk with you."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "d8537829-e3ca-4adf-b99d-033e198b2ac0",
+    "type": "message",
+    "text": "Hi, <@UFB8STN7K>, me and <@UPU0YJ1CM> are building CodistAI (<https://codist-ai.com>) which, among few other things, try to solve this problem. We will be happy to talk with you.",
+    "user": "UPVBV34EL",
+    "ts": "1580157206.221900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "259a1e56ad2e",
+      "image_72": "https://avatars.slack-edge.com/2019-10-28/811814014976_259a1e56ad2e11fe3d56_72.jpg",
+      "first_name": "",
+      "real_name": "Shubhadeep Roychowdhury",
+      "display_name": "Shubhadeep Roychowdhury",
+      "team": "T5TCAFTA9",
+      "name": "shubhadeeproychowdhur",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UPVBV34EL",
+      "ts": "1580157297.000000"
+    },
+    "attachments": [
+      {
+        "service_name": "CodistAI",
+        "title": "CodistAI | Fast graphical navigation of source code with augmented knowledge",
+        "title_link": "https://codist-ai.com/",
+        "text": "CodistAI helps any developers explore and navigate source code quickly and thoroughly by providing an interactive graph visualization and all contextual information (documentation, reported bugs...) necessary.",
+        "fallback": "CodistAI: CodistAI | Fast graphical navigation of source code with augmented knowledge",
+        "from_url": "https://codist-ai.com/",
+        "service_icon": "https://codist-ai.com/assets/images/logo/logoCodist.png",
+        "id": 1,
+        "original_url": "https://codist-ai.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YLfE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hi, "
+              },
+              {
+                "type": "user",
+                "user_id": "UFB8STN7K"
+              },
+              {
+                "type": "text",
+                "text": ", me and "
+              },
+              {
+                "type": "user",
+                "user_id": "UPU0YJ1CM"
+              },
+              {
+                "type": "text",
+                "text": " are building CodistAI ("
+              },
+              {
+                "type": "link",
+                "url": "https://codist-ai.com"
+              },
+              {
+                "type": "text",
+                "text": ") which, among few other things, try to solve this problem. We will be happy to talk with you."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f32a1012-bd6f-4ceb-8b4c-de9cc9ea708c",
+    "type": "message",
+    "text": "There is also DGPad, used by some mathematician teachers in France. It is a tool for Dynamic Geometry, with visual proramming with Blockly. <https://dgpad.net/index.php?lang=EN>",
+    "user": "UJ6LDMMN0",
+    "ts": "1580161636.222600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "426cd5067da7",
+      "image_72": "https://avatars.slack-edge.com/2019-04-26/607834329346_426cd5067da7fc8c6933_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aTZtN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There is also DGPad, used by some mathematician teachers in France. It is a tool for Dynamic Geometry, with visual proramming with Blockly. "
+              },
+              {
+                "type": "link",
+                "url": "https://dgpad.net/index.php?lang=EN"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "ok_hand",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "f32a1012-bd6f-4ceb-8b4c-de9cc9ea708c",
+    "type": "message",
+    "text": "There is also DGPad, used by some mathematician teachers in France. It is a tool for Dynamic Geometry, with visual proramming with Blockly. <https://dgpad.net/index.php?lang=EN>",
+    "user": "UJ6LDMMN0",
+    "ts": "1580161636.222600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0c210ee2df74",
+      "image_72": "https://avatars.slack-edge.com/2021-11-13/2722434855730_0c210ee2df74838f8683_72.png",
+      "first_name": "nicolas",
+      "real_name": "nicolas decoster",
+      "display_name": "ogadaki",
+      "team": "T5TCAFTA9",
+      "name": "nicolas.decoster",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aTZtN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "There is also DGPad, used by some mathematician teachers in France. It is a tool for Dynamic Geometry, with visual proramming with Blockly. "
+              },
+              {
+                "type": "link",
+                "url": "https://dgpad.net/index.php?lang=EN"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "ok_hand",
+        "users": [
+          "UDKTZSD6H"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "71ab69c9-2c1c-4541-a114-dd47ff5ec2da",
+    "type": "message",
+    "text": "Thanks for the references everyone!",
+    "user": "UFB8STN7K",
+    "ts": "1580168535.223200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge240a8e5a8f",
+      "image_72": "https://secure.gravatar.com/avatar/ce240a8e5a8fdc65e86bbb869975ccfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "Will",
+      "real_name": "Will Crichton",
+      "display_name": "Will",
+      "team": "T5TCAFTA9",
+      "name": "wcrichto",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YvHtS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the references everyone!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "71ab69c9-2c1c-4541-a114-dd47ff5ec2da",
+    "type": "message",
+    "text": "Thanks for the references everyone!",
+    "user": "UFB8STN7K",
+    "ts": "1580168535.223200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge240a8e5a8f",
+      "image_72": "https://secure.gravatar.com/avatar/ce240a8e5a8fdc65e86bbb869975ccfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "Will",
+      "real_name": "Will Crichton",
+      "display_name": "Will",
+      "team": "T5TCAFTA9",
+      "name": "wcrichto",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YvHtS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for the references everyone!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7edf830c-ebb5-44c0-b7df-b5bbf97f2259",
+    "type": "message",
+    "text": "<@UFB8STN7K> Did you check out <https://www.sourcetrail.com/>?",
+    "user": "US6TKS2HW",
+    "ts": "1580171673.223400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "08d810dfba72",
+      "image_72": "https://avatars.slack-edge.com/2020-01-03/891659417364_08d810dfba72ae74c1d2_72.jpg",
+      "first_name": "",
+      "real_name": "Raathi",
+      "display_name": "Raathi",
+      "team": "T5TCAFTA9",
+      "name": "raathigesh92",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Sourcetrail - The open-source cross-platform source explorer",
+        "title_link": "https://www.sourcetrail.com/",
+        "text": "Sourcetrail uses static analysis to provide code search and dependency visualization that lets you understand, refactor and maintain unfamiliar source code.",
+        "fallback": "Sourcetrail - The open-source cross-platform source explorer",
+        "from_url": "https://www.sourcetrail.com/",
+        "service_icon": "https://www.sourcetrail.com/favicon.ico",
+        "service_name": "sourcetrail.com",
+        "id": 1,
+        "original_url": "https://www.sourcetrail.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/iI0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UFB8STN7K"
+              },
+              {
+                "type": "text",
+                "text": " Did you check out "
+              },
+              {
+                "type": "link",
+                "url": "https://www.sourcetrail.com/"
+              },
+              {
+                "type": "text",
+                "text": "?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "7edf830c-ebb5-44c0-b7df-b5bbf97f2259",
+    "type": "message",
+    "text": "<@UFB8STN7K> Did you check out <https://www.sourcetrail.com/>?",
+    "user": "US6TKS2HW",
+    "ts": "1580171673.223400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "08d810dfba72",
+      "image_72": "https://avatars.slack-edge.com/2020-01-03/891659417364_08d810dfba72ae74c1d2_72.jpg",
+      "first_name": "",
+      "real_name": "Raathi",
+      "display_name": "Raathi",
+      "team": "T5TCAFTA9",
+      "name": "raathigesh92",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "title": "Sourcetrail - The open-source cross-platform source explorer",
+        "title_link": "https://www.sourcetrail.com/",
+        "text": "Sourcetrail uses static analysis to provide code search and dependency visualization that lets you understand, refactor and maintain unfamiliar source code.",
+        "fallback": "Sourcetrail - The open-source cross-platform source explorer",
+        "from_url": "https://www.sourcetrail.com/",
+        "service_icon": "https://www.sourcetrail.com/favicon.ico",
+        "service_name": "sourcetrail.com",
+        "id": 1,
+        "original_url": "https://www.sourcetrail.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/iI0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UFB8STN7K"
+              },
+              {
+                "type": "text",
+                "text": " Did you check out "
+              },
+              {
+                "type": "link",
+                "url": "https://www.sourcetrail.com/"
+              },
+              {
+                "type": "text",
+                "text": "?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1A9FA272-91F8-4299-84FB-6C58025A17D4",
+    "type": "message",
+    "text": "As <@UMH5FAW2Y> mentioned, here are the links and slides to accompany the above video :) - <https://github.com/hydrosquall/code-maps-frontend|https://github.com/hydrosquall/code-maps-frontend>",
+    "user": "US370TRJA",
+    "ts": "1580180283.226000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g8449ebbf703",
+      "image_72": "https://secure.gravatar.com/avatar/8449ebbf703fcee4e1eadc3e78478f01.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+      "first_name": "",
+      "real_name": "Cameron Yick",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "cameron.yick",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KCp+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As "
+              },
+              {
+                "type": "user",
+                "user_id": "UMH5FAW2Y"
+              },
+              {
+                "type": "text",
+                "text": " mentioned, here are the links and slides to accompany the above video :) - "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/hydrosquall/code-maps-frontend",
+                "text": "https://github.com/hydrosquall/code-maps-frontend"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UFB8STN7K"
+        ],
+        "count": 1
+      },
+      {
+        "name": "wave",
+        "users": [
+          "UMH5FAW2Y"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "1A9FA272-91F8-4299-84FB-6C58025A17D4",
+    "type": "message",
+    "text": "As <@UMH5FAW2Y> mentioned, here are the links and slides to accompany the above video :) - <https://github.com/hydrosquall/code-maps-frontend|https://github.com/hydrosquall/code-maps-frontend>",
+    "user": "US370TRJA",
+    "ts": "1580180283.226000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g8449ebbf703",
+      "image_72": "https://secure.gravatar.com/avatar/8449ebbf703fcee4e1eadc3e78478f01.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+      "first_name": "Cameron",
+      "real_name": "Cameron Yick",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "cameron.yick",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KCp+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "As "
+              },
+              {
+                "type": "user",
+                "user_id": "UMH5FAW2Y"
+              },
+              {
+                "type": "text",
+                "text": " mentioned, here are the links and slides to accompany the above video :) - "
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/hydrosquall/code-maps-frontend",
+                "text": "https://github.com/hydrosquall/code-maps-frontend"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580155501.221100",
+    "parent_user_id": "UFB8STN7K",
+    "reactions": [
+      {
+        "name": "pray",
+        "users": [
+          "UFB8STN7K"
+        ],
+        "count": 1
+      },
+      {
+        "name": "wave",
+        "users": [
+          "UMH5FAW2Y"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "85aadc8e-cb9a-4f4c-9f9b-2545df2cf1c7",
+    "type": "message",
+    "text": "<@UE1JQM9HQ> <@UC2A2ARPT> <@UFPRPSA4S> <@UMH5FAW2Y> <@UJ6LDMMN0> Thanks for these suggestions guys, I'll be incorporating them to the Github repo and adding you guys as contributors. Thank you so much.",
+    "user": "UDKTZSD6H",
+    "ts": "1580207795.233000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dp0Tp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UE1JQM9HQ"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UFPRPSA4S"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UMH5FAW2Y"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UJ6LDMMN0"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for these suggestions guys, I'll be incorporating them to the Github repo and adding you guys as contributors. Thank you so much."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UMH5FAW2Y"
+        ],
+        "count": 2
+      },
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "85aadc8e-cb9a-4f4c-9f9b-2545df2cf1c7",
+    "type": "message",
+    "text": "<@UE1JQM9HQ> <@UC2A2ARPT> <@UFPRPSA4S> <@UMH5FAW2Y> <@UJ6LDMMN0> Thanks for these suggestions guys, I'll be incorporating them to the Github repo and adding you guys as contributors. Thank you so much.",
+    "user": "UDKTZSD6H",
+    "ts": "1580207795.233000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dp0Tp",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UE1JQM9HQ"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UFPRPSA4S"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UMH5FAW2Y"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UJ6LDMMN0"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for these suggestions guys, I'll be incorporating them to the Github repo and adding you guys as contributors. Thank you so much."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJ6LDMMN0",
+          "UMH5FAW2Y"
+        ],
+        "count": 2
+      },
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cad18d97-ef1b-4d9d-a977-91f94feb3d86",
+    "type": "message",
+    "text": "<@UC6997THT> That observation is correct. The reason for including notebooks like this was that someone interested in doing longform Math writing wouldn't want to miss out these for demoing their work with interactive demos. But true that they are very general purpose than a strictly mathematical tool.",
+    "user": "UDKTZSD6H",
+    "ts": "1580207925.233300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A0M",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UC6997THT"
+              },
+              {
+                "type": "text",
+                "text": " That observation is correct. The reason for including notebooks like this was that someone interested in doing longform Math writing wouldn't want to miss out these for demoing their work with interactive demos. But true that they are very general purpose than a strictly mathematical tool."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "cad18d97-ef1b-4d9d-a977-91f94feb3d86",
+    "type": "message",
+    "text": "<@UC6997THT> That observation is correct. The reason for including notebooks like this was that someone interested in doing longform Math writing wouldn't want to miss out these for demoing their work with interactive demos. But true that they are very general purpose than a strictly mathematical tool.",
+    "user": "UDKTZSD6H",
+    "ts": "1580207925.233300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "A0M",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UC6997THT"
+              },
+              {
+                "type": "text",
+                "text": " That observation is correct. The reason for including notebooks like this was that someone interested in doing longform Math writing wouldn't want to miss out these for demoing their work with interactive demos. But true that they are very general purpose than a strictly mathematical tool."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4284d1f4-c4e4-447d-91bb-cf135124fbaf",
+    "type": "message",
+    "text": "<@UD31LGQKB> Fructure is a breath of fresh air and surprising to find that it's beginnings were in exploring algebraic structures. Would love to see anything you have done in this direction!",
+    "user": "UDKTZSD6H",
+    "ts": "1580208008.233500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qvW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UD31LGQKB"
+              },
+              {
+                "type": "text",
+                "text": " Fructure is a breath of fresh air and surprising to find that it's beginnings were in exploring algebraic structures. Would love to see anything you have done in this direction!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "general",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "4284d1f4-c4e4-447d-91bb-cf135124fbaf",
+    "type": "message",
+    "text": "<@UD31LGQKB> Fructure is a breath of fresh air and surprising to find that it's beginnings were in exploring algebraic structures. Would love to see anything you have done in this direction!",
+    "user": "UDKTZSD6H",
+    "ts": "1580208008.233500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2b4594ccf61c",
+      "image_72": "https://avatars.slack-edge.com/2019-06-03/652459184852_2b4594ccf61c401763eb_72.png",
+      "first_name": "",
+      "real_name": "Prathyush",
+      "display_name": "Prathyush",
+      "team": "T5TCAFTA9",
+      "name": "prax08",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qvW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UD31LGQKB"
+              },
+              {
+                "type": "text",
+                "text": " Fructure is a breath of fresh air and surprising to find that it's beginnings were in exploring algebraic structures. Would love to see anything you have done in this direction!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580126222.205200",
+    "parent_user_id": "UDKTZSD6H",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8b3bbedf-4957-4271-8660-6110f85dd25a",
+    "type": "message",
+    "text": "Based on your interest in programming &amp; emotion, you might have things to talk about with <@UGMH4H202>!",
+    "user": "UBKNXPBAB",
+    "ts": "1580264810.025400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g48812709bdc",
+      "image_72": "https://secure.gravatar.com/avatar/d48812709bdc0ff86746b7fbe56b0f13.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0010-72.png",
+      "first_name": "",
+      "real_name": "Joshua Horowitz",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "joshuah",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zBQd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Based on your interest in programming & emotion, you might have things to talk about with "
+              },
+              {
+                "type": "user",
+                "user_id": "UGMH4H202"
+              },
+              {
+                "type": "text",
+                "text": "!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580101513.012700",
+    "parent_user_id": "USUMN6XLH",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "f0e9c5f9-30d0-4026-803a-02859ca37d0f",
+    "type": "message",
+    "text": ":wave:",
+    "user": "UGMH4H202",
+    "ts": "1580273215.025900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g09b287ba3e8",
+      "image_72": "https://secure.gravatar.com/avatar/309b287ba3e8e59a57c1297f3bf89a3e.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0015-72.png",
+      "first_name": "nagle",
+      "real_name": "nagle",
+      "display_name": "nagle",
+      "team": "T5TCAFTA9",
+      "name": "mpnagle",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "P0ak",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "emoji",
+                "name": "wave"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580101513.012700",
+    "parent_user_id": "USUMN6XLH",
+    "reactions": [
+      {
+        "name": "slightly_smiling_face",
+        "users": [
+          "USUMN6XLH"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "986a87de-9c11-4818-aab9-de77e77967b3",
+    "type": "message",
+    "text": "I’ve wanted to make a game or interactive art using consumer grade EEG for a while -using something like the Muse headband. Might be part of closing the loop between internal and external representations. Without being too insightful, I doubt any technology is particularly accurate, but I think there might be one or two dimensions of input that would come from a device like that. Perhaps enough to set the avatar’s speed or direction via ‘focus’ or amplitude of specific waves.",
+    "user": "URDRJEWS0",
+    "ts": "1580394678.026300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g50c0946fdf2",
+      "image_72": "https://secure.gravatar.com/avatar/50c0946fdf28e7126132cdbe315055bd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "",
+      "real_name": "Scott Newson",
+      "display_name": "Scott Newson",
+      "team": "T5TCAFTA9",
+      "name": "scott.g.newson",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fwk=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’ve wanted to make a game or interactive art using consumer grade EEG for a while -using something like the Muse headband. Might be part of closing the loop between internal and external representations. Without being too insightful, I doubt any technology is particularly accurate, but I think there might be one or two dimensions of input that would come from a device like that. Perhaps enough to set the avatar’s speed or direction via ‘focus’ or amplitude of specific waves."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580101513.012700",
+    "parent_user_id": "USUMN6XLH",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "bf117bff-7fe2-41be-8ab5-d9192848f8f7",
+    "type": "message",
+    "text": "I got a Muse on a lark with very low expectations and have been pleasantly surprised.",
+    "user": "UA14TGLTC",
+    "ts": "1580438540.036300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "q=udZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I got a Muse on a lark with very low expectations and have been pleasantly surprised."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580101513.012700",
+    "parent_user_id": "USUMN6XLH",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "FF4A1A44-DC16-4A4C-86DE-0A06CAA623AA",
+    "type": "message",
+    "text": "Just saw all the replies, glad people have similar interests :)",
+    "user": "USUMN6XLH",
+    "ts": "1580456224.038300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8a3bc278696f",
+      "image_72": "https://avatars.slack-edge.com/2020-01-26/922460775044_8a3bc278696f955af590_72.jpg",
+      "first_name": "Josh",
+      "real_name": "Josh Cho",
+      "display_name": "Josh Cho",
+      "team": "T5TCAFTA9",
+      "name": "joshchonpc",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "thread_ts": "1580101513.012700",
+    "parent_user_id": "USUMN6XLH",
+    "channel_name": "introduce-yourself",
+    "channel_id": "CC2JRGVLK"
+  },
+  {
+    "client_msg_id": "EB85B734-A7FA-4C6F-A082-AC1534493A20",
+    "type": "message",
+    "text": "i’ve had this half-idea brewing in my head: i think you want to start from the api rather than the speech recognition end of things. any voice interface can be summed up as a fuzzy search over existing capabilities—you don’t have to understand all of grammar to interpret that, and if you could understand all grammar it wouldn’t be much help if your api can’t do the vast majority of requests you could make",
+    "user": "UHWC9PXBL",
+    "ts": "1580586827.024000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "g0d754210ed4",
+      "image_72": "https://secure.gravatar.com/avatar/10d754210ed4e4706eba3d063cdf99f0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0019-72.png",
+      "first_name": "",
+      "real_name": "Garth Goldwater",
+      "display_name": "Garth Goldwater",
+      "team": "T5TCAFTA9",
+      "name": "garth",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fWIqD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "i’ve had this half-idea brewing in my head: i think you want to start from the api rather than the speech recognition end of things. any voice interface can be summed up as a fuzzy search over existing capabilities—you don’t have to understand all of grammar to interpret that, and if you could understand all grammar it wouldn’t be much help if your api can’t do the vast majority of requests you could make"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580086606.006200",
+    "parent_user_id": "UJM9NG84Q",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  },
+  {
+    "client_msg_id": "f2183338-7884-4833-a9a2-c77758e1cf6e",
+    "type": "message",
+    "text": "Yeah that’s a reasonable way to approach the problem",
+    "user": "UC21F8Q48",
+    "ts": "1580587736.024200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "d79ba47b2952",
+      "image_72": "https://avatars.slack-edge.com/2018-08-03/410049852848_d79ba47b2952e74a99d9_72.jpg",
+      "first_name": "Brian",
+      "real_name": "Brian Hempel",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "brianhempel",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Jsq",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah that’s a reasonable way to approach the problem"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1580086606.006200",
+    "parent_user_id": "UJM9NG84Q",
+    "channel_name": "of-end-user-programming",
+    "channel_id": "CLYCGTCPL"
+  }
+]

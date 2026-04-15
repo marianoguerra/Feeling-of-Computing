@@ -1,0 +1,1348 @@
+[
+  {
+    "client_msg_id": "1db68613-8143-487a-a26f-41a31813e005",
+    "type": "message",
+    "text": "Love a good serendipity!",
+    "user": "USL4R0T61",
+    "ts": "1600313364.026600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/Kc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Love a good serendipity!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600312443.026300",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "ac10c016-9e90-427d-aa0f-ccfa60c7abe1",
+    "type": "message",
+    "text": "See the Rust book if you’re interested for more details on the logic programming language in Rust: <http://rust-lang.github.io/chalk/book/clauses.html>",
+    "user": "UFB8STN7K",
+    "ts": "1600359202.025200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "ge240a8e5a8f",
+      "image_72": "https://secure.gravatar.com/avatar/ce240a8e5a8fdc65e86bbb869975ccfe.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "Will",
+      "real_name": "Will Crichton",
+      "display_name": "Will",
+      "team": "T5TCAFTA9",
+      "name": "wcrichto",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZF=H",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "See the Rust book if you’re interested for more details on the logic programming language in Rust: "
+              },
+              {
+                "type": "link",
+                "url": "http://rust-lang.github.io/chalk/book/clauses.html"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600359119.024100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "0cfc4f26-31ab-4862-b663-dae7ddccd831",
+    "type": "message",
+    "text": "I definitely think you will find that this is pretty common in haskell. Starting with the generic let's you write reusable code, but also can help constrain what implementations are valid and not. I know of one article that argues specifically for this practice.\n\n<https://degoes.net/articles/insufficiently-polymorphic>\n\n(John De Goes is a very controversial figure and this is not meant as an endorsement of his views. In fact, I don't know his views just that he is controversial.)",
+    "user": "UK3LH8CF5",
+    "ts": "1600361336.037600",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "service_name": "John A De Goes",
+        "title": "Descriptive Variable Names: A Code Smell",
+        "title_link": "https://degoes.net/articles/insufficiently-polymorphic",
+        "text": "Polymorphic code is more likely to be correct than monomorphic code",
+        "fallback": "John A De Goes: Descriptive Variable Names: A Code Smell",
+        "from_url": "https://degoes.net/articles/insufficiently-polymorphic",
+        "service_icon": "https://degoes.net/images/apple-touch-icon-precomposed.png",
+        "id": 1,
+        "original_url": "https://degoes.net/articles/insufficiently-polymorphic"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "L3WW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I definitely think you will find that this is pretty common in haskell. Starting with the generic let's you write reusable code, but also can help constrain what implementations are valid and not. I know of one article that argues specifically for this practice.\n\n"
+              },
+              {
+                "type": "link",
+                "url": "https://degoes.net/articles/insufficiently-polymorphic"
+              },
+              {
+                "type": "text",
+                "text": "\n\n(John De Goes is a very controversial figure and this is not meant as an endorsement of his views. In fact, I don't know his views just that he is controversial.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "0ee83a4c-e734-44dd-96b7-89b7906c8538",
+    "type": "message",
+    "text": "In languages that support polymorphic type inference, this isn’t actually a trade-off you need to make. You can write code without types, and the compiler will infer the most general type possible. For example, in OCaml, if I do:\n\n```let rec map f l = match l with \n  [] -&gt; [] | x :: xs -&gt; f x :: map f xs```\nThen the compiler gets the right generic type for `f` and `l` , including the constraint that the elements of `l` have to be the same type as the input to `f`.\n\nYou probably knew that already, but it’s worth reframing in terms of your question. You should write the algorithm exactly as needed ignoring types, and then decide what capabilities you need from your types.",
+    "user": "UFB8STN7K",
+    "ts": "1600362088.037900",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UFB8STN7K",
+      "ts": "1600362193.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gkJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In languages that support polymorphic type inference, this isn’t actually a trade-off you need to make. You can write code without types, and the compiler will infer the most general type possible. For example, in OCaml, if I do:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "let rec map f l = match l with \n  [] -> [] | x :: xs -> f x :: map f xs"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThen the compiler gets the right generic type for "
+              },
+              {
+                "type": "text",
+                "text": "f",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "text",
+                "text": "l",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " , including the constraint that the elements of "
+              },
+              {
+                "type": "text",
+                "text": "l",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " have to be the same type as the input to "
+              },
+              {
+                "type": "text",
+                "text": "f",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ".\n\nYou probably knew that already, but it’s worth reframing in terms of your question. You should write the algorithm exactly as needed ignoring types, and then decide what capabilities you need from your types."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "U013ZLJARC7",
+          "UPX3PH28N",
+          "U8A5MS6R1"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "03c91684-d42d-4634-b7c2-fc6541b69a41",
+    "type": "message",
+    "text": "I thought for a long time that abstractions and generalizations just complicate stuff. Particularly, I found natural numbers very easy to understand and groups/fields etc. very hard to grasp.\nNow I think it is completely the opposite. Natural numbers are incredibly hard. Abstractions are meant for simplification - they remove the noise from the actual problem.\n\nI think similarly about programming and interfaces or generic types.",
+    "user": "U01AN8DFFBN",
+    "ts": "1600363785.038300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dzlF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I thought for a long time that abstractions and generalizations just complicate stuff. Particularly, I found natural numbers very easy to understand and groups/fields etc. very hard to grasp.\nNow I think it is completely the opposite. Natural numbers are incredibly hard. Abstractions are meant for simplification - they remove the noise from the actual problem.\n\nI think similarly about programming and interfaces or generic types."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "59f832dc-5e71-4da4-8b37-7282287454ca",
+    "type": "message",
+    "text": "automatic? or can it be enabled by the runtime but manual? the Erlang virtual machine supports data structure migration on hot-reloading of a new release",
+    "user": "UBN9AFS0N",
+    "ts": "1600366465.039900",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3eCx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "automatic? or can it be enabled by the runtime but manual? the Erlang virtual machine supports data structure migration on hot-reloading of a new release"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "0b733ac4-c370-491e-9a46-dc9363bb9697",
+    "type": "message",
+    "text": "<@UK3LH8CF5> Thanks for sharing that article. That is in fact pretty much exactly what I was thinking about.\n\n<@UFB8STN7K> Polymorphic type inference is absolutely one of these affordances I had in mind. It seems all the languages in the ML family seem to be pretty good at that.\n\n<@U01AN8DFFBN> Completely agree. Abstractions remove detail; and that's exactly why everything gets a lot simpler if you use them right. If you have a thing and you only know that it has elements you can iterate over, you can implement a lot of algorithms on top of that, but you can't accidentally assume another property of that thing, because the compiler won't let you. In most imperative and/or dynamically typed languages it's easy to make such assumptions and as long as it works, you'll never know you did. Which might not be a problem, but I do think a lot of the complexity in refactoring comes from such assumptions that were only possible, because a much more specific (and therefore more powerful) type was used.",
+    "user": "U5STGTB3J",
+    "ts": "1600371058.040100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3fs",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UK3LH8CF5"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for sharing that article. That is in fact pretty much exactly what I was thinking about.\n\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UFB8STN7K"
+              },
+              {
+                "type": "text",
+                "text": " Polymorphic type inference is absolutely one of these affordances I had in mind. It seems all the languages in the ML family seem to be pretty good at that.\n\n"
+              },
+              {
+                "type": "user",
+                "user_id": "U01AN8DFFBN"
+              },
+              {
+                "type": "text",
+                "text": " Completely agree. Abstractions remove detail; and that's exactly why everything gets a lot simpler if you use them right. If you have a thing and you only know that it has elements you can iterate over, you can implement a lot of algorithms on top of that, but you can't accidentally assume another property of that thing, because the compiler won't let you. In most imperative and/or dynamically typed languages it's easy to make such assumptions and as long as it works, you'll never know you did. Which might not be a problem, but I do think a lot of the complexity in refactoring comes from such assumptions that were only possible, because a much more specific (and therefore more powerful) type was used."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "36db6f7c-1ba3-413c-a270-083dc79e8f47",
+    "type": "message",
+    "text": "so that mun lang blog post, seems like the hot reloading requires a clever algorithm depending on whether the name of the fields of the struct are the same as before, etc. I wonder if a more intentional approach could work, like a refactoring tool that tells both the editor and the running program a certain field was migrated from one thing to the next.",
+    "user": "UN9SCH5RD",
+    "ts": "1600374148.040400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sLV",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "so that mun lang blog post, seems like the hot reloading requires a clever algorithm depending on whether the name of the fields of the struct are the same as before, etc. I wonder if a more intentional approach could work, like a refactoring tool that tells both the editor and the running program a certain field was migrated from one thing to the next."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "846c6510-f36e-47c2-837a-8a611ebbf7bf",
+    "type": "message",
+    "text": "I've been exploring hot reload in nodejs for a while now. I figured that most algorithms run in a couple of milliseconds, so rather than doing some unstable automatic migrations, restarting the last pure function + manual data migration works reasonable well.\n(<https://github.com/hediet/node-reload|https://github.com/hediet/node-reload>)",
+    "user": "U01AN8DFFBN",
+    "ts": "1600374788.040600",
+    "team": "T5TCAFTA9",
+    "attachments": [
+      {
+        "service_name": "GitHub",
+        "title": "hediet/node-reload",
+        "title_link": "https://github.com/hediet/node-reload",
+        "text": "An advanced hot reload solution for Node apps. Works very well for developing VSCode extensions and automating websites with puppeteer. - hediet/node-reload",
+        "fallback": "GitHub: hediet/node-reload",
+        "thumb_url": "https://avatars3.githubusercontent.com/u/2931520?s=400&v=4",
+        "from_url": "https://github.com/hediet/node-reload",
+        "thumb_width": 400,
+        "thumb_height": 400,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/github.png",
+        "id": 1,
+        "original_url": "https://github.com/hediet/node-reload"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oT/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've been exploring hot reload in nodejs for a while now. I figured that most algorithms run in a couple of milliseconds, so rather than doing some unstable automatic migrations, restarting the last pure function + manual data migration works reasonable well.\n("
+              },
+              {
+                "type": "link",
+                "url": "https://github.com/hediet/node-reload",
+                "text": "https://github.com/hediet/node-reload"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "5526fefc-a705-4030-925d-8fcd9b72e14e",
+    "type": "message",
+    "text": "<@UBN9AFS0N> Automatic. Developer makes changes to a data structure at runtime (struct, class, etc), those changes are picked up and propagated, and the program continues to run normally.",
+    "user": "UPMFG2571",
+    "ts": "1600375547.041100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QLels",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UBN9AFS0N"
+              },
+              {
+                "type": "text",
+                "text": " Automatic. Developer makes changes to a data structure at runtime (struct, class, etc), those changes are picked up and propagated, and the program continues to run normally."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "b2dfd68c-b358-4512-9e40-51318072fd95",
+    "type": "message",
+    "text": "Surprised by \"and it just works!\"",
+    "user": "UA14TGLTC",
+    "ts": "1600396350.000200",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sPi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Surprised by \"and it just works!\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600312443.026300",
+    "parent_user_id": "UCUSW7WVD",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "de1d9947-9524-426f-b1ef-74a87cdfe8f1",
+    "type": "message",
+    "text": "Yes, in Haskell people are going to start with type variables because lowercase `a`, `b`, `c` translates into don't care, doesn't matter, no worries.  The place where you fall down a hole is where you have interacting type classes.  Next thing you know you're surrounded by multi-parameter type class with functional dependencies, type families, and worse.",
+    "user": "UA14TGLTC",
+    "ts": "1600397015.000600",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zxI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, in Haskell people are going to start with type variables because lowercase "
+              },
+              {
+                "type": "text",
+                "text": "a",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "b",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "c",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " translates into don't care, doesn't matter, no worries.  The place where you fall down a hole is where you have interacting type classes.  Next thing you know you're surrounded by multi-parameter type class with functional dependencies, type families, and worse."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "6974d4f7-437d-4bf2-9253-3bdc7689d302",
+    "type": "message",
+    "text": "Wow!  Sometimes, I feel we would be well served by starting with a logic language then using it for types.  What are types anyway?  (The digression I'm about to start into does not belong in a thread.)",
+    "user": "UA14TGLTC",
+    "ts": "1600397850.000200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qbNnX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Wow!  Sometimes, I feel we would be well served by starting with a logic language then using it for types.  What are types anyway?  (The digression I'm about to start into does not belong in a thread.)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600359119.024100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "814831b4-44e2-426b-8c77-cd3cbc2c0217",
+    "type": "message",
+    "text": "Good abstractions are helpful, bad abstractions are an obstacle. I don't expect much opposition to this statement. So the real question is how to deal with experimental abstractions, when working in a domain you don't understand very well. Is it better to abstract early or abstract late?\n\nI like <@U5STGTB3J>'s idea of exploring how various communities deal with this, but I think it would be even more instructive to extend this exploration beyond programming. We (in the sense of human societies) have a lot more experience with mathematical and engineering abstractions, for example.",
+    "user": "UJBAJNFLK",
+    "ts": "1600416208.000800",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "X5L",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Good abstractions are helpful, bad abstractions are an obstacle. I don't expect much opposition to this statement. So the real question is how to deal with experimental abstractions, when working in a domain you don't understand very well. Is it better to abstract early or abstract late?\n\nI like "
+              },
+              {
+                "type": "user",
+                "user_id": "U5STGTB3J"
+              },
+              {
+                "type": "text",
+                "text": "'s idea of exploring how various communities deal with this, but I think it would be even more instructive to extend this exploration beyond programming. We (in the sense of human societies) have a lot more experience with mathematical and engineering abstractions, for example."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "5a825a19-1043-42ae-b513-21463fd02fec",
+    "type": "message",
+    "text": "Live programming systems have been doing this for decades. Smalltalk is probably the best example to study. When you change a class, all its instances get updated. Common Lisp has such a mechanism as well, but it's not automatic.",
+    "user": "UJBAJNFLK",
+    "ts": "1600416369.001100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FQFn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Live programming systems have been doing this for decades. Smalltalk is probably the best example to study. When you change a class, all its instances get updated. Common Lisp has such a mechanism as well, but it's not automatic."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "b56d4e61-db95-4564-a560-f026b1bf4f81",
+    "type": "message",
+    "text": "Picked up and propagated is the trick.  There are a few different senses of propagation.  In Smalltalk and Lisp usually, adding a field or whatever will work with existing objects, but the new field won't have a value.  So there might be a bit of migration involved.  In other cases (Ruby sometimes), you might rebind the name MyRecord to something new so now the old my records refer to a class, or whatever, that isn't called MyRecord anymore.  A third thing you might want to do (what I often do) is you make a change and now you want to go back and rerun (over some scope) with that change replacing the objects with the new alternative.  And then, of course, you want to compare to see what the knock-on effects are of the change are between patched and unpatched possible worlds.",
+    "user": "UA14TGLTC",
+    "ts": "1600419529.001400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WWdD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Picked up and propagated is the trick.  There are a few different senses of propagation.  In Smalltalk and Lisp usually, adding a field or whatever will work with existing objects, but the new field won't have a value.  So there might be a bit of migration involved.  In other cases (Ruby sometimes), you might rebind the name MyRecord to something new so now the old my records refer to a class, or whatever, that isn't called MyRecord anymore.  A third thing you might want to do (what I often do) is you make a change and now you want to go back and rerun (over some scope) with that change replacing the objects with the new alternative.  And then, of course, you want to compare to see what the knock-on effects are of the change are between patched and unpatched possible worlds."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "02ee9e2c-3d80-4b25-b483-191b807ee3bd",
+    "type": "message",
+    "text": "Type systems are a form of static analysis, and some would argue static analysis is best performed in a logic language (see <https://souffle-lang.github.io/|Soufflé>). That's what I understand Rust is doing with Chalk, but only _after_ the type system was already designed!",
+    "user": "UCGAK10LS",
+    "ts": "1600420684.003600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6Nm/Y",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Type systems are a form of static analysis, and some would argue static analysis is best performed in a logic language (see "
+              },
+              {
+                "type": "link",
+                "url": "https://souffle-lang.github.io/",
+                "text": "Soufflé"
+              },
+              {
+                "type": "text",
+                "text": "). That's what I understand Rust is doing with Chalk, but only "
+              },
+              {
+                "type": "text",
+                "text": "after",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the type system was already designed!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600359119.024100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "898ffbf2-6d1b-40e9-b2c5-afec80ad4a85",
+    "type": "message",
+    "text": "What if type-level programs and ordinary programs were all written in the same language? Seems do-able if the programming language is a logic language.",
+    "user": "UCGAK10LS",
+    "ts": "1600420932.003800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nveR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What if type-level programs and ordinary programs were all written in the same language? Seems do-able if the programming language is a logic language."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600359119.024100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "3dcfd43b-2233-43db-8ea0-9f358325060d",
+    "type": "message",
+    "text": "Tyrade is essentially that? Using macros to make type signatures look like ordinary Rust functions?",
+    "user": "UCGAK10LS",
+    "ts": "1600421127.004000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1600421271.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Iz5p",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Tyrade is essentially that? Using macros to make type signatures look like ordinary Rust functions?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600359119.024100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "48716137-bf8e-4cc5-a626-f9ab15764b33",
+    "type": "message",
+    "text": "Yeah, I'm coming at this from my explorations of linguistics and my recently improved understanding of Christopher Alexander's pattern languages. It seems that an overlooked property of ~regular~ human language is that we are perfectly fine in communicating in abstract concepts all the time and there is no need to go and define everything all the way down to the nitty-gritty details as long as we roughly understand the words we use in the same way.\n\nA form of applying this more or less directly to programming is to try to stay on that abstract level where a list is just that, and you go as long as you can without saying what's actually in the list. Of course, with programming languages you'll have to eventually provide some real specific values, if you want to see your program running and doing something. But if you did the generic part properly and your language supports it, it should be as easy as picking a few concrete values for a test case, stick them in, and it should just work (even if it doesn't verify the complete range of possible types/values), because your program is defined for all lists of any type, whatever type you end up using.",
+    "user": "U5STGTB3J",
+    "ts": "1600443720.001600",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U5STGTB3J",
+      "ts": "1600446152.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5HKP",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yeah, I'm coming at this from my explorations of linguistics and my recently improved understanding of Christopher Alexander's pattern languages. It seems that an overlooked property of "
+              },
+              {
+                "type": "text",
+                "text": "regular",
+                "style": {
+                  "strike": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " human language is that we are perfectly fine in communicating in abstract concepts all the time and there is no need to go and define everything all the way down to the nitty-gritty details as long as we roughly understand the words we use in the same way.\n\nA form of applying this more or less directly to programming is to try to stay on that abstract level where a list is just that, and you go as long as you can without saying what's actually in the list. Of course, with programming languages you'll have to eventually provide some real specific values, if you want to see your program running and doing something. But if you did the generic part properly and your language supports it, it should be as easy as picking a few concrete values for a test case, stick them in, and it should just work (even if it doesn't verify the complete range of possible types/values), because your program is defined for all lists of any type, whatever type you end up using."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "394e5540-f157-4f12-acf4-2893232ff459",
+    "type": "message",
+    "text": "What I'm looking at here though, is *not* the benefit of having more generic algorithms which can be reused (which is usually the motivation), but the benefit of not having to (and not being able to) define specifics before you have to. This is much closer to what Alexander has in mind when he talks about \"unfolding\", I think, and it is what I misunderstood about pattern languages — they weren't meant for reusable components, as _Design Patterns_ will make you think — they were meant as a design technique that keeps you focused on the _whole_ and leads you through a process of progressive refinement, step by step adding more details transforming, but never replacing or destroying the structure you have built thus far.",
+    "user": "U5STGTB3J",
+    "ts": "1600444211.001900",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "U5STGTB3J",
+      "ts": "1600446289.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oJ6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What I'm looking at here though, is "
+              },
+              {
+                "type": "text",
+                "text": "not",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the benefit of having more generic algorithms which can be reused (which is usually the motivation), but the benefit of not having to (and not being able to) define specifics before you have to. This is much closer to what Alexander has in mind when he talks about \"unfolding\", I think, and it is what I misunderstood about pattern languages — they weren't meant for reusable components, as "
+              },
+              {
+                "type": "text",
+                "text": "Design Patterns",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " will make you think — they were meant as a design technique that keeps you focused on the "
+              },
+              {
+                "type": "text",
+                "text": "whole",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and leads you through a process of progressive refinement, step by step adding more details transforming, but never replacing or destroying the structure you have built thus far."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "f993f404-d478-4b6c-8d1f-3dee41ce1105",
+    "type": "message",
+    "text": "<@UJBAJNFLK> <@UA14TGLTC> Thanks, could you point me to any references or papers I could have a look at specifically about this?",
+    "user": "UPMFG2571",
+    "ts": "1600453456.002800",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3N8i",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " Thanks, could you point me to any references or papers I could have a look at specifically about this?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "484D3F31-9B31-4598-B987-F6D11B4E6A36",
+    "type": "message",
+    "text": "<@UPMFG2571> Sorry, no references. I know these systems as a user, not as an academic.",
+    "user": "UJBAJNFLK",
+    "ts": "1600495339.004100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IcB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UPMFG2571"
+              },
+              {
+                "type": "text",
+                "text": " Sorry, no references. I know these systems as a user, not as an academic."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "1B08838E-809B-4095-9027-0DC04614485D",
+    "type": "message",
+    "text": "Humans communicate in a context of shared abstractions. In programming we create formalizations for abstractions. Not sure this is comparable.\nThis reminds me of a long-ago discussion with colleagues about teaching mathematical concepts in physics. Is it better to start from examples and then develop abstractions, or start with the abstract and then introduce examples for illustration? There were good arguments on both sides.",
+    "user": "UJBAJNFLK",
+    "ts": "1600495725.009300",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "61mEr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Humans communicate in a context of shared abstractions. In programming we create formalizations for abstractions. Not sure this is comparable.\nThis reminds me of a long-ago discussion with colleagues about teaching mathematical concepts in physics. Is it better to start from examples and then develop abstractions, or start with the abstract and then introduce examples for illustration? There were good arguments on both sides."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600360697.037500",
+    "parent_user_id": "U5STGTB3J",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "86d43dd9-8aa0-4096-a3e7-feca49d25c49",
+    "type": "message",
+    "text": "Curiously, no particular paper stands out in my mind.  The only academic insight that I have is that the semantics of how state responds to a change in definition corresponds to an ordering of monads.  And I only remember this faintly as a good example of how monads don't commute (as a rule) and why one shouldn't be too disappointed.",
+    "user": "UA14TGLTC",
+    "ts": "1600497414.009500",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6vFT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Curiously, no particular paper stands out in my mind.  The only academic insight that I have is that the semantics of how state responds to a change in definition corresponds to an ordering of monads.  And I only remember this faintly as a good example of how monads don't commute (as a rule) and why one shouldn't be too disappointed."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "7224D045-0BD6-47D0-AC27-76B7127B73FB",
+    "type": "message",
+    "text": "That’s indeed a very practical problem as well. Illustration: today’s Pharo stores code as a sequence of instructions in Git repositories. But those instructions don’t reflect the order in which the changes were made interactively. If you understand the issues, that’s not too hard to deal with, but it must be hell for beginners.",
+    "user": "UJBAJNFLK",
+    "ts": "1600584385.018100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3uANX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "That’s indeed a very practical problem as well. Illustration: today’s Pharo stores code as a sequence of instructions in Git repositories. But those instructions don’t reflect the order in which the changes were made interactively. If you understand the issues, that’s not too hard to deal with, but it must be hell for beginners."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "b4fbafc6-cf73-4108-a1c7-369b3a571d23",
+    "type": "message",
+    "text": "Idris is another language trying to bridge that gap!",
+    "user": "UNV27TUKA",
+    "ts": "1600621440.050100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gb450c754c95",
+      "image_72": "https://secure.gravatar.com/avatar/b450c754c95e372799d56cb7eef2eba2.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "James Sully",
+      "display_name": "James Sully",
+      "team": "T5TCAFTA9",
+      "name": "sullyj3",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "yVPr",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Idris is another language trying to bridge that gap!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600359119.024100",
+    "parent_user_id": "UFB8STN7K",
+    "channel_name": "of-logic-programming",
+    "channel_id": "C01AFFQP8A3"
+  },
+  {
+    "client_msg_id": "4b0ff14c-0d42-40f1-b4b7-f24bcd59a7cd",
+    "type": "message",
+    "text": "You haven't programmed Smalltalk until you get your image into an unrecoverable state!  Now that we're living in the 21st  and the After Times (times after Git in this case), there really ought to be a better way to manage images.  I mean there's the whole pit of CRDTs.  Surely a new image based programming language should emerge out of it.",
+    "user": "UA14TGLTC",
+    "ts": "1600839710.000100",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YiH/U",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You haven't programmed Smalltalk until you get your image into an unrecoverable state!  Now that we're living in the 21st  and the After Times (times after Git in this case), there really ought to be a better way to manage images.  I mean there's the whole pit of CRDTs.  Surely a new image based programming language should emerge out of it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "reactions": [
+      {
+        "name": "heavy_plus_sign",
+        "users": [
+          "UJ6LDMMN0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "c4cd1674-062d-4f11-a097-2dd986065294",
+    "type": "message",
+    "text": "An interesting one is <https://www.unisonweb.org/|Unison. >Its codebase is logically an append-only datastructure (but I suppose there is some form garbage collection). And although they call it a codebase, it stores some data as well (everything that has a global name associated with it). It's not quite an image, in particular because it doesn't store the run-time state. You can't \"save a session\" and take it up again. But it has none of the order-related issues because everything is immutable, except for the names.",
+    "user": "UJBAJNFLK",
+    "ts": "1600844337.000300",
+    "team": "T5TCAFTA9",
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1600844608.000000"
+    },
+    "attachments": [
+      {
+        "title": "The Unison language",
+        "title_link": "https://www.unisonweb.org/",
+        "text": "A friendly programming language from the future.",
+        "fallback": "The Unison language",
+        "from_url": "https://www.unisonweb.org/",
+        "service_name": "unisonweb.org",
+        "id": 1,
+        "original_url": "https://www.unisonweb.org/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+82t",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "An interesting one is "
+              },
+              {
+                "type": "link",
+                "url": "https://www.unisonweb.org/",
+                "text": "Unison. "
+              },
+              {
+                "type": "text",
+                "text": "Its codebase is logically an append-only datastructure (but I suppose there is some form garbage collection). And although they call it a codebase, it stores some data as well (everything that has a global name associated with it). It's not quite an image, in particular because it doesn't store the run-time state. You can't \"save a session\" and take it up again. But it has none of the order-related issues because everything is immutable, except for the names."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "49cdd0e7-a943-4d58-b470-22c6b5a5a0c1",
+    "type": "message",
+    "text": "<@UPMFG2571> +1 to what <@UA14TGLTC> and <@UJBAJNFLK> said. I'll add that <https://en.wikipedia.org/wiki/The_Art_of_the_Metaobject_Protocol|The Art of the Metaobject Protocol> is a good place to read more about advanced object systems that have things like updating of instances when class prototypes are changed, as Konrad described.",
+    "user": "U013ZLJARC7",
+    "ts": "1600868355.002700",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ngRLB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UPMFG2571"
+              },
+              {
+                "type": "text",
+                "text": " +1 to what "
+              },
+              {
+                "type": "user",
+                "user_id": "UA14TGLTC"
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " said. I'll add that "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/The_Art_of_the_Metaobject_Protocol",
+                "text": "The Art of the Metaobject Protocol"
+              },
+              {
+                "type": "text",
+                "text": " is a good place to read more about advanced object systems that have things like updating of instances when class prototypes are changed, as Konrad described."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  },
+  {
+    "client_msg_id": "0d83ec6f-66c4-4795-8728-d8aa001442d3",
+    "type": "message",
+    "text": "Thanks <@U013ZLJARC7>, I'll have a look. I've also since found this paper which gets into the practice of using lisp interactively <http://www.softwarepreservation.org/projects/interactive_c/bib/Sandewall-1978.pdf>",
+    "user": "UPMFG2571",
+    "ts": "1600947824.000400",
+    "team": "T5TCAFTA9",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UkNJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": ", I'll have a look. I've also since found this paper which gets into the practice of using lisp interactively "
+              },
+              {
+                "type": "link",
+                "url": "http://www.softwarepreservation.org/projects/interactive_c/bib/Sandewall-1978.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1600365145.039700",
+    "parent_user_id": "UPMFG2571",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U013ZLJARC7",
+          "UJBAJNFLK"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "present-company",
+    "channel_id": "C01932BJGE8"
+  }
+]

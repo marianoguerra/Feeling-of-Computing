@@ -1,0 +1,462 @@
+[
+  {
+    "client_msg_id": "d253b9e8-2ca2-4ea5-9edb-b12620fa07e1",
+    "type": "message",
+    "text": "I’m interested in this, but I am only familiar with the basics of CT.\n\nFYI: I’ve been learning what I can about generating code from laymen-defined models+properties where the generated code “smartly” chooses between both runtime (based on collected metrics) and static (based on machine model) strategies (such as sort algorithm, data layouts, GPU vs. CPU targeting, batch/row sizes, etc). There’s also a very difficult problem on providing feedback or even choices when “things” are over-constrained/non-feasible.\n\nAny thoughts on if Poly could be a helpful way to model this problem? In the Poly book, they restrict the lens structure in a way I don’t understand, so I don’t know if it can model more complex optics like monadic lenses (which is one way to model+execute RT strategy decisions). I also really don’t understand the implications of things like “preserving op-cartesian arrows.”",
+    "user": "UN57U8V53",
+    "ts": "1631365343.173900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3447742b735b",
+      "image_72": "https://avatars.slack-edge.com/2019-09-09/753296041488_3447742b735b104a7ff2_72.png",
+      "first_name": "",
+      "real_name": "Don Abrams",
+      "display_name": "Don Abrams",
+      "team": "T5TCAFTA9",
+      "name": "donabrams",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Jx1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’m interested in this, but I am only familiar with the basics of CT.\n\nFYI: I’ve been learning what I can about generating code from laymen-defined models+properties where the generated code “smartly” chooses between both runtime (based on collected metrics) and static (based on machine model) strategies (such as sort algorithm, data layouts, GPU vs. CPU targeting, batch/row sizes, etc). There’s also a very difficult problem on providing feedback or even choices when “things” are over-constrained/non-feasible.\n\nAny thoughts on if Poly could be a helpful way to model this problem? In the Poly book, they restrict the lens structure in a way I don’t understand, so I don’t know if it can model more complex optics like monadic lenses (which is one way to model+execute RT strategy decisions). I also really don’t understand the implications of things like “preserving op-cartesian arrows.”"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631142763.129900",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "aaadb00a-8b52-4973-ad31-ca1b9949cd6e",
+    "type": "message",
+    "text": "&gt; I’ve been learning what I can about generating code from laymen-defined models+properties\nIt sounds like you're interested in *compilers* for high-level languages? Your description reminds me of MLIR, which aims to be a good framework for compiling programs from (vastly different) high-level domains, such as neural networks and hardware circuits. It definitely does all those static optimizations you describe.\n\nAs for whether Poly can help with this: my hunch is *no*, not right now. (Disclaimer though: I'm not a category theorist, I'm just a software engineer who's been in contact with the book authors.) Poly is being investigated as a *modelling language*, but not as a compiler. The main challenge right now is connecting Poly back to everyday programming constructs. We've got an understanding of how it connects to type systems, I/O, and databases, but other important stuff like recursion is missing. It's unclear how deep the Poly rabbit hole goes; it's still very early days. That's why there's a hackathon being planned: to support further exploration!\n\n&gt; I don’t know if it can model more complex optics like monadic lenses\nNor do I. I don't even know what a monadic lens is :slightly_smiling_face:\n\n&gt; I also really don’t understand the implications of things like “preserving op-cartesian arrows.”\nThe book is mainly targeted at category theorists right now, and so its style is to list out a bunch of theorems on every aspect of Poly. Some of them have clear implications, some of them don't. My personal strategy has been to focus on the theorems that seem interesting to me as a software engineer :innocent:.",
+    "user": "UCGAK10LS",
+    "ts": "1631404772.174300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1631404783.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "3=R",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I’ve been learning what I can about generating code from laymen-defined models+properties"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nIt sounds like you're interested in "
+              },
+              {
+                "type": "text",
+                "text": "compilers",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " for high-level languages? Your description reminds me of MLIR, which aims to be a good framework for compiling programs from (vastly different) high-level domains, such as neural networks and hardware circuits. It definitely does all those static optimizations you describe.\n\nAs for whether Poly can help with this: my hunch is "
+              },
+              {
+                "type": "text",
+                "text": "no",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", not right now. (Disclaimer though: I'm not a category theorist, I'm just a software engineer who's been in contact with the book authors.) Poly is being investigated as a "
+              },
+              {
+                "type": "text",
+                "text": "modelling language",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", but not as a compiler. The main challenge right now is connecting Poly back to everyday programming constructs. We've got an understanding of how it connects to type systems, I/O, and databases, but other important stuff like recursion is missing. It's unclear how deep the Poly rabbit hole goes; it's still very early days. That's why there's a hackathon being planned: to support further exploration!\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I don’t know if it can model more complex optics like monadic lenses"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nNor do I. I don't even know what a monadic lens is "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I also really don’t understand the implications of things like “preserving op-cartesian arrows.”"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThe book is mainly targeted at category theorists right now, and so its style is to list out a bunch of theorems on every aspect of Poly. Some of them have clear implications, some of them don't. My personal strategy has been to focus on the theorems that seem interesting to me as a software engineer "
+              },
+              {
+                "type": "emoji",
+                "name": "innocent"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631142763.129900",
+    "parent_user_id": "UCGAK10LS",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UN57U8V53"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "12e886c0-1694-4a95-898c-9aca4787e793",
+    "type": "message",
+    "text": "Hah, well my current hope is that the compiler input isn’t a high level language, but a model (think more like minecraft or sketch)\nI’m looking for the right model(s) to slowly increase power/complexity, basically adding a dimension at a time (and trying to keep people thinking about the “what” rather than the “how” when manipulating the model)",
+    "user": "UN57U8V53",
+    "ts": "1631443658.000200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3447742b735b",
+      "image_72": "https://avatars.slack-edge.com/2019-09-09/753296041488_3447742b735b104a7ff2_72.png",
+      "first_name": "",
+      "real_name": "Don Abrams",
+      "display_name": "Don Abrams",
+      "team": "T5TCAFTA9",
+      "name": "donabrams",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "qjua5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hah, well my current hope is that the compiler input isn’t a high level language, but a model (think more like minecraft or sketch)\nI’m looking for the right model(s) to slowly increase power/complexity, basically adding a dimension at a time (and trying to keep people thinking about the “what” rather than the “how” when manipulating the model)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631142763.129900",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "77313594-efe7-461d-a58f-2234a55275a7",
+    "type": "message",
+    "text": "What do you mean by \"model\" here? That word has a lot of meanings!\n\nFor example, how do you wish me to perceive Minecraft as a model? I see it as a fully-fledged interactive application! But if I were to think of Minecraft as a _tool_ for making models, I can recall how people use Minecraft blocks to build _physical models_ of locations and buildings. But those aren't models of interactive systems. You can also use Minecraft's redstone system to build circuits, but that's equivalent to a low-level programming language, so I don't see it as something special. And of course you can write mods for Minecraft, but that's just conventional programming.",
+    "user": "UCGAK10LS",
+    "ts": "1631490675.001200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1631490781.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "lK/N",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What do you mean by \"model\" here? That word has a lot of meanings!\n\nFor example, how do you wish me to perceive Minecraft as a model? I see it as a fully-fledged interactive application! But if I were to think of Minecraft as a "
+              },
+              {
+                "type": "text",
+                "text": "tool",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " for making models, I can recall how people use Minecraft blocks to build "
+              },
+              {
+                "type": "text",
+                "text": "physical models",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " of locations and buildings. But those aren't models of interactive systems. You can also use Minecraft's redstone system to build circuits, but that's equivalent to a low-level programming language, so I don't see it as something special. And of course you can write mods for Minecraft, but that's just conventional programming."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631142763.129900",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "2a16e971-b7c5-4743-b586-3fa3a68f665c",
+    "type": "message",
+    "text": "Minecraft is a game where you have a model of a world, you can move around to look at different pieces of it, and manipulate it by doing certain actions (whose number and complexity grow over time)\n\nIf you replaced the “model of the world” with a “directory”, “moving around to look at different pieces of it” with “clicking and scrolling in an IDE” and “doing certain action” with “adding/editing code”, then you get an open-ended game we call programming :slightly_smiling_face:. I used Minecraft here as a reference for two reasons:\n1. “Adding/editing code” is all or nothing-- I’d prefer a growing set of manipulation operations (like several minecraft mods add) to avoid boilerplate without the user needing to know in advance about every operation to understand the model\n2. Minecraft operations/views are built around certain guarantees of the “model” (usually how different cubes will interact). In programming, the directory is so unconstrained we barely think about it; the only constraint (assumed) is that the files in the directories respect their extensions, so becomes a facsimile for some distributed AST.",
+    "user": "UN57U8V53",
+    "ts": "1631520851.004400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "3447742b735b",
+      "image_72": "https://avatars.slack-edge.com/2019-09-09/753296041488_3447742b735b104a7ff2_72.png",
+      "first_name": "",
+      "real_name": "Don Abrams",
+      "display_name": "Don Abrams",
+      "team": "T5TCAFTA9",
+      "name": "donabrams",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Q+I2v",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Minecraft is a game where you have a model of a world, you can move around to look at different pieces of it, and manipulate it by doing certain actions (whose number and complexity grow over time)\n\nIf you replaced the “model of the world” with a “directory”, “moving around to look at different pieces of it” with “clicking and scrolling in an IDE” and “doing certain action” with “adding/editing code”, then you get an open-ended game we call programming "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": ". I used Minecraft here as a reference for two reasons:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "“Adding/editing code” is all or nothing-- I’d prefer a growing set of manipulation operations (like several minecraft mods add) to avoid boilerplate without the user needing to know in advance about every operation to understand the model"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Minecraft operations/views are built around certain guarantees of the “model” (usually how different cubes will interact). In programming, the directory is so unconstrained we barely think about it; the only constraint (assumed) is that the files in the directories respect their extensions, so becomes a facsimile for some distributed AST."
+                  }
+                ]
+              }
+            ],
+            "style": "ordered",
+            "indent": 0,
+            "border": 0
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631142763.129900",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "client_msg_id": "8d7ec075-a84e-4972-934e-87e116a770d6",
+    "type": "message",
+    "text": "I'd say a Minecraft world is a \"world\" or an \"open system\" (in the sense that it has state and I/O), not a \"model of a world\". The latter phrase suggests it's trying to accurately emulate (model) something external.\n\n&gt; Minecraft operations/views are built around certain guarantees of the “model”\nRight, I'd describe that as \"the state obeys a schema\" and \"the interactions obey a protocol\". The aforementioned *Poly* aspires to be a language for schemas and protocols :slightly_smiling_face: (but it's not well-developed yet)",
+    "user": "UCGAK10LS",
+    "ts": "1631522890.004600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "770c193fd379",
+      "image_72": "https://avatars.slack-edge.com/2020-04-17/1092364753072_770c193fd379ebbced3f_72.jpg",
+      "first_name": "",
+      "real_name": "Nick Smith",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "nmsmith65",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UCGAK10LS",
+      "ts": "1631522965.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fCyre",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'd say a Minecraft world is a \"world\" or an \"open system\" (in the sense that it has state and I/O), not a \"model of a world\". The latter phrase suggests it's trying to accurately emulate (model) something external.\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Minecraft operations/views are built around certain guarantees of the “model”"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nRight, I'd describe that as \"the state obeys a schema\" and \"the interactions obey a protocol\". The aforementioned "
+              },
+              {
+                "type": "text",
+                "text": "Poly",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " aspires to be a language for schemas and protocols "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face"
+              },
+              {
+                "type": "text",
+                "text": " (but it's not well-developed yet)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1631142763.129900",
+    "parent_user_id": "UCGAK10LS",
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

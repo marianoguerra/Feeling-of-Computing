@@ -1,0 +1,1717 @@
+[
+  {
+    "user": "U013ZLJARC7",
+    "type": "message",
+    "ts": "1741611856.464409",
+    "client_msg_id": "a82a1c19-094a-4931-8726-da0371f5fcec",
+    "text": "Sometimes pieces of the environment have an event loop of their own with which the coder can interact in a variety of ways. This is quite different from a 50s/60s-style REPL where there’s a single thread of execution.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "q7Bf1",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Sometimes pieces of the environment have an event loop of their own with which the coder can interact in a variety of ways. This is quite different from a 50s/60s-style REPL where there’s a single thread of execution."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1741615479.382129",
+    "client_msg_id": "550659fb-68a4-4804-8de0-5270e77d9ab1",
+    "text": "Actually, I'm still missing something. How is the modern main-loop different from the 50s/60s idea? In the 50s/60s REPL, the code runs a main-loop, and serially, runs a little GUI each time through. In the modern stand-beside Live thing, the main-loop serially runs a little GUI each time through. The GUI code is embedded in the main-loop in the 50s/60s version, but is stand-beside in the modern version. The effect is the same, just the implementation details differ (slightly). In the end, either approach invokes a function(s) to change something at runtime. Only the presentation of the GUI is different. And the speed at which the main-loop comes around is faster today. ? <@U013ZLJARC7>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EdBRt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Actually, I'm still missing something. How is the modern main-loop different from the 50s/60s idea? In the 50s/60s REPL, the code runs a main-loop, and serially, runs a little GUI each time through. In the modern stand-beside Live thing, the main-loop serially runs a little GUI each time through. The GUI code is embedded in the main-loop in the 50s/60s version, but is stand-beside in the modern version. The effect is the same, just the implementation details differ (slightly). In the end, either approach invokes a function(s) to change something at runtime. Only the presentation of the GUI is different. And the speed at which the main-loop comes around is faster today. ? "
+              },
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U013ZLJARC7",
+    "type": "message",
+    "ts": "1741619387.912529",
+    "edited": {
+      "user": "U013ZLJARC7",
+      "ts": "1741622337.000000"
+    },
+    "client_msg_id": "6392052e-5a3a-4f51-9f42-8ce0e96aafea",
+    "text": "In the Smalltalk case, there are objects that can have their own threads of execution independent of the GUI loop. In the Lisp case, you can have running threads that are independent of the REPL loop. These threads can be doing various computations, passing messages to each other, &c, with the REPL allowing you to “talk” to them. Most music livecoders have multiple such threads of execution producing different streams of audio at any given time, for example.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GtXKy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In the Smalltalk case, there are objects that can have their own threads of execution independent of the GUI loop. In the Lisp case, you can have running threads that are independent of the REPL loop. These threads can be doing various computations, passing messages to each other, &c, with the REPL allowing you to “talk” to them. Most music livecoders have multiple such threads of execution producing different streams of audio at any given time, for example."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1741620076.730969",
+    "client_msg_id": "1966798e-5abb-4f69-9a93-8e02aeb9e74d",
+    "text": "Congrats you two! I've been eagerly awaiting the final release, and am super excited to dig in. Ever since WASM appeared on the scene, I've wanted to learn how it works at a low level, and this book's approach (start with the bytecode, then write your own compiler) seems _perfectly_ suited to my goals. Thanks for all the hard work putting this together.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741612421.653979",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "nUnoY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Congrats you two! I've been eagerly awaiting the final release, and am super excited to dig in. Ever since WASM appeared on the scene, I've wanted to learn how it works at a low level, and this book's approach (start with the bytecode, then write your own compiler) seems "
+              },
+              {
+                "type": "text",
+                "text": "perfectly",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " suited to my goals. Thanks for all the hard work putting this together."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UBN9AFS0N"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1741622612.323309",
+    "client_msg_id": "f54a166f-ff91-4725-a0f9-dba56acd900e",
+    "text": "This is so good. Feels like it'd be great \"primer\" material for new members to the community.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "91EEN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is so good. Feels like it'd be great \"primer\" material for new members to the community."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJFN50C00",
+          "U075Q2WP3UK",
+          "UML4ZEKDK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U01DWJSAF2B",
+    "type": "message",
+    "ts": "1741623519.351349",
+    "edited": {
+      "user": "U01DWJSAF2B",
+      "ts": "1741623534.000000"
+    },
+    "client_msg_id": "91bea25e-ebe5-41f9-92ea-7ec6b58fb71e",
+    "text": "Awesome! Let us know how you get along with it <@UC2A2ARPT>.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741612421.653979",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "k6qWz",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Awesome! Let us know how you get along with it "
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1741626844.628149",
+    "client_msg_id": "41D504BD-C2BB-438F-B46E-2A1464B9FB04",
+    "text": "This is the conclusion video ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YKBWS",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This is the conclusion video "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1741626852.423639",
+    "client_msg_id": "E21F3365-8D52-4F28-9C7E-DF334E5F0D51",
+    "text": "<https://youtu.be/woq5bSLQq18?|https://youtu.be/woq5bSLQq18?>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "attachments": [
+      {
+        "from_url": "https://youtu.be/woq5bSLQq18",
+        "thumb_url": "https://i.ytimg.com/vi/woq5bSLQq18/hqdefault.jpg",
+        "thumb_width": 480,
+        "thumb_height": 360,
+        "video_html": "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/woq5bSLQq18?feature=oembed&autoplay=1&iv_load_policy=3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Liber Indigo - The Enchanted Interface\"></iframe>",
+        "video_html_width": 400,
+        "video_html_height": 225,
+        "service_icon": "https://a.slack-edge.com/80588/img/unfurl_icons/youtube.png",
+        "id": 1,
+        "original_url": "https://youtu.be/woq5bSLQq18?",
+        "fallback": "YouTube Video: Liber Indigo - The Enchanted Interface",
+        "title": "Liber Indigo - The Enchanted Interface",
+        "title_link": "https://youtu.be/woq5bSLQq18",
+        "author_name": "Krkwd",
+        "author_link": "https://www.youtube.com/@liber-indigo",
+        "service_name": "YouTube",
+        "service_url": "https://www.youtube.com/"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "DEN+2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://youtu.be/woq5bSLQq18?",
+                "text": "https://youtu.be/woq5bSLQq18?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1741632003.547099",
+    "client_msg_id": "4E964F9B-98DB-46D1-8DAE-16524433F318",
+    "text": "I'm going to watch the whole series",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "b8h9K",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm going to watch the whole series"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "relaxed",
+        "users": [
+          "UJFN50C00"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U05PY5AQCA2",
+    "type": "message",
+    "ts": "1741633762.513919",
+    "client_msg_id": "A84018C5-4F41-43E7-A25C-915A18AC6F73",
+    "text": "YES!\n\nA background idea behind my Frest work (<http://frest.substack.com|frest.substack.com>) is that we should start at the bottom.\n\nThe Posix operating system, with a hierarchical file system and all that, is the fundamental way we mimick paper.\n\nBetter to have at the bottom of everything relations. Small pieces, organised using the canonical, ideal tool for structuring information — First Order Logic/the Relational Model.\n\nFrom there, start to think about what the user experience should look like. How it’s query based (Datalog). How everything is addressable. How types let us connect the pieces of data to the operations on them. How finding those is also query based, because they’re also organised relationally.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aeAId",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "YES!\n\nA background idea behind my Frest work (frest.substack.com) is that we should start at the bottom.\n\nThe Posix operating system, with a hierarchical file system and all that, is the fundamental way we mimick paper.\n\nBetter to have at the bottom of everything relations. Small pieces, organised using the canonical, ideal tool for structuring information — First Order Logic/the Relational Model.\n\nFrom there, start to think about what the user experience should look like. How it’s query based (Datalog). How everything is addressable. How types let us connect the pieces of data to the operations on them. How finding those is also query based, because they’re also organised relationally."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "U0378MDUG1Y",
+    "type": "message",
+    "ts": "1741639535.632259",
+    "client_msg_id": "1214CF62-4BEA-497B-AB99-CAF86B00220B",
+    "text": "Thanks for sharing this!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GxuZL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for sharing this!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1741646282.933149",
+    "client_msg_id": "9dfd1d74-b228-40e6-89d7-954999db59de",
+    "text": "<https://futureofcoding.slack.com/archives/C5U3SEW6A/p1736375888113039?thread_ts=1736375888.113039&amp;cid=C5U3SEW6A|https://futureofcoding.slack.com/archives/C5U3SEW6A/p1736375888113039?thread_ts=1736375888.113039&amp;cid=C5U3SEW6A>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "attachments": [
+      {
+        "from_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1736375888113039?thread_ts=1736375888.113039&amp;cid=C5U3SEW6A",
+        "ts": "1736375888.113039",
+        "author_id": "UBN9AFS0N",
+        "channel_id": "C5U3SEW6A",
+        "channel_team": "T5TCAFTA9",
+        "is_msg_unfurl": true,
+        "is_thread_root_unfurl": true,
+        "message_blocks": [
+          {
+            "team": "T5TCAFTA9",
+            "channel": "C5U3SEW6A",
+            "ts": "1736375888.113039",
+            "message": {
+              "blocks": [
+                {
+                  "type": "rich_text",
+                  "block_id": "t2ihU",
+                  "elements": [
+                    {
+                      "type": "rich_text_section",
+                      "elements": [
+                        {
+                          "type": "link",
+                          "url": "https://www.youtube.com/watch?v=pGpBQgZ5IsI",
+                          "text": "Liber Indigo (Part One) - Metaphysical Prisoners of the Desktop"
+                        },
+                        {
+                          "type": "text",
+                          "text": "\n\n"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rich_text_quote",
+                      "elements": [
+                        {
+                          "type": "text",
+                          "text": " Part One of a video series echoing the themes of 'Liber Indigo: The Affordances of Magic'"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "id": 1,
+        "original_url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1736375888113039?thread_ts=1736375888.113039&amp;cid=C5U3SEW6A",
+        "fallback": "[January 8th, 2025 2:38 PM] mariano: <https://www.youtube.com/watch?v=pGpBQgZ5IsI|Liber Indigo (Part One) - Metaphysical Prisoners of the Desktop>\n\n&gt;  Part One of a video series echoing the themes of 'Liber Indigo: The Affordances of Magic'",
+        "text": "<https://www.youtube.com/watch?v=pGpBQgZ5IsI|Liber Indigo (Part One) - Metaphysical Prisoners of the Desktop>\n\n&gt;  Part One of a video series echoing the themes of 'Liber Indigo: The Affordances of Magic'",
+        "author_name": "Mariano Guerra",
+        "author_link": "https://futureofcoding.slack.com/team/UBN9AFS0N",
+        "author_icon": "https://avatars.slack-edge.com/2018-07-09/395086754178_7f0f1c0238ec02befdab_48.jpg",
+        "author_subname": "Mariano Guerra",
+        "mrkdwn_in": [
+          "text"
+        ],
+        "footer": "Thread in Slack Conversation"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CPC2J",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1736375888113039?thread_ts=1736375888.113039&cid=C5U3SEW6A",
+                "text": "https://futureofcoding.slack.com/archives/C5U3SEW6A/p1736375888113039?thread_ts=1736375888.113039&cid=C5U3SEW6A"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U0378MDUG1Y",
+          "UJFN50C00"
+        ],
+        "count": 2
+      },
+      {
+        "name": "joy",
+        "users": [
+          "UC2A2ARPT",
+          "UJFN50C00"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1741658159.959769",
+    "client_msg_id": "9dab1a9e-4509-475f-8c12-dec9259bdcf1",
+    "text": "&gt; Feels like it'd be great \"primer\" material for new members to the community.\n<@UC2A2ARPT>\n\nAgreed.\n\nAlthough, maybe one should consider renaming this group from FoC to FoRM, from Future of Coding to Future of Reprogrammable Machines? The former implies writing Gutenberg-y equations using new-fangled QWERTY quills on new-fangled CPU paper made out of flattened transistors.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "8Ii+v",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Feels like it'd be great \"primer\" material for new members to the community."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": "\n\nAgreed.\n\nAlthough, maybe one should consider renaming this group from FoC to FoRM, from Future of Coding to Future of Reprogrammable Machines? The former implies writing Gutenberg-y equations using new-fangled QWERTY quills on new-fangled CPU paper made out of flattened transistors."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1741675680.393739",
+    "client_msg_id": "6414691c-1214-402e-81bc-bed6f06c7b52",
+    "text": "I assume you consider \"layering\" to be a bad thing. Totally valid criticism. But there are drawbacks in the other direction as well:\n\n• If you generate code from diagrams your diagrams now have to do double duty. They have to be a source of truth and also hide detail.\n• You tend to be stuck with one totalizing way of viewing a large program. There are no arrows in the second picture because _it's a different kind of picture_. Glossary rather than blueprint. To support multiple viewpoints in your approach requires checking them for inconsistencies, and showing inconsistencies in a nice way to the programmer so the programmer can understand what the compiler has found.\nThese are good directions for research. But my doctrine is that I'm trying to do as little research as possible. My focus isn't to make everything perfectly clean and pleasant to use. My focus is to help people take control of their computers with the mature technology we have today.\n\nThis is why I'm adamantly not creating a new programming language.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "+68MA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I assume you consider \"layering\" to be a bad thing. Totally valid criticism. But there are drawbacks in the other direction as well:\n\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "If you generate code from diagrams your diagrams now have to do double duty. They have to be a source of truth and also hide detail."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "You tend to be stuck with one totalizing way of viewing a large program. There are no arrows in the second picture because "
+                  },
+                  {
+                    "type": "text",
+                    "text": "it's a different kind of picture",
+                    "style": {
+                      "italic": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Glossary rather than blueprint. To support multiple viewpoints in your approach requires checking them for inconsistencies, and showing inconsistencies in a nice way to the programmer so the programmer can understand what the compiler has found."
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThese are good directions for research. But my doctrine is that I'm trying to do as little research as possible. My focus isn't to make everything perfectly clean and pleasant to use. My focus is to help people take control of their computers with the mature technology we have today.\n\nThis is why I'm adamantly not creating a new programming language."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1741676430.601409",
+    "client_msg_id": "7793c21e-4729-4a65-aa2a-ca90e6c33ef7",
+    "text": "To elaborate on \"glossary rather than blueprint,\" we often hit points in programs where you can't stage learning. You can't learn A without knowing of the existence of B, and vice versa. In these situations it helps to have just a todo list. You need to learn these things. It won't make sense at the start, but here's a bound on what you don't know yet.\n\nI hope this conveys that my primary audience isn't the author of a program. It's the reader. If the author has to do some extra work to engender trust, I'm ok with that. A program will always consist of more than code. Keeping the comments up to date is part of fostering the reader's trust. You can't blanket distrust all comments, I think you miss out that way. Different people put in different levels of attention to them. I'm sure my projects are hard for others to understand, but they seldom contain outright falsehoods in documentation.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1kEvA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "To elaborate on \"glossary rather than blueprint,\" we often hit points in programs where you can't stage learning. You can't learn A without knowing of the existence of B, and vice versa. In these situations it helps to have just a todo list. You need to learn these things. It won't make sense at the start, but here's a bound on what you don't know yet.\n\nI hope this conveys that my primary audience isn't the author of a program. It's the reader. If the author has to do some extra work to engender trust, I'm ok with that. A program will always consist of more than code. Keeping the comments up to date is part of fostering the reader's trust. You can't blanket distrust all comments, I think you miss out that way. Different people put in different levels of attention to them. I'm sure my projects are hard for others to understand, but they seldom contain outright falsehoods in documentation."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1741679095.172209",
+    "client_msg_id": "011bdeca-59e3-4186-ab8b-e6e31c52eab3",
+    "text": "I am pretty much pursuing the same goals as <@UCUSW7WVD>, just in a different setting. In particular, I use plain old code plus different views to make the system more understandable. But I am also interested in using diagrams as the ground truth, replacing code, for parts of systems.\n\nThe big difference it makes is about changing things. If there is an author who makes an effort to facilitate the work of the reader, that also means that the reader has less of a chance to become an equal to the author. And that means lower conviviality.\n\nIf your ground truth is a diagram, then you know that there is nothing else but the diagram and its semantics that you need to understand. No view can make such a promise, it's always a projection. Of course, that's also what makes this idea hard to realize. I am not aware of much work on formal semantics of diagrams, nor of their understandability.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wXgRZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I am pretty much pursuing the same goals as "
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": ", just in a different setting. In particular, I use plain old code plus different views to make the system more understandable. But I am also interested in using diagrams as the ground truth, replacing code, for parts of systems.\n\nThe big difference it makes is about changing things. If there is an author who makes an effort to facilitate the work of the reader, that also means that the reader has less of a chance to become an equal to the author. And that means lower conviviality.\n\nIf your ground truth is a diagram, then you know that there is nothing else but the diagram and its semantics that you need to understand. No view can make such a promise, it's always a projection. Of course, that's also what makes this idea hard to realize. I am not aware of much work on formal semantics of diagrams, nor of their understandability."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1741679656.122659",
+    "client_msg_id": "bfd20d8a-71f1-483a-a06f-913f5c2f9937",
+    "text": "I'd say the overall idea of these environments is the same as with the REPL of the 1950s: better feedback loops. As <@U013ZLJARC7> points out, this has literally led to more loops that users interact with. Glamorous Toolkit has a lot more concurrency than a Lisp REPL. It has even added quite a bit support for asynchronous execution to Pharo, the Smalltalk that it builds on.\n\nHow much that matters depends a lot on what you are doing. For me, it's only a convenience because most of my work can be summarized as automated mathematics, meaning that timing doesn't matter except when it exceeds my patience level. But if you have interactive processes, or need to supervise concurrent execution, the difference really matters.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SelBt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'd say the overall idea of these environments is the same as with the REPL of the 1950s: better feedback loops. As "
+              },
+              {
+                "type": "user",
+                "user_id": "U013ZLJARC7"
+              },
+              {
+                "type": "text",
+                "text": " points out, this has literally led to more loops that users interact with. Glamorous Toolkit has a lot more concurrency than a Lisp REPL. It has even added quite a bit support for asynchronous execution to Pharo, the Smalltalk that it builds on.\n\nHow much that matters depends a lot on what you are doing. For me, it's only a convenience because most of my work can be summarized as automated mathematics, meaning that timing doesn't matter except when it exceeds my patience level. But if you have interactive processes, or need to supervise concurrent execution, the difference really matters."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1741687785.073139",
+    "client_msg_id": "e3292a15-0944-4366-b716-7d20d5298f4f",
+    "text": "&gt; I assume you consider \"layering\" to be a bad thing. ...\nActually, it's exactly the opposite. I think that layering is _vital_. Our current PLs are just forms of fancified assembler. This is a metaphor that is at least as tired as that of desktops.  The tired metaphor of assembler leads to overly-rigid beliefs about programming.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "51wSY",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I assume you consider \"layering\" to be a bad thing. ..."
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nActually, it's exactly the opposite. I think that layering is "
+              },
+              {
+                "type": "text",
+                "text": "vital",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Our current PLs are just forms of fancified assembler. This is a metaphor that is at least as tired as that of desktops.  The tired metaphor of assembler leads to overly-rigid beliefs about programming."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UJFN50C00",
+    "type": "message",
+    "ts": "1741691685.133009",
+    "client_msg_id": "8FD49F46-EBC9-4852-8674-B85870467637",
+    "text": "Thank you <@UE6EFEPTQ> for pointing to further reference :) adhering to the principle of \n Stigmergy we put in further references to the importance of a source :ok_hand: ",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741600273.087719",
+    "parent_user_id": "UJFN50C00",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "c6zdM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thank you "
+              },
+              {
+                "type": "user",
+                "user_id": "UE6EFEPTQ"
+              },
+              {
+                "type": "text",
+                "text": " for pointing to further reference :) adhering to the principle of \n "
+              },
+              {
+                "type": "text",
+                "text": "Stigmergy we put in further references to the importance of a source "
+              },
+              {
+                "type": "emoji",
+                "name": "ok_hand",
+                "unicode": "1f44c"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "grin",
+        "users": [
+          "UE6EFEPTQ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "user": "UML4ZEKDK",
+    "type": "message",
+    "ts": "1741698631.417639",
+    "client_msg_id": "e72dfc47-d782-4468-bd3f-800966863498",
+    "text": "Bought the book, thanks for all your work on this! I'm also interested to read your eventual post about all this behind the scenes tech you had to build. :smile:",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741612421.653979",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kCSfv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Bought the book, thanks for all your work on this! I'm also interested to read your eventual post about all this behind the scenes tech you had to build. "
+              },
+              {
+                "type": "emoji",
+                "name": "smile",
+                "unicode": "1f604"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U01DWJSAF2B"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1741707917.209199",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1741708023.000000"
+    },
+    "client_msg_id": "d75b2b25-3c61-4a63-801b-054865c6e045",
+    "text": "Ah, thanks for that clarification. Ok, now I fit it right with your past writings. So you think it's a step in your direction, but it doesn't go far enough. Totally agreed.\n\n<@UJBAJNFLK> I'd suggest that overly formal semantics can also drive people away. Which is not to say my current level of formality is _precisely_ the sweet spot :laughing: I do design my data structures as tables containing tables containing strings and numbers, etc. That likely drives some people away.\n\nBut one major alternative to formal semantic guarantees is to keep things simple enough that the universe of possible things to understand is not very large.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "hBVW6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ah, thanks for that clarification. Ok, now I fit it right with your past writings. So you think it's a step in your direction, but it doesn't go far enough. Totally agreed.\n\n"
+              },
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " I'd suggest that overly formal semantics can also drive people away. Which is not to say my current level of formality is "
+              },
+              {
+                "type": "text",
+                "text": "precisely",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " the sweet spot "
+              },
+              {
+                "type": "emoji",
+                "name": "laughing",
+                "unicode": "1f606"
+              },
+              {
+                "type": "text",
+                "text": " I do design my data structures as tables containing tables containing strings and numbers, etc. That likely drives some people away.\n\nBut one major alternative to formal semantic guarantees is to keep things simple enough that the universe of possible things to understand is not very large."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U06NSFX5119",
+    "type": "message",
+    "ts": "1741710738.906539",
+    "client_msg_id": "7227f355-bf97-40ee-9bb0-70134c12d6cc",
+    "text": "Ohm and WASM seems like a super cool combo for programming language experimentation",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741612421.653979",
+    "parent_user_id": "UBN9AFS0N",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "03BRn",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Ohm and WASM seems like a super cool combo for programming language experimentation"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1741871333.582679",
+    "client_msg_id": "65da4d82-4380-4727-a993-e7bd70195b66",
+    "text": "<@UGWUJUZHT> I was thinking about your layering of \"computational circuits\" (which is how I tend to think of your approach) yesterday when I was looking at my own notes on code and data hierarchies, and I was wondering how data fits into your scheme.\n\nAs long as you only have a fixed set of atomic types (numbers, strings, ...) in your queues, everything is fine. But how about structured data? Every component must then include a definition of the data it expects as input or provides as output. It must also pass this data on to its subcomponents, but it may not expose their data type definitions at its own interface. This doesn't sound impossible, but I am not aware of any of today's programming language that would support such a scheme without laborious and possibly inefficient data conversions.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "I1VM/",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " I was thinking about your layering of \"computational circuits\" (which is how I tend to think of your approach) yesterday when I was looking at my own notes on code and data hierarchies, and I was wondering how data fits into your scheme.\n\nAs long as you only have a fixed set of atomic types (numbers, strings, ...) in your queues, everything is fine. But how about structured data? Every component must then include a definition of the data it expects as input or provides as output. It must also pass this data on to its subcomponents, but it may not expose their data type definitions at its own interface. This doesn't sound impossible, but I am not aware of any of today's programming language that would support such a scheme without laborious and possibly inefficient data conversions."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1741874120.697939",
+    "client_msg_id": "afdcd1f0-3bd0-4d69-863c-2a9e40372a60",
+    "text": "<@UJBAJNFLK> This is probably a dissatisfying answer... How do you do this kind of thing across vast distances? Say, a machine in Toronto, Canada speaking to a machine in Paris, France? I'm of the opinion that you don't do this. Uncomfortably, the answer is something like JSON. The concepts of Programming Languages and Data Structures were invented to appease the biases of the 1950s, wherein \"efficiency\" was vital and time-sharing was vital and memory-sharing was vital and memory-structuring was vital. Today's hardware is entirely different from that of the 1950s. Today's problem is how to program DPUs (Distributed Programming Units) instead of CPUs. Thinking along those lines leads to completely different answers than what we're used to (in fact, I currently think that we need to deprecate O/Ss, PLs, Programming Using the SICP Method (PUSM), data structures, etc. [Aside: note that the current trend is to offload real work from CPUs onto GPUs, anyway]). Of course, we can't just erase everything we've got and start again. The giants of the 1950s/60s/70s/80s built on what they had (vacuum tubes, transistors) and came up with something new (they didn't just glom stuff into what they had, they didn't just make better vacuum tubes by incrementally tweaking the concepts). I'm nipping away at reimagining our biases, for example, simply using boxes and arrows and HTML elements as syntactic elements for \"programming languages for the 2000s\" instead of just using 7-bit characters. I'm using what we've got and trying to think about it differently. We know a lot more about programming techniques than we did in 1950/60/70/80 - can we just rearrange what we've got and build something fresh? So, you're right, I don't know how to handle complex data structures, but, I don't care.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "S0zKT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " This is probably a dissatisfying answer... How do you do this kind of thing across vast distances? Say, a machine in Toronto, Canada speaking to a machine in Paris, France? I'm of the opinion that you don't do this. Uncomfortably, the answer is something like JSON. The concepts of Programming Languages and Data Structures were invented to appease the biases of the 1950s, wherein \"efficiency\" was vital and time-sharing was vital and memory-sharing was vital and memory-structuring was vital. Today's hardware is entirely different from that of the 1950s. Today's problem is how to program DPUs (Distributed Programming Units) instead of CPUs. Thinking along those lines leads to completely different answers than what we're used to (in fact, I currently think that we need to deprecate O/Ss, PLs, Programming Using the SICP Method (PUSM), data structures, etc. [Aside: note that the current trend is to offload real work from CPUs onto GPUs, anyway]). Of course, we can't just erase everything we've got and start again. The giants of the 1950s/60s/70s/80s built on what they had (vacuum tubes, transistors) and came up with something new (they didn't just glom stuff into what they had, they didn't just make better vacuum tubes by incrementally tweaking the concepts). I'm nipping away at reimagining our biases, for example, simply using boxes and arrows and HTML elements as syntactic elements for \"programming languages for the 2000s\" instead of just using 7-bit characters. I'm using what we've got and trying to think about it differently. We know a lot more about programming techniques than we did in 1950/60/70/80 - can we just rearrange what we've got and build something fresh? So, you're right, I don't know how to handle complex data structures, but, I don't care."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "shrug::skin-tone-3",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1741926204.262039",
+    "client_msg_id": "c6e48ea0-0580-41dc-90b7-bf840d5a1a20",
+    "text": "<@UJBAJNFLK> <@UCUSW7WVD> Let’s see if I can say this in a way that seems more practical. The following is about as short as I can make it for now...Composing Multi-Node Systems <https://programmingsimplicity.substack.com/p/composing-multi-node-systems?r=1egdky>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "image_url": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F38c73c75-328f-4729-9a56-dff0a4c88694_1101x481.heic",
+        "image_width": 1101,
+        "image_height": 481,
+        "image_bytes": 30419,
+        "from_url": "https://programmingsimplicity.substack.com/p/composing-multi-node-systems?r=1egdky",
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "id": 1,
+        "original_url": "https://programmingsimplicity.substack.com/p/composing-multi-node-systems?r=1egdky",
+        "fallback": "Composing Multi-Node Systems",
+        "text": "2025-03-13",
+        "title": "Composing Multi-Node Systems",
+        "title_link": "https://programmingsimplicity.substack.com/p/composing-multi-node-systems?r=1egdky",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KH7/Q",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " Let’s see if I can say this in a way that seems more practical. The following is about as short as I can make it for now...Composing Multi-Node Systems "
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/composing-multi-node-systems?r=1egdky"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1741926625.351239",
+    "client_msg_id": "bc756d2b-badf-4161-9f38-4b9c864b09ca",
+    "text": "I think we have wildly different assumptions of scale in mind. I don't care much about zillions of nodes, shared memory, cache coherence, distributing computation across a room let alone timezones. They're valid use cases, but designing for them feels like the tail wagging the dog, to my mind. A single computer today can do so much in a single thread. I'd always choose the programming model that provides user-defined data types over the one that provides nice concurrency properties. So your model has some nice-to-have properties, but the lack of user-defined types feels like a deal-breaker.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "WqvNx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think we have wildly different assumptions of scale in mind. I don't care much about zillions of nodes, shared memory, cache coherence, distributing computation across a room let alone timezones. They're valid use cases, but designing for them feels like the tail wagging the dog, to my mind. A single computer today can do so much in a single thread. I'd always choose the programming model that provides user-defined data types over the one that provides nice concurrency properties. So your model has some nice-to-have properties, but the lack of user-defined types feels like a deal-breaker."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1741939751.239519",
+    "client_msg_id": "dcd1b233-e6f3-4e2a-8ff7-093e24497dc6",
+    "text": "Thanks <@UGWUJUZHT> for an exhaustive answer to an interesting question - but it was not the question I have. I am not so much concerned with data representation for storage and transfer, but with data models or schemas, and in particular with ensuring that there are no misinterpretations at the interface between two components.\n\nIn my corner of the computing universe, data is the primary concern of most people. For example, I work a lot with protein structures, which are structured collections of collections of atoms plus lots of annotations at all levels of this tree. What I care about is being able to feed such data structures into processing pipelines, storing those that come out of it, and being reasonably certain that all annotations have been interpreted correctly.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "fB/v6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks "
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " for an exhaustive answer to an interesting question - but it was not the question I have. I am not so much concerned with data representation for storage and transfer, but with data models or schemas, and in particular with ensuring that there are no misinterpretations at the interface between two components.\n\nIn my corner of the computing universe, data is the primary concern of most people. For example, I work a lot with protein structures, which are structured collections of collections of atoms plus lots of annotations at all levels of this tree. What I care about is being able to feed such data structures into processing pipelines, storing those that come out of it, and being reasonably certain that all annotations have been interpreted correctly."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1741952926.039329",
+    "client_msg_id": "a6ec178d-2f9e-49d3-a0ea-c49c1c2de1d7",
+    "text": "<@UJBAJNFLK> <@UCUSW7WVD> I argue that this is the _same_ problem, but looked at from a different end of the telescope. The tail-wagging-the-dog approach is to nip away at the problem incrementally. ... more to come ...",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2+slU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " I argue that this is the "
+              },
+              {
+                "type": "text",
+                "text": "same",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " problem, but looked at from a different end of the telescope. The tail-wagging-the-dog approach is to nip away at the problem incrementally. ... more to come ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1741959161.263169",
+    "client_msg_id": "85b7e3c8-4098-4535-a861-d87cee0bd8e6",
+    "text": "Yes, this seems worth digging into more. Is your \"fewer functions\" quest dual to \"lots of concurrency,\" so that the proposal is you can never have compound data structures without the ability to serialize them and so on, and those considerations are first class to how they're designed. To me serialization seems a subordinate consideration to say Lua's syntax for numbers, strings and table literals. I don't need to think about serialization because anything can be converted to say JSON after the fact. It seems to be an independent question and \"good design\" is grabbing opportunities to decouple design considerations at every opportunity.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "NeDJw",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, this seems worth digging into more. Is your \"fewer functions\" quest dual to \"lots of concurrency,\" so that the proposal is you can never have compound data structures without the ability to serialize them and so on, and those considerations are first class to how they're designed. To me serialization seems a subordinate consideration to say Lua's syntax for numbers, strings and table literals. I don't need to think about serialization because anything can be converted to say JSON after the fact. It seems to be an independent question and \"good design\" is grabbing opportunities to decouple design considerations at every opportunity."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "guitar",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1741959494.892649",
+    "edited": {
+      "user": "UJBAJNFLK",
+      "ts": "1741959549.000000"
+    },
+    "client_msg_id": "b4fd1533-10f4-47ff-8371-63ee88822751",
+    "text": "In my courses on computational science, I insist on the difference between \"data model\" and \"data representation\". JSON is a representation, and as <@UCUSW7WVD> has pointed out, any data can be serialized to JSON (or XML, or s-expressions, or ...). Choice of representation is a matter of convenience and efficiency. I am much more interested in the semantics part, the data model. I don't see (for now) how it could be part of the same problem.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741609740.442579",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vMa8l",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In my courses on computational science, I insist on the difference between \"data model\" and \"data representation\". JSON is a representation, and as "
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD"
+              },
+              {
+                "type": "text",
+                "text": " has pointed out, any data can be serialized to JSON (or XML, or s-expressions, or ...). Choice of representation is a matter of convenience and efficiency. I am much more interested in the semantics part, the data model. I don't see (for now) how it could be part of the same problem."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "guitar",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U03LMRE6MQE",
+    "type": "message",
+    "ts": "1742045142.752909",
+    "client_msg_id": "181bb8b2-d2d4-43fd-b93b-244095a404d6",
+    "text": "&gt;  The only tricky part in designing modern REPLs seems to be figuring out how to keep things flexible while still working with strongly-typed, functional programming languages\nCan you expand on this point? What do you want a strongly typed language to give you in a repl environment?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "BBTRR",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": " The only tricky part in designing modern REPLs seems to be figuring out how to keep things flexible while still working with strongly-typed, functional programming languages"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nCan you expand on this point? What do you want a strongly typed language to give you in a repl environment?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742055115.950369",
+    "client_msg_id": "abbc9a64-08ec-4e8c-8eb9-dd52e965cba1",
+    "text": "I can _try_ to expand on this point :-). Please ask some more, if interested. <https://programmingsimplicity.substack.com/p/on-repls?r=1egdky>.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "from_url": "https://programmingsimplicity.substack.com/p/on-repls?r=1egdky",
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "thumb_url": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9d69eba9-d5d3-4387-a046-9b881b00bd45_131x131.png",
+        "thumb_width": 131,
+        "thumb_height": 131,
+        "id": 1,
+        "original_url": "https://programmingsimplicity.substack.com/p/on-repls?r=1egdky",
+        "fallback": "On REPLs",
+        "text": "2025-03-15",
+        "title": "On REPLs",
+        "title_link": "https://programmingsimplicity.substack.com/p/on-repls?r=1egdky",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "I/2P2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I can "
+              },
+              {
+                "type": "text",
+                "text": "try",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " to expand on this point :-). Please ask some more, if interested. "
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/on-repls?r=1egdky"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1742067259.375729",
+    "client_msg_id": "a9d9fdc9-5b1a-4efb-8b89-187cc326f4da",
+    "text": "<@UGWUJUZHT> I agree with you that type checkers ought to be add-on tools rather than part of a language. And I'd want my type checker to be moldable as well. But I have only once seen this approach implemented, in <https://shenlanguage.org/|Shen>, which is far from a mainstream language. Are you aware of other attempts to do this?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "from_url": "https://shenlanguage.org/",
+        "id": 1,
+        "original_url": "https://shenlanguage.org/",
+        "fallback": "The Shen Group",
+        "text": "Shen Programming Language",
+        "title": "The Shen Group",
+        "title_link": "https://shenlanguage.org/",
+        "service_name": "shenlanguage.org"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zY5X2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " I agree with you that type checkers ought to be add-on tools rather than part of a language. And I'd want my type checker to be moldable as well. But I have only once seen this approach implemented, in "
+              },
+              {
+                "type": "link",
+                "url": "https://shenlanguage.org/",
+                "text": "Shen"
+              },
+              {
+                "type": "text",
+                "text": ", which is far from a mainstream language. Are you aware of other attempts to do this?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742116891.591469",
+    "client_msg_id": "95640851-41d0-49bb-a34f-cf59ccc3be15",
+    "text": "<@UJBAJNFLK> No, I haven't found any languages that satisfactorily split type-checking from implementation. I have seen many hints that it is a reasonable goal, e.g. lint, Ohm (not types, but locality-of-reference), Statecharts (not types, but locality-of-reference), Agda (which looks to me like it contains 2 syntaxes, types and implementation), having played with Prolog for inferencing semantics from diagrams, having worked on Y2K stuff which involved weekend-long inferencing runs to dig out semantic information beyond what is commonly referred to as \"types\", ML, etc.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "9J+Cd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " No, I haven't found any languages that satisfactorily split type-checking from implementation. I have seen many hints that it is a reasonable goal, e.g. lint, Ohm (not types, but locality-of-reference), Statecharts (not types, but locality-of-reference), Agda (which looks to me like it contains 2 syntaxes, types and implementation), having played with Prolog for inferencing semantics from diagrams, having worked on Y2K stuff which involved weekend-long inferencing runs to dig out semantic information beyond what is commonly referred to as \"types\", ML, etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1742128580.346509",
+    "client_msg_id": "e13c1af7-570a-49f2-bb72-48fbb4fcc5ae",
+    "text": "<@UGWUJUZHT> There indeed many verification and validation systems that are similar to static type checkers. But there is also one important difference: static type checking relies on syntactic features of the underlying language, so it requires some co-design of language and type checker even if the implementations are separate.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Y4Eyi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " There indeed many verification and validation systems that are similar to static type checkers. But there is also one important difference: static type checking relies on syntactic features of the underlying language, so it requires some co-design of language and type checker even if the implementations are separate."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742130226.992809",
+    "edited": {
+      "user": "UGWUJUZHT",
+      "ts": "1742134331.000000"
+    },
+    "client_msg_id": "f0441efe-a801-4bea-b0d6-ed493c2e99ac",
+    "text": "<@UJBAJNFLK> Yes, but that is not a good reason to sully the readability of code by conflating it with type annotations and v.v.. IMO implementation and typing are orthogonal concerns, hence, should be written in separate places.\n\nDenotational Semantics hangs actions off of syntax. There is no reason to force humans to DRY syntax patterns. Syntax is cheap, push this concept further and let the machine figure out how to join things. ... [example to follow] ...",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "q1Jni",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " Yes, but that is not a good reason to sully the readability of code by conflating it with type annotations and v.v.. IMO implementation and typing are orthogonal concerns, hence, should be written in separate places.\n\nDenotational Semantics hangs actions off of syntax. There is no reason to force humans to DRY syntax patterns. Syntax is cheap, push this concept further and let the machine figure out how to join things. ... [example to follow] ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1742139477.193009",
+    "client_msg_id": "02a02423-a26e-4718-aca0-3354e01a9c42",
+    "text": "<@UGWUJUZHT> OK, we agree. Now let's convince language designers and implementers!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "N8jjU",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " OK, we agree. Now let's convince language designers and implementers!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1742184067.661759",
+    "client_msg_id": "eddc0363-3c12-4464-9352-4b5af87cef8d",
+    "text": "<@UJBAJNFLK> <https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky|example, finally> (Note that I shamelessly stole your phrase \"Data Model\" :slightly_smiling_face:) [I seem to be batting 0.000 for explaining clearly what I mean, but, I would be glad to entertain further questions and requests for clarification]",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1741605348.018929",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "from_url": "https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky",
+        "service_icon": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bf28261-3dbc-4931-99f3-57bb47beeb02%2Fapple-touch-icon-57x57.png",
+        "thumb_url": "https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9d69eba9-d5d3-4387-a046-9b881b00bd45_131x131.png",
+        "thumb_width": 131,
+        "thumb_height": 131,
+        "id": 1,
+        "original_url": "https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky",
+        "fallback": "Data Model nano-DSL (“SCN”)",
+        "text": "2025-03-16",
+        "title": "Data Model nano-DSL (“SCN”)",
+        "title_link": "https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky",
+        "service_name": "programmingsimplicity.substack.com"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4/vNF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UJBAJNFLK"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://programmingsimplicity.substack.com/p/data-model-nano-dsl-scn?r=1egdky",
+                "text": "example, finally"
+              },
+              {
+                "type": "text",
+                "text": " (Note that I shamelessly stole your phrase \"Data Model\" "
+              },
+              {
+                "type": "emoji",
+                "name": "slightly_smiling_face",
+                "unicode": "1f642"
+              },
+              {
+                "type": "text",
+                "text": ") [I seem to be batting 0.000 for explaining clearly what I mean, but, I would be glad to entertain further questions and requests for clarification]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]

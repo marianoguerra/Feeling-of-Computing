@@ -1,0 +1,2011 @@
+[
+  {
+    "client_msg_id": "6793fce3-8f93-4a5e-b6ad-f1a0a4431ce9",
+    "type": "message",
+    "text": "Graphics demos are relatively easy to write for how impressive they look. Actual games, having to deal with the complexity of user interactions and complex state are in my experience just as hacky and messy as every other piece of complex software",
+    "user": "UDQBTJ211",
+    "ts": "1589820568.228100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "u3Z6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Graphics demos are relatively easy to write for how impressive they look. Actual games, having to deal with the complexity of user interactions and complex state are in my experience just as hacky and messy as every other piece of complex software"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "453420b9-3149-4107-9589-d4d5eb4d2ecd",
+    "type": "message",
+    "text": "But this article is just a joke, parody, right?",
+    "user": "UUB7RA7PF",
+    "ts": "1589820963.228300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2fdcf29b225b",
+      "image_72": "https://avatars.slack-edge.com/2020-02-26/971836171367_2fdcf29b225b02e66825_72.png",
+      "first_name": "Martin",
+      "real_name": "Martin Sosic",
+      "display_name": "Martin",
+      "team": "T5TCAFTA9",
+      "name": "sosic.martin",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6rE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But this article is just a joke, parody, right?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UE0ETTCG7",
+          "UFLN9JFRT",
+          "UA14TGLTC",
+          "U012RSHGTFY"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "a24d37ce-ae8d-444e-b3b7-ddabb6d9d6cd",
+    "type": "message",
+    "text": "Absolutely, state management in particular is a completely different ballgame. I suppose the answer to my original question is probably obvious, web apps and Electron apps just don't need the same performance level as games, the popularity of existing apps that use these technologies proves that.",
+    "user": "UE0ETTCG7",
+    "ts": "1589820975.228500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8d5fa305f272",
+      "image_72": "https://avatars.slack-edge.com/2020-09-24/1392332871012_8d5fa305f272f9d0c9e3_72.jpg",
+      "first_name": "Roben",
+      "real_name": "Roben Kleene",
+      "display_name": "robenkleene",
+      "team": "T5TCAFTA9",
+      "name": "services",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Elfj",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Absolutely, state management in particular is a completely different ballgame. I suppose the answer to my original question is probably obvious, web apps and Electron apps just don't need the same performance level as games, the popularity of existing apps that use these technologies proves that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "fc3dc832-4433-487e-8de8-699881f5faf3",
+    "type": "message",
+    "text": "&gt; if game engines are so good, why aren't more tools like Figma or Framer built in them?\nThat's a great question, and there's a good answer.\n\nWeb-based tools like Figma and Framer _do_ use a lot of the same graphics tech as games, just applied to 2d graphics instead of 3d graphics. For instance, the layer compositing in all modern browsers happens on the GPU. If you stick to using CSS Transforms instead of flow-based positioning, your positioning happens entirely in the compositing step, GPU-accelerated, and you get a huge perf boost. You can make some highly complex HTML-based scenes that are animated at a buttery 60fps, even on mobile.\n\nThe thing is, there are very few kinds of jobs that you need to do on the web that benefit from GPU acceleration, the way it's currently implemented. And that's where you feel the perf hit.\n\nBut that's also where you feel the hit in games, too! I think a good way to appreciate this is to come at it from the other side — what are the things that happen in games that show just how weak these engines are when you look at things _other_ than the graphics pipeline? There's.. a lot. In fact, most of the things that game engines do.. aren't great, especially when compared to graphics.\n\nI think the state of animation and physics in modern games is particularly appalling. Havok is awful — it's unnatural, ugly, slow, and often sucks the fun out of gameplay. The graphics pipeline has improved many orders of magnitude over the past 30 years. The similar explosive growth of physics stalled out around 20 years ago, and has only improved incrementally since then.",
+    "user": "UC2A2ARPT",
+    "ts": "1589827422.229600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1589827813.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Ob/",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "if game engines are so good, why aren't more tools like Figma or Framer built in them?"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nThat's a great question, and there's a good answer.\n\nWeb-based tools like Figma and Framer "
+              },
+              {
+                "type": "text",
+                "text": "do",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " use a lot of the same graphics tech as games, just applied to 2d graphics instead of 3d graphics. For instance, the layer compositing in all modern browsers happens on the GPU. If you stick to using CSS Transforms instead of flow-based positioning, your positioning happens entirely in the compositing step, GPU-accelerated, and you get a huge perf boost. You can make some highly complex HTML-based scenes that are animated at a buttery 60fps, even on mobile.\n\nThe thing is, there are very few kinds of jobs that you need to do on the web that benefit from GPU acceleration, the way it's currently implemented. And that's where you feel the perf hit.\n\nBut that's also where you feel the hit in games, too! I think a good way to appreciate this is to come at it from the other side — what are the things that happen in games that show just how weak these engines are when you look at things "
+              },
+              {
+                "type": "text",
+                "text": "other",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " than the graphics pipeline? There's.. a lot. In fact, most of the things that game engines do.. aren't great, especially when compared to graphics.\n\nI think the state of animation and physics in modern games is particularly appalling. Havok is awful — it's unnatural, ugly, slow, and often sucks the fun out of gameplay. The graphics pipeline has improved many orders of magnitude over the past 30 years. The similar explosive growth of physics stalled out around 20 years ago, and has only improved incrementally since then."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UE0ETTCG7",
+          "UA14TGLTC",
+          "UHWC9PXBL",
+          "UMWF81HTP",
+          "UD31LGQKB",
+          "UML4ZEKDK"
+        ],
+        "count": 6
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "45e305b5-67b7-45fd-9229-faabc4676098",
+    "type": "message",
+    "text": "Different priorities",
+    "user": "UBSMEUXAA",
+    "ts": "1589827559.229800",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zw6a",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Different priorities"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "d17502ec-fd52-455e-8e27-d209cab66b87",
+    "type": "message",
+    "text": "One thing about this demo is that it's running on a PS5, which is \"commodity hardware\" (well it will be in 6 months) but new consoles have a ton of advantages over any other consumer platform when it comes to showcasing high compute applications",
+    "user": "UBSMEUXAA",
+    "ts": "1589829771.230100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "CIk9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One thing about this demo is that it's running on a PS5, which is \"commodity hardware\" (well it will be in 6 months) but new consoles have a ton of advantages over any other consumer platform when it comes to showcasing high compute applications"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e52d7d10-183d-43d2-92a6-181ccd29a7b0",
+    "type": "message",
+    "text": "Lower level system access(console games run in ring zero), custom hardware. PS5 has a custom SSD with hardware kraken decompression and it beats any PC SSD on the market in terms of bandwidth",
+    "user": "UBSMEUXAA",
+    "ts": "1589829888.230300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "RM1I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Lower level system access(console games run in ring zero), custom hardware. PS5 has a custom SSD with hardware kraken decompression and it beats any PC SSD on the market in terms of bandwidth"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "bef83a87-6c21-4a2b-8b37-c5d3c949f9c2",
+    "type": "message",
+    "text": "I'm sure this demo runs on a high end PC fine",
+    "user": "UBSMEUXAA",
+    "ts": "1589829904.230500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "d4HI",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm sure this demo runs on a high end PC fine"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c7240715-e3ce-4676-8e57-c7c9a525b4f8",
+    "type": "message",
+    "text": "All this tech has a much higher skill ceiling to use than web, so you end up losing developer efficiency, you need graphics PHDs and 20+ year industry veterans to do 10 years of research to build systems like this",
+    "user": "UBSMEUXAA",
+    "ts": "1589830172.230700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "YtE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "All this tech has a much higher skill ceiling to use than web, so you end up losing developer efficiency, you need graphics PHDs and 20+ year industry veterans to do 10 years of research to build systems like this"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UHWC9PXBL",
+          "UML4ZEKDK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "f6c5fb19-ef97-439c-806d-e31f5dec69c7",
+    "type": "message",
+    "text": "The only equivalent in web tech companies is in ML research",
+    "user": "UBSMEUXAA",
+    "ts": "1589830188.230900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IkboQ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The only equivalent in web tech companies is in ML research"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "0f55b01b-be8f-4038-a161-6d3cd30c8fe5",
+    "type": "message",
+    "text": "Web is successful because you can throw a bunch of relatively smart new grads at a code base and end up with a working application that runs on pretty much anything",
+    "user": "UBSMEUXAA",
+    "ts": "1589830248.231100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Y0I",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Web is successful because you can throw a bunch of relatively smart new grads at a code base and end up with a working application that runs on pretty much anything"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UE0ETTCG7",
+          "UA14TGLTC",
+          "UHWC9PXBL"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e7cfdc48-d983-4aca-9319-8ae71641e8ab",
+    "type": "message",
+    "text": "Safety is also a big concern, so the web trades a lot of performance for safety, a lot of web developers can only really think in terms of computers being attack surfaces for bad actors because the web consumes arbitrary code and content from any remote machine, games don't do that, and safety is less of a concern",
+    "user": "UBSMEUXAA",
+    "ts": "1589830400.231300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "B5Iso",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Safety is also a big concern, so the web trades a lot of performance for safety, a lot of web developers can only really think in terms of computers being attack surfaces for bad actors because the web consumes arbitrary code and content from any remote machine, games don't do that, and safety is less of a concern"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT",
+          "UE0ETTCG7",
+          "UHWC9PXBL",
+          "UML4ZEKDK",
+          "UDQKHNP51"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "9f3eba02-e218-4c27-aed5-e69925a34468",
+    "type": "message",
+    "text": "Web also cares a lot about legacy things working, sure many things are deprecated but most of HTML and JavaScript are still kind of the same with new features added",
+    "user": "UBSMEUXAA",
+    "ts": "1589830466.231500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "23Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Web also cares a lot about legacy things working, sure many things are deprecated but most of HTML and JavaScript are still kind of the same with new features added"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "ada8a8cc-5eec-4e39-807c-49b444eb0e71",
+    "type": "message",
+    "text": "<@UC2A2ARPT> I disagree that animation and physics are appalling, less so with physics",
+    "user": "UBSMEUXAA",
+    "ts": "1589830519.231700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "k5=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " I disagree that animation and physics are appalling, less so with physics"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "75ed4780-dcd5-4a28-a924-027458b74321",
+    "type": "message",
+    "text": "Animation is consistently improving and has come a long way, even though you could argue it still doesn't get as much love as rendering",
+    "user": "UBSMEUXAA",
+    "ts": "1589830550.231900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MTS43",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Animation is consistently improving and has come a long way, even though you could argue it still doesn't get as much love as rendering"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "db1b7060-a0ee-47c4-84b0-378683bd05cd",
+    "type": "message",
+    "text": "Physics has a ton of interesting developments, they just aren't used in games",
+    "user": "UBSMEUXAA",
+    "ts": "1589830567.232100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Zgc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Physics has a ton of interesting developments, they just aren't used in games"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b9a597ea-524b-4ca8-ae02-b637b4ff367b",
+    "type": "message",
+    "text": "But rigid body dynamics are very sparingly used in most games for gameplay reasons",
+    "user": "UBSMEUXAA",
+    "ts": "1589830604.232300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QXen5",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But rigid body dynamics are very sparingly used in most games for gameplay reasons"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "58a32cc5-7b2d-4ebe-ad81-85c32dd83d51",
+    "type": "message",
+    "text": "So there hasn't been a ton of demand for better physics engines",
+    "user": "UBSMEUXAA",
+    "ts": "1589830622.232500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "EWv",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "So there hasn't been a ton of demand for better physics engines"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "cec6fe95-33b6-4481-abba-9296da902ef0",
+    "type": "message",
+    "text": "VR has pushed things forward a little bit because tracked controllers finally give us an interface that makes playing with physics fun instead of awkward, but it's mostly about improved usage of existing rigid body dynamics rather than brand new techniques... Gameplay code not physics code",
+    "user": "UBSMEUXAA",
+    "ts": "1589830767.232700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "Go+Du",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "VR has pushed things forward a little bit because tracked controllers finally give us an interface that makes playing with physics fun instead of awkward, but it's mostly about improved usage of existing rigid body dynamics rather than brand new techniques... Gameplay code not physics code"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "a28572f5-1872-45cc-9733-fadeca367c95",
+    "type": "message",
+    "text": "But if you look at research in position based dynamics or MPM in film, or using ML for physics acceleration, there has been a lot of interesting development in physics",
+    "user": "UBSMEUXAA",
+    "ts": "1589830973.232900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ABK0",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "But if you look at research in position based dynamics or MPM in film, or using ML for physics acceleration, there has been a lot of interesting development in physics"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "313410a6-0b16-49a7-a63f-9f315d704f41",
+    "type": "message",
+    "text": "Once again none of it or very little makes it to production games because \"better\" (more realistic? More expensive? More destruction) Physics don't fit in popular games genres, in the sense that they can actually detract from what makes the game fun",
+    "user": "UBSMEUXAA",
+    "ts": "1589831058.233100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vMtf9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Once again none of it or very little makes it to production games because \"better\" (more realistic? More expensive? More destruction) Physics don't fit in popular games genres, in the sense that they can actually detract from what makes the game fun"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "cb638341-c7fe-4cc9-b606-7f7c5df52862",
+    "type": "message",
+    "text": "And maybe indies could use this stuff, but it's not very accessible because of difficulty of implementation or lack of knowledge",
+    "user": "UBSMEUXAA",
+    "ts": "1589831090.233300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jVsVL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And maybe indies could use this stuff, but it's not very accessible because of difficulty of implementation or lack of knowledge"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "a335dd10-90fb-4e45-9d69-a2d758c6769a",
+    "type": "message",
+    "text": "I'm no expert in game engines, but intuitively I'd expect them to be the state of the art for physics and animation. Which begs the question, if games are not the state of the art for physics and animation, then what is?",
+    "user": "UE0ETTCG7",
+    "ts": "1589832345.234000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "8d5fa305f272",
+      "image_72": "https://avatars.slack-edge.com/2020-09-24/1392332871012_8d5fa305f272f9d0c9e3_72.jpg",
+      "first_name": "Roben",
+      "real_name": "Roben Kleene",
+      "display_name": "robenkleene",
+      "team": "T5TCAFTA9",
+      "name": "services",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tJ/nR",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I'm no expert in game engines, but intuitively I'd expect them to be the state of the art for physics and animation. Which begs the question, if games are not the state of the art for physics and animation, then what is?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "e16cb19d-6070-4653-89d7-b1153fd7e939",
+    "type": "message",
+    "text": "&gt; Once again none of it or very little makes it to production games because \"better\" physics don't fit in popular games genres, in the sense that they can actually detract from what makes the game fun\nI don't think that's it. I think it's an economics thing.\n\nThe penalty springs in Halo 1 was the most fun-feeling physics of any game in the series. The way Havok handles restitution feels so damp and sticky and crunchy by comparison, and all the sequels are worse for how they used it. But developing a custom physics solution tailor-made for each game is way more expensive than licensing middleware and tweaking parameters, right? It's like using an off-the-shelf character controller as opposed to writing your own. That's why games like Celeste feel so much better than your run-of-the-mill indie platformer — custom physics and a custom character controller, designed hand-in-hand as an essential facet of the gameplay.\n\nI'm simplifying, of course. It's possible to make a game use Havok and not feel awful (Breath of the Wild, say). But that depends on the gameplay, creative direction, etc. etc.",
+    "user": "UC2A2ARPT",
+    "ts": "1589833187.234200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "o1r",
+        "elements": [
+          {
+            "type": "rich_text_quote",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Once again none of it or very little makes it to production games because \"better\" physics don't fit in popular games genres, in the sense that they can actually detract from what makes the game fun"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nI don't think that's it. I think it's an economics thing.\n\nThe penalty springs in Halo 1 was the most fun-feeling physics of any game in the series. The way Havok handles restitution feels so damp and sticky and crunchy by comparison, and all the sequels are worse for how they used it. But developing a custom physics solution tailor-made for each game is way more expensive than licensing middleware and tweaking parameters, right? It's like using an off-the-shelf character controller as opposed to writing your own. That's why games like Celeste feel so much better than your run-of-the-mill indie platformer — custom physics and a custom character controller, designed hand-in-hand as an essential facet of the gameplay.\n\nI'm simplifying, of course. It's possible to make a game use Havok and not feel awful (Breath of the Wild, say). But that depends on the gameplay, creative direction, etc. etc."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UE0ETTCG7",
+          "UETJZ9V0T",
+          "UA14TGLTC",
+          "UMWF81HTP"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "57951dd1-2b29-4c32-bade-973706b1e925",
+    "type": "message",
+    "text": "I just wish the range of expression, and the variability in quality and style, was as great in animation and physics as it is in graphics. In the 90s, when physics and animation basically had to be custom built for each game by the game's dev team, guided by the creative direction for the game, we had games like Mario 64 and Crash Bandicoot coexisting, with wildly different approaches in look and feel. Now, everything looks like bog-standard RK4 IK and Havok or PhysX, with the occasional flirtation with new ways to do foot or hand planting, blending, soft bodies, etc. Even cuphead, which went to tremendous lengths to _look_ like a classic cartoon, didn't do anything to _feel_ like one. I'd like to see more games like Rain World or Noita.",
+    "user": "UC2A2ARPT",
+    "ts": "1589833580.234400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gf94d2ed5e18",
+      "image_72": "https://secure.gravatar.com/avatar/6f94d2ed5e188be9865a531021b0afcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0013-72.png",
+      "first_name": "Ivan",
+      "real_name": "Ivan Reese",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "ivanreese",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UC2A2ARPT",
+      "ts": "1589835627.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "KOX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I just wish the range of expression, and the variability in quality and style, was as great in animation and physics as it is in graphics. In the 90s, when physics and animation basically had to be custom built for each game by the game's dev team, guided by the creative direction for the game, we had games like Mario 64 and Crash Bandicoot coexisting, with wildly different approaches in look and feel. Now, everything looks like bog-standard RK4 IK and Havok or PhysX, with the occasional flirtation with new ways to do foot or hand planting, blending, soft bodies, etc. Even cuphead, which went to tremendous lengths to "
+              },
+              {
+                "type": "text",
+                "text": "look",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " like a classic cartoon, didn't do anything to "
+              },
+              {
+                "type": "text",
+                "text": "feel",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " like one. I'd like to see more games like Rain World or Noita."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UETJZ9V0T",
+          "UA14TGLTC",
+          "UHWC9PXBL",
+          "UMWF81HTP",
+          "U010RH58PL7"
+        ],
+        "count": 5
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "fdaabc99-3e9e-42b4-9c11-e6ae9c77a92b",
+    "type": "message",
+    "text": "<@UC2A2ARPT> I was looking for the Celeste reference.  Game feel is easy to undervalue since it's subtle.",
+    "user": "UA14TGLTC",
+    "ts": "1589857219.238100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UA14TGLTC",
+      "ts": "1589857236.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GVyW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UC2A2ARPT"
+              },
+              {
+                "type": "text",
+                "text": " I was looking for the Celeste reference.  Game feel is easy to undervalue since it's subtle."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "67451473-07b5-4341-8a3c-d7b2c6015b38",
+    "type": "message",
+    "text": "Gameplay physics in most popular games I can think of is custom though, collision is often handled by a physics engine, but everyone writes a custom character controller unless they're hobbyists",
+    "user": "UBSMEUXAA",
+    "ts": "1589868324.241000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5lT",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Gameplay physics in most popular games I can think of is custom though, collision is often handled by a physics engine, but everyone writes a custom character controller unless they're hobbyists"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "b7a80de6-098c-4f6a-afa5-395da5452a2c",
+    "type": "message",
+    "text": "Depends on how you define state of the art, real-time is different than offline, film is more state of the art in animation and simulation but they can spend hours per frame so it's not exactly equivalent",
+    "user": "UBSMEUXAA",
+    "ts": "1589868569.245700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "k+ae",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Depends on how you define state of the art, real-time is different than offline, film is more state of the art in animation and simulation but they can spend hours per frame so it's not exactly equivalent"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "1991122a-8a3e-4b50-9008-36c57843d54d",
+    "type": "message",
+    "text": "Physics engines used by industrial or scientific computing applications are way more accurate",
+    "user": "UBSMEUXAA",
+    "ts": "1589868606.246700",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HXDW",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Physics engines used by industrial or scientific computing applications are way more accurate"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "35C695D4-99DD-4201-8D3D-055F932CF782",
+    "type": "message",
+    "text": "Game engines, being built for games, have a lot of in-built premises that make them difficult to use for apps, the same way a web framework might. As we know, frameworks can be hard to extend and adapt when your usecase is different from the happy path.\n\nCertainly web apps could perform better, I get pretty frustrated with them myself too. But it’s also worth noting that:\n• games usually hog most system resources\n• browser apps need to run on a huge spectrum of hardware profiles\n• game developers have a huge amount of control over the execution environment that browser devs don’t. Browsers are political constructs as much as they are technical ones.\n• There do exist performant web apps\n• There do exist shitty games\n\nChanging the status quo of web development is a much bigger hairball of political, developmental, and technical problems than a lot smug system programmers would care to admit.",
+    "user": "UMWF81HTP",
+    "ts": "1589868991.251500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "4022671f3400",
+      "image_72": "https://avatars.slack-edge.com/2019-10-03/775814402657_4022671f340032b9eb75_72.jpg",
+      "first_name": "yoshiki",
+      "real_name": "yoshiki",
+      "display_name": "yoshiki",
+      "team": "T5TCAFTA9",
+      "name": "yoshikischmitz",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "edited": {
+      "user": "UMWF81HTP",
+      "ts": "1589869003.000000"
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ZCa6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Game engines, being built for games, have a lot of in-built premises that make them difficult to use for apps, the same way a web framework might. As we know, frameworks can be hard to extend and adapt when your usecase is different from the happy path.\n\nCertainly web apps could perform better, I get pretty frustrated with them myself too. But it’s also worth noting that:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "games usually hog most system resources"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "browser apps need to run on a huge spectrum of hardware profiles"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "game developers have a huge amount of control over the execution environment that browser devs don’t. Browsers are political constructs as much as they are technical ones."
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "There do exist performant web apps"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "There do exist shitty games"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\n\nChanging the status quo of web development is a much bigger hairball of political, developmental, and technical problems than a lot smug system programmers would care to admit."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UBSMEUXAA",
+          "UC2A2ARPT",
+          "UE0ETTCG7",
+          "UA14TGLTC"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "EE48A576-EE4F-44B5-9F20-5D0D57976122",
+    "type": "message",
+    "text": "The initial article is satire, so it’s probably not the best anchor for a serious conversation. However, if we had a serious conversation, I’d be missing the notion of waste.\n\nThere are developers who care about coding in a way that “minimizes waste”, in the sense that they try to use system resources sparingly and effectively. And there are those that don’t. That is partly based on the developer’s mindset. And it is partly based on what the tools and environments offer to make you aware of wasteful behavior and how they incentivize you to minimize it.\n\nSome environments encourage you to minimize waste, for instance by showing you a frame rate and making you want to hit 60fps or by limiting you to a tiny amount of memory. Other environments do the opposite, hide metrics like this, and support you in not caring. That is often beneficial when you want to avoid the additional complexity, for instance when learning.\n\nThere are both kinds in both games and web development (and pretty much anywhere). And note that I haven’t defined waste — it’s easiest to understand as manifested in performance, but it goes beyond that.",
+    "user": "U5STGTB3J",
+    "ts": "1589870507.263500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "649181907e06",
+      "image_72": "https://avatars.slack-edge.com/2017-08-20/228447816352_649181907e06ec450c64_72.jpg",
+      "first_name": "Stefan",
+      "real_name": "Stefan Lesser",
+      "display_name": "Stefan",
+      "team": "T5TCAFTA9",
+      "name": "stefanlesser",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ugOG",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The initial article is satire, so it’s probably not the best anchor for a serious conversation. However, if we had a serious conversation, I’d be missing the notion of waste.\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "There are developers who care about coding in a way that “minimizes waste”, in the sense that they try to use system resources sparingly and effectively. And there are those that don’t. That is partly based on the developer’s mindset. And it is partly based on what the tools and environments offer to make you aware of wasteful behavior and how they incentivize you to minimize it.\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Some environments encourage you to minimize waste, for instance by showing you a frame rate and making you want to hit 60fps or by limiting you to a tiny amount of memory. Other environments do the opposite, hide metrics like this, and support you in not caring. That is often beneficial when you want to avoid the additional complexity, for instance when learning.\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "There are both kinds in both games and web development (and pretty much anywhere). And note that I haven’t defined waste — it’s easiest to understand as manifested in performance, but it goes beyond that."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "cake",
+        "users": [
+          "UC2A2ARPT",
+          "UMWF81HTP",
+          "UA14TGLTC",
+          "UBSMEUXAA"
+        ],
+        "count": 4
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "09039466-0bd3-4783-99fb-59525caeec58",
+    "type": "message",
+    "text": "One thing I find interesting is how if you use an outrageous hack, i.e. achieve what you want by doing things the wrong way - a brittle, special case solution using a tool differently to how it was intended - then in webdev it's seen as shameful, embarrassing, and a sign of a bad developer, whereas in gamedev it's seen as delightful genius and a sign of a great developer",
+    "user": "UDQBTJ211",
+    "ts": "1589883086.264100",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rnKd8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "One thing I find interesting is how if you use an outrageous hack, i.e. achieve what you want by doing things the wrong way - a brittle, special case solution using a tool differently to how it was intended - then in webdev it's seen as shameful, embarrassing, and a sign of a bad developer, whereas in gamedev it's seen as delightful genius and a sign of a great developer"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "thinking_face",
+        "users": [
+          "UA14TGLTC",
+          "U010RH58PL7"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "f5664f89-574a-4c29-9ebb-51f7b46c6c77",
+    "type": "message",
+    "text": "If you did something like passed data by setting the window.title, but then changed it back before it was rendered, this would be laughably bad, but the \"gamedev war stories\" YouTube series is full of the equivalent misuse of APIs",
+    "user": "UDQBTJ211",
+    "ts": "1589883202.264300",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cq+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If you did something like passed data by setting the window.title, but then changed it back before it was rendered, this would be laughably bad, but the \"gamedev war stories\" YouTube series is full of the equivalent misuse of APIs"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "da4b2560-dee9-449d-89ed-7eb5313fc231",
+    "type": "message",
+    "text": "(here's the web series btw it's great <https://www.youtube.com/playlist?list=PLKBPwuu3eCYkScmqpD9xE7UZsszweVO0n|https://www.youtube.com/playlist?list=PLKBPwuu3eCYkScmqpD9xE7UZsszweVO0n>)",
+    "user": "UDQBTJ211",
+    "ts": "1589883329.264500",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "2624b1e78c0a",
+      "image_72": "https://avatars.slack-edge.com/2019-02-14/551655871797_2624b1e78c0a9eaed529_72.jpg",
+      "first_name": "Chris",
+      "real_name": "Chris Knott",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "chrisknott",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "attachments": [
+      {
+        "service_name": "YouTube",
+        "title": "War Stories - YouTube",
+        "title_link": "https://www.youtube.com/playlist?list=PLKBPwuu3eCYkScmqpD9xE7UZsszweVO0n",
+        "text": "Ars Technica takes an in-depth look at the biggest hurdles developers face when creating some of the most popular video games of all time.",
+        "fallback": "YouTube: War Stories - YouTube",
+        "thumb_url": "https://i9.ytimg.com/s_p/PLKBPwuu3eCYkScmqpD9xE7UZsszweVO0n/landscape_mqdefault.jpg?sqp=CKTjjvYFir7X7AMGCOP-wNQF&rs=AOn4CLA2sDrNBYfLZWQSJtIZ5akifSwqcg&v=5a903f63",
+        "from_url": "https://www.youtube.com/playlist?list=PLKBPwuu3eCYkScmqpD9xE7UZsszweVO0n",
+        "thumb_width": 320,
+        "thumb_height": 180,
+        "service_icon": "https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico",
+        "id": 1,
+        "original_url": "https://www.youtube.com/playlist?list=PLKBPwuu3eCYkScmqpD9xE7UZsszweVO0n"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VIdZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(here's the web series btw it's great "
+              },
+              {
+                "type": "link",
+                "url": "https://www.youtube.com/playlist?list=PLKBPwuu3eCYkScmqpD9xE7UZsszweVO0n",
+                "text": "https://www.youtube.com/playlist?list=PLKBPwuu3eCYkScmqpD9xE7UZsszweVO0n"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "c00be528-7b29-43fb-ad2f-c64f113c40a3",
+    "type": "message",
+    "text": "Hacks tend to be more acceptable in game dev due to the old business model of shipping a game, and the game being mostly a finished product",
+    "user": "UBSMEUXAA",
+    "ts": "1589943340.276000",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "E0M",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hacks tend to be more acceptable in game dev due to the old business model of shipping a game, and the game being mostly a finished product"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "d3caaa22-5e3e-496e-9965-112b4fc369ed",
+    "type": "message",
+    "text": "Web software has always been software as service that needs to be maintained over time, so one off hacks aren't desired",
+    "user": "UBSMEUXAA",
+    "ts": "1589943377.276200",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "IKTE=",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Web software has always been software as service that needs to be maintained over time, so one off hacks aren't desired"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "92dec56a-9bf7-4f3e-8830-d77b3218ff90",
+    "type": "message",
+    "text": "You can't get away with hacks with a more modern software as service style game as much",
+    "user": "UBSMEUXAA",
+    "ts": "1589943400.276400",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zzB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "You can't get away with hacks with a more modern software as service style game as much"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UC2A2ARPT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "254607c4-aece-4489-9042-49ca15c089a8",
+    "type": "message",
+    "text": "The hacks are (often) the first thing to go when starting a sequel or a new game with the old code base, it's a lie that all game code is always garbage and game developers never refactor",
+    "user": "UBSMEUXAA",
+    "ts": "1589943734.276600",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "0edf98a60210",
+      "image_72": "https://avatars.slack-edge.com/2019-09-26/774747080560_0edf98a60210d3ab07ea_72.jpg",
+      "first_name": "",
+      "real_name": "Scott Anderson",
+      "display_name": "",
+      "team": "T5TCAFTA9",
+      "name": "scottan",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "/xBX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The hacks are (often) the first thing to go when starting a sequel or a new game with the old code base, it's a lie that all game code is always garbage and game developers never refactor"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UA14TGLTC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  },
+  {
+    "client_msg_id": "8918c86c-6345-42ac-96af-4aaec585a0dd",
+    "type": "message",
+    "text": "To make room for new hacks!",
+    "user": "UA14TGLTC",
+    "ts": "1589945872.276900",
+    "team": "T5TCAFTA9",
+    "user_team": "T5TCAFTA9",
+    "source_team": "T5TCAFTA9",
+    "user_profile": {
+      "avatar_hash": "gae6d55db9d1",
+      "image_72": "https://secure.gravatar.com/avatar/3ae6d55db9d15b79bc683a8031fc2588.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0009-72.png",
+      "first_name": "",
+      "real_name": "William Taysom",
+      "display_name": "wtaysom",
+      "team": "T5TCAFTA9",
+      "name": "wtaysom",
+      "is_restricted": false,
+      "is_ultra_restricted": false
+    },
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ryZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "To make room for new hacks!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "thread_ts": "1589819806.227800",
+    "parent_user_id": "UE0ETTCG7",
+    "reactions": [
+      {
+        "name": "hatching_chick",
+        "users": [
+          "UC2A2ARPT",
+          "UBSMEUXAA"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_name": "linking-together",
+    "channel_id": "C5U3SEW6A"
+  }
+]

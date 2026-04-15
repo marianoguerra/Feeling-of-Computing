@@ -1,0 +1,649 @@
+[
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769973812.814199",
+    "client_msg_id": "EB7F6B75-4CBC-415D-A12F-1BCA6BF74983",
+    "text": "How crucial is the ring buffer? I imagine you could use some other structure (like a tree) without much difficulty, though perhaps with perf tradeoffs.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cKx1S",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "How crucial is the ring buffer? I imagine you could use some other structure (like a tree) without much difficulty, though perhaps with perf tradeoffs"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UK3LH8CF5",
+    "type": "message",
+    "ts": "1769973952.846589",
+    "client_msg_id": "0e238d7b-5b8d-42f6-988c-48743482df04",
+    "text": "Like to do branching of timelines? Yeah, its a ring buffer only see I have a window of time I'm saving. Otherwise it is unbounded memory growth. One thing I did accidentally discover is that if that buffer is a persistent data structure, that results in unbounded memory growth, because I will hold onto past versions of it in the continuation, which in turn hold onto past versions.... So it is again unbounded memory growth",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "t+peB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Like to do branching of timelines? Yeah, its a ring buffer only see I have a window of time I'm saving. Otherwise it is unbounded memory growth. One thing I did accidentally discover is that if that buffer is a persistent data structure, that results in unbounded memory growth, because I will hold onto past versions of it in the continuation, which in turn hold onto past versions.... So it is again unbounded memory growth"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769973987.151509",
+    "client_msg_id": "63C9E965-0BC7-4733-8CE3-32F461255694",
+    "text": "What's a little unbounded memory growth between friends.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "jEM4V",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What's a little unbounded memory growth between friends"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "slightly_smiling_face",
+        "users": [
+          "UK3LH8CF5"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UK3LH8CF5",
+    "type": "message",
+    "ts": "1769974070.977739",
+    "client_msg_id": "3b90aedd-0dea-4ce7-be13-967133054a41",
+    "text": "Got any interesting data structure in mind that I should try?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "AnCGZ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Got any interesting data structure in mind that I should try?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769974580.445079",
+    "client_msg_id": "1ACACF65-24C9-4F3C-A889-C41FB44B23AF",
+    "text": "Any tree. Branching history.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "HPyAO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Any tree"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " Branching history"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "U06SS0DHZD1",
+    "type": "message",
+    "ts": "1769978434.950229",
+    "client_msg_id": "f5f47a13-c4dd-456d-9934-7c35034337bd",
+    "text": "AI loops fascinate me... Intuitively, this sort of AI based self-improvement should make the environment arbitrarily moldable... One could ask AI to turn this environment into almost anything (a game, a social network, a software tool). Change its appearance. Expand it with new capabilities... In reality AI, when left alone with larger tasks, still makes too many mistakes... I wonder if that's the only limiting factor now. The mistakes that we observe in agents... The AI's inability to identify common patterns &amp; simplify, to plan ahead, the lack of a design \"hunch\"... Because if that's the only problem, then it might just be fixable with better training data... (just posting random thoughts, not expecting any response, but would be curious of others' thoughts on this matter)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769971142.056149",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4fg8u",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "AI loops fascinate me... Intuitively, this sort of AI based self-improvement should make the environment arbitrarily moldable... One could ask AI to turn this environment into almost anything (a game, a social network, a software tool). Change its appearance. Expand it with new capabilities... In reality AI, when left alone with larger tasks, still makes too many mistakes... I wonder if that's the only limiting factor now. The mistakes that we observe in agents... The AI's inability to identify common patterns & simplify, to plan ahead, the lack of a design \"hunch\"... Because if that's the only problem, then it might just be fixable with better training data... (just posting random thoughts, not expecting any response, but would be curious of others' thoughts on this matter)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "text": "",
+    "files": [
+      {
+        "id": "F0ACA40ATV0",
+        "created": 1769980618,
+        "timestamp": 1769980618,
+        "mimetype": "video/quicktime",
+        "filetype": "mov",
+        "pretty_type": "QuickTime Movie",
+        "user": "UK3LH8CF5",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 2379816,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "name": "Screen Recording 2026-02-01 at 4.14.56 PM.mov",
+        "title": "Screen Recording 2026-02-01 at 4.14.56 PM.mov",
+        "is_transcription_region_supported": true,
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/screen_recording_2026-02-01_at_4.14.56___pm.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/screen_recording_2026-02-01_at_4.14.56___pm.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F0ACA40ATV0/download/screen_recording_2026-02-01_at_4.14.56___pm.mov",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/file.m3u8?_xcb=387da",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9NTg2NzI1LEFWRVJBR0UtQkFORFdJRFRIPTUwNTUwNixDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xMzQweDEwODAsRlJBTUUtUkFURT0yOS45NzAKZGF0YTphcHBsaWNhdGlvbi92bmQuYXBwbGUubXBlZ3VybDtiYXNlNjQsSTBWWVZFMHpWUW9qUlZoVUxWZ3RWa1ZTVTBsUFRqb3pDaU5GV0ZRdFdDMVVRVkpIUlZSRVZWSkJWRWxQVGpvM0NpTkZXRlF0V0MxTlJVUkpRUzFUUlZGVlJVNURSVG94Q2lORldGUXRXQzFRVEVGWlRFbFRWQzFVV1ZCRk9sWlBSQW9qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdRVU5CTkRCQlZGWXdMVFEwWW1VNFltTXpOVEF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01ERXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRUZEUVRRd1FWUldNQzAwTkdKbE9HSmpNelV3TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQXlMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakJCUTBFME1FRlVWakF0TkRSaVpUaGlZek0xTUM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pVdU9EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3UVVOQk5EQkJWRll3TFRRMFltVTRZbU16TlRBdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRFF1ZEhNS0kwVllWQzFZTFVWT1JFeEpVMVFLCg==",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/screen_recording_2026-02-01_at_4.14.56___pm_trans.mp4",
+        "duration_ms": 23823,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F0ACA40ATV0-44be8bc350/screen_recording_2026-02-01_at_4.14.56___pm_thumb_video.jpeg",
+        "thumb_video_w": 1736,
+        "thumb_video_h": 1400,
+        "permalink": "https://feelingofcomputing.slack.com/files/UBN9AFS0N/F0ACA40ATV0/screen_recording_2026-02-01_at_4.14.56___pm.mov",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F0ACA40ATV0-0bdbb48b57",
+        "is_starred": false,
+        "skipped_shares": true,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "UK3LH8CF5",
+    "display_as_bot": false,
+    "type": "message",
+    "ts": "1769980633.034319",
+    "client_msg_id": "f8c7200a-45ac-4486-a436-050044adfbd0",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "reactions": [
+      {
+        "name": "sunglasses",
+        "users": [
+          "U02U0AS3J49",
+          "UP00ZLX6G",
+          "UMHG81CBH",
+          "U08294YLWJH",
+          "UML4ZEKDK"
+        ],
+        "count": 5
+      },
+      {
+        "name": "cake",
+        "users": [
+          "U013ZLJARC7",
+          "U08294YLWJH"
+        ],
+        "count": 2
+      },
+      {
+        "name": "+1",
+        "users": [
+          "U03C0DRJB8B"
+        ],
+        "count": 1
+      },
+      {
+        "name": "heart",
+        "users": [
+          "URKQXRCAC"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UC2A2ARPT",
+    "type": "message",
+    "ts": "1769989994.870629",
+    "client_msg_id": "1148BD7C-FFBE-4273-99FB-67775C3269CD",
+    "text": "Coooooool",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "bC/wy",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Coooooool"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UMQ6LR9NZ",
+    "type": "message",
+    "ts": "1769995834.688349",
+    "client_msg_id": "f3ba428c-8908-44f3-90d1-357d7da5f560",
+    "text": "_Serial Experiments … ?_",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769970073.454439",
+    "parent_user_id": "U08HU0GT52A",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "kCNct",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Serial Experiments … ?",
+                "style": {
+                  "italic": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "point_up",
+        "users": [
+          "UA14TGLTC",
+          "U08HU0GT52A",
+          "UML4ZEKDK"
+        ],
+        "count": 3
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1770058772.941309",
+    "client_msg_id": "1af20fd4-8311-4747-865f-95b77570dee0",
+    "text": "yeah I am hoping the reactive runtime gives it an uber-tight feedback loop. The feedback is the environment, not the training data. I often see the agent initially cannot call its own tools properly at first, but after round 10 it is warmed up and very productive. The early failures are because I have not optimized the prompt yet, its often completely out-of-whack with what I have actually implemented, but also, I don't really need to, coz the environment is the strong feedback signal.\n\nYes its also pretty bad at overall architecture, but it is *great* at copying established patterns. Robocoop3 itself is so much better than my previous LLM project, written in a tenth of the time coz I figured out how to get it it to port the agent loop from OpenCode.\n\nMost of my prompts are: Look at X, Y Z, now do it in C. Usually X, Y and Z is something I wrote a few years ago. OpenCode port was the first time I ported 3rd party code, its MIT licensed and I attribute it. I think that unblocks a ton of options of remixing. So unless every aspect of a project is totally rethought from the ground up, I think you can actually very easily make a game if you have a game that has somewhat the right architecture in place.\n\nits gonna insane in another year's time",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769971142.056149",
+    "parent_user_id": "U02E4DAQGSZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mvHv9",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yeah I am hoping the reactive runtime gives it an uber-tight feedback loop. The feedback is the environment, not the training data. I often see the agent initially cannot call its own tools properly at first, but after round 10 it is warmed up and very productive. The early failures are because I have not optimized the prompt yet, its often completely out-of-whack with what I have actually implemented, but also, I don't really need to, coz the environment is the strong feedback signal.\n\nYes its also pretty bad at overall architecture, but it is "
+              },
+              {
+                "type": "text",
+                "text": "great",
+                "style": {
+                  "bold": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " at copying established patterns. Robocoop3 itself is so much better than my previous LLM project, written in a tenth of the time coz I figured out how to get it it to port the agent loop from OpenCode.\n\nMost of my prompts are: Look at X, Y Z, now do it in C. Usually X, Y and Z is something I wrote a few years ago. OpenCode port was the first time I ported 3rd party code, its MIT licensed and I attribute it. I think that unblocks a ton of options of remixing. So unless every aspect of a project is totally rethought from the ground up, I think you can actually very easily make a game if you have a game that has somewhat the right architecture in place.\n\nits gonna insane in another year's time"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "two-minute-week",
+    "channel_id": "C0120A3L30R"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1770115895.389319",
+    "client_msg_id": "8b53127d-8cc3-47e5-be1f-31c57ba31cfa",
+    "text": "I get confused on the difference between propagater networks and dataflow.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769970073.454439",
+    "parent_user_id": "U08HU0GT52A",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dI1aO",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I get confused on the difference between propagater networks and dataflow."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U08HU0GT52A",
+    "type": "message",
+    "ts": "1770117159.559499",
+    "client_msg_id": "ed51bc9b-6e09-4fdc-939a-f31af18fc0d7",
+    "text": "A propagator network is different from a usual dataflow network mainly in\nwhat lives at the nodes.\nIn a propagator network (in the sense of Gerald Jay Sussman’s work),\nnodes are autonomous cells that accumulate partial information, rather\nthan variables that are assigned single values.\nDependencies are implicit in the propagation structure, and computation\nproceeds by information growth until a fixed point is reached.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769970073.454439",
+    "parent_user_id": "U08HU0GT52A",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "L+Kcg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "A propagator network is different from a usual dataflow network mainly in\nwhat lives at the nodes.\nIn a propagator network (in the sense of Gerald Jay Sussman’s work),\nnodes are autonomous cells that accumulate partial information, rather\nthan variables that are assigned single values.\nDependencies are implicit in the propagation structure, and computation\nproceeds by information growth until a fixed point is reached."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02E4DAQGSZ",
+    "type": "message",
+    "ts": "1770118065.747949",
+    "client_msg_id": "63d060ab-2fb3-4864-8e16-0513e4595481",
+    "text": "they support cyclical connections, and choose when to update based on information received? Maybe the cannonical paper might be helpful for me",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769970073.454439",
+    "parent_user_id": "U08HU0GT52A",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "rj7iB",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "they support cyclical connections, and choose when to update based on information received? Maybe the cannonical paper might be helpful for me"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U08HU0GT52A",
+    "type": "message",
+    "ts": "1770119081.029269",
+    "client_msg_id": "00cc9a4d-edbe-4d5a-91d4-6ef92d02015f",
+    "text": "yes you can check the paper: <https://dspace.mit.edu/handle/1721.1/44215>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769970073.454439",
+    "parent_user_id": "U08HU0GT52A",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "eNjoC",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "yes you can check the paper: "
+              },
+              {
+                "type": "link",
+                "url": "https://dspace.mit.edu/handle/1721.1/44215"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U08HU0GT52A",
+    "type": "message",
+    "ts": "1770119121.600069",
+    "edited": {
+      "user": "U08HU0GT52A",
+      "ts": "1770119129.000000"
+    },
+    "client_msg_id": "f8fa916a-aa05-4633-8bdb-33e956af7e70",
+    "text": "my ts port has extends the original model a lot, mainly on reactivity part and also the compiler part",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769970073.454439",
+    "parent_user_id": "U08HU0GT52A",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "1h/OK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "my ts port has extends the original model a lot, mainly on reactivity part and also the compiler part"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U08HU0GT52A",
+    "type": "message",
+    "ts": "1770119333.185569",
+    "edited": {
+      "user": "U08HU0GT52A",
+      "ts": "1770119536.000000"
+    },
+    "client_msg_id": "85b2d3e0-140e-4320-8abf-abeb6c591420",
+    "text": "it support cyclic connections. A propagator network is evaluated as a fixed-point process:\na propagator runs when a cell’s knowledge is _refined_ (i.e. strictly grows), not merely when some message arrives.\n\nThere is no single global evaluation order.\nExecution proceeds by information growth until quiescence (a fixed point)\nis reached.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769970073.454439",
+    "parent_user_id": "U08HU0GT52A",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "pknev",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "it support cyclic connections. A propagator network is evaluated as a fixed-point process:\na propagator runs when a cell’s knowledge is "
+              },
+              {
+                "type": "text",
+                "text": "refined",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " (i.e. strictly grows), not merely when some message arrives.\n\nThere is no single global evaluation order.\nExecution proceeds by information growth until quiescence (a fixed point)\nis reached."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U0A0N386RCZ"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U08294YLWJH",
+    "type": "message",
+    "ts": "1770192504.942049",
+    "client_msg_id": "d092aea1-799c-426c-9d9a-dabf5ee319a6",
+    "text": ":fire:the last video could be a standalone entry in devlog channel, I like how you did tree visualization",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1769973336.467879",
+    "parent_user_id": "UK3LH8CF5",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "vArqF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "emoji",
+                "name": "fire",
+                "unicode": "1f525"
+              },
+              {
+                "type": "text",
+                "text": "the last video could be a standalone entry in devlog channel, I like how you did tree visualization"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  }
+]

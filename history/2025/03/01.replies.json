@@ -1,0 +1,1145 @@
+[
+  {
+    "user": "U087592N6HE",
+    "type": "message",
+    "ts": "1740827072.830539",
+    "client_msg_id": "6a02c197-4207-414c-82af-1b8321452791",
+    "text": "Usage of this is just:\n```\t&lt;style&gt;\n\t\t.test {\n\t\t\twidth: 100%;\n\t\t\tbackground: var(--dial-bg, pink);\n\t\t\tborder: 2px var(--dial-border, solid);\n\t\t\tbox-sizing: border-box;\n\t\t\tpadding: var(--dial-padding, 16px);\n\t\t}\n\t&lt;/style&gt;\n\t&lt;css-lab dials=\"\n\t\tbg: pink|hotpink|yellow;\n\t\tpadding: initial | 8px | 16px;\n\t\tborder: solid | dashed;\n\t\"&gt;\n\t  &lt;div class=\"test\"&gt;Hello world!&lt;/div&gt;\n\t&lt;/css-lab&gt;```\nAlthough, it will likely change a lot over time, but I am trying to make it as simple as possible to use for myself.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740825868.873509",
+    "parent_user_id": "U087592N6HE",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "MInlc",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Usage of this is just:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\t<style>\n\t\t.test {\n\t\t\twidth: 100%;\n\t\t\tbackground: var(--dial-bg, pink);\n\t\t\tborder: 2px var(--dial-border, solid);\n\t\t\tbox-sizing: border-box;\n\t\t\tpadding: var(--dial-padding, 16px);\n\t\t}\n\t</style>\n\t<css-lab dials=\"\n\t\tbg: pink|hotpink|yellow;\n\t\tpadding: initial | 8px | 16px;\n\t\tborder: solid | dashed;\n\t\">\n\t  <div class=\"test\">Hello world!</div>\n\t</css-lab>"
+              }
+            ],
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Although, it will likely change a lot over time, but I am trying to make it as simple as possible to use for myself."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "text": "And the way it works in our design system. The context is rather different, where we want to show the generated code to use for every permutation, but also not complete in some ways, and is less about exploration (no two-way feedback from the controls). But we're pretty happy with how it works, and even saw other design systems adopt a few things from our design &amp; implementation (with explicit mentions).",
+    "files": [
+      {
+        "id": "F08F88034JK",
+        "created": 1740827327,
+        "timestamp": 1740827327,
+        "name": "Screen Recording 2025-03-01 at 12.08.02.mov",
+        "title": "Screen Recording 2025-03-01 at 12.08.02.mov",
+        "mimetype": "video/quicktime",
+        "filetype": "mov",
+        "pretty_type": "QuickTime Movie",
+        "user": "U087592N6HE",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 8498575,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "mp4": "https://files.slack.com/files-tmb/T5TCAFTA9-F08F88034JK-0cb7108dd2/screen_recording_2025-03-01_at_12.08.02.mp4",
+        "url_private": "https://files.slack.com/files-tmb/T5TCAFTA9-F08F88034JK-0cb7108dd2/screen_recording_2025-03-01_at_12.08.02.mp4",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F08F88034JK/download/screen_recording_2025-03-01_at_12.08.02.mov",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F08F88034JK-0cb7108dd2/file.m3u8?_xcb=b6a97",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9ODY5Njk1LEFWRVJBR0UtQkFORFdJRFRIPTY4NzgwOSxDT0RFQ1M9ImF2YzEuNjQwMDI4LG1wNGEuNDAuNSIsUkVTT0xVVElPTj0xOTIweDk4NixGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09FWTRPREF6TkVwTExUQmpZamN4TURoa1pESXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURFdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EaEdPRGd3TXpSS1N5MHdZMkkzTVRBNFpHUXlMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBeUxuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTRSamc0TURNMFNrc3RNR05pTnpFd09HUmtNaTltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd015NTBjd29qUlZoVVNVNUdPalF1T1RBMUxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdPRVk0T0RBek5FcExMVEJqWWpjeE1EaGtaREl2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01EUXVkSE1LSTBWWVZDMVlMVVZPUkV4SlUxUUsK",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F08F88034JK-0cb7108dd2/screen_recording_2025-03-01_at_12.08.02_trans.mp4",
+        "duration_ms": 22922,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F08F88034JK-0cb7108dd2/screen_recording_2025-03-01_at_12.08.02_thumb_video.jpeg",
+        "thumb_video_w": 2176,
+        "thumb_video_h": 1116,
+        "permalink": "https://futureofcoding.slack.com/files/U087592N6HE/F08F88034JK/screen_recording_2025-03-01_at_12.08.02.mov",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F08F88034JK-a5de87629b",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U087592N6HE",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "zPxqF",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And the way it works in our design system. The context is rather different, where we want to show the generated code to use for every permutation, but also not complete in some ways, and is less about exploration (no two-way feedback from the controls). But we're pretty happy with how it works, and even saw other design systems adopt a few things from our design & implementation (with explicit mentions)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1740827470.048809",
+    "client_msg_id": "2b43bba1-ad4d-4c5a-9b37-f40917b7eb93",
+    "thread_ts": "1740825868.873509",
+    "parent_user_id": "U087592N6HE",
+    "channel_name": "devlog-together",
+    "channel_id": "C03RR0W5DGC"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1740848650.763089",
+    "client_msg_id": "b990a7e0-9360-470a-9a54-eade5ff872d6",
+    "text": "I enjoyed the writing, but couldn't quite tell what was going on with the demo. Pressing keys didn't seem to add or remove any lines. It wasn't clear if the parallel horizontal line segments along the left were dynamically reflecting some state or just drawings on the wall. I couldn't reproduce the mouse drawings in the text with a for the previous click and b for the next click.\n\nKeep going! This is interesting stuff.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "mQTLJ",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I enjoyed the writing, but couldn't quite tell what was going on with the demo. Pressing keys didn't seem to add or remove any lines. It wasn't clear if the parallel horizontal line segments along the left were dynamically reflecting some state or just drawings on the wall. I couldn't reproduce the mouse drawings in the text with a for the previous click and b for the next click.\n\nKeep going! This is interesting stuff."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1740867120.754029",
+    "client_msg_id": "0567c789-f35a-4edc-8293-486a96f987c3",
+    "text": "I've tried that too, did change the color of lines, I figured that pressing some keys would do that. But didn't get what else to do.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "ttDnm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I've tried that too, did change the color of lines, I figured that pressing some keys would do that. But didn't get what else to do."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U04DZ850WRW",
+    "type": "message",
+    "ts": "1740872092.943359",
+    "client_msg_id": "6d0b024c-5ffe-4468-8bd2-a6db39b48a56",
+    "text": "Thanks for checking it out and your feedback!\n\nI just uploaded a new version of the demo. You will have to clear the browser cache or use a private window to try it.\n\nAt the bottom you should see a number of example programs. Initially only the \"mouse pointer\" program is active.  You can click on it's name to view the code and edit it. Any changes come into effect immediately (unless you have a syntax error). The idea is to gradually explore by enabling more and more of the example programs.\n\nSome obscure commands:\n• `Talise(...)` = tagged line segment = create a new tagged line segment\n• `q(the_query)` = query the memory for the_query return a set of lines\n• `for _, line in ipairs(...) do` = lua's weird way to iterate over sets\n• `q(the_query, \"name for query\", {R, G, B, A}, width)` = same as `q(...)` but also render the lines in the given color, thickness (you can omit the name)\nIn the Agents tab you can add your own agents. They will persist in the browser cache! The examples will be reset with every refresh!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "aPedg",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thanks for checking it out and your feedback!\n\nI just uploaded a new version of the demo. You will have to clear the browser cache or use a private window to try it.\n\nAt the bottom you should see a number of example programs. Initially only the \"mouse pointer\" program is active.  You can click on it's name to view the code and edit it. Any changes come into effect immediately (unless you have a syntax error). The idea is to gradually explore by enabling more and more of the example programs.\n\nSome obscure commands:\n"
+              }
+            ]
+          },
+          {
+            "type": "rich_text_list",
+            "elements": [
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "Talise(...)",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " = tagged line segment = create a new tagged line segment"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "q(the_query)",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " = query the memory for the_query return a set of lines"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "for _, line in ipairs(...) do",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " = lua's weird way to iterate over sets"
+                  }
+                ]
+              },
+              {
+                "type": "rich_text_section",
+                "elements": [
+                  {
+                    "type": "text",
+                    "text": "q(the_query, \"name for query\", {R, G, B, A}, width)",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " = same as "
+                  },
+                  {
+                    "type": "text",
+                    "text": "q(...)",
+                    "style": {
+                      "code": true
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " but also render the lines in the given color, thickness (you can omit the name)"
+                  }
+                ]
+              }
+            ],
+            "style": "bullet",
+            "indent": 0,
+            "border": 0
+          },
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "\nIn the Agents tab you can add your own agents. They will persist in the browser cache! The examples will be reset with every refresh!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "What to expect ...",
+    "files": [
+      {
+        "id": "F08FR2C93U2",
+        "created": 1740872355,
+        "timestamp": 1740872355,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U04DZ850WRW",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 68317,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F08FR2C93U2/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F08FR2C93U2/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 356,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 474,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 712,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 791,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 949,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FR2C93U2-d3850269e3/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 1012,
+        "original_w": 1124,
+        "original_h": 1111,
+        "thumb_tiny": "AwAvADDPooooAKKWigBKKKKACil2n/Jo2mgBKWjafSjafSgBKKXafSjafSgBaEzu5puT60qnB5NAExIpOKj3n2o3n2pgPopm8+lG8+lAH//Z",
+        "permalink": "https://futureofcoding.slack.com/files/U04DZ850WRW/F08FR2C93U2/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F08FR2C93U2-ad7467171f",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U04DZ850WRW",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QMWPA",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "What to expect ..."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1740872366.361619",
+    "client_msg_id": "a5ed82cd-7f4f-465c-8009-9da732293a9d",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "UCUSW7WVD"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1740872576.422519",
+    "client_msg_id": "73de7c6f-4ff3-459f-83fc-b8459606c9d2",
+    "text": "this is what I see. How can I \"run\" some particular program?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "0t6PN",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "this is what I see. How can I \"run\" some particular program?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "",
+    "files": [
+      {
+        "id": "F08GCRPT39N",
+        "created": 1740872577,
+        "timestamp": 1740872577,
+        "name": "image.png",
+        "title": "image.png",
+        "mimetype": "image/png",
+        "filetype": "png",
+        "pretty_type": "PNG",
+        "user": "U02PUDETGRW",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 160473,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F08GCRPT39N/image.png",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F08GCRPT39N/download/image.png",
+        "media_display_type": "unknown",
+        "thumb_64": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_64.png",
+        "thumb_80": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_80.png",
+        "thumb_360": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_360.png",
+        "thumb_360_w": 360,
+        "thumb_360_h": 219,
+        "thumb_480": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_480.png",
+        "thumb_480_w": 480,
+        "thumb_480_h": 291,
+        "thumb_160": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_160.png",
+        "thumb_720": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_720.png",
+        "thumb_720_w": 720,
+        "thumb_720_h": 437,
+        "thumb_800": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_800.png",
+        "thumb_800_w": 800,
+        "thumb_800_h": 486,
+        "thumb_960": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_960.png",
+        "thumb_960_w": 960,
+        "thumb_960_h": 583,
+        "thumb_1024": "https://files.slack.com/files-tmb/T5TCAFTA9-F08GCRPT39N-48b2a78140/image_1024.png",
+        "thumb_1024_w": 1024,
+        "thumb_1024_h": 622,
+        "original_w": 2708,
+        "original_h": 1644,
+        "thumb_tiny": "AwAdADDPop+eKFwQaYDKKlwPSkI4NIBhye9NoooAXJpVbAptFAD99BfIxTKKACiiigD/2Q==",
+        "permalink": "https://futureofcoding.slack.com/files/U02PUDETGRW/F08GCRPT39N/image.png",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F08GCRPT39N-7bedcc867d",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U02PUDETGRW",
+    "display_as_bot": false,
+    "type": "message",
+    "ts": "1740872581.238719",
+    "client_msg_id": "a40c011b-836a-422a-acab-08709ef55a1d",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1740872704.760349",
+    "client_msg_id": "49f6dfd3-5ca6-444b-8aec-49aca8cbaf33",
+    "text": "Looks like you need to check the box to the left of any example, maybe. Sorry, I'm not able to try it just yet..",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "b5TT6",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Looks like you need to check the box to the left of any example, maybe. Sorry, I'm not able to try it just yet.."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U04DZ850WRW",
+    "type": "message",
+    "ts": "1740873205.214939",
+    "client_msg_id": "5b939658-1ecf-4786-ba9b-d8e13d612d69",
+    "text": "Yes, you have to tick the checkbox next to the name to enable/run it. the little arrow \"&gt;\" to the very left allows you to single-step a program when it is paused.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "FkxWX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yes, you have to tick the checkbox next to the name to enable/run it. the little arrow \">\" to the very left allows you to single-step a program when it is paused."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U04DZ850WRW",
+    "type": "message",
+    "ts": "1740873264.860649",
+    "client_msg_id": "c0ce0236-8862-437f-a6f6-3a65d8212082",
+    "text": "Running a program means, its code is evaluated once for each frame.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "4vleE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Running a program means, its code is evaluated once for each frame."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1740873289.218939",
+    "client_msg_id": "4a719876-df78-4255-8569-28b82796a40a",
+    "text": "Yep, I did that, but all other windows to wide. Maybe you can record some tiny gif?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "cENbL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Yep, I did that, but all other windows to wide. Maybe you can record some tiny gif?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U02PUDETGRW",
+    "type": "message",
+    "ts": "1740873315.300699",
+    "client_msg_id": "a67d3cba-e4e7-4b9f-86e1-13881e7a78f6",
+    "text": "oh! I see now, thanks",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "QaggK",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "oh! I see now, thanks"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "partying_face",
+        "users": [
+          "U04DZ850WRW"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "text": "This should give an idea",
+    "files": [
+      {
+        "id": "F08FSSK41RS",
+        "created": 1740874220,
+        "timestamp": 1740874220,
+        "name": "Kazam_screencast_00001.webm",
+        "title": "Kazam_screencast_00001.webm",
+        "mimetype": "video/webm",
+        "filetype": "webm",
+        "pretty_type": "WebM",
+        "user": "U04DZ850WRW",
+        "user_team": "T5TCAFTA9",
+        "editable": false,
+        "size": 5895448,
+        "mode": "hosted",
+        "is_external": false,
+        "external_type": "",
+        "is_public": true,
+        "public_url_shared": false,
+        "display_as_bot": false,
+        "username": "",
+        "transcription": {
+          "status": "none"
+        },
+        "url_private": "https://files.slack.com/files-pri/T5TCAFTA9-F08FSSK41RS/kazam_screencast_00001.webm",
+        "url_private_download": "https://files.slack.com/files-pri/T5TCAFTA9-F08FSSK41RS/download/kazam_screencast_00001.webm",
+        "hls": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FSSK41RS-1323fd6da0/file.m3u8?_xcb=9aa39",
+        "hls_embed": "data:application/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MTQyNDYxOCxBVkVSQUdFLUJBTkRXSURUSD0xMDI1MzExLENPREVDUz0iYXZjMS42NDAwMjgsbXA0YS40MC41IixSRVNPTFVUSU9OPTE1NTh4MTA4MCxGUkFNRS1SQVRFPTI5Ljk3MApkYXRhOmFwcGxpY2F0aW9uL3ZuZC5hcHBsZS5tcGVndXJsO2Jhc2U2NCxJMFZZVkUwelZRb2pSVmhVTFZndFZrVlNVMGxQVGpvekNpTkZXRlF0V0MxVVFWSkhSVlJFVlZKQlZFbFBUam8zQ2lORldGUXRXQzFOUlVSSlFTMVRSVkZWUlU1RFJUb3hDaU5GV0ZRdFdDMVFURUZaVEVsVFZDMVVXVkJGT2xaUFJBb2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09FWlRVMHMwTVZKVExURXpNak5tWkRaa1lUQXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TURFdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EaEdVMU5MTkRGU1V5MHhNekl6Wm1RMlpHRXdMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURBeUxuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTRSbE5UU3pReFVsTXRNVE15TTJaa05tUmhNQzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd015NTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdPRVpUVTBzME1WSlRMVEV6TWpObVpEWmtZVEF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01EUXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGhHVTFOTE5ERlNVeTB4TXpJelptUTJaR0V3TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01EQTFMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakE0UmxOVFN6UXhVbE10TVRNeU0yWmtObVJoTUM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3T0VaVFUwczBNVkpUTFRFek1qTm1aRFprWVRBdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNRGN1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURoR1UxTkxOREZTVXkweE16SXpabVEyWkdFd0wyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREE0TG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBNFJsTlRTelF4VWxNdE1UTXlNMlprTm1SaE1DOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3T1M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09FWlRVMHMwTVZKVExURXpNak5tWkRaa1lUQXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TVRBdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EaEdVMU5MTkRGU1V5MHhNekl6Wm1RMlpHRXdMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURFeExuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTRSbE5UU3pReFVsTXRNVE15TTJaa05tUmhNQzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBeE1pNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdPRVpUVTBzME1WSlRMVEV6TWpObVpEWmtZVEF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01UTXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGhHVTFOTE5ERlNVeTB4TXpJelptUTJaR0V3TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01ERTBMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakE0UmxOVFN6UXhVbE10TVRNeU0yWmtObVJoTUM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhOUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3T0VaVFUwczBNVkpUTFRFek1qTm1aRFprWVRBdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNVFl1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURoR1UxTkxOREZTVXkweE16SXpabVEyWkdFd0wyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREUzTG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBNFJsTlRTelF4VWxNdE1UTXlNMlprTm1SaE1DOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4T0M1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09FWlRVMHMwTVZKVExURXpNak5tWkRaa1lUQXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TVRrdWRITUtJMFZZVkVsT1JqbzJMakF3Tml3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EaEdVMU5MTkRGU1V5MHhNekl6Wm1RMlpHRXdMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURJd0xuUnpDaU5GV0ZSSlRrWTZOaTR3TURZc0NtaDBkSEJ6T2k4dlptbHNaWE11YzJ4aFkyc3VZMjl0TDJacGJHVnpMWFJ0WWk5VU5WUkRRVVpVUVRrdFJqQTRSbE5UU3pReFVsTXRNVE15TTJaa05tUmhNQzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBeU1TNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEVlVRMEZHVkVFNUxVWXdPRVpUVTBzME1WSlRMVEV6TWpObVpEWmtZVEF2Wm1sc1pWOUlYekkyTkY4eE9USXdlREV3T0RCZk5qVXdNRXRDVUZOZk4xRldRbEpmTURBd01qSXVkSE1LSTBWWVZFbE9Sam8yTGpBd05pd0thSFIwY0hNNkx5OW1hV3hsY3k1emJHRmpheTVqYjIwdlptbHNaWE10ZEcxaUwxUTFWRU5CUmxSQk9TMUdNRGhHVTFOTE5ERlNVeTB4TXpJelptUTJaR0V3TDJacGJHVmZTRjh5TmpSZk1Ua3lNSGd4TURnd1h6WTFNREJMUWxCVFh6ZFJWa0pTWHpBd01ESXpMblJ6Q2lORldGUkpUa1k2Tmk0d01EWXNDbWgwZEhCek9pOHZabWxzWlhNdWMyeGhZMnN1WTI5dEwyWnBiR1Z6TFhSdFlpOVVOVlJEUVVaVVFUa3RSakE0UmxOVFN6UXhVbE10TVRNeU0yWmtObVJoTUM5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXlOQzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWRFZVUTBGR1ZFRTVMVVl3T0VaVFUwczBNVkpUTFRFek1qTm1aRFprWVRBdlptbHNaVjlJWHpJMk5GOHhPVEl3ZURFd09EQmZOalV3TUV0Q1VGTmZOMUZXUWxKZk1EQXdNalV1ZEhNS0kwVllWRWxPUmpvMkxqQXdOaXdLYUhSMGNITTZMeTltYVd4bGN5NXpiR0ZqYXk1amIyMHZabWxzWlhNdGRHMWlMMVExVkVOQlJsUkJPUzFHTURoR1UxTkxOREZTVXkweE16SXpabVEyWkdFd0wyWnBiR1ZmU0Y4eU5qUmZNVGt5TUhneE1EZ3dYelkxTURCTFFsQlRYemRSVmtKU1h6QXdNREkyTG5SekNpTkZXRlJKVGtZNk5pNHdNRFlzQ21oMGRIQnpPaTh2Wm1sc1pYTXVjMnhoWTJzdVkyOXRMMlpwYkdWekxYUnRZaTlVTlZSRFFVWlVRVGt0UmpBNFJsTlRTelF4VWxNdE1UTXlNMlprTm1SaE1DOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF5Tnk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRWVVEwRkdWRUU1TFVZd09FWlRVMHMwTVZKVExURXpNak5tWkRaa1lUQXZabWxzWlY5SVh6STJORjh4T1RJd2VERXdPREJmTmpVd01FdENVRk5mTjFGV1FsSmZNREF3TWpndWRITUtJMFZZVkVsT1Jqb3lMakV6TlN3S2FIUjBjSE02THk5bWFXeGxjeTV6YkdGamF5NWpiMjB2Wm1sc1pYTXRkRzFpTDFRMVZFTkJSbFJCT1MxR01EaEdVMU5MTkRGU1V5MHhNekl6Wm1RMlpHRXdMMlpwYkdWZlNGOHlOalJmTVRreU1IZ3hNRGd3WHpZMU1EQkxRbEJUWHpkUlZrSlNYekF3TURJNUxuUnpDaU5GV0ZRdFdDMUZUa1JNU1ZOVUNnPT0K",
+        "mp4_low": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FSSK41RS-1323fd6da0/file_trans.mp4",
+        "duration_ms": 170303,
+        "media_display_type": "video",
+        "thumb_video": "https://files.slack.com/files-tmb/T5TCAFTA9-F08FSSK41RS-1323fd6da0/kazam_screencast_00001_thumb_video.jpeg",
+        "thumb_video_w": 1385,
+        "thumb_video_h": 960,
+        "permalink": "https://futureofcoding.slack.com/files/U04DZ850WRW/F08FSSK41RS/kazam_screencast_00001.webm",
+        "permalink_public": "https://slack-files.com/T5TCAFTA9-F08FSSK41RS-4fff5b49e7",
+        "is_starred": false,
+        "has_rich_preview": false,
+        "file_access": "visible"
+      }
+    ],
+    "upload": false,
+    "user": "U04DZ850WRW",
+    "display_as_bot": false,
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "wan9E",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "This should give an idea"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "message",
+    "ts": "1740874236.464139",
+    "client_msg_id": "fc703544-5232-4d42-abef-f2d48760a35a",
+    "thread_ts": "1740833089.867409",
+    "parent_user_id": "U04DZ850WRW",
+    "channel_name": "share-your-work",
+    "channel_id": "CCL5VVBAN"
+  },
+  {
+    "user": "U0282PL61U1",
+    "type": "message",
+    "ts": "1740892476.526309",
+    "client_msg_id": "9a8d84ad-48c3-48f3-8188-ec09b335a8c0",
+    "text": "I think fbp got it right. You could explicitly wait on all ports making each stage fully blocking  .... or you can  just wait one port making it more async.\n\nIt is best to leave it as a choice to the user.\n\nI am also not sold on the visual interface for programming.\n\nVisual interface is good for debugger and analyzing perf or visualizing the flow ... but to interact with the current legacy code and writing lots of modules, text is both good and flexible enough.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "M77GD",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think fbp got it right. You could explicitly wait on all ports making each stage fully blocking  .... or you can  just wait one port making it more async.\n\nIt is best to leave it as a choice to the user.\n\nI am also not sold on the visual interface for programming.\n\nVisual interface is good for debugger and analyzing perf or visualizing the flow ... but to interact with the current legacy code and writing lots of modules, text is both good and flexible enough."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0282PL61U1",
+    "type": "message",
+    "ts": "1740892659.397679",
+    "edited": {
+      "user": "U0282PL61U1",
+      "ts": "1740892689.000000"
+    },
+    "client_msg_id": "99cede55-c8da-4558-871c-03a56f8a2988",
+    "text": "I think the notion of \"Async\" merge point a queueish data structure like go's channels can make writing in text mode quite easy.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "xxSjE",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I think the notion of \"Async\" merge point a queueish data structure like go's channels can make writing in text mode quite easy."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1740899108.247279",
+    "client_msg_id": "21452903-1bae-452e-af6d-5dcb8d2083a1",
+    "text": "<@U0282PL61U1> What's fbp?",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "dTBJx",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U0282PL61U1"
+              },
+              {
+                "type": "text",
+                "text": " What's fbp?"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0282PL61U1",
+    "type": "message",
+    "ts": "1740899155.369759",
+    "client_msg_id": "8a152da6-54be-4860-be76-7384f4bdbeaf",
+    "text": "<https://en.wikipedia.org/wiki/Flow-based_programming>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "44m8i",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Flow-based_programming"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "bulb",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1740908346.847899",
+    "client_msg_id": "f1220910-861d-40d6-a1c3-b49b978701a6",
+    "text": "I had a chat with ChatGPT last week on this very topic. My prompt started with: \"Hoping you can chat with me to help me tease apart the relationships and differences between various processing models in computing. Specifically, function call, pipeline, declarative dependency, imperative scripts, event-action, pub-sub, message bus, async/sync.\"",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VYv3Z",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I had a chat with ChatGPT last week on this very topic. My prompt started with: \"Hoping you can chat with me to help me tease apart the relationships and differences between various processing models in computing. Specifically, function call, pipeline, declarative dependency, imperative scripts, event-action, pub-sub, message bus, async/sync.\""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1740908360.485169",
+    "edited": {
+      "user": "UE6EFEPTQ",
+      "ts": "1740908409.000000"
+    },
+    "client_msg_id": "d5cc3178-fe53-480b-9186-c689c97b0c36",
+    "text": "(Hows' that for asynchronous syncronicity!)",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "g4ltM",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "(Hows' that for asynchronous syncronicity!)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1740908390.763489",
+    "client_msg_id": "fb07f7ae-7f4f-4d6b-b80e-e8264b2f6ced",
+    "text": "I was trying to separate out the Imperative from the Declarative",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "POAN8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I was trying to separate out the Imperative from the Declarative"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "UE6EFEPTQ",
+    "type": "message",
+    "ts": "1740908815.838089",
+    "client_msg_id": "a25f5470-5293-4ae2-8470-c3dc4a5a0b36",
+    "text": "The conversation gets really cringy as ChatGPT gets really excited, especially after I gave it a compliment! But I think it's a fun and stimulating read - see here: <https://chatgpt.com/share/67c427f1-a29c-800e-8e9e-c9e589377652>\n\nAlthough I'm still not sure what my conclusion is on all this!",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "image_url": "https://cdn.oaistatic.com/assets/chatgpt-share-og-u7j5uyao.webp",
+        "image_width": 1600,
+        "image_height": 900,
+        "image_bytes": 8652,
+        "from_url": "https://chatgpt.com/share/67c427f1-a29c-800e-8e9e-c9e589377652",
+        "service_icon": "https://cdn.oaistatic.com/assets/favicon-180x180-od45eci6.webp",
+        "id": 1,
+        "original_url": "https://chatgpt.com/share/67c427f1-a29c-800e-8e9e-c9e589377652",
+        "fallback": "ChatGPT: ChatGPT - Processing Models Overview",
+        "text": "Shared via ChatGPT",
+        "title": "ChatGPT - Processing Models Overview",
+        "title_link": "https://chatgpt.com/share/67c427f1-a29c-800e-8e9e-c9e589377652",
+        "service_name": "ChatGPT"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "U0w+C",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The conversation gets really cringy as ChatGPT gets really excited, especially after I gave it a compliment! But I think it's a fun and stimulating read - see here: "
+              },
+              {
+                "type": "link",
+                "url": "https://chatgpt.com/share/67c427f1-a29c-800e-8e9e-c9e589377652"
+              },
+              {
+                "type": "text",
+                "text": "\n\nAlthough I'm still not sure what my conclusion is on all this!"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "eyes",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0282PL61U1",
+    "type": "message",
+    "ts": "1740993163.251069",
+    "client_msg_id": "de70fc78-3cf3-4725-86ab-e108e5814cdc",
+    "text": "<https://metacpan.org/pod/Async::MergePoint>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "attachments": [
+      {
+        "from_url": "https://metacpan.org/pod/Async::MergePoint",
+        "service_icon": "https://metacpan.org/static/icons/apple-touch-icon.png",
+        "thumb_url": "https://metacpan.org/static/images/dots.png",
+        "thumb_width": 200,
+        "thumb_height": 200,
+        "id": 1,
+        "original_url": "https://metacpan.org/pod/Async::MergePoint",
+        "fallback": "MetaCPAN: Async::MergePoint",
+        "text": "resynchronise diverged control flow",
+        "title": "Async::MergePoint",
+        "title_link": "https://metacpan.org/pod/Async::MergePoint",
+        "service_name": "MetaCPAN"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "VxuzX",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "link",
+                "url": "https://metacpan.org/pod/Async::MergePoint"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0282PL61U1",
+    "type": "message",
+    "ts": "1740993212.079999",
+    "client_msg_id": "bc5abad7-df62-4f88-bdf9-252caafb6a9a",
+    "text": "In the past I have used re-entrant mutexes to synchorie async stuff easily",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "sR0x8",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "In the past I have used re-entrant mutexes to synchorie async stuff easily"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0282PL61U1",
+    "type": "message",
+    "ts": "1740993236.767259",
+    "client_msg_id": "65f448e8-c95c-4fbb-999d-8410b547d1b3",
+    "text": "although I misplaced the code but it was a mutex in js",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "POT1f",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "although I misplaced the code but it was a mutex in js"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  },
+  {
+    "user": "U0282PL61U1",
+    "type": "message",
+    "ts": "1740993288.130579",
+    "client_msg_id": "18648962-70f2-495e-baad-1f1542cfacbf",
+    "text": "something more flexible can be done with a queue, which is basically at the heart of Linda ... which is like the twin of Flow Based / Data Flow programming",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1740865414.876049",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "oBISm",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "something more flexible can be done with a queue, which is basically at the heart of Linda ... which is like the twin of Flow Based / Data Flow programming"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_name": "thinking-together",
+    "channel_id": "C5T9GPWFL"
+  }
+]
