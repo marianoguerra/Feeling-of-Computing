@@ -48,10 +48,10 @@ async function main() {
   const ctx = { usersById, channelsById };
 
   const items = [];
-  const repliesByTs = {};
   const topMsgsByTs = {};
-  const msgsByTs = {};
-  function onDayData(data, _info) {
+  const daysWithData = [];
+  function onDayData(data, info) {
+    let hasData = false;
     for (const msg of data) {
       const { type, ts, thread_ts: threadTs } = msg;
       if (type !== "message") {
@@ -64,29 +64,27 @@ async function main() {
           console.warn("two top msgs with same ts?", msg);
         }
         topMsgsByTs[ts] = msg;
-      } else {
-        repliesByTs[threadTs] ??= [];
-        repliesByTs[threadTs].push(msg);
+        hasData = true;
       }
     }
-
-    const orphanReplies = {};
-    const orphanDates = new Set();
-    for (const ts in repliesByTs) {
-      const replies = repliesByTs[ts];
-      const topMsg = topMsgsByTs[ts];
-      if (topMsg === undefined) {
-        orphanReplies[ts] = replies;
-        const date = new Date(+ts * 1000).toISOString().split("T")[0];
-        orphanDates.add(date);
-        continue;
-      }
-
-      topMsg.thread_replies = replies;
-      msgsByTs[ts] = topMsg;
+    if (hasData) {
+      daysWithData.push(info);
     }
   }
   await walk(fetcher, fromDate, toDate, onDayData);
+
+  await Promise.all(
+    daysWithData.map(async ({ year, month, day }) => {
+      const replies = await fetcher.fetchDayReplies(year, month, day);
+      for (const reply of replies) {
+        const parent = topMsgsByTs[reply.thread_ts];
+        if (parent) {
+          parent.thread_replies ??= [];
+          parent.thread_replies.push(reply);
+        }
+      }
+    }),
+  );
   let activeMessage = null;
   if (selected !== null && topMsgsByTs[selected]) {
     activeMessage = Message.Class.fromData(topMsgsByTs[selected], ctx);

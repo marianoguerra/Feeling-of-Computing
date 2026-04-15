@@ -50,5 +50,8 @@ export function httpFetcher(basePath) {
     fetchYearIndex: (year) => fetchJson(`${basePath}/${year}/index.json`),
     fetchMonthIndex: (year, month) => fetchJson(`${basePath}/${year}/${pad(month)}/index.json`),
     fetchDay: (year, month, day) => fetchJson(`${basePath}/${year}/${pad(month)}/${pad(day)}.json`),
+    fetchDayReplies: (year, month, day) =>
+      fetchJson(`${basePath}/${year}/${pad(month)}/${pad(day)}.replies.json`)
+        .catch(() => []),
   };
 }
