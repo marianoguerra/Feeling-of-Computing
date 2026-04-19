@@ -1,0 +1,18 @@
+[server]
+bind = "127.0.0.1:3000"
+
+[database]
+path = "data/foc-lancedb"
+table = "docs"
+fts_column = "text"
+vector_column = "vector"
+# Columns stripped from response bodies. Defaults to [vector_column].
+# exclude_columns = ["vector", "internal_notes"]
+
+[embedding]
+# Resolves to `sentence-transformers/all-MiniLM-L6-v2` on the HuggingFace Hub.
+# This is the safetensors-equivalent of `Xenova/all-MiniLM-L6-v2`.
+model = "all-MiniLM-L6-v2"
+ndims = 384
+normalize = true
+# revision = "main"
