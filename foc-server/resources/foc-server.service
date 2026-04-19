@@ -1,0 +1,113 @@
+# foc-server.service — sample systemd unit
+# =========================================
+#
+# BEFORE YOU COPY THIS TO /etc/systemd/system/ CHANGE:
+#
+#   1. User=/Group=       → the service account (created with:
+#                           `sudo adduser --system --group --home /var/lib/foc-server \
+#                                         --shell /usr/sbin/nologin foc`).
+#
+#   2. ExecStart=         → the absolute path to the `foc-server` binary
+#                           and the absolute path to your config.toml.
+#
+#   3. WorkingDirectory=  → any writable dir owned by the service user.
+#                           Used for crash dumps / core files. LanceDB itself
+#                           should use an absolute path in config.toml.
+#
+#   4. Environment=HF_HOME → where the HuggingFace model cache lives.
+#                           The cache must be populated once, as that user:
+#
+#                             sudo -u foc \
+#                               HF_HOME=/var/cache/foc-server/huggingface \
+#                               /usr/local/bin/foc-server fetch-model \
+#                                 /etc/foc-server/config.toml
+#
+#   5. ReadWritePaths=    → every directory foc-server needs to write
+#                           (LanceDB path + HF cache). ProtectSystem=strict
+#                           makes everything else read-only.
+#
+#   6. MemoryMax= / TasksMax= / LimitNOFILE= → tune to host size.
+#
+# AFTER CHANGES:
+#
+#   sudo cp resources/foc-server.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo /usr/local/bin/foc-server check /etc/foc-server/config.toml
+#   sudo systemctl enable --now foc-server
+#   sudo systemctl status foc-server
+#   journalctl -u foc-server -f
+#
+# Security posture: the hardening block below is aggressive. If a legitimate
+# feature breaks (e.g. a new crate that needs /dev, raw sockets, setuid),
+# check `journalctl -u foc-server | grep -i denied` and loosen the specific
+# directive rather than removing the whole block.
+
+[Unit]
+Description=FoC search server
+Documentation=https://github.com/...   # replace with your repo URL
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Type=exec — systemd waits for execve() to succeed before considering the
+# unit started, so `systemctl start` fails loudly on a missing binary.
+Type=exec
+User=foc
+Group=foc
+WorkingDirectory=/var/lib/foc-server
+ExecStart=/usr/local/bin/foc-server serve /etc/foc-server/config.toml
+
+# Validate the config before every start. If `check` finds errors the unit
+# refuses to start — no half-broken deployments.
+ExecStartPre=/usr/local/bin/foc-server check /etc/foc-server/config.toml
+
+# Logging: foc-server writes to stdout/stderr, journald captures it.
+# RUST_LOG scopes debug output to our crate; see src/main.rs header.
+Environment=RUST_LOG=info,foc_server=info,lancedb=warn,hyper=warn,tower_governor=warn
+Environment=HF_HOME=/var/cache/foc-server/huggingface
+
+# Restart policy: come back on crashes but not on clean exits (Ctrl-C,
+# SIGTERM from `systemctl stop`).
+Restart=on-failure
+RestartSec=5s
+
+# Graceful shutdown: SIGTERM → drain in-flight requests → exit.
+# TimeoutStopSec caps how long systemd waits before SIGKILL.
+KillSignal=SIGTERM
+TimeoutStopSec=15s
+
+# -- Hardening ---------------------------------------------------------------
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+SystemCallArchitectures=native
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+CapabilityBoundingSet=
+AmbientCapabilities=
+
+# MemoryDenyWriteExecute is incompatible with ONNX runtime JIT; leave off.
+MemoryDenyWriteExecute=false
+
+# Writable paths — everything else is read-only thanks to ProtectSystem=strict.
+ReadWritePaths=/var/lib/foc-server /var/cache/foc-server
+
+# -- Resource limits ---------------------------------------------------------
+LimitNOFILE=65536
+MemoryMax=2G
+TasksMax=512
+
+[Install]
+WantedBy=multi-user.target

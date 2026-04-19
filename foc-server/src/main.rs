@@ -1,12 +1,19 @@
-// Logging note: `RUST_LOG` defaults to `info`. Do not run production with
-// `RUST_LOG=debug` — downstream crates (lancedb, hyper, tower_governor) log
-// request payloads at debug level, which includes user-supplied search queries.
-use std::path::PathBuf;
+// Logging note: the default filter scopes debug output to this crate
+// (`foc_server=debug` via `RUST_LOG=foc_server=debug`). Do NOT set a bare
+// `RUST_LOG=debug` in production — downstream crates (lancedb, hyper,
+// tower_governor) log request payloads at debug level, which includes
+// user-supplied search queries.
+use std::{io::IsTerminal, path::PathBuf};
 
 use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
 use foc_server::{config, embedding, server};
 use tracing_subscriber::EnvFilter;
+
+/// Default filter: info for our crate, warn for chatty deps so
+/// `RUST_LOG=foc_server=debug` stays safe to set in production.
+const DEFAULT_LOG_FILTER: &str =
+    "info,foc_server=info,lancedb=warn,hyper=warn,tower_governor=warn,h2=warn";
 
 #[derive(Parser, Debug)]
 #[command(version, about = "FoC search server")]
@@ -22,13 +29,14 @@ enum Command {
     Serve { config: PathBuf },
     /// Download and cache the embedding model declared in the config, then exit.
     FetchModel { config: PathBuf },
+    /// Validate a config file against production best practices.
+    /// Exits non-zero if any errors are found.
+    Check { config: PathBuf },
 }
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    tracing_subscriber::fmt()
-        .with_env_filter(EnvFilter::try_from_default_env().unwrap_or_else(|_| "info".into()))
-        .init();
+    init_logging();
 
     let cli = Cli::parse();
     match cli.command {
@@ -54,5 +62,45 @@ async fn main() -> Result<()> {
             tracing::info!("model '{}' cached locally", cfg.embedding.model);
             Ok(())
         }
+        Command::Check { config: path } => run_check(&path),
     }
+}
+
+fn init_logging() {
+    // ANSI escapes only when stdout is a terminal. Systemd captures stdout
+    // into journald where escape codes become noise.
+    let ansi = std::io::stdout().is_terminal();
+    tracing_subscriber::fmt()
+        .with_ansi(ansi)
+        .with_target(true)
+        .with_env_filter(
+            EnvFilter::try_from_default_env()
+                .unwrap_or_else(|_| EnvFilter::new(DEFAULT_LOG_FILTER)),
+        )
+        .init();
+}
+
+fn run_check(path: &std::path::Path) -> Result<()> {
+    let cfg = config::load(path)?;
+    let report = config::check(path, &cfg);
+
+    for w in &report.warnings {
+        eprintln!("warn:  {w}");
+    }
+    for e in &report.errors {
+        eprintln!("error: {e}");
+    }
+
+    let errors = report.errors.len();
+    let warnings = report.warnings.len();
+    if errors == 0 && warnings == 0 {
+        println!("config {}: OK", path.display());
+    } else if errors == 0 {
+        println!("config {}: OK with {warnings} warning(s)", path.display());
+    }
+
+    if errors > 0 {
+        anyhow::bail!("config has {errors} error(s)");
+    }
+    Ok(())
 }
