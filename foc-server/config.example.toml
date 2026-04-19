@@ -1,5 +1,17 @@
+# Logging: set RUST_LOG=info in production. RUST_LOG=debug causes downstream
+# crates to log request payloads, which includes user-supplied search queries.
+
 [server]
+# Keep 127.0.0.1 when running behind nginx — 0.0.0.0 exposes the service on
+# every network interface of the host, bypassing the reverse proxy.
 bind = "127.0.0.1:3000"
+
+# All fields in [server.limits] are optional; defaults shown below.
+# [server.limits]
+# rate_per_second = 5    # per-peer-IP sustained request rate
+# rate_burst      = 10   # per-peer-IP burst allowance
+# concurrency     = 32   # hard cap on in-flight search requests
+# timeout_secs    = 30   # per-request timeout before 408
 
 [database]
 path = "data/foc-lancedb"
@@ -12,6 +24,8 @@ vector_column = "vector"
 [embedding]
 # Resolves to `sentence-transformers/all-MiniLM-L6-v2` on the HuggingFace Hub.
 # This is the safetensors-equivalent of `Xenova/all-MiniLM-L6-v2`.
+# Run `foc-server fetch-model config.toml` once to cache the model;
+# `foc-server serve` will refuse to download it at runtime.
 model = "all-MiniLM-L6-v2"
 ndims = 384
 normalize = true

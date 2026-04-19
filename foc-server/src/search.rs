@@ -1,6 +1,5 @@
 use std::sync::Arc;
 
-use anyhow::Result;
 use arrow_array::RecordBatch;
 use axum::{Json, extract::State};
 use futures::TryStreamExt;
@@ -12,6 +11,9 @@ use lancedb::{
 use serde::{Deserialize, Serialize};
 
 use crate::{embedding, error::ApiError, server::AppState};
+
+const MAX_QUERY_CHARS: usize = 100;
+const MAX_LIMIT: usize = 100;
 
 #[derive(Debug, Deserialize)]
 pub struct SearchRequest {
@@ -33,16 +35,31 @@ pub async fn health() -> &'static str {
     "ok"
 }
 
+fn validate(req: &SearchRequest) -> Result<(String, usize), ApiError> {
+    let q = req.query.trim();
+    if q.is_empty() {
+        return Err(ApiError::QueryEmpty);
+    }
+    if q.chars().count() > MAX_QUERY_CHARS {
+        return Err(ApiError::QueryTooLong { max: MAX_QUERY_CHARS });
+    }
+    let limit = req.limit.clamp(1, MAX_LIMIT);
+    Ok((q.to_string(), limit))
+}
+
 pub async fn fts(
     State(state): State<Arc<AppState>>,
     Json(req): Json<SearchRequest>,
 ) -> Result<Json<SearchResponse>, ApiError> {
-    let fts = FullTextSearchQuery::new(req.query).with_column(state.fts_column.clone())?;
+    let (query, limit) = validate(&req)?;
+    let fts = FullTextSearchQuery::new(query)
+        .with_column(state.fts_column.clone())
+        .map_err(|e| ApiError::FtsQuery(e.to_string()))?;
     let stream = state
         .table
         .query()
         .full_text_search(fts)
-        .limit(req.limit)
+        .limit(limit)
         .execute()
         .await?;
     Ok(Json(SearchResponse {
@@ -54,13 +71,19 @@ pub async fn vector(
     State(state): State<Arc<AppState>>,
     Json(req): Json<SearchRequest>,
 ) -> Result<Json<SearchResponse>, ApiError> {
-    let q_vec = embedding::embed_query(&state.embedding, &req.query)?;
+    let (query, limit) = validate(&req)?;
+    let q_vec = {
+        let embedding = state.embedding.clone();
+        tokio::task::spawn_blocking(move || embedding::embed_query(&embedding, &query))
+            .await?
+            .map_err(|e| ApiError::Embed(e.to_string()))?
+    };
     let stream = state
         .table
         .vector_search(q_vec)?
         .column(&state.vector_column)
         .distance_type(DistanceType::Cosine)
-        .limit(req.limit)
+        .limit(limit)
         .execute()
         .await?;
     Ok(Json(SearchResponse {
@@ -72,15 +95,27 @@ pub async fn hybrid(
     State(state): State<Arc<AppState>>,
     Json(req): Json<SearchRequest>,
 ) -> Result<Json<SearchResponse>, ApiError> {
-    let q_vec = embedding::embed_query(&state.embedding, &req.query)?;
-    let fts = FullTextSearchQuery::new(req.query).with_column(state.fts_column.clone())?;
+    let (query, limit) = validate(&req)?;
+    // Invariant: hybrid search sends the same user query string to both the
+    // FTS parser and the embedder. If you refactor, keep them identical —
+    // divergence silently skews the fused ranking.
+    let q_vec = {
+        let embedding = state.embedding.clone();
+        let q = query.clone();
+        tokio::task::spawn_blocking(move || embedding::embed_query(&embedding, &q))
+            .await?
+            .map_err(|e| ApiError::Embed(e.to_string()))?
+    };
+    let fts = FullTextSearchQuery::new(query)
+        .with_column(state.fts_column.clone())
+        .map_err(|e| ApiError::FtsQuery(e.to_string()))?;
     let stream = state
         .table
         .query()
         .full_text_search(fts)
         .nearest_to(q_vec)?
         .column(&state.vector_column)
-        .limit(req.limit)
+        .limit(limit)
         .execute_hybrid(QueryExecutionOptions::default())
         .await?;
     Ok(Json(SearchResponse {
@@ -88,7 +123,7 @@ pub async fn hybrid(
     }))
 }
 
-async fn collect_rows<S>(mut stream: S, exclude: &[String]) -> Result<Vec<serde_json::Value>>
+async fn collect_rows<S>(mut stream: S, exclude: &[String]) -> Result<Vec<serde_json::Value>, ApiError>
 where
     S: futures::Stream<Item = lancedb::Result<RecordBatch>> + Unpin,
 {

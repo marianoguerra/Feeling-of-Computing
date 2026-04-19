@@ -15,16 +15,57 @@ pub struct Config {
 pub struct ServerConfig {
     #[serde(default = "default_bind")]
     pub bind: String,
+    #[serde(default)]
+    pub limits: LimitsConfig,
 }
 
 impl Default for ServerConfig {
     fn default() -> Self {
-        Self { bind: default_bind() }
+        Self {
+            bind: default_bind(),
+            limits: LimitsConfig::default(),
+        }
     }
 }
 
 fn default_bind() -> String {
     "127.0.0.1:3000".to_string()
+}
+
+#[derive(Debug, Deserialize)]
+pub struct LimitsConfig {
+    #[serde(default = "default_rate_per_second")]
+    pub rate_per_second: u64,
+    #[serde(default = "default_rate_burst")]
+    pub rate_burst: u32,
+    #[serde(default = "default_concurrency")]
+    pub concurrency: usize,
+    #[serde(default = "default_timeout_secs")]
+    pub timeout_secs: u64,
+}
+
+impl Default for LimitsConfig {
+    fn default() -> Self {
+        Self {
+            rate_per_second: default_rate_per_second(),
+            rate_burst: default_rate_burst(),
+            concurrency: default_concurrency(),
+            timeout_secs: default_timeout_secs(),
+        }
+    }
+}
+
+fn default_rate_per_second() -> u64 {
+    5
+}
+fn default_rate_burst() -> u32 {
+    10
+}
+fn default_concurrency() -> usize {
+    32
+}
+fn default_timeout_secs() -> u64 {
+    30
 }
 
 #[derive(Debug, Deserialize)]

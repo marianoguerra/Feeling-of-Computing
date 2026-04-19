@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FoC Search</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>FoC Search</h1>
+      <form id="search-form">
+        <input
+          id="query"
+          type="text"
+          placeholder="Search..."
+          autocomplete="off"
+          required
+        />
+        <select id="mode">
+          <option value="fts">Full-text</option>
+          <option value="vector">Vector</option>
+          <option value="hybrid" selected>Hybrid</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+      <p id="status" aria-live="polite"></p>
+      <pre id="results"></pre>
+    </main>
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
