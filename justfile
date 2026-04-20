@@ -7,7 +7,7 @@ fetch-channels:
 fetch-messages from-date to-date outdir="history" configpath="./fetch-messages-config.json":
     node scripts/dump-history.js fetch-messages {{from-date}} {{to-date}} {{outdir}} {{configpath}}
 
-fetch-newsletter-info from-date to-date: (fetch-users) (fetch-channels) (fetch-messages from-date to-date) (index-replies) (download-attachments from-date to-date)
+fetch-newsletter-info from-date to-date: (fetch-users) (fetch-channels) (fetch-messages from-date to-date) (index-replies) (download-attachments "history" "attachments" from-date to-date)
   echo "now run focSyncAttachmentsUp"
 
 index-replies historydir="history":
