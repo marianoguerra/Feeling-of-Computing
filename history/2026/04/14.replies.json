@@ -1,0 +1,253 @@
+[
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1776188058.923979",
+    "client_msg_id": "0fd41c62-0abd-4a11-9df1-ed7e988b7992",
+    "text": "Running coding agents backwards is a possibility. But not a trivial problem to solve. The \"factbase\" is what, exactly? For the code I deal with, it would have to include mathematical relations between numbers. The code being an approximation (floats etc) to the relations that one would like to see recovered. Not impossible, given that the number of numerical algorithms is limited and an LLM could have seen them all. But the structure of the factbase is part of the design that needs to be recovered. I don't know if an LLM can deal with that.\n\nAnd then there is the eternal question with LLMs: do you trust the output to be correct, or at least good enough? Much of the legacy code we are using has no tests, no specification, etc. It's just the code, plus input/output combinations (which are easy to produce).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1776169365.415839",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "5ec+K",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Running coding agents backwards is a possibility. But not a trivial problem to solve. The \"factbase\" is what, exactly? For the code I deal with, it would have to include mathematical relations between numbers. The code being an approximation (floats etc) to the relations that one would like to see recovered. Not impossible, given that the number of numerical algorithms is limited and an LLM could have seen them all. But the structure of the factbase is part of the design that needs to be recovered. I don't know if an LLM can deal with that.\n\nAnd then there is the eternal question with LLMs: do you trust the output to be correct, or at least good enough? Much of the legacy code we are using has no tests, no specification, etc. It's just the code, plus input/output combinations (which are easy to produce)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "U0AKJHM7T0X"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UA14TGLTC",
+    "type": "message",
+    "ts": "1776217064.680419",
+    "client_msg_id": "66fd6332-b970-4cb4-bcdf-3ff56377bf93",
+    "text": "I always make the LLMs work for their trust.  They often can do reasonably well if you encourage them and force them to keep it real.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1776169365.415839",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "p73bd",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I always make the LLMs work for their trust.  They often can do reasonably well if you encourage them and force them to keep it real."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1776237426.749789",
+    "client_msg_id": "00c55542-6356-42d1-a853-237179f9699b",
+    "text": "The problem with legacy code is that you don't know what is real. Usually there's nobody left who actually knows what the code does. The code is the only \"source of truth\". So you need to trust your LLM blindly.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1776169365.415839",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "TyD25",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The problem with legacy code is that you don't know what is real. Usually there's nobody left who actually knows what the code does. The code is the only \"source of truth\". So you need to trust your LLM blindly."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1776256334.526469",
+    "client_msg_id": "23c1fbd2-1ffe-4099-baaa-b676c376dd28",
+    "text": "And, even worse, code that is in production probably has last-minute bandaids to fix edge-cases and loopholes that don’t fit the “general architecture” of the rest of the code.\n\nAt some point, the old code will need to be lifted into the present/future.\n\nI tend to think about problem solving thusly: (1) understand the problem, (2) solve it.\n\nCode is but a recipe of little steps that are combined together to produce a result. “Design” (architecture) is the extreme other end of this - it is the underlying thinking that someone chose to encode in little steps. The code gets written down, but, the design intent (DI) tends to not get written down and becomes obfuscated by details expressed in tiny steps. And, it’s not even a 1:1 mapping, the same DI could be expressed in multiple ways and combinations of steps.\n\nThe factbase idea is to understand what exists in tiny steps, then iterate and infer bigger steps from patterns and idioms in the code (like manually disassembling machine code and trying to understand what it means). This can’t be done in one fell swoop, by only one entity.\n\nA “fact” is just a triple: `relation(subject, object)`. Say, something like `inscope(“x”,”f”)`, `type(“x”,int16)`, etc. A factbase of such facts doesn’t tell you much about the DI, but, someone might “see” a pattern in one place, then write a Prolog-like rule that says “if you find &lt;a&gt; followed by &lt;b&gt; then infer that this is a &lt;c&gt;” (it’s a lot like type checking, but deals with higher-level project-specific concepts). Repeat. After several iterations, more of the DI becomes clear(er). Discard or ignore the very low-level stuff (eg. delete &lt;a&gt;s and &lt;b&gt;s, leaving only &lt;c&gt;s), then see if the remaining high-level stuff can be converted into modern form.\n\nNo guarantee that this would work 100%, but, it’s better than nothing. I would find it easier to trust an LLM (or another human) to do this in little steps than blindly trusting that they did the whole conversion in an opaque manner. Can the result be trusted? Not without lots of testing…",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1776169365.415839",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "UeILL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "And, even worse, code that is in production probably has last-minute bandaids to fix edge-cases and loopholes that don’t fit the “general architecture” of the rest of the code.\n\nAt some point, the old code will need to be lifted into the present/future.\n\nI tend to think about problem solving thusly: (1) understand the problem, (2) solve it.\n\nCode is but a recipe of little steps that are combined together to produce a result. “Design” (architecture) is the extreme other end of this - it is the underlying thinking that someone chose to encode in little steps. The code gets written down, but, the design intent (DI) tends to not get written down and becomes obfuscated by details expressed in tiny steps. And, it’s not even a 1:1 mapping, the same DI could be expressed in multiple ways and combinations of steps.\n\nThe factbase idea is to understand what exists in tiny steps, then iterate and infer bigger steps from patterns and idioms in the code (like manually disassembling machine code and trying to understand what it means). This can’t be done in one fell swoop, by only one entity.\n\nA “fact” is just a triple: "
+              },
+              {
+                "type": "text",
+                "text": "relation(subject, object)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ". Say, something like "
+              },
+              {
+                "type": "text",
+                "text": "inscope(“x”,”f”)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "text": "type(“x”,int16)",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": ", etc. A factbase of such facts doesn’t tell you much about the DI, but, someone might “see” a pattern in one place, then write a Prolog-like rule that says “if you find <a> followed by <b> then infer that this is a <c>” (it’s a lot like type checking, but deals with higher-level project-specific concepts). Repeat. After several iterations, more of the DI becomes clear(er). Discard or ignore the very low-level stuff (eg. delete <a>s and <b>s, leaving only <c>s), then see if the remaining high-level stuff can be converted into modern form.\n\nNo guarantee that this would work 100%, but, it’s better than nothing. I would find it easier to trust an LLM (or another human) to do this in little steps than blindly trusting that they did the whole conversion in an opaque manner. Can the result be trusted? Not without lots of testing…"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1776259243.498839",
+    "client_msg_id": "39af5c9b-7edd-4761-be77-4adada073e98",
+    "text": "<@UGWUJUZHT> Thanks for the details on your factbase! I had assumed it was something at a higher level, trying to deduce design intent.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1776169365.415839",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "GW01g",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " Thanks for the details on your factbase! I had assumed it was something at a higher level, trying to deduce design intent."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UGWUJUZHT"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1776260852.472349",
+    "edited": {
+      "user": "UGWUJUZHT",
+      "ts": "1776260886.000000"
+    },
+    "client_msg_id": "3c0a2da8-da3b-4932-815c-8a412393013b",
+    "text": "To further belabour this point… This is, also, how I view “compiling” diagrams to code. Take a mess of graphical detail (.xml, .graphml, .svg, .json) prune out the 95% that isn’t semantically interesting. Apply various tools (jq, swipl, python, js, LLMs, etc.) to the remaining 5% and iterate until you can emit Python (or whatever) from what has been inferred. Easy, especially if you treat it in stages instead of trying to force it into one-fell-swoopism.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1776169365.415839",
+    "parent_user_id": "UGWUJUZHT",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "6zZMi",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "To further belabour this point… This is, also, how I view “compiling” diagrams to code. Take a mess of graphical detail (.xml, .graphml, .svg, .json) prune out the 95% that isn’t semantically interesting. Apply various tools (jq, swipl, python, js, LLMs, etc.) to the remaining 5% and iterate until you can emit Python (or whatever) from what has been inferred. Easy, especially if you treat it in stages instead of trying to force it into one-fell-swoopism."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "+1",
+        "users": [
+          "UJBAJNFLK"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  }
+]
