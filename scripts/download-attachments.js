@@ -11,8 +11,8 @@ function walkDayFiles(rootDir, callback, { from, to } = {}) {
   );
 
   for (const year of rootIndex.entries) {
-    if (to && `${year}` < to.slice(0, 4)) continue;
-    if (from && `${year}` > from.slice(0, 4)) continue;
+    if (from && `${year}` < from.slice(0, 4)) continue;
+    if (to && `${year}` > to.slice(0, 4)) continue;
 
     const yearIndexPath = join(rootDir, String(year), "index.json");
     if (!existsSync(yearIndexPath)) continue;
@@ -20,8 +20,8 @@ function walkDayFiles(rootDir, callback, { from, to } = {}) {
 
     for (const month of yearIndex.entries) {
       const ym = `${year}-${pad(month)}`;
-      if (to && ym < to.slice(0, 7)) continue;
-      if (from && ym > from.slice(0, 7)) continue;
+      if (from && ym < from.slice(0, 7)) continue;
+      if (to && ym > to.slice(0, 7)) continue;
 
       const monthIndexPath = join(
         rootDir,
