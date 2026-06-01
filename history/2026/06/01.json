@@ -1,0 +1,459 @@
+[
+  {
+    "user": "UCUSW7WVD",
+    "type": "message",
+    "ts": "1780274942.743209",
+    "edited": {
+      "user": "UCUSW7WVD",
+      "ts": "1780275980.000000"
+    },
+    "client_msg_id": "d29d039f-027b-4f93-a05c-11043d6bb8db",
+    "text": "Mostly agree, but I want to also caution against conflating intent with DSLs like SQL/HTML/CSS. A DSL captures one level of intent, but as I said I believe intent can be multifaceted. The same exact computation can stem from very different intents. So creating a new DSL for every possible intention seems unscalable.\n\nI think there's no getting around the fact that we need a way to express computations that we _don't_ care about. A complex math formula in one place may need to be exactly so, and in another may be within a function called `rand` and so be one of a thousand valid candidates. You need something more than computation to express these differences. In the past I've explored prose, tests and formal methods to express them. But there may be other approaches.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1780034446.201319",
+    "parent_user_id": "U0B5MJWDW04",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "2t1D2",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Mostly agree, but I want to also caution against conflating intent with DSLs like SQL/HTML/CSS. A DSL captures one level of intent, but as I said I believe intent can be multifaceted. The same exact computation can stem from very different intents. So creating a new DSL for every possible intention seems unscalable.\n\nI think there's no getting around the fact that we need a way to express computations that we "
+              },
+              {
+                "type": "text",
+                "text": "don't",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " care about. A complex math formula in one place may need to be exactly so, and in another may be within a function called "
+              },
+              {
+                "type": "text",
+                "text": "rand",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " and so be one of a thousand valid candidates. You need something more than computation to express these differences. In the past I've explored prose, tests and formal methods to express them. But there may be other approaches."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "100",
+        "users": [
+          "UJBAJNFLK",
+          "U08LU2QRWB0"
+        ],
+        "count": 2
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1780277303.405519",
+    "client_msg_id": "10a7c4d0-7fac-489a-a4ce-f773973569d9",
+    "text": "I definitely agree that lack of sequence diagrams / state machines is a problem. Yet, I think that the problem of code bloat and unmanageability goes much deeper.\n\na) Are you aware of Harel's \"Come Let's Play\"? Harel created Statecharts, then went on to create scenario-based programming (sequence diagrams afaict).\nb) I think that calling the approach \"pipes\" will lead to confusion. This approach is just \"message-passing\". The name \"pipes\" has already been taken.\nc) I tend to think that code bloat is due to something I call \"one language to rule them all syndrome\". Grace Hopper called it \"we've always done it this way\". In my view, we've been piling everything and the kitchen sink into a single paradigm, stretching the paradigm way out of its sweet spot and causing exponential bloat (the equivalent to \"state explosion\" in state machine lingo). I consider Sector Lisp to be the epitome of \"functional programming\" (better even than Lisp 1.5 - Tunney emphasizes assembler tricks, but I think that Sector Lisp's economy of size is due to other, more important, factors (like pure functional programming - no assignment, no heaps)). We've been forcing out-of-band concepts into the functional (function based) paradigm for 50+ years, like assignment, heaps, memory sharing, etc, and spinning off different, but essentially the same, programming languages (all of which do not achieve the expressibility of machine code). That stuff doesn't honour the functional paradigm and should have been treated with completely different paradigms and notations. UNIX showed us how to compose programs using different paradigms (languages), but fell short by offering up a text-based shell that ignores issues like multiple input/output ports, fan-out, etc.\nd) A flat message bus will collapse under its own weight as we try to address bigger and bigger problems, i.e. \"state explosion\". Likewise pub/sub will cause accidental complexity and severe hand-wringing. Harel's Statecharts and UNIX processes plus recursive scripts show ways out of this problem, i.e. hierarchies of isolated components. I.E. not just one bus, but a hierarchy of buses, punting detail successively down to lower levels. IMO, the concept of a \"bus\" is too ad hoc, I like the concept of \"wires\" better.\ne) State machines can cause bloat, too, when used in \"one language to rule them all\" mode.  In my mind a system of communicating state machines is best described by recursive node-and-wire diagrams. Novices attempt to draw node-and-wire diagrams for computational concepts like using \"+\" boxes to draw \"a = b + c\". Drawing \"+\" boxes is bloat. Writing \"a = b + c\" is more economical when written as text. Communicating state machines should only be used to express concepts that don't fit into the function-based paradigm, e.g. \"control flow\" (which is a mess in our current function-based languages).",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1780225895.115639",
+    "parent_user_id": "U0282PL61U1",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "69cWa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "I definitely agree that lack of sequence diagrams / state machines is a problem. Yet, I think that the problem of code bloat and unmanageability goes much deeper.\n\na) Are you aware of Harel's \"Come Let's Play\"? Harel created Statecharts, then went on to create scenario-based programming (sequence diagrams afaict).\nb) I think that calling the approach \"pipes\" will lead to confusion. This approach is just \"message-passing\". The name \"pipes\" has already been taken.\nc) I tend to think that code bloat is due to something I call \"one language to rule them all syndrome\". Grace Hopper called it \"we've always done it this way\". In my view, we've been piling everything and the kitchen sink into a single paradigm, stretching the paradigm way out of its sweet spot and causing exponential bloat (the equivalent to \"state explosion\" in state machine lingo). I consider Sector Lisp to be the epitome of \"functional programming\" (better even than Lisp 1.5 - Tunney emphasizes assembler tricks, but I think that Sector Lisp's economy of size is due to other, more important, factors (like pure functional programming - no assignment, no heaps)). We've been forcing out-of-band concepts into the functional (function based) paradigm for 50+ years, like assignment, heaps, memory sharing, etc, and spinning off different, but essentially the same, programming languages (all of which do not achieve the expressibility of machine code). That stuff doesn't honour the functional paradigm and should have been treated with completely different paradigms and notations. UNIX showed us how to compose programs using different paradigms (languages), but fell short by offering up a text-based shell that ignores issues like multiple input/output ports, fan-out, etc.\nd) A flat message bus will collapse under its own weight as we try to address bigger and bigger problems, i.e. \"state explosion\". Likewise pub/sub will cause accidental complexity and severe hand-wringing. Harel's Statecharts and UNIX processes plus recursive scripts show ways out of this problem, i.e. hierarchies of isolated components. I.E. not just one bus, but a hierarchy of buses, punting detail successively down to lower levels. IMO, the concept of a \"bus\" is too ad hoc, I like the concept of \"wires\" better.\ne) State machines can cause bloat, too, when used in \"one language to rule them all\" mode.  In my mind a system of communicating state machines is best described by recursive node-and-wire diagrams. Novices attempt to draw node-and-wire diagrams for computational concepts like using \"+\" boxes to draw \"a = b + c\". Drawing \"+\" boxes is bloat. Writing \"a = b + c\" is more economical when written as text. Communicating state machines should only be used to express concepts that don't fit into the function-based paradigm, e.g. \"control flow\" (which is a mess in our current function-based languages)."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1780280488.329989",
+    "edited": {
+      "user": "UGWUJUZHT",
+      "ts": "1780280536.000000"
+    },
+    "client_msg_id": "a6aff3f9-9db0-4814-8f8d-901731db103f",
+    "text": "Are these different?\n\n`f(x) = 2 * x`\n`f(x) = x + x`",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1780034446.201319",
+    "parent_user_id": "U0B5MJWDW04",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "SJJba",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Are these different?\n\n"
+              },
+              {
+                "type": "text",
+                "text": "f(x) = 2 * x",
+                "style": {
+                  "code": true
+                }
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "f(x) = x + x",
+                "style": {
+                  "code": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "U016VUZGUUQ",
+    "type": "message",
+    "ts": "1780280998.310059",
+    "client_msg_id": "ecf33a02-4ad1-47ff-881d-d5b4f1924f6b",
+    "text": "<@U08LU2QRWB0> The expectations thing is a big part of what I referred to as generalizing the interface between the intent and the context. HTML written for the specific context of a browser with JS, LocalStorage and the rest won't work well converted to a docx. But on the other hand, maybe there's some more general thing the document (app if we're honest) actually wants, e.g. an interaction pattern or state management, that can be equivalently implemented in other contexts.\n\nWhich gets to where I absolutely agree with <@UCUSW7WVD>: specifying intent as opposed to writing a program is very much a matter of leaving out stuff you don't care about. One of my longtime aphorisms/guiding principles is \"As Specific As Desired\". No more.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1780034446.201319",
+    "parent_user_id": "U0B5MJWDW04",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "x1ono",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "U08LU2QRWB0",
+                "from_llm": false
+              },
+              {
+                "type": "text",
+                "text": " The expectations thing is a big part of what I referred to as generalizing the interface between the intent and the context. HTML written for the specific context of a browser with JS, LocalStorage and the rest won't work well converted to a docx. But on the other hand, maybe there's some more general thing the document (app if we're honest) actually wants, e.g. an interaction pattern or state management, that can be equivalently implemented in other contexts.\n\nWhich gets to where I absolutely agree with "
+              },
+              {
+                "type": "user",
+                "user_id": "UCUSW7WVD",
+                "from_llm": false
+              },
+              {
+                "type": "text",
+                "text": ": specifying intent as opposed to writing a program is very much a matter of leaving out stuff you don't care about. One of my longtime aphorisms/guiding principles is \"As Specific As Desired\". No more."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "green_heart",
+        "users": [
+          "U08LU2QRWB0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "U016VUZGUUQ",
+    "type": "message",
+    "ts": "1780282563.259759",
+    "client_msg_id": "afd003a7-e723-4caf-af48-bc2e72b0ad88",
+    "text": "<@UGWUJUZHT> to the extent the question can be meaningfully posed and answered, mostly yes. They only begin to be the same in the context of an algebra like a ring: we're all very used to that context, but in the grand scheme of things it's quite narrow. At a mechanical level, consider reckless operator overloading, algebras with only one operator (e.g. group and its friend group), freaky non-distributive algebras that must surely exist, etc.\n\nLess mechanically, and especially where a question like this appears as part of a larger problem, it's easy to see how you might have arrived at 2x and x+x by very different semantic paths. In one, the concept of scaling by two appears directly, versus a situation where the general case is adding two values, and there's a specific case where those two values happen to be the same.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1780034446.201319",
+    "parent_user_id": "U0B5MJWDW04",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "69uTa",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT",
+                "from_llm": false
+              },
+              {
+                "type": "text",
+                "text": " to the extent the question can be meaningfully posed and answered, mostly yes. They only begin to be the same in the context of an algebra like a ring: we're all very used to that context, but in the grand scheme of things it's quite narrow. At a mechanical level, consider reckless operator overloading, algebras with only one operator (e.g. group and its friend group), freaky non-distributive algebras that must surely exist, etc.\n\nLess mechanically, and especially where a question like this appears as part of a larger problem, it's easy to see how you might have arrived at 2x and x+x by very different semantic paths. In one, the concept of scaling by two appears directly, versus a situation where the general case is adding two values, and there's a specific case where those two values happen to be the same."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "U016VUZGUUQ",
+    "type": "message",
+    "ts": "1780292780.995609",
+    "client_msg_id": "4044f315-3937-4239-84ec-3a0da74240c0",
+    "text": "Thinking about this code/poetry thing a bit more: have you already gone down the Forth/concatenative rabbit hole yet? It seems relevant. It's not just that the syntax is almost entirely just a sequence of actual words, though that helps, but there's also a particular philosophy of how to write code embodied in it that feels a bit poetic.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1779924031.381759",
+    "parent_user_id": "U01TYMT0DDZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "gakrt",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Thinking about this code/poetry thing a bit more: have you already gone down the Forth/concatenative rabbit hole yet? It seems relevant. It's not just that the syntax is almost entirely just a sequence of actual words, though that helps, but there's also a particular philosophy of how to write code embodied in it that feels a bit poetic."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "CC2JRGVLK",
+    "channel_name": "introduce-yourself"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1780295286.012789",
+    "client_msg_id": "99c85825-3924-43be-b333-816eec743032",
+    "text": "The main difficulty I see with the \"care about\" framing is that there things that I _tacitly_ care about, i.e. that I take for granted. The above example by <@UGWUJUZHT> is a good illustration. Obviously the two lines are different syntactically. The question is if we expect them to be semantically equivalent. There is no explicit context that would suggest \"yes\", but the symbols suggest a context of arithmetic, in which we take equivalence for granted. Having to state this explicitly seems onerous, so we prefer not to have to do it, but we still care about the context being used as expected.\n\nThere are lots of similar examples in which the symbols used in code (variable names etc.) point to a context of usage that is not encoded anywhere at the level of programming language semantics but which matters for the program's correctness. This sounds like part of the problem that <@U0B5MJWDW04> is trying to solve, though I have to admit I don't yet understand how.",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1780034446.201319",
+    "parent_user_id": "U0B5MJWDW04",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "G7aon",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "The main difficulty I see with the \"care about\" framing is that there things that I "
+              },
+              {
+                "type": "text",
+                "text": "tacitly",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " care about, i.e. that I take for granted. The above example by "
+              },
+              {
+                "type": "user",
+                "user_id": "UGWUJUZHT"
+              },
+              {
+                "type": "text",
+                "text": " is a good illustration. Obviously the two lines are different syntactically. The question is if we expect them to be semantically equivalent. There is no explicit context that would suggest \"yes\", but the symbols suggest a context of arithmetic, in which we take equivalence for granted. Having to state this explicitly seems onerous, so we prefer not to have to do it, but we still care about the context being used as expected.\n\nThere are lots of similar examples in which the symbols used in code (variable names etc.) point to a context of usage that is not encoded anywhere at the level of programming language semantics but which matters for the program's correctness. This sounds like part of the problem that "
+              },
+              {
+                "type": "user",
+                "user_id": "U0B5MJWDW04"
+              },
+              {
+                "type": "text",
+                "text": " is trying to solve, though I have to admit I don't yet understand how."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "reactions": [
+      {
+        "name": "heart",
+        "users": [
+          "U08LU2QRWB0"
+        ],
+        "count": 1
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UJBAJNFLK",
+    "type": "message",
+    "ts": "1780297940.516719",
+    "client_msg_id": "da0c4892-f10e-4561-9314-4006a3ee1885",
+    "text": "Related: \"System of Names\" on the Design Patterns Wiki (_the_ original Wiki): <https://wiki.c2.com/?SystemOfNames>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1780034446.201319",
+    "parent_user_id": "U0B5MJWDW04",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "za4SL",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Related: \"System of Names\" on the Design Patterns Wiki ("
+              },
+              {
+                "type": "text",
+                "text": "the",
+                "style": {
+                  "italic": true
+                }
+              },
+              {
+                "type": "text",
+                "text": " original Wiki): "
+              },
+              {
+                "type": "link",
+                "url": "https://wiki.c2.com/?SystemOfNames"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  },
+  {
+    "user": "UGWUJUZHT",
+    "type": "message",
+    "ts": "1780299072.493979",
+    "client_msg_id": "73740a90-93a4-41c9-bd18-e34c2ed410d3",
+    "text": "If one considers \"haiku\" to be poetry, then one might be literally interested in <https://forthsalon.appspot.com>",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1779924031.381759",
+    "parent_user_id": "U01TYMT0DDZ",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "tMEr+",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "If one considers \"haiku\" to be poetry, then one might be literally interested in "
+              },
+              {
+                "type": "link",
+                "url": "https://forthsalon.appspot.com"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "CC2JRGVLK",
+    "channel_name": "introduce-yourself"
+  },
+  {
+    "user": "U08HU0GT52A",
+    "type": "message",
+    "ts": "1780300774.308599",
+    "client_msg_id": "BCA62300-3E5F-4531-AE68-EAC18963DB3A",
+    "text": "Hey! I found this actually resonates with some of the article I came across recently, specifically wiht elephant 2000 <https://www-formal.stanford.edu/jmc/elephant.pdf|https://www-formal.stanford.edu/jmc/elephant.pdf> , John McCarthy actually envisioned the future of programming to be exactly what you described, a intention driven way to talk with the system, except he formalized the intention driven algebra into Situation Calculus <https://en.wikipedia.org/wiki/Situation_calculus|https://en.wikipedia.org/wiki/Situation_calculus>, I am thinking maybe this resonates with your idea as well",
+    "team": "T5TCAFTA9",
+    "thread_ts": "1780034446.201319",
+    "parent_user_id": "U0B5MJWDW04",
+    "blocks": [
+      {
+        "type": "rich_text",
+        "block_id": "y3gWY",
+        "elements": [
+          {
+            "type": "rich_text_section",
+            "elements": [
+              {
+                "type": "text",
+                "text": "Hey! I found this actually resonates with some of the article I came across recently, specifically wiht elephant 2000 "
+              },
+              {
+                "type": "link",
+                "url": "https://www-formal.stanford.edu/jmc/elephant.pdf",
+                "text": "https://www-formal.stanford.edu/jmc/elephant.pdf"
+              },
+              {
+                "type": "text",
+                "text": " , John McCarthy actually envisioned the future of programming to be exactly what you described, a intention driven way to talk with the system, except he formalized the intention driven algebra into"
+              },
+              {
+                "type": "text",
+                "text": " Situation Calculus"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "link",
+                "url": "https://en.wikipedia.org/wiki/Situation_calculus",
+                "text": "https://en.wikipedia.org/wiki/Situation_calculus"
+              },
+              {
+                "type": "text",
+                "text": ", I am thinking maybe this resonates with your idea as well"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "channel_id": "C5T9GPWFL",
+    "channel_name": "thinking-together"
+  }
+]
