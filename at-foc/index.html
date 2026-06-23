@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" class="h-full w-full">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Feeling of Computing — Conversations (atproto mirror)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Feeling of Computing — Conversations" />
+
+    <!--
+      Styling: margaui (Tailwind v4 / daisyUI-compatible). It ships a
+      self-contained in-browser Tailwind compiler — no CDN, no build step.
+      src/app.js asks tutuca for the classes its components use and compiles
+      them via margaui (compileClassesToStyleText + injectCss), so the utility
+      CSS stays in sync with the components automatically.
+
+      Theme: applied synchronously below before first paint so there's no
+      flash of the wrong theme. Picks ?theme= if present, else the OS
+      light/dark preference. src/app.js then keeps #theme-css and data-theme
+      in sync with the in-app switcher (and the ?theme= query param).
+    -->
+    <script>
+      (function () {
+        var p = new URLSearchParams(location.search);
+        var theme =
+          p.get("theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        var link = document.createElement("link");
+        link.id = "theme-css";
+        link.rel = "stylesheet";
+        link.href = "./vendor/themes/" + theme + ".css";
+        document.head.appendChild(link);
+      })();
+    </script>
+
+    <!-- Self-contained ES modules vendored into ./vendor (see `npm run vendor`),
+         imported by relative path so the site serves from static hosting with
+         no node_modules and no import map. -->
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body class="h-full w-full p-2 md:p-4 bg-base-100 text-base-content">
+    <div id="app" class="h-full w-full"></div>
+  </body>
+</html>

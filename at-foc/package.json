@@ -1,0 +1,25 @@
+{
+  "name": "at-foc",
+  "version": "1.0.0",
+  "description": "Web reader for the Feeling-of-Computing conversations, sourced live from the atproto/Colibri mirror.",
+  "license": "MIT",
+  "author": "Mariano Guerra",
+  "type": "module",
+  "scripts": {
+    "vendor": "node scripts/vendor.js",
+    "serve": "npx serve .",
+    "storybook": "tutuca storybook",
+    "lint": "tutuca lint src/components.js",
+    "test": "tutuca test src/components.dev.js",
+    "format": "biome format --write",
+    "check": "biome check",
+    "check:fix": "biome check --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.1",
+    "tutuca": "^0.9.91"
+  },
+  "dependencies": {
+    "margaui": "^0.5519.1"
+  }
+}
