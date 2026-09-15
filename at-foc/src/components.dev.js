@@ -5,6 +5,7 @@
 import {
   buildModel,
   dayNum,
+  dayToTid,
   loadRange,
   mergeIntervals,
   missingIntervals,
@@ -422,33 +423,88 @@ export function getTests({ describe, test, expect }) {
   });
 
   describe("loadRange (incremental)", () => {
-    test("loads channels/reactions once, then only fetches missing day-subranges", async () => {
+    test("dayToTid encodes UTC midnight as a sortable TID", () => {
+      expect(dayToTid(0)).toBe("2222222222222");
+      // 2026-09-09T00:00:00Z, cross-checked against a reference TID encoder.
+      expect(dayToTid(dayNum("2026-09-09"))).toBe("3mv2a66qs2222");
+      expect(
+        dayToTid(dayNum("2026-09-08")) < dayToTid(dayNum("2026-09-09")),
+      ).toBe(true);
+    });
+    test("loads channels once, then only fetches missing day-subranges", async () => {
       resetRangeCache();
       const calls = [];
       const fetchStub = fixtureFetch(calls);
+      const count = (coll) =>
+        calls.filter((u) => u.includes(`social.colibri.${coll}`)).length;
 
       const first = await loadRange(
         { from: "2026-06-20", to: "2026-06-23" },
         fetchStub,
       );
       expect(first.messages.length).toBeGreaterThan(0);
-      const channelCalls = calls.filter((u) =>
-        u.includes("social.colibri.channel"),
-      ).length;
-      const msgCallsAfterFirst = calls.filter((u) =>
-        u.includes("social.colibri.message"),
-      ).length;
-      expect(channelCalls).toBe(1);
+      expect(first.messages.some((m) => m.reactions.length > 0)).toBe(true);
+      expect(count("channel")).toBe(1);
+      const msgs = count("message");
+      const reacts = count("reaction");
+      // Both window fetches start their cursor at the day after `to`.
+      const top = encodeURIComponent(dayToTid(dayNum("2026-06-24")));
+      for (const coll of ["message", "reaction"])
+        expect(
+          calls.find((u) => u.includes(`social.colibri.${coll}`)),
+        ).toContain(`&cursor=${top}`);
 
-      // Re-requesting the same range fetches no further message pages (cached).
+      // Re-requesting the same range fetches nothing new (cached).
       await loadRange({ from: "2026-06-20", to: "2026-06-23" }, fetchStub);
+      expect(count("message")).toBe(msgs);
+      expect(count("reaction")).toBe(reacts);
+      expect(count("channel")).toBe(1);
+
+      // Widening the range fetches only the uncovered days, for both
+      // collections, and channels are never re-fetched.
+      await loadRange({ from: "2026-06-18", to: "2026-06-23" }, fetchStub);
+      expect(count("message")).toBe(msgs + 1);
+      expect(count("reaction")).toBe(reacts + 1);
+      expect(count("channel")).toBe(1);
+      const gapTop = encodeURIComponent(dayToTid(dayNum("2026-06-20")));
+      expect(calls[calls.length - 1]).toContain(`&cursor=${gapTop}`);
+    });
+    test("stops paging once records fall before the window", async () => {
+      resetRangeCache();
+      const calls = [];
+      const oldMsg = { ...MESSAGES[0] };
+      oldMsg.value = { ...oldMsg.value, createdAt: "2025-01-01T00:00:00.000Z" };
+      const oldReact = {
+        ...REACTIONS[0],
+        value: { ...REACTIONS[0].value, targetMessage: dayToTid(0) },
+      };
+      // Message/reaction pages always offer a next cursor, so only the
+      // stop test can end paging.
+      const fetchStub = async (url) => {
+        calls.push(url);
+        const records = url.includes("social.colibri.channel")
+          ? CHANNELS
+          : url.includes("social.colibri.reaction")
+            ? [...REACTIONS, oldReact]
+            : url.includes("social.colibri.message")
+              ? [...MESSAGES, oldMsg]
+              : [];
+        const cursor = url.includes("social.colibri.channel") ? "" : "more";
+        return { ok: true, json: async () => ({ records, cursor }) };
+      };
+      const model = await loadRange(
+        { from: "2026-06-20", to: "2026-06-23" },
+        fetchStub,
+      );
       expect(
         calls.filter((u) => u.includes("social.colibri.message")).length,
-      ).toBe(msgCallsAfterFirst);
-      // Channels/reactions are never re-fetched.
-      expect(
-        calls.filter((u) => u.includes("social.colibri.channel")).length,
       ).toBe(1);
+      expect(
+        calls.filter((u) => u.includes("social.colibri.reaction")).length,
+      ).toBe(1);
+      expect(model.messages.some((m) => m.createdAt.startsWith("2025"))).toBe(
+        false,
+      );
     });
   });
 

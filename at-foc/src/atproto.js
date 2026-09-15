@@ -176,12 +176,21 @@ export function buildModel({ channels = [], messages = [], reactions = [] }) {
 
 // --- incremental date-range loading ---------------------------------------
 //
-// Messages are loaded in whole-day windows. We keep every fetched record plus
-// the set of day-intervals already covered, so changing the range only fetches
-// the subranges not yet loaded. Channels and reactions have no useful date
-// (reaction records carry no timestamp), so they are fetched once and cached.
-// Relies on listRecords returning newest-first (rkey TIDs ≈ createdAt order),
-// which lets a window fetch stop as soon as it pages past the window's start.
+// Messages and reactions are loaded in whole-day windows. We keep every fetched
+// record plus the set of day-intervals already covered, so changing the range
+// only fetches the subranges not yet loaded. Channels (a handful of records)
+// are fetched once and cached.
+//
+// listRecords has no server-side filter, but the bot's record keys are TIDs
+// (13 base32-sortable chars encoding microseconds since the epoch << 10 plus
+// a clock id): a message's rkey matches its createdAt to the millisecond, and
+// a reaction's rkey is its target message's rkey with a different 2-char
+// suffix, so both collections sort by *message* time. The PDS accepts any
+// rkey-shaped string as `cursor` and returns the records below it,
+// newest-first. A day window is therefore fetched by starting the cursor at
+// the TID of the day after the window and stopping as soon as a record falls
+// before the window start — never walking the whole collection (the mirror
+// holds the full history back to 2021: tens of thousands of reactions).
 
 const DAY_MS = 86400000;
 
@@ -221,74 +230,111 @@ export function missingIntervals(range, covered) {
   return gaps;
 }
 
+// TID for UTC midnight of day number `n` (clock-id bits zero). Used as the
+// exclusive upper cursor / inclusive lower bound of a day window. BigInt since
+// microseconds << 10 overflows 2^53.
+const TID_CHARS = "234567abcdefghijklmnopqrstuvwxyz";
+export function dayToTid(n) {
+  let v = (BigInt(n) * BigInt(DAY_MS) * 1000n) << 10n;
+  let out = "";
+  for (let i = 0; i < 13; i++) {
+    out = TID_CHARS[Number(v & 31n)] + out;
+    v >>= 5n;
+  }
+  return out;
+}
+
 // Accumulating store, shared across loadRange calls for the page session.
 const rangeCache = {
   channels: null,
-  reactions: null,
   messages: new Map(), // rkey -> record { uri, value }
+  reactions: new Map(), // rkey -> record { uri, value }
   loaded: [], // merged covered day-intervals {a,b}
 };
 
 // Exposed for tests so each case starts from a clean cache.
 export function resetRangeCache() {
   rangeCache.channels = null;
-  rangeCache.reactions = null;
   rangeCache.messages = new Map();
+  rangeCache.reactions = new Map();
   rangeCache.loaded = [];
 }
 
-// Page newest-first through messages, keeping those whose createdAt day falls in
-// [aDay, bDay], and stop once we reach records older than the window start.
-async function fetchMessagesInDays(aDay, bDay, fetchImpl) {
-  const fromStr = dayStr(aDay);
-  const toStr = dayStr(bDay);
-  let cursor = "";
-  let done = false;
+// Page newest-first through a bot collection starting below `startCursor`,
+// handing each record to `keep`; stop paging as soon as `keep` returns false.
+async function pageBelow(collection, startCursor, keep, fetchImpl) {
+  let cursor = startCursor;
   do {
     const url =
       `${BOT_PDS}/xrpc/com.atproto.repo.listRecords?repo=${encodeURIComponent(BOT_DID)}` +
-      `&collection=social.colibri.message&limit=100` +
+      `&collection=${encodeURIComponent(collection)}&limit=100` +
       (cursor ? `&cursor=${encodeURIComponent(cursor)}` : "");
     const res = await fetchImpl(url);
-    if (!res.ok) throw new Error(`message: HTTP ${res.status}`);
+    if (!res.ok) throw new Error(`${collection}: HTTP ${res.status}`);
     const data = await res.json();
-    for (const rec of data.records || []) {
-      const day = (rec.value.createdAt || "").slice(0, 10);
-      if (day && day > toStr) continue; // newer than the window — skip
-      if (day && day < fromStr) {
-        done = true;
-        break;
-      } // older — stop paging
-      rangeCache.messages.set(rec.uri.split("/").pop(), rec);
-    }
+    for (const rec of data.records || []) if (!keep(rec)) return;
     cursor = data.cursor || "";
-  } while (cursor && !done);
+  } while (cursor);
+}
+
+// Messages whose createdAt day falls in [aDay, bDay]. The cursor starts at the
+// top of the window; createdAt is still checked (not just the rkey) so a record
+// whose key disagrees with its timestamp is skipped rather than misfiled.
+async function fetchMessagesInDays(aDay, bDay, fetchImpl) {
+  const fromStr = dayStr(aDay);
+  const toStr = dayStr(bDay);
+  await pageBelow(
+    "social.colibri.message",
+    dayToTid(bDay + 1),
+    (rec) => {
+      const day = (rec.value.createdAt || "").slice(0, 10);
+      if (day && day < fromStr) return false; // older than the window — stop
+      if (!day || day <= toStr) rangeCache.messages.set(rkeyOf(rec.uri), rec);
+      return true;
+    },
+    fetchImpl,
+  );
+}
+
+// Reactions targeting messages of [aDay, bDay]. Reaction rkeys share their
+// target message's TID prefix, so the same cursor window applies; the stop
+// test uses the target rkey itself so it holds even if a reaction's own key
+// were minted later.
+async function fetchReactionsInDays(aDay, bDay, fetchImpl) {
+  const floor = dayToTid(aDay);
+  await pageBelow(
+    "social.colibri.reaction",
+    dayToTid(bDay + 1),
+    (rec) => {
+      const target = rec.value.targetMessage || "";
+      if (target && target < floor) return false;
+      rangeCache.reactions.set(rkeyOf(rec.uri), rec);
+      return true;
+    },
+    fetchImpl,
+  );
 }
 
 // Load (only) the day-subranges of [from, to] not already cached, then return
 // the visible model for the whole [from, to] window from the merged cache.
 export async function loadRange({ from, to }, fetchImpl = fetch) {
-  if (!rangeCache.channels) {
-    rangeCache.channels = await listAll(
-      OWNER_PDS,
-      OWNER_DID,
-      "social.colibri.channel",
-      fetchImpl,
-    );
-  }
-  if (!rangeCache.reactions) {
-    rangeCache.reactions = await listAll(
-      BOT_PDS,
-      BOT_DID,
-      "social.colibri.reaction",
-      fetchImpl,
-    );
-  }
   const range = { a: dayNum(from), b: dayNum(to) };
-  for (const gap of missingIntervals(range, rangeCache.loaded)) {
-    await fetchMessagesInDays(gap.a, gap.b, fetchImpl);
-    rangeCache.loaded = mergeIntervals([...rangeCache.loaded, gap]);
+  const gaps = missingIntervals(range, rangeCache.loaded);
+  const jobs = gaps.flatMap((gap) => [
+    fetchMessagesInDays(gap.a, gap.b, fetchImpl),
+    fetchReactionsInDays(gap.a, gap.b, fetchImpl),
+  ]);
+  if (!rangeCache.channels) {
+    jobs.push(
+      listAll(OWNER_PDS, OWNER_DID, "social.colibri.channel", fetchImpl).then(
+        (channels) => {
+          rangeCache.channels = channels;
+        },
+      ),
+    );
   }
+  await Promise.all(jobs);
+  rangeCache.loaded = mergeIntervals([...rangeCache.loaded, ...gaps]);
   const visible = [...rangeCache.messages.values()].filter((rec) => {
     const day = (rec.value.createdAt || "").slice(0, 10);
     return day >= from && day <= to;
@@ -296,7 +342,7 @@ export async function loadRange({ from, to }, fetchImpl = fetch) {
   return buildModel({
     channels: rangeCache.channels,
     messages: visible,
-    reactions: rangeCache.reactions,
+    reactions: [...rangeCache.reactions.values()],
   });
 }
 
